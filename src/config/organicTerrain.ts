@@ -2,7 +2,8 @@ import {regionProtected} from './mapRegions';
 import type {MapId,MapResource,TerrainPatch} from './maps';
 import {frontierGroves} from './referenceTerrain';
 
-export type TerrainDesign='organic'|'regions';
+export type TerrainDesign='organic'|'regions'|'woodlands';
+export const isRegionalDesign=(design:unknown):design is 'regions'|'woodlands'=>design==='regions'||design==='woodlands';
 type Shape=readonly [number,number,number,number];
 /** Authored regions, in tiles: center x/y and radii. Shared contours, distinct geography. */
 const valleys:Record<MapId,{water:readonly Shape[];rock:readonly Shape[];woods:readonly Shape[]}>= {
@@ -20,6 +21,27 @@ export const organicWorld=(id:MapId)=>({width:id==='arena'?2048:id==='forest'?30
 function contains(c:number,r:number,[x,y,rx,ry]:Shape,index:number){const angle=Math.atan2((r-y)/ry,(c-x)/rx),edge=1+.12*Math.sin(angle*3+index)+.07*Math.cos(angle*5-index);return ((c-x)/rx)**2+((r-y)/ry)**2<edge*edge;}
 const missionPoints:Partial<Record<MapId,readonly (readonly [number,number])[]>>={frontier:[[26,5],[37,20],[34,20]],highlands:[[47,17],[28,27],[54,46],[83,10]],coast:[[50,12],[54,14]],islands:[[30,15]]};
 function safe(c:number,r:number,id:MapId,design:TerrainDesign){if(design==='organic')return c>=5&&c<=21&&r>=7&&r<=17||(missionPoints[id]??[[26,5]]).some(([x,y])=>Math.hypot(c-x,r-y)<3.5);const t=Math.max(0,Math.min(1,((c-17)*9+(r-10)*-4)/97)),resourceLane=Math.hypot(c-(17+9*t),r-(10-4*t))<1.8,w=Math.max(0,Math.min(1,((c-17)*3+(r-10)*-5)/34)),woodLane=Math.hypot(c-(17+3*w),r-(10-5*w))<1.8;return c>=21&&c<=25&&r<=10||resourceLane||woodLane|| c>=5&&c<=21&&r>=7&&r<=17||(missionPoints[id]??[[26,5]]).some(([x,y])=>Math.hypot(c-x,r-y)<3.5);}
+/** New resource contours are versioned so existing region saves keep their trees. */
+const woodlandGroves:Record<MapId,readonly Shape[]>={
+ arena:[[10,45,9,10],[48,51,12,9]],
+ forest:[[18,36,10,18],[39,62,16,12],[71,69,13,15]],
+ frontier:[[39,54,15,12],[91,109,14,9]],
+ river:[[77,97,16,12],[37,63,12,10]],
+ highlands:[[17,95,12,16],[79,39,13,12]],
+ plains96:[[15,84,10,12],[91,112,16,9]],
+ plains128:[[18,79,11,16],[88,103,17,11]],
+ islands:[[57,13,13,9],[79,16,10,9],[16,65,12,14],[17,106,13,12],[63,58,12,8],[91,87,15,10],[113,107,9,8]],
+ coast:[[60,13,12,9],[114,14,9,9],[16,85,12,17],[61,61,11,8],[96,100,16,12]],
+};
+const legacyMineSites= [[23,51],[43,73],[72,25],[104,64],[73,105]] as const;
+/** Distinct remote mine clearings create exploration and paid expansion opportunities. */
+const woodlandMines:Record<MapId,readonly (readonly [number,number])[]>={
+ arena:[[12,38],[43,28],[52,56]],forest:[[17,58],[45,84],[76,66],[80,28]],
+ frontier:[[16,65],[50,89],[79,41],[109,104]],river:[[15,72],[51,102],[105,56],[80,109]],
+ highlands:[[18,80],[60,43],[81,100],[112,69]],plains96:[[20,97],[48,45],[86,68],[109,110]],
+ plains128:[[18,103],[52,38],[83,89],[112,112]],islands:[[12,24],[61,14],[13,63],[15,109],[64,58],[86,90],[112,109]],
+ coast:[[60,14],[114,14],[14,89],[28,110],[62,61],[99,98]],
+};
 /** Merge identical row spans vertically; collision remains tile exact and bounded. */
 export function patchesFromCells(cells:Map<string,TerrainPatch['kind']>):TerrainPatch[]{const result:TerrainPatch[]=[],active=new Map<string,TerrainPatch>();const rows=new Map<number,Map<number,TerrainPatch['kind']>>();for(const [key,kind]of cells){const [c,r]=key.split(',').map(Number),row=rows.get(r)??new Map();row.set(c,kind);rows.set(r,row);}for(const [r,row]of [...rows].sort((a,b)=>a[0]-b[0])){const columns=[...row.keys()].sort((a,b)=>a-b);for(let i=0;i<columns.length;){const c=columns[i],kind=row.get(c)!,start=c;let end=c;i++;while(i<columns.length&&columns[i]===end+1&&row.get(columns[i])===kind)end=columns[i++];const key=`${start}:${end}:${kind}`,previous=active.get(key);if(previous&&previous.row+previous.rows===r)previous.rows++;else{const patch={column:start,row:r,columns:end-start+1,rows:1,kind};result.push(patch);active.set(key,patch);}}}return result;}
 export function organicTerrain(id:MapId,design:TerrainDesign='organic'):TerrainPatch[]{const cells=new Map<string,TerrainPatch['kind']>(),size=organicWorld(id).width/32,v=valleys[id];for(let r=0;r<size;r++)for(let c=0;c<size;c++){
@@ -27,20 +49,23 @@ export function organicTerrain(id:MapId,design:TerrainDesign='organic'):TerrainP
  if(id==='islands'||id==='coast'){
   // Western starting island, eastern shore, a winding southern sea and islands.
   const channel=design==='organic'?24+Math.round(2*Math.sin(r*.24)):22+(r>=8&&r<=18?0:Math.round(2*Math.sin(r*.24)));
-  if(r<2||c<2||c>=size-2||r<30&&c>=channel&&c<channel+6||r>=30&&r<40+Math.round(3*Math.sin(c*.13)))kind='water';
-  if(r>=40){if(id==='islands'){if(c>42&&!(contains(c,r,[65,56,15,11],1)||contains(c,r,[84,87,20,17],2)||contains(c,r,[112,108,10,11],3)))kind='water';}else if(c>40&&!(contains(c,r,[62,61,14,10],2)||contains(c,r,[99,96,17,15],3)))kind='water';}
+  const northShore=design==='woodlands'?30+Math.round(3*Math.sin(c*.12+(id==='coast'?1.4:0))):30;
+  if(r<2||c<2||c>=size-2||r<30&&c>=channel&&c<channel+6||r>=northShore&&r<40+Math.round(3*Math.sin(c*.13)))kind='water';
+  const westShore=design==='woodlands'?40+Math.round(4*Math.sin(r*.11+(id==='coast'?1.2:0))):id==='islands'?42:40;
+  if(r>=40){if(id==='islands'){if(c>westShore&&!(contains(c,r,[65,56,15,11],1)||contains(c,r,[84,87,20,17],2)||contains(c,r,[112,108,10,11],3)))kind='water';}else if(c>westShore&&!(contains(c,r,[62,61,14,10],2)||contains(c,r,[99,96,17,15],3)))kind='water';}
  }
  if(v.water.some((s,i)=>contains(c,r,s,i)))kind='water';
  if(v.rock.some((s,i)=>contains(c,r,s,i+3)))kind='rock';
- if(kind&&!(design==='regions'&&regionProtected(c,r,id))&&!safe(c,r,id,design)&&!(id==='frontier'&&Object.values(frontierGroves).some(g=>g.cells.some(p=>p.column===c&&p.row===r))))cells.set(`${c},${r}`,kind);
+ if(kind&&!(isRegionalDesign(design)&&regionProtected(c,r,id))&&!safe(c,r,id,design)&&!(id==='frontier'&&Object.values(frontierGroves).some(g=>g.cells.some(p=>p.column===c&&p.row===r))))cells.set(`${c},${r}`,kind);
  }return patchesFromCells(cells);}
-export function organicResources(id:MapId,existing:readonly MapResource[],terrain:readonly TerrainPatch[],design:TerrainDesign='organic'):MapResource[]{const nodes:MapResource[]=[],occupied=new Set(existing.filter(n=>n.tree).map(n=>`${Math.floor(n.position.x/32)},${Math.floor(n.position.y/32)}`)),blocked=(c:number,r:number)=>terrain.some(p=>c>=p.column&&c<p.column+p.columns&&r>=p.row&&r<p.row+p.rows);const size=organicWorld(id).width/32;
- for(const [i,shape]of valleys[id].woods.entries())for(let r=2;r<size-2;r++)for(let c=2;c<size-2;c++){
- if(!contains(c,r,shape,i)||(design==='regions'&&regionProtected(c,r,id))||safe(c,r,id,design)||blocked(c,r)||occupied.has(`${c},${r}`)||existing.some(n=>!n.tree&&Math.hypot(n.position.x-(c+.5)*32,n.position.y-(r+.5)*32)<96))continue;
+export function organicResources(id:MapId,existing:readonly MapResource[],terrain:readonly TerrainPatch[],design:TerrainDesign='organic'):MapResource[]{const nodes:MapResource[]=[],occupied=new Set(existing.filter(n=>n.tree).map(n=>`${Math.floor(n.position.x/32)},${Math.floor(n.position.y/32)}`)),blocked=(c:number,r:number)=>terrain.some(p=>c>=p.column&&c<p.column+p.columns&&r>=p.row&&r<p.row+p.rows);const size=organicWorld(id).width/32,mines=design==='woodlands'?[...legacyMineSites,...woodlandMines[id]]:legacyMineSites;
+ for(const [i,shape]of (design==='woodlands'?[...valleys[id].woods.map(([x,y,rx,ry])=>[x,y,rx*1.35,ry*1.35] as Shape),...woodlandGroves[id]??[]]:valleys[id].woods).entries())for(let r=2;r<size-2;r++)for(let c=2;c<size-2;c++){
+ if(!contains(c,r,shape,i)||(isRegionalDesign(design)&&regionProtected(c,r,id))||safe(c,r,id,design)||blocked(c,r)||occupied.has(`${c},${r}`)||existing.some(n=>!n.tree&&Math.hypot(n.position.x-(c+.5)*32,n.position.y-(r+.5)*32)<96))continue;
+ if(design==='woodlands'&&mines.some(([x,y])=>!regionProtected(x,y,id)&&Math.hypot(c-x,r-y)<4.5))continue;
  if(id==='frontier'&&Object.values(frontierGroves).some(g=>g.cells.some(p=>p.column===c&&p.row===r)))continue;
  // A few authored glades cut into each connected grove, not random isolated trees.
  if(contains(c,r,[shape[0]+2,shape[1]+1,2,2.5],0))continue;
  occupied.add(`${c},${r}`);nodes.push({id:`organic-${i}-tree-${c}-${r}`,resource:'wood',tree:true,position:{x:(c+.5)*32,y:(r+.5)*32},amount:8});
  }
- for(const [i,[c,r]]of [[23,51],[43,73],[72,25],[104,64],[73,105]].entries()){if(c>=size-4||r>=size-4||blocked(c,r))continue;const position={x:(c+.5)*32,y:(r+.5)*32};if(existing.some(n=>Math.hypot(n.position.x-position.x,n.position.y-position.y)<128)||nodes.some(n=>Math.hypot(n.position.x-position.x,n.position.y-position.y)<96))continue;nodes.push({id:`organic-mine-${i}`,resource:'gold',mine:true,position,amount:2500});}return nodes;
+ for(const [i,[c,r]]of mines.entries()){if(c>=size-4||r>=size-4||blocked(c,r)||design==='woodlands'&&regionProtected(c,r,id))continue;const position={x:(c+.5)*32,y:(r+.5)*32};if(existing.some(n=>Math.hypot(n.position.x-position.x,n.position.y-position.y)<128)||nodes.some(n=>Math.hypot(n.position.x-position.x,n.position.y-position.y)<96))continue;nodes.push({id:`organic-mine-${i}`,resource:'gold',mine:true,position,amount:2500});}return nodes;
 }

@@ -1,3 +1,4 @@
+import {isRegionalDesign} from './organicTerrain';
 import type {TerrainDesign} from './organicTerrain';
 import type {MapId} from './maps';
 import type {Position} from '../gameplay/movement';
@@ -25,4 +26,4 @@ const regionalSites:Record<MapId,readonly [Position,Position,Position]>={
  islands:[{x:528,y:784},{x:1744,y:1648},{x:2832,y:3216}],
  river:[{x:656,y:752},{x:1360,y:1552},{x:1008,y:720}],
 };
-export function mapDiscoveries(id:MapId,design?:TerrainDesign):Discovery[]{return (design==='regions'?regionalSites:sites)[id].map((position,index)=>({id:`${id}-discovery-${index+1}`,kind:index===2?'recruit':'treasure',position:{...position}}));}
+export function mapDiscoveries(id:MapId,design?:TerrainDesign):Discovery[]{return (isRegionalDesign(design)?regionalSites:sites)[id].map((position,index)=>({id:`${id}-discovery-${index+1}`,kind:index===2?'recruit':'treasure',position:{...position}}));}

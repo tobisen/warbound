@@ -1,0 +1,87 @@
+{
+  "reports": [
+    {
+      "id": "arena",
+      "design": "woodlands",
+      "trees": 870,
+      "largest": 317,
+      "components": 9,
+      "route": "moving",
+      "obstacles": 907
+    },
+    {
+      "id": "forest",
+      "design": "woodlands",
+      "trees": 2558,
+      "largest": 1386,
+      "components": 13,
+      "route": "moving",
+      "obstacles": 2622
+    },
+    {
+      "id": "river",
+      "design": "woodlands",
+      "trees": 3519,
+      "largest": 985,
+      "components": 12,
+      "route": "moving",
+      "obstacles": 3641
+    },
+    {
+      "id": "islands",
+      "design": "woodlands",
+      "trees": 2536,
+      "largest": 520,
+      "components": 14,
+      "route": "blocked",
+      "obstacles": 2745
+    },
+    {
+      "id": "frontier",
+      "design": "woodlands",
+      "trees": 3926,
+      "largest": 1568,
+      "components": 10,
+      "route": "moving",
+      "obstacles": 4061
+    },
+    {
+      "id": "plains96",
+      "design": "woodlands",
+      "trees": 3602,
+      "largest": 1043,
+      "components": 14,
+      "route": "moving",
+      "obstacles": 3696
+    },
+    {
+      "id": "plains128",
+      "design": "woodlands",
+      "trees": 4153,
+      "largest": 1425,
+      "components": 14,
+      "route": "moving",
+      "obstacles": 4254
+    },
+    {
+      "id": "highlands",
+      "design": "woodlands",
+      "trees": 2966,
+      "largest": 907,
+      "components": 14,
+      "route": "moving",
+      "obstacles": 3113
+    },
+    {
+      "id": "coast",
+      "design": "woodlands",
+      "trees": 2145,
+      "largest": 468,
+      "components": 20,
+      "route": "blocked",
+      "obstacles": 2350
+    }
+  ],
+  "errors": [],
+  "fixture": "Fully revealed injected art/map fixtures via actual Save/load, not natural exploration or balance verification."
+}

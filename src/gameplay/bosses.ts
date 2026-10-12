@@ -1,3 +1,4 @@
+import {isRegionalDesign} from '../config/organicTerrain';
 import {maps,type SeaMonsterArea} from '../config/maps';
 import type {Difficulty} from '../config/difficulty';
 import {seaMonsterRules,seaMonsterCounts,seaMonsterEnemyId} from '../config/bosses';
@@ -19,7 +20,7 @@ export interface BossRecord {hp:number;attackCooldown:number;claimed:boolean;cla
 export interface SeaMonsterRecord {id:string;hp:number;position:{x:number;y:number};attackCooldown:number;patrolIndex:number}
 export interface BossState {sea?:SeaMonsterRecord[];version:1;guardians:Partial<Record<BossId,BossRecord>>}
 export function createBosses(map:MatchState['map'],difficulty?:Difficulty):BossState|undefined {
- const definitions=map.design==='regions'?mapBosses(map.id??'arena'):[];
+ const definitions=isRegionalDesign(map.design)?mapBosses(map.id??'arena'):[];
  const sea=difficulty?createSeaMonsters(map,difficulty):[];
  return definitions.length||sea.length?{...(sea.length?{sea}:{}),version:1,guardians:Object.fromEntries(definitions.map(b=>[b.id,{hp:b.hp,attackCooldown:0,claimed:false,engaged:false}]))}:undefined;
 }
@@ -87,7 +88,7 @@ export function seaMonsterWater(map:WorldMap,zone:SeaMonsterArea):WorldMap {
  return {...water,bodyHalf:seaMonsterRules.size/2,obstacles};
 }
 export function validSeaMonsterAreas(map:WorldMap):SeaMonsterArea[]{
- if(map.design!=='regions')return [];
+ if(!isRegionalDesign(map.design))return [];
  return (maps[map.id??'arena'].seaMonsters?.areas??[]).filter(zone=>{
   const water=seaMonsterWater(map,zone);
   return zone.patrol.length>=2&&zone.patrol.every(p=>bodyFits(water,p,seaMonsterRules.size/2))&&zone.patrol.every(p=>planRoute(water,zone.patrol[0],p).status!=='blocked');

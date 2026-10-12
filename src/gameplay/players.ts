@@ -1,3 +1,4 @@
+import {isRegionalDesign} from '../config/organicTerrain';
 import {regionDefinition,regionThirdStart} from '../config/mapRegions';
 import type {TerrainDesign} from '../config/organicTerrain';
 import {additionalStarts,playerColors,type PlayerDefinition,type PlayerId} from '../config/players';
@@ -26,7 +27,7 @@ export function matchPlayers(factions:MatchFactions=defaultFactions,profile:AIPr
 }
 export function playerStart(map:MapId,id:PlayerId,design?:TerrainDesign):Position{
  if(id==='player')return {...gatheringConfig.basePosition};
- if(id==='ai-2'){const p=design==='regions'&&additionalStarts[map]?regionThirdStart:additionalStarts[map];if(!p)throw Error('Map has no third start');return {...p};}
+ if(id==='ai-2'){const p=isRegionalDesign(design)&&additionalStarts[map]?regionThirdStart:additionalStarts[map];if(!p)throw Error('Map has no third start');return {...p};}
  const rect=regionDefinition(map,maps[map],design).enemyBase??enemyBaseConfig.footprint;return {x:rect.x+rect.width/2,y:rect.y+rect.height/2};
 }
 /** Validate physical footprint and a reachable worker exit before offering a slot. */

@@ -84,7 +84,7 @@ it('freezes last observed building HP/progress/position and never admits hidden 
  fog=observeEnemyBuildings(updateFog(fog,[{id:'return',owner:'player',position:base.position,radius:192}]),[]);expect(presentationEnemies(fog,[])).toEqual([]);
 });
 it('persists last observed buildings through Save/load without copying hidden HP; genuine71 migrates conservatively',async()=>{
- const {encodeSave,decodeSave}=await import('./save'),m=createMatch('skirmish'),base=m.combat.enemies.find(e=>e.footprint)!;
+ const {encodeSave,decodeSave}=await import('./save'),m=createMatch('skirmish',undefined,undefined,undefined,undefined,undefined,undefined,undefined,'regions'),base=m.combat.enemies.find(e=>e.footprint)!;
  m.fog=observeEnemyBuildings(updateFog(m.fog!,[{id:'visit',owner:'player',position:base.position,radius:192}]),m.combat.enemies);const observed=m.fog.buildings!.find(e=>e.id===base.id)!;
  m.fog=updateFog(m.fog,[]);base.hp=1;const view={camera:{x:0,y:0},building:null};const doc=encodeSave(m,view),loaded=decodeSave(doc);expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(loaded.ok)expect(loaded.match.fog!.buildings!.find(e=>e.id===base.id)).toEqual(observed);
  const old=JSON.parse(doc);old.configVersion='tribute-config-71';delete old.state.fog.buildings;const migrated=decodeSave(JSON.stringify(old));expect(migrated.ok,migrated.ok?'':migrated.error).toBe(true);if(migrated.ok)expect(migrated.match.fog!.buildings??[]).toEqual([]);

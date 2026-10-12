@@ -18,7 +18,7 @@ import {enemyBase} from './enemyBases';
 import {cleanDestroyed} from './destruction';
 const view={camera:{x:0,y:0},building:null};
 it.each(Object.keys(maps) as MapId[])('%s has a distant reachable region, usable resources, curved land/water and strict Save',id=>{
- const m=createMatch('skirmish','beginner',undefined,id),base=regionBases[id],route=approachRoute(m.map,m.gathering.units[2].position,base,24),nodes=resourceNodes(m.gathering);expect(m.map.design).toBe('regions');expect(terrainPatches(m.map).filter(p=>p.kind==='water').length).toBeGreaterThan(5);
+ const m=createMatch('skirmish','beginner',undefined,id),base=regionBases[id],route=approachRoute(m.map,m.gathering.units[2].position,base,24),nodes=resourceNodes(m.gathering);expect(m.map.design).toBe('woodlands');expect(terrainPatches(m.map).filter(p=>p.kind==='water').length).toBeGreaterThan(5);
  expect(isVisible(m.fog!,'player',{x:base.x+48,y:base.y+48})).toBe(false);
  if(!maps[id].enemyNaval){expect(route.status,id).not.toBe('blocked');const points=[m.gathering.units[2].position,...route.waypoints],length=points.slice(1).reduce((n,p,i)=>n+Math.hypot(p.x-points[i].x,p.y-points[i].y),0);expect(length,id).toBeGreaterThan(1500);}
  else{expect(route.status).toBe('blocked');expect(approachRoute(m.map,m.combat.enemies.find(e=>e.kind==='worker')!.position,{x:864,y:320,width:64,height:64},24).status).not.toBe('blocked');expect(findDomainRoute(m.map,'water',{x:720,y:432},{x:880,y:432},16).ok).toBe(true);expect(approachRoute(m.map,{x:960,y:480},base,24).status).not.toBe('blocked');}
@@ -44,3 +44,16 @@ it('normal AI pressure remains held during initial economic establishment',()=>{
 it('natural paid expansion preserves a valid Save and victory after the original base falls',()=>{let m=createMatch('skirmish','normal',undefined,'frontier',1,'economic');for(let t=0;t<120;t+=.5){m=updateMatch(m,.5);if(m.combat.enemies.some(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0))break;}expect(m.combat.enemies.some(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0)).toBe(true);m.combat.enemies.find(e=>e.kind==='base')!.hp=0;m=updateMatch(m,0);expect(m.outcome).toBe('playing');const loaded=decodeSave(encodeSave(m,view));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);},30000);
 
 it.each(['islands','coast'] as const)('%s distant naval economy scouts and builds its paid harbor',id=>{let m=createMatch('skirmish','normal',undefined,id);for(let t=0;t<180;t+=.5){m=updateMatch(m,.5);if(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0))break;}expect(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0)).toBe(true);const loaded=decodeSave(encodeSave(m,view));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);},30000);
+
+it.each(Object.keys(maps) as MapId[])('%s woodland version adds connected forest and preserves existing gold sites',async id=>{
+ const {mapResources}=await import('../config/maps');const before=mapResources(id,'trees','expanded','regions'),after=mapResources(id,'trees','expanded','woodlands');
+ expect(after.filter(n=>n.tree).length).toBeGreaterThan(before.filter(n=>n.tree).length*1.6);
+ for(const mine of before.filter(n=>n.mine))expect(after.find(n=>n.id===mine.id),`${id}:${mine.id}`).toEqual(mine);
+ const largest=(nodes:typeof after)=>{const cells=new Set(nodes.filter(n=>n.tree).map(n=>`${Math.floor(n.position.x/32)},${Math.floor(n.position.y/32)}`));let maximum=0;while(cells.size){const queue=[cells.values().next().value!];cells.delete(queue[0]);for(let i=0;i<queue.length;i++){const [x,y]=queue[i].split(',').map(Number);for(const [dx,dy]of [[1,0],[-1,0],[0,1],[0,-1]]){const key=`${x+dx},${y+dy}`;if(cells.delete(key))queue.push(key);}}maximum=Math.max(maximum,queue.length);}return maximum;};
+ expect(largest(after)).toBeGreaterThan(largest(before)*1.5);
+});
+it('genuine72 region Save keeps its map, resources and explored fog while new games use woodlands',()=>{
+ const m=createMatch('skirmish','normal',undefined,'frontier',1,'balanced',undefined,undefined,'regions'),doc=JSON.parse(encodeSave(m,view));doc.configVersion='tribute-config-72';
+ const loaded=decodeSave(JSON.stringify(doc));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(loaded.ok){expect(loaded.match.map.design).toBe('regions');expect(resourceNodes(loaded.match.gathering)).toEqual(resourceNodes(m.gathering));expect(loaded.match.fog!.teams.player.explored).toEqual(m.fog!.teams.player.explored);}
+ const modern=JSON.parse(encodeSave(createMatch('skirmish'),view));modern.configVersion='tribute-config-72';expect(decodeSave(JSON.stringify(modern)).ok).toBe(false);
+});

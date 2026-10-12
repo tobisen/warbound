@@ -2111,3 +2111,17 @@ Save72 validerar minnet;71 migreras utan påhittad historisk information.
 MultiSave scopes byggnadsminnet till samma humanfog som dokumentets player-
 vy. Äldre fixtures saknar det nya minnet. Inga privata ekonomi-/order-/
 produktionsfält tillåts i snapshots.
+
+## RTS-244 — Versionsmärkt woodlands-geografi
+
+Nya current-matcher använder design woodlands. isRegionalDesign delar region-
+baser/AI/lag/discoveries/bossregler med regions; varje karta behåller egna
+rock-/vattenformer och får större sammankopplade skogskonturer plus egna
+gruvgläntor. Sjökartor har oregelbundna nya strandgränser och kustskogar.
+Träd är vanliga ändliga ResourceNodes och fysiska navigation-/byggnadshinder;
+avverkning tar bort hindret genom befintlig forest sync. Befintliga guld-ID:n
+bevaras; nya gruvor respekterar regionProtected för start-/expansionszoner.
+Save73 bevarar äldre design regions exakt vid72-migrering; ingen ommålning av
+redan spelade kartor. Explicit world regions används för äldre fixtures.
+Generellt hinderantalstak4096 borttaget; Save behåller sin befintliga bytebudget
+och validerar varje footprint. Kartbelägg: artifacts/rts-244/maps.md.

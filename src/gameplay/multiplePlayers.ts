@@ -1,3 +1,4 @@
+import {isRegionalDesign} from '../config/organicTerrain';
 import {canDefend,enemyDefender} from './selfDefense';
 import {cavalryArmorMultiplier} from '../config/roleResearch';
 import {upgradeMultiplier} from '../config/upgrades';
@@ -49,7 +50,7 @@ export function initializeMultiplePlayers(m:MatchState,roster:PlayerDefinition[]
  if(roster.length<3)return m;
  if(!validPlayers(roster,{scenario:m.scenario,map:m.map.id})||m.scenario!=='skirmish'||!supportedPlayerCounts(m.map.id??'arena',m.scenario).includes(roster.length)||!validatePlayerStarts(m.map.id??'arena',roster,m.map.design??'legacy'))throw Error('Unsupported player starts');
  const ai:AIPlayer[]=roster.filter(p=>p.controller==='ai').map(p=>{
-  let state=createMatch('skirmish',p.difficulty??m.difficulty,{player:m.factions!.player,enemy:p.faction},m.map.id,m.speed,p.profile,undefined,undefined,m.map.design==='regions'?'current':'classic');
+  let state=createMatch('skirmish',p.difficulty??m.difficulty,{player:m.factions!.player,enemy:p.faction},m.map.id,m.speed,p.profile,undefined,undefined,m.map.design==='regions'?'regions':isRegionalDesign(m.map.design)?'current':'classic');
   const from=playerStart(m.map.id??'arena','enemy',m.map.design),to=playerStart(m.map.id??'arena',p.id,m.map.design),dx=to.x-from.x,dy=to.y-from.y;
   const shift=(point:Position)=>({x:point.x+dx,y:point.y+dy});
   state={...state,combat:{...state.combat,enemies:state.combat.enemies.map(e=>({...e,position:shift(e.position),...(e.footprint?{footprint:{...e.footprint,...shift(e.footprint)}}:{}),...(e.work?{work:{...e.work,target:shift(e.work.target)}}:{})}))}};

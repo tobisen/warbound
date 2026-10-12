@@ -1,3 +1,4 @@
+import {isRegionalDesign} from '../config/organicTerrain';
 import {regionExpansion} from '../config/mapRegions';
 import {resourceNodes} from './gathering';
 import {enemyBase,hasEnemyBase} from './enemyBases';
@@ -20,7 +21,7 @@ import type {MatchState} from './match';
 import type {GateFor} from './traffic';
 import type {Footprint} from './placement';
 export function wantsEnemyExpansion(m:MatchState):boolean {
- return !!m.enemyRecovery&&!!m.enemyPolicy&&m.combat.enemies.some(e=>e.buildingType==='barracks'&&e.hp>0&&e.construction?.remainingSeconds===0)&&(!aiProfile(m).expansionResearch||m.enemyPolicy.research.attack>=1&&m.enemyPolicy.research.defense>=1)&&!m.combat.enemies.some(e=>e.buildingType==='outpost')&&m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0).length>=2&&m.combat.enemies.filter(e=>!e.footprint&&e.kind!=='worker'&&e.hp>0).length>=aiProfile(m).expansionArmy&&(m.map.design==='regions'?resourceNodes(m.gathering).some(n=>(knownEnemyNode(m,n)?.remaining??0)>0):((knownEnemyNode(m,m.gathering.node)?.remaining??0)>0||(knownEnemyNode(m,m.gathering.gold)?.remaining??0)>0));
+ return !!m.enemyRecovery&&!!m.enemyPolicy&&m.combat.enemies.some(e=>e.buildingType==='barracks'&&e.hp>0&&e.construction?.remainingSeconds===0)&&(!aiProfile(m).expansionResearch||m.enemyPolicy.research.attack>=1&&m.enemyPolicy.research.defense>=1)&&!m.combat.enemies.some(e=>e.buildingType==='outpost')&&m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0).length>=2&&m.combat.enemies.filter(e=>!e.footprint&&e.kind!=='worker'&&e.hp>0).length>=aiProfile(m).expansionArmy&&(isRegionalDesign(m.map.design)?resourceNodes(m.gathering).some(n=>(knownEnemyNode(m,n)?.remaining??0)>0):((knownEnemyNode(m,m.gathering.node)?.remaining??0)>0||(knownEnemyNode(m,m.gathering.gold)?.remaining??0)>0));
 }
 function builderFor(m:MatchState,rect:Footprint){return m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0&&e.work?.order.kind!=='build').sort((a,b)=>a.id.localeCompare(b.id,'en',{numeric:true})).find(e=>approachRoute(enemyNavigationMap(m.map),e.position,rect,barracksConfig.constructionRange).status!=='blocked');}
 export function prepareEnemyExpansion(m:MatchState):MatchState {
@@ -33,7 +34,7 @@ export function prepareEnemyExpansion(m:MatchState):MatchState {
  m={...m,enemyRecovery:{...m.enemyRecovery,nextExpansionAttemptSeconds:m.waves.elapsedSeconds+config.retrySeconds}};
  if(site){const builder=builderFor(m,site.footprint!);if(!builder)return m;return {...m,combat:{...m.combat,enemies:m.combat.enemies.map(e=>e.id===site.id?{...e,construction:{...e.construction!,builderId:builder.id}}:e.id===builder.id?{...e,navigation:undefined,work:{...e.work!,order:{kind:'build',buildingId:'outpost'}}}:e)}};}
  if(m.combat.enemies.some(e=>e.construction&&e.construction.remainingSeconds>0)||!canAfford({wood:m.enemyProduction!.wood,goldBalance:m.enemyProduction!.gold},config.cost))return m;
- for(const point of m.map.design==='regions'?[regionExpansion(enemyBase(m.combat,m.map)!.footprint!,m.map.id??'arena')]:config.candidates){const rect={...point,width:config.size,height:config.size};
+ for(const point of isRegionalDesign(m.map.design)?[regionExpansion(enemyBase(m.combat,m.map)!.footprint!,m.map.id??'arena')]:config.candidates){const rect={...point,width:config.size,height:config.size};
   if(rect.x<0||rect.y<0||rect.x+rect.width>m.map.width||rect.y+rect.height>m.map.height||m.map.obstacles.some(o=>overlaps(rect,o)))continue;
   if(m.gathering.units.some(u=>!isAir(u)&&overlaps(rect,unitBody(u.position,(u.kind==='worker'?unitStats:combatUnitStats(u)).size)))||m.combat.enemies.filter(e=>!e.footprint&&!isAir(e)).some(e=>overlaps(rect,unitBody(e.position,unitStats.size))))continue;
   const builder=builderFor(m,rect);if(!builder)continue;

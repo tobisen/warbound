@@ -1535,3 +1535,41 @@ Genuin71 single-/multiSave migrerar konservativt; privata snapshotfält avvisas.
 Ingen mänsklig balans eller ny Pages-verifiering för242/243 hävdas; senaste
 faktiska publicerade verifiering är241. Kartor/uppdragsantal ej ändrade.
 Nästa244, user CSS/units.mjs/docs bevarade.
+
+## RTS-244 — Done: nio skogsrika, versionsmärkta kartor
+
+Engångsinventering och före/efter i [kartbelägg](artifacts/rts-244/maps.md):
+arena416→870, forest1295→2558, river1761→3519, islands557→2536,
+frontier2248→3926, plains961685→3602, plains1281923→4153,
+highlands1149→2966, coast657→2145 träd. Varje största sammanhängande
+skog ökade >1.5×; befintliga guldplatser bevaras och egna nya gruvgläntor
+tillkommer. Nya matcher använder woodlands; skirmish/kampanj delar reglerna.
+Äldre regions/organic/classic-saves ändrar inte resurser/terräng. Save73
+migrerar72 konservativt. Tidigare dold generell Save-hindergräns4096 togs
+bort, vilket också kompletterar242 för mycket stora fortifikationsmängder.
+
+Representativ Forest-browser granskades före spridning. Visuell uppföljning
+hittade tomma sjökartsregioner: fick egna kustskogar/ojämna strandgränser;
+sea/navigation/målprov och berörda bilder kördes om för just den ändringen.
+Nio slutliga browseröversikter samt Forest/Islands/Coast-närbilder granskade;
+faktisk Save/load för alla,0pageerrors. Art-fixture explicit reveal, inte
+naturlig scouting. Bilder/JSON sparade i artifacts/rts-244/. Första tillfälliga
+applyMatch-översikten använde fel gammal terrainrenderer; slutbilder använder
+riktig scene-restart via Save/load och korrekt kartstorlek.
+
+Ny gruva nära AI-starten ändrade insamlingen och stoppade tidigare120s-
+expansionsprov; jämförelse samma120s gammal/ny visade laglig men ändrad
+resursprioritering. Nya gruvor undantar start-/expansionszoner; originalprov
+PASS utan ändrat gameplayintervall/assertions. Extra mätning var gameplay-
+diagnostik, inte245:s renderingsbenchmark.
+
+Slutliga mapRegions/organic/campaignPhases47/3 PASS10.20s; inkluderar samtliga
+nya connected-gold/Save72-prov och verklig worker-avverkning/öppnad cell/Save.
+Kompatibilitet multiplePlayers/visibility/Save/organic/campaignPhases/towers
+87/6 PASS27.77s före sista ändringen i enbart sjökartornas konturer; sjörutter
+och campaignPhases omprovade därefter. Wood-delivery/terrängrelaterade51/4
+PASS8.87s tidigare i samma del. Slutlig unit528/91 PASS15.18s, strict build
+PASS och diff/review PASS. Inga nya testfiler eller breda campaign-playthroughs.
+Kampanjantal ännu oförändrat:8 uppdrags-ID:n med5 rasvarianter. Mänsklig
+balans/spelglädje/tid ej verifierad. User CSS/units.mjs/docs bevarade.
+Nästa245: samma korta upptäckts-/storbasbenchmark före/efter.

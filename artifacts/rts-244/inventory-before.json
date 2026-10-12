@@ -1,0 +1,65 @@
+[
+  {
+    "id": "coast",
+    "width": 4096,
+    "height": 4096,
+    "trees": 657,
+    "mines": 8
+  },
+  {
+    "id": "highlands",
+    "width": 4096,
+    "height": 4096,
+    "trees": 1149,
+    "mines": 7
+  },
+  {
+    "id": "plains96",
+    "width": 4096,
+    "height": 4096,
+    "trees": 1685,
+    "mines": 7
+  },
+  {
+    "id": "plains128",
+    "width": 4096,
+    "height": 4096,
+    "trees": 1923,
+    "mines": 8
+  },
+  {
+    "id": "frontier",
+    "width": 4096,
+    "height": 4096,
+    "trees": 2248,
+    "mines": 4
+  },
+  {
+    "id": "arena",
+    "width": 2048,
+    "height": 2048,
+    "trees": 416,
+    "mines": 4
+  },
+  {
+    "id": "forest",
+    "width": 3072,
+    "height": 3072,
+    "trees": 1295,
+    "mines": 4
+  },
+  {
+    "id": "islands",
+    "width": 4096,
+    "height": 4096,
+    "trees": 557,
+    "mines": 5
+  },
+  {
+    "id": "river",
+    "width": 4096,
+    "height": 4096,
+    "trees": 1761,
+    "mines": 6
+  }
+]
