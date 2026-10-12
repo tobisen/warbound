@@ -58,10 +58,12 @@ ny verifiering; mänsklig tid/balans/ljud skiljs från automatiska prov.
 - **RTS-244 — Sammanhängande skog och egna kartidentiteter — Done.** Inventera kartor en gång. Gemensamma verkliga avverknings-/terrängregler för skirmish/kampanj, tydligt mer sammanhängande skog; bevara rutter, byggytor och resurser. Egna regioner, alternativa vägar och utforskningsvärden. Renderade browseröversikter/närbilder och riktade navigation-/resursprov; inga tomma återanvända layouter.
 - **RTS-245 — Mät och åtgärda upptäcktslagg — Done.** Belägg/metod/begränsningar: artifacts/rts-245/README.md. Samma korta stora-bas/byggnads-/fortifikationsscenario före/efter. Undersök första upptäckt, undvik helkartarbete/dyr rendering varje frame. Rapportera mätmetod/resultat och browserkontroll.
 - **RTS-246 — Större betalda AI-baser och expansioner — Done.** Vanliga arbetare/kostnader/resurser/placering och eget känt fogstate; inga gratisbaser. Utbyggnad, försvar och expansion verifieras riktat samt med 245-scenariot.
-- **RTS-247 — Kampanjinventering och konkret expansionsplan — Todo.** Dokumentera faktiska spelbara uppdrag per ras och gemensamma återanvändningar. Skriv konkret nytt antal och separata rasserier i BACKLOG före implementation. Planera briefing/start/mål/seger/förlust/progression/replay och gradvis varierade befintliga mål utan väntutfyllnad.
+- **RTS-247 — Kampanjinventering och konkret expansionsplan — Done.** Dokumentera faktiska spelbara uppdrag per ras och gemensamma återanvändningar. Skriv konkret nytt antal och separata rasserier i BACKLOG före implementation. Planera briefing/start/mål/seger/förlust/progression/replay och gradvis varierade befintliga mål utan väntutfyllnad.
+Kampanjmål fastställt före248-implementation: **8→15 spelbara uppdrag per ras**, fem raser, **40→75 ras/uppdragsval**, **35 nya egna uppdrags-ID:n** och **8→43 totalt unika ID:n**. De åtta gamla kedjorna är gemensamma, inte40 unikt författade uppdrag. Inventering,35 namn, målsystem och verifieringskontrakt: [kampanjplan](artifacts/rts-247/campaign-plan.md). Inga nya uppdrag är implementerade eller Done i denna inventering.
+
 - **RTS-248 — Implementera och verifiera utökade kampanjer — Todo.** Genomför 247-planen på egna kartregioner. Verifiera varje ny målsekvens och koordinattrigger efter kartändringar samt Save mellan faser, progression/replay. Samlad kampanjregression vid delslut; mänsklig speltid/balans ej ersatt av snabbsimulering. HANDOFF med antal/kartor/checks/prestanda/hashar. Inget Done med saknade uppdrag/centrala sekvenser.
 
-Tidigare Current Focus nedan är historik; aktuell task är RTS-247.
+Tidigare Current Focus nedan är historik; aktuell task är RTS-248.
 
 
 ### Nytt uppdrag2026-10-08 — RTS-239–240

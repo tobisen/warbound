@@ -1610,3 +1610,15 @@ betalda basen efter faktisk Save/load; kamerapan tar bort offscreen enemyvisuals
 Samma245-stress efter AI-ändringen: median första26.2ms, steady9.1ms, kallt42.4ms;
 fortsatt begränsning för kall första upptäckt. Inte FPS eller mänskligt speltest.
 Ny CI/Pages-status ej verifierad. Nästa task247: kampanjinventering/mål före248.
+
+## RTS-247 — kampanjinventering och mål före implementation (2026-10-13)
+
+Inventerat config/series/content/gameplay/phases/progress/menu/save samt befintliga
+operationstriggers. Nuläge: åtta gemensamma uppdragskedjor, åtta val per ras,
+fem raser=40 ras/uppdragsval. Mål inför248:15 per ras=75 val,35 nya egna
+uppdrags-ID:n (sju/ras),43 totalt. Plan med35 namn, region-/målsystem och
+verifieringskrav i artifacts/rts-247/campaign-plan.md; konkret antal även i BACKLOG.
+Befintliga åtta/progression/local-first bevaras. Ingen kampanjimplementation ännu.
+Ren dokumenttask: inventeringsuppgifter och lokala filreferenser/text/diff granskade;
+inga nya kodtester/build/browser påstås. Tidigare246-checks är historiska belägg.
+Nästa task248 implementerar och verifierar hela planen före Done/full slutregression.
