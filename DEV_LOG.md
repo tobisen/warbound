@@ -5505,3 +5505,16 @@ CSS; publicerad kontroll behövs även för commitversionen. Självgranskning av
 base/titel/scripts/workflow/assets utan fynd. Ingen kampanjsimulering behövs.
 RTS-242–248 är planerade; inga gameplay/kartor/uppdragsantal ändrade ännu.
 Tasken markeras inte Done förrän faktisk deployment/publicerad reload är provad.
+
+### RTS-241 — CI-hinder och riktad rättelse
+
+Push7bffe24 lyckades till samma flyttade repo; origin pekar nu direkt på
+git@github.com:tobisen/warbound.git. Actions38307823764 FAIL: operations.test.ts
+rad40 överskred5000ms. Build/deploy SKIPPED; tidigare trasig publicering kvar.
+Riktad lokal operations23/1 PASS4.92s före rättelse. Enbart detta sammansatta
+fyrdelta-/Save-tests wall-clockbudget höjs till30000ms, samma assertions/
+fixtures/tidssteg. Inget gameplay eller global timeout ändras.
+Ny operations23/1 PASS5.67s; unit530/92 PASS och strict build/diff PASS.
+Checks upprepades på grund av konkret CI-fel och ändrad testkod. Ingen ny
+browserkörning krävs för timeout; tidigare faktiska lokala browserbelägg gäller
+samma runtime. Ny push/deployment måste fortfarande verifieras.

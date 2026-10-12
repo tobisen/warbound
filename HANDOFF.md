@@ -1457,3 +1457,16 @@ Tidigare ljudgodkännande från användaren består; ingen ny agentlyssning häv
 Slutuppdateringen ändrar enbart Markdown och återanvänder ovanstående faktiskt
 passerade kodchecks. CSS/units.mjs/docs/:memory:.ses bevaras och lämnas utanför.
 Befintlig Pages-praktik/version/changelog används utan ny tag/releaseinfrastruktur.
+
+### RTS-241 — CI-hinder och riktad rättelse
+
+Push7bffe24 lyckades till samma flyttade repo; origin pekar nu direkt på
+git@github.com:tobisen/warbound.git. Actions38307823764 FAIL: operations.test.ts
+rad40 överskred5000ms. Build/deploy SKIPPED; tidigare trasig publicering kvar.
+Riktad lokal operations23/1 PASS4.92s före rättelse. Enbart detta sammansatta
+fyrdelta-/Save-tests wall-clockbudget höjs till30000ms, samma assertions/
+fixtures/tidssteg. Inget gameplay eller global timeout ändras.
+Ny operations23/1 PASS5.67s; unit530/92 PASS och strict build/diff PASS.
+Checks upprepades på grund av konkret CI-fel och ändrad testkod. Ingen ny
+browserkörning krävs för timeout; tidigare faktiska lokala browserbelägg gäller
+samma runtime. Ny push/deployment måste fortfarande verifieras.
