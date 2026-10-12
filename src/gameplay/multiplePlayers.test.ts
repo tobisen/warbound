@@ -110,3 +110,10 @@ it.each(['tribute-config-51','tribute-config-52'])('migrates %s multiplayer enve
  const m=createClassicMatch('skirmish','normal',undefined,'plains96',1,'balanced',matchPlayers(undefined,undefined,3)),doc=JSON.parse(encodeSave(m,{camera:{x:0,y:0},building:null}));doc.configVersion=version;for(const part of [doc,...doc.ai]){if(part.document){const nested=JSON.parse(part.document);legacyTerrainFixture(nested);nested.configVersion=version;part.document=JSON.stringify(nested);}}const human=JSON.parse(doc.human);legacyTerrainFixture(human);human.configVersion=version;doc.human=JSON.stringify(human);
  const result=decodeSave(JSON.stringify(doc));expect(result.ok,result.ok?'':result.error).toBe(true);if(result.ok){expect(result.match.multiplePlayers!.roster[2].difficulty).toBeUndefined();expect(result.match.multiplePlayers!.ai[1].state.difficulty).toBe('normal');}
 });
+
+it('migrates genuine71 multiplayer fog without inventing hidden building memories',async()=>{
+ const {encodeSave,decodeSave}=await import('./save');const m=createMatch('skirmish','normal',undefined,'plains96',1,'balanced',matchPlayers(undefined,undefined,3));
+ const doc=JSON.parse(encodeSave(m,{camera:{x:0,y:0},building:null}));doc.configVersion='tribute-config-71';
+ const old=(encoded:string)=>{const d=JSON.parse(encoded);d.configVersion='tribute-config-71';delete d.state.fog.buildings;return JSON.stringify(d);};doc.human=old(doc.human);for(const ai of doc.ai)ai.document=old(ai.document);
+ const loaded=decodeSave(JSON.stringify(doc));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(loaded.ok)expect(loaded.match.multiplePlayers!.ai).toHaveLength(2);
+});

@@ -17,5 +17,5 @@ it('separates save error categories from player-facing language without modifyin
 });
 it('shows English faction, mission, map, fog-safe HUD and command guidance',()=>{
  expect(factions.crown.label).toBe('Human');expect(factions.clans.label).toBe('Orcs');expect(scenarioConfig['mission-sea'].label).toBe('Mission 4 – The Crossing');expect(maps.islands.label).toBe('Islands');
- const hud=matchLabels(createMatch('skirmish'));expect(hud.economy).toContain('node: ?');expect(hud.selected).toBe('No unit selected');expect(commandGuide).toContain('Shift-click');expect(commandGuide).toContain('pause/resume');
+ const hud=matchLabels(createMatch('skirmish'));expect(hud.economy).toContain('mine: ?');expect(hud.selected).toBe('No unit selected');expect(commandGuide).toContain('Shift-click');expect(commandGuide).toContain('pause/resume');
 });

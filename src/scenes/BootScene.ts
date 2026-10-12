@@ -1,3 +1,4 @@
+import {presentationEnemies} from '../gameplay/buildingMemory';
 import {extraProducer,trainExtraProducer,cancelExtraProduction,setExtraProducer} from '../gameplay/extraProducers';
 import {buildingUpgradeMarkers} from '../presentation/buildingUpgrades';
 import {wallLine,placeWallLine} from '../gameplay/wallDrag';
@@ -1043,7 +1044,7 @@ export class BootScene extends Phaser.Scene {
     for(const marker of upgradeBadges){let label=this.upgradeMarkers.get(marker.id);if(!label){label=this.add.text(marker.x,marker.y,marker.label,{fontFamily:'monospace',fontSize:'11px',color:marker.color,backgroundColor:'#16261e',padding:{x:3,y:1}}).setOrigin(.5).setDepth(8);this.upgradeMarkers.set(marker.id,label);}label.setPosition(marker.x,marker.y).setText(marker.label).setColor(marker.color);}
     this.hpBars?.clear();
     const routePoints=this.scoutRouteMode?this.scoutRoutePoints:this.gathering.units.flatMap(u=>u.kind==='soldier'&&u.selected&&u.scouting?.mode==='route'?u.scouting.waypoints:[]);for(let i=0;i<routePoints.length;i++){const a=routePoints[i]!,b=routePoints[(i+1)%routePoints.length]!;this.hpBars?.lineStyle(2,0x86dbe6,.8).strokeCircle(a.x,a.y,5);if(routePoints.length>1)this.hpBars?.lineBetween(a.x,a.y,b.x,b.y);}
-    const allEnemies=[...this.combat.enemies,...bossEnemies(this.currentMatch(),true)],visibleEnemies=allEnemies.filter(e=>entityVisible(this.fog,'player',e)),presentedEnemies=allEnemies.filter(e=>entityPresented(this.fog,'player',e));
+    const allEnemies=[...this.combat.enemies,...bossEnemies(this.currentMatch(),true)],visibleEnemies=allEnemies.filter(e=>entityVisible(this.fog,'player',e)),presentedEnemies=presentationEnemies(this.fog,allEnemies);
     const markers = orderMarkers(this.gathering, {...this.combat,enemies:visibleEnemies}, this.outcome==='playing',this.placement.barracks,this.placement.farms,this.placement.forge?.footprint,this.navy?.harbor?.footprint,this.placement.bases,this.placement.academy?.footprint);
     markers.push(...navalOrderMarkers(this.navy,{...this.combat,enemies:visibleEnemies},this.outcome==='playing'));
     for (const [id, visual] of this.orderVisuals) {

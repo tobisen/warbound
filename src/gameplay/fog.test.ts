@@ -1,3 +1,4 @@
+import {fogConfig} from '../config/fog';
 import { describe,expect,it } from 'vitest';
 import { createFog,fogIndex,isExplored,isVisible,updateFog,type VisionObserver } from './fog';
 import { createMatch,updateMatch } from './match';
@@ -46,4 +47,13 @@ it('stationary observer reuse matches fresh LOS after movement, owner/air change
  const compare=(observers:VisionObserver[],terrain=blockers)=>expect(updateFog(f,observers,terrain)).toEqual(updateFog(f,observers,terrain.map(p=>({...p}))));
  compare([ground]);compare([ground]);compare([{...ground,position:{x:400,y:240}}]);compare([{...ground,owner:'enemy',airborne:true}]);compare([]);compare([ground],[]);
  blockers.push({x:128,y:0,width:32,height:640});compare([ground]);
+});
+
+it('extends worker, infantry, scout, ship and completed building sight while retaining explored fog after retreat',()=>{
+ const m=createMatch('skirmish'),worker=m.gathering.units[0];m.gathering.units=[worker,{...worker,kind:'soldier',hp:100,cargo:0,order:{kind:'idle'},archetype:'scout',id:'scout-vision'},{...worker,kind:'soldier',hp:100,cargo:0,order:{kind:'idle'},id:'infantry-vision'}];
+ m.navy={harbor:null,production:{remainingSeconds:null,nextUnitNumber:2},ships:[{id:'ship-1',kind:'ship',role:'warship',owner:'player',hp:100,selected:false,position:{x:512,y:512},target:{x:512,y:512},order:{kind:'idle'}}]};
+ const observers=visionObservers(m),w=observers.find(o=>o.id===worker.id)!,infantry=observers.find(o=>o.id==='infantry-vision')!,scout=observers.find(o=>o.id==='scout-vision')!,base=observers.find(o=>o.id==='base')!;
+ expect(observers.find(o=>o.id==='ship-1')!.radius).toBeGreaterThan(192);expect(w.radius).toBeGreaterThan(160);expect(infantry.radius).toBeGreaterThan(192);expect(scout.radius).toBeGreaterThan(288);expect(base.radius).toBeGreaterThan(256);expect(scout.radius).toBeGreaterThan(infantry.radius);expect(scout.detectorRadius??0).toBeLessThan(scout.radius);
+ for(const o of [w,infantry,scout,base]){const center={x:512,y:512},f=updateFog(createFog({width:2048,height:2048}),[{...o,position:center,footprint:undefined}]);const point={x:512+o.radius-32,y:512};expect(isVisible(f,'player',point)).toBe(true);const retreat=updateFog(f,[]);expect(isVisible(retreat,'player',point)).toBe(false);expect(isExplored(retreat,'player',point)).toBe(true);expect(isVisible(retreat,'enemy',point)).toBe(false);}
+ expect(fogConfig.towerRadius).toBeGreaterThan(208);expect(fogConfig.wallRadius).toBeGreaterThan(48);
 });

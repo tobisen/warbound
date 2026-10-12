@@ -22,7 +22,7 @@ function singleView(m:MatchState,id:PlayerId):MatchState{
  return {...state,multiplePlayers:undefined,aiContext:undefined,map:m.map,waves:m.waves,paused:m.paused,outcome:m.outcome,
   gathering:m.gathering,placement:m.placement,production:m.production,soldierProduction:m.soldierProduction,navy:m.navy,research:m.research,controlGroups:m.controlGroups,wildlife:m.wildlife,
   combat:{...state.combat,projectiles:id==='player'?[...(m.combat.projectiles??[]).filter(p=>!p.owner),...(bot.state.combat.projectiles??[])]:bot.state.combat.projectiles,baseHP:m.combat.baseHP,enemies:bot.state.combat.enemies},
-  fog:state.fog?{...state.fog,...(state.fog.forest?{forest:{player:m.fog?.forest?.player??{},enemy:bot.state.fog?.forest?.enemy??{}}}:{}),teams:{player:m.fog!.teams.player,enemy:bot.vision}}:undefined,
+  fog:state.fog?{...state.fog,buildings:m.fog?.buildings,...(state.fog.forest?{forest:{player:m.fog?.forest?.player??{},enemy:bot.state.fog?.forest?.enemy??{}}}:{}),teams:{player:m.fog!.teams.player,enemy:bot.vision}}:undefined,
   factions:{player:m.factions!.player,enemy:bot.state.factions!.enemy}};
 }
 export function encodeMultipleSave(m:MatchState,view:SavedView):string{
@@ -38,6 +38,7 @@ export function encodeMultipleSave(m:MatchState,view:SavedView):string{
 export function decodeMultipleSave(raw:unknown):LoadResult{
  try{
  const doc=raw as Record<string,unknown>;
+ if(doc.configVersion==='tribute-config-71'){for(const encoded of [doc.human,...(Array.isArray(doc.ai)?doc.ai.map(bot=>(bot as Record<string,unknown>).document):[])]){if(typeof encoded!=='string'||JSON.parse(encoded).configVersion!=='tribute-config-71'||JSON.parse(encoded).state?.fog?.buildings!==undefined)throw Error('Invalid legacy building memory');}doc.configVersion=saveConfig.configVersion;}
  if(typeof doc.configVersion==='string'&&/^tribute-config-(?:[1-9]|[1-5][0-9]|6[01])$/.test(doc.configVersion))for(const encoded of [doc.human,...(Array.isArray(doc.ai)?doc.ai.map(bot=>(bot as Record<string,unknown>).document):[])])if(typeof encoded==='string'){const s=JSON.parse(encoded).state;if(s?.placement?.academy!==undefined||s?.placement?.kind==='academy'||s?.combat?.enemies?.some((e:{buildingType?:string})=>e.buildingType==='academy')||[s?.research,s?.enemyPolicy?.research,s?.combat?.upgrades,s?.combat?.enemyUpgrades].some(r=>r&&(r.attack>1||r.defense>1)))throw Error('Legacy advanced research');}
 
  if(typeof doc.configVersion==='string'&&/^tribute-config-(?:[1-9]|[1-5][0-9]|60)$/.test(doc.configVersion))for(const encoded of [doc.human,...(Array.isArray(doc.ai)?doc.ai.map(bot=>(bot as Record<string,unknown>).document):[])])if(typeof encoded==='string'){const p=JSON.parse(encoded).state?.placement;if(p?.bases!==undefined||p?.nextBaseNumber!==undefined||p?.kind==='base')throw Error('Legacy extra bases');}

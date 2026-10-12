@@ -5553,3 +5553,33 @@ load513 PASS0pageerrors; /tmp/warbound-fort-browser.json/.png. Snapshot granskad
 första apply/sync8.4ms. Artificiellt antalstressprov, inte betald match eller
 långvarig balans/FPS-garanti; upptäcktslagg och stor AI-bas mäts separat245.
 Kartor/uppdrag ej ändrade. Nästa243. Befintlig user CSS/assets/docs bevarade.
+
+## RTS-243 — Done: större sikt, statisk senast sedd byggnadsbild
+
+Inventering→ny radie px: worker160→256, combat/ships192→320, base256→384,
+barracks/forge/academy/harbor/stable/aviary192→288, farm128→192, tower208→320,
+wall/gate48→96, scout288→448. Gemensam player/AI-config; LOS/detection/vapen
+ändras inte. Current/explored består. Befintlig explored-presentation läckte
+aktuellt fiendebyggnadstillstånd; efter preferensfråga utan svar valdes statisk
+senast sedd bild. Fog72-minne uppdateras endast vid observation, inte efter
+dold skada/nybygge/rivning; renderer/minimap läser minnet. Orders/audio använder
+fortfarande actual entityVisible. Neutral boss-policy är oförändrad.
+
+Riktade fog/visibility/minimap/fogRuns/submarine/save/teams78/8 PASS3.71s;
+slutliga lag/results/fog/Save/english77/6 PASS23.83s. Separat sista multiplayer
+inklusive genuin71-migrering15/1 PASS20.45s; se kommandologg /tmp/warbound-243-multi-final.log.
+Unit528/91 PASS16.51s; strict build/diff/review PASS. English-testets2 Match/Save-
+prov flyttades till integrationmanifestet enligt innehåll; totalt urval216filer.
+Tidigare testfel: större radie avslöjar startved (testar nu fortsatt dold mine);
+nya metadata saknas korrekt i legacyfixtures; MultiSave minne behövde samma
+humanobservatör som sparad fog. Dessa rättades utan svagare gameplayassertions.
+Checks upprepades endast efter dessa konkreta fel/ändringar.
+
+Faktisk Chrome800/1280: injicerad scout i vanlig fog utan revealcheat,448sikt,
+retreat current/explored, fryst hidden HP, actual Save/load PASS0pageerrors.
+/tmp/warbound-fog-browser.json och visible/explored-bilder; explored800 granskad.
+Kameran centrerades rätt och bilder togs om efter första offscreenbilden.
+Genuin71 single-/multiSave migrerar konservativt; privata snapshotfält avvisas.
+Ingen mänsklig balans eller ny Pages-verifiering för242/243 hävdas; senaste
+faktiska publicerade verifiering är241. Kartor/uppdragsantal ej ändrade.
+Nästa244, user CSS/units.mjs/docs bevarade.

@@ -40,8 +40,8 @@ explored för kroppar/etiketter/minimap. Den svarta fogoverlayen behålls.
 Scenen använder separata presented/visible-listor så ordermarkers/audio
 inte får den utökade presentationssynen. `entityVisible`, insamlingsvillkor
 samt combat/AI/input består; befintliga explored-Save-data räcker.
-Detta är aktuell presentation i explored-geometri, inget nytt last-seen-
-snapshotsystem. Rekryterade fyndkaraktärer försvinner; öppnade kistor kvarstår.
+RTS-243 ersätter aktuell byggnadspresentation i explored-geometri med
+validerade senast sedda snapshots; nya/dolda byggnadsändringar läcker inte. Rekryterade fyndkaraktärer försvinner; öppnade kistor kvarstår.
 
 
 ## Prestanda — härledda renderings- och kollisionscachar
@@ -2092,3 +2092,22 @@ Save validerar varje objekt och behåller befintlig generell bytebudget, utan
 nytt antalstak. UI saknar countspärr. Campaign admission begränsar tillgång
 till byggnadstyper, inte antal. Befintlig AI bygger inte wall/gate/tower och
 har därför ingen separat countspärr; betalt basförsvar behandlas i RTS-246.
+
+## RTS-243 — Större sikt och byggnadsminne
+
+Gemensam fogConfig: worker256, combat/ships320, base384, barracks/forge/
+academy/aviary/stable/harbor288, farm192, tower320, wall/gate96, scout448px.
+Radier mäts från footprint för byggnader; rock-LOS och air-LOS består.
+Detektions- och vapenradier ändras inte, player/AI använder samma siktconfig.
+
+Fog.buildings lagrar enbart senast observerade publika byggnadsfält: ID,
+position/footprint, HP, typ/fraktion/spelare och observerad constructiontid
+utan builderID. observeEnemyBuildings uppdaterar endast i current vision,
+behåller minnet utanför sikt och tar bort det när tom plats observeras igen.
+Presentation/minimap använder snapshots för dolda byggnader; actual targeting/
+audio/HP-varningar använder fortfarande aktuell sikt. Nya byggnader i explored
+men dold mark visas inte. Neutral boss-presentation behåller tidigare policy.
+Save72 validerar minnet;71 migreras utan påhittad historisk information.
+MultiSave scopes byggnadsminnet till samma humanfog som dokumentets player-
+vy. Äldre fixtures saknar det nya minnet. Inga privata ekonomi-/order-/
+produktionsfält tillåts i snapshots.

@@ -73,6 +73,7 @@
   "src/gameplay/matchSettings.test.ts",
   "src/gameplay/matchStats.test.ts",
   "src/gameplay/missions.test.ts",
+  "src/gameplay/multipleBuilders.test.ts",
   "src/gameplay/multiplePlayers.test.ts",
   "src/gameplay/multipleResources.test.ts",
   "src/gameplay/navalBalance.test.ts",
@@ -119,8 +120,8 @@
   "src/presentation/audioSnapshot.test.ts",
   "src/presentation/buildingUpgrades.test.ts",
   "src/presentation/combatAudio.test.ts",
+  "src/presentation/english.test.ts",
   "src/presentation/technologyView.test.ts",
   "src/presentation/wildlifeSave.test.ts",
-  "tests/referenceTerrain.test.mjs",
-  "src/gameplay/multipleBuilders.test.ts"
+  "tests/referenceTerrain.test.mjs"
 ]

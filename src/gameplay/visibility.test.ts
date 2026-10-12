@@ -1,3 +1,4 @@
+import {presentationEnemies,observeEnemyBuildings} from './buildingMemory';
 import { advanceProjectiles } from './projectiles';
 import { describe,expect,it } from 'vitest';
 import { createFog,updateFog } from './fog';
@@ -18,12 +19,12 @@ describe('shared fog information contract',()=>{
   expect(entityVisible(f,'player',{position:{x:1008,y:144}})).toBe(false);expect(entityVisible(f,'player',{position:{x:1008,y:144},footprint:{x:960,y:96,width:96,height:96}})).toBe(true);expect(entityVisible(f,'enemy',{position:{x:976,y:144}})).toBe(false);
  });
  it('never leaks hidden enemy markers/footprints/HP or hidden resource quantities in HUD/minimap',()=>{
-  const s=createMatch('skirmish'),before=visibleMinimapData(s),hud=matchLabels(s);expect(before.markers.some(m=>m.owner==='enemy')).toBe(false);expect(before.terrain.some(r=>r.x===960&&r.y===96)).toBe(false);expect(hud.economy).toContain('node: ?');
+  const s=createMatch('skirmish');s.fog=createFog(s.map);const before=visibleMinimapData(s),hud=matchLabels(s);expect(before.markers.some(m=>m.owner==='enemy')).toBe(false);expect(before.terrain.some(r=>r.x===960&&r.y===96)).toBe(false);expect(hud.economy).toContain('node: ?');
   s.combat.enemies[0].hp=1;s.combat.enemies[0].position={x:1100,y:144};s.combat.enemies[0].footprint={x:1088,y:96,width:96,height:96};s.gathering.node.remaining=1;s.gathering.gold!.remaining=1;
   expect(visibleMinimapData(s)).toEqual(before);expect(matchLabels(s)).toEqual(hud);
  });
  it('keeps scouted buildings in explored terrain while ordinary troops need current vision',()=>{
-  const s=createMatch('skirmish');s.fog=updateFog(s.fog!,[{id:'scout',owner:'player',position:{x:880,y:144},radius:192}]);expect(visibleMinimapData(s).markers.some(m=>m.id==='enemy-base')).toBe(true);
+  const s=createMatch('skirmish');s.fog=updateFog(s.fog!,[{id:'scout',owner:'player',position:{x:880,y:144},radius:192}]);s.fog=observeEnemyBuildings(s.fog,s.combat.enemies);expect(visibleMinimapData(s).markers.some(m=>m.id==='enemy-base')).toBe(true);
   s.fog=updateFog(s.fog,[]);expect(visibleMinimapData(s).markers.some(m=>m.id==='enemy-base')).toBe(true);expect(entityVisible(s.fog,'player',s.combat.enemies[0])).toBe(false);expect(s.fog.teams.player.explored.some(Boolean)).toBe(true);
  });
  it('blocks hidden manual attack and acquisition, drops navigation, and causes no hidden damage',()=>{
@@ -71,4 +72,21 @@ it('presentation keeps explored bosses/buildings but respects dark fog, concealm
  expect(entityPresented(f,'player',boss)).toBe(true);expect(entityPresented(f,'player',building)).toBe(true);expect(entityPresented(f,'player',troop)).toBe(false);
  expect(entityVisible(f,'player',boss)).toBe(false);expect(entityVisible(f,'player',building)).toBe(false);expect(entityPresented(f,'enemy',boss)).toBe(false);
  f.concealedIds={player:['boss','base'],enemy:[]};expect(entityPresented(f,'player',boss)).toBe(false);expect(entityPresented(f,'player',building)).toBe(false);
+});
+
+it('freezes last observed building HP/progress/position and never admits hidden new construction',()=>{
+ const m=createMatch('skirmish'),base=m.combat.enemies.find(e=>e.footprint)!;
+ let fog=updateFog(createFog(m.map),[{id:'scout',owner:'player',position:base.position,radius:192}]);fog=observeEnemyBuildings(fog,m.combat.enemies);
+ const seen=fog.buildings!.find(e=>e.id===base.id)!;fog=updateFog(fog,[]);
+ const changed={...base,hp:1,construction:{remainingSeconds:1,builderId:'private-worker'}},newBuilding={...changed,id:'hidden-new'};
+ fog=observeEnemyBuildings(fog,[changed,newBuilding]);expect(presentationEnemies(fog,[changed,newBuilding])).toEqual([seen]);
+ fog=observeEnemyBuildings(fog,[]);expect(presentationEnemies(fog,[])).toEqual([seen]);
+ fog=observeEnemyBuildings(updateFog(fog,[{id:'return',owner:'player',position:base.position,radius:192}]),[]);expect(presentationEnemies(fog,[])).toEqual([]);
+});
+it('persists last observed buildings through Save/load without copying hidden HP; genuine71 migrates conservatively',async()=>{
+ const {encodeSave,decodeSave}=await import('./save'),m=createMatch('skirmish'),base=m.combat.enemies.find(e=>e.footprint)!;
+ m.fog=observeEnemyBuildings(updateFog(m.fog!,[{id:'visit',owner:'player',position:base.position,radius:192}]),m.combat.enemies);const observed=m.fog.buildings!.find(e=>e.id===base.id)!;
+ m.fog=updateFog(m.fog,[]);base.hp=1;const view={camera:{x:0,y:0},building:null};const doc=encodeSave(m,view),loaded=decodeSave(doc);expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(loaded.ok)expect(loaded.match.fog!.buildings!.find(e=>e.id===base.id)).toEqual(observed);
+ const old=JSON.parse(doc);old.configVersion='tribute-config-71';delete old.state.fog.buildings;const migrated=decodeSave(JSON.stringify(old));expect(migrated.ok,migrated.ok?'':migrated.error).toBe(true);if(migrated.ok)expect(migrated.match.fog!.buildings??[]).toEqual([]);
+ const invalid=JSON.parse(doc);invalid.state.fog.buildings[0].production={remainingSeconds:1};expect(decodeSave(JSON.stringify(invalid)).ok).toBe(false);
 });
