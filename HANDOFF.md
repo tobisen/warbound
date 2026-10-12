@@ -1,3 +1,26 @@
+# Aktuellt uppdrag 2026-10-12
+
+## RTS-241 — Warbound/Pages-reparation 2026-10-12 (deployment återstår)
+
+GitHub redirect bekräftar tobisen/warbound. Publicerad /warbound/ returnerar
+HTML med /warcraft-2-tribute/assets; faktisk scriptrequest404. Vite build/
+previewbase är nu /warbound/, titel Warbound och aktuella README-/checkscript-
+länkar rättade. Workflow använder relativa dist och kräver ingen ändring.
+BASE_URL används av runtimeassets/audio; Vite skriver om HTML/CSS. Lokala
+lagringsnycklar/package-ID bevaras av kompatibilitetsskäl, inte URL-beroenden.
+
+Ny lokal unit530/92 PASS14.62s; npm run build med strict typecheck PASS
+(befintlig bundlevarning). Browser800/1280/1920: panorama, meny inom workspace,
+ingen fullscreen, fungerande start och reload utan HTTP/pageerrors.
+/tmp/warbound-local/browser.json och bilder; 800-bild visuellt granskad.
+Verifieringsskriptets canvas-selektor korrigerades efter strict-modefel och
+hela browserprovet passerade. Lokal build inkluderar användarens bevarade
+CSS; publicerad kontroll behövs även för commitversionen. Självgranskning av
+base/titel/scripts/workflow/assets utan fynd. Ingen kampanjsimulering behövs.
+RTS-242–248 är planerade; inga gameplay/kartor/uppdragsantal ändrade ännu.
+Tasken markeras inte Done förrän faktisk deployment/publicerad reload är provad.
+
+---
 # Senaste överlämning — användarens punkt7–8, RTS-239–240 (2026-10-08)
 
 RTS-239 Done och pushad som e6d82de till origin/main. Enheter reagerar på faktiska

@@ -1,7 +1,8 @@
-# Warborn — A Tribute to Warcraft II
+# Warbound — A Tribute to Warcraft II
 
 Arbetstiteln är inte juridiskt granskad för kommersiell release. Reponamnet
-`warcraft-2-tribute`, GitHub-remote och Pages-adress är oförändrade.
+`warbound`, GitHub-repot är `tobisen/warbound` och Pages-adressen är
+https://tobisen.github.io/warbound/. Lokala datanycklar bevaras för befintliga saves.
 
 Browserbaserat singleplayer-RTS inspirerat av Warcraft 2, Age of Empires 2 och
 Command & Conquer. Phaser, strict TypeScript och Vite; local-first, gameplay
@@ -345,9 +346,9 @@ npm run build
 npm run preview
 ```
 
-Öppna preview-adressen med `/warcraft-2-tribute/`, normalt http://localhost:4173/warcraft-2-tribute/. Dev fortsätter använda rotadressen som Vite skriver ut. [vite.config.ts](vite.config.ts) sätter projektets subpath för build/preview; sprites/ljud/CSS hämtas från samma bas.
+Öppna preview-adressen med `/warbound/`, normalt http://localhost:4173/warbound/. Dev fortsätter använda rotadressen som Vite skriver ut. [vite.config.ts](vite.config.ts) sätter projektets subpath för build/preview; sprites/ljud/CSS hämtas från samma bas.
 
-Spelet är publicerat och browserkontrollerat på [warcraft-2-tribute på Pages](https://tobisen.github.io/warcraft-2-tribute/). Efter godkända lokala releasechecks kör [Pages-workflowen](.github/workflows/pages.yml) på push till main eller manuellt workflow_dispatch: låst npm ci, alla tester, typecheck och build före uppladdning/deploy. GitHub Pages använder GitHub Actions som källa. Inga konton/backend krävs för att spela; publicerad origin har en egen lokal sparslot och tar inte över localhost-saves. Faktiskt publiceringsresultat anges i DEV_LOG.
+Spelet är publicerat och browserkontrollerat på [warcraft-2-tribute på Pages](https://tobisen.github.io/warbound/). Efter godkända lokala releasechecks kör [Pages-workflowen](.github/workflows/pages.yml) på push till main eller manuellt workflow_dispatch: låst npm ci, alla tester, typecheck och build före uppladdning/deploy. GitHub Pages använder GitHub Actions som källa. Inga konton/backend krävs för att spela; publicerad origin har en egen lokal sparslot och tar inte över localhost-saves. Faktiskt publiceringsresultat anges i DEV_LOG.
 
 Hard kräver tidig ekonomi/armé och aktiva order; samla gärna wood med alla tre först, bygg barracks och flytta sedan en till gold. Gold nära fiendebasen i Skirmish behöver skydd. Ingen balansändring behövdes för release-matrisens segrar; ett vunnet skriptflöde är inte generell garanti om svårighetsgrad. Andra browsermotorer/mobil och akustisk lyssning är ännu inte verifierade. Bundle-varningen är kvar inom fastställd storleksbudget.
 
@@ -455,7 +456,7 @@ och alla difficulties. Det är en avgränsad strategi, inte ett mått på lika
 vinstchans. Passivt spel kontrollerar fiendens kostnader/insamling och
 terminalfreeze. Sökrutten använder giltig mark på samtliga kartor.
 
-RTS-080-release: [spela på GitHub Pages](https://tobisen.github.io/warcraft-2-tribute/).
+RTS-080-release: [spela på GitHub Pages](https://tobisen.github.io/warbound/).
 Två fraktioner, tre skirmish-kartor, betald AI-ekonomi och matchresultat
 är publicerade. Aktuella releasekontroller och begränsningar finns i
 [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md). Sjösystem kommer i nästa etapp.
@@ -534,7 +535,7 @@ och [assets/ASSET_LICENSE.md](assets/ASSET_LICENSE.md).
 ## Aktuell sjörelease
 
 RTS-001–090 är klara. Spela på
-[GitHub Pages](https://tobisen.github.io/warcraft-2-tribute/), eller starta
+[GitHub Pages](https://tobisen.github.io/warbound/), eller starta
 lokalt enligt ovan. Välj Överfarten för ett fast sjöuppdrag eller Skirmish/
 Öarna. Samla wood/gold, bygg kasern och soldater samt hamn/transport,
 flytta armén till synlig kust, lasta och landsätt på fiendeön. Skydda basen
@@ -634,7 +635,7 @@ Voices-reglage är implementerade; tutorialmatch, Save/load/restart och
 settings→reload är browserverifierade. Slutlig lyssning av117/118 återstår;
 accepterade native speech requests är inte en bedömning av hörbarhet/klang.
 
-Publicerad RTS-119/120-implementation: [Spela på GitHub Pages](https://tobisen.github.io/warcraft-2-tribute/).
+Publicerad RTS-119/120-implementation: [Spela på GitHub Pages](https://tobisen.github.io/warbound/).
 Actions build/deploy för a8c42c1 passerar; public settings→reload och
 Frontier→start→paus→Save verifierade utan browserfel. Slutlig faktisk
 lyssningsbedömning117/118 är uppskjuten och blockerar inte senare etapp.
@@ -771,7 +772,7 @@ Nya matcher får ett UUID som Save33 bevarar. Första avslutade resultatet för 
 
 ## RTS-150 – Release0.2.0 och överlämning
 
-Produkt/packageversion0.2.0 samlar fem fraktioner, större kartor, åtta campaign-operationer, grupperade hotkeys, Dismiss Unit och lokala highscores. Huvudmenyns Changelog bevarar föregående0.1.0; versionsetikettens tooltip visar faktisk buildhash. Save-ruleconfig33 är separat från produktversion. Publik adress: [GitHub Pages](https://tobisen.github.io/warcraft-2-tribute/). Publiceringsbelägg och slutlig taskstatus finns i BACKLOG/DEV_LOG.
+Produkt/packageversion0.2.0 samlar fem fraktioner, större kartor, åtta campaign-operationer, grupperade hotkeys, Dismiss Unit och lokala highscores. Huvudmenyns Changelog bevarar föregående0.1.0; versionsetikettens tooltip visar faktisk buildhash. Save-ruleconfig33 är separat från produktversion. Publik adress: [GitHub Pages](https://tobisen.github.io/warbound/). Publiceringsbelägg och slutlig taskstatus finns i BACKLOG/DEV_LOG.
 
 Full regression körs vid denna etappgräns; unit+berörda integrationer räcker för löpande tasks enligt AGENTS. Faktisk ljudlyssning och matchlyssning är uppskjutna av användaren. Teknisk ljudkontroll ersätter inte lyssning. Bundlevarningen är kvar enligt uppdraget. Nästa RTS-151 är inte påbörjad eller scopebestämd här.
 
@@ -779,7 +780,7 @@ Release0.2.0 är publicerad som Build53267ef efter grön [CI/Pages-run](https://
 
 ## RTS-151–154: presentation och inspektion
 
-Arbetstiteln är Warborn — A Tribute to Warcraft II. Alla egna byggnader
+Arbetstiteln är Warbound — A Tribute to Warcraft II. Alla egna byggnader
 kan inspekteras; synliga fiendebyggnader ger en begränsad vy utan orders eller
 privat information. Display har separata Native Size/Fit to Window-val med
 fast renderingsupplösning och lokalt sparat visningsläge.
@@ -818,7 +819,7 @@ lagstatistik samt separata kills/losses/dismissals.
 Versionsetiketten använder `src/config/release.ts`; buildhash är separat och
 visas i tooltip.0.2.0 och0.1.0 ligger kvar som historiska changelog-versioner.
 Publicering använder befintlig GitHub Pages-workflow och Vite-base
-`/warcraft-2-tribute/`, inga nya hostingtjänster.
+`/warbound/`, inga nya hostingtjänster.
 
 **Kända begränsningar:**20–40min/ordinarie Normal-mission är designuppskattning,
 inte mänskligt uppmätt speltid. Human tempo/difficulty/fun och ny lång mixlyssning
@@ -831,12 +832,12 @@ ingår inte i taskcommits. Se HANDOFF.md och QUALITY_REVIEW.md för faktisk
 release-/Pages-verifiering.
 
 
-Release **0.3.0 / Build6a96227** är [publicerad på GitHub Pages](https://tobisen.github.io/warcraft-2-tribute/), med [grön CI/Pages-körning](https://github.com/tobisen/warcraft-2-tribute/actions/runs/37355621323) och faktisk [browserkontroll](artifacts/rts-180/public.md). Se HANDOFF.md för slutstatus och återstående mänsklig tids-/balans-/ljudgranskning.
+Release **0.3.0 / Build6a96227** är [publicerad på GitHub Pages](https://tobisen.github.io/warbound/), med [grön CI/Pages-körning](https://github.com/tobisen/warcraft-2-tribute/actions/runs/37355621323) och faktisk [browserkontroll](artifacts/rts-180/public.md). Se HANDOFF.md för slutstatus och återstående mänsklig tids-/balans-/ljudgranskning.
 
 
 ## RTS-182–187 — Meny och kampanj
 
-Spelets visningstitel är **Warborn — A Tribute to Warcraft II**. Human och Orcs har fortsatt stabila interna ID:n crown/clans. Repo, Pages-adress och lokala datanycklar bevaras.
+Spelets visningstitel är **Warbound — A Tribute to Warcraft II**. Human och Orcs har fortsatt stabila interna ID:n crown/clans. Repo, Pages-adress och lokala datanycklar bevaras.
 
 Local Highscores har mode-, kart- och svårighetsfilter och tabeller för jämförbara rulesgrupper. Poäng sorteras fallande, sedan gameplaytid stigande och stabilt match-ID. Äldre poster behåller metadata; datum som inte sparats visas som Unknown. Registrering sker en gång per match-ID. Nya resultat får registreringsdatum; multiplayergrupper visar ras/difficulty/profil/lag.
 
@@ -885,7 +886,7 @@ färdväg, före/efterbilder, verifiering och kvarstående visuell kvalitet.
 
 ## Release0.4.0 — Murar, portar och större guldlager
 
-**0.4.0 / Buildd003daa** är [publicerad på Pages](https://tobisen.github.io/warcraft-2-tribute/)
+**0.4.0 / Buildd003daa** är [publicerad på Pages](https://tobisen.github.io/warbound/)
 med [verifierad CI/deploy](https://github.com/tobisen/warcraft-2-tribute/actions/runs/37696240941).
 Walls/gates ansluter och placeras med1×1-ruta; egna trupper passerar portar
 automatiskt. Alla gruvor har10× guld, även efter uppgradering av äldre sparningar.

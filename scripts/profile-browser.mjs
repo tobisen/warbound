@@ -28,7 +28,7 @@ try {
     body=body.slice(0,last.index)+'window.__gameCheck='+body.slice(last.index);
     await route.fulfill({response,body});
   });
-  await page.goto(process.env.W2T_PROFILE_URL??'http://127.0.0.1:4173/warcraft-2-tribute/',{waitUntil:'networkidle'});
+  await page.goto(process.env.W2T_PROFILE_URL??'http://127.0.0.1:4173/warbound/',{waitUntil:'networkidle'});
   await page.waitForFunction(()=>!!window.__gameCheck?.scene.keys.BootScene);
   await page.evaluate(()=>window.__checkedScene=window.__gameCheck.scene.keys.BootScene);
   await page.addScriptTag({path:join(fixtureDir,'fixture.iife.js')});
