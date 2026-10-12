@@ -5518,3 +5518,15 @@ Ny operations23/1 PASS5.67s; unit530/92 PASS och strict build/diff PASS.
 Checks upprepades på grund av konkret CI-fel och ändrad testkod. Ingen ny
 browserkörning krävs för timeout; tidigare faktiska lokala browserbelägg gäller
 samma runtime. Ny push/deployment måste fortfarande verifieras.
+
+## RTS-241 — Done: faktisk Pages-verifiering
+
+Actions38309313409 för c7a808c är completed/success: full npm test, strict
+build och Pages-deploy. Publicerad https://tobisen.github.io/warbound/ provad
+i faktisk Chrome800×600/1280×720/1920×1080: Warbound-titel/panorama, avsedd
+meny inom workspace, ingen fullscreen, start skirmish/canvas och reload PASS,
+0pageerrors/0HTTP-fel. /tmp/warbound-public/browser.json och home/game-bilder.
+Publicerad800-bild visuellt granskad; denna kontroll använder faktiskt deployad
+CSS, till skillnad från lokala arbetskopians bevarade CSS. Reparation7bffe24
+och CI-korrigeringc7a808c pushade utan force. RTS-241 Done; nästa RTS-242.
+Ingen ny version/release, nya kartor eller kampanjökning i denna del.
