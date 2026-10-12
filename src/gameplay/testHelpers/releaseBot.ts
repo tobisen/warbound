@@ -31,7 +31,7 @@ export function releasePlaythrough(scenario: MatchScenario, difficulty: Difficul
   const faction=campaignPreset(options?.campaignMission)?.player??options?.faction??'crown';
   const explicitFaction=options?.faction!==undefined||options?.campaignMission!==undefined;
   let match = createMatch(scenario, difficulty,factionsForPlayer(faction,options?.enemyFaction),options?.map??'arena'), spentWood = 0, spentGold = 0, saved = false,abilitiesUsed=0;
-  if(options?.campaignMission){const definition=campaignMission(options.campaignMission)!;if(definition.scenario!==scenario)throw Error('Campaign scenario mismatch');const prior=campaignMissions.slice(0,campaignMissions.indexOf(definition)).map(m=>m.id);match=startCampaignMission({version:1,completed:prior},definition.id,difficulty,match.factions!)!;}
+  if(options?.campaignMission){const definition=campaignMission(options.campaignMission)!;if(definition.scenario!==scenario)throw Error('Campaign scenario mismatch');const prior=campaignMissions.slice(0,campaignMissions.findIndex(m=>m.id===definition.id)).map(m=>m.id);match=startCampaignMission({version:1,completed:prior},definition.id,difficulty,match.factions!)!;}
   let observedAir=false;
   const retreatUntil = new Map<string, number>();
   const select = (id: string) => { match.gathering.units = match.gathering.units.map(u => ({ ...u, selected: u.id === id })); };

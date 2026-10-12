@@ -1,3 +1,4 @@
+import {expandedCampaignMissions} from './campaignExpeditions';
 import {factions,factionIds,type FactionId,type UnitRole,type UpgradeRole} from './factions';
 import {campaignMissions,type CampaignMissionId} from './campaign';
 import {campaignPlans,type CampaignPlan,type CampaignPhase} from './campaignPhases';
@@ -14,8 +15,10 @@ export interface CampaignIdentity {campaignId:CampaignId;faction:FactionId;diffi
 export function seriesForId(id:unknown){return factionIds.map(faction=>({faction,...campaignSeries[faction]})).find(s=>s.id===id);}
 export function identityFor(faction:FactionId,difficulty:Difficulty):CampaignIdentity{return {campaignId:campaignSeries[faction].id,faction,difficulty};}
 export function identityKey(i:CampaignIdentity){return `${i.campaignId}/${i.faction}/${i.difficulty}`;}
+export function campaignMissionsFor(campaignId?:unknown){const series=seriesForId(campaignId);return series?[...campaignMissions,...expandedCampaignMissions.filter(m=>m.faction===series.faction)]:[...campaignMissions];}
 export function seriesMissionPlan(id:CampaignMissionId,campaignId:CampaignId):CampaignPlan{
- const series=seriesForId(campaignId)!,index=campaignMissions.findIndex(m=>m.id===id),f=factions[series.faction],count=series.counts[index];
+ const series=seriesForId(campaignId)!;const expedition=expandedCampaignMissions.find(m=>m.id===id);if(expedition){if(expedition.faction!==series.faction)throw Error('Wrong race expedition');return expedition.plan;}
+ const index=campaignMissions.findIndex(m=>m.id===id),f=factions[series.faction],count=series.counts[index];
  const role:UnitRole|undefined=({0:'soldier',1:'archer',3:'specialist',5:'catapult',6:'air'} as Record<number,UnitRole>)[index];
  const tactical:CampaignPhase=index===2?{goal:'research',research:series.research as UpgradeRole,text:`Complete ${f.upgrades[series.research].name} to equip this expedition.`}:index===4||index===7?{goal:'fleet',ship:index===4?'transport':'warship',count,text:`Field ${count} living ${index===4?f.naval.units.transport.name:f.naval.units.warship.name}${count>1?' ships':''} for the ${index===4?'evacuation':'coastal blockade'}.`}:{goal:'force',role:role!,count,text:`Field ${count} living ${f.unitNames[role!]}${count>1?' troops':''}. Keep this force alive before the final objective.`};
  const original=campaignPlans[id]??{map:'arena' as const,intro:'Train the first expedition.',phases:[{goal:'tutorial' as const,text:'Complete the selection, movement, gathering, building, training and attack lessons.'}]};

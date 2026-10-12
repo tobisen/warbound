@@ -1,0 +1,183 @@
+{
+  "scenario": "skirmish",
+  "difficulty": "normal",
+  "factions": {
+    "player": "crown",
+    "enemy": "clans"
+  },
+  "enemyProduction": {
+    "roster": true,
+    "wood": 4,
+    "gold": 48,
+    "cap": 6,
+    "durationSeconds": 5,
+    "production": {
+      "remainingSeconds": null,
+      "nextUnitNumber": 4,
+      "queue": [],
+      "nextJobNumber": 4
+    },
+    "acceptedJobs": 3,
+    "extracted": {
+      "wood": 389.59354108616026,
+      "gold": 125
+    },
+    "spent": {
+      "wood": 451,
+      "gold": 97
+    },
+    "lostCargo": {
+      "wood": 0,
+      "gold": 0
+    }
+  },
+  "enemyAI": {
+    "reserve": [
+      "enemy-produced-1"
+    ],
+    "defenders": [],
+    "threatId": null,
+    "elapsedSeconds": 305,
+    "nextGroupNumber": 3,
+    "groups": [
+      {
+        "id": "enemy-group-1",
+        "status": "attack",
+        "members": [
+          "enemy-produced-2"
+        ],
+        "destinations": {
+          "enemy-produced-2": {
+            "x": 3360,
+            "y": 3456
+          }
+        },
+        "startedAt": 19,
+        "dispatchedAt": 270,
+        "dispatchedSize": 1
+      },
+      {
+        "id": "enemy-group-2",
+        "status": "attack",
+        "members": [
+          "enemy-produced-3"
+        ],
+        "destinations": {
+          "enemy-produced-3": {
+            "x": 3360,
+            "y": 3456
+          }
+        },
+        "startedAt": 35.75,
+        "dispatchedAt": 285,
+        "dispatchedSize": 1
+      }
+    ],
+    "lastDispatchSeconds": 285
+  },
+  "map": {
+    "id": "plains96",
+    "design": "woodlands-connected"
+  },
+  "elapsedSeconds": 305,
+  "playerBaseHP": 224.4,
+  "buildings": [
+    {
+      "id": "enemy-base",
+      "position": {
+        "x": 3504,
+        "y": 3344
+      },
+      "construction": null
+    },
+    {
+      "id": "enemy-barracks",
+      "position": {
+        "x": 3296,
+        "y": 3424
+      },
+      "construction": {
+        "remainingSeconds": 0,
+        "builderId": null
+      }
+    },
+    {
+      "id": "enemy-forge",
+      "position": {
+        "x": 3616,
+        "y": 3424
+      },
+      "construction": {
+        "remainingSeconds": 0,
+        "builderId": null
+      }
+    },
+    {
+      "id": "enemy-outpost",
+      "position": {
+        "x": 3120,
+        "y": 2960
+      },
+      "construction": {
+        "remainingSeconds": 0,
+        "builderId": null
+      }
+    },
+    {
+      "id": "enemy-outpost-2",
+      "position": {
+        "x": 2896,
+        "y": 2096
+      },
+      "construction": {
+        "remainingSeconds": 0,
+        "builderId": null
+      }
+    }
+  ],
+  "army": [
+    {
+      "id": "enemy-produced-1",
+      "position": {
+        "x": 3424,
+        "y": 3344
+      },
+      "order": {
+        "kind": "muster",
+        "destination": {
+          "x": 3424,
+          "y": 3344
+        }
+      }
+    },
+    {
+      "id": "enemy-produced-2",
+      "position": {
+        "x": 496,
+        "y": 592
+      },
+      "order": {
+        "kind": "attack-move",
+        "destination": {
+          "x": 400,
+          "y": 450
+        }
+      }
+    },
+    {
+      "id": "enemy-produced-3",
+      "position": {
+        "x": 1589.821565587093,
+        "y": 1464.7509591096507
+      },
+      "order": {
+        "kind": "attack-move",
+        "destination": {
+          "x": 400,
+          "y": 450
+        }
+      }
+    }
+  ],
+  "method": "Ordinary createMatch Normal Plains96, no injected funds/units; updateMatch .25 until first player base damage, at most800 gameplay seconds. Not a human playtest."
+}

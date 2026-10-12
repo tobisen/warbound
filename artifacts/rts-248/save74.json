@@ -1,0 +1,14 @@
+[
+  {
+    "design": "woodlands",
+    "ok": true,
+    "error": null,
+    "geometryPreserved": true
+  },
+  {
+    "design": "regions",
+    "ok": true,
+    "error": null,
+    "geometryPreserved": true
+  }
+]

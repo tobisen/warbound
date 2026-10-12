@@ -1,3 +1,35 @@
+## 2026-10-13 — RTS-241–248 local completion
+
+RTS-248 final full regression: `npm test`1978/218 PASS808.38s; isolated
+`npm run test:unit`531/92 PASS23.06s; `npm run build` strict TypeScript/build
+PASS564ms with the existing bundle-size warning; `git diff --check` PASS.
+The final run followed fixes for actual forest/objective/discovery/boss routes,
+floating enemy-resource accounting and faithful historical Save fixtures.
+No passing broad run was repeated without a change or concrete failure.
+
+Self-review covered explicit campaign IDs, race ownership, unlock/replay,
+all35 objective chains/coordinates, Save75/74 geometry, current/explored fog,
+paid AI resources/expansions, scene lifecycle/camera and minimap pixel seams.
+No blocking findings remain; no separate agent review was used.
+[Campaign/map evidence](artifacts/rts-248/README.md),
+[map images/counts](artifacts/rts-248/maps.md) and HANDOFF distinguish supplied
+component states from paid legacy playthroughs and actual Chrome checks.
+
+8→15 missions/race,40→75 race/mission selections,8→43 unique IDs.35 new
+race expeditions have200 ordered phases and235 initial/phase Save roundtrips.
+All five races and native800/1280 selection/start/Save-load were browser checked;
+nine final maps were rendered. Human campaign length/balance/enjoyment and new
+actual audio listening are not established. Earlier separate asset/voice limits remain.
+
+Discovery CPU: median first30.8→26.0ms, steady9.6→9.2ms on the identical
+artificial400-building/512-wall fixture. Cold first41.5→42.1ms remains;
+these are sync/minimap CPU timings, not full-frame FPS or a human gameplay claim.
+Latest actual green CI/Pages was241/242; intermediate243/244/246 runs failed
+regression. Final248 CI/Pages/public reload must be recorded after push.
+No hosting change, version bump or independent release is claimed.
+
+---
+
 ## 2026-10-08 — Release0.5.0 published and verified
 
 [Play0.5.0](https://tobisen.github.io/warcraft-2-tribute/) actually shows

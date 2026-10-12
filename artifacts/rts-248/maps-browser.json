@@ -1,0 +1,87 @@
+{
+  "reports": [
+    {
+      "id": "arena",
+      "design": "woodlands-connected",
+      "trees": 710,
+      "largest": 269,
+      "components": 15,
+      "route": "moving",
+      "obstacles": 747
+    },
+    {
+      "id": "forest",
+      "design": "woodlands-connected",
+      "trees": 2342,
+      "largest": 1310,
+      "components": 12,
+      "route": "moving",
+      "obstacles": 2406
+    },
+    {
+      "id": "river",
+      "design": "woodlands-connected",
+      "trees": 3300,
+      "largest": 810,
+      "components": 12,
+      "route": "moving",
+      "obstacles": 3422
+    },
+    {
+      "id": "islands",
+      "design": "woodlands-connected",
+      "trees": 2433,
+      "largest": 520,
+      "components": 16,
+      "route": "blocked",
+      "obstacles": 2642
+    },
+    {
+      "id": "frontier",
+      "design": "woodlands-connected",
+      "trees": 3694,
+      "largest": 1430,
+      "components": 13,
+      "route": "moving",
+      "obstacles": 3829
+    },
+    {
+      "id": "plains96",
+      "design": "woodlands-connected",
+      "trees": 3526,
+      "largest": 1027,
+      "components": 12,
+      "route": "moving",
+      "obstacles": 3620
+    },
+    {
+      "id": "plains128",
+      "design": "woodlands-connected",
+      "trees": 3938,
+      "largest": 1347,
+      "components": 14,
+      "route": "moving",
+      "obstacles": 4039
+    },
+    {
+      "id": "highlands",
+      "design": "woodlands-connected",
+      "trees": 2823,
+      "largest": 861,
+      "components": 14,
+      "route": "moving",
+      "obstacles": 2970
+    },
+    {
+      "id": "coast",
+      "design": "woodlands-connected",
+      "trees": 1960,
+      "largest": 422,
+      "components": 22,
+      "route": "blocked",
+      "obstacles": 2165
+    }
+  ],
+  "errors": [],
+  "fixture": "Fully revealed injected art/map fixture, not natural exploration"
+}

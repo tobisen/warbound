@@ -1,6 +1,6 @@
 import {forEachFogRun} from './fogRuns';
 import {clientPoint} from './displayPolicy';
-import { cameraIndicator,minimapCamera,minimapContent,minimapSize,worldToMinimap,type MinimapData,type MapSize } from './minimap';
+import { minimapFogRectangle,cameraIndicator,minimapCamera,minimapContent,minimapSize,worldToMinimap,type MinimapData,type MapSize } from './minimap';
 import type { Position } from '../gameplay/movement';
 /** DOM canvas owns only camera navigation. Scene shutdown removes its sole listener. */
 export function bindMinimap(canvas:HTMLCanvasElement,getView:()=>{data:MinimapData;scroll:Position;viewport:MapSize},setScroll:(point:Position)=>void,canNavigate:()=>boolean=()=>true){
@@ -24,7 +24,7 @@ export function bindMinimap(canvas:HTMLCanvasElement,getView:()=>{data:MinimapDa
  function render(){const {data,scroll,viewport}=getView();context.fillStyle='#050805';context.fillRect(0,0,canvas.width,canvas.height);const area=minimapContent(data.world);context.save();context.beginPath();context.rect(area.x,area.y,area.width,area.height);context.clip();context.fillStyle='#263929';context.fillRect(area.x,area.y,area.width,area.height);
   const rectangle=(r:{x:number;y:number;width:number;height:number})=>{const p=worldToMinimap(r,data.world);context.fillRect(p.x,p.y,r.width/data.world.width*area.width,r.height/data.world.height*area.height);};
   context.fillStyle='#535d65';for(const r of data.terrain)rectangle(r);for(const r of data.scenery??[]){context.fillStyle=r.color;rectangle(r);}
-  if(data.fog){const f=data.fog;forEachFogRun({...data.world,...f,teams:{player:f,enemy:f}},'player',(x,y,width,height,alpha)=>{context.fillStyle=alpha===1?'#050805':'rgba(0,0,0,.55)';rectangle({x,y,width,height});});}
+  if(data.fog){const f=data.fog;forEachFogRun({...data.world,...f,teams:{player:f,enemy:f}},'player',(x,y,width,height,alpha)=>{context.fillStyle=alpha===1?'#050805':'rgba(0,0,0,.55)';const r=minimapFogRectangle({x,y,width,height},data.world);context.fillRect(r.x,r.y,r.width,r.height);});}
   for(const marker of data.markers){context.fillStyle=marker.color;if(marker.footprint)rectangle(marker.footprint);else{const p=worldToMinimap(marker.position,data.world);context.fillRect(p.x-2,p.y-2,4,4);}}
   const r=cameraIndicator(scroll,data.world,viewport);context.strokeStyle='#ffffff';context.lineWidth=1;context.strokeRect(r.x+.5,r.y+.5,Math.max(0,r.width-1),Math.max(0,r.height-1));context.restore();
  }

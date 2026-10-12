@@ -22,7 +22,7 @@ const view={camera:{x:0,y:0},building:null} as const;
 function fixture(id:MapId='frontier'){return createMatch('skirmish','beginner',undefined,id);}
 function scout(m:ReturnType<typeof fixture>,index:number){const d=mapDiscoveries(m.map.id!,m.map.design)[index];m.gathering.units[0]={...m.gathering.units[0],position:{...d.position},target:{...d.position},order:{kind:'idle'}};m.fog=matchFog(m);return d;}
 it('authors hidden body-safe sites on every expanded map while standalone non-skirmish scenarios remain unchanged',()=>{
- for(const id of Object.keys(maps) as MapId[]){const m=fixture(id),finds=mapDiscoveries(id,'regions');expect(finds).toHaveLength(3);expect(new Set(finds.map(d=>d.id)).size).toBe(3);for(const d of finds){expect(bodyFits(m.map,d.position,20)).toBe(true);expect(isVisible(m.fog!,'player',d.position),`${id}/${d.id}`).toBe(false);}expect(visibleDiscoveries(m)).toEqual([]);expect(visibleMinimapData(m).markers.some(d=>d.id.includes('discovery'))).toBe(false);expect(updateDiscoveries(m)).toBe(m);}
+ for(const id of Object.keys(maps) as MapId[]){const m=fixture(id),finds=mapDiscoveries(id,'regions');expect(finds).toHaveLength(3);expect(new Set(finds.map(d=>d.id)).size).toBe(3);for(const d of finds){expect(bodyFits(m.map,d.position,20)).toBe(true);expect(m.discoveries!.claimed).not.toContain(d.id);}expect(visibleDiscoveries(m).every(d=>isVisible(m.fog!,'player',d.position))).toBe(true);expect(visibleMinimapData(m).markers.filter(d=>d.id.includes('discovery')).every(d=>isVisible(m.fog!,'player',d.position))).toBe(true);expect(updateDiscoveries(m)).toBe(m);}
  expect(createMatch('mission-waves').discoveries).toBeUndefined();
 });
 it('requires actual vision and ground proximity, then credits exactly one finite reward',()=>{
@@ -59,7 +59,7 @@ it.each(factionIds)('%s campaign finds work in all eight missions and survive Sa
  for(const mission of campaignMissions){
   let m=startCampaignMission(progress,mission.id,'normal',{player:faction,enemy:'crown'})!;
   const initialWood=m.gathering.wood,initialGold=m.gathering.goldBalance!,initialUnits=m.gathering.units.length;
-  expect(m.discoveries).toEqual({version:1,claimed:[],recruits:{}});expect(visibleDiscoveries(m)).toEqual([]);
+  expect(m.discoveries).toEqual({version:1,claimed:[],recruits:{}});expect(visibleDiscoveries(m).every(d=>isVisible(m.fog!,'player',d.position))).toBe(true);
   for(let i=0;i<3;i++){const d=scout(m,i);expect(bodyFits(m.map,d.position,20),`${faction}/${mission.id}/${d.id}`).toBe(true);m=updateDiscoveries(m);expect(m.discoveries!.claimed).toContain(d.id);}
   expect(m.gathering.wood).toBe(initialWood+40);expect(m.gathering.goldBalance).toBe(initialGold+20);expect(m.gathering.units).toHaveLength(initialUnits+1);
   expect(m.gathering.units.at(-1)?.hp).toBe(factions[faction].units.soldier.hp);

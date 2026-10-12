@@ -18,7 +18,7 @@ import {startCampaignMission} from './campaign';
 import {identityFor} from '../config/campaignSeries';
 import {campaignMissions} from '../config/campaign';
 const view={camera:{x:0,y:0},building:null};
-function match(id:BossId){return createMatch('skirmish','beginner',undefined,bossDefinitions[id].map);}
+function match(id:BossId,historical=false){return createMatch('skirmish','beginner',undefined,bossDefinitions[id].map,1,'balanced',undefined,undefined,historical?'regions':'current');}
 function army(m:MatchState,id:BossId,count:number):MatchState{const b=bossDefinitions[id],f=factions.crown;const next:MatchState={...m,gathering:{...m.gathering,units:Array.from({length:count},(_,i)=>({id:`unit-${i+4}`,kind:'soldier' as const,owner:'player' as const,hp:f.units.soldier.hp,cargo:0 as const,selected:true,position:{x:b.position.x-96+(i%4)*40,y:b.position.y-104+Math.floor(i/4)*40},target:b.position,order:{kind:'attack' as const,enemyId:bossEnemyId(id)}}))}};next.fog=matchFog(next);return next;}
 function fight(m:MatchState,seconds:number){for(let i=0;i<seconds*20&&bossEnemies(m).length&&m.gathering.units.length;i++){m.fog=matchFog(m);const combat=prepareBossCombat(m,m.combat),r=updateCombat(m.gathering,combat,.05);m={...m,gathering:r.gathering,...finishBossCombat(m,r.combat)};}return m;}
 it.each(['bramblemaw','gravelheart'] as const)('%s is hidden, body-safe, reachable, stationary and absent from AI troops/statistics',id=>{
@@ -42,10 +42,10 @@ it('requires death, actual vision and living worker proximity; rewards once and 
  const saved=decodeSave(encodeSave(next,view));expect(saved.ok,saved.ok?'':saved.error).toBe(true);if(!saved.ok)throw Error(saved.error);expect(updateBossRewards(saved.match).gathering.wood).toBe(next.gathering.wood);
 });
 it('roundtrips wounded/dead/unclaimed/claimed bosses and rejects wrong maps, duplicate roster, invalid HP and premature loot',()=>{
- const m=match('gravelheart');m.bosses!.guardians.gravelheart!.hp=900;const raw=JSON.parse(encodeSave(m,view));const loaded=decodeSave(JSON.stringify(raw));expect(loaded.ok).toBe(true);if(loaded.ok)expect(loaded.match.bosses).toEqual(m.bosses);
+ const m=match('gravelheart',true);m.bosses!.guardians.gravelheart!.hp=900;const raw=JSON.parse(encodeSave(m,view));const loaded=decodeSave(JSON.stringify(raw));expect(loaded.ok).toBe(true);if(loaded.ok)expect(loaded.match.bosses).toEqual(m.bosses);
  for(const mutate of [(d:typeof raw)=>d.state.bosses.guardians.gravelheart.hp=1401,(d:typeof raw)=>d.state.bosses.guardians.gravelheart.claimed=true,(d:typeof raw)=>d.state.bosses.guardians.bramblemaw={hp:1100,attackCooldown:0,claimed:false},(d:typeof raw)=>d.state.bosses.guardians={},(d:typeof raw)=>d.configVersion='tribute-config-64']){const bad=structuredClone(raw);mutate(bad);expect(decodeSave(JSON.stringify(bad)).ok).toBe(false);}
  m.bosses!.guardians.gravelheart!.hp=0;expect(decodeSave(encodeSave(m,view)).ok).toBe(true);
- const old=JSON.parse(encodeSave(m,view));delete old.state.bosses;old.configVersion='tribute-config-64';const migrated=decodeSave(JSON.stringify(old));expect(migrated.ok).toBe(true);if(migrated.ok)expect(migrated.match.bosses!.guardians.gravelheart!.hp).toBe(1400);
+ const old=JSON.parse(encodeSave(m,view));delete old.state.bosses;delete old.state.fog.buildings;old.configVersion='tribute-config-64';const migrated=decodeSave(JSON.stringify(old));expect(migrated.ok).toBe(true);if(migrated.ok)expect(migrated.match.bosses!.guardians.gravelheart!.hp).toBe(1400);
  expect(createClassicMatch('skirmish','beginner',undefined,'frontier').bosses).toBeUndefined();expect(createMatch('tutorial').bosses).toBeUndefined();expect(createMatch('skirmish','beginner',undefined,'arena').bosses).toBeUndefined();
 });
 it('campaign victory does not require the optional guardian and replay resets its claim ledger',()=>{
@@ -97,7 +97,7 @@ it('AI chooses a seen reachable hoard, moves a live empty worker and cannot rout
  const bank={wood:m.enemyProduction!.wood,gold:m.enemyProduction!.gold};for(let i=0;i<40&&!m.bosses!.guardians.gravelheart!.claimed;i++)m=updateMatch(m,.1);expect(m.bosses!.guardians.gravelheart).toMatchObject({claimed:true,claimedBy:'enemy'});expect(m.enemyProduction!.gold).toBeGreaterThanOrEqual(bank.gold+350-40);expect(m.gathering.goldBalance).toBe(0);
 });
 it('old claimed saves migrate to player ownership without granting twice; invalid owner/live reward are rejected',()=>{
- let m=match('bramblemaw'),p=bossLootPosition('bramblemaw');m.gathering.units[0].position=p;m.gathering.units[0].target=p;m.bosses!.guardians.bramblemaw!.hp=0;m.fog=matchFog(m);m=updateBossRewards(m);const old=JSON.parse(encodeSave(m,view));old.configVersion='tribute-config-67';delete old.state.bosses.guardians.bramblemaw.claimedBy;const loaded=decodeSave(JSON.stringify(old));expect(loaded).toMatchObject({ok:true});if(loaded.ok){expect(loaded.match.bosses!.guardians.bramblemaw!.claimedBy).toBe('player');expect(updateBossRewards(loaded.match).gathering.wood).toBe(m.gathering.wood);}
+ let m=match('bramblemaw',true),p=bossLootPosition('bramblemaw');m.gathering.units[0].position=p;m.gathering.units[0].target=p;m.bosses!.guardians.bramblemaw!.hp=0;m.fog=matchFog(m);m=updateBossRewards(m);const old=JSON.parse(encodeSave(m,view));old.configVersion='tribute-config-67';delete old.state.fog.buildings;delete old.state.bosses.guardians.bramblemaw.claimedBy;const loaded=decodeSave(JSON.stringify(old));expect(loaded).toMatchObject({ok:true});if(loaded.ok){expect(loaded.match.bosses!.guardians.bramblemaw!.claimedBy).toBe('player');expect(updateBossRewards(loaded.match).gathering.wood).toBe(m.gathering.wood);}
  const bad=JSON.parse(encodeSave(m,view));bad.state.bosses.guardians.bramblemaw.claimedBy='ai-2';expect(decodeSave(JSON.stringify(bad)).ok).toBe(false);
 });
 

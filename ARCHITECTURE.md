@@ -1,3 +1,41 @@
+## RTS-241–248 — Warbound, skog, sikt och kampanjexpeditioner
+
+Vite skriver build/preview under `/warbound/`; dev använder roten. Runtimeassets
+använder BASE_URL. GitHub Pages/workflow består; interna lagringsnycklar byts inte.
+Fortifikationer räknas inte mot något byggnadstak. Kostnad/footprints/placering och
+arbetarkontakt återanvänds; Save-listorna för defenses/obstacles saknar antalstak.
+
+[organicTerrain.ts](src/config/organicTerrain.ts) versionsmärker nya matcher som
+woodlands-connected. Täta ändliga träd, gruvgläntor och stigar delar fysisk karta
+med rendering och avverkning. Stigplaneringen föredrar naturliga öppningar genom
+viktad terrängsökning och cachelagras per kanonisk karta. Äldre woodlands/regions/
+organic-geometrier genereras oförändrade för befintliga sparningar.
+
+Gemensam fogconfig styr större radier. [buildingMemory.ts](src/gameplay/buildingMemory.ts)
+lagrar endast offentliga senast sedda uppgifter för stationära fiendebyggnader.
+Aktuell syn styr combat/order; explored är kartminne, inte tillgång till dolda
+aktuella värden. World/minimap använder samma presentationsurval. Fogoverlayen
+ritas om när relevanta bitar ändras; kameraculling och linjära närvaroset undviker
+onödiga visualobjekt. Minimapens fogrutor delar avrundade pixelgränser.
+
+AI använder vanlig betald construction/production/gathering. Distinkta farm-/
+outpost-ID:n, egna arbetare och completed outposts ger lokala bygg-/dropoffpunkter.
+Resursval/expansion kräver egen aktuell eller ihågkommen kunskap; faktisk placering
+kräver egen sikt. Defenders kan skydda egna outposts. Fler arbetare delar basuppdrag
+mellan trä och guld och reagerar på faktisk resursbrist.
+
+[campaignExpeditions.ts](src/config/campaignExpeditions.ts) innehåller35 nya
+rasspecifika ID:n och datadrivna planer. campaignMissionsFor väljer åtta bevarade
+operationer+sju egna expeditioner för en rasidentitet; äldre mixed-serie är fortsatt8.
+Befintliga fas-/bygg-/research-/transport-/operation-system återanvänds. expand
+kräver en levande färdig extra bas i målgläntan. Presentationen väljer explicit
+mission-ID eftersom flera operationer delar scenario; BootScene håller endast
+startval/livscykel/kamera. Save75 validerar ras/mission/plan/fas och migrerar tidigare
+format utan att skriva om äldre kartgeometri eller hitta på byggnadsminnen.
+
+[RTS-248-belägg](artifacts/rts-248/README.md) skiljer komponentförutsättningar,
+betalda äldre genomspelningar, renderade browserbilder och mänskligt speltest.
+
 ## RTS-234 — Projektilmål över domäner
 
 Ranged combatunits kan välja land/sea/air/buildings. attackAcrossWater är transient

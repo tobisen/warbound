@@ -69,3 +69,9 @@ export function visibleMinimapData(state:MatchState){
  data.markers.push(...visibleDiscoveries(state).map(d=>({id:d.id,owner:'neutral' as const,position:d.position,color:d.opened?'#82775b':'#ebc863'})));
  return {...data,...(fog?{fog:{tileSize:fog.tileSize,columns:fog.columns,rows:fog.rows,visible:[...fog.teams.player.visible],explored:[...fog.teams.player.explored]}}:{})};
 }
+
+/** Adjacent fog runs share integer pixel boundaries: no alpha seams or overlaps. */
+export function minimapFogRectangle(rect:Footprint,world:MapSize){
+ const a=worldToMinimap(rect,world),b=worldToMinimap({x:rect.x+rect.width,y:rect.y+rect.height},world);
+ return {x:Math.round(a.x),y:Math.round(a.y),width:Math.round(b.x)-Math.round(a.x),height:Math.round(b.y)-Math.round(a.y)};
+}

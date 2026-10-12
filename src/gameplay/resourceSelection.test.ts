@@ -21,12 +21,12 @@ it('resource hit clears units/buildings without changing ongoing orders or admit
  expect(pick(m,{x:100,y:100})).toMatchObject({building:null,resource:null});
 });
 it('overlapping own entities have priority and unknown resources cannot be selected',()=>{
- const m=createMatch(),node=m.gathering.node;
+ const m=createMatch(),node=m.gathering.node;m.fog!.teams.player.explored.fill(false);m.fog!.teams.player.visible.fill(false);
  expect(pick(m,node.position).resource).toBeNull();reveal(m,node.position);
  m.gathering.units[0].position={...node.position};expect(pick(m,node.position).units[0].selected).toBe(true);expect(pick(m,node.position).resource).toBeNull();
 });
 it.each(['wood','gold'] as const)('bottom bar displays live %s stock and depletion, never hidden current quantities',type=>{
- const m=createMatch(),node=resourceNodes(m.gathering).find(n=>n.resource===type)!;
+ const m=createMatch(),node=resourceNodes(m.gathering).find(n=>n.resource===type)!;m.fog!.teams.player.explored.fill(false);m.fog!.teams.player.visible.fill(false);
  expect(selectionInfo(m,null,node.id).name).toBe('No selection');reveal(m,node.position);
  node.remaining=12.5;expect(selectionInfo(m,null,node.id)).toMatchObject({name:type==='wood'?'Tree':'Gold mine',detail:'13 remaining',hp:null,portrait:{atlas:'reference-terrain',frame:type==='wood'?'tree-0':'mine-full'},stats:[`Resource: ${type}`,'Workers: 0 assigned / 0 gathering']});
  node.remaining=0;expect(selectionInfo(m,null,node.id).detail).toContain('Depleted');
@@ -51,7 +51,7 @@ it('inspects every farm and forge, preserving orders and unit priority',async()=
 it('visible enemy building inspection never exposes queues/research and disappears under fog',async()=>{
  const {inspectBuildingAt,inspectedBuilding}=await import('./buildingInspection');const {actionPanel}=await import('../presentation/actionPanel');
  const m=createMatch();m.gathering.units.forEach(u=>u.selected=false);
- const enemy={id:'inspect-test',kind:'building' as const,buildingType:'forge' as const,hp:55,position:{x:800,y:500},footprint:{x:784,y:484,width:32,height:32}};m.combat.enemies.push(enemy);
+ const enemy={id:'inspect-test',kind:'building' as const,buildingType:'forge' as const,hp:55,position:{x:800,y:500},footprint:{x:784,y:484,width:32,height:32}};m.combat.enemies.push(enemy);m.fog!.teams.player.explored.fill(false);m.fog!.teams.player.visible.fill(false);
  expect(inspectBuildingAt(m,enemy.position)).toBeNull();reveal(m,enemy.position);
  expect(inspectBuildingAt(m,enemy.position)).toBe('enemy:inspect-test');const info=selectionInfo(m,'enemy:inspect-test');expect(info.hp).toBe(55);expect(info.stats).toEqual(['Enemy building · Inspection only']);expect(info.detail).not.toContain('55');
  expect(Object.values(actionPanel(m,'enemy:inspect-test',true)).every(a=>!a.visible)).toBe(true);

@@ -54,14 +54,14 @@ it('pursuit cannot leave its region; losing the target resumes patrol instead of
  expect(m.navy!.ships[0].hp).toBe(hp);expect(Math.abs(m.bosses!.sea![0].position.y-initial.y)).toBeLessThan(288);expect(bodyFits(seaMonsterWater(m.map,maps.islands.seaMonsters!.areas[0]),m.bosses!.sea![0].position,16)).toBe(true);
 });
 it('fog hides monsters and their moving minimap markers before discovery and after vision loss',()=>{
- let m=match(),enemy=bossEnemies(m)[0];expect(entityVisible(m.fog!,'player',enemy)).toBe(false);expect(visibleMinimapData(m).markers.some(v=>v.id===enemy.id)).toBe(false);
+ let m=match();m.gathering.units=[];m.gathering.base={x:208,y:320};m.fog=matchFog(m);const enemy=bossEnemies(m)[0];expect(entityVisible(m.fog!,'player',enemy)).toBe(false);expect(visibleMinimapData(m).markers.some(v=>v.id===enemy.id)).toBe(false);
  m.navy={...createNavy(),ships:[ship()]};m.fog=matchFog(m);expect(entityVisible(m.fog,'player',enemy)).toBe(true);expect(visibleMinimapData(m).markers.some(v=>v.id===enemy.id)).toBe(true);
  m.navy.ships=[];m.fog=matchFog(m);expect(entityPresented(m.fog,'player',enemy)).toBe(false);expect(visibleMinimapData(m).markers.some(v=>v.id===enemy.id)).toBe(false);
 });
 it('save/load preserves patrol, wounded/dead states; legacy saves add no surprise monsters; restart resets',()=>{
  let m=match();m=updateMatch(m,.5);m.bosses!.sea![0].hp=180;m.bosses!.sea![1].hp=0;const loaded=decodeSave(encodeSave(m,view));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(!loaded.ok)throw Error(loaded.error);expect(loaded.match.bosses).toEqual(m.bosses);expect(updateMatch(loaded.match,.25).bosses).toEqual(updateMatch(m,.25).bosses);
  const raw=JSON.parse(encodeSave(m,view));for(const mutate of [(v:typeof raw)=>v.state.bosses.sea[0].position.x=100,(v:typeof raw)=>v.state.bosses.sea[0].hp=241,(v:typeof raw)=>v.state.bosses.sea[0].patrolIndex=9,(v:typeof raw)=>v.state.bosses.sea.pop(),(v:typeof raw)=>v.state.bosses.sea[1].id='channel']){const bad=structuredClone(raw);mutate(bad);expect(decodeSave(JSON.stringify(bad)).ok).toBe(false);}
- raw.configVersion='tribute-config-68';delete raw.state.bosses;const old=decodeSave(JSON.stringify(raw));expect(old.ok).toBe(true);if(old.ok)expect(old.match.bosses).toBeUndefined();expect(match().bosses!.sea!.every(v=>v.hp===seaMonsterRules.hp)).toBe(true);
+ const legacy=JSON.parse(encodeSave(createMatch('skirmish','hard',undefined,'islands',1,'balanced',undefined,undefined,'regions'),view));legacy.configVersion='tribute-config-68';delete legacy.state.bosses;delete legacy.state.fog.buildings;const old=decodeSave(JSON.stringify(legacy));expect(old.ok).toBe(true);if(old.ok)expect(old.match.bosses).toBeUndefined();expect(match().bosses!.sea!.every(v=>v.hp===seaMonsterRules.hp)).toBe(true);
 });
 it('sea monsters do not count as enemy bases or prevent ordinary victory',()=>{
  let m=match();m.combat.enemies=[];m=updateMatch(m,0);expect(m.outcome).toBe('victory');expect(m.bosses!.sea!.length).toBeGreaterThan(0);expect(m.combat.enemies).toEqual([]);expect(bossEnemies(m)[0].id).toBe(seaMonsterEnemyId('channel'));

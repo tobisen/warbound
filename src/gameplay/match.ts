@@ -145,7 +145,7 @@ export function createMatch(scenario:MatchScenario='survival',difficulty:Difficu
     speed,
     factions:{...factions},
     outcome: 'playing',paused:false,controlGroups:{},scenario,difficulty,research:createResearch(),
-    map: createMap(mapId,undefined,'trees','expanded',world==='classic'||scenario==='siege-test'?undefined:world==='regions'?'regions':'woodlands'),
+    map: createMap(mapId,undefined,'trees','expanded',world==='classic'||scenario==='siege-test'?undefined:world==='regions'?'regions':'woodlands-connected'),
     gathering: {
       expandedGoldStock:true,
       faction:factions.player,

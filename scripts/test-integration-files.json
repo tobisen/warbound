@@ -12,6 +12,7 @@
   "src/gameplay/campaign.test.ts",
   "src/gameplay/campaignContent.test.ts",
   "src/gameplay/campaignEarly.test.ts",
+  "src/gameplay/campaignExpeditions.test.ts",
   "src/gameplay/campaignLate.test.ts",
   "src/gameplay/campaignPhases.test.ts",
   "src/gameplay/campaignQuality.test.ts",

@@ -57,13 +57,14 @@ describe('faction-aware opponent army',()=>{
  });
  it.each(factionIds)('%s autonomous paid economy unlocks and replaces every roster role after combat losses',id=>{
   let m=createMatch('skirmish','normal',{player:'crown',enemy:id});
-  // Up to 1400 full-match ticks per faction need more than 5s on shared CI CPUs.
+  // Paid regional tech/expansion and repeated casualties can take up to2200 gameplay ticks.
+  // This bounds roster reachability, not human pacing or balance.
   // Explicit resilience fixture for the observed AI, not a paid player victory.
   m.combat.baseHP=1e8;delete m.capture;delete m.enemyRecovery;
   // Larger finite deposits isolate roster replacement from resource exhaustion.
   for(const node of [m.gathering.node,m.gathering.gold,...(m.gathering.extraNodes??[])])if(node)node.remaining*=10;
   const observed=new Set<string>();
-  for(let i=0;i<1400&&!roles.every(r=>observed.has(r));i++){
+  for(let i=0;i<2200&&!roles.every(r=>observed.has(r));i++){
    m=updateMatch(m,1);
    for(const e of m.combat.enemies)if(e.role&&roles.includes(e.role as typeof roles[number]))observed.add(e.role);
    if(m.enemyPolicy?.research.attack===2&&m.enemyPolicy.research.defense===2&&m.enemyProduction?.baseDevelopment?.level===3&&i%15===0){

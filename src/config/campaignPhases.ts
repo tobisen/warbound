@@ -1,6 +1,7 @@
+import {expandedCampaignMissions} from './campaignExpeditions';
 import type {CampaignMissionId} from './campaign';
 import type {MapId} from './maps';
-export type CampaignGoal='prepare'|'explore'|'waves'|'position'|'base'|'transport'|'guards'|'operation'|'tutorial'|'force'|'research'|'fleet';
+export type CampaignGoal='prepare'|'explore'|'waves'|'position'|'base'|'transport'|'guards'|'operation'|'tutorial'|'force'|'research'|'fleet'|'expand';
 export interface CampaignPhase {goal:CampaignGoal;text:string;role?:import('./factions').UnitRole;research?:import('./factions').UpgradeRole;ship?:'transport'|'warship';count?:number;points?:readonly {x:number;y:number}[]}
 export interface CampaignPlan {map:MapId;intro:string;phases:readonly CampaignPhase[]}
 const prepare:CampaignPhase={goal:'prepare',text:'Build your barracks and field two living land combatants. Gather wood and gold; add supply before training more troops.'};
@@ -12,6 +13,7 @@ const transport:CampaignPhase={goal:'transport',text:'Build your dock and a livi
 const base:CampaignPhase={goal:'base',text:'Destroy the enemy base. Explore before attacking; enemy production uses its own paid economy.'};
 const guards:CampaignPhase={goal:'guards',text:'Defeat both named guards. Scout to reveal them; dead or missing guards remain cleared.'};
 export const campaignPlans:Partial<Record<CampaignMissionId,CampaignPlan>>={
+ ...Object.fromEntries(expandedCampaignMissions.map(m=>[m.id,m.plan])),
  'forest-watch':{map:'frontier',intro:'Secure the forest route.',phases:[prepare,east,waves,crossing]},
  'the-siege':{map:'highlands',intro:'Break the mountain stronghold.',phases:[prepare,west,{goal:'position',text:'Bring a living land combatant through the northern pass (1504,544).',points:[{x:1504,y:544}]},base]},
  'the-outpost':{map:'frontier',intro:'Open a forward route through the valley.',phases:[prepare,east,waves,crossing]},

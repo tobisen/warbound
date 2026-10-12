@@ -1,9 +1,10 @@
+import {expandedCampaignMissions,type ExpandedMissionId} from './campaignExpeditions';
 import {campaignPlans} from './campaignPhases';
 import type {MatchFactions} from './factions';
 import {maps} from './maps';
 import {scenarioConfig} from './scenarios';
 
-/** The existing playable missions, in order. New missions belong to RTS-143–145. */
+/** The preserved eight legacy missions. Race expeditions are listed separately. */
 export const campaignMissions=[
  {id:'first-steps',factions:{player:'crown',enemy:'clans'},scenario:'tutorial',briefing:'Command the Human garrison. Learn selection and movement, deliver wood, build Barracks and train a Guard. Right-click the practice target with your selected Guard; no enemy pressure while learning.',debriefing:'The garrison is ready. Forest Watch is now available.'},
  {id:'forest-watch',factions:{player:'clans',enemy:'crown'},scenario:'mission-waves',briefing:'The Orcs hold Forest Watch. Gather wood and gold, build a War Hut and train Axe Warriors before the three finite raider waves. Select your army and press E for Fury in close combat. Keep your Stronghold alive.',debriefing:'The watch holds. Take the fight to the enemy stronghold in The Siege.'},
@@ -14,10 +15,10 @@ export const campaignMissions=[
  {id:'valley-rescue',factions:{player:'elves',enemy:'clans'},scenario:'mission-rescue',briefing:'The Elves reach Frontier Valley. Train an army, cross the central dry river passage and defeat Camp Guard West and Camp Guard East. Bring a living combat unit to the marked camp (1088,640). Workers alone cannot complete the rescue. Keep the Grove Hall alive.',debriefing:'The camp is free. Secure the coastal banner in the final operation.'},
  {id:'coastal-banner',factions:{player:'crown',enemy:'dwarves'},scenario:'mission-capture',briefing:'The Human forces carry the allied banner across Shattered Coast. Pay for your army, supply, Harbor and Transport, then land on the eastern coast. Clear the Dwarf guards and keep a living land combat unit in the banner zone (1600,384) for 30 continuous seconds. Enemy combatants or your absence reset the timer; ships and workers cannot hold it.',debriefing:'The coastal banner stands. The eight-operation campaign reaches its conclusion; completed operations remain available for replay.'},
 ] as const;
-export type CampaignMissionId=typeof campaignMissions[number]['id'];
-export function campaignMission(id:unknown){return campaignMissions.find(m=>m.id===id);}
+export type CampaignMissionId=typeof campaignMissions[number]['id']|ExpandedMissionId;
+export function campaignMission(id:unknown){return [...campaignMissions,...expandedCampaignMissions].find(m=>m.id===id);}
 export function campaignMissionForScenario(scenario:unknown){return campaignMissions.find(m=>m.scenario===scenario);}
-export function campaignDetails(id:CampaignMissionId){const m=campaignMission(id)!;const plan=campaignPlans[id];return {...m,...(plan?{briefing:`${plan.intro} Map: ${maps[plan.map].label}. ${plan.phases.map(p=>p.text).join(' ')} Keep your base alive.`,map:plan.map}:{}),title:scenarioConfig[m.scenario].label,goal:plan?.phases[0].text??scenarioConfig[m.scenario].instruction};}
+export function campaignDetails(id:CampaignMissionId){const m=campaignMission(id)!;const plan=campaignPlans[id];return {...m,...(plan?{briefing:`${plan.intro} Map: ${maps[plan.map].label}. ${plan.phases.map(p=>p.text).join(' ')} Keep your base alive.`,map:plan.map}:{}),title:'title' in m?m.title:scenarioConfig[m.scenario].label,goal:plan?.phases[0].text??scenarioConfig[m.scenario].instruction};}
 
 /** Presets only constrain new campaign starts; loaded match factions remain authoritative. */
 export function campaignPreset(id:unknown):MatchFactions|undefined {const mission=campaignMission(id);return mission&&'factions' in mission?{...mission.factions}:undefined;}

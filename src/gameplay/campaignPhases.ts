@@ -22,6 +22,7 @@ export function campaignPhaseMet(m:MatchState,p:CampaignPhase):boolean{
   case 'explore':return !!m.fog&&p.points!.every(point=>isExplored(m.fog!,'player',point));
   case 'waves':return m.waves.nextWave===scenarioWaves(m.scenario!,m.difficulty!).length&&!m.combat.enemies.some(e=>e.hp>0&&e.kind!=='base');
   case 'position':return p.points!.every(point=>land.some(u=>Math.hypot(u.position.x-point.x,u.position.y-point.y)<=64));
+  case 'expand':return p.points!.every(point=>(m.placement.bases??[]).some(b=>b.hp>0&&b.construction.remainingSeconds===0&&Math.hypot(b.footprint.x+b.footprint.width/2-point.x,b.footprint.y+b.footprint.height/2-point.y)<=96));
   case 'base':return !hasEnemyBase(m.combat,m.map);
   case 'transport':return !!m.navy?.harbor&&m.navy.harbor.hp>0&&m.navy.harbor.construction.remainingSeconds===0&&m.navy.ships.some(s=>s.role==='transport'&&s.hp>0);
   case 'guards':return !!operationFor(m.scenario)&&operationFor(m.scenario)!.guards.every(g=>!m.combat.enemies.some(e=>e.id===g.id&&e.hp>0));

@@ -1,0 +1,290 @@
+[
+  {
+    "id": "crown-border-granaries",
+    "width": 800,
+    "started": {
+      "id": "crown-border-granaries",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "human-frontier-v1"
+      },
+      "map": "river",
+      "phase": "playing",
+      "faction": "crown",
+      "camera": {
+        "x": 0,
+        "y": 191,
+        "width": 800,
+        "height": 368
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "loaded": {
+      "id": "crown-border-granaries",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "human-frontier-v1"
+      },
+      "map": "river",
+      "phase": "paused",
+      "faction": "crown",
+      "camera": {
+        "x": 0,
+        "y": 191,
+        "width": 800,
+        "height": 368
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "briefing": "Briefing: Border Granaries: Secure a resource route and establish a paid expansion before challenging the hostile stronghold.\nObjectives: Establish a barracks and field two living land combatants. Gather finite wood and gold; keep your base alive. Explore the resource clearings (848,1648). Follow the forest routes and locate finite mines. Pay for and complete a new base within96px of (832,1632). Send a worker through the woods and protect the construction site. Field 2 living cavalry troops for this operation; pay their training and supply costs. Destroy all enemy bases, including completed expansions. Scout before attacking and keep your own base alive.\nIntroduces: Combine paid expansions, distant scouting, researched land/air/sea forces and the operation objectives.\nVictory unlocks: Lanterns in the Wood — Combine paid expansions, distant scouting, researched land/air/sea forces and the operation objectives.",
+    "errors": []
+  },
+  {
+    "id": "crown-lanterns-in-the-wood",
+    "width": 1280,
+    "started": {
+      "id": "crown-lanterns-in-the-wood",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "human-frontier-v1"
+      },
+      "map": "forest",
+      "phase": "playing",
+      "faction": "crown",
+      "camera": {
+        "x": 0,
+        "y": 131,
+        "width": 1280,
+        "height": 488
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "loaded": {
+      "id": "crown-lanterns-in-the-wood",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "human-frontier-v1"
+      },
+      "map": "forest",
+      "phase": "paused",
+      "faction": "crown",
+      "camera": {
+        "x": 0,
+        "y": 131,
+        "width": 1280,
+        "height": 488
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "briefing": "Briefing: Lanterns in the Wood: Restore distant scouting contacts. Two separated clearings reveal alternative reinforcement routes through the forest.\nObjectives: Establish a barracks and field two living land combatants. Gather finite wood and gold; keep your base alive. Explore the resource clearings (656,1872) and (1552,2704). Follow the forest routes and locate finite mines. Field 1 living scout troops for this operation; pay their training and supply costs. Complete a paid defense upgrade before the final assault. Destroy all enemy bases, including completed expansions. Scout before attacking and keep your own base alive.\nIntroduces: Combine paid expansions, distant scouting, researched land/air/sea forces and the operation objectives.\nVictory unlocks: Three Roads — Combine paid expansions, distant scouting, researched land/air/sea forces and the operation objectives.",
+    "errors": []
+  },
+  {
+    "id": "clans-across-the-reeds",
+    "width": 800,
+    "started": {
+      "id": "clans-across-the-reeds",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "orcs-exodus-v1"
+      },
+      "map": "islands",
+      "phase": "playing",
+      "faction": "clans",
+      "camera": {
+        "x": 0,
+        "y": 191,
+        "width": 800,
+        "height": 368
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "loaded": {
+      "id": "clans-across-the-reeds",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "orcs-exodus-v1"
+      },
+      "map": "islands",
+      "phase": "paused",
+      "faction": "clans",
+      "camera": {
+        "x": 0,
+        "y": 191,
+        "width": 800,
+        "height": 368
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "briefing": "Briefing: Across the Reeds: Open an eastern supply landing. Build your own fleet and secure a remote coastal resource route before attacking.\nObjectives: Establish a barracks and field two living land combatants. Gather finite wood and gold; keep your base alive. Field 2 living specialist troops for this operation; pay their training and supply costs. Complete a paid harbor and transport; load your army and sail to a clear eastern landing. Secure the clearing (960,480) with a living land combatant; workers, ships and passengers cannot claim it. Explore the resource clearings (2416,816). Follow the forest routes and locate finite mines. Field two paid living warships to secure the eastern supply channel. Destroy all enemy bases, including completed expansions. Scout before attacking and keep your own base alive.\nIntroduces: Combine paid expansions, distant scouting, researched land/air/sea forces and the operation objectives.\nVictory unlocks: Warband Confluence — Combine paid expansions, distant scouting, researched land/air/sea forces and the operation objectives.",
+    "errors": []
+  },
+  {
+    "id": "elves-the-lost-circle",
+    "width": 800,
+    "started": {
+      "id": "elves-the-lost-circle",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "elves-roots-v1"
+      },
+      "map": "frontier",
+      "phase": "playing",
+      "faction": "elves",
+      "camera": {
+        "x": 0,
+        "y": 191,
+        "width": 800,
+        "height": 368
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "loaded": {
+      "id": "elves-the-lost-circle",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "elves-roots-v1"
+      },
+      "map": "frontier",
+      "phase": "paused",
+      "faction": "elves",
+      "camera": {
+        "x": 0,
+        "y": 191,
+        "width": 800,
+        "height": 368
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "briefing": "Briefing: The Lost Circle: Reopen contact with a stranded ally. Clear the named guards and bring the stranded ally to safety.\nObjectives: Establish a barracks and field two living land combatants. Gather finite wood and gold; keep your base alive. Explore the resource clearings (1280,640). Follow the forest routes and locate finite mines. Field 2 living archer troops for this operation; pay their training and supply costs. Scout and defeat both named guards. Keep your base alive while opening the route. Bring a living land combatant into the rescue camp (1088,640) after the guards fall; keep your base alive.\nIntroduces: Combine paid expansions, distant scouting, researched land/air/sea forces and the operation objectives.\nVictory unlocks: Moonlit Channel — Combine paid expansions, distant scouting, researched land/air/sea forces and the operation objectives.",
+    "errors": []
+  },
+  {
+    "id": "dwarves-the-last-courier",
+    "width": 800,
+    "started": {
+      "id": "dwarves-the-last-courier",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "dwarves-road-v1"
+      },
+      "map": "highlands",
+      "phase": "playing",
+      "faction": "dwarves",
+      "camera": {
+        "x": 0,
+        "y": 206,
+        "width": 800,
+        "height": 368
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "loaded": {
+      "id": "dwarves-the-last-courier",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "dwarves-road-v1"
+      },
+      "map": "highlands",
+      "phase": "paused",
+      "faction": "dwarves",
+      "camera": {
+        "x": 0,
+        "y": 206,
+        "width": 800,
+        "height": 368
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "briefing": "Briefing: The Last Courier: Reopen contact with a stranded ally. Clear the named guards and bring the stranded ally to safety.\nObjectives: Establish a barracks and field two living land combatants. Gather finite wood and gold; keep your base alive. Explore the resource clearings (992,864). Follow the forest routes and locate finite mines. Field 2 living giant troops for this operation; pay their training and supply costs. Scout and defeat both named guards. Keep your base alive while opening the route. Escort the living Ridge Courier into the safe zone (1504,544); losing the courier or base defeats the mission.\nIntroduces: Combine paid expansions, distant scouting, researched land/air/sea forces and the operation objectives.\nVictory unlocks: Iron Tide — Combine paid expansions, distant scouting, researched land/air/sea forces and the operation objectives.",
+    "errors": []
+  },
+  {
+    "id": "goblins-the-charter-reclaimed",
+    "width": 1280,
+    "started": {
+      "id": "goblins-the-charter-reclaimed",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "goblins-contract-v1"
+      },
+      "map": "highlands",
+      "phase": "playing",
+      "faction": "goblins",
+      "camera": {
+        "x": 0,
+        "y": 131,
+        "width": 1280,
+        "height": 488
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "loaded": {
+      "id": "goblins-the-charter-reclaimed",
+      "run": {
+        "version": 1,
+        "phase": 0,
+        "campaignId": "goblins-contract-v1"
+      },
+      "map": "highlands",
+      "phase": "paused",
+      "faction": "goblins",
+      "camera": {
+        "x": 0,
+        "y": 131,
+        "width": 1280,
+        "height": 488
+      },
+      "base": {
+        "x": 400,
+        "y": 450
+      }
+    },
+    "briefing": "Briefing: The Charter Reclaimed: Complete the race expedition with a combined assault. Explore remote regions, build a forward economy and defeat every hostile base.\nObjectives: Establish a barracks and field two living land combatants. Gather finite wood and gold; keep your base alive. Explore the resource clearings (2032,1392) and (3696,2224). Follow the forest routes and locate finite mines. Pay for and complete a new base within96px of (3680,2208). Send a worker through the woods and protect the construction site. Field 3 living catapult troops for this operation; pay their training and supply costs. Field 2 living air troops for this operation; pay their training and supply costs. Complete a paid attack upgrade before the final assault. Destroy all enemy bases, including completed expansions. Scout before attacking and keep your own base alive.\nIntroduces: Combine paid expansions, distant scouting, researched land/air/sea forces and the operation objectives.\nVictory unlocks: Campaign complete; all operations can be replayed.",
+    "errors": []
+  }
+]

@@ -1,7 +1,7 @@
 import {missionContent} from '../config/campaignContent';
-import {identityKey,seriesForId,seriesMissionPlan,type CampaignIdentity} from '../config/campaignSeries';
+import {campaignMissionsFor,identityKey,seriesForId,seriesMissionPlan,type CampaignIdentity} from '../config/campaignSeries';
 import {campaignPlans} from '../config/campaignPhases';
-import {campaignMissions,campaignMission,campaignPreset,type CampaignMissionId} from '../config/campaign';
+import {campaignMission,campaignPreset,type CampaignMissionId} from '../config/campaign';
 import {scenarioConfig} from '../config/scenarios';
 import {createMatch,type MatchState} from './match';
 import type {Difficulty} from '../config/difficulty';
@@ -13,36 +13,37 @@ export const freshCampaignProgress=():CampaignProgress=>({version:1,completed:[]
 export function validateCampaignProgress(value:unknown):CampaignProgress{
  if(!value||typeof value!=='object'||Array.isArray(value))return freshCampaignProgress();
  const v=value as Record<string,unknown>;
- if(Object.keys(v).some(k=>!['version','completed','identity'].includes(k))||v.version!==1||!Array.isArray(v.completed)||v.completed.length>campaignMissions.length||v.completed.some(id=>!campaignMission(id))||new Set(v.completed).size!==v.completed.length)return freshCampaignProgress();
+ if(Object.keys(v).some(k=>!['version','completed','identity'].includes(k))||v.version!==1||!Array.isArray(v.completed)||v.completed.length>campaignMissionsFor((v.identity as CampaignIdentity|undefined)?.campaignId).length||v.completed.some(id=>!campaignMission(id))||new Set(v.completed).size!==v.completed.length)return freshCampaignProgress();
  if(v.identity){const i=v.identity as CampaignIdentity;if(seriesForId(i.campaignId)?.faction!==i.faction||!['beginner','easy','normal','hard'].includes(i.difficulty))return freshCampaignProgress();}
- const completed=v.completed;return {version:1,...(v.identity?{identity:{...v.identity as CampaignIdentity}}:{}),completed:campaignMissions.filter(m=>completed.includes(m.id)).map(m=>m.id)};
+ const missions=campaignMissionsFor((v.identity as CampaignIdentity|undefined)?.campaignId);if(v.completed.some(id=>!missions.some(m=>m.id===id)))return freshCampaignProgress();
+ const completed=v.completed;return {version:1,...(v.identity?{identity:{...v.identity as CampaignIdentity}}:{}),completed:missions.filter(m=>completed.includes(m.id)).map(m=>m.id)};
 }
 export function campaignMissionStatus(progress:CampaignProgress,id:CampaignMissionId):'locked'|'available'|'completed'{
- if(progress.completed.includes(id))return 'completed';
- const index=campaignMissions.findIndex(m=>m.id===id);
- return index===0||index>0&&progress.completed.includes(campaignMissions[index-1].id)?'available':'locked';
+ const missions=campaignMissionsFor(progress.identity?.campaignId),index=missions.findIndex(m=>m.id===id);
+ if(index<0)return 'locked';if(progress.completed.includes(id))return 'completed';
+ return index===0||index>0&&progress.completed.includes(missions[index-1].id)?'available':'locked';
 }
 export function completeCampaignMission(progress:CampaignProgress,match:MatchState):CampaignProgress{
  const mission=campaignMission(match.campaignMission);
  if(progress.identity&&(match.campaignRun?.campaignId!==progress.identity.campaignId||match.factions?.player!==progress.identity.faction||match.difficulty!==progress.identity.difficulty))return progress;
- if(match.outcome!=='victory'||!mission||mission.scenario!==match.scenario||progress.completed.includes(mission.id))return progress;
+ if(match.outcome!=='victory'||!mission||!campaignMissionsFor(progress.identity?.campaignId).some(m=>m.id===mission.id)||mission.scenario!==match.scenario||progress.completed.includes(mission.id))return progress;
  // A resumed campaign save can earn its own completion even on a new browser.
  // It never fabricates completion for any earlier missions.
  return validateCampaignProgress({version:1,...(progress.identity?{identity:progress.identity}:{}),completed:[...progress.completed,mission.id]});
 }
 export function startCampaignMission(progress:CampaignProgress,id:CampaignMissionId,difficulty:Difficulty,factions:MatchFactions,speed:GameSpeed=1):MatchState|null{
  const mission=campaignMission(id);
- if(!mission||campaignMissionStatus(progress,id)==='locked'||progress.identity&&(progress.identity.faction!==factions.player||progress.identity.difficulty!==difficulty))return null;
+ if(!mission||!campaignMissionsFor(progress.identity?.campaignId).some(m=>m.id===id)||campaignMissionStatus(progress,id)==='locked'||progress.identity&&(progress.identity.faction!==factions.player||progress.identity.difficulty!==difficulty))return null;
  if(progress.identity){const identity=progress.identity,series=seriesForId(identity.campaignId)!;const match={...createMatch(mission.scenario,difficulty,{player:identity.faction,enemy:series.enemy},seriesMissionPlan(id,identity.campaignId).map,speed,'balanced',undefined,id),campaignMission:id,campaignRun:{version:1 as const,phase:0,campaignId:identity.campaignId}};return {...match,gathering:{...match.gathering,campaignContent:missionContent(id)}};}
  return {...createMatch(mission.scenario,difficulty,campaignPreset(id)??factions,campaignPlans[id]?.map??scenarioConfig[mission.scenario].map,speed,'balanced',undefined,id),campaignMission:id};
 }
 /** Only offer the immediate unlocked successor of a campaign victory. */
 export function nextCampaignMissionId(match:MatchState,progress:CampaignProgress):CampaignMissionId|null {
  if(match.outcome!=='victory')return null;
- const index=campaignMissions.findIndex(m=>m.id===match.campaignMission);
- if(index<0||index>=campaignMissions.length-1||campaignMissions[index].scenario!==match.scenario)return null;
+ const missions=campaignMissionsFor(progress.identity?.campaignId),index=missions.findIndex(m=>m.id===match.campaignMission);
+ if(index<0||index>=missions.length-1||missions[index].scenario!==match.scenario)return null;
  if(progress.identity&&(match.campaignRun?.campaignId!==progress.identity.campaignId||match.factions?.player!==progress.identity.faction||match.difficulty!==progress.identity.difficulty))return null;
- const id=campaignMissions[index+1].id;
+ const id=missions[index+1].id;
  return campaignMissionStatus(completeCampaignMission(progress,match),id)==='locked'?null:id;
 }
 export function nextCampaignMission(match:MatchState,progress:CampaignProgress):MatchState|null {

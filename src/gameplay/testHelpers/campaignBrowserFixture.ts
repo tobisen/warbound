@@ -1,0 +1,1 @@
+import {campaignMissionsFor,identityFor,identityKey} from '../../config/campaignSeries';import {factionIds} from '../../config/factions';export function seed(){return {version:2,campaigns:Object.fromEntries(factionIds.map(f=>{const i=identityFor(f,'normal');return [identityKey(i),campaignMissionsFor(i.campaignId).map(m=>m.id)];}))};}

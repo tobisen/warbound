@@ -18,7 +18,7 @@ import {enemyBase} from './enemyBases';
 import {cleanDestroyed} from './destruction';
 const view={camera:{x:0,y:0},building:null};
 it.each(Object.keys(maps) as MapId[])('%s has a distant reachable region, usable resources, curved land/water and strict Save',id=>{
- const m=createMatch('skirmish','beginner',undefined,id),base=regionBases[id],route=approachRoute(m.map,m.gathering.units[2].position,base,24),nodes=resourceNodes(m.gathering);expect(m.map.design).toBe('woodlands');expect(terrainPatches(m.map).filter(p=>p.kind==='water').length).toBeGreaterThan(5);
+ const m=createMatch('skirmish','beginner',undefined,id),base=regionBases[id],route=approachRoute(m.map,m.gathering.units[2].position,base,24),nodes=resourceNodes(m.gathering);expect(m.map.design).toBe('woodlands-connected');expect(terrainPatches(m.map).filter(p=>p.kind==='water').length).toBeGreaterThan(5);
  expect(isVisible(m.fog!,'player',{x:base.x+48,y:base.y+48})).toBe(false);
  if(!maps[id].enemyNaval){expect(route.status,id).not.toBe('blocked');const points=[m.gathering.units[2].position,...route.waypoints],length=points.slice(1).reduce((n,p,i)=>n+Math.hypot(p.x-points[i].x,p.y-points[i].y),0);expect(length,id).toBeGreaterThan(1500);}
  else{expect(route.status).toBe('blocked');expect(approachRoute(m.map,m.combat.enemies.find(e=>e.kind==='worker')!.position,{x:864,y:320,width:64,height:64},24).status).not.toBe('blocked');expect(findDomainRoute(m.map,'water',{x:720,y:432},{x:880,y:432},16).ok).toBe(true);expect(approachRoute(m.map,{x:960,y:480},base,24).status).not.toBe('blocked');}
@@ -46,7 +46,7 @@ it('natural paid expansion preserves a valid Save and victory after the original
 it.each(['islands','coast'] as const)('%s distant naval economy scouts and builds its paid harbor',id=>{let m=createMatch('skirmish','normal',undefined,id);for(let t=0;t<180;t+=.5){m=updateMatch(m,.5);if(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0))break;}expect(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0)).toBe(true);const loaded=decodeSave(encodeSave(m,view));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);},30000);
 
 it.each(Object.keys(maps) as MapId[])('%s woodland version adds connected forest and preserves existing gold sites',async id=>{
- const {mapResources}=await import('../config/maps');const before=mapResources(id,'trees','expanded','regions'),after=mapResources(id,'trees','expanded','woodlands');
+ const {mapResources}=await import('../config/maps');const before=mapResources(id,'trees','expanded','regions'),after=mapResources(id,'trees','expanded','woodlands-connected');
  expect(after.filter(n=>n.tree).length).toBeGreaterThan(before.filter(n=>n.tree).length*1.6);
  for(const mine of before.filter(n=>n.mine))expect(after.find(n=>n.id===mine.id),`${id}:${mine.id}`).toEqual(mine);
  const largest=(nodes:typeof after)=>{const cells=new Set(nodes.filter(n=>n.tree).map(n=>`${Math.floor(n.position.x/32)},${Math.floor(n.position.y/32)}`));let maximum=0;while(cells.size){const queue=[cells.values().next().value!];cells.delete(queue[0]);for(let i=0;i<queue.length;i++){const [x,y]=queue[i].split(',').map(Number);for(const [dx,dy]of [[1,0],[-1,0],[0,1],[0,-1]]){const key=`${x+dx},${y+dy}`;if(cells.delete(key))queue.push(key);}}maximum=Math.max(maximum,queue.length);}return maximum;};
@@ -65,6 +65,6 @@ it('a regional AI grows its paid worker economy and preserves Save across expans
  expect(m.combat.enemies.some(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0)).toBe(true);
  expect(m.enemyProduction!.extracted!.wood).toBeGreaterThan(m.enemyProduction!.wood);
  const saved=decodeSave(encodeSave(m,view));expect(saved.ok,saved.ok?'':saved.error).toBe(true);
- if(!saved.ok)return;const legacy=JSON.parse(encodeSave(createMatch('skirmish'),view));legacy.configVersion='tribute-config-73';expect(decodeSave(JSON.stringify(legacy)).ok).toBe(true);
+ if(!saved.ok)return;const legacy=JSON.parse(encodeSave(createMatch('skirmish','normal',undefined,undefined,1,'balanced',undefined,undefined,'regions'),view));legacy.configVersion='tribute-config-73';expect(decodeSave(JSON.stringify(legacy)).ok).toBe(true);
  const resumed=updateMatch(saved.match,.5);expect(resumed.combat.enemies.filter(e=>e.kind==='worker')).toHaveLength(4);
 },30000);

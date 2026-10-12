@@ -1,0 +1,36 @@
+{
+  "full": {
+    "command": "npm test",
+    "tests": 1978,
+    "files": 218,
+    "seconds": 808.38,
+    "result": "PASS"
+  },
+  "unit": {
+    "command": "npm run test:unit",
+    "tests": 531,
+    "files": 92,
+    "seconds": 23.06,
+    "result": "PASS"
+  },
+  "build": {
+    "command": "npm run build",
+    "strictTypeScript": true,
+    "buildMs": 564,
+    "result": "PASS",
+    "warning": "Existing >500kB bundle warning"
+  },
+  "browser": {
+    "campaignSelections": 6,
+    "factions": 5,
+    "nativeWidths": [
+      800,
+      1280
+    ],
+    "maps": 9,
+    "result": "PASS"
+  },
+  "review": "Self-review; no blocking findings; no delegated agent review",
+  "human": "Mission length/balance/enjoyment/audio listening not verified",
+  "deployment": "Final248 pending after task push"
+}

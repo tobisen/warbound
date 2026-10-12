@@ -53,9 +53,9 @@ import {dismissProposal,dismissUnits,dismissBuilding,type DismissProposal} from 
 import {dismissMessage} from '../presentation/dismiss';
 import {renderOperation,operationMarkers} from '../presentation/operations';
 import type {CaptureState} from '../gameplay/operations';
-import {campaignMissionForScenario,type CampaignMissionId} from '../config/campaign';
+import {type CampaignMissionId} from '../config/campaign';
 import {nextCampaignMissionId,nextCampaignMission,startCampaignMission} from '../gameplay/campaign';
-import {campaignStore} from '../presentation/campaign';
+import {campaignStore,selectedCampaignMission} from '../presentation/campaign';
 import {currentHomePage} from '../presentation/homeMenu';
 import {enemyMaximumHP} from '../gameplay/enemyUnits';
 import {technologyFor} from '../gameplay/productionPrerequisites';
@@ -405,7 +405,7 @@ export class BootScene extends Phaser.Scene {
     this.buildingRing = this.add.rectangle(0, 0, 0, 0).setOrigin(0).setStrokeStyle(2, 0xffdc73).setDepth(effectConfig.selectionDepth).setVisible(false);
     this.cameras.main.setBounds(0, 0, this.map.width, this.map.height).setZoom(1).setScroll(loaded?.view.camera.x??0,loaded?.view.camera.y??0);
     const resizeCamera=()=>{const oldView=this.visibleCamera(),v=viewportGeometry(this.scale.width,this.scale.height,this.map);const camera=this.cameras.main;camera.setViewport(v.camera.x,v.camera.y,v.camera.width,v.camera.height);camera.setBounds(0,0,this.map.width,this.map.height);this.setCameraScroll(clampCamera(oldView,this.map,this.visibleCamera()));this.wallDrag=undefined;this.wallPreview?.clear();this.drag=undefined;this.cameraDrag=undefined;this.dragBox?.setVisible(false);};
-    resizeCamera();this.scale.on(Phaser.Scale.Events.RESIZE,resizeCamera);this.events.once(Phaser.Scenes.Events.SHUTDOWN,()=>this.scale.off(Phaser.Scale.Events.RESIZE,resizeCamera));
+    resizeCamera();this.scale.on(Phaser.Scale.Events.RESIZE,resizeCamera);const focusStart=()=>{const focus=cameraFocus([this.gathering.base,...this.gathering.units.filter(u=>u.kind==='worker').map(u=>u.position)],this.map,this.visibleCamera());if(focus)this.setCameraScroll(focus);};let startFocusFrame:number|undefined;if(!loaded&&this.campaignMission){focusStart();startFocusFrame=requestAnimationFrame(()=>{startFocusFrame=requestAnimationFrame(focusStart);});}this.events.once(Phaser.Scenes.Events.SHUTDOWN,()=>{this.scale.off(Phaser.Scale.Events.RESIZE,resizeCamera);if(startFocusFrame!==undefined)cancelAnimationFrame(startFocusFrame);});
     this.cameraDrag = undefined;
     this.cameraInput=bindCameraInput(this.game.canvas,()=>{const c=this.cameras.main;return {zoom:c.zoom,scroll:this.visibleCamera(),world:this.map,camera:{x:c.x,y:c.y,width:c.width,height:c.height}};},()=>this.simulationActive()&&!this.cameraDrag&&!this.drag&&!this.wallDrag,p=>{this.setCameraScroll(p);if(this.placement.active)this.previewPoint=this.worldPoint(this.input.activePointer);},(zoom,p,anchor)=>{this.cameras.main.setZoom(zoom);this.setCameraScroll(p);if(this.placement.active){this.previewPoint=anchor;this.syncPlacement();}});
     const cameraKey=(event:KeyboardEvent)=>{const shortcut=cameraShortcut(event.key,{...keyboardContext(event,this.gameplayActive()),ctrlKey:event.ctrlKey,metaKey:event.metaKey});if(!shortcut||this.drag||this.cameraDrag||this.wallDrag)return;event.preventDefault();const c=this.cameras.main,target=cameraFocus(shortcut==='base'?[this.gathering.base]:selectionFocusPoints(this.currentMatch(),this.selectedBuilding),this.map,this.visibleCamera());if(target){this.setCameraScroll(target);if(this.placement.active)this.previewPoint=this.worldPoint(this.input.activePointer);this.syncVisuals();}};
@@ -658,7 +658,7 @@ export class BootScene extends Phaser.Scene {
   private sessionAction(action:SessionAction):void {
     if(this.pendingDismiss)return;
     if(action==='start'&&this.session.phase==='menu'&&!this.restartPending){
-      const mission=currentHomePage()==='campaign'?campaignMissionForScenario(this.session.options.scenario):undefined;
+      const mission=currentHomePage()==='campaign'?selectedCampaignMission(this.session.options.scenario):undefined;
       if(currentHomePage()==='campaign'&&!mission)return;
       if(mission){const start=startCampaignMission(campaignStore.get(identityFor(this.session.options.faction??defaultFactions.player,this.session.options.difficulty)),mission.id,this.session.options.difficulty,factionsForPlayer(this.session.options.faction??defaultFactions.player,this.session.options.enemyFaction),this.session.options.speed??1);if(!start)return;this.campaignRun=start.campaignRun;this.session=changeOptions(this.session,{faction:start.factions!.player,enemyFaction:start.factions!.enemy});}
       this.campaignMission=mission?.id;if(!mission)this.campaignRun=undefined;
@@ -686,7 +686,7 @@ export class BootScene extends Phaser.Scene {
     renderHighscorePanels(this.currentMatch(),phase==='ended');
     renderMatchResults(document.getElementById('match-results')!,this.currentMatch(),phase==='ended');
     const inCampaign=menu&&currentHomePage()==='campaign';
-    const chosenMission=campaignMissionForScenario(this.session.options.scenario);
+    const chosenMission=selectedCampaignMission(this.session.options.scenario);
     const shown=inCampaign&&chosenMission?{...this.session.options,map:seriesMissionPlan(chosenMission.id,identityFor(this.session.options.faction??defaultFactions.player,this.session.options.difficulty).campaignId).map}:this.session.options;
     const details=matchSettingDetails(shown);document.getElementById('map-description')!.textContent=details.map;document.getElementById('difficulty-description')!.textContent=details.difficulty;
     const summary=document.getElementById('match-options-summary')!;summary.textContent=matchSettingsSummary(shown);summary.hidden=!menu;

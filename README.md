@@ -18,11 +18,11 @@ npm run dev
 ```
 
 Öppna adressen Vite skriver ut, normalt http://localhost:5173/.
-Alla nya spelkartor är128×128 tiles/4096×4096 world pixels med32px tiles. Spelvyn fyller fönstret med karta och en kompakt bottom-bar; mission/tech/hjälp finns under Menu. Mushjulet över kartan zoomar0.5×–2× med stabil punkt under musen, och mittenmusknappen panorerar. Minimap och klick följer det synliga världsutsnittet. Save bevarar utsnittets övre vänstra position; laddning och ny match startar på1× zoom.
+Nya kartor använder32px tiles: Arena64×64/2048×2048, Forest96×96/3072×3072 och övriga kartor128×128/4096×4096 world pixels. Spelvyn fyller fönstret med karta och en kompakt bottom-bar; mission/tech/hjälp finns under Menu. Mushjulet över kartan zoomar0.5×–2× med stabil punkt under musen, och mittenmusknappen panorerar. Minimap och klick följer det synliga världsutsnittet. Save bevarar utsnittets övre vänstra position; laddning och ny match startar på1× zoom.
 
 ## Spela matchen
 
-I huvudmenyn väljer du Campaign eller Skirmish (med separat Wave-survival-val). Campaign går via ras → svårighet → start/fortsätt → briefing. Alla fem raser har varsin åttauppdragsserie med egen berättelse och taktiska mål; progression är separat för kampanj, ras och svårighet. Skirmish låter dig välja fem raser, karta och AI-spelare. Välj Beginner/Easy/Normal/Hard och gameplayhastighet. Nya kampanjstarter har permanenta faser: preparation, spaning, försvar, passage, transport, eskort, räddning och kustkontroll. Läs aktuellt engelskt phasegoal. Fristående scenarier och äldre kampanj-saves behåller tidigare villkor. Förlust vid basens död har företräde.
+I huvudmenyn väljer du Campaign eller Skirmish (med separat Wave-survival-val). Campaign går via ras → svårighet → start/fortsätt → briefing. Alla fem raser har varsin serie med15 spelbara uppdrag: åtta bevarade grundoperationer och sju nya rasspecifika expeditioner med egna namn, kartor och mål; progression är separat för kampanj, ras och svårighet. Skirmish låter dig välja fem raser, karta och AI-spelare. Välj Beginner/Easy/Normal/Hard och gameplayhastighet. Nya kampanjstarter har permanenta faser: preparation, spaning, försvar, passage, transport, eskort, räddning och kustkontroll. Läs aktuellt engelskt phasegoal. Fristående scenarier och äldre kampanj-saves behåller tidigare villkor. Förlust vid basens död har företräde.
 
 Resurscheat: tryck **Enter** under en aktiv match, skriv
 `icanseemyhousefromhere` och tryck **Enter**. Varje användning lägger till
@@ -895,3 +895,20 @@ foggoffnow ingår, tillsammans med tidigare commitade karta/UI/ljud/gameplay-
 förbättringar sedan0.3.0. Inbyggd changelog har hela sammanfattningen.
 Full lokal regression1706 tester, slutlig CI och faktisk public browser PASS.
 Se RELEASE_CHECKLIST.md/HANDOFF.md för verifiering och kvarstående begränsningar.
+
+## RTS-241–248 — Warbound, utforskning och större kampanjer
+
+Publicerad sida: [Warbound](https://tobisen.github.io/warbound/). Build/preview använder `/warbound/`; dev använder roten. Interna sparnycklar behålls för kompatibilitet.
+Fortifikationer har ingen antalsgräns; kostnad, byggyta och placeringsregler gäller.
+Nya matcher har tätare sammanhängande avverkningsbar skog och fler tydligt skilda
+resursregioner på alla nio kartor; äldre woodland-, region- och organiska sparningar behåller sin geometri.
+Synradierna är större. Aktuell syn och utforskad terräng skiljs fortfarande åt;
+fiendebyggnader visar endast senast observerade uppgifter utanför aktuell syn.
+
+Kampanjerna omfattar15 uppdrag per ras,75 ras/uppdragsval och43 uppdrags-ID:n:
+åtta gemensamma grundkedjor plus35 nya rasspecifika expeditioner. Äldre blandad
+kampanj behåller sina åtta uppdrag. Progression per ras/svårighet och färdiga
+uppdrags replay bevaras. Nya expeditioner kombinerar betalda expansioner, spaning,
+ändliga försvarsvågor, faktiskt eskort-/räddningsmål samt land-/flyg-/sjöstyrkor.
+Se [inventering och plan](artifacts/rts-247/campaign-plan.md) och slutlig HANDOFF
+för skillnaden mellan mål-/Save-/browserkontroller och mänskligt speltest.

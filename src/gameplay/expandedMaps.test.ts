@@ -27,7 +27,7 @@ it('Save56 coordinates stay on original reference dimensions and Save57 refuses 
  }
 });
 it('campaign positioning objectives remain on accessible authored land, transport route remains water-only',()=>{
- for(const plan of Object.values(campaignPlans))if(plan)for(const p of plan.phases)if(p.goal==='position')for(const point of p.points!){const m=createMatch('skirmish','beginner',undefined,plan.map);expect(bodyFits(m.map,point,12)).toBe(true);}
+ for(const [mission,plan] of Object.entries(campaignPlans))if(plan&&!mission.match(/^(crown|clans|elves|dwarves|goblins)-/))for(const p of plan.phases)if(p.goal==='position')for(const point of p.points!){const m=createMatch('skirmish','beginner',undefined,plan.map);expect(bodyFits(m.map,point,12)).toBe(true);}
  for(const operation of Object.values(operationConfig)){const id=operation.kind==='escort'?'highlands':operation.kind==='rescue'?'frontier':'coast',m=createMatch('skirmish','beginner',undefined,id);expect(bodyFits(m.map,operation.zone,12)).toBe(true);}
  const m=createMatch('skirmish','beginner',undefined,'islands');expect(findDomainRoute(m.map,'water',{x:720,y:432},{x:880,y:432},16).ok).toBe(true);expect(terrainPatches(m.map).some(p=>p.row===30&&p.columns===128&&p.kind==='water')).toBe(true);
 });

@@ -1,3 +1,72 @@
+# Aktuell överlämning — RTS-241–248, 2026-10-13
+
+Användarens sex delar är implementerade i ordning, en task åt gången. Inga nya
+roadmaptasks startas. RTS-241–248 är Done efter verifierad slutlig lokal regression. Senaste248-publicering följs separat efter push.
+
+- Befintlig hosting är fortsatt GitHub Pages: https://tobisen.github.io/warbound/.
+  241 reparerade namn/base/assetvägar och verifierade verklig publicering,
+  panorama-startsida, native800/1280/1920 och omladdning.241/242:s CI var grön;
+  mellanliggande243/244/246-CI blev röd på regressionsfel som248 rättar.
+  Senaste248-deployment/publicerad kontroll ska rapporteras separat efter push.
+- Fortifikationernas32-tak är borttaget även i wall-drag/preview/Save och
+  obstacle-listan. Kostnad, resurser, byggyta, synlighet och placering består.
+  512 samtidiga fortifikationer plus betalt byggande/Save/browser är verifierade.
+  Generella skyddsbudgetar för sparfilens storlek/struktur är inte antalstak.
+- Gemensam sikt:worker256, stridsenheter/ships320, scout448, base384,
+  större byggnader288, farm192, tower320, wall/gate96. Weapon-/detektionsrange
+  ändras inte. Current/explored och senast sedda stationära byggnadssnapshots
+  skyddar dold HP/progress/död/nybyggnation; minimap och Save använder samma regler.
+- Nio skirmish-/kampanjkartor har sammanhängande ändliga skogar, olika
+  terräng/geografi och avlägsna gruvor/gläntor.248 rättar verkligt blockerade
+  äldre mål/discoveries/bossar med terrängföljande stigar. Nya matcher använder
+  woodlands-connected; tidigare sparade woodlands/regions/organic bevaras.
+  [Slutliga kartantal och bilder](artifacts/rts-248/maps.md).
+- AI betalar för arbetare, byggnader och flera expansioner, använder egen
+  aktuell/känd information och försvarar även outposts. Ordinarie Plains96-
+  ekonomiscenario når/skadar spelarbasen efter305s; ursprunglig400s-regression
+  behålls. Roster/casualty-fixturen tillåter2200 ticks för senare betald teknik
+  (tidigare1400), men kräver fortfarande alla roller.
+- Kampanj: **8→15 spelbara uppdrag per ras**, fem raser, **40→75 ras/uppdragsval**,
+  **8→43 unika ID:n** (åtta bevarade+35 egna rasexpeditioner). Legacy mixed8
+  kvarstår. Varje ras använder minst fem kartor. Nya mål kombinerar etablering,
+  utforskning, expansion, försvar, research, eskort/räddning, sjötransport och
+  prioriterad basstrid.35 målsekvenser/200 faser,235 initiala/fas-Save roundtrips,
+  faktiska koordinattriggers, förlust/progression/replay är komponentverifierade.
+  De förberedda tillstånden är inte betalda mänskliga genomspelningar.
+  [Inventering och belägg](artifacts/rts-248/README.md).
+
+Slutlig unit531/92 PASS23.06s; build inklusive strict TypeScript PASS564ms med
+befintlig bundlevarning; git diff --check PASS. Faktisk lokal Chrome: alla fem
+raser, sex kampanjval,15 entries, rätt ID/karta/briefing, bas+arbetare i kameran,
+Save/load800/1280; nio renderade kartöversikter/närbilder. Sparfil75 och verkliga
+74 woodland/region-geometrier provade. Reproducerbart browserskript:
+`scripts/check-campaign-expeditions.mjs`; integrationmanifest92unit/126integration.
+Full regression: `npm test` **1978/218 PASS808.38s** på slutlig kod/tester.
+Extra samlade körningar behövdes för upptäckta verkliga väg-/Savefel och sedan
+för korrigerade historiska testfixturer; ingen grön bred körning upprepades utan orsak.
+Självgranskning av scope, ID/progression, Save, terräng/rutter, fog/information,
+AI-kostnad och UI/livscykel: inga kvarstående blockerande fynd. Ingen oberoende
+agentgranskning gjordes. Commit/deploy anges efter faktisk leverans.
+
+Samma artificiella400-byggnads/512-wall-scenario före/efter245:
+median första upptäckt30.8→26.0ms, steady9.6→9.2ms. Kall första41.5→42.1ms
+är kvarstående begränsning. Mätningen gäller sync/minimap-CPU, inte full-frameFPS
+eller mänsklig balans. [Metod/rådata](artifacts/rts-245/README.md).
+
+Mänsklig uppdragslängd, balans, spelglädje och faktisk ljudlyssning är inte nyss
+verifierade. Befintliga separat redovisade grafik-/röstbegränsningar består.
+Ingen ny version, release eller hostingtjänst införs. Användarens style.css,
+assets/sources/units.mjs, docs/ och :memory:.ses är bevarade och ingår inte i
+uppdragets commits. Lokal browser/build innehåller bevarad användar-CSS;
+publicerad browserkontroll efter CI ska därför även täcka den committade CSS:en.
+
+## Taskcommits
+
+241:7bffe24+c7a808c+3853f96;242:0844406;243:f48d8db;244:7f9051f;
+245:03b1dad;246:e2300ed;247:a7d22e7.248-hash anges efter commit.
+
+---
+
 # Aktuellt uppdrag 2026-10-12
 
 ## RTS-241 — Warbound/Pages-reparation 2026-10-12 (deployment återstår)

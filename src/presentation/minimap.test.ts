@@ -1,3 +1,4 @@
+import {minimapFogRectangle} from './minimap';
 import { describe,expect,it } from 'vitest';
 import { cameraIndicator,minimapCamera,minimapData,minimapContent,minimapToWorld,worldToMinimap } from './minimap';
 import { createMatch } from '../gameplay/match';
@@ -25,4 +26,12 @@ it('fits rectangular maps and clamps clicks in the letterbox without distortion'
  const world={width:3200,height:1600},area=minimapContent(world);expect(area).toEqual({x:0,y:40,width:160,height:80});
  expect(worldToMinimap({x:1600,y:800},world)).toEqual({x:80,y:80});expect(minimapToWorld({x:80,y:0},world)).toEqual({x:1600,y:0});expect(minimapToWorld({x:80,y:160},world)).toEqual({x:1600,y:1600});
  const squareWorldSize=worldToMinimap({x:100,y:100},world);expect(squareWorldSize.x).toBe(squareWorldSize.y-40);
+});
+
+it('tiles the minimap fog pixel grid exactly once on large and rectangular worlds',()=>{
+ for(const world of [{width:4096,height:4096},{width:4096,height:2048}]){
+  const pixels=Array<number>(160*160).fill(0);
+  for(let y=0;y<world.height;y+=32){const r=minimapFogRectangle({x:0,y,width:world.width,height:32},world);for(let row=r.y;row<r.y+r.height;row++)for(let col=r.x;col<r.x+r.width;col++)pixels[row*160+col]++;}
+  const area=minimapContent(world);for(let y=0;y<160;y++)for(let x=0;x<160;x++)expect(pixels[y*160+x]).toBe(y>=area.y&&y<area.y+area.height?1:0);
+ }
 });
