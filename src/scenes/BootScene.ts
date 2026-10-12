@@ -1,3 +1,4 @@
+import {inCamera} from '../presentation/camera';
 import {presentationEnemies} from '../gameplay/buildingMemory';
 import {extraProducer,trainExtraProducer,cancelExtraProduction,setExtraProducer} from '../gameplay/extraProducers';
 import {buildingUpgradeMarkers} from '../presentation/buildingUpgrades';
@@ -1044,7 +1045,8 @@ export class BootScene extends Phaser.Scene {
     for(const marker of upgradeBadges){let label=this.upgradeMarkers.get(marker.id);if(!label){label=this.add.text(marker.x,marker.y,marker.label,{fontFamily:'monospace',fontSize:'11px',color:marker.color,backgroundColor:'#16261e',padding:{x:3,y:1}}).setOrigin(.5).setDepth(8);this.upgradeMarkers.set(marker.id,label);}label.setPosition(marker.x,marker.y).setText(marker.label).setColor(marker.color);}
     this.hpBars?.clear();
     const routePoints=this.scoutRouteMode?this.scoutRoutePoints:this.gathering.units.flatMap(u=>u.kind==='soldier'&&u.selected&&u.scouting?.mode==='route'?u.scouting.waypoints:[]);for(let i=0;i<routePoints.length;i++){const a=routePoints[i]!,b=routePoints[(i+1)%routePoints.length]!;this.hpBars?.lineStyle(2,0x86dbe6,.8).strokeCircle(a.x,a.y,5);if(routePoints.length>1)this.hpBars?.lineBetween(a.x,a.y,b.x,b.y);}
-    const allEnemies=[...this.combat.enemies,...bossEnemies(this.currentMatch(),true)],visibleEnemies=allEnemies.filter(e=>entityVisible(this.fog,'player',e)),presentedEnemies=presentationEnemies(this.fog,allEnemies);
+    const allEnemies=[...this.combat.enemies,...bossEnemies(this.currentMatch(),true)],visibleEnemies=allEnemies.filter(e=>entityVisible(this.fog,'player',e)),presentedEnemies=presentationEnemies(this.fog,allEnemies).filter(e=>inCamera(e.position,this.visibleCamera()));
+    const presentedIds=new Set(presentedEnemies.map(e=>e.id));
     const markers = orderMarkers(this.gathering, {...this.combat,enemies:visibleEnemies}, this.outcome==='playing',this.placement.barracks,this.placement.farms,this.placement.forge?.footprint,this.navy?.harbor?.footprint,this.placement.bases,this.placement.academy?.footprint);
     markers.push(...navalOrderMarkers(this.navy,{...this.combat,enemies:visibleEnemies},this.outcome==='playing'));
     for (const [id, visual] of this.orderVisuals) {
@@ -1061,7 +1063,7 @@ export class BootScene extends Phaser.Scene {
     const definition=scenarioConfig[this.scenario];
     this.matchStatus.textContent=this.campaignRun?(this.outcome==='victory'?'Victory — all campaign objectives complete.':this.outcome==='defeat'?'Defeat — your base or required courier was lost.':campaignObjective(this.currentMatch())):this.outcome==='defeat'?uiText.defeatYourBaseWasDestroyed:this.outcome==='victory'?definition.victory==='enemy-base'?uiText.victoryTheEnemyBaseWasDestroyed:definition.victory==='timer'?uiText.victoryTheOutpostSurvivedFor90Seconds:uiText.victoryAllWavesDefeated:this.scenario==='skirmish'?(regionDefinition(this.map.id??'arena',maps[this.map.id??'arena'],this.map.design).instruction??definition.instruction):definition.instruction;
     this.syncPlacement();this.syncNavy();this.syncDiscoveries();this.syncBossLoot();
-    const crowns=forestVisuals(this.gathering,this.fog),crownIds=new Set(crowns.map(c=>c.id));for(const [id,image] of this.forestImages)if(!crownIds.has(id)){image.destroy();this.forestImages.delete(id);}for(const crown of crowns){if(!this.forestImages.has(crown.id))this.forestImages.set(crown.id,this.add.image(crown.x,crown.y,'reference-terrain',crown.frame).setOrigin(.5,1));this.forestImages.get(crown.id)!.setFrame(crown.frame).setDepth(1+crown.y/this.map.height*4);}
+    const crowns=forestVisuals(this.gathering,this.fog).filter(c=>inCamera(c,this.visibleCamera())),crownIds=new Set(crowns.map(c=>c.id));for(const [id,image] of this.forestImages)if(!crownIds.has(id)){image.destroy();this.forestImages.delete(id);}for(const crown of crowns){if(!this.forestImages.has(crown.id))this.forestImages.set(crown.id,this.add.image(crown.x,crown.y,'reference-terrain',crown.frame).setOrigin(.5,1));this.forestImages.get(crown.id)!.setFrame(crown.frame).setDepth(1+crown.y/this.map.height*4);}
     const gold=this.gathering.gold!;if(gold.mine)this.goldVisual.setTexture('reference-terrain',gold.remaining<=0&&isVisible(this.fog,'player',gold.position)?'mine-empty':'mine-full').setOrigin(.5,.75).setDepth(1+(gold.position.y+20)/this.map.height*4);else this.goldVisual.setFrame(resourceFrame('gold',gold.remaining,isVisible(this.fog,'player',gold.position)));
     this.nodeVisual.setVisible(!this.gathering.node.tree&&knownResource(this.fog,this.gathering.node.position));
     if(this.gathering.node.grove)this.nodeVisual.setTexture('reference-terrain',this.gathering.node.remaining<=0&&isVisible(this.fog,'player',this.gathering.node.position)?'stump':'forest-0').setOrigin(.5,.75);else this.nodeVisual.setFrame(resourceFrame('wood',this.gathering.node.remaining,isVisible(this.fog,'player',this.gathering.node.position)));
@@ -1122,7 +1124,7 @@ export class BootScene extends Phaser.Scene {
       }
     }
     for (const [id, visual] of this.enemyVisuals) {
-      if (!presentedEnemies.some(e => e.id === id)) {
+      if (!presentedIds.has(id)) {
         this.removedVisual(id,!this.combat.enemies.some(e=>e.id===id)&&!this.enemyNaval?.passengers.some(e=>e.id===id));visual.body.destroy(); visual.label.destroy(); this.enemyVisuals.delete(id);
       }
     }

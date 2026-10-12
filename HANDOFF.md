@@ -1573,3 +1573,16 @@ PASS och diff/review PASS. Inga nya testfiler eller breda campaign-playthroughs.
 Kampanjantal ännu oförändrat:8 uppdrags-ID:n med5 rasvarianter. Mänsklig
 balans/spelglädje/tid ej verifierad. User CSS/units.mjs/docs bevarade.
 Nästa245: samma korta upptäckts-/storbasbenchmark före/efter.
+
+## RTS-245 — upptäcktsrendering (2026-10-13)
+
+Oförändrad dimgeometri återanvänds, minimapdimma sammanslås till rader och
+fiende-/trädkronor kamerabegränsas med128px marginal. Fiendemedlemskap använder
+Set i stället för upprepade linjära sökningar. Gameplay/FoW/AI-information ändras inte.
+Samma syntetiska frontier-scenario400 fiendefarms/512 egna murar före/efter:
+median första upptäckt30.8→26.0ms, median steady9.6→9.2ms; kallt första prov
+41.5→42.1ms. Begränsad förbättring, ingen garanti om hackfri första bildruta/FPS.
+Rawdata, browserbild och reproducerbart script i artifacts/rts-245/README.md.
+Riktade32/5 PASS, unit530/92 PASS16.62s, slutlig strict build/diff PASS.
+Browser1280 med intern1920×848,0pageerrors; inte mänskligt match-/balanstest.
+Ingen ny Pages/CI-status verifierad. Nästa task246 är betald AI-utbyggnad.

@@ -1,3 +1,4 @@
+import {inCamera} from './camera';
 import { describe, expect, it } from 'vitest';
 import { clampCamera, dragCamera, screenToWorld,visibleCamera,cameraScroll,zoomCamera } from './camera';
 import { selectUnitAt, selectUnitsInRectangle } from '../gameplay/selection';
@@ -43,4 +44,11 @@ it('bounds zoom and visible world extents, with correctly scaled middle drag',()
  for(let i=0;i<20;i++)view=zoomCamera(view.scroll,{x:0,y:0},large,viewport,view.zoom,500);expect(view.zoom).toBe(.5);expect(view.scroll).toEqual({x:0,y:0});
  for(let i=0;i<20;i++)view=zoomCamera({x:4096,y:4096},{x:800,y:600},large,viewport,view.zoom,-500);expect(view.zoom).toBe(2);expect(view.scroll).toEqual({x:3696,y:3796});
  expect(dragCamera({scroll:{x:1000,y:900},screen:{x:400,y:300}},{x:500,y:400},large,viewport,2)).toEqual({x:950,y:850});
+});
+
+it('keeps overhanging art at camera edges and follows changed scroll and zoom bounds',()=>{
+ const view={x:1000,y:800,width:800,height:600};
+ expect(inCamera({x:872,y:672},view)).toBe(true);expect(inCamera({x:871,y:800},view)).toBe(false);
+ expect(inCamera({x:1900,y:1500},view)).toBe(true);expect(inCamera({x:1929,y:800},view)).toBe(false);
+ expect(inCamera({x:2000,y:1600},{x:1800,y:1500,width:400,height:300})).toBe(true);
 });

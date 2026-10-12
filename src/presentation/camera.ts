@@ -36,3 +36,8 @@ export function cameraDirection(keys:readonly string[],pointer:Position|null,vie
 export function panCamera(scroll:Position,direction:Position,world:Bounds,viewport:Bounds,seconds:number,speed:number):Position {
  return clampCamera({x:scroll.x+direction.x*Math.max(0,seconds)*speed,y:scroll.y+direction.y*Math.max(0,seconds)*speed},world,viewport);
 }
+
+/** Render margin covers sprite crowns, building overhangs and labels at camera edges. */
+export function inCamera(point:Position,view:Position&Bounds,margin=128):boolean {
+ return point.x>=view.x-margin&&point.x<=view.x+view.width+margin&&point.y>=view.y-margin&&point.y<=view.y+view.height+margin;
+}

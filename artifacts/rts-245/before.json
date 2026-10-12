@@ -1,0 +1,46 @@
+{
+  "scenario": "frontier woodland, 400 enemy farms, first reveal, 5 repeats x30 steady syncs",
+  "samples": [
+    {
+      "firstMs": 41.5,
+      "steadyMedian": 11.5,
+      "steadyP95": 15.5,
+      "minimapMedian": 1.7000000029802322,
+      "minimapP95": 3,
+      "visuals": 401
+    },
+    {
+      "firstMs": 32.29999999701977,
+      "steadyMedian": 9.600000008940697,
+      "steadyP95": 11.600000008940697,
+      "minimapMedian": 1.7000000029802322,
+      "minimapP95": 3.0999999940395355,
+      "visuals": 401
+    },
+    {
+      "firstMs": 30.80000001192093,
+      "steadyMedian": 8.400000005960464,
+      "steadyP95": 11,
+      "minimapMedian": 1.7000000029802322,
+      "minimapP95": 3.0999999940395355,
+      "visuals": 401
+    },
+    {
+      "firstMs": 29,
+      "steadyMedian": 9.700000002980232,
+      "steadyP95": 12.400000005960464,
+      "minimapMedian": 1.7000000029802322,
+      "minimapP95": 3,
+      "visuals": 401
+    },
+    {
+      "firstMs": 29.299999997019768,
+      "steadyMedian": 8.600000008940697,
+      "steadyP95": 11.400000005960464,
+      "minimapMedian": 1.7000000029802322,
+      "minimapP95": 3.0999999940395355,
+      "visuals": 401
+    }
+  ],
+  "errors": []
+}
