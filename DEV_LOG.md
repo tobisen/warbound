@@ -5530,3 +5530,26 @@ Publicerad800-bild visuellt granskad; denna kontroll använder faktiskt deployad
 CSS, till skillnad från lokala arbetskopians bevarade CSS. Reparation7bffe24
 och CI-korrigeringc7a808c pushade utan force. RTS-241 Done; nästa RTS-242.
 Ingen ny version/release, nya kartor eller kampanjökning i denna del.
+
+## RTS-242 — Done: fortifikationer utan antalstak
+
+Borttaget: placement32, Save32, wallLine/placeWallLine32 och UI-previewbudget32.
+Inget ersättningstak; vanliga kostnader/sikt/placering/connectivity och
+byggaråtkomst består. Campaign spärrar typer, inte antal; befintlig AI har
+ingen fortifikationsbyggare/countspärr (betalt försvar i246). Befintlig
+generell Save-bytebudget är oförändrad. Ogiltiga dragkoordinater avvisas.
+
+Riktade towers/fortifications/gates/actionPanel34/4 PASS2.60s. Nya prov: hela
+3126-segmentslinjen, placement efter32,512mixed Save/load och betald513.
+Fixture rättades efter gate-/physicalobstacle-ref-fel: terrängfria sites och
+vanliga gate-regler behövs även i stressfixtures; inga produktregler lättades.
+Unit530/92 PASS14.74s, slutlig strict build PASS (testfixture ändrades efter
+första build, därför en extra slutbuild), diff/review PASS. Uniturvalet ändrades
+inte av efterföljande integration-fixturer. Ingen bred kampanjsimulering.
+
+Faktisk native800 Chrome: injicerade512 murar, actual mouse betald513, Save/
+load513 PASS0pageerrors; /tmp/warbound-fort-browser.json/.png. Snapshot granskad.
+30 syncVisuals-anrop: före0 murar median1.5/p95 2.8ms;512 median4.0/p95 6.2ms,
+första apply/sync8.4ms. Artificiellt antalstressprov, inte betald match eller
+långvarig balans/FPS-garanti; upptäcktslagg och stor AI-bas mäts separat245.
+Kartor/uppdrag ej ändrade. Nästa243. Befintlig user CSS/assets/docs bevarade.

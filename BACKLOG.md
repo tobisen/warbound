@@ -53,7 +53,7 @@ commit/push utan force. Full regression vid delslut. Historiska belägg är inte
 ny verifiering; mänsklig tid/balans/ljud skiljs från automatiska prov.
 
 - **RTS-241 — Warbound och befintlig Pages-publicering — Done.** Kontrollera namn, remote, Vite base, workflow, assets, länkar och rootroute; reparera befintlig hosting. Avsedd panorama-startsida med meny inom workspace, korrekt storlek, ingen automatisk fullscreen. Faktisk deploy och publicerad browser/omladdning krävs; redovisa hinder.
-- **RTS-242 — Fortifikationer utan antalstak — Todo.** Ta bort globala och dolda antalstak i byggande/UI/AI/kampanj/Save. Behåll kostnad, yta och placering; inget ersättningstak. Riktade tester/save/load och kort prestandaprov med många fortifikationer.
+- **RTS-242 — Fortifikationer utan antalstak — Done.** Ta bort globala och dolda antalstak i byggande/UI/AI/kampanj/Save. Behåll kostnad, yta och placering; inget ersättningstak. Riktade tester/save/load och kort prestandaprov med många fortifikationer.
 - **RTS-243 — Utökad sikt och säker fog — Todo.** Inventera enhets-/byggnadsradier, öka dem i gemensam config. Behåll current/explored och skydda fiendeinformation. Flera roller, byggnader, minimap, Save och browser verifieras.
 - **RTS-244 — Sammanhängande skog och egna kartidentiteter — Todo.** Inventera kartor en gång. Gemensamma verkliga avverknings-/terrängregler för skirmish/kampanj, tydligt mer sammanhängande skog; bevara rutter, byggytor och resurser. Egna regioner, alternativa vägar och utforskningsvärden. Renderade browseröversikter/närbilder och riktade navigation-/resursprov; inga tomma återanvända layouter.
 - **RTS-245 — Mät och åtgärda upptäcktslagg — Todo.** Samma korta stora-bas/byggnads-/fortifikationsscenario före/efter. Undersök första upptäckt, undvik helkartarbete/dyr rendering varje frame. Rapportera mätmetod/resultat och browserkontroll.
@@ -61,7 +61,7 @@ ny verifiering; mänsklig tid/balans/ljud skiljs från automatiska prov.
 - **RTS-247 — Kampanjinventering och konkret expansionsplan — Todo.** Dokumentera faktiska spelbara uppdrag per ras och gemensamma återanvändningar. Skriv konkret nytt antal och separata rasserier i BACKLOG före implementation. Planera briefing/start/mål/seger/förlust/progression/replay och gradvis varierade befintliga mål utan väntutfyllnad.
 - **RTS-248 — Implementera och verifiera utökade kampanjer — Todo.** Genomför 247-planen på egna kartregioner. Verifiera varje ny målsekvens och koordinattrigger efter kartändringar samt Save mellan faser, progression/replay. Samlad kampanjregression vid delslut; mänsklig speltid/balans ej ersatt av snabbsimulering. HANDOFF med antal/kartor/checks/prestanda/hashar. Inget Done med saknade uppdrag/centrala sekvenser.
 
-Tidigare Current Focus nedan är historik; aktuell task är RTS-242.
+Tidigare Current Focus nedan är historik; aktuell task är RTS-243.
 
 
 ### Nytt uppdrag2026-10-08 — RTS-239–240

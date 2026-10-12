@@ -1347,7 +1347,7 @@ Uppgraderingen betalas vid start;20/30s pausar endast huvudbyggnadens workerprod
 
 ## RTS-163: portpassage och placeringssäkerhet
 
-Portens fysiska footprint tas bort vid öppning, men en härledd och ej sparad enemyPassageBlocks-vy behåller ägarens spärr för motståndarlaget. Befintliga lag är player/enemy; egna workers och stridsenheter delar passage. Route-revision ändras vid toggle/förstörelse. Projektiler använder fysiska öppningen enligt befintliga stridsregler. Stängning över kropp eller som bryter nödvändig connectivity/spawn spärras. Alla fortification-placeringar skyddar befintliga enheters åtkomst till resurser, leveranser och byggnader, även combat units.32 forts är den explicita gemensamma gränsen. Grafik använder godkända masonry/timber-delar; ingen särskild illustrativ mur/portreferens påstås finnas.
+Portens fysiska footprint tas bort vid öppning, men en härledd och ej sparad enemyPassageBlocks-vy behåller ägarens spärr för motståndarlaget. Befintliga lag är player/enemy; egna workers och stridsenheter delar passage. Route-revision ändras vid toggle/förstörelse. Projektiler använder fysiska öppningen enligt befintliga stridsregler. Stängning över kropp eller som bryter nödvändig connectivity/spawn spärras. Alla fortification-placeringar skyddar befintliga enheters åtkomst till resurser, leveranser och byggnader, även combat units.RTS-242 ersätter den tidigare32-gränsen: inget globalt fortifikationsantalstak, även i Save eller dragbyggande. Grafik använder godkända masonry/timber-delar; ingen särskild illustrativ mur/portreferens påstås finnas.
 
 ## RTS-164: betald reparation och siege-counter
 

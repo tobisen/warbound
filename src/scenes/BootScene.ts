@@ -935,7 +935,7 @@ export class BootScene extends Phaser.Scene {
   private syncPlacement(): void {
     this.wallPreview.clear();
     if(!this.placement.active||this.placement.kind!=='wall'||!this.gameplayActive())this.wallDrag=undefined;
-    if(this.wallDrag){const match=this.currentMatch(),budget=Math.min(32-(this.placement.defenses?.length??0),Math.floor(this.gathering.wood/defenseConfig.wall.cost.wood));let index=0;for(const p of wallLine(this.wallDrag,this.previewPoint)){const color=index++>=budget||towerPreviewError(match,p)?0xee8a86:0x71edb0;this.wallPreview.fillStyle(color,.25).fillRect(p.x,p.y,32,32).lineStyle(2,color).strokeRect(p.x,p.y,32,32);}}
+    if(this.wallDrag){const match=this.currentMatch(),budget=Math.floor(this.gathering.wood/defenseConfig.wall.cost.wood);let index=0;for(const p of wallLine(this.wallDrag,this.previewPoint)){const color=index++>=budget||towerPreviewError(match,p)?0xee8a86:0x71edb0;this.wallPreview.fillStyle(color,.25).fillRect(p.x,p.y,32,32).lineStyle(2,color).strokeRect(p.x,p.y,32,32);}}
     const forge=this.placement.forge;
     if(!forge&&this.forgeVisual){this.forgeVisual.destroy();this.forgeVisual=undefined;}
     if(forge&&!this.forgeVisual)this.forgeVisual=this.add.image(forge.footprint.x+forge.footprint.width/2,forge.footprint.y+forge.footprint.height/2,'buildings',buildingFrame('forge','player',forge.construction.remainingSeconds,5,this.factions.player,forge.hp)).setOrigin(.5,.75);

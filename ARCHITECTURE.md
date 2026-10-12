@@ -2082,3 +2082,13 @@ selection/ready/humor om en inspelning finns. Stale ended callbacks skyddas
 med generation och GameAudio source identity; endast en voice-source spelar.
 SFX-duck/mute/master/voices/pause/reset använder befintlig graf. Röster för
 övriga roller saknas fortfarande; ingen text/TTS-fallback spelas som inspelning.
+
+## RTS-242 — Fortifikationer utan antalstak
+
+Placement, wallLine/placeWallLine, scenens budgetpreview och Save har inget
+fortifikationsantalstak. wallLine följer hela draget och avvisar ogiltiga
+koordinater; varje site betalar och validerar vanliga sikt-/yta-/åtkomstregler.
+Save validerar varje objekt och behåller befintlig generell bytebudget, utan
+nytt antalstak. UI saknar countspärr. Campaign admission begränsar tillgång
+till byggnadstyper, inte antal. Befintlig AI bygger inte wall/gate/tower och
+har därför ingen separat countspärr; betalt basförsvar behandlas i RTS-246.
