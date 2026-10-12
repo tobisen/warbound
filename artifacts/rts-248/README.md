@@ -68,3 +68,5 @@ browser executable, output directory and operation filter. The script seeds
 completed progress explicitly to inspect replay selection; it does not earn wins.
 [Save74 compatibility](save74.json) confirms preserved woodland/region geometry.
 Final checks and final connected-map renders are recorded in HANDOFF/DEV_LOG.
+verification.json captures local checks before the2048f8b push; final CI/Pages
+status is recorded separately in HANDOFF after actual deployment.

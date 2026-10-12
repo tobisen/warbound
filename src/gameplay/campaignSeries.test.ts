@@ -28,7 +28,7 @@ it.each(factionIds)('%s owns a distinct story and tactical goal plan; all eight 
   const score=resultScore({...m,matchId:'00000000-0000-4000-8000-000000000001',outcome:'victory'})!;expect(validHighscore(score)).toBe(true);expect(scorePartition(score)).not.toBe(scorePartition({...score,campaignId:undefined}));
   const forged=JSON.parse(doc);forged.state.campaignRun.campaignId=identityFor(faction==='crown'?'clans':'crown','normal').campaignId;expect(decodeSave(JSON.stringify(forged)).ok).toBe(false);
  }
-});
+},30000);
 it('tactical goals observe live units/research/fleet and permanent advancement preserves campaign ID',()=>{
  const identity=identityFor('clans','normal'),m=startCampaignMission({version:1,identity,completed:campaignMissions.map(m=>m.id)},'the-siege','normal',{player:'clans',enemy:'crown'})!,plan=campaignPlan(m)!,phase=plan.phases.findIndex(p=>p.goal==='research');m.campaignRun!.phase=phase;expect(campaignPhaseMet(m,plan.phases[phase])).toBe(false);m.research!.attack=1;const next=advanceCampaignPhases(m);expect(next.campaignRun!.phase).toBe(phase+1);expect(next.campaignRun!.campaignId).toBe(identity.campaignId);
 });

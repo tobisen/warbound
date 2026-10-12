@@ -69,7 +69,7 @@ it.each(factionIds)('%s campaign finds work in all eight missions and survive Sa
   const resumed=updateMatch({...saved.match,paused:false},0);expect(resumed.gathering.wood).toBe(m.gathering.wood);expect(resumed.gathering.units).toHaveLength(initialUnits+1);
   expect(startCampaignMission(progress,mission.id,'normal',{player:faction,enemy:'crown'})!.discoveries?.claimed).toEqual([]);
  }
-});
+},30000);
 it('activates an existing expanded campaign save on Load without modifying its mission, resources or progression',()=>{
  const identity=identityFor('clans','normal'),m=startCampaignMission({version:1,identity,completed:[]},'first-steps','normal',{player:'clans',enemy:'crown'})!;
  delete m.discoveries;const raw=JSON.parse(encodeSave(m,view));delete raw.state.discoveries;

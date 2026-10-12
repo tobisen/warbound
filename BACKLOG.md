@@ -6127,3 +6127,17 @@ direktskott/hög byggnadsskada jämfört med katapultens splash. Samma betalda
 produktion, prerequisites, supply, AI/campaign/fog/teams/save/restart,
 native800-musflöde och taskvisa checks/docs/commit/push som220–228.
 Efter denna sista beställda task: full regression och HANDOFF; ingen release.
+
+
+## CI-uppföljning RTS-248 — 2026-10-13
+
+2048f8b är pushad. [CI38322534941](https://github.com/tobisen/warbound/actions/runs/38322534941)
+misslyckades efter21m34s i npm test: enbart tio5000ms-timeouts, fem vardera
+för åtta-uppdragslooparna i campaignSeries/discoveries. Build/Pages hoppades över.
+Just dessa två parametriserade fall får30000ms individuell budget; fixtures,
+assertions, gameplay, standardtimeout och workerantal är oförändrade.
+Ny riktad kontroll24/2 PASS17.94s, unit531/92 PASS18.53s, strict build PASS589ms
+med befintlig bundlevarning. Full lokal1978/218 PASS på identiska assertions
+återanvänds; ny full regression följs på GitHub. Ingen browseromkörning behövs
+för enbart testdeadlines. Senaste publicerade248-build är ännu inte verifierad.
+Självgranskning och diffcheck PASS; användarens CSS/units/docs bevarade.

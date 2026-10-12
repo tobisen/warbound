@@ -63,7 +63,8 @@ publicerad browserkontroll efter CI ska därför även täcka den committade CSS
 ## Taskcommits
 
 241:7bffe24+c7a808c+3853f96;242:0844406;243:f48d8db;244:7f9051f;
-245:03b1dad;246:e2300ed;247:a7d22e7.248-hash anges efter commit.
+245:03b1dad;246:e2300ed;247:a7d22e7.248:2048f8b pushad till origin/main utan force. CI38322534941 fallerade på testdeadlines; uppföljning nedan;
+slutlig publicerad kontroll återstår.
 
 ---
 
@@ -1691,3 +1692,17 @@ Befintliga åtta/progression/local-first bevaras. Ingen kampanjimplementation ä
 Ren dokumenttask: inventeringsuppgifter och lokala filreferenser/text/diff granskade;
 inga nya kodtester/build/browser påstås. Tidigare246-checks är historiska belägg.
 Nästa task248 implementerar och verifierar hela planen före Done/full slutregression.
+
+
+## CI-uppföljning RTS-248 — 2026-10-13
+
+2048f8b är pushad. [CI38322534941](https://github.com/tobisen/warbound/actions/runs/38322534941)
+misslyckades efter21m34s i npm test: enbart tio5000ms-timeouts, fem vardera
+för åtta-uppdragslooparna i campaignSeries/discoveries. Build/Pages hoppades över.
+Just dessa två parametriserade fall får30000ms individuell budget; fixtures,
+assertions, gameplay, standardtimeout och workerantal är oförändrade.
+Ny riktad kontroll24/2 PASS17.94s, unit531/92 PASS18.53s, strict build PASS589ms
+med befintlig bundlevarning. Full lokal1978/218 PASS på identiska assertions
+återanvänds; ny full regression följs på GitHub. Ingen browseromkörning behövs
+för enbart testdeadlines. Senaste publicerade248-build är ännu inte verifierad.
+Självgranskning och diffcheck PASS; användarens CSS/units/docs bevarade.
