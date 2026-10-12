@@ -1,0 +1,284 @@
+[
+  {
+    "t": 60,
+    "outcome": "playing",
+    "buildings": [
+      {
+        "id": "enemy-base"
+      },
+      {
+        "id": "enemy-barracks",
+        "ready": 0
+      }
+    ],
+    "workers": 2,
+    "bank": {
+      "roster": true,
+      "wood": 57,
+      "gold": 24,
+      "cap": 6,
+      "durationSeconds": 5,
+      "production": {
+        "remainingSeconds": null,
+        "nextUnitNumber": 3,
+        "queue": [],
+        "nextJobNumber": 3
+      },
+      "acceptedJobs": 2,
+      "extracted": {
+        "wood": 63.53880081324678,
+        "gold": 20
+      },
+      "spent": {
+        "wood": 78,
+        "gold": 16
+      },
+      "lostCargo": {
+        "wood": 0,
+        "gold": 0
+      }
+    },
+    "save": true
+  },
+  {
+    "t": 120,
+    "outcome": "playing",
+    "buildings": [
+      {
+        "id": "enemy-base"
+      },
+      {
+        "id": "enemy-barracks",
+        "ready": 0
+      },
+      {
+        "id": "enemy-outpost",
+        "ready": 0
+      }
+    ],
+    "workers": 4,
+    "bank": {
+      "roster": true,
+      "wood": 22,
+      "gold": 14,
+      "cap": 6,
+      "durationSeconds": 5,
+      "production": {
+        "remainingSeconds": null,
+        "nextUnitNumber": 3,
+        "queue": [],
+        "nextJobNumber": 3
+      },
+      "acceptedJobs": 2,
+      "extracted": {
+        "wood": 141.65679710910626,
+        "gold": 38.91527696829871
+      },
+      "spent": {
+        "wood": 198,
+        "gold": 36
+      },
+      "lostCargo": {
+        "wood": 0,
+        "gold": 0
+      }
+    },
+    "save": true
+  },
+  {
+    "t": 180,
+    "outcome": "playing",
+    "buildings": [
+      {
+        "id": "enemy-base"
+      },
+      {
+        "id": "enemy-barracks",
+        "ready": 0
+      },
+      {
+        "id": "enemy-outpost",
+        "ready": 0
+      }
+    ],
+    "workers": 4,
+    "bank": {
+      "roster": true,
+      "wood": 117,
+      "gold": 114,
+      "cap": 6,
+      "durationSeconds": 5,
+      "production": {
+        "remainingSeconds": null,
+        "nextUnitNumber": 3,
+        "queue": [],
+        "nextJobNumber": 3
+      },
+      "acceptedJobs": 2,
+      "extracted": {
+        "wood": 236.73637035815773,
+        "gold": 134.80386329896282
+      },
+      "spent": {
+        "wood": 198,
+        "gold": 36
+      },
+      "lostCargo": {
+        "wood": 0,
+        "gold": 0
+      }
+    },
+    "save": true
+  },
+  {
+    "t": 240,
+    "outcome": "playing",
+    "buildings": [
+      {
+        "id": "enemy-base"
+      },
+      {
+        "id": "enemy-barracks",
+        "ready": 0
+      },
+      {
+        "id": "enemy-outpost",
+        "ready": 0
+      }
+    ],
+    "workers": 4,
+    "bank": {
+      "roster": true,
+      "wood": 157,
+      "gold": 264,
+      "cap": 6,
+      "durationSeconds": 5,
+      "production": {
+        "remainingSeconds": null,
+        "nextUnitNumber": 3,
+        "queue": [],
+        "nextJobNumber": 3
+      },
+      "acceptedJobs": 2,
+      "extracted": {
+        "wood": 280,
+        "gold": 291.89105291405576
+      },
+      "spent": {
+        "wood": 198,
+        "gold": 36
+      },
+      "lostCargo": {
+        "wood": 0,
+        "gold": 0
+      }
+    },
+    "save": true
+  },
+  {
+    "t": 300,
+    "outcome": "playing",
+    "buildings": [
+      {
+        "id": "enemy-base"
+      },
+      {
+        "id": "enemy-barracks",
+        "ready": 0
+      },
+      {
+        "id": "enemy-outpost",
+        "ready": 0
+      },
+      {
+        "id": "enemy-producer-1",
+        "ready": 0
+      }
+    ],
+    "workers": 4,
+    "bank": {
+      "roster": true,
+      "wood": 144,
+      "gold": 418,
+      "cap": 6,
+      "durationSeconds": 5,
+      "production": {
+        "remainingSeconds": null,
+        "nextUnitNumber": 3,
+        "queue": [],
+        "nextJobNumber": 3
+      },
+      "acceptedJobs": 3,
+      "extracted": {
+        "wood": 320.27278063100675,
+        "gold": 443.3932401438069
+      },
+      "spent": {
+        "wood": 256,
+        "gold": 42
+      },
+      "lostCargo": {
+        "wood": 0,
+        "gold": 0
+      }
+    },
+    "save": true
+  },
+  {
+    "t": 360,
+    "outcome": "playing",
+    "buildings": [
+      {
+        "id": "enemy-base"
+      },
+      {
+        "id": "enemy-barracks",
+        "ready": 0
+      },
+      {
+        "id": "enemy-outpost",
+        "ready": 0
+      },
+      {
+        "id": "enemy-producer-1",
+        "ready": 0
+      },
+      {
+        "id": "enemy-forge",
+        "ready": 0
+      },
+      {
+        "id": "enemy-farm-1",
+        "ready": 0
+      }
+    ],
+    "workers": 4,
+    "bank": {
+      "roster": true,
+      "wood": 19,
+      "gold": 353,
+      "cap": 6,
+      "durationSeconds": 5,
+      "production": {
+        "remainingSeconds": null,
+        "nextUnitNumber": 13,
+        "queue": [],
+        "nextJobNumber": 3
+      },
+      "acceptedJobs": 13,
+      "extracted": {
+        "wood": 451.9146566875643,
+        "gold": 465.0000000000073
+      },
+      "spent": {
+        "wood": 506,
+        "gold": 132
+      },
+      "lostCargo": {
+        "wood": 0,
+        "gold": 0
+      }
+    },
+    "save": true
+  }
+]

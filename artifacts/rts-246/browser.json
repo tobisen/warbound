@@ -1,0 +1,168 @@
+[
+  {
+    "width": 800,
+    "camera": {
+      "x": 3000,
+      "y": 3100,
+      "width": 800,
+      "height": 368
+    },
+    "buildings": [
+      {
+        "id": "enemy-base",
+        "position": {
+          "x": 3504,
+          "y": 3280
+        }
+      },
+      {
+        "id": "enemy-barracks",
+        "position": {
+          "x": 3296,
+          "y": 3360
+        }
+      },
+      {
+        "id": "enemy-outpost",
+        "position": {
+          "x": 3120,
+          "y": 2896
+        }
+      },
+      {
+        "id": "enemy-producer-1",
+        "position": {
+          "x": 3616,
+          "y": 3360
+        }
+      },
+      {
+        "id": "enemy-forge",
+        "position": {
+          "x": 3520,
+          "y": 3456
+        }
+      },
+      {
+        "id": "enemy-farm-1",
+        "position": {
+          "x": 3616,
+          "y": 3456
+        }
+      }
+    ],
+    "workers": 4,
+    "bank": {
+      "roster": true,
+      "wood": 19,
+      "gold": 353,
+      "cap": 6,
+      "durationSeconds": 5,
+      "production": {
+        "remainingSeconds": null,
+        "nextUnitNumber": 13,
+        "queue": [],
+        "nextJobNumber": 3
+      },
+      "acceptedJobs": 13,
+      "extracted": {
+        "wood": 451.9146566875643,
+        "gold": 465.0000000000073
+      },
+      "spent": {
+        "wood": 506,
+        "gold": 132
+      },
+      "lostCargo": {
+        "wood": 0,
+        "gold": 0
+      }
+    },
+    "visuals": 20,
+    "pannedVisuals": 0,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "camera": {
+      "x": 3000,
+      "y": 3100,
+      "width": 1280,
+      "height": 488
+    },
+    "buildings": [
+      {
+        "id": "enemy-base",
+        "position": {
+          "x": 3504,
+          "y": 3280
+        }
+      },
+      {
+        "id": "enemy-barracks",
+        "position": {
+          "x": 3296,
+          "y": 3360
+        }
+      },
+      {
+        "id": "enemy-outpost",
+        "position": {
+          "x": 3120,
+          "y": 2896
+        }
+      },
+      {
+        "id": "enemy-producer-1",
+        "position": {
+          "x": 3616,
+          "y": 3360
+        }
+      },
+      {
+        "id": "enemy-forge",
+        "position": {
+          "x": 3520,
+          "y": 3456
+        }
+      },
+      {
+        "id": "enemy-farm-1",
+        "position": {
+          "x": 3616,
+          "y": 3456
+        }
+      }
+    ],
+    "workers": 4,
+    "bank": {
+      "roster": true,
+      "wood": 19,
+      "gold": 353,
+      "cap": 6,
+      "durationSeconds": 5,
+      "production": {
+        "remainingSeconds": null,
+        "nextUnitNumber": 13,
+        "queue": [],
+        "nextJobNumber": 3
+      },
+      "acceptedJobs": 13,
+      "extracted": {
+        "wood": 451.9146566875643,
+        "gold": 465.0000000000073
+      },
+      "spent": {
+        "wood": 506,
+        "gold": 132
+      },
+      "lostCargo": {
+        "wood": 0,
+        "gold": 0
+      }
+    },
+    "visuals": 20,
+    "pannedVisuals": 0,
+    "errors": []
+  }
+]

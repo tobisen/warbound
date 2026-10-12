@@ -41,3 +41,22 @@ it('unfinished or destroyed dropoff cannot credit cargo and a loaded carrier kee
 });
 
 it('AI outpost can be built below aircraft while a ground unit still blocks the site',()=>{for(const air of [true,false]){const m=fixture();m.gathering.units.push({id:'unit-4',kind:'soldier',owner:'player',...(air?{archetype:'air' as const}:{}),hp:60,cargo:0,selected:false,position:{x:784,y:144},target:{x:784,y:144},order:{kind:'idle'}});const site=prepareEnemyExpansion(m).combat.enemies.find(e=>e.buildingType==='outpost');expect(site?.footprint?.x===736&&site?.footprint?.y===96).toBe(air);}});
+
+it('builds another paid dropoff beside remembered resources and resumes its distinct job',()=>{
+ let m=updateEnemyExpansion(prepareEnemyExpansion(fixture()),10);m.map.design='woodlands';
+ m.enemyKnowledge={nodes:[{id:'gold-1',position:{x:1056,y:480},remaining:800,resource:'gold'}],playerBase:null,resourceScoutIndex:0,attackScoutIndex:0};
+ m.fog!.teams.enemy.explored.fill(true);m.fog!.teams.enemy.visible.fill(true);m.enemyProduction!.wood=100;m.enemyProduction!.gold=40;m.waves.elapsedSeconds=20;
+ const started=prepareEnemyExpansion(m),site=started.combat.enemies.find(e=>e.id==='enemy-outpost-2');
+ expect(site).toBeDefined();expect(started.enemyProduction!.wood).toBe(20);expect(started.enemyProduction!.gold).toBe(20);
+ expect(started.combat.enemies.find(e=>e.id===site!.construction!.builderId)!.work!.order).toEqual({kind:'build',buildingId:'outpost-2'});
+ expect(prepareEnemyExpansion(started).enemyProduction!.wood).toBe(20);
+ const builder=started.combat.enemies.find(e=>e.id===site!.construction!.builderId)!;builder.position={x:site!.footprint!.x-12,y:site!.position.y};
+ const completed=updateEnemyExpansion(started,10);expect(completed.combat.enemies.find(e=>e.id===site!.id)!.construction!.remainingSeconds).toBe(0);
+});
+
+it('does not select a further expansion from hidden live resource changes',()=>{
+ let a=updateEnemyExpansion(prepareEnemyExpansion(fixture()),10);a.map.design='woodlands';a.enemyKnowledge={nodes:[],playerBase:null,resourceScoutIndex:0,attackScoutIndex:0};a.enemyProduction!.wood=100;a.enemyProduction!.gold=40;a.waves.elapsedSeconds=20;
+ const b=structuredClone(a);b.gathering.gold!.remaining=0;b.gathering.gold!.position={x:1040,y:700};
+ expect(prepareEnemyExpansion(a).combat.enemies).toEqual(prepareEnemyExpansion(b).combat.enemies);
+ expect(prepareEnemyExpansion(a).enemyProduction!.wood).toBe(100);
+});

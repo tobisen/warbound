@@ -55,3 +55,11 @@ describe('local enemy defense',()=>{
   expect(s.enemyAI!.threatId).toBeNull();expect(s.combat.enemies.some(e=>e.order?.kind==='defend')).toBe(false);
  });
 });
+
+it('defends a distant paid outpost only when one of its own buildings sees the threat',()=>{
+ const outpost:Enemy={id:'enemy-outpost',kind:'building',buildingType:'outpost',hp:240,position:{x:350,y:700},footprint:{x:302,y:652,width:96,height:96},construction:{remainingSeconds:0,builderId:null}};
+ const c={baseHP:240,enemies:[base,outpost,{...enemy(1),position:{x:450,y:700}},{...enemy(2),position:{x:480,y:700}}]},u=threat({position:{x:440,y:700}});
+ const visible=updateEnemyAI(createEnemyAI(),c,map,{x:100,y:100},0,[u],enemyAIConfig,(_unit,observer)=>observer.id===outpost.id);
+ expect(visible.state.threatId).toBe(u.id);expect(visible.state.defenders.length).toBeGreaterThan(0);
+ expect(updateEnemyAI(createEnemyAI(),c,map,{x:100,y:100},0,[u],enemyAIConfig,()=>false).state.threatId).toBeNull();
+});

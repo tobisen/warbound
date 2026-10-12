@@ -1586,3 +1586,27 @@ Rawdata, browserbild och reproducerbart script i artifacts/rts-245/README.md.
 Riktade32/5 PASS, unit530/92 PASS16.62s, slutlig strict build/diff PASS.
 Browser1280 med intern1920×848,0pageerrors; inte mänskligt match-/balanstest.
 Ingen ny Pages/CI-status verifierad. Nästa task246 är betald AI-utbyggnad.
+
+## RTS-246 — betald AI-utbyggnad (2026-10-13)
+
+AI använder flera vanliga farms (policy sex, kartans normala farmregler gäller),
+upp till tre produktionsbyggnader per slag i regionkartor och byggplatser runt
+färdiga expansioner. Varje byggnad/arbetare debiteras och byggs av arbetare.
+Färdig expansion ökar arbetsmålet med två; ytterligare dropoffs följer ihågkomna
+mineralfynd med egen scouting. Alla nya byggplatser kräver egen aktuell syn.
+Försvar reagerar på kända hot nära samtliga egna färdiga byggnader; inga gratis
+baser, ingen ny fortifikationsgräns. Försvaret använder befintliga arméreserver,
+inte nya AI-torn. Save74 bevarar separata farm-/outpostjobb och fler arbetare;
+73 migreras utan gratis innehåll, falska äldre extra-jobb avvisas.
+
+Riktade91/7 PASS26.35s; kompletterande försvar/recovery/save/visibility58/4 PASS3.09s;
+unit530/92 PASS15.94s; strict build/diff PASS. Komponenttest verifierar tre betalda
+farms, ytterligare betald expansion med eget byggjobb, samt dolda resursändringar.
+Naturlig ekonomisk frontier-AI: två→fyra arbetare och färdig expansion före180s,
+sex byggnader inkl expansion vid360s. Sparningar var60s PASS. Det är ett begränsat
+AI-scenario, ingen full match/balansgaranti. Native browser800/1280 visar den
+betalda basen efter faktisk Save/load; kamerapan tar bort offscreen enemyvisuals,
+0pageerrors. Bild/ekonomitidslinje i artifacts/rts-246/.
+Samma245-stress efter AI-ändringen: median första26.2ms, steady9.1ms, kallt42.4ms;
+fortsatt begränsning för kall första upptäckt. Inte FPS eller mänskligt speltest.
+Ny CI/Pages-status ej verifierad. Nästa task247: kampanjinventering/mål före248.

@@ -1,3 +1,4 @@
+import {isRegionalDesign} from '../config/organicTerrain';
 import {enemyBase,hasEnemyBase} from './enemyBases';
 import {enemyNavigationMap} from './map';
 import {enemyEconomyConfig} from '../config/enemyEconomy';
@@ -11,7 +12,7 @@ import type {MatchState} from './match';
 export interface EnemyRecoveryState {production:ProductionState;nextExpansionAttemptSeconds:number}
 export const createEnemyRecovery=():EnemyRecoveryState=>({nextExpansionAttemptSeconds:0,production:{remainingSeconds:null,nextUnitNumber:enemyEconomyConfig.workerCount+1}});
 export function needsEnemyWorker(m:MatchState):boolean {
- return !!m.enemyRecovery&&m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0).length<enemyEconomyConfig.workerCount;
+ return !!m.enemyRecovery&&m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0).length<enemyEconomyConfig.workerCount+(isRegionalDesign(m.map.design)?2*m.combat.enemies.filter(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0).length:0);
 }
 function view(m:MatchState):GatheringState {
  const base=enemyBase(m.combat,m.map)!;

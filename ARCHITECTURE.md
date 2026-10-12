@@ -2125,3 +2125,5 @@ Save73 bevarar äldre design regions exakt vid72-migrering; ingen ommålning av
 redan spelade kartor. Explicit world regions används för äldre fixtures.
 Generellt hinderantalstak4096 borttaget; Save behåller sin befintliga bytebudget
 och validerar varje footprint. Kartbelägg: artifacts/rts-244/maps.md.
+
+AI-utbyggnad (RTS-246): enemyBuildingView speglar alla farms med egna jobb; regionala expansioner ökar betalt arbetsmål och erbjuder vanliga produktionsplatser. Ytterligare outposts följer EnemyKnowledge och kräver egen syn/scouting. Save74 tillåter dessa distinkta byggjobb och migrerar73; arméreserver försvarar kända hot vid alla egna färdiga byggnader.

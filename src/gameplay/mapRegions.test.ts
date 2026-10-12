@@ -57,3 +57,14 @@ it('genuine72 region Save keeps its map, resources and explored fog while new ga
  const loaded=decodeSave(JSON.stringify(doc));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(loaded.ok){expect(loaded.match.map.design).toBe('regions');expect(resourceNodes(loaded.match.gathering)).toEqual(resourceNodes(m.gathering));expect(loaded.match.fog!.teams.player.explored).toEqual(m.fog!.teams.player.explored);}
  const modern=JSON.parse(encodeSave(createMatch('skirmish'),view));modern.configVersion='tribute-config-72';expect(decodeSave(JSON.stringify(modern)).ok).toBe(false);
 });
+
+it('a regional AI grows its paid worker economy and preserves Save across expansion phases',()=>{
+ let m=createMatch('skirmish','normal',undefined,'frontier',1,'economic');
+ for(let t=0;t<180;t+=.5)m=updateMatch(m,.5);
+ expect(m.combat.enemies.filter(e=>e.kind==='worker')).toHaveLength(4);
+ expect(m.combat.enemies.some(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0)).toBe(true);
+ expect(m.enemyProduction!.extracted!.wood).toBeGreaterThan(m.enemyProduction!.wood);
+ const saved=decodeSave(encodeSave(m,view));expect(saved.ok,saved.ok?'':saved.error).toBe(true);
+ if(!saved.ok)return;const legacy=JSON.parse(encodeSave(createMatch('skirmish'),view));legacy.configVersion='tribute-config-73';expect(decodeSave(JSON.stringify(legacy)).ok).toBe(true);
+ const resumed=updateMatch(saved.match,.5);expect(resumed.combat.enemies.filter(e=>e.kind==='worker')).toHaveLength(4);
+},30000);

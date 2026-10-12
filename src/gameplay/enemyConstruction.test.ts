@@ -56,3 +56,12 @@ it('rejects invalid building size, construction references, and spoofed new mode
 });
 
 it('AI ground construction ignores aircraft above its preferred site but respects ground blockers',()=>{for(const air of [true,false]){const m=createMatch('skirmish'),point=enemyConstructionConfig.candidates[0];m.gathering.units.push({id:'unit-4',kind:'soldier',owner:'player',...(air?{archetype:'air' as const}:{}),hp:60,cargo:0,selected:false,position:{x:point.x+32,y:point.y+32},target:{x:point.x+32,y:point.y+32},order:{kind:'idle'}});const site=prepareEnemyConstruction(m).combat.enemies.find(e=>e.buildingType==='barracks')!;expect(site.footprint!.y===point.y&&site.footprint!.x===point.x).toBe(air);}});
+
+it('pays for several distinct farms, advances their own builders, and counts all completed supply',()=>{
+ let m=prepareEnemyConstruction(createMatch('skirmish'));const bar=m.combat.enemies.find(e=>e.buildingType==='barracks')!;bar.construction={remainingSeconds:0,builderId:null};
+ for(const e of m.combat.enemies)if(e.work)e.work.order={kind:'idle'};
+ m.combat.enemies.push(...Array.from({length:25},(_,i)=>({id:`army-load-${i}`,hp:36,position:{x:600,y:500}})));
+ m.enemyProduction!.wood=200;m.enemyProduction!.gold=0;const initial=enemyPopulation(m).cap;
+ for(let i=1;i<=3;i++){m.waves.elapsedSeconds=i*2;m=prepareEnemyConstruction(m);const farm=m.combat.enemies.find(e=>e.id===`enemy-farm-${i}`);expect(farm).toBeDefined();const builder=m.combat.enemies.find(e=>e.id===farm!.construction!.builderId)!;builder.position={x:farm!.footprint!.x-12,y:farm!.position.y};m=updateEnemyConstruction(m,5).match;expect(m.combat.enemies.find(e=>e.id===farm!.id)!.construction!.remainingSeconds).toBe(0);}
+ expect(m.enemyProduction!.wood).toBe(140);expect(enemyPopulation(m).cap).toBe(initial+15);
+});

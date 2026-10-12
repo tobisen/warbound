@@ -1,0 +1,81 @@
+{
+  "scenario": "frontier woodland, 400 enemy farms, first reveal, 5 repeats x30 steady syncs",
+  "samples": [
+    {
+      "firstMs": 42.400000005960464,
+      "steadyMedian": 11,
+      "steadyP95": 13.5,
+      "minimapMedian": 1.7999999970197678,
+      "minimapP95": 3.5999999940395355,
+      "visuals": 401,
+      "camera": {
+        "x": 1900,
+        "y": 1900,
+        "width": 1920,
+        "height": 848
+      },
+      "renderer": 2
+    },
+    {
+      "firstMs": 34.29999999701977,
+      "steadyMedian": 9.299999997019768,
+      "steadyP95": 11.900000005960464,
+      "minimapMedian": 1.7000000029802322,
+      "minimapP95": 3.1000000089406967,
+      "visuals": 401,
+      "camera": {
+        "x": 1900,
+        "y": 1900,
+        "width": 1920,
+        "height": 848
+      },
+      "renderer": 2
+    },
+    {
+      "firstMs": 24,
+      "steadyMedian": 9.099999994039536,
+      "steadyP95": 11.800000011920929,
+      "minimapMedian": 1.7000000029802322,
+      "minimapP95": 3.0999999940395355,
+      "visuals": 401,
+      "camera": {
+        "x": 1900,
+        "y": 1900,
+        "width": 1920,
+        "height": 848
+      },
+      "renderer": 2
+    },
+    {
+      "firstMs": 26.200000002980232,
+      "steadyMedian": 7.799999997019768,
+      "steadyP95": 10.299999997019768,
+      "minimapMedian": 1.7000000029802322,
+      "minimapP95": 3.1000000089406967,
+      "visuals": 401,
+      "camera": {
+        "x": 1900,
+        "y": 1900,
+        "width": 1920,
+        "height": 848
+      },
+      "renderer": 2
+    },
+    {
+      "firstMs": 25.5,
+      "steadyMedian": 9.099999994039536,
+      "steadyP95": 10.900000005960464,
+      "minimapMedian": 1.7000000029802322,
+      "minimapP95": 3,
+      "visuals": 401,
+      "camera": {
+        "x": 1900,
+        "y": 1900,
+        "width": 1920,
+        "height": 848
+      },
+      "renderer": 2
+    }
+  ],
+  "errors": []
+}
