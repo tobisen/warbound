@@ -1,0 +1,488 @@
+[
+  {
+    "width": 800,
+    "count": 2,
+    "disabledIncompatibleMap": false,
+    "state": {
+      "fog": 546
+    },
+    "saveLoad": true,
+    "restart": true,
+    "minimapClick": true,
+    "errors": []
+  },
+  {
+    "width": 800,
+    "count": 3,
+    "disabledIncompatibleMap": true,
+    "state": {
+      "roster": [
+        {
+          "teamId": 1,
+          "id": "player",
+          "controller": "human",
+          "faction": "crown",
+          "color": "#5fa9df",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 2,
+          "id": "enemy",
+          "controller": "ai",
+          "faction": "clans",
+          "color": "#ec7770",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 3,
+          "id": "ai-2",
+          "controller": "ai",
+          "faction": "elves",
+          "color": "#e5bf55",
+          "profile": "economic",
+          "difficulty": "easy"
+        }
+      ],
+      "ai": [
+        {
+          "id": "enemy",
+          "difficulty": "normal",
+          "profile": "balanced",
+          "base": {
+            "x": 3504,
+            "y": 3344
+          }
+        },
+        {
+          "id": "ai-2",
+          "difficulty": "easy",
+          "profile": "economic",
+          "base": {
+            "x": 3504,
+            "y": 496
+          }
+        }
+      ],
+      "fog": 546
+    },
+    "saveLoad": true,
+    "restart": true,
+    "minimapClick": true,
+    "errors": []
+  },
+  {
+    "width": 800,
+    "count": 4,
+    "disabledIncompatibleMap": true,
+    "state": {
+      "roster": [
+        {
+          "teamId": 1,
+          "id": "player",
+          "controller": "human",
+          "faction": "crown",
+          "color": "#5fa9df",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 2,
+          "id": "enemy",
+          "controller": "ai",
+          "faction": "clans",
+          "color": "#ec7770",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 3,
+          "id": "ai-2",
+          "controller": "ai",
+          "faction": "elves",
+          "color": "#e5bf55",
+          "profile": "economic",
+          "difficulty": "easy"
+        },
+        {
+          "teamId": 4,
+          "id": "ai-3",
+          "controller": "ai",
+          "faction": "dwarves",
+          "color": "#ae8cdd",
+          "profile": "defensive",
+          "difficulty": "hard"
+        }
+      ],
+      "ai": [
+        {
+          "id": "enemy",
+          "difficulty": "normal",
+          "profile": "balanced",
+          "base": {
+            "x": 3504,
+            "y": 3344
+          }
+        },
+        {
+          "id": "ai-2",
+          "difficulty": "easy",
+          "profile": "economic",
+          "base": {
+            "x": 3504,
+            "y": 496
+          }
+        },
+        {
+          "id": "ai-3",
+          "difficulty": "hard",
+          "profile": "defensive",
+          "base": {
+            "x": 528,
+            "y": 3520
+          }
+        }
+      ],
+      "fog": 546
+    },
+    "saveLoad": true,
+    "restart": true,
+    "minimapClick": true,
+    "errors": []
+  },
+  {
+    "width": 800,
+    "count": 5,
+    "disabledIncompatibleMap": true,
+    "state": {
+      "roster": [
+        {
+          "teamId": 1,
+          "id": "player",
+          "controller": "human",
+          "faction": "crown",
+          "color": "#5fa9df",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 2,
+          "id": "enemy",
+          "controller": "ai",
+          "faction": "clans",
+          "color": "#ec7770",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 3,
+          "id": "ai-2",
+          "controller": "ai",
+          "faction": "elves",
+          "color": "#e5bf55",
+          "profile": "economic",
+          "difficulty": "easy"
+        },
+        {
+          "teamId": 4,
+          "id": "ai-3",
+          "controller": "ai",
+          "faction": "dwarves",
+          "color": "#ae8cdd",
+          "profile": "defensive",
+          "difficulty": "hard"
+        },
+        {
+          "teamId": 5,
+          "id": "ai-4",
+          "controller": "ai",
+          "faction": "goblins",
+          "color": "#70c79b",
+          "profile": "economic",
+          "difficulty": "easy"
+        }
+      ],
+      "ai": [
+        {
+          "id": "enemy",
+          "difficulty": "normal",
+          "profile": "balanced",
+          "base": {
+            "x": 3504,
+            "y": 3344
+          }
+        },
+        {
+          "id": "ai-2",
+          "difficulty": "easy",
+          "profile": "economic",
+          "base": {
+            "x": 3504,
+            "y": 496
+          }
+        },
+        {
+          "id": "ai-3",
+          "difficulty": "hard",
+          "profile": "defensive",
+          "base": {
+            "x": 528,
+            "y": 3520
+          }
+        },
+        {
+          "id": "ai-4",
+          "difficulty": "easy",
+          "profile": "economic",
+          "base": {
+            "x": 2448,
+            "y": 704
+          }
+        }
+      ],
+      "fog": 546
+    },
+    "saveLoad": true,
+    "restart": true,
+    "minimapClick": true,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "count": 2,
+    "disabledIncompatibleMap": false,
+    "state": {
+      "fog": 546
+    },
+    "saveLoad": true,
+    "restart": true,
+    "minimapClick": true,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "count": 3,
+    "disabledIncompatibleMap": true,
+    "state": {
+      "roster": [
+        {
+          "teamId": 1,
+          "id": "player",
+          "controller": "human",
+          "faction": "crown",
+          "color": "#5fa9df",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 2,
+          "id": "enemy",
+          "controller": "ai",
+          "faction": "clans",
+          "color": "#ec7770",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 3,
+          "id": "ai-2",
+          "controller": "ai",
+          "faction": "elves",
+          "color": "#e5bf55",
+          "profile": "economic",
+          "difficulty": "easy"
+        }
+      ],
+      "ai": [
+        {
+          "id": "enemy",
+          "difficulty": "normal",
+          "profile": "balanced",
+          "base": {
+            "x": 3504,
+            "y": 3344
+          }
+        },
+        {
+          "id": "ai-2",
+          "difficulty": "easy",
+          "profile": "economic",
+          "base": {
+            "x": 3504,
+            "y": 496
+          }
+        }
+      ],
+      "fog": 546
+    },
+    "saveLoad": true,
+    "restart": true,
+    "minimapClick": true,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "count": 4,
+    "disabledIncompatibleMap": true,
+    "state": {
+      "roster": [
+        {
+          "teamId": 1,
+          "id": "player",
+          "controller": "human",
+          "faction": "crown",
+          "color": "#5fa9df",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 2,
+          "id": "enemy",
+          "controller": "ai",
+          "faction": "clans",
+          "color": "#ec7770",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 3,
+          "id": "ai-2",
+          "controller": "ai",
+          "faction": "elves",
+          "color": "#e5bf55",
+          "profile": "economic",
+          "difficulty": "easy"
+        },
+        {
+          "teamId": 4,
+          "id": "ai-3",
+          "controller": "ai",
+          "faction": "dwarves",
+          "color": "#ae8cdd",
+          "profile": "defensive",
+          "difficulty": "hard"
+        }
+      ],
+      "ai": [
+        {
+          "id": "enemy",
+          "difficulty": "normal",
+          "profile": "balanced",
+          "base": {
+            "x": 3504,
+            "y": 3344
+          }
+        },
+        {
+          "id": "ai-2",
+          "difficulty": "easy",
+          "profile": "economic",
+          "base": {
+            "x": 3504,
+            "y": 496
+          }
+        },
+        {
+          "id": "ai-3",
+          "difficulty": "hard",
+          "profile": "defensive",
+          "base": {
+            "x": 528,
+            "y": 3520
+          }
+        }
+      ],
+      "fog": 546
+    },
+    "saveLoad": true,
+    "restart": true,
+    "minimapClick": true,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "count": 5,
+    "disabledIncompatibleMap": true,
+    "state": {
+      "roster": [
+        {
+          "teamId": 1,
+          "id": "player",
+          "controller": "human",
+          "faction": "crown",
+          "color": "#5fa9df",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 2,
+          "id": "enemy",
+          "controller": "ai",
+          "faction": "clans",
+          "color": "#ec7770",
+          "profile": "balanced"
+        },
+        {
+          "teamId": 3,
+          "id": "ai-2",
+          "controller": "ai",
+          "faction": "elves",
+          "color": "#e5bf55",
+          "profile": "economic",
+          "difficulty": "easy"
+        },
+        {
+          "teamId": 4,
+          "id": "ai-3",
+          "controller": "ai",
+          "faction": "dwarves",
+          "color": "#ae8cdd",
+          "profile": "defensive",
+          "difficulty": "hard"
+        },
+        {
+          "teamId": 5,
+          "id": "ai-4",
+          "controller": "ai",
+          "faction": "goblins",
+          "color": "#70c79b",
+          "profile": "economic",
+          "difficulty": "easy"
+        }
+      ],
+      "ai": [
+        {
+          "id": "enemy",
+          "difficulty": "normal",
+          "profile": "balanced",
+          "base": {
+            "x": 3504,
+            "y": 3344
+          }
+        },
+        {
+          "id": "ai-2",
+          "difficulty": "easy",
+          "profile": "economic",
+          "base": {
+            "x": 3504,
+            "y": 496
+          }
+        },
+        {
+          "id": "ai-3",
+          "difficulty": "hard",
+          "profile": "defensive",
+          "base": {
+            "x": 528,
+            "y": 3520
+          }
+        },
+        {
+          "id": "ai-4",
+          "difficulty": "easy",
+          "profile": "economic",
+          "base": {
+            "x": 2448,
+            "y": 704
+          }
+        }
+      ],
+      "fog": 546
+    },
+    "saveLoad": true,
+    "restart": true,
+    "minimapClick": true,
+    "errors": []
+  }
+]

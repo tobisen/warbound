@@ -336,11 +336,14 @@ export class BootScene extends Phaser.Scene {
     this.scenarioSelect.value=this.scenario==='siege-test'?'survival':this.scenario;
     const changeScenario=()=>{if(!playableScenarios.includes(this.scenarioSelect.value as MatchScenario))return;this.session=changeOptions(this.session,{scenario:this.scenarioSelect.value as MatchScenario});this.scenario=this.session.options.scenario;this.syncSession();};
     const playerCount=document.getElementById('player-count-select') as HTMLSelectElement;
-    const secondFaction=document.getElementById('ai-2-faction-select') as HTMLSelectElement,secondProfile=document.getElementById('ai-2-profile-select') as HTMLSelectElement;
-    const secondDifficulty=document.getElementById('ai-2-difficulty-select') as HTMLSelectElement;
-    const teamSelects=['player','enemy','ai-2'].map(id=>document.getElementById(`${id}-team-select`) as HTMLSelectElement);
-    const changePlayers=()=>{if(this.session.phase!=='menu')return;const count=Number(playerCount.value),roster=matchPlayers(this.factions,this.session.options.aiProfile,count);if(count===3&&isFactionId(secondFaction.value)&&isAIProfile(secondProfile.value)){roster[2]={...roster[2],faction:secondFaction.value,profile:secondProfile.value,...(Object.hasOwn(difficultyProfiles,secondDifficulty.value)?{difficulty:secondDifficulty.value as Difficulty}:{})};}for(let i=0;i<roster.length;i++)roster[i].teamId=Number(teamSelects[i].value);const map=count===3&&!supportedPlayerCounts(this.session.options.map,this.session.options.scenario).includes(3)?'plains96':this.session.options.map;this.session=changeOptions(this.session,{map,players:count===3?roster:undefined});this.syncSession();};
-    for(const select of [playerCount,secondFaction,secondProfile,secondDifficulty,...teamSelects]){select.addEventListener('change',changePlayers);this.events.once(Phaser.Scenes.Events.SHUTDOWN,()=>select.removeEventListener('change',changePlayers));}
+    const extraSelects=[2,3,4].flatMap(n=>['faction','profile','difficulty'].map(kind=>document.getElementById(`ai-${n}-${kind}-select`) as HTMLSelectElement));
+    const teamSelects=['player','enemy','ai-2','ai-3','ai-4'].map(id=>document.getElementById(`${id}-team-select`) as HTMLSelectElement);
+    const changePlayers=()=>{if(this.session.phase!=='menu')return;const count=Number(playerCount.value),roster=matchPlayers(this.factions,this.session.options.aiProfile,count);
+      for(let n=2;n<count;n++){const [faction,profile,difficulty]=extraSelects.slice((n-2)*3,(n-1)*3);if(isFactionId(faction.value)&&isAIProfile(profile.value))roster[n]={...roster[n],faction:faction.value,profile:profile.value,...(Object.hasOwn(difficultyProfiles,difficulty.value)?{difficulty:difficulty.value as Difficulty}:{})};}
+      for(let i=0;i<roster.length;i++)roster[i].teamId=Number(teamSelects[i].value);
+      const map=!supportedPlayerCounts(this.session.options.map,this.session.options.scenario).includes(count)?count>3?'plains128':'plains96':this.session.options.map;
+      this.session=changeOptions(this.session,{map,players:count>=3?roster:undefined});this.syncSession();};
+    for(const select of [playerCount,...extraSelects,...teamSelects]){select.addEventListener('change',changePlayers);this.events.once(Phaser.Scenes.Events.SHUTDOWN,()=>select.removeEventListener('change',changePlayers));}
     const mapSelect=document.querySelector<HTMLSelectElement>('#map-select')!;
     const changeMap=()=>{if(this.session.phase==='menu'&&this.session.options.scenario==='skirmish'&&isMapId(mapSelect.value)){this.session=changeOptions(this.session,{map:mapSelect.value});this.syncSession();}};
     mapSelect.addEventListener('change',changeMap);this.events.once(Phaser.Scenes.Events.SHUTDOWN,()=>mapSelect.removeEventListener('change',changeMap));
@@ -693,19 +696,17 @@ export class BootScene extends Phaser.Scene {
     // Native menus keep a tentative selection until Enter/click commits it.
     const syncSelectValue=(select:HTMLSelectElement,value:string)=>{if(!select.matches(':open')&&select.value!==value)select.value=value;};
     const syncSelectDisabled=(select:HTMLSelectElement,disabled:boolean)=>{if(select.disabled!==disabled)select.disabled=disabled;};
-    const counts=this.session.options.scenario==='skirmish'?[2,3]:[2],playerCount=document.getElementById('player-count-select') as HTMLSelectElement;
+    const counts=this.session.options.scenario==='skirmish'?[2,3,4,5]:[2],playerCount=document.getElementById('player-count-select') as HTMLSelectElement;
     if(playerCount.dataset.map!==counts.join(',')){playerCount.replaceChildren(...counts.map(n=>new Option(`You + ${n-1} AI`,String(n))));playerCount.dataset.map=counts.join(',');}
     playerCount.parentElement!.hidden=this.session.options.scenario!=='skirmish';
     syncSelectValue(playerCount,String(this.session.options.players?.length??2));syncSelectDisabled(playerCount,!menu);
     document.getElementById('additional-ai-settings')!.hidden=!this.session.options.players;
     document.getElementById('team-settings')!.hidden=!this.session.options.players;
     if(this.session.options.players)for(const p of this.session.options.players){const select=document.getElementById(`${p.id}-team-select`) as HTMLSelectElement;syncSelectValue(select,String(p.teamId));syncSelectDisabled(select,!menu);}
-    const secondFaction=document.getElementById('ai-2-faction-select') as HTMLSelectElement,secondProfile=document.getElementById('ai-2-profile-select') as HTMLSelectElement;
-    const secondDifficulty=document.getElementById('ai-2-difficulty-select') as HTMLSelectElement;
-    for(const select of [secondFaction,secondProfile,secondDifficulty])syncSelectDisabled(select,!menu);
-    if(this.session.options.players){syncSelectValue(secondFaction,this.session.options.players[2].faction);syncSelectValue(secondProfile,this.session.options.players[2].profile);syncSelectValue(secondDifficulty,this.session.options.players[2].difficulty??'');}
-    const legend=document.getElementById('minimap-player-legend')!;legend.replaceChildren(...(this.session.options.players??[]).map(p=>{const span=document.createElement('span');span.textContent=`${p.id==='player'?'You':p.id==='enemy'?'AI1':'AI2'} T${p.teamId}`;const eliminated=!!this.multiplePlayers&&playerEliminated(this.currentMatch(),p.id);if(eliminated)span.textContent+=' ×';span.title=eliminated?'Eliminated: base destroyed; surviving assets inactive':'Active player';span.style.color=p.color;return span;}));
-    document.getElementById('player-color-summary')!.textContent=this.session.options.players?this.session.options.players.map(p=>`${p.id==='player'?'Blue: You':p.id==='enemy'?'Red: AI 1':'Gold: AI 2'} · Team ${p.teamId}`).join(' / '):'Blue: You · Red: AI 1';
+    for(const n of [2,3,4])for(const [kind,value] of [['faction',this.session.options.players?.[n]?.faction],['profile',this.session.options.players?.[n]?.profile],['difficulty',this.session.options.players?.[n]?.difficulty??'']] as const){const select=document.getElementById(`ai-${n}-${kind}-select`) as HTMLSelectElement;syncSelectDisabled(select,!menu);if(value!==undefined&&this.session.options.players?.[n])syncSelectValue(select,value);}
+    const label=(id:string)=>id==='player'?'You':id==='enemy'?'AI 1':`AI ${id.slice(3)}`;
+    const legend=document.getElementById('minimap-player-legend')!;legend.replaceChildren(...(this.session.options.players??[]).map(p=>{const span=document.createElement('span');span.textContent=`${label(p.id)} T${p.teamId}`;const eliminated=!!this.multiplePlayers&&playerEliminated(this.currentMatch(),p.id);if(eliminated)span.textContent+=' ×';span.title=eliminated?'Eliminated: base destroyed; surviving assets inactive':'Active player';span.style.color=p.color;return span;}));
+    document.getElementById('player-color-summary')!.textContent=this.session.options.players?this.session.options.players.map(p=>`${label(p.id)} · Team ${p.teamId}`).join(' / '):'Blue: You · Red: AI 1';
     const mapSelect=document.querySelector<HTMLSelectElement>('#map-select')!;syncSelectDisabled(mapSelect,!menu||this.session.options.scenario!=='skirmish');syncSelectValue(mapSelect,shown.map);
     const factionSelect=document.querySelector<HTMLSelectElement>('#faction-select')!;syncSelectDisabled(factionSelect,!menu);syncSelectValue(factionSelect,shown.faction??defaultFactions.player);const enemyFactionSelect=document.querySelector<HTMLSelectElement>('#enemy-faction-select')!;syncSelectDisabled(enemyFactionSelect,!menu||inCampaign);syncSelectValue(enemyFactionSelect,shown.enemyFaction??'');
     syncSelectDisabled(this.scenarioSelect,!menu);syncSelectValue(this.scenarioSelect,this.session.options.scenario==='siege-test'?'survival':this.session.options.scenario);

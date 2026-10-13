@@ -53,6 +53,7 @@
   "src/gameplay/factionProfiles.test.ts",
   "src/gameplay/factionSave.test.ts",
   "src/gameplay/factionSpells.test.ts",
+  "src/gameplay/fivePlayers.test.ts",
   "src/gameplay/fog.test.ts",
   "src/gameplay/frontier.test.ts",
   "src/gameplay/gameSpeed.test.ts",

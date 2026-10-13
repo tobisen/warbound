@@ -5901,3 +5901,27 @@ kontrollerar alla nio verkliga PCM-filer, unika data, format/master/licenser.
 Ny unit531/92 PASS; omkörd efter sista creditslänken. Strict build PASS488ms
 med befintlig bundlevarning, självgranskning/diffcheck PASS. Ingen fullregression
 för ljudtasken; samlad batchregression återstår. Användarändringar exkluderade.
+
+## RTS-252 — Upp till fyra AI-motståndare (2026-10-13)
+
+Utökat befintliga PlayerId/MultiplePlayers/AIContext/global IDs till fem deltagare,
+fem färger/lag, separat ras/svårighet/beteende/lag för AI1–4. Plains128:s två
+extra naturliga startytor valideras utan ändrad terräng; otillräckliga kartor
+filtreras i menyn och modellen avvisar ogiltigt antal. Generiska team-, fog-,
+resultat-, stats-/highscores- och minimapsystem återanvänds.
+Test upptäckte Save>4MB för4/5 deltagare: gemensamma fält sparas nu en gång i
+humandokumentet och återställs före samma strikta decoder. Äldre två/tre-format
+består; inga resurser/AI-baser ges gratis. Första kompaktprovet ändrade även
+historiska tre-spelarfixtures; begränsat det nya formatet till4/5 och omverifierat.
+Browser800/1280 för1–4 AI PASS: separata val/kapacitetsfilter/startpositioner,
+fog/minimap/legend, faktisk lokal Save med statuskontroll och HP-ändring före
+load, restart. Bilder/belägg artifacts/rts-252; menyn scrollar även vid800.
+Ny unit531/92 PASS30.30s; slutbuild inklusive strict typecheck PASS1.07s med
+befintlig bundlevarning. Riktade players/settings77/2 PASS. Slutliga integrationer
+för betalande AI/60s, alla antal, teams, Save/migration och highscores redovisas
+nedan. Ingen mänsklig balans/tidsgranskning eller ny CI/Pages hävdas.
+
+RTS-252 slutliga integrationer31/3 PASS87.79s (fivePlayers, multiplePlayers,
+teamResults):1–4 AI,60s betalt byggande/egen ekonomi, ägarskap/fog/minimap,
+Save/restart, lagseger/förlust och highscore/migration. Självgranskning och
+slutlig git diff --check PASS; full batchregression följer efter karttask253.

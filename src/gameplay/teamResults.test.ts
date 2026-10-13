@@ -40,7 +40,7 @@ it('team victory can occur after the human is eliminated, with no artificial sur
  let m=updateMatch(eliminate(match(),'player'),.25);const own=matchStats(m).player;m=updateMatch(eliminate(m,'enemy'),.25);expect(m.outcome).toBe('victory');expect(matchStats(m).player.lost).toBe(own.lost);expect(matchStats(m).player.removed).toBe(0);roundtrip(m);
 });
 it('team statistics and highscores retain ownership and record each match only once across reloads',()=>{
- let m=match();m.multiplePlayers!.kills={player:2,enemy:1,'ai-2':3};m=updateMatch(eliminate(m,'enemy'),.25);m.matchId='00000000-0000-4000-8000-000000000001';
+ let m=match();m.multiplePlayers!.kills={...m.multiplePlayers!.kills,player:2,enemy:1,'ai-2':3};m=updateMatch(eliminate(m,'enemy'),.25);m.matchId='00000000-0000-4000-8000-000000000001';
  const stats=matchStats(m);expect(stats.teams![1].killed).toBe(5);expect(stats.teams![2].killed).toBe(1);const score=resultScore(m)!;expect(validHighscore(score)).toBe(true);
  const other=structuredClone(score);other.players![2].teamId=3;expect(scorePartition(other)).not.toBe(scorePartition(score));
  const memory=new Map<string,string>();let writes=0;const storage={getItem:(k:string)=>memory.get(k)??null,setItem:(k:string,v:string)=>{writes++;memory.set(k,v);}};

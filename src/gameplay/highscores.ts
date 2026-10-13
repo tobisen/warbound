@@ -28,8 +28,8 @@ const finite=(v:unknown)=>typeof v==='number'&&Number.isFinite(v)&&v>=0&&v<=1e12
 function validStats(value:unknown):value is MatchStats{
  if(!value||typeof value!=='object')return false;const s=value as MatchStats;
  if(Object.keys(s).filter(k=>k!=='players'&&k!=='teams').sort().join()!=='enemy,player,seconds'||!finite(s.seconds))return false;
- if(s.players&&(Object.keys(s.players).sort().join()!=='ai-2,enemy,player'||!Object.values(s.players).every(t=>validStats({seconds:s.seconds,player:t,enemy:t}))))return false;
- if(s.teams&&(Object.keys(s.teams).some(k=>!['1','2','3'].includes(k))||!Object.values(s.teams).every(t=>validStats({seconds:s.seconds,player:t,enemy:t}))))return false;
+ if(s.players&&(![3,4,5].includes(Object.keys(s.players).length)||Object.keys(s.players).some(id=>!['player','enemy','ai-2','ai-3','ai-4'].includes(id))||!Object.values(s.players).every(t=>validStats({seconds:s.seconds,player:t,enemy:t}))))return false;
+ if(s.teams&&(Object.keys(s.teams).some(k=>!['1','2','3','4','5'].includes(k))||!Object.values(s.teams).every(t=>validStats({seconds:s.seconds,player:t,enemy:t}))))return false;
  for(const t of [s.player,s.enemy]){
   if(!t||typeof t!=='object'||Object.keys(t).sort().join()!=='added,built,destroyed,gold,killed,lost,removed,wood')return false;
   for(const k of ['added','built','destroyed','killed','lost','removed'] as const)if(!Number.isSafeInteger(t[k])||t[k]<0||t[k]>1e6)return false;

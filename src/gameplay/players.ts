@@ -1,7 +1,7 @@
 import {isRegionalDesign} from '../config/organicTerrain';
 import {regionDefinition,regionThirdStart} from '../config/mapRegions';
 import type {TerrainDesign} from '../config/organicTerrain';
-import {additionalStarts,playerColors,type PlayerDefinition,type PlayerId} from '../config/players';
+import {additionalStarts,extraPlayerStarts,playerIds,playerColors,type PlayerDefinition,type PlayerId} from '../config/players';
 import {defaultFactions,type MatchFactions} from '../config/factions';
 import type {AIProfileId} from '../config/aiProfiles';
 import {enemyBaseConfig} from '../config/scenarios';
@@ -14,19 +14,18 @@ import type {Position} from './movement';
 
 export interface PlayerOwned {playerId?:PlayerId}
 export function ownerOf(entity:PlayerOwned&{owner?:string}):PlayerId{return entity.playerId??(entity.owner==='enemy'?'enemy':'player');}
-export function playerTeam(id:PlayerId,roster?:readonly PlayerDefinition[]):number{return roster?.find(p=>p.id===id)?.teamId??({'player':1,enemy:2,'ai-2':3} as const)[id];}
+export function playerTeam(id:PlayerId,roster?:readonly PlayerDefinition[]):number{return roster?.find(p=>p.id===id)?.teamId??playerIds.indexOf(id)+1;}
 export function playerRelation(a:PlayerId,b:PlayerId,roster?:readonly PlayerDefinition[]):'own'|'ally'|'enemy'{return a===b?'own':playerTeam(a,roster)===playerTeam(b,roster)?'ally':'enemy';}
 export const canControl=(actor:PlayerId,target:PlayerId)=>actor===target;
 export const canHarm=(actor:PlayerId,target:PlayerId,roster?:readonly PlayerDefinition[])=>playerRelation(actor,target,roster)==='enemy';
 export const canSupport=(actor:PlayerId,target:PlayerId,roster?:readonly PlayerDefinition[])=>playerRelation(actor,target,roster)!=='enemy';
 export function matchPlayers(factions:MatchFactions=defaultFactions,profile:AIProfileId='balanced',count=2):PlayerDefinition[]{
- if(count!==2&&count!==3)throw Error('Unsupported player count');
- return [{teamId:1,id:'player',controller:'human',faction:factions.player,color:playerColors[0],profile},
-  {teamId:2,id:'enemy',controller:'ai',faction:factions.enemy,color:playerColors[1],profile},
-  ...(count===3?[{teamId:3,id:'ai-2' as const,controller:'ai' as const,faction:'elves' as const,color:playerColors[2],profile}]:[])];
+ if(!Number.isInteger(count)||count<2||count>5)throw Error('Unsupported player count');
+ return playerIds.slice(0,count).map((id,i)=>({teamId:i+1,id,controller:i===0?'human':'ai',faction:i===0?factions.player:i===1?factions.enemy:(['elves','dwarves','goblins'] as const)[i-2],color:playerColors[i],profile}));
 }
 export function playerStart(map:MapId,id:PlayerId,design?:TerrainDesign):Position{
  if(id==='player')return {...gatheringConfig.basePosition};
+ if(id==='ai-3'||id==='ai-4'){const point=extraPlayerStarts[map]?.[id==='ai-3'?0:1];if(!point)throw Error('Map has no extra start');return {...point};}
  if(id==='ai-2'){const p=isRegionalDesign(design)&&additionalStarts[map]?regionThirdStart:additionalStarts[map];if(!p)throw Error('Map has no third start');return {...p};}
  const rect=regionDefinition(map,maps[map],design).enemyBase??enemyBaseConfig.footprint;return {x:rect.x+rect.width/2,y:rect.y+rect.height/2};
 }

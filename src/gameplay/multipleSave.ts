@@ -27,9 +27,13 @@ function singleView(m:MatchState,id:PlayerId):MatchState{
 }
 export function encodeMultipleSave(m:MatchState,view:SavedView):string{
  const multi=m.multiplePlayers!;
- const json=JSON.stringify({schemaVersion:saveConfig.schemaVersion,configVersion:saveConfig.configVersion,map:m.map.id,multiplePlayers:multi.roster,kills:multi.kills,
-  human:encodeSingleSave(singleView(m,'player'),view,contextFor(m,'player')),
-  ai:multi.ai.map(bot=>({id:bot.id,document:encodeSingleSave(singleView(m,bot.id),view,contextFor(m,bot.id))}))});
+ if(multi.roster.length<=3){const json=JSON.stringify({schemaVersion:saveConfig.schemaVersion,configVersion:saveConfig.configVersion,map:m.map.id,multiplePlayers:multi.roster,kills:multi.kills,human:encodeSingleSave(singleView(m,'player'),view,contextFor(m,'player')),ai:multi.ai.map(bot=>({id:bot.id,document:encodeSingleSave(singleView(m,bot.id),view,contextFor(m,bot.id))}))});if(new TextEncoder().encode(json).byteLength>saveConfig.maxBytes)throw Error('Save too large');const result=decodeMultipleSave(JSON.parse(json));if(!result.ok)throw Error(result.error);return json;}
+ const human=JSON.parse(encodeSingleSave(singleView(m,'player'),view,contextFor(m,'player')));
+ const sharedKeys=['map','waves','paused','outcome','gathering','placement','production','soldierProduction','navy','research','controlGroups','wildlife'] as const;
+ const shared=sharedKeys.filter(key=>human.state[key]!==undefined);
+ const compact=(document:typeof human)=>{for(const key of sharedKeys)delete document.state[key];return JSON.stringify(document);};
+ const json=JSON.stringify({schemaVersion:saveConfig.schemaVersion,configVersion:saveConfig.configVersion,map:m.map.id,multiplePlayers:multi.roster,kills:multi.kills,shared,
+  human:JSON.stringify(human),ai:multi.ai.map(bot=>({id:bot.id,document:compact(JSON.parse(encodeSingleSave(singleView(m,bot.id),view,contextFor(m,bot.id))))}))});
  if(new TextEncoder().encode(json).byteLength>saveConfig.maxBytes)throw Error('Save too large');
  const result=decodeMultipleSave(JSON.parse(json));if(!result.ok)throw Error(result.error);
  return json;
@@ -38,6 +42,16 @@ export function encodeMultipleSave(m:MatchState,view:SavedView):string{
 export function decodeMultipleSave(raw:unknown):LoadResult{
  try{
  const doc=raw as Record<string,unknown>;
+ // Shared human/world fields avoid multiplying localStorage usage by AI count.
+ // Older documents without shared remain valid and follow the same strict decoder.
+ if(doc?.shared!==undefined){
+  const keys=['map','waves','paused','outcome','gathering','placement','production','soldierProduction','navy','research','controlGroups','wildlife'];
+  if(doc.configVersion!==saveConfig.configVersion||!Array.isArray(doc.shared)||doc.shared.some(k=>typeof k!=='string'||!keys.includes(k))||new Set(doc.shared).size!==doc.shared.length||typeof doc.human!=='string')throw Error('Invalid shared multiplayer state');
+  const human=JSON.parse(doc.human),shared:Record<string,unknown>={};for(const key of doc.shared){if(!human.state||!Object.hasOwn(human.state,key))throw Error('Missing shared state');shared[key]=human.state[key];}
+  const expand=(encoded:unknown)=>{if(typeof encoded!=='string')throw Error('Invalid shared document');const document=JSON.parse(encoded);if(!document.state||Object.keys(shared).some(k=>Object.hasOwn(document.state,k)))throw Error('Conflicting shared state');document.state={...document.state,...shared};return JSON.stringify(document);};
+  if(!Array.isArray(doc.ai))throw Error('Invalid shared AI');doc.ai=doc.ai.map(value=>{if(!value||typeof value!=='object'||Object.keys(value).some(k=>!['id','document'].includes(k)))throw Error('Invalid shared AI identity');return {...value,document:expand(value.document)};});
+ }
+
  if(doc.configVersion==='tribute-config-74'){for(const encoded of [doc.human,...(Array.isArray(doc.ai)?doc.ai.map(bot=>(bot as Record<string,unknown>).document):[])]){if(typeof encoded!=='string'||JSON.parse(encoded).configVersion!=='tribute-config-74')throw Error('Invalid legacy campaigns');}doc.configVersion=saveConfig.configVersion;}
  if(doc.configVersion==='tribute-config-73'){for(const encoded of [doc.human,...(Array.isArray(doc.ai)?doc.ai.map(bot=>(bot as Record<string,unknown>).document):[])]){if(typeof encoded!=='string'||JSON.parse(encoded).configVersion!=='tribute-config-73')throw Error('Invalid legacy enemy bases');}doc.configVersion=saveConfig.configVersion;}
  if(doc.configVersion==='tribute-config-72'){for(const encoded of [doc.human,...(Array.isArray(doc.ai)?doc.ai.map(bot=>(bot as Record<string,unknown>).document):[])]){if(typeof encoded!=='string'||JSON.parse(encoded).configVersion!=='tribute-config-72'||JSON.parse(encoded).state?.map?.design==='woodlands')throw Error('Invalid legacy woodland layout');}doc.configVersion=saveConfig.configVersion;}
@@ -63,10 +77,10 @@ if(doc?.configVersion!==saveConfig.configVersion&&doc?.configVersion!=='tribute-
  if(doc?.configVersion==='tribute-config-51'||doc?.configVersion==='tribute-config-52')doc.configVersion=saveConfig.configVersion;
  if(doc?.configVersion==='tribute-config-50')doc.configVersion=saveConfig.configVersion;
  if(doc?.configVersion==='tribute-config-49')doc.configVersion=saveConfig.configVersion;
- if(!doc||Object.keys(doc).some(k=>!['schemaVersion','configVersion','map','multiplePlayers','kills','human','ai'].includes(k))||doc.schemaVersion!==saveConfig.schemaVersion||doc.configVersion!==saveConfig.configVersion||typeof doc.human!=='string'||!Array.isArray(doc.ai)||doc.ai.length!==2)throw Error('Invalid multiplayer document');
+ if(!doc||Object.keys(doc).some(k=>!['schemaVersion','configVersion','map','multiplePlayers','kills','human','ai','shared'].includes(k))||doc.schemaVersion!==saveConfig.schemaVersion||doc.configVersion!==saveConfig.configVersion||typeof doc.human!=='string'||!Array.isArray(doc.ai)||doc.ai.length<2||doc.ai.length>4)throw Error('Invalid multiplayer document');
  const humanRaw=JSON.parse(doc.human) as {state:MatchState};
- if(!validPlayers(doc.multiplePlayers,{scenario:humanRaw.state.scenario,map:doc.map})||(doc.multiplePlayers as unknown[]).length!==3)throw Error('Invalid player roster');
- const kills=doc.kills as Record<PlayerId,number>;if(!kills||Object.keys(kills).sort().join(',')!=='ai-2,enemy,player'||Object.values(kills).some(n=>!Number.isInteger(n)||n<0||n>100000))throw Error('Invalid player kill ledger');
+ if(!validPlayers(doc.multiplePlayers,{scenario:humanRaw.state.scenario,map:doc.map})||(doc.multiplePlayers as unknown[]).length!==doc.ai.length+1)throw Error('Invalid player roster');
+ const kills=doc.kills as Record<PlayerId,number>;if(!kills||Object.keys(kills).sort().join(',')!==(doc.multiplePlayers as MultiplePlayers['roster']).map(p=>p.id).sort().join(',')||Object.values(kills).some(n=>!Number.isInteger(n)||n<0||n>100000))throw Error('Invalid player kill ledger');
  const roster=doc.multiplePlayers as MultiplePlayers['roster'];
  if(roster.some(p=>p.teamId===undefined))throw Error('Missing team identity');
  const ai=doc.ai.map((value,index)=>{
@@ -75,7 +89,7 @@ if(doc?.configVersion!==saveConfig.configVersion&&doc?.configVersion!=='tribute-
  const parsed=JSON.parse(part.document) as {state:MatchState};
  if(parsed.state.difficulty!==(roster[index+1].difficulty??humanRaw.state.difficulty))throw Error('AI difficulty mismatch');
  if(parsed.state.factions?.enemy!==roster[index+1].faction||parsed.state.aiProfile!==undefined&&parsed.state.aiProfile!==roster[index+1].profile)throw Error('AI faction/profile mismatch');
- return {id:part.id as 'enemy'|'ai-2',state:parsed.state,vision:parsed.state.fog!.teams.enemy};
+ return {id:part.id as Exclude<PlayerId,'player'>,state:parsed.state,vision:parsed.state.fog!.teams.enemy};
  });
  const shell:MatchState={...humanRaw.state,multiplePlayers:{roster,ai,kills}};
  if(shell.factions?.player!==roster[0].faction||shell.factions.enemy!==roster[1].faction)throw Error('Human faction mismatch');
@@ -91,7 +105,7 @@ if(doc?.configVersion!==saveConfig.configVersion&&doc?.configVersion!=='tribute-
  if(loaded.match.waves.elapsedSeconds!==human.match.waves.elapsedSeconds||loaded.match.map.id!==human.match.map.id||loaded.match.outcome!==human.match.outcome)throw Error('Unsynchronised AI state');
  return {...bot,state:loaded.match,vision:loaded.match.fog!.teams.enemy};
  });
- const targetOwner=(id:string):PlayerId=>id.startsWith('ai-2:')?'ai-2':id.startsWith('enemy-')?'enemy':'player';
+ const targetOwner=(id:string):PlayerId=>(roster.find(p=>p.id.startsWith('ai-')&&id.startsWith(`${p.id}:`))?.id)??(id.startsWith('enemy-')?'enemy':'player');
  const checkAttack=(actor:PlayerId,id:string)=>{if(!canHarm(actor,targetOwner(id),roster))throw Error('Allied attack reference');};
  for(const unit of [...human.match.gathering.units,...(human.match.navy?.ships??[])]){if(unit.order.kind==='attack')checkAttack('player',unit.order.enemyId);for(const order of unit.orderQueue??[])if(order.kind==='attack')checkAttack('player',order.enemyId);}
  for(const shot of human.match.combat.projectiles??[])if(!shot.owner)checkAttack('player',shot.targetId);

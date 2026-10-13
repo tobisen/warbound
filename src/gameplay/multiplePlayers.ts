@@ -33,7 +33,7 @@ import {createMap,terrainPatches} from './map';
 export interface AIContext {friendlyEntityIds?:string[];concealedTargets?:{id:string;position:Position}[];buildSites:Position[];muster:Position;attackWaypoints:Position[];gateFriendly?:boolean;humanHostile?:boolean;sharedObservers?:VisionObserver[];visionSide?:'player'|'enemy';helpBases?:import('./placement').Footprint[]}
 export interface AIPlayer {id:Exclude<PlayerId,'player'>;state:MatchState;vision:FogTeam}
 export interface MultiplePlayers {roster:PlayerDefinition[];ai:AIPlayer[];kills:Record<PlayerId,number>}
-export function globalEntityId(player:PlayerId,id:string):string{return player==='ai-2'?`${player}:${id}`:id;}
+export function globalEntityId(player:PlayerId,id:string):string{return player!=='player'&&player!=='enemy'?`${player}:${id}`:id;}
 function alliedObservers(m:MatchState,id:PlayerId):VisionObserver[]{
  if(!m.multiplePlayers)return [];
  const observers=id!=='player'&&!playerEliminated(m,'player')&&canSupport(id,'player',m.multiplePlayers.roster)?visionObservers(m).filter(o=>o.owner==='player'):[];
@@ -57,7 +57,7 @@ export function initializeMultiplePlayers(m:MatchState,roster:PlayerDefinition[]
   state.fog=matchFog({...state,fog:undefined});
   const bot={id:p.id as AIPlayer['id'],state,vision:createFog(m.map).teams.enemy};return {...bot,vision:actorVision(m,bot)};
  });
- return shareTeamVision(projectMultiplePlayers({...m,multiplePlayers:{roster:roster.map(p=>({...p})),ai,kills:{player:0,enemy:0,'ai-2':0}}}));
+ return shareTeamVision(projectMultiplePlayers({...m,multiplePlayers:{roster:roster.map(p=>({...p})),ai,kills:Object.fromEntries(roster.map(p=>[p.id,0])) as Record<PlayerId,number>}}));
 }
 export function projectedEnemies(m:MatchState):Enemy[]{
  return m.multiplePlayers!.ai.flatMap(bot=>{

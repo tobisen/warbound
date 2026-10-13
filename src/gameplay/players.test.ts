@@ -14,7 +14,7 @@ describe('stable player ownership and authored starts',()=>{
  });
  it('offers only authored physically valid extra starts in skirmish',()=>{
  const p=matchPlayers(undefined,undefined,3);
- for(const map of ['plains96','plains128'] as const){expect(supportedPlayerCounts(map,'skirmish')).toEqual([2,3]);expect(validatePlayerStarts(map,p)).toBe(true);}
+ for(const map of ['plains96','plains128'] as const){expect(supportedPlayerCounts(map,'skirmish')).toEqual(map==='plains128'?[2,3,4,5]:[2,3]);expect(validatePlayerStarts(map,p)).toBe(true);}
  expect(supportedPlayerCounts('frontier','skirmish')).toEqual([2]);
  expect(supportedPlayerCounts('plains96','tutorial')).toEqual([2]);
  expect(validatePlayerStarts('frontier',p)).toBe(false);
