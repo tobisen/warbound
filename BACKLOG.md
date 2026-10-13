@@ -45,6 +45,16 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### RTS-249 — Release0.7.0 — In progress
+
+Nytt uttryckligt uppdrag2026-10-13: skapa/publicera release med senaste färdiga
+commitade ändringar. Version/package/lock/changelog uppdateras; ren releasekopia,
+unit/strict build/diff och produktionsbrowser, faktisk CI fullregression/Pages
+samt offentlig browser med exakt version/build krävs. Bevara/exkludera användarens
+style.css, units.mjs, docs/ och :memory:.ses. Ingen ny gameplay eller annan task.
+Slutlig HANDOFF/QUALITY_REVIEW/RELEASE_CHECKLIST och docs/commit/push ingår.
+
+
 ### Nytt mandat 2026-10-12 — RTS-241–248
 
 Ersätter tidigare stopp. En task åt gången, bevara style.css/units.mjs/docs/

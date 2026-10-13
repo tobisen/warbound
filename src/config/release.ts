@@ -1,6 +1,15 @@
 /** Product release version is independent of git/build identity and Save config. */
-export const releaseVersion='0.6.0';
-export const changelog=[{version:releaseVersion,title:'Kraken encounters and smoother building controls',changes:[
+export const releaseVersion='0.7.0';
+export const changelog=[{version:releaseVersion,title:'Forested frontiers and racial campaigns',changes:[
+ 'Warbound now opens correctly on its existing GitHub Pages address, with the panoramic home screen and aspect-preserving display.',
+ 'Fifteen campaign operations per faction: thirty-five new racial expeditions with exploration, expansion, defense, rescue and naval goals.',
+ 'Nine richer maps with connected harvestable forests, remote resources and terrain-following objective routes.',
+ 'Wider unit and building vision; hidden enemy buildings retain only their last-seen appearance until scouted again.',
+ 'Fortifications have no global number cap; ordinary costs, resources and placement rules still apply.',
+ 'Enemy workers fund larger bases, defenses and multiple expansions using their own known map information.',
+ 'Reduced repeated discovery rendering, improved campaign camera framing and seamless minimap fog; older saved map layouts are preserved.',
+ 'Human campaign timing and balance, remaining animation coverage and cold first-discovery rendering spikes remain documented limitations.',
+]}, {version:'0.6.0',title:'Kraken encounters and smoother building controls',changes:[
  'Neutral Krakens patrol authored water regions on Islands, Shattered Coast and River Bend, with difficulty-scaled counts and bounded pursuit.',
  'Krakens threaten the human-controlled player\'s ships and coastal troops/buildings, never AI players, regardless of faction; fog and ordinary match objectives remain respected.',
  'Original painted pixel Kraken artwork with swimming, attack and sinking poses matches the guardian roster.',

@@ -1,3 +1,33 @@
+## Release0.7.0 — kandidat verifierad, 2026-10-13
+
+Användaren beställer ny release efter RTS-241–248. RTS-249 omfattar enbart
+produktversion/package/lock/changelog, README och releaseverifiering; ingen
+ändring av gameplay, Save75 eller assets. Historisk0.6.0-changelog bevaras.
+Ny titel: Forested frontiers and racial campaigns;35 nya egna uppdrag,
+15/ras, skogskartor, sikt/minnesbilder, fortifikationer, AI och Warbound Pages.
+Befintliga ocommittade style.css/units.mjs/docs/:memory:.ses är exkluderade.
+
+Ren git-archive-kopia med enbart releaseändringarna i /tmp/warbound-release070:
+unit531/92 PASS16.25s; strict typecheck/build PASS592ms med befintlig
+bundlevarning. Installerade låsta beroenden återanvändes via node_modules-
+symlink; ingen ny lokal npm ci påstås. Full gameplayregression1978/218 från
+RTS-248 och grön CI38326586747 är tidigare belägg; ny full npm test/npm ci
+körs i release-CI efter push. Ingen extra bred lokal kampanjsimulering för metadata.
+
+Produktionsbrowser via scripts/check-release.mjs PASS800/1280 Native och
+1600 Native/Fit: version/changelog/Tech Tree, kampanj, pause/Save/load,
+seger/resultat/replay, skirmishförlust, team/spectator/Save, menyer, fullscreen,
+sex upplösningar, assets/ljud-HTTP och omladdning. Noll runtime-/assetfel.
+Resultatfixturerna injicerar mål/förlusttillstånd uttryckligen; ingen naturlig
+mänsklig genomspelning eller ljudlyssning hävdas. Råunderlag:
+/tmp/warbound-release070-candidate/browser.json och intilliggande PNG.
+Självgranskning av versionskonsekvens/historik/release-scope utan fynd;
+node --check scripts/check-release.mjs och git diff --check PASS.
+CI/deployment, exakt publicerad version/build och offentlig browser återstår.
+Ingen ny hosting, orelaterad task eller inkludering av användarändringar.
+
+---
+
 # Aktuell överlämning — RTS-241–248, 2026-10-13
 
 Användarens sex delar är implementerade i ordning, en task åt gången. Inga nya
