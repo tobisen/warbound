@@ -1,0 +1,78 @@
+{
+  "records": [
+    {
+      "kind": "deer",
+      "index": 0,
+      "next": 1,
+      "duration": 2,
+      "peak": 0.6482998132705688,
+      "effects": 1
+    },
+    {
+      "kind": "deer",
+      "index": 1,
+      "next": 2,
+      "duration": 2,
+      "peak": 0.6506859064102173,
+      "effects": 1
+    },
+    {
+      "kind": "deer",
+      "index": 2,
+      "next": 3,
+      "duration": 2,
+      "peak": 0.6765340566635132,
+      "effects": 1
+    },
+    {
+      "kind": "rabbit",
+      "index": 0,
+      "next": 1,
+      "duration": 0.65,
+      "peak": 0.6860251426696777,
+      "effects": 1
+    },
+    {
+      "kind": "rabbit",
+      "index": 1,
+      "next": 2,
+      "duration": 0.65,
+      "peak": 0.6869454383850098,
+      "effects": 1
+    },
+    {
+      "kind": "rabbit",
+      "index": 2,
+      "next": 3,
+      "duration": 0.65,
+      "peak": 0.671160876750946,
+      "effects": 1
+    },
+    {
+      "kind": "fox",
+      "index": 0,
+      "next": 1,
+      "duration": 0.8,
+      "peak": 0.7200957536697388,
+      "effects": 1
+    },
+    {
+      "kind": "fox",
+      "index": 1,
+      "next": 2,
+      "duration": 1.05,
+      "peak": 0.6946892142295837,
+      "effects": 1
+    },
+    {
+      "kind": "fox",
+      "index": 2,
+      "next": 3,
+      "duration": 0.8,
+      "peak": 0.7092528343200684,
+      "effects": 1
+    }
+  ],
+  "actualListening": false,
+  "placeholderSpecies": []
+}

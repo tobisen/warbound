@@ -54,7 +54,7 @@ commit/push till origin/main. Full regression vid batchslut, ingen ny release.
 - **RTS-250 — Rasval med enhetsbild och lore — Done.** Fem separata
   loretexter utan felaktiga regellöften; faktisk enhetsgrafik i kampanj/skirmish,
   läsbar i befintlig menystil vid800/1280. Browsergranska alla fem raser.
-- **RTS-251 — Bättre djurljud — Todo.** Inventera arter/ljud; igenkännbara
+- **RTS-251 — Bättre djurljud — Done (tekniskt; lyssning ej bedömd).** Inventera arter/ljud; igenkännbara
   artljud och variationer, befintlig interaktion/cooldown. Verifierad egen/licensierad
   källa/upphov/licens per fil. Browseruppspelning; faktisk lyssning eller tydlig begränsning.
 - **RTS-252 — Upp till fyra AI-motståndare — Todo.** Separat ras/svårighet/lag

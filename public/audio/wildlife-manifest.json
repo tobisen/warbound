@@ -1,31 +1,163 @@
 {
-  "version": 1,
-  "origin": "Original deterministic synthesized animal calls; no imported recordings",
-  "source": "scripts/export-wildlife-audio.py",
+  "version": 2,
+  "origin": "Licensed field recordings; cropped, DC removed, normalized, faded",
+  "source": "assets/sources/wildlife-251.md",
   "entries": {
     "deer": {
       "file": "audio/animal-deer.wav",
       "master": "assets/audio/animal-deer.wav",
-      "duration": 0.65,
+      "start": 32.9,
+      "duration": 2.0,
       "rate": 24000,
       "channels": 1,
-      "bits": 16
+      "bits": 16,
+      "author": "Lawrence Shove; copyright The British Library Board",
+      "license": "CC-BY-SA-4.0",
+      "sha256": "1982ffbf95487e510b786681a5f2685c0f9acc3e8fc99466e454daf315129432",
+      "variants": [
+        {
+          "file": "audio/animal-deer.wav",
+          "master": "assets/audio/animal-deer.wav",
+          "start": 32.9,
+          "duration": 2.0,
+          "rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "author": "Lawrence Shove; copyright The British Library Board",
+          "license": "CC-BY-SA-4.0",
+          "sha256": "1982ffbf95487e510b786681a5f2685c0f9acc3e8fc99466e454daf315129432"
+        },
+        {
+          "file": "audio/animal-deer-2.wav",
+          "master": "assets/audio/animal-deer-2.wav",
+          "start": 39.8,
+          "duration": 2.0,
+          "rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "author": "Lawrence Shove; copyright The British Library Board",
+          "license": "CC-BY-SA-4.0",
+          "sha256": "45f0e3a8b95a960dd85d60168c2ff88df02966a6506305f18cefe212e865252c"
+        },
+        {
+          "file": "audio/animal-deer-3.wav",
+          "master": "assets/audio/animal-deer-3.wav",
+          "start": 11.9,
+          "duration": 2.0,
+          "rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "author": "Lawrence Shove; copyright The British Library Board",
+          "license": "CC-BY-SA-4.0",
+          "sha256": "67c05c4fb72bc568d57eb10aaaade7dbecd627dc6386463f0db3c68ea56030d1"
+        }
+      ],
+      "placeholder": false,
+      "listeningVerified": false
     },
     "rabbit": {
       "file": "audio/animal-rabbit.wav",
       "master": "assets/audio/animal-rabbit.wav",
-      "duration": 0.22,
+      "start": 11.65,
+      "duration": 0.65,
       "rate": 24000,
       "channels": 1,
-      "bits": 16
+      "bits": 16,
+      "author": "kessir",
+      "license": "CC0-1.0",
+      "sha256": "c9baadd4698e012307a6c79da7e5951e1cd1625221cca9ac2e1101d6753f63eb",
+      "variants": [
+        {
+          "file": "audio/animal-rabbit.wav",
+          "master": "assets/audio/animal-rabbit.wav",
+          "start": 11.65,
+          "duration": 0.65,
+          "rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "author": "kessir",
+          "license": "CC0-1.0",
+          "sha256": "c9baadd4698e012307a6c79da7e5951e1cd1625221cca9ac2e1101d6753f63eb"
+        },
+        {
+          "file": "audio/animal-rabbit-2.wav",
+          "master": "assets/audio/animal-rabbit-2.wav",
+          "start": 22.3,
+          "duration": 0.65,
+          "rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "author": "kessir",
+          "license": "CC0-1.0",
+          "sha256": "655400aabf6c300073d0cb9c69586ac621298f9560ae99115d29920841877cec"
+        },
+        {
+          "file": "audio/animal-rabbit-3.wav",
+          "master": "assets/audio/animal-rabbit-3.wav",
+          "start": 34.4,
+          "duration": 0.65,
+          "rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "author": "kessir",
+          "license": "CC0-1.0",
+          "sha256": "f49c3b98b86c3c2e298900830fff6dd3bf7016901ff0a90b3fcae846d5beacd1"
+        }
+      ],
+      "placeholder": false,
+      "listeningVerified": false
     },
     "fox": {
       "file": "audio/animal-fox.wav",
       "master": "assets/audio/animal-fox.wav",
-      "duration": 0.4,
+      "start": 22.95,
+      "duration": 0.8,
       "rate": 24000,
       "channels": 1,
-      "bits": 16
+      "bits": 16,
+      "author": "Aubrey John Williams; copyright The British Library Board",
+      "license": "CC-BY-SA-4.0",
+      "sha256": "aae8a00c7d63043ddd319d18553f30b9ea82f8094a33b5786469b79abb907348",
+      "variants": [
+        {
+          "file": "audio/animal-fox.wav",
+          "master": "assets/audio/animal-fox.wav",
+          "start": 22.95,
+          "duration": 0.8,
+          "rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "author": "Aubrey John Williams; copyright The British Library Board",
+          "license": "CC-BY-SA-4.0",
+          "sha256": "aae8a00c7d63043ddd319d18553f30b9ea82f8094a33b5786469b79abb907348"
+        },
+        {
+          "file": "audio/animal-fox-2.wav",
+          "master": "assets/audio/animal-fox-2.wav",
+          "start": 2.05,
+          "duration": 1.05,
+          "rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "author": "Aubrey John Williams; copyright The British Library Board",
+          "license": "CC-BY-SA-4.0",
+          "sha256": "f4eccfe41b52022c6252b36e0fe1e6e570a881bfbf67cbc048ca85742da61f36"
+        },
+        {
+          "file": "audio/animal-fox-3.wav",
+          "master": "assets/audio/animal-fox-3.wav",
+          "start": 28.55,
+          "duration": 0.8,
+          "rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "author": "Aubrey John Williams; copyright The British Library Board",
+          "license": "CC-BY-SA-4.0",
+          "sha256": "27007b064d5ac16260ff183438eae4f888163a9d04ef264f22716e9d63742301"
+        }
+      ],
+      "placeholder": false,
+      "listeningVerified": false
     }
   }
 }

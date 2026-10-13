@@ -5881,3 +5881,23 @@ vid800; bild tydlig och lore läsbar, menyn scrollas enligt befintligt beteende.
 Reproducerbart scripts/check-faction-lore.mjs (extern Playwright/Chrome).
 Självgranskning: befintliga regler/stil/assets återanvända, ingen gameplayändring;
 git diff --check PASS. Ingen ny full regression eller mänskligt speltest påstås.
+
+## RTS-251 — Inspelade djurljud (2026-10-13)
+
+Inventerat deer/rabbit/fox: tidigare ett syntetiskt ljud/art. Nu tre separata
+inspelade klipp/art, befintlig GameAudio/interaktion, roterande variationer och
+reset. Global0.8s-spärr består; hjortens längre klipp har2.5s artspärr. Ursprung,
+upphovsrätt, CC BY-SA4.0 (British Library hjort/räv) respektive CC0 (kessir kanin),
+ändringar/offset/hash per fil dokumenterade i assets/sources/wildlife-251.md och
+manifest. Egen export beskär inspelningar; inga syntetiska artplaceholders.
+Publika credits nås från ljudinställningar. Inspelad kanin är domesticerad.
+Riktade wildlife/Save/audio15/3 PASS; browser800/1280 fysisk djurinteraktion,
+uppspelning/anti-spam/hunt/SaveLoad/restart PASS; separat alla nio avkodade och
+uppspelade med faktisk AudioBuffer-rotation/peak PASS (artifacts/rts-251).
+Faktisk ljudlyssning/igenkännbarhet har INTE kunnat bedömas; detta är kvarstående
+kvalitetsgranskning, inte ett påstående om lyssningsgodkännande.
+Unit initialt530/531: tidigare test krävde syntetiskt ursprung. Uppdaterat test
+kontrollerar alla nio verkliga PCM-filer, unika data, format/master/licenser.
+Ny unit531/92 PASS; omkörd efter sista creditslänken. Strict build PASS488ms
+med befintlig bundlevarning, självgranskning/diffcheck PASS. Ingen fullregression
+för ljudtasken; samlad batchregression återstår. Användarändringar exkluderade.

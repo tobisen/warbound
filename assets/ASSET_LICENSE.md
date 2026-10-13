@@ -150,3 +150,12 @@ OpenAI imagegen,2026-10-07; CC0-1.0-dedikation för outputs/exporter. Inga impor
 spel-/stockassets. Källa, upphov, prompt och bearbetning per asset i
 [sources/bosses/README.md](sources/bosses/README.md). Befintliga lokala effekter/
 kistframes återanvänds; inga nya externa ljud eller modellvikter distribueras.
+
+## RTS-251 recorded wildlife
+
+Nine recorded deer/fox/rabbit excerpts replace former synthetic calls.
+Per-file credits, source links, changes and licenses:
+[Wildlife recordings](sources/wildlife-251.md). Deer/fox: Lawrence Shove and
+Aubrey John Williams / The British Library Board, CC BY-SA4.0 including these
+derivatives; rabbit: kessir, CC0 1.0. Original files and decoded masters are
+under audio/wildlife-sources/. Earlier synthetic wildlife provenance is historical.
