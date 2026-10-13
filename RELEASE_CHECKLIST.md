@@ -1,4 +1,51 @@
-## Release0.8.0 — kandidat verifierad, 2026-10-13
+## Release0.8.0 — publicerad och verifierad, 2026-10-13
+
+[Spela Warbound](https://tobisen.github.io/warbound/) visar faktiskt
+**v0.8.0 / Build95109f3**. Releasecommit95109f3 är pushad till origin/main.
+[CI38461518933](https://github.com/tobisen/warbound/actions/runs/38461518933)
+för samma SHA PASS: npm ci, full npm test, strict typecheck/build, Pages upload
+samt deploy. Deployment klar **2026-10-13 22:49:33 Europe/Stockholm**.
+Även föregående batch253:s CI38459841374 är faktiskt grön; ny release-CI är
+separat verifiering. RTS-254 Done; inga fler tasks startas.
+
+Ren lokal kandidat: unit537/92 PASS17.23s, strict build469ms PASS;
+exakt ombygge med releasehash667ms PASS. Befintlig bundlevarning kvarstår.
+Lokal full2025/220 PASS862.49s från batch253 återanvänds uttryckligen för
+oförändrad gameplay; den nya fulla CI-körningen ovan är releaseverifiering.
+Installerade låsta beroenden återanvändes lokalt; faktisk npm ci kördes i CI.
+
+Faktisk offentlig Chrome800/1280 Native och1600 Native/Fit PASS:
+version/exakt Build/changelog/Tech Tree, kampanj/pause/Save/load/seger/replay,
+skirmishförlust, team/spectator/Save/förlust, menu reset/fullscreen/sex upplösningar,
+assets och omladdning. Offentliga800/1280-prover PASS för alla fem raser i båda
+menyer och alla tre nya femspelarkartor med fyra självständiga AI-svårigheter,
+raser/lag, allierad fog/minimap, verklig Save/load/restart/reload, nio inspelade
+ljudfiler samt credits. Noll runtime-/assetfel. Publicerad startsida/lore800 och
+femspelarmatch1280 visuellt granskade. Reproducerbart: scripts/check-release.mjs
+och scripts/check-release-skirmish.mjs med W2T_RELEASE_URL till Pages och
+W2T_EXPECT_BUILD=95109f3; extern Playwright/Chrome krävs.
+
+Publicerad JS/CSS och samtliga nio WAV/ljudmanifest/credits är byte-exakta med
+ren releasebuild. JS SHA256 d0115a3cef59c4c63448ca18a6c568d94419515286571573c25ee7e48cb79c39;
+CSS SHA256 98906b05e0d13f11b02137aca4855482608bc0f5f4fc8820da01e843f1b372c4.
+Råunderlag: /tmp/warbound-release080-public/browser.json,
+/tmp/warbound-release080-batch-public/browser.json, intilliggande PNG,
+/tmp/warbound-release080-public-hashes.json och /tmp/warbound-release080-ci-jobs.json.
+Resultat-/spectatorfixturer injicerar uttryckligen tillstånd. Ingen mänsklig
+matchbalans/tid eller faktisk ljudlyssning/igenkännbarhet är bekräftad.
+Tidigare animation-/assetbegränsningar består; inga sådana ändringar ingår här.
+Båda offentliga browserprogrammen skrev PASS och fullständiga JSON-rapporter;
+processavslut efter verifieringen hängde och städades med SIGINT. Browser-
+assertions/HTTP/runtimekontrollerna var färdiga och gröna före städningen.
+
+Slutuppdateringen är enbart Markdown: text/lokala länkar/diff granskas igen;
+kod-, CI- och browserbelägg återanvänds, inga nya kodtester för docs.
+Användarens style.css/units.mjs/docs/:memory:.ses är bevarade och exkluderade.
+Befintlig Pages-hosting används; ingen ny tjänst eller gameplayändring.
+
+---
+
+## Historiskt kandidatsteg0.8.0 — 2026-10-13
 
 RTS-254 följer nytt uttryckligt releaseuppdrag efter250–253. Version/package/lock
 är0.8.0; ny changelog Five-player frontiers and faction stories,0.7.0 och äldre

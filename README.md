@@ -916,6 +916,10 @@ för skillnaden mellan mål-/Save-/browserkontroller och mänskligt speltest.
 
 ## Release0.8.0 — Femspelarkartor och rasernas berättelser
 
+**0.8.0 / Build95109f3** är [publicerad på Pages](https://tobisen.github.io/warbound/)
+med [grön CI/Pages](https://github.com/tobisen/warbound/actions/runs/38461518933)
+och faktisk offentlig browser-/filverifiering. Se HANDOFF för belägg/limiter.
+
 Fem rasers faktiska enhetsgrafik och separata loretexter visas vid rasval.
 Hjort, kanin och räv har tre licensierade inspelningar vardera, med krediter
 under ljudinställningar och spärr mot upprepade klick. Skirmish stöder1–4 AI,
