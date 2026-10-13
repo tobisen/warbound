@@ -45,6 +45,20 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### RTS-254 — Release0.8.0 — In Progress
+
+Nytt uttryckligt uppdrag efter250–253: publicera nästa release på befintlig
+Warbound Pages. Endast version/package/lock/changelog, releasekontroller och docs;
+bevara/exkludera style.css, units.mjs, docs/ och :memory:.ses. Ren kandidat med
+unit/strict build/diff och produktionsbrowser, sedan commit/push, faktisk grön
+CI/full regression/Pages samt offentlig browser/exakt Build krävs före Done.
+Senaste gameplayregression2025/220 återanvänds uttryckligen lokalt; ny full npm
+test/npm ci körs i release-CI. Inga gameplayändringar eller ytterligare tasks.
+Ren kandidatunit537/92 PASS17.23s, strict build469ms och produktionsbrowser
+release + nya ras-/femspelar-/kart-/ljudflöden PASS. Rådata i HANDOFF.
+Releasecommit/push, ny faktisk CI/Pages och offentlig0.8.0/exakt Build återstår.
+
+
 ### Ny batch 2026-10-13 — RTS-250–253
 
 Nytt uppdrag ersätter föregående stopp. En task åt gången, befintliga system,

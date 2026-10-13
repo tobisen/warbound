@@ -1,3 +1,34 @@
+## Release0.8.0 — kandidat verifierad, 2026-10-13
+
+RTS-254 följer nytt uttryckligt releaseuppdrag efter250–253. Version/package/lock
+är0.8.0; ny changelog Five-player frontiers and faction stories,0.7.0 och äldre
+historik bevarade. Ingen gameplay-, Save75- eller assetändring. Befintliga
+style.css/units.mjs/docs/:memory:.ses bevaras och exkluderas.
+
+Ren git-archive-kopia /tmp/warbound-release080 med enbart releasens metadata:
+unit537/92 PASS17.23s; strict typecheck/build PASS469ms med befintlig bundlevarning.
+Låsta installerade beroenden återanvändes via node_modules-symlink; ingen ny lokal
+npm ci hävdas. Kandidat-Buildae93bd4 är uttrycklig tillfällig bascommitidentitet;
+exakt releasehash byggs efter commit. Senaste lokala full2025/220 PASS862.49s
+är återanvänt belägg för oförändrad gameplay; ny npm ci/full npm test/strict build
+och Pages måste verifieras i release-CI efter push.
+
+Produktionsbrowser scripts/check-release.mjs PASS800/1280 Native och1600
+Native/Fit: version/changelog/Tech Tree, kampanj/pause/Save/load/seger/replay,
+skirmishförlust, team/spectator/Save/förlust, menu reset/fullscreen/sex upplösningar,
+assets och omladdning. scripts/check-release-skirmish.mjs PASS800/1280: alla fem
+rasers lore/bilder i båda menyer, alla tre nya femspelarkartor, fyra separata
+AI-svårigheter/raser/lag, allierad fog/minimap, verklig Save/load/restart/reload,
+alla nio inspelade ljudfiler och publika credits avkodade/laddade. Noll runtime-/
+assetfel. Ren startsida/lore800 och femspelarmatch1280 visuellt granskade.
+Rådata /tmp/warbound-release080-candidate/browser.json och
+/tmp/warbound-release080-batch-candidate/browser.json samt intilliggande PNG.
+Resultatfixturer injicerar tillstånd; detta är inte mänsklig balans/tid/ljudlyssning.
+Självgranskning/version/historik/scope, node --check och git diff --check PASS.
+CI/deployment och faktisk offentlig0.8.0/exakt Build/browser återstår före Done.
+
+---
+
 # Avslutad batch — RTS-250–253, 2026-10-13
 
 Alla fyra beställda delar levererade, en task åt gången utan delegering.

@@ -1,6 +1,14 @@
 /** Product release version is independent of git/build identity and Save config. */
-export const releaseVersion='0.7.0';
-export const changelog=[{version:releaseVersion,title:'Forested frontiers and racial campaigns',changes:[
+export const releaseVersion='0.8.0';
+export const changelog=[{version:releaseVersion,title:'Five-player frontiers and faction stories',changes:[
+ 'Choose among five factions with their actual unit artwork and individual lore in Campaign and Skirmish.',
+ 'Deer, rabbits and foxes use three licensed recorded calls each, with recording credits and repeat-click protection.',
+ 'Face up to four AI opponents, choosing each faction, difficulty, behavior and team independently on compatible maps.',
+ 'Three new five-player skirmish maps: Lakehold Circuit (64 × 64), Five Passes (96 × 96) and River Crown (128 × 128).',
+ 'Map choices show size and player capacity; five-player ownership, allied vision, minimap colors and match results reuse the existing rules.',
+ 'Four- and five-player saves share common world data to stay within the local save limit; older saves and campaigns remain supported.',
+ 'Human balance, match timing and auditory quality of the new wildlife recordings remain unreviewed.',
+]}, {version:'0.7.0',title:'Forested frontiers and racial campaigns',changes:[
  'Warbound now opens correctly on its existing GitHub Pages address, with the panoramic home screen and aspect-preserving display.',
  'Fifteen campaign operations per faction: thirty-five new racial expeditions with exploration, expansion, defense, rescue and naval goals.',
  'Nine richer maps with connected harvestable forests, remote resources and terrain-following objective routes.',

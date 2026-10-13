@@ -6,7 +6,7 @@ https://tobisen.github.io/warbound/. Lokala datanycklar bevaras för befintliga 
 
 Browserbaserat singleplayer-RTS inspirerat av Warcraft 2, Age of Empires 2 och
 Command & Conquer. Phaser, strict TypeScript och Vite; local-first, gameplay
-före grafik. Egna terräng-, byggnads- och enhetsassets, animationer, ljud och fantasy-HUD. Aktuell version är0.7.0. Taskstatus finns i [BACKLOG.md](BACKLOG.md).
+före grafik. Egna terräng-, byggnads- och enhetsassets, animationer, ljud och fantasy-HUD. Aktuell version är0.8.0. Taskstatus finns i [BACKLOG.md](BACKLOG.md).
 
 ## Installation och lokal start
 
@@ -912,3 +912,15 @@ uppdrags replay bevaras. Nya expeditioner kombinerar betalda expansioner, spanin
 ändliga försvarsvågor, faktiskt eskort-/räddningsmål samt land-/flyg-/sjöstyrkor.
 Se [inventering och plan](artifacts/rts-247/campaign-plan.md) och slutlig HANDOFF
 för skillnaden mellan mål-/Save-/browserkontroller och mänskligt speltest.
+
+
+## Release0.8.0 — Femspelarkartor och rasernas berättelser
+
+Fem rasers faktiska enhetsgrafik och separata loretexter visas vid rasval.
+Hjort, kanin och räv har tre licensierade inspelningar vardera, med krediter
+under ljudinställningar och spärr mot upprepade klick. Skirmish stöder1–4 AI,
+separat ras/svårighet/beteende/lag, och visar kompatibla kartors storlek/platser.
+Lakehold Circuit64×64, Five Passes96×96 och River Crown128×128 har fem starter
+vardera. Äldre sparningar/kampanjer bevaras;4/5-spelar-Save delar gemensam värld.
+Faktisk ljudlyssning och mänsklig balans-/tidsgranskning återstår.
+Aktuell kandidat-/CI-/Pagesstatus redovisas i HANDOFF/RELEASE_CHECKLIST.
