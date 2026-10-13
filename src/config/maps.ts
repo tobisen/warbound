@@ -1,3 +1,4 @@
+import {newSkirmishMaps} from './skirmishMaps';
 import {isRegionalDesign} from './organicTerrain';
 import {regionResourceNodes} from './mapRegions';
 import {organicTerrain,organicResources,type TerrainDesign} from './organicTerrain';
@@ -6,12 +7,13 @@ import {frontierGroves,frontierReferenceTerrain} from './referenceTerrain';
 import {text as uiText} from '../text';
 import {gatheringConfig,goldConfig} from './gathering';
 import {arenaConfig} from './arena';
-export type MapId='arena'|'forest'|'river'|'islands'|'frontier'|'plains96'|'plains128'|'highlands'|'coast';
+export type MapId='lakehold'|'fivepasses'|'rivercrown'|'arena'|'forest'|'river'|'islands'|'frontier'|'plains96'|'plains128'|'highlands'|'coast';
 export interface TerrainPatch {column:number;row:number;columns:number;rows:number;kind:'rock'|'water'}
 export interface MapResource {mine?:true;tree?:true;id:string;resource:'wood'|'gold';position:{x:number;y:number};amount:number}
 export interface SeaMonsterArea {id:string;area:{x:number;y:number;width:number;height:number};patrol:readonly {x:number;y:number}[]}
-export interface MapDefinition {seaMonsters?:{cap:number;areas:readonly SeaMonsterArea[]};referenceResourceWaypoints?:readonly {x:number;y:number}[];referenceAttackWaypoints?:readonly {x:number;y:number}[];referenceTerrain?:readonly TerrainPatch[];enemyNaval?:boolean;enemyBuildSites?:readonly {x:number;y:number}[];enemyMuster?:{x:number;y:number};attackEntry?:{x:number;y:number};world?:{width:number;height:number};enemyBase?:{x:number;y:number;width:number;height:number};extraResources?:readonly MapResource[];label:string;wood:number;gold:number;terrain:readonly TerrainPatch[];instruction?:string;goldPosition?:{x:number;y:number};enemyAttackWaypoints?:readonly {x:number;y:number}[];enemyResourceWaypoints?:readonly {x:number;y:number}[]}
+export interface MapDefinition {skirmishStarts?:readonly {x:number;y:number}[];seaMonsters?:{cap:number;areas:readonly SeaMonsterArea[]};referenceResourceWaypoints?:readonly {x:number;y:number}[];referenceAttackWaypoints?:readonly {x:number;y:number}[];referenceTerrain?:readonly TerrainPatch[];enemyNaval?:boolean;enemyBuildSites?:readonly {x:number;y:number}[];enemyMuster?:{x:number;y:number};attackEntry?:{x:number;y:number};world?:{width:number;height:number};enemyBase?:{x:number;y:number;width:number;height:number};extraResources?:readonly MapResource[];label:string;wood:number;gold:number;terrain:readonly TerrainPatch[];instruction?:string;goldPosition?:{x:number;y:number};enemyAttackWaypoints?:readonly {x:number;y:number}[];enemyResourceWaypoints?:readonly {x:number;y:number}[]}
 export const maps:Record<MapId,MapDefinition>={
+ ...newSkirmishMaps,
  coast:{seaMonsters:{cap:3,areas:[{id:'channel',area:{x:704,y:608,width:224,height:288},patrol:[{x:720,y:688},{x:784,y:848}]},{id:'southern-route',area:{x:1344,y:960,width:576,height:288},patrol:[{x:1424,y:1072},{x:1776,y:1104}]},{id:'outer-sea',area:{x:2240,y:1280,width:480,height:256},patrol:[{x:2320,y:1360},{x:2608,y:1456}]}]},label:'Shattered Coast',enemyNaval:true,world:{width:4096,height:4096},wood:800,gold:4000,goldPosition:{x:600,y:300},
   instruction:'Build a harbor on the eastern shore of your western island. Transport troops across the northern channel, or sail south to the continent and resource islands. The enemy holds the northeast coast.',
   enemyAttackWaypoints:[{x:928,y:480},{x:944,y:208},{x:912,y:384}],enemyResourceWaypoints:[{x:944,y:240},{x:1168,y:400},{x:912,y:560}],

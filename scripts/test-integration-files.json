@@ -107,6 +107,7 @@
   "src/gameplay/session.test.ts",
   "src/gameplay/siegeProduction.test.ts",
   "src/gameplay/skirmishBalance.test.ts",
+  "src/gameplay/skirmishMaps.test.ts",
   "src/gameplay/spells.test.ts",
   "src/gameplay/statLedger.test.ts",
   "src/gameplay/submarines.test.ts",

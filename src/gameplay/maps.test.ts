@@ -1,3 +1,4 @@
+import {isNewSkirmishMap} from '../config/skirmishMaps';
 import {legacyTerrainFixture} from './testHelpers/legacyTerrainFixture';
 import {legacyEnemyFixture} from './testHelpers/legacyEnemyFixture';
 import {expect,it} from 'vitest';
@@ -6,7 +7,7 @@ import {maps,mapResourceTotals,type MapId} from '../config/maps';
 import {factionsForPlayer} from '../config/factions';
 import {createClassicMatch as createMatch} from './testHelpers/classicMatch';
 import {updateMatch} from './match';
-import {bodyFits,createMap} from './map';
+import {bodyFits,createMap,terrainPatches} from './map';
 import {approachRoute} from './approach';
 import {findRoute} from './navigation';
 import {placementObstacles} from './placement';
@@ -24,5 +25,5 @@ for(const id of ['arena','forest','river'] as MapId[])for(const faction of ['cro
  },30_000);
 }
 it('different profiles own different terrain and amounts, strict identity and legacy arena migration',()=>{
- expect(new Set(Object.values(maps).map(m=>JSON.stringify(m.terrain))).size).toBe(Object.keys(maps).length);const m=createMatch('skirmish','normal',factionsForPlayer('crown'),'forest');const json=encodeSave(m,view);for(const mutate of [(d:any)=>d.map='unknown',(d:any)=>d.map='arena',(d:any)=>d.state.gathering.gold.remaining=4000,(d:any)=>d.state.scenario='survival',(d:any)=>d.configVersion='tribute-config-9']){const d=JSON.parse(json);mutate(d);expect(decodeSave(JSON.stringify(d)).ok).toBe(false);}const old=createMatch('skirmish');const d=JSON.parse(encodeSave(old,view));legacyTerrainFixture(d);d.configVersion='tribute-config-9';legacyEnemyFixture(d);delete d.state.statLedger;delete d.state.map.id;const r=decodeSave(JSON.stringify(d));expect(r.ok).toBe(true);expect(createMatch('skirmish','normal',factionsForPlayer('clans'),'forest').gathering.node.remaining).toBe(500);expect(updateMatch({...m,paused:true},100)).toEqual({...m,paused:true});
+ expect(new Set(Object.entries(maps).map(([key,m])=>JSON.stringify(isNewSkirmishMap(key as MapId)?terrainPatches(createMap(key as MapId,undefined,'trees','expanded','woodlands-connected')):m.terrain))).size).toBe(Object.keys(maps).length);const m=createMatch('skirmish','normal',factionsForPlayer('crown'),'forest');const json=encodeSave(m,view);for(const mutate of [(d:any)=>d.map='unknown',(d:any)=>d.map='arena',(d:any)=>d.state.gathering.gold.remaining=4000,(d:any)=>d.state.scenario='survival',(d:any)=>d.configVersion='tribute-config-9']){const d=JSON.parse(json);mutate(d);expect(decodeSave(JSON.stringify(d)).ok).toBe(false);}const old=createMatch('skirmish');const d=JSON.parse(encodeSave(old,view));legacyTerrainFixture(d);d.configVersion='tribute-config-9';legacyEnemyFixture(d);delete d.state.statLedger;delete d.state.map.id;const r=decodeSave(JSON.stringify(d));expect(r.ok).toBe(true);expect(createMatch('skirmish','normal',factionsForPlayer('clans'),'forest').gathering.node.remaining).toBe(500);expect(updateMatch({...m,paused:true},100)).toEqual({...m,paused:true});
 });

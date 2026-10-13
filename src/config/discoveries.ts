@@ -5,6 +5,9 @@ import type {Position} from '../gameplay/movement';
 export interface Discovery {id:string;kind:'treasure'|'recruit';position:Position}
 export const discoveryConfig={range:48,reward:{wood:20,gold:10}};
 const sites:Record<MapId,readonly [Position,Position,Position]>={
+ lakehold:[{x:816,y:1008},{x:1264,y:1088},{x:528,y:1184}],
+ fivepasses:[{x:1200,y:976},{x:1936,y:2000},{x:1424,y:1712}],
+ rivercrown:[{x:1552,y:1712},{x:2512,y:2288},{x:1968,y:1360}],
  frontier:[{x:656,y:784},{x:1712,y:1328},{x:1360,y:976}],
  arena:[{x:752,y:624},{x:1872,y:2256},{x:976,y:880}],
  forest:[{x:528,y:816},{x:1712,y:1456},{x:1136,y:816}],
@@ -16,6 +19,9 @@ const sites:Record<MapId,readonly [Position,Position,Position]>={
  plains128:[{x:784,y:752},{x:1872,y:2256},{x:1136,y:1136}],
 };
 const regionalSites:Record<MapId,readonly [Position,Position,Position]>={
+ lakehold:[{x:816,y:1008},{x:1264,y:1088},{x:528,y:1184}],
+ fivepasses:[{x:1200,y:976},{x:1936,y:2000},{x:1424,y:1712}],
+ rivercrown:[{x:1552,y:1712},{x:2512,y:2288},{x:1968,y:1360}],
  coast:[{x:528,y:752},{x:1776,y:1776},{x:2832,y:3184}],
  highlands:[{x:976,y:1104},{x:1680,y:1904},{x:1392,y:1520}],
  plains96:[{x:784,y:752},{x:1680,y:2256},{x:1008,y:1104}],

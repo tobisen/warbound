@@ -60,11 +60,28 @@ commit/push till origin/main. Full regression vid batchslut, ingen ny release.
 - **RTS-252 — Upp till fyra AI-motståndare — Done.** Separat ras/svårighet/lag
   per AI, befintlig AI. Kapacitetsfiltrerade kartor; fem platser, resurser/baser,
   lag/fog/minimap/resultat/Save/restart. Kampanjkompatibilitet; tester1–4 AI.
-- **RTS-253 — Tre nya skirmishkartor — Todo.** Liten/medel/stor med egna
+- **RTS-253 — Tre nya skirmishkartor — Done.** Liten/medel/stor med egna
   layouter, fem startplatser vardera, resurser/flera vägar och giltig terräng/
   byggbarhet/land/sjöregler. Meny visar namn/storlek/platser. Befintlig kampanj
   bevaras. Riktade matchprov/browser och full slutregression; HANDOFF efter253.
 
+
+### Batch250–253 avslutad
+
+Ny full regression **2025/220 PASS862.49s**, unit **537/92 PASS27.85s**,
+build inklusive strict typecheck **PASS775ms**, diff/manifest/docsgranskning PASS.
+Fem rasbilder/lore i båda menyer800/1280; nio inspelade djurljud tekniskt
+avkodade/uppspelade med anti-spam;1–4 AI, separata val och lag/fog/minimap/
+resultat/Save/restart verifierade. Tre nya kartor64/96/128, fem platser vardera;
+24 unika slutliga browserkombinationer PASS. Lakeholds fyndplatser rättade och
+berörda8 browserfall omkörda; övriga16 oförändrade kartfall återanvänds.
+Pushade250/251/252:15370fd/1a34304/b52ba87;253 levereras i taskcommiten.
+[HANDOFF](HANDOFF.md) redovisar belägg, hashreferenser och begränsningar.
+Faktisk ljudlyssning/igenkännbarhet och mänsklig balans/speltid är inte verifierade.
+Tidigare avbrutna fullförsök och rättade test-/fyndfrågor är historik i DEV_LOG;
+slutligt2025/220 gäller efter sista kod-/teständringen. Ingen ny release/CI-/Pages-
+verifiering påstås. Användarens CSS/units.mjs/docs/:memory:.ses bevarade.
+**Stanna efter253; inga fler tasks eller karteditor startas utan nytt uppdrag.**
 
 ### RTS-249 — Release0.7.0 — Done
 

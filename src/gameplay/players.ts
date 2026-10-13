@@ -24,6 +24,7 @@ export function matchPlayers(factions:MatchFactions=defaultFactions,profile:AIPr
  return playerIds.slice(0,count).map((id,i)=>({teamId:i+1,id,controller:i===0?'human':'ai',faction:i===0?factions.player:i===1?factions.enemy:(['elves','dwarves','goblins'] as const)[i-2],color:playerColors[i],profile}));
 }
 export function playerStart(map:MapId,id:PlayerId,design?:TerrainDesign):Position{
+ const authored=maps[map].skirmishStarts?.[playerIds.indexOf(id)];if(authored)return {...authored};
  if(id==='player')return {...gatheringConfig.basePosition};
  if(id==='ai-3'||id==='ai-4'){const point=extraPlayerStarts[map]?.[id==='ai-3'?0:1];if(!point)throw Error('Map has no extra start');return {...point};}
  if(id==='ai-2'){const p=isRegionalDesign(design)&&additionalStarts[map]?regionThirdStart:additionalStarts[map];if(!p)throw Error('Map has no third start');return {...p};}

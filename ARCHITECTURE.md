@@ -2181,3 +2181,14 @@ Decoder avvisar okända/dubbla/motstridiga nycklar, återställer fälten och k�
 samma strikta singledocument-/lag-/ID-validering.4MB-gränsen består. Gamla
 multiplayerdokument och två/tre deltagare behåller tidigare format. En äldre
 spelbuild kan inte läsa matcher med de nya fyra/fem spelaridentiteterna.
+
+## RTS-253 — Nya skirmishkartor
+
+skirmishMaps.ts definierar tre egna geometrier (lakehold/fivepasses/rivercrown),
+64/96/128 tiles och fem explicita skirmishStarts. Befintliga MapDefinition,
+organicTerrain, mapRegions, avverkning, collision, navigation, fog och AI används.
+Startområden skyddas från genererad terräng/skog; resurser inom144px från en ny
+start tas bort för fria bas-/workerutgångar. Varje karta har egna ridger/vatten/
+skogar och expansionsresurser. ConnectedClearings kopplar även alla nya starter.
+Menyn visar namn/storlek/kapacitet och filtrerar efter deltagarantal. Historiska
+kartor och kampanjdefinitioner är oförändrade; äldre kart-Save-geometrier består.

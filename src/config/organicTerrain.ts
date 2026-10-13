@@ -1,3 +1,4 @@
+import {skirmishGeography,newSkirmishMaps,isNewSkirmishMap} from './skirmishMaps';
 import {mapDiscoveries} from './discoveries';
 import {mapBosses} from './bosses';
 import {regionBases,regionProtected} from './mapRegions';
@@ -10,6 +11,7 @@ export const isWoodlandDesign=(design:unknown)=>design==='woodlands'||design==='
 type Shape=readonly [number,number,number,number];
 /** Authored regions, in tiles: center x/y and radii. Shared contours, distinct geography. */
 const valleys:Record<MapId,{water:readonly Shape[];rock:readonly Shape[];woods:readonly Shape[]}>= {
+ ...skirmishGeography,
  frontier:{water:[[31,10,5,10],[28,30,4,7],[60,57,12,9],[82,83,7,18],[106,38,11,8]],rock:[[20,13,3,4],[9,26,6,4],[48,20,5,7],[52,66,6,14],[98,87,12,6]],woods:[[19,3,10,5],[40,26,8,5],[17,50,13,9],[42,83,11,14],[70,29,15,8],[108,63,12,13],[78,105,18,8]]},
  arena:{water:[[21,25,6,4],[43,14,5,7],[49,49,7,5]],rock:[[31,35,3,8],[15,46,5,4]],woods:[[17,5,7,4],[8,29,5,7],[35,21,6,5],[36,50,8,5],[52,34,6,7]]},
  forest:{water:[[19,28,10,5],[63,65,12,8],[79,25,7,10]],rock:[[39,45,4,17],[56,22,7,5]],woods:[[9,10,5,8],[29,9,9,6],[24,47,12,10],[46,75,15,9],[66,42,12,11],[83,78,7,8]]},
@@ -20,12 +22,13 @@ const valleys:Record<MapId,{water:readonly Shape[];rock:readonly Shape[];woods:r
  islands:{water:[],rock:[[8,5,4,4],[35,24,4,5],[61,56,8,5],[88,88,5,9]],woods:[[16,5,5,3],[9,22,5,4],[35,11,4,5],[59,44,9,5],[72,75,11,8],[109,95,9,9],[42,104,13,6]]},
  coast:{water:[],rock:[[8,5,4,4],[35,24,4,5],[58,11,7,6],[21,73,5,14],[10,99,7,5],[98,89,5,6]],woods:[[16,5,5,3],[9,22,5,4],[48,9,5,4],[14,52,8,7],[28,102,10,7],[98,94,10,8]]},
 };
-export const organicWorld=(id:MapId)=>({width:id==='arena'?2048:id==='forest'?3072:4096,height:id==='arena'?2048:id==='forest'?3072:4096});
+export const organicWorld=(id:MapId)=>({width:id==='arena'||id==='lakehold'?2048:id==='forest'||id==='fivepasses'?3072:4096,height:id==='arena'||id==='lakehold'?2048:id==='forest'||id==='fivepasses'?3072:4096});
 function contains(c:number,r:number,[x,y,rx,ry]:Shape,index:number){const angle=Math.atan2((r-y)/ry,(c-x)/rx),edge=1+.12*Math.sin(angle*3+index)+.07*Math.cos(angle*5-index);return ((c-x)/rx)**2+((r-y)/ry)**2<edge*edge;}
 const missionPoints:Partial<Record<MapId,readonly (readonly [number,number])[]>>={frontier:[[26,5],[37,20],[34,20]],highlands:[[47,17],[28,27],[54,46],[83,10]],coast:[[50,12],[54,14]],islands:[[30,15]]};
 function safe(c:number,r:number,id:MapId,design:TerrainDesign){if(design==='organic')return c>=5&&c<=21&&r>=7&&r<=17||(missionPoints[id]??[[26,5]]).some(([x,y])=>Math.hypot(c-x,r-y)<3.5);const t=Math.max(0,Math.min(1,((c-17)*9+(r-10)*-4)/97)),resourceLane=Math.hypot(c-(17+9*t),r-(10-4*t))<1.8,w=Math.max(0,Math.min(1,((c-17)*3+(r-10)*-5)/34)),woodLane=Math.hypot(c-(17+3*w),r-(10-5*w))<1.8;return c>=21&&c<=25&&r<=10||resourceLane||woodLane|| c>=5&&c<=21&&r>=7&&r<=17||(missionPoints[id]??[[26,5]]).some(([x,y])=>Math.hypot(c-x,r-y)<3.5);}
 /** New resource contours are versioned so existing region saves keep their trees. */
 const woodlandGroves:Record<MapId,readonly Shape[]>={
+ lakehold:[[24,32,4,8],[41,32,4,8]],fivepasses:[[32,46,6,9],[64,50,6,9]],rivercrown:[[65,65,12,10],[66,98,8,8]],
  arena:[[10,45,9,10],[48,51,12,9]],
  forest:[[18,36,10,18],[39,62,16,12],[71,69,13,15]],
  frontier:[[39,54,15,12],[91,109,14,9]],
@@ -39,6 +42,7 @@ const woodlandGroves:Record<MapId,readonly Shape[]>={
 const legacyMineSites= [[23,51],[43,73],[72,25],[104,64],[73,105]] as const;
 /** Distinct remote mine clearings create exploration and paid expansion opportunities. */
 const woodlandMines:Record<MapId,readonly (readonly [number,number])[]>={
+ lakehold:[[12,31],[53,31],[29,31],[37,32]],fivepasses:[[28,34],[69,62],[46,24],[50,73]],rivercrown:[[33,48],[65,30],[94,84],[62,100],[64,64]],
  arena:[[12,38],[43,28],[52,56]],forest:[[17,58],[45,84],[76,66],[80,28]],
  frontier:[[16,65],[50,89],[79,41],[109,104]],river:[[15,72],[51,102],[105,56],[80,109]],
  highlands:[[18,80],[60,43],[81,100],[112,69]],plains96:[[20,97],[48,45],[86,68],[109,110]],
@@ -80,7 +84,7 @@ function connectedClearings(id:MapId,terrain:readonly TerrainPatch[]):Set<string
  const size=organicWorld(id).width/32,clear=new Set<string>(),blocked=new Set<string>();
  for(const p of terrain)for(let r=p.row;r<p.row+p.rows;r++)for(let c=p.column;c<p.column+p.columns;c++)blocked.add(`${c},${r}`);
  const open=(c:number,r:number)=>c>1&&r>1&&c<size-2&&r<size-2&&!blocked.has(`${c},${r}`);
- const b=regionBases[id],points=[...mapDiscoveries(id,'regions').map(p=>[p.position.x/32,p.position.y/32]),...mapBosses(id).map(p=>[p.position.x/32,p.position.y/32]),...(missionPoints[id]??[]),...woodlandMines[id],...legacyMineSites,[b.x/32-3,b.y/32+5],[14,15],[26,5],[30,13],[50,12],[54,14],[33,19],[35,20],[47,17]];
+ const b=regionBases[id],points=[...(isNewSkirmishMap(id)?newSkirmishMaps[id as keyof typeof newSkirmishMaps].skirmishStarts!.map(p=>[p.x/32,p.y/32]):[]),...mapDiscoveries(id,'regions').map(p=>[p.position.x/32,p.position.y/32]),...mapBosses(id).map(p=>[p.position.x/32,p.position.y/32]),...(missionPoints[id]??[]),...woodlandMines[id],...legacyMineSites,[b.x/32-3,b.y/32+5],[14,15],[26,5],[30,13],[50,12],[54,14],[33,19],[35,20],[47,17]];
  const roots=[[14,15],...(['islands','coast'].includes(id)?[[30,13]]:[])];
  const woods=[...valleys[id].woods.map(([x,y,rx,ry])=>[x,y,rx*1.35,ry*1.35] as Shape),...woodlandGroves[id]],costs=Array.from({length:size*size},(_,k)=>{const c=k%size,r=Math.floor(k/size);return (woods.some((shape,i)=>contains(c,r,shape,i))?5:1)+.15*(1+Math.sin(c*.63+r*.27));});
  for(const [sx,sy]of roots){const root=Math.floor(sy)*size+Math.floor(sx),parents=new Map<number,number>([[root,root]]),distances=new Map<number,number>([[root,0]]),heap:[number,number][]=[];

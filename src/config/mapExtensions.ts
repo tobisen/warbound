@@ -1,3 +1,4 @@
+import {isNewSkirmishMap} from './skirmishMaps';
 import type {MapId,MapResource,TerrainPatch} from './maps';
 export const expandedWorld={width:4096,height:4096};
 const inlandSites=[...([12,34,54,82,106] as const).flatMap(column=>([46,76,106] as const).map(row=>({column,row}))),...([62,88,110] as const).flatMap(column=>([10,28] as const).map(row=>({column,row})))];
@@ -5,7 +6,7 @@ export const expansionSites=(id:MapId):readonly {column:number;row:number}[]=>id
 
 /** Authored sector motifs: finite woods/mines beside ponds and broken ridges, with wide connecting land. */
 export function extensionTerrain(id:MapId):TerrainPatch[]{
- if(id==='coast')return [];const patches:TerrainPatch[]=[];
+ if(id==='coast'||isNewSkirmishMap(id))return [];const patches:TerrainPatch[]=[];
  for(const [i,s] of expansionSites(id).entries()){
   patches.push({column:s.column-5,row:s.row-5,columns:3,rows:9,kind:'rock'},
    {column:s.column-5,row:s.row+7,columns:3,rows:7,kind:'rock'},
@@ -17,6 +18,7 @@ export function extensionTerrain(id:MapId):TerrainPatch[]{
  return patches;
 }
 export function extensionResources(id:MapId,terrain:readonly TerrainPatch[],existing:readonly MapResource[]):MapResource[]{
+ if(isNewSkirmishMap(id))return [];
  const blocked=(x:number,y:number)=>terrain.some(p=>x>=p.column*32-16&&x<=(p.column+p.columns)*32+16&&y>=p.row*32-16&&y<=(p.row+p.rows)*32+16)||existing.some(n=>Math.abs(n.position.x-x)<96&&Math.abs(n.position.y-y)<96);
  const result:MapResource[]=[];
  for(const [index,site]of expansionSites(id).entries()){

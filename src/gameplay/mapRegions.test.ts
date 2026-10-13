@@ -1,3 +1,4 @@
+import {isNewSkirmishMap} from '../config/skirmishMaps';
 import {expect,it} from 'vitest';
 import {maps,type MapId} from '../config/maps';
 import {regionBases,regionExpansion} from '../config/mapRegions';
@@ -45,7 +46,7 @@ it('natural paid expansion preserves a valid Save and victory after the original
 
 it.each(['islands','coast'] as const)('%s distant naval economy scouts and builds its paid harbor',id=>{let m=createMatch('skirmish','normal',undefined,id);for(let t=0;t<180;t+=.5){m=updateMatch(m,.5);if(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0))break;}expect(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0)).toBe(true);const loaded=decodeSave(encodeSave(m,view));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);},30000);
 
-it.each(Object.keys(maps) as MapId[])('%s woodland version adds connected forest and preserves existing gold sites',async id=>{
+it.each((Object.keys(maps) as MapId[]).filter(id=>!isNewSkirmishMap(id)))('%s woodland version adds connected forest and preserves existing gold sites',async id=>{
  const {mapResources}=await import('../config/maps');const before=mapResources(id,'trees','expanded','regions'),after=mapResources(id,'trees','expanded','woodlands-connected');
  expect(after.filter(n=>n.tree).length).toBeGreaterThan(before.filter(n=>n.tree).length*1.6);
  for(const mine of before.filter(n=>n.mine))expect(after.find(n=>n.id===mine.id),`${id}:${mine.id}`).toEqual(mine);

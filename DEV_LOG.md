@@ -5925,3 +5925,60 @@ RTS-252 slutliga integrationer31/3 PASS87.79s (fivePlayers, multiplePlayers,
 teamResults):1–4 AI,60s betalt byggande/egen ekonomi, ägarskap/fog/minimap,
 Save/restart, lagseger/förlust och highscore/migration. Självgranskning och
 slutlig git diff --check PASS; full batchregression följer efter karttask253.
+
+## RTS-253 — Tre nya femspelar-kartor (2026-10-13)
+
+Lakehold Circuit64×64, Five Passes96×96 och River Crown128×128, fem separata
+starter vardera, egna författade terrängkonturer/skogar/gläntor/miner och flera
+landvägar. Återanvänder organic/mapRegions/resurser/AI/fog/navigation. Menyn
+visar namn/storlek/platser; kampanj och befintliga kartor bevarade.144px fri
+yta runt nya starter hindrar expansionsträd från att hamna i andra spelarbaser.
+Den konkreta konflikten upptäcktes av lakehold femspelar-Save och rättades.
+Riktade skirmishMaps6/1 PASS37.27s: alla12 kombinationer1–4 AI på tre storlekar,
+betalt byggande, starter/resurser/terränggränser, riktiga skogsvägar, land/vatten,
+Save/load/restart. Region/reference-kompatibilitet6/2 PASS1.65s med55 uttryckligt
+överhoppade övriga fall. Browser24 kombinationer800/1280 PASS, faktisk Save-status
+plus ändrad HP före load, separat konfiguration, fog/minimap/legend, restart,
+noll runtimefel. Alla tre renderade fog-reveal-översikter visuellt granskade;
+reveal är en inspektionsfixtur, inte normal sikt. Belägg artifacts/rts-253/README.md.
+Första fullregression avbruten under review: historiska expanded128×128-test och
+woodland-versionsjämförelser avgränsades till de ursprungliga nio kartorna;
+nya kartors storlek/geometri/navigation verifieras i egna tester. Export av äldre
+expansionsresurser blockeras för nya kart-ID:n så mindre klassiska kartdimensioner
+inte får noder utanför gränserna. Slutliga checks följer nedan. Ingen mänsklig
+balans-/tids-/ljudgranskning eller ny release/CI-/Pageskontroll påstås.
+
+RTS-253 review/slutchecks: äldre maps.test jämförde råa m.terrain, som inte
+innehåller de nya kartornas organiska konturer. Efter konkret regressionsfynd
+jämför testet kanonisk render-/kollisionsterräng för nya kartor, rå klassisk
+geometri för gamla. Riktat korrigerat identitetsfall1/1 PASS (12 andra fall
+uttryckligt överhoppade). Andra fullkörningen avbruten på detta kända testfel;
+ny full regression startad på slutlig test-/kodversion. Ny unit537/92 PASS30.94s,
+strict build PASS1.27s; appbundlen byte-oförändrad från föregående build, endast
+testassertion/dokumentation justerades. Befintlig bundlevarning kvarstår.
+
+RTS-253 kompletterande fyndkontroll hittade tre Lakehold-fynd i skog/sten.
+Flyttade till verifierade gläntor (816,1008)/(1264,1088)/(528,1184); nytt explicit
+fyndvillkor i skirmishMaps-testet. Acceptans8/3 PASS28.36s (26 övriga fall
+uttryckligt överhoppade), Lakehold browser1–4 AI800/1280 omkörd PASS, uppdaterad
+översikt granskad. browser.json sammanför slutliga8 Lakehold-fall med16 oförändrade
+övriga kartfall. Pågående fullförsök avbröts före denna datarättelse; ny full
+slutregression/unit/build körs efter sista ändringen. Tidigare avbrutna försök
+är inte PASS-belägg och ingen ny kampanjgeometri har ändrats.
+
+## Batch250–253 — slutlig verifiering och stopp (2026-10-13)
+
+Efter sista kod-/teständringen: **npm test2025/220 PASS862.49s**, **npm run
+ test:unit537/92 PASS27.85s**, **npm run build inklusive strict typecheck PASS775ms**.
+Befintlig bundlevarning består. node scripts/test-unit.mjs --list validerade
+92 unit-/128 integrationsfiler utan överlapp; node --check på browserprogrammet,
+git diff --check, självgranskning och lokala doclänkar PASS. Tidigare avbrutna
+fullförsök/testfynd ovan är historik och ersätts av denna faktiskt gröna körning.
+Rå slutloggar /tmp/warbound-batch250-253-complete.log, -unit.log och -build.log.
+Browserbelägg/representativa bilder i artifacts/rts-250/252/253, nio ljudvarianter
+plus interaktion i rts-251; slutliga Lakehold-rådata i rts-253-lakehold-final.
+HANDOFF/BACKLOG är uppdaterade,253 Done; slutcommit/push följer med dessa docs.
+250/251/252 pushade15370fd/1a34304/b52ba87. Faktisk253-hash/push i slutrapport/gitlog.
+Stanna efter denna batch. Inga nya tasks, release/version eller CI/Pageskontroller.
+Mänsklig ljud-/igenkännbarhets-/balans-/tidsbedömning kvarstår. Användarens CSS,
+units.mjs, docs/ och :memory:.ses är fortsatt bevarade och exkluderade.

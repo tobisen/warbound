@@ -8,6 +8,7 @@ import type {MatchOptions} from '../gameplay/session';
 const element=(id:string)=>document.getElementById(id)!;
 export function bindSkirmishMenu():void{
  const setup=element('match-setup');
+ const mapSelect=element('map-select') as HTMLSelectElement;for(const id of ['lakehold','fivepasses','rivercrown'] as const)if(!mapSelect.querySelector(`option[value="${id}"]`))mapSelect.add(new Option(maps[id].label,id));
  const human=document.createElement('fieldset');human.id='skirmish-human';human.innerHTML='<legend>Your faction</legend><p id="skirmish-faction-description"></p>';human.prepend(element('faction-select').closest('label')!);setup.append(human);
  const opponents=document.createElement('section');opponents.id='skirmish-opponents';opponents.innerHTML='<h3>Opponents</h3><p id="skirmish-capacity" role="status"></p><fieldset id="skirmish-ai-1"><legend>AI 1</legend><p id="skirmish-ai-1-description"></p></fieldset><fieldset id="skirmish-ai-2"><legend>AI 2</legend><p id="skirmish-ai-2-description"></p></fieldset>';
  opponents.prepend(element('player-count-select').closest('label')!);setup.append(opponents);
@@ -25,10 +26,10 @@ export function syncSkirmishMenu(active:boolean,options:MatchOptions):void{
  const faction=options.faction??'crown',max=Math.max(...supportedPlayerCounts(options.map,options.scenario)),count=options.players?.length??2;
  element('skirmish-faction-description').textContent=factionDescriptions[faction];
  syncFactionPortrait(element('skirmish-faction-description'),faction);
- element('skirmish-capacity').textContent=`${maps[options.map].label}: ${max} validated start positions · You + up to ${max-1} AI. Changing opponent count selects a compatible map when needed.${options.scenario!=='skirmish'?' Survival uses fixed scenario starts.':''}`;
+ element('skirmish-capacity').textContent=`${maps[options.map].label} · ${options.map==='arena'||options.map==='lakehold'?64:options.map==='forest'||options.map==='fivepasses'?96:128} × ${options.map==='arena'||options.map==='lakehold'?64:options.map==='forest'||options.map==='fivepasses'?96:128} tiles: ${max} validated start positions · You + up to ${max-1} AI. Changing opponent count selects a compatible map when needed.${options.scenario!=='skirmish'?' Survival uses fixed scenario starts.':''}`;
  for(const n of [2,3,4]){element(`skirmish-ai-${n}`).hidden=count<n+1;element(n===2?'additional-ai-settings':`additional-ai-${n}-settings`).hidden=count<n+1;}
  for(const [i,id] of playerIds.entries())element(`${id}-team-select`).closest('label')!.hidden=count<3||i>=count;
  for(let n=1;n<count;n++){const opponent=options.players?.[n]?.faction??options.enemyFaction??(faction==='crown'?'clans':'crown');element(`skirmish-ai-${n}-description`).textContent=`${factions[opponent].label}: ${factionDescriptions[opponent]} ${difficultyDescription[options.players?.[n]?.difficulty??options.difficulty]}`;}
- const select=element('map-select') as HTMLSelectElement;for(const option of select.options){const supported=supportedPlayerCounts(option.value as MatchOptions['map'],options.scenario).includes(count);option.disabled=!supported;option.hidden=!supported;}
+ const select=element('map-select') as HTMLSelectElement;for(const option of select.options){const id=option.value as MatchOptions['map'],capacity=Math.max(...supportedPlayerCounts(id,'skirmish'));const m=maps[id];const size=id==='arena'||id==='lakehold'?64:id==='forest'||id==='fivepasses'?96:128;const label=`${m.label} · ${size} × ${size} · ${capacity} players`;if(option.textContent!==label)option.textContent=label;const supported=supportedPlayerCounts(id,options.scenario).includes(count);option.disabled=!supported;option.hidden=!supported;}
  const difficultyLabel=element('difficulty-select').closest('label')!.querySelector('span');if(difficultyLabel&&difficultyLabel.textContent!=='Difficulty')difficultyLabel.textContent='Difficulty';
 }

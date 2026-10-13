@@ -1,3 +1,48 @@
+# Avslutad batch — RTS-250–253, 2026-10-13
+
+Alla fyra beställda delar levererade, en task åt gången utan delegering.
+Stanna efter253; inga fler tasks/karteditor startas utan nytt uppdrag.
+
+- **250 — Rasval:** Human/Orcs/Elves/Dwarves/Goblins har separat lore och faktisk
+  soldier-grafik i kampanj/skirmish. Alla fem ×båda menyer ×800/1280 browser PASS;
+  alla fem visuellt granskade vid800. Push **15370fd**.
+- **251 — Djur:** hjort/kanin/räv har tre inspelningar vardera. Ursprung/upphov/
+  licens/ändringar per fil i [ljudproveniens](assets/sources/wildlife-251.md),
+  manifest och publik creditslänk. Browserinteraktion/anti-spam/Save och alla nio
+  avkodade/uppspelade PASS. **Faktisk lyssning, kvalitet och igenkännbarhet är inte
+  bedömda.** Kanininspelningen är domesticerad; inga syntetiska artplaceholders.
+  Push **1a34304**.
+- **252 —1–4 AI:** separat ras/svårighet/lag/beteende, fem ägare/färger/lag i
+  befintligt AI-/fog-/resultat-/Save-/minimapsystem. Plains128 stöder fem deltagare
+  utan omskriven terräng; kapacitetsfilter i menyn.60s betalt AI-byggande och
+  lag/resultat/highscores/Save/migration31/3 PASS; browser800/1280 med verklig
+  lokal Save/load/restart PASS. Push **b52ba87**. Save75 bevarar äldre två/tre-format;
+  fyra/fem delar gemensamma fält för att hålla4MB, med samma strikta validering.
+- **253 — Kartor:** Lakehold Circuit64×64, Five Passes96×96, River Crown128×128,
+  fem starter vardera. Egna terräng-/skog-/resurslayouter, flera landvägar och
+  konsekventa land-/vattenregler. Inlandsvattnet är lokala sjöar/flodarmar.
+  Kartor/starter/resurser/skogsnavigation/domain/Save/restart/fynd och terräng-
+  identitet8/3 PASS (26 andra fall uttryckligt överhoppade); region/reference6/2
+  PASS (55 överhoppade).24 unika slutliga browserfall (tre kartor ×1–4 AI ×800/1280)
+  PASS, noll runtimefel. Lakehold:s tre otillgängliga fynd rättade, dess8 browserfall
+  omkörda och ny översikt granskad;16 oförändrade övriga kartfall återanvänds.
+  [Kartbelägg](artifacts/rts-253/README.md). Taskcommiten hittas med
+  `git log -1 --grep='RTS-253'`; faktisk hash/push rapporteras i slutrapporten.
+
+**Ny slutlig full regression2025 tester/220 filer PASS862.49s**, unit537/92
+PASS27.85s, build inklusive strict typecheck PASS775ms. Befintlig bundlevarning
+kvarstår. Manifestklassificering, självgranskning, lokala doclänkar och diff PASS.
+Alla slutchecks gäller efter sista kod-/teständringen. Tidigare fullförsök avbröts
+på konkreta review-/testfynd och är inte PASS-belägg; DEV_LOG redovisar rättelser.
+Browsern använder bevarad befintlig användar-CSS. Mänskligt matchspel/balans/speltid
+och faktisk ljudlyssning är inte verifierade. Kampanjdefinitioner/kartor bevarade;
+full regression inkluderar befintliga kampanjtester, inte mänsklig genomspelning.
+Ingen ny version, CI-status, Pages-publicering eller publicerad browser hävdas;
+release0.7.0-beläggen nedan är historik, separata från denna lokala verifiering.
+Användarens style.css/units.mjs/docs/:memory:.ses bevaras utanför commits.
+
+---
+
 ## Release0.7.0 — publicerad och verifierad, 2026-10-13
 
 [Spela Warbound](https://tobisen.github.io/warbound/) visar faktiskt
