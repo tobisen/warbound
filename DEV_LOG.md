@@ -5753,3 +5753,16 @@ med befintlig bundlevarning. Full lokal1978/218 PASS på identiska assertions
 återanvänds; ny full regression följs på GitHub. Ingen browseromkörning behövs
 för enbart testdeadlines. Senaste publicerade248-build är ännu inte verifierad.
 Självgranskning och diffcheck PASS; användarens CSS/units/docs bevarade.
+
+
+## Ytterligare CI-deadline RTS-248 — 2026-10-13
+
+[CI38324682958](https://github.com/tobisen/warbound/actions/runs/38324682958)
+för e268428 stoppade på en enda5000ms-timeout: teamResults upprepade tre
+multiplayerstarter med Save. Kampanjlooparnas tidigare tio timeouts återkom inte.
+Just restartfallet får30000ms; alla fixtures/assertions, gameplaytid och
+övriga deadlines består. Riktad team/Save11/1 PASS18.74s; ny unit531/92
+PASS17.53s; strict build PASS555ms med befintlig bundlevarning; diffcheck PASS.
+Tidigare full lokal1978/218 återanvänds för identiska assertions/spelkod;
+ny full CI följs efter push. Build/Pages hoppades över i den röda körningen.
+Ingen publicerad senaste-buildkontroll eller ny browserkontroll hävdas här.

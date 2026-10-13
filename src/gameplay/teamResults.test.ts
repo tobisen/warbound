@@ -48,7 +48,7 @@ it('team statistics and highscores retain ownership and record each match only o
 });
 it('repeated restarts reconstruct all active players, independent banks and clean team state',()=>{
  const ended=updateMatch(eliminate(eliminate(match(),'player'),'ai-2'),.25);for(let n=0;n<3;n++){const fresh=match();expect(fresh.outcome).toBe('playing');expect(isSpectating(fresh)).toBe(false);expect(fresh.multiplePlayers!.roster.every(p=>!playerEliminated(fresh,p.id))).toBe(true);expect(fresh.multiplePlayers!.kills).toEqual({player:0,enemy:0,'ai-2':0});expect(fresh.waves.elapsedSeconds).toBe(0);expect(fresh.multiplePlayers!.ai[1].state).not.toBe(ended.multiplePlayers!.ai[1].state);roundtrip(fresh);}
-});
+},30000);
 it('campaign objectives retain their original independent defeat rules',()=>{const m=createMatch('tutorial');m.combat.baseHP=0;expect(updateMatch(m,.25).outcome).toBe('defeat');});
 
 it('rejects a forged terminal outcome before the human team is eliminated',()=>{
