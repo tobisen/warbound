@@ -24,8 +24,14 @@ actual audio listening are not established. Earlier separate asset/voice limits 
 Discovery CPU: median first30.8→26.0ms, steady9.6→9.2ms on the identical
 artificial400-building/512-wall fixture. Cold first41.5→42.1ms remains;
 these are sync/minimap CPU timings, not full-frame FPS or a human gameplay claim.
-Latest actual green CI/Pages was241/242; intermediate243/244/246 runs failed
-regression. Final248 CI/Pages/public reload must be recorded after push.
+Final [CI38326586747](https://github.com/tobisen/warbound/actions/runs/38326586747)
+for7fa8871 passed npm test, strict build and Pages. Deploy completed
+2026-10-13 02:39:48 Europe/Stockholm. Public Build7fa8871 passed home/reload/
+skirmish800/1280/1920 and six campaign selections covering all five races,
+15 entries each, actual IDs/maps and Save/load800/1280, zero runtime errors.
+Public home800 and campaign-start800 screenshots were visually reviewed.
+Earlier243/244/246 regression failures and248 test-deadline failures remain
+historical; the final green run independently verifies the current commit.
 No hosting change, version bump or independent release is claimed.
 
 ---

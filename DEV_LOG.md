@@ -5766,3 +5766,34 @@ PASS17.53s; strict build PASS555ms med befintlig bundlevarning; diffcheck PASS.
 Tidigare full lokal1978/218 återanvänds för identiska assertions/spelkod;
 ny full CI följs efter push. Build/Pages hoppades över i den röda körningen.
 Ingen publicerad senaste-buildkontroll eller ny browserkontroll hävdas här.
+
+
+## Slutlig CI/Pages och publicerad verifiering — 2026-10-13
+
+Spelkod/kampanjleverans2048f8b plus riktade testdeadlinecommits e268428 och
+7fa8871 är pushade till befintlig origin/main utan force.
+[CI38326586747](https://github.com/tobisen/warbound/actions/runs/38326586747)
+för **7fa8871** är faktiskt grön: npm ci, full npm test (20m36s), strict build,
+Pages upload och deploy. Deployment klar **2026-10-13 02:39:48 Europe/Stockholm**.
+Tidigare röda körningar är historik och påstås inte ha körts om.
+
+https://tobisen.github.io/warbound/ visar faktiskt **v0.6.0 / Build7fa8871**.
+Publicerad Chrome: startsida/panorama/meny inom workspace, ingen automatisk
+fullscreen, korrekt storlek, faktisk omladdning och skirmishstart800/1280/1920
+PASS; noll runtime-/HTTP-assetfel. Sex kampanjval över alla fem raser,
+15 entries/ras, rätt mission-ID/karta/briefing, bas i kameran och verklig
+Save/load800/1280 PASS; noll runtimefel. Publicerad home800 och kampanjstart800
+visuellt granskade. Kampanjkontrollen använder explicit färdig progression
+för att inspektera replay; den är inte mänsklig genomspelning.
+Råunderlag: `/tmp/warbound-public-final/browser.json`,
+`/tmp/warbound-campaign-public/campaign-browser.json` och intilliggande PNG.
+Reproducerbart kampanjprov: `scripts/check-campaign-expeditions.mjs` med
+WARBOUND_URL=https://tobisen.github.io/warbound/ och extern Playwright/Chrome.
+
+Denna slutuppdatering ändrar enbart Markdown. Text-/lokala länkar/diff granskas
+på nytt; lokal full1978/218, senaste unit531/92, strict build och ovanstående
+faktiska CI/browser återanvänds uttryckligen. Inga nya kodtester behövs för docs.
+Alla sex beställda delar är levererade; inga ytterligare tasks startas.
+Mänsklig uppdragslängd/balans/spelglädje och kall upptäcktsspik kring42ms
+kvarstår som tidigare redovisade begränsningar. Användarens CSS/units.mjs/docs/
+och :memory:.ses är bevarade utanför commits. Ingen ny version eller hosting.

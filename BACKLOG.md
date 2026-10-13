@@ -63,7 +63,7 @@ Kampanjmål fastställt före248-implementation: **8→15 spelbara uppdrag per r
 
 - **RTS-248 — Implementera och verifiera utökade kampanjer — Done.** Genomför 247-planen på egna kartregioner. Verifiera varje ny målsekvens och koordinattrigger efter kartändringar samt Save mellan faser, progression/replay. Samlad kampanjregression vid delslut; mänsklig speltid/balans ej ersatt av snabbsimulering. HANDOFF med antal/kartor/checks/prestanda/hashar. Inget Done med saknade uppdrag/centrala sekvenser.
 
-RTS-241–248 är avslutade. Full regression1978/218, unit531/92, strict build/diff och lokal browser PASS. Senaste248-CI/Pages kontrolleras efter taskpush och rapporteras i HANDOFF. Inga ytterligare roadmaptasks startas. Tidigare Current Focus nedan är historik.
+RTS-241–248 är avslutade. Full regression1978/218, unit531/92, strict build/diff och lokal browser PASS. CI38326586747 och Pages för7fa8871 är faktiskt gröna; publicerad Build7fa8871, startsida/omladdning800/1280/1920 och kampanj/Save för alla fem raser800/1280 PASS. Se HANDOFF. Inga ytterligare roadmaptasks startas. Tidigare Current Focus nedan är historik.
 
 
 ### Nytt uppdrag2026-10-08 — RTS-239–240

@@ -70,3 +70,10 @@ completed progress explicitly to inspect replay selection; it does not earn wins
 Final checks and final connected-map renders are recorded in HANDOFF/DEV_LOG.
 verification.json captures local checks before the2048f8b push; final CI/Pages
 status is recorded separately in HANDOFF after actual deployment.
+
+Final code2048f8b plus CI deadline fixes e268428/7fa8871 were published by
+[green CI38326586747](https://github.com/tobisen/warbound/actions/runs/38326586747).
+Public Build7fa8871 passed actual home/reload/skirmish800/1280/1920 and all-five-
+races campaign selection/Save-load800/1280. Final status and temporary public
+browser evidence paths are in [HANDOFF](../../HANDOFF.md). This final evidence
+update is Markdown only; verification.json retains its original local snapshot.

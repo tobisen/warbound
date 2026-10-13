@@ -1,13 +1,13 @@
 # Aktuell överlämning — RTS-241–248, 2026-10-13
 
 Användarens sex delar är implementerade i ordning, en task åt gången. Inga nya
-roadmaptasks startas. RTS-241–248 är Done efter verifierad slutlig lokal regression. Senaste248-publicering följs separat efter push.
+roadmaptasks startas. RTS-241–248 är Done efter verifierad slutlig lokal regression. Slutlig CI/Pages och publicerad browser är nu verifierade för7fa8871.
 
 - Befintlig hosting är fortsatt GitHub Pages: https://tobisen.github.io/warbound/.
   241 reparerade namn/base/assetvägar och verifierade verklig publicering,
   panorama-startsida, native800/1280/1920 och omladdning.241/242:s CI var grön;
   mellanliggande243/244/246-CI blev röd på regressionsfel som248 rättar.
-  Senaste248-deployment/publicerad kontroll ska rapporteras separat efter push.
+  Slutlig CI38326586747 och Pages för7fa8871 PASS; publicerad browser/reload och kampanj/Save PASS, se slutstatus nedan.
 - Fortifikationernas32-tak är borttaget även i wall-drag/preview/Save och
   obstacle-listan. Kostnad, resurser, byggyta, synlighet och placering består.
   512 samtidiga fortifikationer plus betalt byggande/Save/browser är verifierade.
@@ -46,7 +46,7 @@ Extra samlade körningar behövdes för upptäckta verkliga väg-/Savefel och se
 för korrigerade historiska testfixturer; ingen grön bred körning upprepades utan orsak.
 Självgranskning av scope, ID/progression, Save, terräng/rutter, fog/information,
 AI-kostnad och UI/livscykel: inga kvarstående blockerande fynd. Ingen oberoende
-agentgranskning gjordes. Commit/deploy anges efter faktisk leverans.
+agentgranskning gjordes. Slutlig commit/deploy och offentlig browser är redovisade nedan.
 
 Samma artificiella400-byggnads/512-wall-scenario före/efter245:
 median första upptäckt30.8→26.0ms, steady9.6→9.2ms. Kall första41.5→42.1ms
@@ -58,7 +58,7 @@ verifierade. Befintliga separat redovisade grafik-/röstbegränsningar består.
 Ingen ny version, release eller hostingtjänst införs. Användarens style.css,
 assets/sources/units.mjs, docs/ och :memory:.ses är bevarade och ingår inte i
 uppdragets commits. Lokal browser/build innehåller bevarad användar-CSS;
-publicerad browserkontroll efter CI ska därför även täcka den committade CSS:en.
+slutlig publicerad browserkontroll täcker även den committade CSS:en.
 
 ## Taskcommits
 
@@ -1719,3 +1719,34 @@ PASS17.53s; strict build PASS555ms med befintlig bundlevarning; diffcheck PASS.
 Tidigare full lokal1978/218 återanvänds för identiska assertions/spelkod;
 ny full CI följs efter push. Build/Pages hoppades över i den röda körningen.
 Ingen publicerad senaste-buildkontroll eller ny browserkontroll hävdas här.
+
+
+## Slutlig CI/Pages och publicerad verifiering — 2026-10-13
+
+Spelkod/kampanjleverans2048f8b plus riktade testdeadlinecommits e268428 och
+7fa8871 är pushade till befintlig origin/main utan force.
+[CI38326586747](https://github.com/tobisen/warbound/actions/runs/38326586747)
+för **7fa8871** är faktiskt grön: npm ci, full npm test (20m36s), strict build,
+Pages upload och deploy. Deployment klar **2026-10-13 02:39:48 Europe/Stockholm**.
+Tidigare röda körningar är historik och påstås inte ha körts om.
+
+https://tobisen.github.io/warbound/ visar faktiskt **v0.6.0 / Build7fa8871**.
+Publicerad Chrome: startsida/panorama/meny inom workspace, ingen automatisk
+fullscreen, korrekt storlek, faktisk omladdning och skirmishstart800/1280/1920
+PASS; noll runtime-/HTTP-assetfel. Sex kampanjval över alla fem raser,
+15 entries/ras, rätt mission-ID/karta/briefing, bas i kameran och verklig
+Save/load800/1280 PASS; noll runtimefel. Publicerad home800 och kampanjstart800
+visuellt granskade. Kampanjkontrollen använder explicit färdig progression
+för att inspektera replay; den är inte mänsklig genomspelning.
+Råunderlag: `/tmp/warbound-public-final/browser.json`,
+`/tmp/warbound-campaign-public/campaign-browser.json` och intilliggande PNG.
+Reproducerbart kampanjprov: `scripts/check-campaign-expeditions.mjs` med
+WARBOUND_URL=https://tobisen.github.io/warbound/ och extern Playwright/Chrome.
+
+Denna slutuppdatering ändrar enbart Markdown. Text-/lokala länkar/diff granskas
+på nytt; lokal full1978/218, senaste unit531/92, strict build och ovanstående
+faktiska CI/browser återanvänds uttryckligen. Inga nya kodtester behövs för docs.
+Alla sex beställda delar är levererade; inga ytterligare tasks startas.
+Mänsklig uppdragslängd/balans/spelglädje och kall upptäcktsspik kring42ms
+kvarstår som tidigare redovisade begränsningar. Användarens CSS/units.mjs/docs/
+och :memory:.ses är bevarade utanför commits. Ingen ny version eller hosting.
