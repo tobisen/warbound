@@ -1,3 +1,4 @@
+import {syncFactionPortrait} from './factionPortrait';
 import {factionDescriptions} from '../config/factionDescriptions';
 import {isFactionId} from '../config/factions';
 import {difficultyDescription} from './matchSettings';
@@ -29,5 +30,6 @@ export function syncCampaignFlow(active:boolean):void{
  element('campaign-step-back').hidden=step==='faction';
  const faction=(element('faction-select') as HTMLSelectElement).value;
  element('campaign-faction-description').textContent=factionDescriptions[isFactionId(faction)?faction:'crown'];
+ syncFactionPortrait(element('campaign-faction-description'),isFactionId(faction)?faction:'crown');
  element('campaign-difficulty-description').textContent=difficultyDescription[initialDifficulty((element('difficulty-select') as HTMLSelectElement).value)];
 }

@@ -1,3 +1,4 @@
+import {syncFactionPortrait} from './factionPortrait';
 import {factionDescriptions} from '../config/factionDescriptions';
 import {factions,isFactionId} from '../config/factions';
 import {maps} from '../config/maps';
@@ -21,6 +22,7 @@ export function syncSkirmishMenu(active:boolean,options:MatchOptions):void{
  if(!active)return;
  const faction=options.faction??'crown',max=Math.max(...supportedPlayerCounts(options.map,options.scenario)),three=options.players?.length===3;
  element('skirmish-faction-description').textContent=factionDescriptions[faction];
+ syncFactionPortrait(element('skirmish-faction-description'),faction);
  element('skirmish-capacity').textContent=`${maps[options.map].label}: ${max} validated start positions · You + up to ${max-1} AI.${max===2&&options.scenario==='skirmish'?' Choosing two AI opponents switches this map to Plains 96 × 96, which has three start positions.':''}${options.scenario!=='skirmish'?' Survival uses fixed scenario starts.':''}`;
  element('skirmish-ai-2').hidden=!three;
  for(const id of ['player','enemy','ai-2'])element(`${id}-team-select`).closest('label')!.hidden=!three;

@@ -5867,3 +5867,17 @@ Slutuppdateringen ändrar enbart Markdown. Text/lokala länkar/diff granskas
 på nytt; kodchecks och faktisk CI/browser återanvänds, inga nya kodtester.
 Dina style.css/units.mjs/docs/:memory:.ses är bevarade och exkluderade.
 Befintlig Pages-hosting används; inga andra tjänster eller gameplayändringar.
+
+## RTS-250 — Rasval med bild och lore (2026-10-13)
+
+Fem egna loretexter för Human/Orcs/Elves/Dwarves/Goblins, separat från oförändrade
+regelbeskrivningar. Kampanj/skirmish visar faktisk soldier-player-s-idle-0 från
+units-atlas; transparent padding beskärs med befintlig spriteCrop. Cache och
+kontroll av senaste ras skyddar snabba val; separat CSS bevarar användarens CSS.
+Ny unit531/92 PASS16.61s; npm run build med strict typecheck PASS880ms,
+befintlig bundlevarning. Browser alla fem i båda menyer vid800/1280 PASS,
+20 bilder/bounds i artifacts/rts-250/browser.json. Alla fem granskade visuellt
+vid800; bild tydlig och lore läsbar, menyn scrollas enligt befintligt beteende.
+Reproducerbart scripts/check-faction-lore.mjs (extern Playwright/Chrome).
+Självgranskning: befintliga regler/stil/assets återanvända, ingen gameplayändring;
+git diff --check PASS. Ingen ny full regression eller mänskligt speltest påstås.

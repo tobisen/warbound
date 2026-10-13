@@ -1,0 +1,242 @@
+[
+  {
+    "width": 800,
+    "menu": "skirmish",
+    "faction": "crown",
+    "loaded": true,
+    "bounds": {
+      "x": 140,
+      "y": 392.265625,
+      "width": 520,
+      "height": 114
+    }
+  },
+  {
+    "width": 800,
+    "menu": "skirmish",
+    "faction": "clans",
+    "loaded": true,
+    "bounds": {
+      "x": 140,
+      "y": 392.265625,
+      "width": 520,
+      "height": 114
+    }
+  },
+  {
+    "width": 800,
+    "menu": "skirmish",
+    "faction": "elves",
+    "loaded": true,
+    "bounds": {
+      "x": 140,
+      "y": 392.265625,
+      "width": 520,
+      "height": 114
+    }
+  },
+  {
+    "width": 800,
+    "menu": "skirmish",
+    "faction": "dwarves",
+    "loaded": true,
+    "bounds": {
+      "x": 140,
+      "y": 392.265625,
+      "width": 520,
+      "height": 114
+    }
+  },
+  {
+    "width": 800,
+    "menu": "skirmish",
+    "faction": "goblins",
+    "loaded": true,
+    "bounds": {
+      "x": 140,
+      "y": 392.265625,
+      "width": 520,
+      "height": 114
+    }
+  },
+  {
+    "width": 800,
+    "menu": "campaign",
+    "faction": "crown",
+    "loaded": true,
+    "bounds": {
+      "x": 127,
+      "y": 483.515625,
+      "width": 546,
+      "height": 114
+    }
+  },
+  {
+    "width": 800,
+    "menu": "campaign",
+    "faction": "clans",
+    "loaded": true,
+    "bounds": {
+      "x": 127,
+      "y": 483.515625,
+      "width": 546,
+      "height": 114
+    }
+  },
+  {
+    "width": 800,
+    "menu": "campaign",
+    "faction": "elves",
+    "loaded": true,
+    "bounds": {
+      "x": 127,
+      "y": 483.515625,
+      "width": 546,
+      "height": 114
+    }
+  },
+  {
+    "width": 800,
+    "menu": "campaign",
+    "faction": "dwarves",
+    "loaded": true,
+    "bounds": {
+      "x": 127,
+      "y": 483.515625,
+      "width": 546,
+      "height": 114
+    }
+  },
+  {
+    "width": 800,
+    "menu": "campaign",
+    "faction": "goblins",
+    "loaded": true,
+    "bounds": {
+      "x": 127,
+      "y": 483.515625,
+      "width": 546,
+      "height": 114
+    }
+  },
+  {
+    "width": 1280,
+    "menu": "skirmish",
+    "faction": "crown",
+    "loaded": true,
+    "bounds": {
+      "x": 760.6875,
+      "y": 414,
+      "width": 407.0625,
+      "height": 146
+    }
+  },
+  {
+    "width": 1280,
+    "menu": "skirmish",
+    "faction": "clans",
+    "loaded": true,
+    "bounds": {
+      "x": 760.6875,
+      "y": 414,
+      "width": 407.0625,
+      "height": 146
+    }
+  },
+  {
+    "width": 1280,
+    "menu": "skirmish",
+    "faction": "elves",
+    "loaded": true,
+    "bounds": {
+      "x": 760.6875,
+      "y": 414,
+      "width": 407.0625,
+      "height": 146
+    }
+  },
+  {
+    "width": 1280,
+    "menu": "skirmish",
+    "faction": "dwarves",
+    "loaded": true,
+    "bounds": {
+      "x": 760.6875,
+      "y": 414,
+      "width": 407.0625,
+      "height": 146
+    }
+  },
+  {
+    "width": 1280,
+    "menu": "skirmish",
+    "faction": "goblins",
+    "loaded": true,
+    "bounds": {
+      "x": 760.6875,
+      "y": 414,
+      "width": 407.0625,
+      "height": 154.5
+    }
+  },
+  {
+    "width": 1280,
+    "menu": "campaign",
+    "faction": "crown",
+    "loaded": true,
+    "bounds": {
+      "x": 747.6875,
+      "y": 327.75,
+      "width": 433.0625,
+      "height": 146
+    }
+  },
+  {
+    "width": 1280,
+    "menu": "campaign",
+    "faction": "clans",
+    "loaded": true,
+    "bounds": {
+      "x": 747.6875,
+      "y": 327.75,
+      "width": 433.0625,
+      "height": 146
+    }
+  },
+  {
+    "width": 1280,
+    "menu": "campaign",
+    "faction": "elves",
+    "loaded": true,
+    "bounds": {
+      "x": 747.6875,
+      "y": 327.75,
+      "width": 433.0625,
+      "height": 146
+    }
+  },
+  {
+    "width": 1280,
+    "menu": "campaign",
+    "faction": "dwarves",
+    "loaded": true,
+    "bounds": {
+      "x": 747.6875,
+      "y": 327.75,
+      "width": 433.0625,
+      "height": 146
+    }
+  },
+  {
+    "width": 1280,
+    "menu": "campaign",
+    "faction": "goblins",
+    "loaded": true,
+    "bounds": {
+      "x": 747.6875,
+      "y": 327.75,
+      "width": 433.0625,
+      "height": 146
+    }
+  }
+]

@@ -1,0 +1,4 @@
+.faction-story{display:flex;align-items:center;gap:12px;margin:8px 0;padding:8px;border:1px solid #665238;background:#171b17;color:#e6dcc5;}
+.faction-story canvas{width:128px;height:128px;flex:0 0 128px;image-rendering:pixelated;}
+.faction-story figcaption{font-size:13px;line-height:1.5;max-width:54ch;}
+@media(max-width:850px){.faction-story{gap:8px;}.faction-story canvas{width:96px;height:96px;flex-basis:96px;}.faction-story figcaption{font-size:12px;}}

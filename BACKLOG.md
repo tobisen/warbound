@@ -45,6 +45,27 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Ny batch 2026-10-13 — RTS-250–253
+
+Nytt uppdrag ersätter föregående stopp. En task åt gången, befintliga system,
+bevara användarändringar; riktade tester/browser, slutchecks och taskvis
+commit/push till origin/main. Full regression vid batchslut, ingen ny release.
+
+- **RTS-250 — Rasval med enhetsbild och lore — Done.** Fem separata
+  loretexter utan felaktiga regellöften; faktisk enhetsgrafik i kampanj/skirmish,
+  läsbar i befintlig menystil vid800/1280. Browsergranska alla fem raser.
+- **RTS-251 — Bättre djurljud — Todo.** Inventera arter/ljud; igenkännbara
+  artljud och variationer, befintlig interaktion/cooldown. Verifierad egen/licensierad
+  källa/upphov/licens per fil. Browseruppspelning; faktisk lyssning eller tydlig begränsning.
+- **RTS-252 — Upp till fyra AI-motståndare — Todo.** Separat ras/svårighet/lag
+  per AI, befintlig AI. Kapacitetsfiltrerade kartor; fem platser, resurser/baser,
+  lag/fog/minimap/resultat/Save/restart. Kampanjkompatibilitet; tester1–4 AI.
+- **RTS-253 — Tre nya skirmishkartor — Todo.** Liten/medel/stor med egna
+  layouter, fem startplatser vardera, resurser/flera vägar och giltig terräng/
+  byggbarhet/land/sjöregler. Meny visar namn/storlek/platser. Befintlig kampanj
+  bevaras. Riktade matchprov/browser och full slutregression; HANDOFF efter253.
+
+
 ### RTS-249 — Release0.7.0 — Done
 
 Nytt uttryckligt uppdrag2026-10-13: skapa/publicera release med senaste färdiga
