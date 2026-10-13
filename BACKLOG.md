@@ -45,7 +45,7 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
-### RTS-249 — Release0.7.0 — In progress
+### RTS-249 — Release0.7.0 — Done
 
 Nytt uttryckligt uppdrag2026-10-13: skapa/publicera release med senaste färdiga
 commitade ändringar. Version/package/lock/changelog uppdateras; ren releasekopia,
@@ -54,6 +54,14 @@ samt offentlig browser med exakt version/build krävs. Bevara/exkludera använda
 style.css, units.mjs, docs/ och :memory:.ses. Ingen ny gameplay eller annan task.
 Slutlig HANDOFF/QUALITY_REVIEW/RELEASE_CHECKLIST och docs/commit/push ingår.
 
+
+Releasecommit b135d18 är pushad och publicerad som v0.7.0/Buildb135d18.
+[CI38350869947](https://github.com/tobisen/warbound/actions/runs/38350869947)
+är grön med fullregression/strict build/Pages. Ny ren unit531/92 och
+candidate/public releasebrowser800/1280 Native/1600 Native/Fit PASS;
+publicerad startsida/reload800/1280/1920 PASS, JS/CSS byte-exakta.
+Slutlig HANDOFF/QUALITY_REVIEW/RELEASE_CHECKLIST redovisar belägg/limiter.
+Stanna efter release; användarändringar bevarade. Föregående mandat är historik.
 
 ### Nytt mandat 2026-10-12 — RTS-241–248
 

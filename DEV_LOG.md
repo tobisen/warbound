@@ -5826,3 +5826,44 @@ Självgranskning av versionskonsekvens/historik/release-scope utan fynd;
 node --check scripts/check-release.mjs och git diff --check PASS.
 CI/deployment, exakt publicerad version/build och offentlig browser återstår.
 Ingen ny hosting, orelaterad task eller inkludering av användarändringar.
+
+
+## Release0.7.0 — publicerad och verifierad, 2026-10-13
+
+[Spela Warbound](https://tobisen.github.io/warbound/) visar faktiskt
+**v0.7.0 / Buildb135d18**. Releasecommit b135d18 är pushad till origin/main.
+[CI38350869947](https://github.com/tobisen/warbound/actions/runs/38350869947)
+för samma SHA PASS: npm ci, full npm test (13m16s), strict typecheck/build,
+Pages upload och deploy. Deployment klar2026-10-13 07:34:13 Europe/Stockholm.
+RTS-249 är Done; inga ytterligare tasks startas.
+
+Ny ren lokal kandidat: unit531/92 PASS16.25s, strict build592ms PASS;
+exakt ombygge med releasehash570ms PASS. Befintlig bundlevarning kvarstår.
+Kandidat och faktisk publicerad browser:800/1280 Native,1600 Native/Fit,
+version/changelog/Tech Tree, kampanj/pause/Save/load/seger/replay,
+skirmishförlust, team/spectator/Save/förlust, menu reset, fullscreen,
+sex upplösningar, asset-/ljud-HTTP och omladdning PASS; noll runtime-/assetfel.
+Publicerad panorama-startsida800/1280/1920 PASS: rätt Build, bild laddad,
+meny inom workspace, ingen automatisk fullscreen, faktisk omladdning och
+skirmishstart. Publicerad Tech Tree800 visuellt granskad.
+
+Publicerad JS och CSS är byte-exakta med ren lokal releasebuild:
+JS SHA256 cf84aa8fb128660c530494c79fb0c804c2f2b4f7a57555ce2401f57701cb668f;
+CSS SHA256 4fe84ea5743059f24fda92004b611cea68ed82a8b475b70ce915cd840f80383d.
+Råunderlag: /tmp/warbound-release070-public/browser.json,
+/tmp/warbound-release070-home/browser.json, intilliggande PNG och
+/tmp/warbound-release070-public-hashes.json. Reproducerbart releaseprov:
+scripts/check-release.mjs med W2T_RELEASE_URL till Pages och W2T_EXPECT_BUILD=b135d18.
+
+Full lokal1978/218 och RTS-248:s alla35 målsekvenser/235 Save-roundtrips,
+nya kampanjval för alla fem raser samt kart-/prestandabelägg är uttryckligen
+återanvänd historik för oförändrad gameplay. Den nya fulla CI-regressionen och
+ovanstående offentliga browserkontroller är releaseverifiering.
+Resultat-/spectatorfixturer injicerar tillstånd och är inte mänskliga
+balans-/tids-/ljudtester. Kall upptäcktsspik kring42ms och tidigare separata
+animation-/assetbegränsningar kvarstår; ingen ny bedömning av spelglädje.
+
+Slutuppdateringen ändrar enbart Markdown. Text/lokala länkar/diff granskas
+på nytt; kodchecks och faktisk CI/browser återanvänds, inga nya kodtester.
+Dina style.css/units.mjs/docs/:memory:.ses är bevarade och exkluderade.
+Befintlig Pages-hosting används; inga andra tjänster eller gameplayändringar.
