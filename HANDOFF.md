@@ -1,3 +1,22 @@
+## Presentation — publicerad och verifierad, 2026-10-16
+
+[Öppna presentationen](https://tobisen.github.io/warbound/presentation/).
+11 svenska slides,8½ minuter, navigation/notes, dokumenterade spelbilder
+och QR till Warbound. [Paket och instruktioner](presentations/agentic-coding/README.md).
+
+54ab540 och3b9923a är pushade. [CI38912432397](https://github.com/tobisen/warbound/actions/runs/38912432397)
+för3b9923a PASS inklusive full npm test, strict spelbuild, separat Vue-build
+och Pages-deploy. Deploy klar 2026-10-16 16:43:09 Europe/Stockholm.
+Publik Chrome: alla slides/bilder/textgränser, navigation, notes, title/favicon
+och faktisk serverad QR PASS; kart-/slutslide visuellt granskade. Spelets
+ursprungliga adress/meny och Build3b9923a fungerar utan runtime-/HTTP-fel.
+Ingen ny spelversion eller ny mänsklig gameplay-/ljudverifiering. Detaljer
+och rårapporter i DEV_LOG; den tidigare0.8.0-releasehistoriken nedan bevaras.
+
+CSS/units.mjs, docs/ och :memory:.ses är fortsatt användararbete utanför
+commits. Uppdraget avslutat; inga roadmaptasks startade. Slutlig docs-push
+ändrar bara Markdown och återanvänder nyss verifierade kod-/CI-belägg.
+
 ## Release0.8.0 — publicerad och verifierad, 2026-10-13
 
 [Spela Warbound](https://tobisen.github.io/warbound/) visar faktiskt

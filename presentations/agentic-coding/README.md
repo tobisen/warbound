@@ -68,3 +68,7 @@ TALK_URL=http://127.0.0.1:5206/warbound/presentation/ REPORT_DIR=/tmp/warbound-t
 ```
 
 `TALK_URL` kan också vara den publika adressen. Kontrollprogrammet avkodar både den lokala och faktiskt serverade QR-bilden. `REPORT_DIR` håller nya granskningsfiler utanför Git-arbetskopian.
+
+## Faktiskt publicerad
+
+Verifierad på https://tobisen.github.io/warbound/presentation/ efter [grön CI och deploy](https://github.com/tobisen/warbound/actions/runs/38912432397) för commit `3b9923a`, avslutad 2026-10-16 16:43:09 Europe/Stockholm. Alla11 slides, bildladdning, textgränser, navigation/anteckningar, title/favicon och serverad QR passerar publik Chrome-kontroll. Spelets befintliga adress och meny fungerar också. Se [DEV_LOG](../../DEV_LOG.md) för belägg och kontroller.

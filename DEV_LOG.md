@@ -6150,3 +6150,48 @@ Rättad Warbound-titel och lokal W-SVG; browserkontrollen verifierar båda.
 Ny presentationsbuild/typecheck och produktionsbrowser/QR PASS. Tidigare
 537/92 unit och spelbuild återanvänds för oförändrat spel/workflow.
 Första54ab540-CI kör fortfarande; korrigeringen följs på eget slutligt SHA.
+
+
+### Presentation: första Pages-deployen grön
+
+54ab540 är pushad. CI38911926568 för exakt detta SHA är success och
+https://tobisen.github.io/warbound/presentation/ svarar faktisktHTTP200
+med Vue-entry efter deploy. Detta är första bygget; sista fliktitel-/favicon-
+rättningen3b9923a är pushad och kör sin egen CI38912432397. Ingen slutlig
+3b9923a-deploy eller full publik browserkontroll hävdas ännu.
+
+
+## Presentation publicerad och verifierad — 2026-10-16
+
+**https://tobisen.github.io/warbound/presentation/** är publicerad från
+3b9923a. Huvudcommit54ab540 och rättning3b9923a är pushade till origin/main.
+[Slutlig CI38912432397](https://github.com/tobisen/warbound/actions/runs/38912432397)
+för exakt3b9923a är success: npm ci, full npm test, spelbuild med strict
+typecheck, presentationens rena npm ci/vue-tsc/build, gemensamt Pages-
+artifact och deploy. Deploy klar 2026-10-16 16:43:09 Europe/Stockholm.
+Även första54ab540:s CI38911926568 är success; slutlig kontroll avser3b9923a.
+
+Faktisk offentlig Chrome-kontroll PASS:11 slides/510s, samtliga bilder och
+textgränser, tangentbordsnavigation, talaranteckningar, Warbound-fliktitel
+och serverad favicon. Både lokal och faktiskt serverad QR avkodad till
+https://tobisen.github.io/warbound/. Kartsliden och startsida/QR visuellt
+granskade på det publicerade bygget. Spelets ursprungliga URL/meny samt
+exakt Build3b9923a kontrollerade utan runtime-/HTTP-fel. Ingen ny gameplay-,
+ljud- eller mänsklig matchbalansverifiering hävdas. Ingen ny spelversion.
+
+Reproducerbart i presentationspaketet:
+
+```sh
+TALK_URL=https://tobisen.github.io/warbound/presentation/ REPORT_DIR=/tmp/warbound-presentation-public-review npm run verify
+```
+
+Rårapporter:
+/tmp/warbound-presentation-public-review/verification.json och slide-PNG,
+/tmp/warbound-public-presentation-game-root.json och intilliggande PNG,
+/tmp/warbound-presentation-final-ci-jobs.json. Lokal unit537/92, ren
+presentationsinstallation/build och produktionsbasvägens browserkontroll
+redovisas ovan; ny full regression är faktiskt verifierad i CI.
+
+Slutuppdateringen är enbart Markdown: text/länkar/diff granskas; nyss gröna
+kod-/CI-/browserbelägg återanvänds utan onödiga omkörningar. CSS/units.mjs,
+docs/ och :memory:.ses bevarade utanför commits. Inga fler tasks startas.
