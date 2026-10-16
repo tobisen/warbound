@@ -6231,3 +6231,77 @@ PASS17.53s; strict build PASS555ms med befintlig bundlevarning; diffcheck PASS.
 Tidigare full lokal1978/218 återanvänds för identiska assertions/spelkod;
 ny full CI följs efter push. Build/Pages hoppades över i den röda körningen.
 Ingen publicerad senaste-buildkontroll eller ny browserkontroll hävdas här.
+
+
+## Presentationsbilder — 2026-10-16
+
+Separat användaruppdrag, ingen roadmaptask startad.17 autentiska browser-PNG
+i [bildpaketet](artifacts/presentation-2026-10-16/README.md): historisk MVP6740128
+körd igen, arkiverad0.2.0-testbild, aktuell lokal0.8.0-gameplay med fysisk
+resursorder, fyra runtime-assetgallerier och tre kartpar med/utan fog samt
+två terrängdetaljer. Kartpar har samma kamera; full sikt och assetgallerier
+är uttryckliga testfixturer. Nya browserkörningar utan runtimefel; gameplay,
+kartor och representativa assets visuellt granskade. Ingen spelkod ändrad,
+inga nya unit/build/fullregressions-/CI-/Pagesbelägg. Användarändringar bevarade.
+Ingen commit/push ingår i detta bildbeställningsuppdrag.
+
+
+## Lightning talk — Agentic Coding och Warbound, 2026-10-16
+
+Separat presentationsuppdrag, ingen roadmaptask startad.10 svenska slides
+i [eget Vue-paket](presentations/agentic-coding/README.md) baserat på beställd
+vue-presentation-template, med navigation och talarstöd480s. Webbversion
+är leveransen enligt användarens förtydligande; ingen PPTX. Autentiska
+spelbilder med korrekt proveniens och tydligt markerad Warcraft II-inspiration.
+Presentationens vue-tsc/build, browserrenderingar, bild-/textgränser,
+QR-avkodning och tangentbords-/anteckningsflöde PASS. Spelkod och befintliga
+ändringar bevarade; inga nya spelchecks/CI/Pages eller commit/push.
+
+
+### Presentation: rättad speladress — 2026-10-16
+
+Presentationens synliga URL, kontaktlänk, dokumentation och QR-kod använder
+nu https://tobisen.github.io/warbound/. Det gamla projektnamnet är borttaget
+ur presentationspaketets källor. Ny QR-avkodning/browserkontroll och
+Vue-build med typecheck PASS; granskningsbilder uppdaterade. Ingen spelkod
+ändrad och ingen publicering/commit/push utförd.
+
+
+### Presentation: spelets startsida — 2026-10-16
+
+Avslutningssliden visar nu Warbounds startsida intill spel-QR. Ny lokal
+browsercapture av samma startsida som användarens referens; ingen ändring
+av spelkod eller illustration.10 slides och480s talarstöd bevaras.
+Presentationens build/typecheck och browser-/QR-kontroller PASS.
+
+
+### Presentation: kartöversikt och närbild — 2026-10-16
+
+Ny slide7 efter ras-/assetöversikten: River Crown helt utzoomad och samma
+karta i spelzoom. Rena utsnitt ur befintligt bildpaket, full sikt märkt
+som kartvisning/testfixtur.11 slides,510s talarstöd; sidnummer och docs
+uppdaterade. Build/typecheck, samtliga browserrenderingar/textgränser/
+bilder/navigation/notes/QR och diffcheck PASS; kartslide visuellt granskad.
+Ingen spelkod eller publicering ändrad.
+
+
+## Presentation: commit och Pages-publicering — 2026-10-16
+
+Nytt uttryckligt mandat: committa/pusha presentationen och publicera på
+https://tobisen.github.io/warbound/presentation/. Befintligt Pages-workflow
+behåller spelets fullregression/build och inkluderar presentationens separat
+låsta Vue-bygge under dist/presentation. Dev-bas är /, build/preview-bas
+/warbound/presentation/. Ingen ny spelversion eller gameplayändring.
+
+Isolerad kandidat från HEAD23fe13e exkluderar användarens CSS/units.mjs/docs
+och :memory:.ses. Ny unit537/92 PASS17.56s; spelbuild med strict typecheck
+PASS (481ms, befintlig bundlevarning; utan .git i kandidat används build-ID
+fallback unknown). Presentation: ren npm ci PASS/0 rapporterade sårbarheter,
+vue-tsc/build PASS268ms. Faktisk Chrome på produktionsbasvägen via preview
+PASS:11 slides,510s, alla bilder/textgränser, navigation, notes samt lokal
+och serverad QR avkodade till aktuell speladress. Självgranskad workflow
+och paket; diffcheck PASS. Fullregression körs av befintlig CI före deploy;
+CI och publik verifiering följs efter push, inte antagna gröna i förväg.
+
+Commit omfattar presentation, dess ursprungliga dokumenterade bildpaket,
+Pages-workflow och presentationslogg. Orelaterade ändringar bevaras.

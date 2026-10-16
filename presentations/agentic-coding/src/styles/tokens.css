@@ -1,0 +1,61 @@
+:root {
+  --color-bg: #701130;
+  --color-bg-dark: #4d2632;
+  --color-bg-muted: #5a3d46;
+  --color-page-bg: #12090d;
+  --color-page-bg-soft: #241016;
+  --color-text: #f5eee9;
+  --color-text-muted: #d8c6c0;
+  --color-accent: #e8a18f;
+  --color-accent-soft: #f0c4b6;
+  --color-card: #f3eee8;
+  --color-card-text: #1e1e1e;
+  --color-card-text-muted: rgba(30, 30, 30, 0.72);
+  --color-line: #e8a18f;
+  --color-panel: rgba(77, 38, 50, 0.7);
+  --color-panel-soft: rgba(77, 38, 50, 0.56);
+  --color-ghost-text: rgba(245, 238, 233, 0.28);
+  --color-image-overlay-strong: rgba(42, 17, 24, 0.9);
+  --color-image-overlay-soft: rgba(42, 17, 24, 0.34);
+  --color-control-bg: rgba(245, 238, 233, 0.08);
+  --color-control-panel: rgba(32, 16, 21, 0.38);
+  --color-control-border: rgba(245, 238, 233, 0.18);
+  --color-control-text: rgba(245, 238, 233, 0.74);
+  --color-footer-text: rgba(245, 238, 233, 0.58);
+  --color-subtle-line: rgba(232, 161, 143, 0.34);
+  --color-active-text: #2a1118;
+  --color-shadow: rgba(20, 5, 12, 0.35);
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --slide-padding-block: clamp(2rem, 6.4vh, 4.5rem);
+  --slide-padding-inline: clamp(2rem, 7.5vw, 6rem);
+  --slide-radius: 0;
+}
+
+[data-theme='light'] {
+  --color-bg: #f6e8df;
+  --color-bg-dark: #ead2c6;
+  --color-bg-muted: #f0ddd3;
+  --color-page-bg: #e8d2c8;
+  --color-page-bg-soft: #fff8f3;
+  --color-text: #3b1522;
+  --color-text-muted: #775c62;
+  --color-accent: #b54d62;
+  --color-accent-soft: #8f314a;
+  --color-card: #ffffff;
+  --color-card-text: #32121d;
+  --color-card-text-muted: rgba(50, 18, 29, 0.68);
+  --color-line: #b54d62;
+  --color-panel: rgba(255, 255, 255, 0.58);
+  --color-panel-soft: rgba(255, 248, 243, 0.72);
+  --color-ghost-text: rgba(59, 21, 34, 0.22);
+  --color-image-overlay-strong: rgba(69, 24, 38, 0.72);
+  --color-image-overlay-soft: rgba(69, 24, 38, 0.18);
+  --color-control-bg: rgba(255, 255, 255, 0.72);
+  --color-control-panel: rgba(255, 248, 243, 0.72);
+  --color-control-border: rgba(88, 35, 49, 0.18);
+  --color-control-text: rgba(59, 21, 34, 0.74);
+  --color-footer-text: rgba(59, 21, 34, 0.56);
+  --color-subtle-line: rgba(181, 77, 98, 0.28);
+  --color-active-text: #fff8f3;
+  --color-shadow: rgba(88, 35, 49, 0.18);
+}

@@ -1,0 +1,99 @@
+.slide-fade-enter-active,
+.slide-fade-leave-active,
+.slide-slide-enter-active,
+.slide-slide-leave-active,
+.slide-lift-enter-active,
+.slide-lift-leave-active,
+.slide-zoom-enter-active,
+.slide-zoom-leave-active,
+.slide-wipe-enter-active,
+.slide-wipe-leave-active {
+  transition:
+    opacity 320ms ease,
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 360ms ease;
+  will-change: opacity, transform, clip-path, filter;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  opacity: 0;
+}
+
+.slide-slide-enter-from {
+  opacity: 0;
+  transform: translateX(3.5rem);
+}
+
+.slide-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-2.5rem);
+}
+
+[data-direction='backward'] .slide-slide-enter-from {
+  transform: translateX(-3.5rem);
+}
+
+[data-direction='backward'] .slide-slide-leave-to {
+  transform: translateX(2.5rem);
+}
+
+.slide-lift-enter-from {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(2rem) scale(0.985);
+}
+
+.slide-lift-leave-to {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(-1.2rem) scale(0.992);
+}
+
+[data-direction='backward'] .slide-lift-enter-from {
+  transform: translateY(-2rem) scale(0.985);
+}
+
+[data-direction='backward'] .slide-lift-leave-to {
+  transform: translateY(1.2rem) scale(0.992);
+}
+
+.slide-zoom-enter-from {
+  opacity: 0;
+  transform: scale(0.94);
+}
+
+.slide-zoom-leave-to {
+  opacity: 0;
+  transform: scale(1.035);
+}
+
+[data-direction='backward'] .slide-zoom-enter-from {
+  transform: scale(1.035);
+}
+
+[data-direction='backward'] .slide-zoom-leave-to {
+  transform: scale(0.94);
+}
+
+.slide-wipe-enter-from {
+  clip-path: inset(0 0 0 100%);
+}
+
+.slide-wipe-enter-to,
+.slide-wipe-leave-from {
+  clip-path: inset(0 0 0 0);
+}
+
+.slide-wipe-leave-to {
+  clip-path: inset(0 100% 0 0);
+}
+
+[data-direction='backward'] .slide-wipe-enter-from {
+  clip-path: inset(0 100% 0 0);
+}
+
+[data-direction='backward'] .slide-wipe-leave-to {
+  clip-path: inset(0 0 0 100%);
+}

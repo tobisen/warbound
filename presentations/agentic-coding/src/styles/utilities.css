@@ -1,0 +1,85 @@
+@media (max-width: 820px) {
+  .slide {
+    min-height: 100svh;
+  }
+
+  .slide__content {
+    padding-block: 1rem;
+  }
+
+  .content-slide,
+  .introduction-slide,
+  .closing-slide,
+  .speaker-slide,
+  .split-slide__grid,
+  .three-column-slide__grid,
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-slide,
+  .introduction-slide,
+  .closing-slide,
+  .speaker-slide {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .bullet-list,
+  .number-list,
+  .closing-slide__steps {
+    width: 100%;
+  }
+
+  .card-grid {
+    max-height: 52vh;
+    overflow: auto;
+  }
+
+  .image-catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: 54vh;
+    overflow: auto;
+  }
+
+  .presentation-card {
+    min-height: 10rem;
+  }
+
+  .speaker-slide__portrait {
+    width: min(42vw, 13rem);
+    min-width: 9rem;
+  }
+
+  .deck-controls {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+
+  .deck-toolbar {
+    top: 0.75rem;
+    right: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .deck-overview {
+    inset: 5.75rem 0.75rem auto;
+  }
+
+  .overview-grid {
+    width: calc(100vw - 2.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

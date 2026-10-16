@@ -27,9 +27,18 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            presentations/agentic-coding/package-lock.json
       - run: npm ci
       - run: npm test
       - run: npm run build
+      - name: Install presentation dependencies
+        run: npm ci --prefix presentations/agentic-coding
+      - name: Build presentation
+        run: npm run build --prefix presentations/agentic-coding
+      - name: Include presentation in Pages artifact
+        run: cp -R presentations/agentic-coding/dist dist/presentation
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
         with:

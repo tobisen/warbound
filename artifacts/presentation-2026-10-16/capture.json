@@ -1,0 +1,45 @@
+[
+  {
+    "file": "01-tidig-mvp-start.png",
+    "commit": "6740128",
+    "type": "Historical version rerun, normal start",
+    "errors": []
+  },
+  {
+    "file": "03-nu-gameplay-bas.png",
+    "type": "Current local normal match start"
+  },
+  {
+    "map": "lakehold",
+    "width": 2048,
+    "height": 2048,
+    "files": [
+      "karta-lakehold-fog.png",
+      "karta-lakehold-utan-fog.png"
+    ],
+    "type": "Actual Phaser map, same camera; full visibility injected only for second image",
+    "errors": []
+  },
+  {
+    "map": "fivepasses",
+    "width": 3072,
+    "height": 3072,
+    "files": [
+      "karta-fivepasses-fog.png",
+      "karta-fivepasses-utan-fog.png"
+    ],
+    "type": "Actual Phaser map, same camera; full visibility injected only for second image",
+    "errors": []
+  },
+  {
+    "map": "rivercrown",
+    "width": 4096,
+    "height": 4096,
+    "files": [
+      "karta-rivercrown-fog.png",
+      "karta-rivercrown-utan-fog.png"
+    ],
+    "type": "Actual Phaser map, same camera; full visibility injected only for second image",
+    "errors": []
+  }
+]
