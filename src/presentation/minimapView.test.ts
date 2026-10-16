@@ -5,7 +5,7 @@ it('captures scaled pointer drag, consumes input and gates pause/cancel without 
  const listeners=new Map<string,(e:PointerEvent)=>void>(),context={fillRect:vi.fn(),strokeRect:vi.fn(),save:vi.fn(),restore:vi.fn(),beginPath:vi.fn(),rect:vi.fn(),clip:vi.fn()};
  const canvas={width:0,height:0,getBoundingClientRect:()=>({left:10,top:20,width:320,height:320}),getContext:()=>context,setPointerCapture:vi.fn(),hasPointerCapture:()=>true,releasePointerCapture:vi.fn(),addEventListener:(n:string,f:(e:PointerEvent)=>void)=>listeners.set(n,f),removeEventListener:(n:string)=>listeners.delete(n)} as unknown as HTMLCanvasElement;
  const setScroll=vi.fn();let playing=true;
- const view=bindMinimap(canvas,()=>({data:{world:{width:3200,height:1600},terrain:[],scenery:[],markers:[]},scroll:{x:0,y:0},viewport:{width:800,height:600}}),setScroll,()=>playing);
+ const view=bindMinimap(canvas,()=>({data:{world:{width:3200,height:1600},terrain:[],scenery:[],markers:[],targets:[]},scroll:{x:0,y:0},viewport:{width:800,height:600}}),setScroll,()=>playing);
  const event={pointerId:7,button:0,clientX:170,clientY:180,preventDefault:vi.fn(),stopPropagation:vi.fn()} as unknown as PointerEvent;
  listeners.get('pointerdown')!(event);expect(canvas.setPointerCapture).toHaveBeenCalledWith(7);expect(setScroll).toHaveBeenLastCalledWith({x:1200,y:500});
  listeners.get('pointermove')!({...event,clientX:330,clientY:340});expect(setScroll).toHaveBeenLastCalledWith({x:2400,y:1000});

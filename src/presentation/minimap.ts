@@ -1,3 +1,4 @@
+import {missionTargets} from './operations';
 import {presentationEnemies} from '../gameplay/buildingMemory';
 import type {BossId} from '../config/bosses';
 import {isExplored} from '../gameplay/fog';
@@ -67,7 +68,7 @@ export function visibleMinimapData(state:MatchState){
  const data=minimapData({...state,combat:{...state.combat,enemies:presentationEnemies(fog,state.combat.enemies)}},m=>!fog||m.owner==='player'||(m.owner==='enemy'?entityPresented(fog,'player',m):knownResource(fog,m.position)));
  for(const [id,v]of Object.entries(state.bosses?.guardians??{})){const position=bossLootPosition(id as BossId);if(v.hp<=0&&(!fog||isExplored(fog,'player',position)))data.markers.push({id:`boss-loot-${id}`,owner:'neutral',position,color:v.claimed?'#82775b':'#ebc863'});}
  data.markers.push(...visibleDiscoveries(state).map(d=>({id:d.id,owner:'neutral' as const,position:d.position,color:d.opened?'#82775b':'#ebc863'})));
- return {...data,...(fog?{fog:{tileSize:fog.tileSize,columns:fog.columns,rows:fog.rows,visible:[...fog.teams.player.visible],explored:[...fog.teams.player.explored]}}:{})};
+ return {...data,targets:missionTargets(state),...(fog?{fog:{tileSize:fog.tileSize,columns:fog.columns,rows:fog.rows,visible:[...fog.teams.player.visible],explored:[...fog.teams.player.explored]}}:{})};
 }
 
 /** Adjacent fog runs share integer pixel boundaries: no alpha seams or overlaps. */

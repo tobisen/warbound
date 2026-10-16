@@ -6252,3 +6252,37 @@ Webb: https://tobisen.github.io/warbound/presentation/
 PDF: https://tobisen.github.io/warbound/presentation/warbound-agentic-coding.pdf
 Efterföljande dokumentcommit ändrar bara Markdown; nya passerade kod-/browserchecks
 ovan återanvänds uttryckligen, ingen ny CI krävs för dokumentationen.
+
+
+## 2026-10-16 — Synligt nästa missionssteg och koordinatmarkörer
+
+Användarens felrapport om osynligt nästa steg/uppdrag3 hanterad utan nya
+roadmaptasks. Pausmenyn hade enda synliga måltexten; separat mission-step
+återanvänder aktuell fas/tutorial/status och syns under spel. Egen CSS-fil
+bevarar användarens style.css. missionTargets härleder offentliga punkter från
+aktuell fas/operation, visar ring + koordinat och numrerad minimapmarkör ovanpå
+fog; redan utforskade punkter tas bort. Inga ändringar av målregler/Save-format.
+Review av diff: presentation härledd ur faktiskt MatchState, inga dolda
+fiendeuppgifter eller state-mutationer; begränsat till aktuellt användaruppdrag.
+
+Ny verifiering:
+- npm run test:unit:537 tester/92 filer PASS18.99s.
+- npm run build: strict TypeScript och Vite PASS; befintlig bundlevarning.
+- Riktat campaignPhases/campaignSeries/campaignQuality-urval:12 PASS,
+  25 uttryckligen filtrerade. Inkluderar The Siege betald Beginner-victory/Save,
+  alla fem rasers nåbara målområden och fas-/Save-/minimap-markörer.
+- Slutligt komplett campaignPhases/campaignSeries:29 tester/2 filer PASS14.30s.
+- Nytt femrasers route/Save-test tog över5s vid parallella checks; individuell
+  timeout30s, inga svagare assertions. Första direkt-till-resurs-route-testet
+  korrigerades till verklig explore-regel: skog/gruva upptäcks från närliggande
+  nåbar mark inom sikt; positionmålet måste nås inom64px.
+- Faktisk Chrome800×600/1280×720: måltext vid start och fas2–4, ringar ovan fog,
+  minimap, Mission öppna/stäng, Save/Load/resume PASS, noll runtimefel.
+  Visuell granskning av800-bild: läsbar text, koordinatring/minimap inom vyn.
+  Script/bilder i /tmp/check-mission-step.mjs och /tmp/mission-*-phase-*.png.
+- Ingen full regression, CI/Pages, release eller mänsklig balans-/genomspelning
+  hävdas. Tidigare releasebelägg återanvänds inte som ny verifiering.
+
+Befintliga style.css, assets/sources/units.mjs, docs/ och :memory:.ses bevaras
+utanför taskcommiten. Inget separat gameplayhinder reproducerat i uppdrag3;
+andra svårigheter/sparningar kan behöva separat reproduktion vid fortsatt fel.

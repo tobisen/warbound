@@ -45,6 +45,21 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Korrigering2026-10-16 — Synligt nästa missionssteg — Done
+
+Användaruppdrag: visa nästa missionssteg under spel och målkoordinater på kartan;
+utred uppdrag3. Aktuellt mål syns ovanpå spelvyn, även efter Mission-dialog och
+Save/Load. Briefade koordinater markeras gult i world/minimap över fog utan att
+avslöja terräng/fiender; utforskade delmål försvinner. Befintliga fasregler består.
+Tredje uppdraget The Siege: alla fem rasers koordinater har nåbara positioner
+inom mål-/siktradien; resurskoordinater kan själva vara blockerade av skog/gruva.
+Riktad betald Beginner-genomspelning med Save når victory. Inget separat
+blockerande gameplayfel reproducerat; mänskligt speltest ej utfört.
+Ny unit537/92, strict build och browser800/1280 PASS. Riktade kampanjtester,
+review och begränsningar dokumenteras i DEV_LOG. Ingen ny release eller
+CI/Pages-verifiering; befintliga användarändringar bevaras.
+
+
 ### RTS-254 — Release0.8.0 — Done
 
 Nytt uttryckligt uppdrag efter250–253: publicera nästa release på befintlig

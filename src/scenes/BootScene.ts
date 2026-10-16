@@ -51,7 +51,7 @@ import {inspectBuildingAt,inspectedBuilding,savedBuildingSelection} from '../gam
 import {highscoreStore,renderHighscorePanels} from '../presentation/highscores';
 import {dismissProposal,dismissUnits,dismissBuilding,type DismissProposal} from '../gameplay/dismiss';
 import {dismissMessage} from '../presentation/dismiss';
-import {renderOperation,operationMarkers} from '../presentation/operations';
+import {renderMissionStep,renderOperation,operationMarkers} from '../presentation/operations';
 import type {CaptureState} from '../gameplay/operations';
 import {type CampaignMissionId} from '../config/campaign';
 import {nextCampaignMissionId,nextCampaignMission,startCampaignMission} from '../gameplay/campaign';
@@ -315,7 +315,7 @@ export class BootScene extends Phaser.Scene {
     this.extraProducerVisuals.clear();
     this.upgradeMarkers.clear();
     this.hpBars=this.add.graphics().setDepth(7);this.animalFeedback=this.add.graphics().setDepth(7);this.animalHP.clear();this.selectedAnimal=null;
-    this.operationGraphics=this.add.graphics().setDepth(6);this.operationLabels=[];
+    this.operationGraphics=this.add.graphics().setDepth(41);this.operationLabels=[];
     const loaded=this.pendingLoad;this.pendingLoad=undefined;
     if(!loaded)document.getElementById('save-status')!.textContent='';
     const fresh=()=>({matchId:crypto.randomUUID(),...createMatch(this.scenario,this.difficulty,this.factions,(this.campaignMission?campaignPlans[this.campaignMission]?.map:undefined)??this.session.options.map,this.session.options.speed??1,this.session.options.aiProfile,this.session.options.players,this.campaignMission),...(this.campaignMission?{campaignMission:this.campaignMission,...(this.campaignRun?.campaignId?{campaignRun:{version:1 as const,phase:0,campaignId:this.campaignRun.campaignId}}:{})}:{})});
@@ -1214,11 +1214,12 @@ export class BootScene extends Phaser.Scene {
     if(this.repairMode)document.getElementById('action-hint')!.textContent='Repair: click an own damaged building. Escape cancels.';
     renderTutorial(this.currentMatch());
     renderOperation(this.currentMatch());
+    renderMissionStep(this.currentMatch());
     const goalMarkers=operationMarkers(this.currentMatch());this.operationGraphics?.clear();
     while(this.operationLabels.length>goalMarkers.length)this.operationLabels.pop()!.destroy();
     for(const [index,marker] of goalMarkers.entries()){
       this.operationGraphics?.lineStyle(2,marker.color,1).strokeCircle(marker.position.x,marker.position.y,marker.radius);
-      if(!this.operationLabels[index])this.operationLabels[index]=this.add.text(0,0,'',{fontSize:'14px',color:'#f4d87a',backgroundColor:'#192b28'}).setOrigin(.5,1).setDepth(6);
+      if(!this.operationLabels[index])this.operationLabels[index]=this.add.text(0,0,'',{fontSize:'14px',color:'#f4d87a',backgroundColor:'#192b28'}).setOrigin(.5,1).setDepth(41);
       this.operationLabels[index].setText(marker.label).setPosition(marker.position.x,marker.position.y-marker.radius-4);
     }
 

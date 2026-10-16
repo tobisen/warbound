@@ -66,3 +66,35 @@ it('exhausted resources remain discoverable objectives; no phase depends on unav
  for(const node of m.gathering.extraNodes!)node.remaining=0;
  expect(campaignPhaseMet(m,campaignPlans['valley-rescue']!.phases[1])).toBe(true);expect(advanceCampaignPhases(m).campaignRun!.phase).toBe(2);
 });
+
+// Mission 3 is The Siege (the tutorial is mission 1).
+it('mission 3 has reachable briefed coordinates for every race, and target hints follow saved phases without revealing enemies',async()=>{
+ const {factionIds}=await import('../config/factions');
+ const {identityFor}=await import('../config/campaignSeries');
+ const {campaignPlan}=await import('./campaignPhases');
+ const {planRoute}=await import('./navigation');
+ const {missionTargets}=await import('../presentation/operations');
+ const {visibleMinimapData}=await import('../presentation/minimap');
+ for(const faction of factionIds){
+  const m=startCampaignMission({...admission,identity:identityFor(faction,'normal')},'the-siege','normal',{player:faction,enemy:faction==='crown'?'clans':'crown'})!;
+  const plan=campaignPlan(m)!;
+  for(const [phase,p] of plan.phases.entries()){
+   m.campaignRun!.phase=phase;
+   for(const point of p.points??[]){
+    // Groves/mines occupy their coordinates; sight from a reachable adjacent tile suffices.
+    const radius=p.goal==='explore'?192:48,candidates=[point,...Array.from({length:8},(_,i)=>({x:point.x+Math.cos(i*Math.PI/4)*radius,y:point.y+Math.sin(i*Math.PI/4)*radius}))];
+    expect(candidates.some(target=>planRoute({...m.map,bodyHalf:12},m.gathering.units[0].position,target).status!=='blocked'),`${faction}/${phase}/${JSON.stringify(point)}`).toBe(true);
+   }
+   const before=structuredClone(m),targets=missionTargets(m);
+   expect(m).toEqual(before);expect(targets.map(t=>t.position)).toEqual(p.points??[]);
+   expect(visibleMinimapData(m).targets).toEqual(targets);
+   expect(missionTargets(roundtrip(m))).toEqual(targets);
+   if(p.goal==='explore'){
+    for(const point of p.points!)m.fog!.teams.player.explored[fogIndex(m.fog!,point)!]=true;
+    expect(missionTargets(m)).toEqual([]);
+    expect(advanceCampaignPhases(m).campaignRun!.phase).toBeGreaterThan(phase);
+   }
+  }
+  m.campaignRun!.phase=plan.phases.length;expect(missionTargets(m)).toEqual([]);
+ }
+},30_000);
