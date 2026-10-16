@@ -16,6 +16,9 @@ const errors=[];
 try{
  const page=await browser.newPage({viewport:{width:1600,height:900}});page.on('pageerror',e=>errors.push(e.message));
  await page.goto(new URL('?print',target).href,{waitUntil:'networkidle'});
+ if(await page.title()!=='Warbound – Agentic Coding')throw Error('Document title mismatch');
+ const icon=await page.request.get(new URL('favicon.svg',target).href);
+ if(!icon.ok()||!(await icon.text()).includes('<svg'))throw Error('Favicon missing');
  const cards=page.locator('.warbound-slide');
  if(await cards.count()!==11)throw Error('Rendered slide count');
  for(let i=0;i<slides.length;i++){

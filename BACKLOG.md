@@ -6305,3 +6305,12 @@ CI och publik verifiering följs efter push, inte antagna gröna i förväg.
 
 Commit omfattar presentation, dess ursprungliga dokumenterade bildpaket,
 Pages-workflow och presentationslogg. Orelaterade ändringar bevaras.
+
+
+### Presentation: fliktitel och favicon inför publicering
+
+Slutlig statisk kontroll hittade mallens fliktitel och saknad favicon.
+Rättad Warbound-titel och lokal W-SVG; browserkontrollen verifierar båda.
+Ny presentationsbuild/typecheck och produktionsbrowser/QR PASS. Tidigare
+537/92 unit och spelbuild återanvänds för oförändrat spel/workflow.
+Första54ab540-CI kör fortfarande; korrigeringen följs på eget slutligt SHA.
