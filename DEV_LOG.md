@@ -6310,3 +6310,22 @@ Full lokal npm test startades före sista test-/radieändringen; dess slutresult
 är separat från slutlig CI. Browserlayoutbelägg800/1280 från föregående
 leverans återanvänds uttryckligen; ingen ny browser eller publicering hävdas.
 Push följs med GitHub API tills faktisk status finns; inga nya roadmaptasks.
+
+
+## 2026-10-16 — Separat CI-timeout efter reparerade markörtester
+
+Actions38949127294 för0325742 avslutades failure21:02:46 Europe/Stockholm.
+Enda testannotering: strict save/load preserves three owners, independent
+banks and restarts, src/gameplay/multiplePlayers.test.ts:29,5000ms-timeout.
+Ingen kvarstående markörassertion rapporteras. Build/deploy skipped.
+Treägarstestet simulerar5s med två AI-ekonomier, nästlad encode/decode och
+malformed-Save-kontroll. Enbart individuell budget5000→30000ms; samtliga
+fixtures, assertions, gameplaytid, workerantal och globala tidsgränser består.
+Review av diff: endast testdeadline/kommentar, ingen produktionsändring.
+Ny riktad npm test -- src/gameplay/multiplePlayers.test.ts:15/1 PASS28.46s;
+unit537/92 PASS18.91s, strict build PASS814ms och diffcheck PASS.
+Ingen ny browser behövs för testdeadline. Lokalt fullförsök från20:38:08
+slutade2026/220 PASS773.19s; startade före sista0325742-test/radieändringen
+så slutlig push verifieras separat genom ny CI. GitHub API:s anonyma
+läsgräns nåddes under bevakning; offentliga jobbsidan användes för faktiskt
+fel/slutstatus. Användarens övriga ändringar fortsatt bevarade.

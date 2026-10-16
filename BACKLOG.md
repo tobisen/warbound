@@ -45,6 +45,18 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Andra CI-korrigeringen2026-10-16 — Treägar-Save-timeout
+
+Actions38949127294 för0325742 avslutades failure: enda testannoteringen är
+multiplePlayers.test.ts:29, treägar-Save/load5000ms-timeout. Markörassertionerna
+fallerar inte längre; build/deploy skipped. Endast detta tunga integrationsfalls
+wall-clockbudget höjs till30000ms. Samma5s gameplay, Save-validering och
+assertions; inga produktionsändringar eller global timeout-/workerändring.
+Ny multiplePlayers15/1 PASS28.46s, unit537/92 PASS18.91s,
+strict build/diff PASS. Föregående lokala fullförsök2026/220 PASS773.19s
+startade före sista0325742-korrigeringen och används inte som slutlig CI.
+Ny slutlig fullregression/build/Pages följs efter timeoutpush.
+
 ### CI-korrigering2026-10-16 — Missionsmarkörernas integrationstester
 
 [Actions38924942583](https://github.com/tobisen/warbound/actions/runs/38924942583)

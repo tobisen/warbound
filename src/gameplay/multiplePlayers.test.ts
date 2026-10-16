@@ -37,7 +37,7 @@ it('strict save/load preserves three owners, independent banks and restarts',()=
  expect(loaded.match.combat.enemies.map(e=>[e.id,e.playerId,e.hp])).toEqual(m.combat.enemies.map(e=>[e.id,e.playerId,e.hp]));
  expect(updateMatch(loaded.match,.25).waves.elapsedSeconds).toBe(5.25);
  const malformed=JSON.parse(json);malformed.multiplePlayers[2].id='enemy';expect(decodeSave(JSON.stringify(malformed)).ok).toBe(false);
-});
+},30000); // Three-owner simulation + recursive Save/load validation needs CI CPU headroom.
 // Simulates 60 gameplay seconds for three owners on the expanded map.
 // Allow shared CI CPU time; gameplay duration and assertions stay unchanged.
 it('both AI players construct and produce from paid jobs over ordinary gameplay time',()=>{
