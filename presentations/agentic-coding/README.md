@@ -75,7 +75,7 @@ Verifierad på https://tobisen.github.io/warbound/presentation/ efter [grön CI 
 
 ## PDF
 
-[Uppdaterad PDF: 10 huvudslides + karta](exports/warbound-agentic-coding.pdf), exporterad från den publicerade webbversionen. Alla11 sidor har verifierats i16:9-format och renderats med PDFKit. Talarstöd finns separat i [talarstod.md](exports/talarstod.md).
+[Uppdaterad PDF: 10 huvudslides + karta](exports/warbound-agentic-coding.pdf), exporterad från den slutliga lokala webbversionen. Alla11 sidor har verifierats i16:9-format och renderats med PDFKit. Talarstöd finns separat i [talarstod.md](exports/talarstod.md).
 
 Återskapa med `npm run export:pdf`; `TALK_URL` kan ange en lokal eller annan publicerad webbversion. Kräver Chrome enligt samma `CHROME_PATH`-inställning som verifieringen.
 
@@ -90,7 +90,7 @@ i presentations-/bildpaketet, därför används den riktiga stillbilden.
 Slide6 visar en förstorad soldat och bas för var och en av de fem raserna.
 Kartslide11 ligger efter avslutningen och ingår inte i talbudgeten.
 
-Talaranteckningarna omfattar1026 ord för huvudflödet, cirka128 ord/minut över
+Talaranteckningarna omfattar1027 ord för huvudflödet, cirka128 ord/minut över
 480 sekunder. Per slide117–141 ord/minut. Det är en beräknad talbudget, ingen
 mänskligt repeterad eller uppmätt framförandetid. Extrasliden har ingen tidsbudget.
 QR är360×360 på1600×900; avkodning verifieras både lokalt och från serverad bild.
@@ -105,3 +105,13 @@ ny verifiering dokumenteras i DEV_LOG.
 Representativa sprites exporteras med `python3 scripts/export-representatives.py`
 (Pillow), från `public/assets/units-atlas` och `buildings-atlas`, player/SE-idle
 och complete. Humans saknar prefix, Orcs använder clans; övriga har rasnamn.
+
+## Förbättrad version faktiskt publicerad
+
+Commit `7e71cc4`, [grön CI/Pages](https://github.com/tobisen/warbound/actions/runs/38920588638),
+deploy2026-10-16 kl17:24:42 Europe/Stockholm. Publik Chrome-kontroll av alla11
+slides, QR/bilder/textgränser/navigation/notes PASS. Alla slidestexter matchar
+källan exakt;18 använda bilder och PDF är byte-exakta mot granskad lokal leverans.
+Presentationsbuild/vue-tsc, spelunit537/92, strict spelbuild och diffcheck PASS
+lokalt; fullregression/build/Pages PASS i denna nya CI. Äldre publiceringsuppgifter
+ovan är historik. Ingen mänsklig repetition eller skanning från publikplats hävdas.

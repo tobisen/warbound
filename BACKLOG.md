@@ -6371,7 +6371,7 @@ Befintlig burgundy-mall behålls.10 huvudslides/480s + kartan som extraslide.
 Fredag→onsdag och fritid/första fungerande version förstärkta. Större aktuell
 matchbild, faktiska atlasutsnitt för fem rasers soldater/baser. Roller och helt
 arbetsflöde samt dokumenterat RTS-024-exempel; två korta buggexempel024/178.
-Svenska talaranteckningar1026 ord, beräknat128 ord/minut, inte mänsklig repetition.
+Svenska talaranteckningar1027 ord, beräknat128 ord/minut, inte mänsklig repetition.
 Inget videomaterial hittat i presentations-/bildpaketet, ingen syntetisk gameplay.
 
 Ny lokal verifiering: presentationsbuild/vue-tsc PASS; Chrome alla11 slides,
@@ -6386,3 +6386,23 @@ Tidigare PDF-exportarbete behålls och inkluderas som nödvändig leveransdel.
 
 Slutlig PDFKit-/visuell granskning av11 sidor i16:9 PASS. Lokalt arbete klart;
 ny Pages-verifiering rapporteras separat från tidigare publiceringsbelägg.
+
+
+### Ny publicering verifierad — presentationsförbättringen Done
+
+Commit7e71cc4 pushad tillorigin/main. [CI38920588638](https://github.com/tobisen/warbound/actions/runs/38920588638)
+PASS: full npm test, spelbuild/strict typecheck, presentationsbuild/vue-tsc,
+PDF i artifact och Pages-deploy. Deploy klar2026-10-16 kl17:24:42 Europe/Stockholm.
+Publik Chrome-kontroll PASS:11 slides (10 huvudslides + extra),480s,
+bilder/textgränser/navigation/anteckningar/title/favicon och avkodad serverad
+QR till exakt https://tobisen.github.io/warbound/.
+Alla11 slidestexter är exakt lika slutlig källa, samtliga18 använda bilder och
+serverad PDF byte-exakta mot granskad leverans. Rapportunderlag i
+/tmp/warbound-talk-public/verification.json och exact-content.json;
+lokala granskningsbilder/PDF/talarstöd i presentations/agentic-coding/exports/.
+Produktionspreview med Pages-basväg PASS före publik kontroll. Faktisk8min-repetition
+eller publikskanning är inte genomförd;1027 ord ger beräknat128 ord/minut.
+Webb: https://tobisen.github.io/warbound/presentation/
+PDF: https://tobisen.github.io/warbound/presentation/warbound-agentic-coding.pdf
+Efterföljande dokumentcommit ändrar bara Markdown; nya passerade kod-/browserchecks
+ovan återanvänds uttryckligen, ingen ny CI krävs för dokumentationen.
