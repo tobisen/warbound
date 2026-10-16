@@ -1,0 +1,30 @@
+[
+  {
+    "width": 800,
+    "players": 5,
+    "ai": 4,
+    "outcome": "playing",
+    "elapsed": 1.3988733333333325,
+    "units": 19,
+    "visible": 546,
+    "worker": {
+      "x": 280,
+      "y": 300
+    },
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "players": 5,
+    "ai": 4,
+    "outcome": "playing",
+    "elapsed": 0.999253333333332,
+    "units": 19,
+    "visible": 546,
+    "worker": {
+      "x": 280,
+      "y": 300
+    },
+    "errors": []
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "chromium": "155.0.8059.80",
+  "kind": "production gameplay CPU, not rendered FPS",
+  "results": [
+    {
+      "ref": "2cde753",
+      "count": 2,
+      "army": false,
+      "medianMs": 2,
+      "p95Ms": 2.2000000029802322,
+      "totalMs": 884,
+      "startUnits": 5,
+      "endUnits": 5,
+      "elapsed": 5.999999999999984,
+      "outcome": "playing",
+      "stateHash": "66ba44e5f47298dce8b6185c686e57c8b7019ae7184bbbd48bb77e4b2d033e57"
+    },
+    {
+      "ref": "2cde753",
+      "count": 5,
+      "army": false,
+      "medianMs": 37,
+      "p95Ms": 42.69999999925494,
+      "totalMs": 14038.199999999255,
+      "startUnits": 11,
+      "endUnits": 11,
+      "elapsed": 5.999999999999984,
+      "outcome": "playing",
+      "stateHash": "f4d531003c2fb53b80a2caaca75ada0b58caefed2525598f920966ebe157dcbf"
+    },
+    {
+      "ref": "2cde753",
+      "count": 5,
+      "army": true,
+      "medianMs": 79.60000000149012,
+      "p95Ms": 92.20000000298023,
+      "totalMs": 30475.5,
+      "startUnits": 115,
+      "endUnits": 117,
+      "elapsed": 35.99999999999966,
+      "outcome": "playing",
+      "stateHash": "31a87d3a1a23221ed53f059cc62a9c526e04d644731dcf7bc1cb5241415c4aa3"
+    },
+    {
+      "ref": "working-tree",
+      "count": 2,
+      "army": false,
+      "medianMs": 2,
+      "p95Ms": 2.300000000745058,
+      "totalMs": 895.6999999955297,
+      "startUnits": 5,
+      "endUnits": 5,
+      "elapsed": 5.999999999999984,
+      "outcome": "playing",
+      "stateHash": "66ba44e5f47298dce8b6185c686e57c8b7019ae7184bbbd48bb77e4b2d033e57"
+    },
+    {
+      "ref": "working-tree",
+      "count": 5,
+      "army": false,
+      "medianMs": 13.800000000745058,
+      "p95Ms": 16.100000001490116,
+      "totalMs": 5589.19999999553,
+      "startUnits": 11,
+      "endUnits": 11,
+      "elapsed": 5.999999999999984,
+      "outcome": "playing",
+      "stateHash": "f4d531003c2fb53b80a2caaca75ada0b58caefed2525598f920966ebe157dcbf"
+    },
+    {
+      "ref": "working-tree",
+      "count": 5,
+      "army": true,
+      "medianMs": 42,
+      "p95Ms": 57.80000000074506,
+      "totalMs": 16677.5,
+      "startUnits": 115,
+      "endUnits": 117,
+      "elapsed": 35.99999999999966,
+      "outcome": "playing",
+      "stateHash": "31a87d3a1a23221ed53f059cc62a9c526e04d644731dcf7bc1cb5241415c4aa3"
+    }
+  ]
+}

@@ -2192,3 +2192,19 @@ start tas bort för fria bas-/workerutgångar. Varje karta har egna ridger/vatte
 skogar och expansionsresurser. ConnectedClearings kopplar även alla nya starter.
 Menyn visar namn/storlek/kapacitet och filtrerar efter deltagarantal. Historiska
 kartor och kampanjdefinitioner är oförändrade; äldre kart-Save-geometrier består.
+
+
+## Femspelarmatch — cacheåteranvändning2026-10-16
+
+Passagezoner i traffic återanvänds via immutable hinderlistans identitet även
+när MatchState kopierar kartobjektet. Befintlig geometri-/dimensions-/revision-
+signatur invaliderar resultatet; själva passageägarskapet beräknas fortfarande
+från levande kroppar varje delsteg. matchFog och actorVision delar samma stabila
+rockblockerlista. Fogmaskernas bounded256-entry LRU använder exakt observatörs-
+geometri i stället för lokala ID:n, eftersom olika AI-vyer återanvänder samma
+enhets-ID. Aktiva allierade förbereds före lagfoggens cellunion. Ingen ändrad
+sikt, tickfrekvens, enhetsgräns, rendering eller Save-data.
+
+[scripts/profile-five-players.mjs](scripts/profile-five-players.mjs) jämför
+produktionsbyggd gameplay i Chromium mot valfri gitref utan checkoutändring;
+slutligt state hashjämförs. Detta är CPU-tid, inte renderad FPS.

@@ -15,7 +15,7 @@ import {supportedPlayerCounts} from '../config/players';
 import {createMatch,updateMatch,type MatchState} from './match';
 import {playerStart,validatePlayerStarts,canHarm,canSupport} from './players';
 import {createFog,updateFog,type FogTeam,type VisionObserver} from './fog';
-import {visionObservers} from './matchFog';
+import {visionObservers,visionBlockers} from './matchFog';
 import {entityVisible} from './visibility';
 import {enemySoldier} from './enemyUnits';
 import {enemyWorker} from './enemyGathering';
@@ -28,7 +28,7 @@ import {spellDefinition} from '../config/spells';
 import type {Unit,Soldier} from './gathering';
 import {factions} from '../config/factions';
 import {placementObstacles} from './placement';
-import {createMap,terrainPatches} from './map';
+import {createMap} from './map';
 
 export interface AIContext {friendlyEntityIds?:string[];concealedTargets?:{id:string;position:Position}[];buildSites:Position[];muster:Position;attackWaypoints:Position[];gateFriendly?:boolean;humanHostile?:boolean;sharedObservers?:VisionObserver[];visionSide?:'player'|'enemy';helpBases?:import('./placement').Footprint[]}
 export interface AIPlayer {id:Exclude<PlayerId,'player'>;state:MatchState;vision:FogTeam}
@@ -94,7 +94,11 @@ export function shareTeamVision(m:MatchState):MatchState{
  if(!m.multiplePlayers||!m.fog)return m;
  const multi=m.multiplePlayers,visions=new Map<PlayerId,FogTeam>([['player',m.fog.teams.player],...multi.ai.map(bot=>[bot.id,bot.vision] as [PlayerId,FogTeam])]);
  const shared=new Map<PlayerId,FogTeam>();
- for(const player of multi.roster){const allies=multi.roster.filter(p=>canSupport(player.id,p.id,multi.roster));shared.set(player.id,{visible:visions.get(player.id)!.visible.map((_,i)=>allies.some(p=>!playerEliminated(m,p.id)&&visions.get(p.id)!.visible[i])),explored:visions.get(player.id)!.explored.map((_,i)=>allies.some(p=>visions.get(p.id)!.explored[i]))});}
+ const active=new Set(multi.roster.filter(p=>!playerEliminated(m,p.id)).map(p=>p.id));
+ for(const player of multi.roster){
+  const allies=multi.roster.filter(p=>canSupport(player.id,p.id,multi.roster)),current=allies.filter(p=>active.has(p.id)).map(p=>visions.get(p.id)!),known=allies.map(p=>visions.get(p.id)!);
+  shared.set(player.id,{visible:visions.get(player.id)!.visible.map((_,i)=>current.some(v=>v.visible[i])),explored:visions.get(player.id)!.explored.map((_,i)=>known.some(v=>v.explored[i]))});
+ }
  return {...m,fog:{...m.fog,teams:{player:shared.get('player')!,enemy:shared.get('enemy')!}},multiplePlayers:{...multi,ai:multi.ai.map(bot=>({...bot,vision:shared.get(bot.id)!}))}};
 }
 function playerDefense(m:MatchState,unit:Unit):number{
@@ -115,7 +119,7 @@ function mergeEffects(current:SpellEffect[]|undefined,incoming:SpellEffect[]):Sp
 function actorVision(m:MatchState,bot:AIPlayer):FogTeam{
  const old=createFog(m.map);old.teams.enemy=bot.vision;
  const observers=[...(playerEliminated(m,bot.id)?[]:visionObservers(bot.state)).filter(o=>o.owner==='enemy'),...alliedObservers(m,bot.id).map(o=>({...o,owner:'enemy' as const}))];
- return updateFog(old,observers,terrainPatches(m.map).filter(t=>t.kind==='rock').map(t=>({x:t.column*32,y:t.row*32,width:t.columns*32,height:t.rows*32}))).teams.enemy;
+ return updateFog(old,observers,visionBlockers(m.map)).teams.enemy;
 }
 function updateHuman(m:MatchState,delta:number,damage:Map<string,number>,hits:Map<string,string>):MatchState{
  const human={...m,aiContext:aiContext(m,'player'),combat:{...m.combat,projectiles:m.combat.projectiles?.filter(p=>!p.owner)},multiplePlayers:undefined,enemyProduction:undefined,enemyAI:undefined,enemyConstruction:undefined,enemyPolicy:undefined,enemyRecovery:undefined,enemyKnowledge:undefined,armyPlan:undefined};

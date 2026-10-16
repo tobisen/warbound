@@ -57,3 +57,12 @@ it('extends worker, infantry, scout, ship and completed building sight while ret
  for(const o of [w,infantry,scout,base]){const center={x:512,y:512},f=updateFog(createFog({width:2048,height:2048}),[{...o,position:center,footprint:undefined}]);const point={x:512+o.radius-32,y:512};expect(isVisible(f,'player',point)).toBe(true);const retreat=updateFog(f,[]);expect(isVisible(retreat,'player',point)).toBe(false);expect(isExplored(retreat,'player',point)).toBe(true);expect(isVisible(retreat,'enemy',point)).toBe(false);}
  expect(fogConfig.towerRadius).toBeGreaterThan(208);expect(fogConfig.wallRadius).toBeGreaterThan(48);
 });
+it('actor-local observer IDs and bounded cache eviction preserve exact visibility and explored history',()=>{
+ const blockers=[{x:288,y:96,width:64,height:256}],fresh=()=>blockers.map(b=>({...b}));
+ let warm=createFog({width:640,height:640}),cold=createFog(warm);
+ for(let i=0;i<300;i++){
+  const observers=[observer('enemy-base',16+i*2,240,180,'enemy'),observer('enemy-base',400,240,180,'player')];
+  warm=updateFog(warm,observers,blockers);cold=updateFog(cold,observers,fresh());expect(warm).toEqual(cold);
+ }
+ const returned=[observer('enemy-base',16,240,180,'enemy')];expect(updateFog(warm,returned,blockers)).toEqual(updateFog(cold,returned,fresh()));
+});

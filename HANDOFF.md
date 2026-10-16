@@ -1,3 +1,13 @@
+## Senaste uppdrag2026-10-16 — Fyra AI-motståndare
+
+Cacheoptimering för passagezoner och AI-/lagfog verifierad. Enhetsantal/grafik/
+ticktakt bevarade. CPU-median37.0→13.8ms tidig femspelarmatch och79.6→42.0ms
+115→117-enhetsfixture; identiskt slutstate. Full2030/220, unit538/92, riktade47/5,
+strict build, browser800/1280, syntax/diff/review PASS. PERFORMANCE.md och
+artifacts/performance-five-players redovisar reproduktion och begränsningar.
+Ingen60fps-/fullmatchgaranti eller ny CI/Pages-verifiering. Uppdraget avslutas;
+inga nya roadmaptasks. Användarens CSS/units.mjs/docs/ bevarade.
+
 ## Presentation — publicerad och verifierad, 2026-10-16
 
 [Öppna presentationen](https://tobisen.github.io/warbound/presentation/).

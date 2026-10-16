@@ -25,23 +25,26 @@ export function visionLine(fog:FogState,from:Position,to:Position,blockers:reado
  return segmentFits({...map,obstacles,linearCollision:true},from,to,0);
 }
 const emptyBlockers:readonly Footprint[]=[];
-const observerCache=new WeakMap<readonly Footprint[],{length:number;masks:Map<string,{key:string;memo:Int8Array}>}>();
+const observerCache=new WeakMap<readonly Footprint[],{length:number;masks:Map<string,Int8Array>}>();
 /** Exact observer/terrain LOS results are reused; union-covered cells need no separate ray or update. */
 export function updateFog(fog:FogState,observers:readonly VisionObserver[],blockers:readonly Footprint[]=emptyBlockers):FogState {
  const next={...fog,teams:{player:{visible:Array<boolean>(fog.columns*fog.rows).fill(false),explored:fog.teams.player.explored},enemy:{visible:Array<boolean>(fog.columns*fog.rows).fill(false),explored:fog.teams.enemy.explored}}};
  let cache=observerCache.get(blockers);if(!cache||cache.length!==blockers.length){cache={length:blockers.length,masks:new Map()};observerCache.set(blockers,cache);}
  for(const o of observers){
-  const rect=o.footprint??{...o.position,width:0,height:0},id=`${o.owner}:${o.id}`;
+  const rect=o.footprint??{...o.position,width:0,height:0};
   const key=`${fog.width}:${fog.height}:${fog.tileSize}:${o.position.x}:${o.position.y}:${o.radius}:${o.airborne}:${rect.x}:${rect.y}:${rect.width}:${rect.height}`;
   const minCol=Math.max(0,Math.floor((rect.x-o.radius)/fog.tileSize)),maxCol=Math.min(fog.columns-1,Math.floor((rect.x+rect.width+o.radius)/fog.tileSize));
   const minRow=Math.max(0,Math.floor((rect.y-o.radius)/fog.tileSize)),maxRow=Math.min(fog.rows-1,Math.floor((rect.y+rect.height+o.radius)/fog.tileSize)),columns=maxCol-minCol+1;
-  let mask=cache.masks.get(id);
-  if(!mask||mask.key!==key){mask={key,memo:new Int8Array(Math.max(0,columns*(maxRow-minRow+1)))};if(cache.masks.size>=256&&!cache.masks.has(id))cache.masks.delete(cache.masks.keys().next().value!);cache.masks.set(id,mask);}
+  // LOS depends on geometry, not actor-local IDs (which repeat across AI views).
+  let memo=cache.masks.get(key);
+  if(memo)cache.masks.delete(key);
+  else {memo=new Int8Array(Math.max(0,columns*(maxRow-minRow+1)));if(cache.masks.size>=256)cache.masks.delete(cache.masks.keys().next().value!);}
+  cache.masks.set(key,memo);
   const team=next.teams[o.owner];
   for(let row=minRow;row<=maxRow;row++)for(let col=minCol;col<=maxCol;col++){
    const i=row*fog.columns+col;if(team.visible[i])continue;
-   const memoIndex=(row-minRow)*columns+col-minCol;let result=mask.memo[memoIndex];
-   if(!result){const x=col*fog.tileSize,y=row*fog.tileSize,point={x:x+Math.min(fog.tileSize,fog.width-x)/2,y:y+Math.min(fog.tileSize,fog.height-y)/2};result=footprintDistance(point,rect)<=o.radius+1e-9&&(o.airborne||visionLine(fog,o.position,point,blockers))?1:2;mask.memo[memoIndex]=result;}
+   const memoIndex=(row-minRow)*columns+col-minCol;let result=memo[memoIndex];
+   if(!result){const x=col*fog.tileSize,y=row*fog.tileSize,point={x:x+Math.min(fog.tileSize,fog.width-x)/2,y:y+Math.min(fog.tileSize,fog.height-y)/2};result=footprintDistance(point,rect)<=o.radius+1e-9&&(o.airborne||visionLine(fog,o.position,point,blockers))?1:2;memo[memoIndex]=result;}
    if(result!==1)continue;team.visible[i]=true;if(!team.explored[i]){if(team.explored===fog.teams[o.owner].explored)team.explored=[...team.explored];team.explored[i]=true;}
   }
  }

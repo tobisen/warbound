@@ -33,8 +33,12 @@ export function visionObservers(state:MatchState):VisionObserver[]{
  return observers;
 }
 const blockerCache=new WeakMap<object,{x:number;y:number;width:number;height:number}[]>();
+/** Stable terrain identity also preserves observer LOS masks across AI snapshots. */
+export function visionBlockers(map:MatchState['map']){
+ const patches=terrainPatches(map);let blockers=blockerCache.get(patches);if(!blockers){blockers=patches.filter(t=>t.kind==='rock').map(t=>({x:t.column*arenaConfig.tileSize,y:t.row*arenaConfig.tileSize,width:t.columns*arenaConfig.tileSize,height:t.rows*arenaConfig.tileSize}));blockerCache.set(patches,blockers);}return blockers;
+}
 export function matchFog(state:MatchState){
- const patches=terrainPatches(state.map);let blockers=blockerCache.get(patches);if(!blockers){blockers=patches.filter(t=>t.kind==='rock').map(t=>({x:t.column*arenaConfig.tileSize,y:t.row*arenaConfig.tileSize,width:t.columns*arenaConfig.tileSize,height:t.rows*arenaConfig.tileSize}));blockerCache.set(patches,blockers);}
+ const blockers=visionBlockers(state.map);
  const observers:VisionObserver[]=[...visionObservers(state).filter(o=>!state.multiplePlayers||!playerEliminated(state,o.owner==='player'?'player':state.combat.enemies.find(e=>e.id===o.id)?.playerId??'enemy')),...(state.multiplePlayers?.ai.filter(bot=>!playerEliminated(state,bot.id)&&canSupport('player',bot.id,state.multiplePlayers!.roster)).flatMap(bot=>visionObservers(bot.state).filter(o=>o.owner==='enemy').map(o=>({...o,owner:'player' as const})))??[]),...(state.aiContext?.sharedObservers??[]).map(o=>({...o,owner:state.aiContext?.visionSide??'enemy'}))];
  const fog=observeForest(updateFog(state.fog??createFog(state.map),observers,blockers),state.gathering);
  return observeEnemyBuildings(concealSubmarines(state,fog,observers),state.combat.enemies);

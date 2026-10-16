@@ -45,6 +45,19 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Prestanda2026-10-16 — Fyra AI-motståndare — Done
+
+Belagda cachemissar i passagezoner och AI-sikt rättade; lagfog förbereder aktiva
+allierade före cellunion. Enhetsantal, grafik och ticktakt består. Isolerad
+produktionsmätning mot2cde753: femspelare median37.0→13.8ms;115→117-enhetsfixture
+79.6→42.0ms. Samtliga tre scenarios identiska slutliga statehashar. CPU-tid,
+inte FPS; större matcher kan fortsatt vara tunga. Se PERFORMANCE och
+artifacts/performance-five-players. Ny full2030/220 PASS821.02s, unit538/92,
+riktade47/5, strict build, faktisk browser800/1280, scriptsyntax/diff/review PASS.
+Explorativa profiler och konkurrerande mätning ersatta av isolerad slutmätning;
+browserfixturens initiala offscreenklick rättat i testkameran. Inga roadmaptasks
+eller ny CI/Pages/releaseverifiering. Användarens CSS/units.mjs/docs/ bevarade.
+
 ### Buggfix2026-10-16 — Angripbara fiender efter basförlust — Done
 
 Elimineringskontrollen spärrade både direkta/köade attackorder och combatmål.

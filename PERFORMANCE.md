@@ -1,4 +1,39 @@
-# Prestanda — större arméer/byggnader, 2026-10-08
+# Prestanda
+
+## Fyra AI-motståndare —2026-10-16
+
+CPU-profilering visade återkommande full kartscanning för passagezoner och
+förlorade siktmasker mellan AI-vyer. Traffic-cachen följer nu immutable
+hinderlistan över kartkopior. actorVision delar stabila rockblockers med
+matchFog; bounded256-mask-LRU använder exakt geometri i stället för lokala
+AI-ID:n. Aktiva allierade beräknas före lagfoggens cellunion. Enhets-/byggnadstak,
+grafik, animationer, upplösning, fogregler och gameplaytakt består.
+
+Isolerad Chromium155.0.8059.80 på samma Mac, produktionsbyggd pure
+gameplay mot2cde753.360 delsteg à1/60s per scenario, de första60 uteslutna:
+300 varma samples. Inga samtidiga tester under slutmätningen. Större fixture
+kör30s normal ekonomi och injicerar därefter16 egna+80 AI-soldater utöver
+befintliga kroppar, utan supplybetalning; den mäter belastning, inte balans.
+
+| Scenario | Före: median / p95 | Efter: median / p95 |
+| --- | ---: | ---: |
+| Två spelare, tidig match | 2.0 / 2.2 ms | 2.0 / 2.3 ms |
+| Fem spelare, tidig match | 37.0 / 42.7 ms | 13.8 / 16.1 ms |
+| Fem spelare,115→117 enheter | 79.6 / 92.2 ms | 42.0 / 57.8 ms |
+
+Medianen minskar cirka63% i tidig femspelarmatch och47% i den större fixturen.
+Alla tre slutliga MatchState har identiska SHA256 före/efter, inklusive
+positioner/order/ekonomi/HP/fog. Detta är simulationens CPU-tid, inte renderad
+FPS. Större fixture är fortsatt CPU-tung; ingen garanti om60fps eller alla
+senare strider/hårdvaror. Browser800/1280 verifierar faktisk femspelarmatch,
+fyra aktiva AI, fog, fysisk selection och inga pageerrors; representativ800bild
+granskad. Ny full2030/220, unit538/92, riktade47/5, strict build och diff PASS.
+Tidiga devprofiler och mätning med samtidiga checks används inte som slutbelägg.
+
+[JSON, browserbilder och reproduktion](artifacts/performance-five-players/README.md).
+Ingen ny CI-/Pages-/releaseverifiering i detta uppdrag.
+
+## Större arméer/byggnader —2026-10-08
 
 Användaruppdraget behåller grafik, upplösning, animationer, gameplaytakt och
 samtliga maxtak för enheter/byggnader. Ingen config-, asset-, Save-version-
