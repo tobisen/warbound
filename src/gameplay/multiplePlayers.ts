@@ -43,7 +43,7 @@ export function aiContext(m:MatchState,id:PlayerId):AIContext{
  const base=playerStart(m.map.id??'arena',id,m.map.design);
  const helpBases=id==='player'?[]:[...(canSupport(id,'player',m.multiplePlayers?.roster)&&!playerEliminated(m,'player')?playerTargets(m.gathering,m.combat,m.placement).filter(t=>t.kind==='base').map(t=>t.footprint):[]),...(m.multiplePlayers?.ai.filter(bot=>bot.id!==id&&!playerEliminated(m,bot.id)&&canSupport(id,bot.id,m.multiplePlayers!.roster)).flatMap(bot=>bot.state.combat.enemies.filter(e=>e.kind==='base'&&e.hp>0).map(e=>e.footprint!))??[])];
  const hostileStart=m.multiplePlayers?.roster.find(p=>!playerEliminated(m,p.id)&&canHarm(id,p.id,m.multiplePlayers!.roster)),search=hostileStart?playerStart(m.map.id??'arena',hostileStart.id,m.map.design):undefined;
- return {friendlyEntityIds:m.combat.enemies.filter(e=>canSupport(id,e.playerId??'enemy',m.multiplePlayers?.roster)).map(e=>e.id),humanHostile:!playerEliminated(m,'player')&&canHarm(id,'player',m.multiplePlayers?.roster),helpBases,sharedObservers:alliedObservers(m,id),visionSide:id==='player'?'player':'enemy',gateFriendly:canSupport(id,'player',m.multiplePlayers?.roster),buildSites:[{x:base.x-192,y:base.y+96},{x:base.x+96,y:base.y+96},{x:base.x-192,y:base.y-96},{x:base.x+96,y:base.y-96}],muster:{x:base.x-144,y:base.y+176},
+ return {friendlyEntityIds:m.combat.enemies.filter(e=>canSupport(id,e.playerId??'enemy',m.multiplePlayers?.roster)).map(e=>e.id),humanHostile:canHarm(id,'player',m.multiplePlayers?.roster),helpBases,sharedObservers:alliedObservers(m,id),visionSide:id==='player'?'player':'enemy',gateFriendly:canSupport(id,'player',m.multiplePlayers?.roster),buildSites:[{x:base.x-192,y:base.y+96},{x:base.x+96,y:base.y+96},{x:base.x-192,y:base.y-96},{x:base.x+96,y:base.y-96}],muster:{x:base.x-144,y:base.y+176},
   attackWaypoints:[{x:base.x-256,y:base.y+224},search?{x:Math.max(32,search.x-160),y:search.y+160}:{x:704,y:480},search??{x:448,y:480}]};
 }
 export function initializeMultiplePlayers(m:MatchState,roster:PlayerDefinition[]):MatchState{
@@ -86,8 +86,8 @@ export function syncProjectedCombat(m:MatchState):MatchState{
  })}}}))}};
 }
 function targets(m:MatchState,actor:PlayerId):PlayerTarget[]{
- const own=actor==='player'||playerEliminated(m,'player')||!canHarm(actor,'player',m.multiplePlayers?.roster)?[]:playerTargets(m.gathering,m.combat,m.placement,m.navy);
- return [...own,...m.combat.enemies.filter(e=>e.playerId!==actor&&!playerEliminated(m,e.playerId??'enemy')&&canHarm(actor,e.playerId??'enemy',m.multiplePlayers?.roster)).map(e=>({id:e.id,owner:'player' as const,hp:e.hp,...(e.navalRole?{navalRole:e.navalRole}:{}),kind:e.kind==='ship'?'ship' as const:e.kind==='worker'?'worker' as const:e.kind==='base'?'base' as const:e.footprint?'barracks' as const:'soldier' as const,domain:e.kind==='ship'?'sea' as const:e.role==='air'||e.role==='scout'?'air' as const:undefined,
+ const own=actor==='player'||!canHarm(actor,'player',m.multiplePlayers?.roster)?[]:playerTargets(m.gathering,m.combat,m.placement,m.navy);
+ return [...own,...m.combat.enemies.filter(e=>e.playerId!==actor&&canHarm(actor,e.playerId??'enemy',m.multiplePlayers?.roster)).map(e=>({id:e.id,owner:'player' as const,hp:e.hp,...(e.navalRole?{navalRole:e.navalRole}:{}),kind:e.kind==='ship'?'ship' as const:e.kind==='worker'?'worker' as const:e.kind==='base'?'base' as const:e.footprint?'barracks' as const:'soldier' as const,domain:e.kind==='ship'?'sea' as const:e.role==='air'||e.role==='scout'?'air' as const:undefined,
   footprint:enemyBody(e)}))];
 }
 export function shareTeamVision(m:MatchState):MatchState{
@@ -119,7 +119,7 @@ function actorVision(m:MatchState,bot:AIPlayer):FogTeam{
 }
 function updateHuman(m:MatchState,delta:number,damage:Map<string,number>,hits:Map<string,string>):MatchState{
  const human={...m,aiContext:aiContext(m,'player'),combat:{...m.combat,projectiles:m.combat.projectiles?.filter(p=>!p.owner)},multiplePlayers:undefined,enemyProduction:undefined,enemyAI:undefined,enemyConstruction:undefined,enemyPolicy:undefined,enemyRecovery:undefined,enemyKnowledge:undefined,armyPlan:undefined};
- return updateMatch(human,delta,{side:'player',onHit:(id,attacker)=>{if(!hits.has(id))hits.set(id,attacker);},canTarget:e=>!playerEliminated(m,e.playerId??'enemy')&&canHarm('player',e.playerId??'enemy',m.multiplePlayers?.roster),onDamage:d=>{for(const [id,n] of d){damage.set(id,(damage.get(id)??0)+n);}}});
+ return updateMatch(human,delta,{side:'player',onHit:(id,attacker)=>{if(!hits.has(id))hits.set(id,attacker);},canTarget:e=>canHarm('player',e.playerId??'enemy',m.multiplePlayers?.roster),onDamage:d=>{for(const [id,n] of d){damage.set(id,(damage.get(id)??0)+n);}}});
 }
 /** One bounded shared slice: each body/economy moves once; outgoing hits merge after all actors. */
 export function updateMultiplePlayers(m:MatchState,delta:number):MatchState{
@@ -139,7 +139,7 @@ export function updateMultiplePlayers(m:MatchState,delta:number):MatchState{
    if(playerEliminated(snapshot,bot.id))return {...bot,state:{...bot.state,waves:{...human.waves},combat:{...bot.state.combat,projectiles:[]}}};
    const roster=snapshot.multiplePlayers!.roster.find(p=>p.id===bot.id)!;
    const vision=actorVision(snapshot,bot),fog=createFog(snapshot.map);fog.teams.enemy=vision;if(bot.state.fog?.forest)fog.forest={player:{},enemy:{...bot.state.fog.forest.enemy}};
-   const hostiles=targets(snapshot,bot.id),foreign=snapshot.multiplePlayers!.ai.filter(other=>!playerEliminated(snapshot,other.id)&&canHarm(bot.id,other.id,snapshot.multiplePlayers!.roster)).flatMap(other=>other.state.combat.enemies.flatMap(e=>{
+   const hostiles=targets(snapshot,bot.id),foreign=snapshot.multiplePlayers!.ai.filter(other=>canHarm(bot.id,other.id,snapshot.multiplePlayers!.roster)).flatMap(other=>other.state.combat.enemies.flatMap(e=>{
     if(e.footprint||e.kind==='ship')return [];const u=e.kind==='worker'?enemyWorker(e):enemySoldier(e,snapshot.multiplePlayers!.roster.find(p=>p.id===other.id)!.faction);return u?[{...u,id:globalEntityId(other.id,e.id)}]:[];
    }));
    const context={...aiContext(snapshot,bot.id),concealedTargets:hostiles.filter(t=>t.navalRole==='submarine').map(t=>({id:t.id,position:{x:t.footprint.x+t.footprint.width/2,y:t.footprint.y+t.footprint.height/2}}))},remembered=bot.state.enemyKnowledge?.playerBase;
@@ -147,7 +147,7 @@ export function updateMultiplePlayers(m:MatchState,delta:number):MatchState{
    const retired=!!remembered&&!snapshot.multiplePlayers!.roster.some(p=>!playerEliminated(snapshot,p.id)&&canHarm(bot.id,p.id,snapshot.multiplePlayers!.roster)&&(()=>{const start=playerStart(snapshot.map.id??'arena',p.id,snapshot.map.design);return start.x===remembered.x&&start.y===remembered.y;})());
    const knownBase=hostiles.filter(t=>t.kind==='base'&&entityVisible(fog,'enemy',{position:{x:t.footprint.x+t.footprint.width/2,y:t.footprint.y+t.footprint.height/2},footprint:t.footprint})).sort((a,b)=>a.id.localeCompare(b.id))[0];
    let view:MatchState={...bot.state,multiplePlayers:undefined,aiContext:context,map:human.map,fog,paused:false,outcome:'playing',factions:{player:snapshot.factions!.player,enemy:roster.faction},aiProfile:roster.profile,
-    gathering:{...human.gathering,units:[...(!playerEliminated(snapshot,'player')&&canHarm(bot.id,'player',snapshot.multiplePlayers!.roster)?snapshot.gathering.units.map(u=>({...u,selected:false})):[]),...foreign]},placement:snapshot.placement,navy:undefined,production:{remainingSeconds:null,nextUnitNumber:4},soldierProduction:{remainingSeconds:null,nextUnitNumber:4},controlGroups:{},wildlife:{},waves:{...snapshot.waves},
+    gathering:{...human.gathering,units:[...(canHarm(bot.id,'player',snapshot.multiplePlayers!.roster)?snapshot.gathering.units.map(u=>({...u,selected:false})):[]),...foreign]},placement:snapshot.placement,navy:undefined,production:{remainingSeconds:null,nextUnitNumber:4},soldierProduction:{remainingSeconds:null,nextUnitNumber:4},controlGroups:{},wildlife:{},waves:{...snapshot.waves},
     combat:{...bot.state.combat,baseHP:snapshot.combat.baseHP,...(retired?{enemies:bot.state.combat.enemies.map(e=>e.order?.kind==='attack-move'&&e.order.destination.x===remembered!.x&&e.order.destination.y===remembered!.y?{...e,navigation:undefined,order:{kind:'attack-move' as const,destination:context.attackWaypoints[0]}}:e)}:{})},
     ...(retired&&bot.state.enemyKnowledge?{enemyKnowledge:{...bot.state.enemyKnowledge,playerBase:null,attackScoutIndex:0}}:{}),
     ...(knownBase&&bot.state.enemyKnowledge?{enemyKnowledge:{...bot.state.enemyKnowledge,playerBase:{x:knownBase.footprint.x+knownBase.footprint.width/2,y:knownBase.footprint.y+knownBase.footprint.height/2}}}:{})};

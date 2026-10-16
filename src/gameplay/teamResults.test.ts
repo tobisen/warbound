@@ -75,3 +75,23 @@ it('migrates valid config49 individual outcomes to team victory or continuing sp
   const loaded=decodeSave(JSON.stringify(raw));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(!loaded.ok)throw Error(loaded.error);expect(loaded.match.outcome).toBe(eliminated==='player'?'playing':'victory');expect(isSpectating(loaded.match)).toBe(eliminated==='player');roundtrip(loaded.match);
  }
 });
+
+it.each(['unit','building'] as const)('surviving %s of an eliminated hostile remains attackable during an ongoing match',kind=>{
+ const r=matchPlayers(undefined,undefined,3);r[2].teamId=2;
+ let m=createClassicMatch('skirmish','normal',undefined,'plains96',1,'balanced',r);
+ const bot=m.multiplePlayers!.ai[0];
+ bot.state.combat.enemies.push({id:'enemy-produced-1',kind:kind==='building'?'building':'unit',role:'soldier',owner:'enemy',position:{x:450,y:500},hp:10,order:{kind:'idle'},...(kind==='building'?{footprint:{x:440,y:490,width:20,height:20}}:{})});
+ bot.state.enemyProduction!.production.nextUnitNumber=2;
+ m.gathering.units.push({id:'unit-4',kind:'soldier',owner:'player',hp:60,cargo:0,selected:true,position:{x:410,y:500},target:{x:410,y:500},order:{kind:'idle'}});
+ m.production.nextUnitNumber=m.soldierProduction.nextUnitNumber=5;
+ m=updateMatch(eliminate(m,'enemy'),.25);
+ expect(m.outcome).toBe('playing');expect(playerEliminated(m,'enemy')).toBe(true);
+ const target=m.combat.enemies.find(e=>e.playerId==='enemy'&&e.id.endsWith('enemy-produced-1'))!;
+ expect(target).toBeDefined();
+ m=issueOrder(m,{kind:'attack',enemyId:target.id});
+ expect(m.gathering.units.find(u=>u.id==='unit-4')!.order).toEqual({kind:'attack',enemyId:target.id});
+ m=updateMatch(m,1);
+ expect(m.combat.enemies.find(e=>e.id===target.id)?.hp??0).toBe(0);
+ if(kind==='unit')expect(m.multiplePlayers!.kills.player).toBeGreaterThan(0);
+ expect(m.outcome).toBe('playing');
+});

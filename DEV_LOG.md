@@ -6346,3 +6346,22 @@ radiekorrigeringen. Ingen separat offentlig browsercheck/versionrelease hävdas.
 Slutlig dokumentationsuppdatering: textens konsekvens och git diff --check PASS;
 inga kodändringar, redan redovisade kodchecks återanvänds uttryckligen.
 Befintliga style.css, assets/sources/units.mjs, docs/ och :memory:.ses bevarade.
+
+
+## 2026-10-16 — Fiender efter basförlust
+
+### Buggfix2026-10-16 — Angripbara fiender efter basförlust — Done
+
+Elimineringskontrollen spärrade både direkta/köade attackorder och combatmål.
+Överlevande fientliga enheter och byggnader kan nu angripas under pågående
+match, även av aktiv AI och med offensiva spells. Ägarens styrning/ekonomi
+förblir fryst; lagseger, spectator, allians- och siktregler består. Inga nya
+roadmaptasks. Användarens style.css, units.mjs och docs/ bevaras.
+Regressionstest omfattar faktisk död/destruktion efter basförlust medan tredje
+spelaren håller matchen aktiv, samt killräkning för enheten.
+Ny verifiering: riktade teamResults/multiplePlayers/commandOrders/spells50/4,
+unit537/92, build inklusive strict typecheck och diffcheck PASS. Lokal Chrome
+800×600: faktisk högerklicksorder och dödad överlevande efter basförlust PASS.
+Byggnadsfixturens initiala överlapp med angriparen rättades före slutkontroller.
+Diffreview utan kvarstående fynd. Full regression/CI/Pages har inte körts om
+lokalt i denna buggfix; tidigare CI-belägg nedan gäller tidigare SHA.
