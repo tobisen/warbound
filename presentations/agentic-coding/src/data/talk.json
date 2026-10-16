@@ -3,7 +3,7 @@
     "kicker": "En fredagsidé",
     "title": "Jag ville bara spela\nWarcraft II igen…",
     "seconds": 40,
-    "notes": "Jag heter Tobias. Jag ville egentligen bara återuppleva känslan av Warcraft II. En fredagskväll började jag fundera med ChatGPT: hur svårt kan det vara att bygga ett eget litet RTS? Det blev Warbound. Jag tänkte inte att jag skulle börja ett stort spelprojekt. Jag ville ha något att spela.",
+    "notes": "Jag heter Tobias, och jag ville egentligen bara spela Warcraft II igen. Inte starta ett nytt stort fritidsprojekt. Bara få tillbaka den där känslan: bygga en bas, samla resurser och skicka iväg en liten armé. En fredagskväll började jag prata med ChatGPT om att bygga ett eget litet RTS. Hur svårt kan det vara? Det är ju en väldigt användbar fråga om man vill förlora sina lediga kvällar. Men den här gången blev det faktiskt ett spel: Warbound. Det intressanta är hur vi tog oss dit.",
     "elements": [
       {
         "kind": "text",
@@ -40,10 +40,10 @@
       },
       {
         "kind": "text",
-        "text": "01 / 11",
-        "x": 1400,
+        "text": "01 / 10",
+        "x": 1370,
         "y": 850,
-        "w": 120,
+        "w": 145,
         "h": 24,
         "size": 16,
         "color": "D8C6C0",
@@ -95,8 +95,8 @@
   {
     "kicker": "Fem kalenderdagar",
     "title": "Fredag → onsdag",
-    "seconds": 65,
-    "notes": "Det här är poängen med hela historien. På fredagen började jag planera tillsammans med ChatGPT. Sedan fick Codex små avgränsade uppdrag, och vi itererade: bygg, prova, rätta, nästa. På onsdagen fanns ett fungerande RTS i webbläsaren med enheter, resurser, byggnader och strider. Fem kalenderdagar, inte fem arbetsdagar. Jag var knappt hemma under perioden, så det här skedde på fritiden. Fem dagar gäller den första spelbara versionen, inte allt ni strax får se.",
+    "seconds": 55,
+    "notes": "Det här är poängen med hela historien. Fredag kväll: en idé och planering med ChatGPT. Onsdag: den första fungerande RTS-versionen i webbläsaren. Enheter, resurser, byggnader och strider. Fem kalenderdagar. Inte fem dagar där jag satt åtta timmar om dagen och programmerade. Och jag var knappt hemma. Arbetet fick plats i luckorna på fritiden. Jag kunde ge Codex en avgränsad uppgift, komma tillbaka, prova resultatet och bestämma nästa steg. Det var fortfarande jag som behövde styra. Men varje liten stund behövde inte börja med att jag själv skrev all kod. Och viktigt: fem dagar gäller första versionen. Dagens Warbound växte fram senare. Annars låter det här som en ganska tveksam reklamslogan.",
     "elements": [
       {
         "kind": "text",
@@ -116,7 +116,7 @@
         "y": 110,
         "w": 1430,
         "h": 135,
-        "size": 62,
+        "size": 78,
         "color": "F5EEE9",
         "bold": true
       },
@@ -133,10 +133,10 @@
       },
       {
         "kind": "text",
-        "text": "02 / 11",
-        "x": 1400,
+        "text": "02 / 10",
+        "x": 1370,
         "y": 850,
-        "w": 120,
+        "w": 145,
         "h": 24,
         "size": 16,
         "color": "D8C6C0",
@@ -208,7 +208,7 @@
         "y": 290,
         "w": 430,
         "h": 260,
-        "color": "4D2632"
+        "color": "713548"
       },
       {
         "kind": "text",
@@ -223,29 +223,29 @@
       },
       {
         "kind": "text",
-        "text": "Spelbart RTS\ni webbläsaren",
+        "text": "Ett fungerande RTS",
         "x": 1115,
         "y": 405,
         "w": 370,
         "h": 110,
-        "size": 36,
-        "color": "F5EEE9",
-        "bold": false
-      },
-      {
-        "kind": "text",
-        "text": "På fritiden. Jag var knappt hemma.",
-        "x": 85,
-        "y": 630,
-        "w": 1430,
-        "h": 80,
-        "size": 48,
+        "size": 35,
         "color": "F5EEE9",
         "bold": true
       },
       {
         "kind": "text",
-        "text": "Den första spelbara versionen – resten växte fram efteråt.",
+        "text": "Och jag var knappt hemma.",
+        "x": 85,
+        "y": 630,
+        "w": 1430,
+        "h": 80,
+        "size": 52,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Fem kalenderdagar på fritiden. Första fungerande versionen – inte dagens spel.",
         "x": 85,
         "y": 745,
         "w": 1430,
@@ -259,8 +259,8 @@
   {
     "kicker": "Först: något som fungerar",
     "title": "Det började inte särskilt vackert",
-    "seconds": 40,
-    "notes": "Här kör vi den första kompletta MVP-versionen igen. Det är en ny skärmbild av den äldre koden, inte en bild jag tog den första veckan. Rektanglar och cirklar, men det gick att markera enheter, ge order och samla resurser. Det var rätt ordning för mig: först se om spelidén fungerar, sedan bry sig om hur den ser ut.",
+    "seconds": 35,
+    "notes": "Och här är skönheten. Eller åtminstone geometrin. Rektanglar, cirklar och en mycket optimistisk spelutvecklare. Bilden är tagen när vi återkörde den historiska MVP-koden, inte under den första veckan. Men det gick att markera enheter, ge order och samla resurser. Det var det jag ville veta först: finns det ett spel här? Snygga träd hjälper inte särskilt mycket om arbetaren inte kan gå till dem. Så första målet var något spelbart, inte något som såg färdigt ut.",
     "elements": [
       {
         "kind": "text",
@@ -297,10 +297,10 @@
       },
       {
         "kind": "text",
-        "text": "03 / 11",
-        "x": 1400,
+        "text": "03 / 10",
+        "x": 1370,
         "y": 850,
-        "w": 120,
+        "w": 145,
         "h": 24,
         "size": 16,
         "color": "D8C6C0",
@@ -341,8 +341,8 @@
   {
     "kicker": "Samma spel, senare",
     "title": "Okej. Nu börjar det likna något.",
-    "seconds": 35,
-    "notes": "Samma grundidé, men senare i projektet. Till vänster den återkörda MVP:n, till höger en faktisk aktuell match med resursinsamling. Det här är inte vad som hanns med på fem dagar. Det är den fortsatta utvecklingen: många små förbättringar som till slut syns väldigt tydligt. Fortfarande samma webbläsarspel.",
+    "seconds": 45,
+    "notes": "Till vänster den gamla versionen, till höger en riktig lokal match i den senare versionen. Jag har gjort den nya bilden större så att ni faktiskt ser vad som händer. Det här kom efter femdagarsversionen. Skillnaden byggdes upp genom många små uppgifter: bättre grafik, tydligare gränssnitt och fler system som fungerade tillsammans. Ingen enskild magisk prompt som sa bygg Warcraft och sedan var vi klara. Snarare ett ganska envist nästa sak, nästa sak, nästa sak. Och hela tiden kunde jag öppna spelet och testa. Det gjorde utvecklingen konkret: jag såg om en förändring hjälpte.",
     "elements": [
       {
         "kind": "text",
@@ -379,10 +379,10 @@
       },
       {
         "kind": "text",
-        "text": "04 / 11",
-        "x": 1400,
+        "text": "04 / 10",
+        "x": 1370,
         "y": 850,
-        "w": 120,
+        "w": 145,
         "h": 24,
         "size": 16,
         "color": "D8C6C0",
@@ -391,38 +391,38 @@
       {
         "kind": "image",
         "file": "02-tidig-mvp-resursinsamling.png",
-        "x": 85,
-        "y": 295,
-        "w": 685,
-        "h": 440
+        "x": 55,
+        "y": 340,
+        "w": 420,
+        "h": 300
       },
       {
         "kind": "image",
         "file": "04-nu-gameplay-resursinsamling.png",
-        "x": 830,
-        "y": 295,
-        "w": 685,
-        "h": 440
+        "x": 495,
+        "y": 250,
+        "w": 1050,
+        "h": 570
       },
       {
         "kind": "text",
         "text": "DÅ · historisk version, återkörd",
-        "x": 85,
-        "y": 760,
-        "w": 685,
+        "x": 55,
+        "y": 655,
+        "w": 420,
         "h": 55,
-        "size": 24,
+        "size": 21,
         "color": "E8A18F",
         "bold": false
       },
       {
         "kind": "text",
         "text": "NU · faktisk lokal match, v0.8.0",
-        "x": 830,
-        "y": 760,
-        "w": 685,
-        "h": 55,
-        "size": 24,
+        "x": 495,
+        "y": 815,
+        "w": 1000,
+        "h": 28,
+        "size": 22,
         "color": "E8A18F",
         "bold": false
       }
@@ -431,8 +431,8 @@
   {
     "kicker": "Agentic coding i praktiken",
     "title": "Mitt utvecklingsteam",
-    "seconds": 65,
-    "notes": "Jag var produktägaren: idéer, prioriteringar, beslut och testning. ChatGPT hjälpte mig med planering, arkitektur, backlog och tydliga Codex-direktiv. Codex implementerade, körde tester, dokumenterade och hanterade Git. Skillnaden mot kodkomplettering är att agenten driver en hel avgränsad uppgift genom flera steg. Ett riktigt exempel är RTS-024: låt spelaren bygga utan att stänga inne arbetare. Uppdraget beskrev både beteendet och vad som skulle testas. Jag behövde fortfarande granska och avgöra om resultatet var rätt.",
+    "seconds": 90,
+    "notes": "Här är mitt utvecklingsteam. Jag stod för idéer, prioritering, beslut och testning. ChatGPT hjälpte med planering, arkitektur och uppgiftsbeskrivningar. Codex tog implementationen, testerna, dokumentationen och Git. Med Agentic Coding menar jag att delegera en hel avgränsad utvecklingsuppgift. Inte bara be om en kodsnutt och själv pussla ihop resten. Vi gick från idé till planering, ett Codex-uppdrag, implementation, test och commit. Sedan nästa uppgift. Ett verkligt exempel är RTS-024. En byggnad kan stå på en tillåten ruta men ändå stänga inne en arbetare eller blockera vägen till resurserna. Uppgiften var att skydda vägar som redan gick att använda. Inte lösa alla tänkbara navigationsproblem eller automatiskt flytta undan enheter. Codex fick implementera samma kontroll i byggförhandsvisningen och vid klick, innan resurser drogs. Produktionen skulle vänta om utgången var blockerad och skapa exakt en enhet när den blev fri, utan ny betalning. Det verifierades med placerings- och spawn-tester och i Chromium: försök blockera en väg, bygg på en giltig plats, blockera och frigör en utgång, starta om. Det är en sammanfattning av dokumentationen, inte ett ordagrant direktiv. Min roll var fortfarande att granska och avgöra om beteendet blev rätt. Det är den arbetsfördelningen som gjorde skillnaden.",
     "elements": [
       {
         "kind": "text",
@@ -469,10 +469,10 @@
       },
       {
         "kind": "text",
-        "text": "05 / 11",
-        "x": 1400,
+        "text": "05 / 10",
+        "x": 1370,
         "y": 850,
-        "w": 120,
+        "w": 145,
         "h": 24,
         "size": 16,
         "color": "D8C6C0",
@@ -481,125 +481,224 @@
       {
         "kind": "rect",
         "x": 85,
-        "y": 270,
+        "y": 260,
         "w": 430,
-        "h": 235,
+        "h": 170,
         "color": "4D2632"
       },
       {
         "kind": "text",
         "text": "JAG",
-        "x": 115,
-        "y": 300,
-        "w": 370,
-        "h": 50,
-        "size": 32,
+        "x": 110,
+        "y": 280,
+        "w": 380,
+        "h": 40,
+        "size": 28,
         "color": "E8A18F",
         "bold": true
       },
       {
         "kind": "text",
-        "text": "Idéer, beslut\noch speltest",
-        "x": 115,
-        "y": 380,
-        "w": 370,
-        "h": 100,
-        "size": 30,
+        "text": "Idéer, prioritering,\nbeslut och testning",
+        "x": 110,
+        "y": 335,
+        "w": 385,
+        "h": 75,
+        "size": 27,
         "color": "F5EEE9",
         "bold": false
       },
       {
         "kind": "rect",
         "x": 585,
-        "y": 270,
+        "y": 260,
         "w": 430,
-        "h": 235,
+        "h": 170,
         "color": "4D2632"
       },
       {
         "kind": "text",
         "text": "CHATGPT",
-        "x": 615,
-        "y": 300,
-        "w": 370,
-        "h": 50,
-        "size": 32,
+        "x": 610,
+        "y": 280,
+        "w": 380,
+        "h": 40,
+        "size": 28,
         "color": "E8A18F",
         "bold": true
       },
       {
         "kind": "text",
-        "text": "Planering, arkitektur\noch uppdrag",
-        "x": 615,
-        "y": 380,
-        "w": 370,
-        "h": 100,
-        "size": 30,
+        "text": "Planering, arkitektur\noch uppgiftsbeskrivningar",
+        "x": 610,
+        "y": 335,
+        "w": 385,
+        "h": 75,
+        "size": 27,
         "color": "F5EEE9",
         "bold": false
       },
       {
         "kind": "rect",
         "x": 1085,
-        "y": 270,
+        "y": 260,
         "w": 430,
-        "h": 235,
+        "h": 170,
         "color": "4D2632"
       },
       {
         "kind": "text",
         "text": "CODEX",
-        "x": 1115,
-        "y": 300,
-        "w": 370,
-        "h": 50,
-        "size": 32,
+        "x": 1110,
+        "y": 280,
+        "w": 380,
+        "h": 40,
+        "size": 28,
         "color": "E8A18F",
         "bold": true
       },
       {
         "kind": "text",
         "text": "Kod, tester,\ndokumentation och Git",
-        "x": 1115,
-        "y": 380,
-        "w": 370,
-        "h": 100,
-        "size": 30,
+        "x": 1110,
+        "y": 335,
+        "w": 385,
+        "h": 75,
+        "size": 27,
         "color": "F5EEE9",
         "bold": false
       },
       {
         "kind": "text",
-        "text": "Idé → Plan → Uppdrag → Kod → Test → Commit ↻",
+        "text": "Idé → Planering → Codex-uppdrag → Implementation",
         "x": 85,
-        "y": 560,
+        "y": 460,
         "w": 1430,
-        "h": 75,
-        "size": 37,
+        "h": 45,
+        "size": 32,
         "color": "F5EEE9",
         "bold": true
       },
       {
         "kind": "text",
-        "text": "RTS-024: Byggnader får inte stänga inne arbetare.",
+        "text": "→ Test → Commit → Nästa uppgift",
+        "x": 85,
+        "y": 510,
+        "w": 1430,
+        "h": 45,
+        "size": 32,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "RTS-024 · Byggnader får inte stänga inne arbetare",
+        "x": 85,
+        "y": 585,
+        "w": 1430,
+        "h": 45,
+        "size": 32,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "PROBLEM",
+        "x": 85,
+        "y": 650,
+        "w": 345,
+        "h": 35,
+        "size": 22,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Byggnader kan\nstänga arbetsvägar.",
         "x": 85,
         "y": 700,
-        "w": 1430,
-        "h": 55,
-        "size": 30,
-        "color": "E8A18F",
+        "w": 345,
+        "h": 85,
+        "size": 25,
+        "color": "F5EEE9",
         "bold": false
       },
       {
         "kind": "text",
-        "text": "Agenten genomför uppgiften. Jag granskar och styr nästa steg.",
-        "x": 85,
-        "y": 770,
-        "w": 1430,
-        "h": 45,
-        "size": 26,
+        "text": "AVGRÄNSNING",
+        "x": 455,
+        "y": 650,
+        "w": 345,
+        "h": 35,
+        "size": 22,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Skydda nåbara vägar.\nIngen automatisk flytt.",
+        "x": 455,
+        "y": 700,
+        "w": 345,
+        "h": 85,
+        "size": 25,
         "color": "F5EEE9",
         "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "IMPLEMENTATION",
+        "x": 825,
+        "y": 650,
+        "w": 345,
+        "h": 35,
+        "size": 22,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Kontroll före köp.\nBlockerad spawn väntar.",
+        "x": 825,
+        "y": 700,
+        "w": 345,
+        "h": 85,
+        "size": 25,
+        "color": "F5EEE9",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "VERIFIERING",
+        "x": 1195,
+        "y": 650,
+        "w": 345,
+        "h": 35,
+        "size": 22,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Tester + browser:\nblockera, frigör, starta om.",
+        "x": 1195,
+        "y": 700,
+        "w": 345,
+        "h": 85,
+        "size": 25,
+        "color": "F5EEE9",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "Delegera en komplett, avgränsad uppgift.",
+        "x": 85,
+        "y": 803,
+        "w": 1430,
+        "h": 35,
+        "size": 28,
+        "color": "F5EEE9",
+        "bold": true
       }
     ]
   },
@@ -607,7 +706,7 @@
     "kicker": "Sedan spårade det ur lite",
     "title": "Fem raser. Över 200 uppgifter.",
     "seconds": 45,
-    "notes": "Sedan blev det förstås lite mer än ett litet RTS. Humans, Orcs, Elves, Dwarves och Goblins. Olika enheter och byggnader, sjö- och luftenheter, teknikträd och AI-motståndare. Bilderna här är uppställda gallerier av spelets faktiska runtime-sprites. De visar ett urval, inte alla avancerade enheter. Den här omfattningen kom senare, en uppgift åt gången. Det är lätt att vilja lägga till en sak till.",
+    "notes": "Sedan blev det förstås lite mer än ett litet RTS. Nu finns fem spelbara raser: Humans, Orcs, Elves, Dwarves och Goblins. Här ser ni ett urval av deras faktiska enheter och byggnader, hämtade ur spelets atlaser. Det finns också sjö- och luftenheter, teknikträd och AI-motståndare. Jag visar inte detta för att räkna funktioner. Poängen är att samma arbetssätt kunde fortsätta efter den första versionen. Över tvåhundra uppgifter, en i taget. Det är väldigt lätt att säga bara en sak till. Backloggen fick bli mitt försök att hålla det där under någorlunda kontroll.",
     "elements": [
       {
         "kind": "text",
@@ -644,10 +743,10 @@
       },
       {
         "kind": "text",
-        "text": "06 / 11",
-        "x": 1400,
+        "text": "06 / 10",
+        "x": 1370,
         "y": 850,
-        "w": 120,
+        "w": 145,
         "h": 24,
         "size": 16,
         "color": "D8C6C0",
@@ -655,49 +754,157 @@
       },
       {
         "kind": "image",
-        "file": "asset-units-player-crop.png",
-        "x": 85,
-        "y": 255,
-        "w": 690,
-        "h": 470
+        "file": "representative-unit-humans.png",
+        "x": 117.5,
+        "y": 330,
+        "w": 200,
+        "h": 160
       },
       {
         "kind": "image",
-        "file": "asset-buildings-player-crop.png",
-        "x": 825,
-        "y": 255,
-        "w": 690,
-        "h": 470
+        "file": "representative-base-humans.png",
+        "x": 95.0,
+        "y": 540,
+        "w": 245,
+        "h": 196
       },
       {
         "kind": "text",
-        "text": "Humans · Orcs · Elves · Dwarves · Goblins",
+        "text": "Humans",
         "x": 85,
-        "y": 735,
-        "w": 1430,
-        "h": 50,
+        "y": 265,
+        "w": 265,
+        "h": 45,
+        "size": 32,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "image",
+        "file": "representative-unit-orcs.png",
+        "x": 407.5,
+        "y": 330,
+        "w": 200,
+        "h": 160
+      },
+      {
+        "kind": "image",
+        "file": "representative-base-orcs.png",
+        "x": 385.0,
+        "y": 540,
+        "w": 245,
+        "h": 196
+      },
+      {
+        "kind": "text",
+        "text": "Orcs",
+        "x": 375,
+        "y": 265,
+        "w": 265,
+        "h": 45,
+        "size": 32,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "image",
+        "file": "representative-unit-elves.png",
+        "x": 697.5,
+        "y": 330,
+        "w": 200,
+        "h": 160
+      },
+      {
+        "kind": "image",
+        "file": "representative-base-elves.png",
+        "x": 675.0,
+        "y": 540,
+        "w": 245,
+        "h": 196
+      },
+      {
+        "kind": "text",
+        "text": "Elves",
+        "x": 665,
+        "y": 265,
+        "w": 265,
+        "h": 45,
+        "size": 32,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "image",
+        "file": "representative-unit-dwarves.png",
+        "x": 987.5,
+        "y": 330,
+        "w": 200,
+        "h": 160
+      },
+      {
+        "kind": "image",
+        "file": "representative-base-dwarves.png",
+        "x": 965.0,
+        "y": 540,
+        "w": 245,
+        "h": 196
+      },
+      {
+        "kind": "text",
+        "text": "Dwarves",
+        "x": 955,
+        "y": 265,
+        "w": 265,
+        "h": 45,
+        "size": 32,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "image",
+        "file": "representative-unit-goblins.png",
+        "x": 1277.5,
+        "y": 330,
+        "w": 200,
+        "h": 160
+      },
+      {
+        "kind": "image",
+        "file": "representative-base-goblins.png",
+        "x": 1255.0,
+        "y": 540,
+        "w": 245,
+        "h": 196
+      },
+      {
+        "kind": "text",
+        "text": "Goblins",
+        "x": 1245,
+        "y": 265,
+        "w": 265,
+        "h": 45,
         "size": 32,
         "color": "E8A18F",
         "bold": true
       },
       {
         "kind": "text",
-        "text": "Sjö och luft · teknikträd · AI-motståndare",
+        "text": "Från enkel MVP till fem spelbara raser – en uppgift i taget.",
         "x": 85,
-        "y": 780,
+        "y": 767,
         "w": 1430,
-        "h": 32,
-        "size": 26,
+        "h": 45,
+        "size": 32,
         "color": "F5EEE9",
-        "bold": false
+        "bold": true
       },
       {
         "kind": "text",
-        "text": "Beskurna runtime-gallerier · urval av enheter och byggnader",
+        "text": "Förstorade utsnitt av faktiska runtime-sprites · en soldat och bas per ras",
         "x": 85,
-        "y": 818,
+        "y": 819,
         "w": 1430,
-        "h": 23,
+        "h": 25,
         "size": 18,
         "color": "D8C6C0",
         "bold": false
@@ -705,14 +912,378 @@
     ]
   },
   {
-    "kicker": "Från överblick till detalj",
-    "title": "Hela kartan. Och detaljerna.",
-    "seconds": 30,
-    "notes": "Här är River Crown. Till vänster hela kartan, utzoomad: skogar, vatten, berg och vägar som formar var man kan röra sig. Till höger samma karta vid spelzoom, med träd, gruvor och skatter. Båda är faktiska spelbilder. Fog of war är avstängd i just de här dokumenterade testbilderna så att terrängen går att se. Det är en visning av kartan, inte en naturligt utforskad match.",
+    "kicker": "Tekniken bakom",
+    "title": "Ett RTS. En webbläsare.",
+    "seconds": 40,
+    "notes": "Tekniken är ganska okomplicerad. Phaser för spelet, TypeScript för logiken och Vite för att köra och bygga. Git och GitHub håller ihop historiken. GitHub Pages serverar det färdiga bygget. Allt spelande körs direkt i webbläsaren; det behövs ingen backend eller dedikerad spelserver. För den som vill prova är det bara en länk. Det var också värdefullt under utvecklingen. Jag kunde öppna en version och direkt testa vad som hade ändrats, utan att installation och distribution blev ett eget stort projekt. Tekniken gav oss en kort väg från uppgift till något spelbart.",
     "elements": [
       {
         "kind": "text",
-        "text": "FRÅN ÖVERBLICK TILL DETALJ",
+        "text": "TEKNIKEN BAKOM",
+        "x": 85,
+        "y": 55,
+        "w": 1430,
+        "h": 30,
+        "size": 20,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Ett RTS. En webbläsare.",
+        "x": 85,
+        "y": 110,
+        "w": 1430,
+        "h": 135,
+        "size": 62,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "TOBIAS BERTILSSON  /  WARBOUND",
+        "x": 85,
+        "y": 850,
+        "w": 1200,
+        "h": 24,
+        "size": 16,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "07 / 10",
+        "x": 1370,
+        "y": 850,
+        "w": 145,
+        "h": 24,
+        "size": 16,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "Phaser  +  TypeScript  +  Vite",
+        "x": 85,
+        "y": 290,
+        "w": 1430,
+        "h": 95,
+        "size": 52,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Git / GitHub  →  GitHub Pages  →  Spela",
+        "x": 85,
+        "y": 440,
+        "w": 1430,
+        "h": 100,
+        "size": 42,
+        "color": "E8A18F",
+        "bold": false
+      },
+      {
+        "kind": "rect",
+        "x": 85,
+        "y": 630,
+        "w": 1430,
+        "h": 150,
+        "color": "4D2632"
+      },
+      {
+        "kind": "text",
+        "text": "Ingen backend. Ingen dedikerad spelserver. Bara en länk.",
+        "x": 120,
+        "y": 675,
+        "w": 1360,
+        "h": 65,
+        "size": 36,
+        "color": "F5EEE9",
+        "bold": false
+      }
+    ]
+  },
+  {
+    "kicker": "Allt gick inte som på räls",
+    "title": "AI skriver kod.\nAI skriver också buggar.",
+    "seconds": 70,
+    "notes": "Det här betyder förstås inte att AI slutade skriva buggar. Ta byggnaderna igen. Att en byggnad får plats är en sak. Att arbetaren fortfarande kommer hem med veden är en annan. RTS-024 visar varför uppgiften behövde beskriva beteendet runt funktionen, inte bara själva byggknappen. Ett senare exempel var RTS-178. Nya kartval lades till, men en gammal highscore-validator accepterade fortfarande bara Arena för de berörda uppdragen. Den hittades vid slutgranskningen. Fixen accepterade kartan från uppdragskonfigurationen och bevarade gamla resultat. Den fick regressionstester och kontrollerades med en riktig Frontier-resultpost i browsern. Två ganska olika problem, samma lärdom: man måste testa hur systemen möts. Och även när testerna är gröna återstår en annan fråga: vill någon spela? Ett test kan kontrollera att en match går att vinna. Det kan inte automatiskt avgöra om tempot känns bra, om raserna är roliga eller om balansen håller. Där behöver jag fortfarande spela, lyssna och göra en mänsklig bedömning.",
+    "elements": [
+      {
+        "kind": "text",
+        "text": "ALLT GICK INTE SOM PÅ RÄLS",
+        "x": 85,
+        "y": 55,
+        "w": 1430,
+        "h": 30,
+        "size": 20,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "AI skriver kod.\nAI skriver också buggar.",
+        "x": 85,
+        "y": 110,
+        "w": 1430,
+        "h": 190,
+        "size": 62,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "TOBIAS BERTILSSON  /  WARBOUND",
+        "x": 85,
+        "y": 850,
+        "w": 1200,
+        "h": 24,
+        "size": 16,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "08 / 10",
+        "x": 1370,
+        "y": 850,
+        "w": 145,
+        "h": 24,
+        "size": 16,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "RTS-024 · Byggnader blockerar arbetare",
+        "x": 85,
+        "y": 340,
+        "w": 1430,
+        "h": 60,
+        "size": 40,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "En giltig placering måste också lämna en väg ut.",
+        "x": 85,
+        "y": 410,
+        "w": 1430,
+        "h": 50,
+        "size": 30,
+        "color": "F5EEE9",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "RTS-178 · Nya kartor, gammal highscore-validering",
+        "x": 85,
+        "y": 505,
+        "w": 1430,
+        "h": 60,
+        "size": 40,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "En ny funktion kan bryta ett gammalt antagande.",
+        "x": 85,
+        "y": 575,
+        "w": 1430,
+        "h": 50,
+        "size": 30,
+        "color": "F5EEE9",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "Gröna tester ≠ roligt eller välbalanserat spel",
+        "x": 85,
+        "y": 715,
+        "w": 1430,
+        "h": 65,
+        "size": 39,
+        "color": "F5EEE9",
+        "bold": true
+      }
+    ]
+  },
+  {
+    "kicker": "Vad jag tar med mig",
+    "title": "Börja smått. Behåll kontrollen.",
+    "seconds": 40,
+    "notes": "Det jag tar med mig är egentligen tre saker. Börja smått och bygg något spelbart. Fyrkanter duger alldeles utmärkt om de hjälper dig att prova idén. Låt agenten implementera, men behåll kontrollen över vad som ska byggas och om resultatet blev rätt. Och små uppgifter, tester och dokumentation gör skillnad. De hjälper både mig och agenten att hålla riktningen mellan kvällarna. För mig var vinsten inte bara att skriva kod snabbare. AI gjorde det möjligt att bygga något jag annars aldrig hade hunnit. Det var ju trots allt bara Warcraft II jag ville spela.",
+    "elements": [
+      {
+        "kind": "text",
+        "text": "VAD JAG TAR MED MIG",
+        "x": 85,
+        "y": 55,
+        "w": 1430,
+        "h": 30,
+        "size": 20,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Börja smått. Behåll kontrollen.",
+        "x": 85,
+        "y": 110,
+        "w": 1430,
+        "h": 135,
+        "size": 62,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "TOBIAS BERTILSSON  /  WARBOUND",
+        "x": 85,
+        "y": 850,
+        "w": 1200,
+        "h": 24,
+        "size": 16,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "09 / 10",
+        "x": 1370,
+        "y": 850,
+        "w": 145,
+        "h": 24,
+        "size": 16,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "01   Bygg något litet och spelbart.\n02   Låt agenten implementera – du styr.\n03   Små uppgifter. Tester. Dokumentation.",
+        "x": 85,
+        "y": 285,
+        "w": 1430,
+        "h": 265,
+        "size": 38,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "”AI gjorde det möjligt att bygga något\njag annars aldrig hade hunnit.”",
+        "x": 85,
+        "y": 635,
+        "w": 1430,
+        "h": 150,
+        "size": 44,
+        "color": "E8A18F",
+        "bold": false
+      }
+    ]
+  },
+  {
+    "kicker": "Testa själv",
+    "title": "Det började med en idé.\nNu kan du spela det.",
+    "seconds": 20,
+    "notes": "Vill ni prova finns Warbound här. Skanna koden eller öppna länken. Det började som en fredagsidé och blev ett spel jag kan öppna i webbläsaren. Tack! Jag tar gärna frågor. Och ja, det finns säkert fortfarande buggar att hitta.",
+    "elements": [
+      {
+        "kind": "text",
+        "text": "TESTA SJÄLV",
+        "x": 85,
+        "y": 55,
+        "w": 1430,
+        "h": 30,
+        "size": 20,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Det började med en idé.\nNu kan du spela det.",
+        "x": 85,
+        "y": 110,
+        "w": 1430,
+        "h": 190,
+        "size": 62,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "TOBIAS BERTILSSON  /  WARBOUND",
+        "x": 85,
+        "y": 850,
+        "w": 1200,
+        "h": 24,
+        "size": 16,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "10 / 10",
+        "x": 1370,
+        "y": 850,
+        "w": 145,
+        "h": 24,
+        "size": 16,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "image",
+        "file": "warbound-startsida.png",
+        "x": 85,
+        "y": 280,
+        "w": 990,
+        "h": 490
+      },
+      {
+        "kind": "image",
+        "file": "qr-warbound.png",
+        "x": 1110,
+        "y": 320,
+        "w": 360,
+        "h": 360
+      },
+      {
+        "kind": "text",
+        "text": "SKANNA & SPELA",
+        "x": 1090,
+        "y": 710,
+        "w": 410,
+        "h": 50,
+        "size": 28,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "tobisen.github.io/warbound/",
+        "x": 85,
+        "y": 785,
+        "w": 1430,
+        "h": 50,
+        "size": 30,
+        "color": "F5EEE9",
+        "bold": false
+      }
+    ]
+  },
+  {
+    "kicker": "Extra · kartvisning",
+    "title": "Hela kartan. Och detaljerna.",
+    "seconds": 0,
+    "notes": "Extraslide utanför åttaminutersflödet. Här är River Crown. Till vänster hela kartan, utzoomad: skogar, vatten, berg och vägar som formar var man kan röra sig. Till höger samma karta vid spelzoom, med träd, gruvor och skatter. Båda är faktiska spelbilder. Fog of war är avstängd i just de här dokumenterade testbilderna så att terrängen går att se. Det är en visning av kartan, inte en naturligt utforskad match.",
+    "elements": [
+      {
+        "kind": "text",
+        "text": "EXTRA · KARTVISNING",
         "x": 85,
         "y": 55,
         "w": 1430,
@@ -745,10 +1316,10 @@
       },
       {
         "kind": "text",
-        "text": "07 / 11",
-        "x": 1400,
+        "text": "EXTRA",
+        "x": 1370,
         "y": 850,
-        "w": 120,
+        "w": 145,
         "h": 24,
         "size": 16,
         "color": "D8C6C0",
@@ -801,381 +1372,6 @@
         "h": 23,
         "size": 18,
         "color": "D8C6C0",
-        "bold": false
-      }
-    ]
-  },
-  {
-    "kicker": "Tekniken bakom",
-    "title": "Ett RTS. En webbläsare.",
-    "seconds": 40,
-    "notes": "Teknikvalen var ganska okomplicerade: Phaser för spelet, TypeScript för logiken och Vite för att köra och bygga. Git och GitHub håller ihop historiken, och den statiska byggnaden publiceras med GitHub Pages. Ingen backend eller dedikerad spelserver krävs. Det gör tröskeln låg både för mig och för den som vill prova: öppna en länk. Enkel distribution gjorde det också lätt att visa upp och testa nya versioner.",
-    "elements": [
-      {
-        "kind": "text",
-        "text": "TEKNIKEN BAKOM",
-        "x": 85,
-        "y": 55,
-        "w": 1430,
-        "h": 30,
-        "size": 20,
-        "color": "E8A18F",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "Ett RTS. En webbläsare.",
-        "x": 85,
-        "y": 110,
-        "w": 1430,
-        "h": 135,
-        "size": 62,
-        "color": "F5EEE9",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "TOBIAS BERTILSSON  /  WARBOUND",
-        "x": 85,
-        "y": 850,
-        "w": 1200,
-        "h": 24,
-        "size": 16,
-        "color": "D8C6C0",
-        "bold": false
-      },
-      {
-        "kind": "text",
-        "text": "08 / 11",
-        "x": 1400,
-        "y": 850,
-        "w": 120,
-        "h": 24,
-        "size": 16,
-        "color": "D8C6C0",
-        "bold": false
-      },
-      {
-        "kind": "text",
-        "text": "Phaser  +  TypeScript  +  Vite",
-        "x": 85,
-        "y": 290,
-        "w": 1430,
-        "h": 95,
-        "size": 52,
-        "color": "F5EEE9",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "Git / GitHub  →  GitHub Pages  →  Spela",
-        "x": 85,
-        "y": 440,
-        "w": 1430,
-        "h": 100,
-        "size": 42,
-        "color": "E8A18F",
-        "bold": false
-      },
-      {
-        "kind": "rect",
-        "x": 85,
-        "y": 630,
-        "w": 1430,
-        "h": 150,
-        "color": "4D2632"
-      },
-      {
-        "kind": "text",
-        "text": "Ingen backend. Ingen dedikerad spelserver. Bara en länk.",
-        "x": 120,
-        "y": 675,
-        "w": 1360,
-        "h": 65,
-        "size": 36,
-        "color": "F5EEE9",
-        "bold": false
-      }
-    ]
-  },
-  {
-    "kicker": "Allt gick inte som på räls",
-    "title": "AI skriver kod.\nAI skriver också buggar.",
-    "seconds": 60,
-    "notes": "Tre saker ur den faktiska projektdokumentationen. RTS-024 beskriver hur byggnader måste respektera arbetsvägar och produktionsutgångar. Navigation handlar alltså om mer än att hitta kortaste vägen. I slutgranskningen efter RTS-178 upptäcktes en konkret highscore-regression: validatorn accepterade bara Arena för de nya uppdragen. Det rättades och fick regressionstester. Och HANDOFF skiljer tekniska kontroller från mänsklig tids-, balans- och ljudgranskning. Grönt testresultat säger inte automatiskt att ett spel är roligt. Jag behövde fortfarande spela och göra bedömningen.",
-    "elements": [
-      {
-        "kind": "text",
-        "text": "ALLT GICK INTE SOM PÅ RÄLS",
-        "x": 85,
-        "y": 55,
-        "w": 1430,
-        "h": 30,
-        "size": 20,
-        "color": "E8A18F",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "AI skriver kod.\nAI skriver också buggar.",
-        "x": 85,
-        "y": 110,
-        "w": 1430,
-        "h": 190,
-        "size": 62,
-        "color": "F5EEE9",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "TOBIAS BERTILSSON  /  WARBOUND",
-        "x": 85,
-        "y": 850,
-        "w": 1200,
-        "h": 24,
-        "size": 16,
-        "color": "D8C6C0",
-        "bold": false
-      },
-      {
-        "kind": "text",
-        "text": "09 / 11",
-        "x": 1400,
-        "y": 850,
-        "w": 120,
-        "h": 24,
-        "size": 16,
-        "color": "D8C6C0",
-        "bold": false
-      },
-      {
-        "kind": "text",
-        "text": "01  Vägen måste förbli öppen",
-        "x": 85,
-        "y": 340,
-        "w": 1430,
-        "h": 55,
-        "size": 36,
-        "color": "E8A18F",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "Byggnader, arbetare och produktionsutgångar · RTS-024",
-        "x": 85,
-        "y": 405,
-        "w": 1430,
-        "h": 55,
-        "size": 27,
-        "color": "F5EEE9",
-        "bold": false
-      },
-      {
-        "kind": "text",
-        "text": "02  Nya kartor, gammal validator",
-        "x": 85,
-        "y": 495,
-        "w": 1430,
-        "h": 55,
-        "size": 36,
-        "color": "E8A18F",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "Highscore accepterade bara Arena · slutgranskning RTS-178",
-        "x": 85,
-        "y": 560,
-        "w": 1430,
-        "h": 55,
-        "size": 27,
-        "color": "F5EEE9",
-        "bold": false
-      },
-      {
-        "kind": "text",
-        "text": "03  Grönt test ≠ roligt spel",
-        "x": 85,
-        "y": 650,
-        "w": 1430,
-        "h": 55,
-        "size": 36,
-        "color": "E8A18F",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "Balans, speltid och ljud kräver mänsklig granskning",
-        "x": 85,
-        "y": 715,
-        "w": 1430,
-        "h": 55,
-        "size": 27,
-        "color": "F5EEE9",
-        "bold": false
-      }
-    ]
-  },
-  {
-    "kicker": "Vad jag tar med mig",
-    "title": "Börja smått. Behåll kontrollen.",
-    "seconds": 55,
-    "notes": "Mina tre lärdomar är enkla. Börja med något litet och spelbart, även om det bara är fyrkanter. Låt agenten göra implementationsarbetet, men behåll kontrollen över mål, beslut och resultat. Och underskatta inte små uppgifter, tester och dokumentation. Backloggen blev ett sätt att hålla riktningen över många iterationer. För mig handlade det till slut inte bara om att skriva kod snabbare. Det gjorde det möjligt att bygga något jag annars aldrig hade hunnit med.",
-    "elements": [
-      {
-        "kind": "text",
-        "text": "VAD JAG TAR MED MIG",
-        "x": 85,
-        "y": 55,
-        "w": 1430,
-        "h": 30,
-        "size": 20,
-        "color": "E8A18F",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "Börja smått. Behåll kontrollen.",
-        "x": 85,
-        "y": 110,
-        "w": 1430,
-        "h": 135,
-        "size": 62,
-        "color": "F5EEE9",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "TOBIAS BERTILSSON  /  WARBOUND",
-        "x": 85,
-        "y": 850,
-        "w": 1200,
-        "h": 24,
-        "size": 16,
-        "color": "D8C6C0",
-        "bold": false
-      },
-      {
-        "kind": "text",
-        "text": "10 / 11",
-        "x": 1400,
-        "y": 850,
-        "w": 120,
-        "h": 24,
-        "size": 16,
-        "color": "D8C6C0",
-        "bold": false
-      },
-      {
-        "kind": "text",
-        "text": "01   Bygg något litet och spelbart.\n02   Låt agenten implementera – du styr.\n03   Små uppgifter. Tester. Dokumentation.",
-        "x": 85,
-        "y": 285,
-        "w": 1430,
-        "h": 265,
-        "size": 38,
-        "color": "F5EEE9",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "”AI gjorde det möjligt att bygga något\njag annars aldrig hade hunnit.”",
-        "x": 85,
-        "y": 635,
-        "w": 1430,
-        "h": 150,
-        "size": 44,
-        "color": "E8A18F",
-        "bold": false
-      }
-    ]
-  },
-  {
-    "kicker": "Testa själv",
-    "title": "Det började med en idé.\nNu kan du spela det.",
-    "seconds": 35,
-    "notes": "Det här är startsidan ni möts av när ni öppnar Warbound. Skanna koden om ni vill prova. Länken är också klickbar i presentationen. Det började med nostalgi och ett litet experiment tillsammans med ChatGPT, och blev ett spel jag faktiskt kan öppna i webbläsaren. Tack! Jag tar gärna frågor efteråt. Om länken skulle omdirigeras är QR-koden ändå gjord för exakt den adress som står på sliden.",
-    "elements": [
-      {
-        "kind": "text",
-        "text": "TESTA SJÄLV",
-        "x": 85,
-        "y": 55,
-        "w": 1430,
-        "h": 30,
-        "size": 20,
-        "color": "E8A18F",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "Det började med en idé.\nNu kan du spela det.",
-        "x": 85,
-        "y": 110,
-        "w": 1430,
-        "h": 190,
-        "size": 62,
-        "color": "F5EEE9",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "TOBIAS BERTILSSON  /  WARBOUND",
-        "x": 85,
-        "y": 850,
-        "w": 1200,
-        "h": 24,
-        "size": 16,
-        "color": "D8C6C0",
-        "bold": false
-      },
-      {
-        "kind": "text",
-        "text": "11 / 11",
-        "x": 1400,
-        "y": 850,
-        "w": 120,
-        "h": 24,
-        "size": 16,
-        "color": "D8C6C0",
-        "bold": false
-      },
-      {
-        "kind": "image",
-        "file": "warbound-startsida.png",
-        "x": 85,
-        "y": 280,
-        "w": 990,
-        "h": 490
-      },
-      {
-        "kind": "image",
-        "file": "qr-warbound.png",
-        "x": 1110,
-        "y": 320,
-        "w": 360,
-        "h": 360
-      },
-      {
-        "kind": "text",
-        "text": "SKANNA & SPELA",
-        "x": 1090,
-        "y": 710,
-        "w": 410,
-        "h": 50,
-        "size": 28,
-        "color": "E8A18F",
-        "bold": true
-      },
-      {
-        "kind": "text",
-        "text": "tobisen.github.io/warbound/",
-        "x": 85,
-        "y": 785,
-        "w": 1430,
-        "h": 50,
-        "size": 30,
-        "color": "F5EEE9",
         "bold": false
       }
     ]

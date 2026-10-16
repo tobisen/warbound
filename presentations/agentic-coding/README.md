@@ -1,6 +1,6 @@
 # Jag ville bara spela Warcraft II igen…
 
-Svensk lightning talk om Agentic Coding och Warbound. **11 slides, 8 minuter 30 sekunder**.
+Svensk lightning talk om Agentic Coding och Warbound. **10 huvudslides, 8 minuter, plus en extraslide**.
 
 ## Webbversion
 
@@ -35,7 +35,7 @@ Verifieringen kräver Google Chrome på standardplats för macOS; på annan dato
 
 Bygger på [tobisen/vue-presentation-template](https://github.com/tobisen/vue-presentation-template), revision `4a77d76d92d84e1094e579d6048c4229a94884cf`. Mallens Vue-navigation, anteckningspanel, mörka burgundy/coral-färger och 16:9-format återanvänds. En egen Warbound-komponent ger bildbaserade layouter. Presentationens produktionsbygge läggs i spelets Pages-artifact under `presentation/`. Spelet behåller sin befintliga adress.
 
-Warbound-bilder kommer från [bildpaketets README](../../artifacts/presentation-2026-10-16/README.md). Historisk MVP6740128 har återkörts 2026-10-16; bilderna är inte tagna under den första utvecklingsveckan. Aktuellt gameplay är faktisk lokal v0.8.0-match. Assetbilderna är uppställda runtime-gallerier; slide 6 använder rena utsnitt (0,138–650,627) av originalen för läsbarhet. Inga nya spelbilder eller AI-bilder har skapats. Bildpaketets original är bevarade.
+Warbound-bilder kommer från [bildpaketets README](../../artifacts/presentation-2026-10-16/README.md). Historisk MVP6740128 har återkörts 2026-10-16; bilderna är inte tagna under den första utvecklingsveckan. Aktuellt gameplay är faktisk lokal v0.8.0-match. Assetbilderna är uppställda runtime-gallerier; slide 6 visar förstorade soldater och baser för alla fem raser, beskurna direkt ur spelets befintliga atlasframes. Inga nya spelbilder eller AI-bilder har skapats. Bildpaketets original är bevarade.
 
 Warcraft II-bilden på slide 1 är tydligt markerad inspiration, © Blizzard Entertainment, från [Wikipedia-bildsidan](https://en.wikipedia.org/wiki/File:WC2_Tides_UI_01.png), hämtad från [originalfilen](https://upload.wikimedia.org/wikipedia/en/3/3a/WC2_Tides_UI_01.png). Den ingår inte i Warbounds spelassets och är inte CC-licensierad.
 
@@ -53,7 +53,7 @@ Build med vue-tsc, browserrendering av alla elva slides, textgränser, laddade b
 
 ## Kartslide
 
-Slide7 visar River Crown: full kartöversikt och närbild vid zoom1. Båda är rena utsnitt från bildpaketets `karta-rivercrown-utan-fog.png` (553,65–1367,879) och `detalj-rivercrown-utan-fog.png` (0,48–1710,897). Full sikt är uttryckligen en testfixtur och anges på sliden.
+Extraslide11 visar River Crown: full kartöversikt och närbild vid zoom1. Båda är rena utsnitt från bildpaketets `karta-rivercrown-utan-fog.png` (553,65–1367,879) och `detalj-rivercrown-utan-fog.png` (0,48–1710,897). Full sikt är uttryckligen en testfixtur och anges på sliden.
 
 ## GitHub Pages
 
@@ -71,4 +71,37 @@ TALK_URL=http://127.0.0.1:5206/warbound/presentation/ REPORT_DIR=/tmp/warbound-t
 
 ## Faktiskt publicerad
 
-Verifierad på https://tobisen.github.io/warbound/presentation/ efter [grön CI och deploy](https://github.com/tobisen/warbound/actions/runs/38912432397) för commit `3b9923a`, avslutad 2026-10-16 16:43:09 Europe/Stockholm. Alla11 slides, bildladdning, textgränser, navigation/anteckningar, title/favicon och serverad QR passerar publik Chrome-kontroll. Spelets befintliga adress och meny fungerar också. Se [DEV_LOG](../../DEV_LOG.md) för belägg och kontroller.
+Verifierad på https://tobisen.github.io/warbound/presentation/ efter [grön CI och deploy](https://github.com/tobisen/warbound/actions/runs/38912432397) för commit `3b9923a`, avslutad 2026-10-16 16:43:09 Europe/Stockholm. Alla11 dåvarande slides, bildladdning, textgränser, navigation/anteckningar, title/favicon och serverad QR passerar publik Chrome-kontroll. Spelets befintliga adress och meny fungerar också. Se [DEV_LOG](../../DEV_LOG.md) för belägg och kontroller.
+
+## PDF
+
+[Uppdaterad PDF: 10 huvudslides + karta](exports/warbound-agentic-coding.pdf), exporterad från den publicerade webbversionen. Alla11 sidor har verifierats i16:9-format och renderats med PDFKit. Talarstöd finns separat i [talarstod.md](exports/talarstod.md).
+
+Återskapa med `npm run export:pdf`; `TALK_URL` kan ange en lokal eller annan publicerad webbversion. Kräver Chrome enligt samma `CHROME_PATH`-inställning som verifieringen.
+
+## Förbättring 2026-10-16
+
+Befintlig mall och färger behållna. Fem kalenderdagar gäller första fungerande
+versionen på fritiden, inte dagens spel. RTS-024-exemplet sammanfattar krav och
+historisk verifiering i BACKLOG/DEV_LOG; det är inget påstått ordagrant direktiv.
+Slide5 visar roller, hela arbetsflödet och problem/avgränsning/implementation/
+verifiering. Slide4 prioriterar den aktuella matchbilden; inga videofiler hittades
+i presentations-/bildpaketet, därför används den riktiga stillbilden.
+Slide6 visar en förstorad soldat och bas för var och en av de fem raserna.
+Kartslide11 ligger efter avslutningen och ingår inte i talbudgeten.
+
+Talaranteckningarna omfattar1026 ord för huvudflödet, cirka128 ord/minut över
+480 sekunder. Per slide117–141 ord/minut. Det är en beräknad talbudget, ingen
+mänskligt repeterad eller uppmätt framförandetid. Extrasliden har ingen tidsbudget.
+QR är360×360 på1600×900; avkodning verifieras både lokalt och från serverad bild.
+Faktisk skanning från publikplats är inte genomförd.
+
+PDF exporteras från samma slutliga lokala innehåll som publiceras, med11 sidor
+inklusive extrasliden. Pages-artifactet inkluderar PDF på
+[PDF på Pages](https://tobisen.github.io/warbound/presentation/warbound-agentic-coding.pdf).
+Tidigare publiceringsbelägg ovan gäller den tidigare presentationen;
+ny verifiering dokumenteras i DEV_LOG.
+
+Representativa sprites exporteras med `python3 scripts/export-representatives.py`
+(Pillow), från `public/assets/units-atlas` och `buildings-atlas`, player/SE-idle
+och complete. Humans saknar prefix, Orcs använder clans; övriga har rasnamn.

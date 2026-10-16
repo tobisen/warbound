@@ -6195,3 +6195,40 @@ redovisas ovan; ny full regression är faktiskt verifierad i CI.
 Slutuppdateringen är enbart Markdown: text/länkar/diff granskas; nyss gröna
 kod-/CI-/browserbelägg återanvänds utan onödiga omkörningar. CSS/units.mjs,
 docs/ och :memory:.ses bevarade utanför commits. Inga fler tasks startas.
+
+
+### PDF av presentationen — 2026-10-16
+
+Separat användarbeställd PDF i
+presentations/agentic-coding/exports/warbound-agentic-coding.pdf. Exporterad
+med Chrome från faktiskt publicerad webbversion, printläge, inga UI-kontroller
+eller talaranteckningar på slides.11 sidor i16:9 verifierade och samtliga
+sidor renderade med PDFKit samt visuellt granskade. Alla bilder/textgränser
+PASS; QR i renderad PDF avkodad till Warbound. Reproducerbart export:pdf-
+script och README tillagda. Diffcheck PASS; inga nya spelchecks, commit/push
+eller Pages-publicering i detta separata PDF-uppdrag.
+
+
+## 2026-10-16 — Förbättring av Warbound-presentationen
+
+Uttryckligt presentationsuppdrag; inga nya roadmap-/gameplaytasks.
+Befintlig burgundy-mall behålls.10 huvudslides/480s + kartan som extraslide.
+Fredag→onsdag och fritid/första fungerande version förstärkta. Större aktuell
+matchbild, faktiska atlasutsnitt för fem rasers soldater/baser. Roller och helt
+arbetsflöde samt dokumenterat RTS-024-exempel; två korta buggexempel024/178.
+Svenska talaranteckningar1026 ord, beräknat128 ord/minut, inte mänsklig repetition.
+Inget videomaterial hittat i presentations-/bildpaketet, ingen syntetisk gameplay.
+
+Ny lokal verifiering: presentationsbuild/vue-tsc PASS; Chrome alla11 slides,
+textgränser/bilder/navigation/notes/QR PASS. Samtliga renderade slides visuellt
+granskade; atlasutsnitt ersatte första beskärningen som hade galleritext.
+Slutlig PDF exporterad från lokal slutversion. Spelets unit537/92 PASS17.44s
+samt build/strict typecheck PASS med befintlig bundlevarning; diffcheck PASS.
+Ingen lokal bred matchregression för presentationsändringar; full npm test i CI.
+PDF inkluderas i Pages-artifactet. Publiceringsverifiering återstår vid commit.
+Befintliga CSS/units.mjs/docs/:memory: bevaras och exkluderas från leveransen.
+Tidigare PDF-exportarbete behålls och inkluderas som nödvändig leveransdel.
+
+PDFKit-verifiering:11 sidor, samtliga16:9, rasterrenderade och visuellt granskade
+utan text-/bildproblem. Slutlig review omfattade diff, fakta, notes/tidsbudget,
+QR360px och workflow-PDF-kopiering; inga blockerande fynd.

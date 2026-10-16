@@ -8,7 +8,8 @@
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "create:deck": "node scripts/create-deck.mjs",
-    "verify": "node scripts/verify.mjs"
+    "verify": "node scripts/verify.mjs",
+    "export:pdf": "node scripts/export-pdf.mjs"
   },
   "dependencies": {
     "vue": "^3.5.34"
