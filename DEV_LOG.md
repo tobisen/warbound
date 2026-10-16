@@ -6286,3 +6286,27 @@ Ny verifiering:
 Befintliga style.css, assets/sources/units.mjs, docs/ och :memory:.ses bevaras
 utanför taskcommiten. Inget separat gameplayhinder reproducerat i uppdrag3;
 andra svårigheter/sparningar kan behöva separat reproduktion vid fortsatt fel.
+
+
+## 2026-10-16 — GitHub-fel efter synliga missionsmål
+
+Faktiskt GitHub-resultat förf13f584:Actions38924942583 failure; två
+src/gameplay/operations.test.ts assertions för gamla markörer, build/deploy
+skipped. Föregående lokala urval missade operations-integrationerna.
+Uppdaterat för avsedd offentlig målkoordinat genom fog, fortsatt fogfiltrerade
+levande vakter och borttagna döda courier/guards. Nytt krav på radie belade
+också24px-fallback i faslösa operationer; presentation använder nu deras
+verkliga zonradie. Gameplayvillkor och Save-format består. Diffreview utan
+ytterligare fynd, användarändringar exkluderas från commit.
+
+Ny npm test -- src/gameplay/operations.test.ts src/gameplay/campaignPhases.test.ts
+src/gameplay/campaignSeries.test.ts:52 tester/3 filer PASS30.89s. Ny
+npm run test:unit:537/92 PASS27.11s; den sista radiekorrigeringen ligger i
+integrationsurvalet och verifierades därefter med52/3. Slutlig npm run build
+inklusive strict typecheck PASS691ms med befintlig bundlevarning;
+git diff --check PASS. Ett extra riktat försök före radiekorrigeringen
+fallerade på ny radieassertion; inga dolda timeout-/gameplayändringar.
+Full lokal npm test startades före sista test-/radieändringen; dess slutresultat
+är separat från slutlig CI. Browserlayoutbelägg800/1280 från föregående
+leverans återanvänds uttryckligen; ingen ny browser eller publicering hävdas.
+Push följs med GitHub API tills faktisk status finns; inga nya roadmaptasks.

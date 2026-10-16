@@ -16,7 +16,7 @@ export function operationMessage(m:MatchState):string{
 export function missionTargets(m:MatchState){
  const phase=campaignPhase(m),operation=operationFor(m.scenario);
  const points=phase?.points??((!m.campaignRun||phase?.goal==='operation')&&operation?[operation.zone]:[]);
- return points.filter(point=>phase?.goal!=='explore'||!m.fog||!isExplored(m.fog,'player',point)).map((position,index)=>({position:{...position},radius:phase?.goal==='expand'?96:phase?.goal==='position'?64:operation&&phase?.goal==='operation'?operation.radius:24,color:0xffdf73,label:`Goal ${index+1} (${position.x},${position.y})`}));
+ return points.filter(point=>phase?.goal!=='explore'||!m.fog||!isExplored(m.fog,'player',point)).map((position,index)=>({position:{...position},radius:phase?.goal==='expand'?96:phase?.goal==='position'?64:operation&&(!m.campaignRun||phase?.goal==='operation')?operation.radius:24,color:0xffdf73,label:`Goal ${index+1} (${position.x},${position.y})`}));
 }
 export function operationMarkers(m:MatchState){
  const targets=missionTargets(m),o=operationFor(m.scenario);if(!o)return targets;

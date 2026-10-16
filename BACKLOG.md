@@ -45,6 +45,21 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### CI-korrigering2026-10-16 — Missionsmarkörernas integrationstester
+
+[Actions38924942583](https://github.com/tobisen/warbound/actions/runs/38924942583)
+fallerade i två operations-integrationer som fortfarande förväntade fogdold
+målzon och etiketten Safe Zone. Förväntningarna följer nu uttryckligen briefade
+koordinater genom fog, fortsatt dolda vakter och borttagna döda enheter.
+Utökad kontroll kräver också faktisk zonradie; äldre faslösa operationer använde
+24px, rättat till operation.radius. Inga seger-/förlust-/fogregler ändrade.
+Ny riktad operations/campaignPhases/campaignSeries52/3 PASS30.89s,
+unit537/92 PASS27.11s och slutlig strict build/diff PASS. Lokalt fullförsök
+startade före sista korrigeringen och redovisas separat; slutlig fullregression
+verifieras i nya CI-körningen efter push. Browserbilder från föregående
+leverans återanvänds uttryckligen för oförändrad layout, ingen ny browsercheck.
+Ingen grön CI/Pages hävdas före faktiskt resultat.
+
 ### Korrigering2026-10-16 — Synligt nästa missionssteg — Done
 
 Användaruppdrag: visa nästa missionssteg under spel och målkoordinater på kartan;

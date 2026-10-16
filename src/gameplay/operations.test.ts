@@ -41,7 +41,16 @@ it('capture has equal gameplay timing over different deltas, exact completion an
  for(const delta of [.05,.2,1,7]){let m:MatchState=operationMatch('mission-capture');m.combat.enemies=[];soldier(m,operationConfig['mission-capture'].zone);m=updateMatch(m,12);const loaded=decodeSave(encodeSave({...m,paused:true},view));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(!loaded.ok)continue;m={...loaded.match,paused:false};expect(m.capture?.holdSeconds).toBe(12);for(let i=0;i<1000&&m.outcome==='playing';i++)m=updateMatch(m,delta);expect(m.outcome).toBe('victory');expect(m.waves.elapsedSeconds).toBeCloseTo(30,7);expect(m.capture?.holdSeconds).toBe(30);expect(decodeSave(encodeSave(m,view)).ok).toBe(true);}
 },30_000); // Full MatchState/Save integration at four deltas; allow CI CPU contention.
 it('capture zero delta and pause add no hold time',()=>{const m=operationMatch('mission-capture');m.combat.enemies=[];soldier(m,operationConfig['mission-capture'].zone);expect(updateMatch(m,0).capture?.holdSeconds).toBe(0);expect(updateMatch({...m,paused:true},100).capture?.holdSeconds).toBe(0);});
-it('mission markers respect fog and name real courier/guards; status explains goals',()=>{const m=operationMatch('mission-escort');expect(operationMarkers(m).map(m=>m.label)).toEqual(['Ridge Courier']);expect(operationMessage(m)).toMatch(/Guards remaining: 2/);const o=operationFor(m.scenario)!;m.fog=undefined;expect(operationMarkers(m).map(m=>m.label)).toEqual(['Safe Zone','Ridge Courier',...o.guards.map(g=>g.name)]);});
+it('briefed goal coordinates remain visible through fog while courier/guard markers follow live visibility',()=>{
+ const m=operationMatch('mission-escort'),o=operationFor(m.scenario)!,goal=`Goal 1 (${o.zone.x},${o.zone.y})`;
+ const before=structuredClone(m),markers=operationMarkers(m);
+ expect(markers.map(v=>v.label)).toEqual([goal,'Ridge Courier']);
+ expect(markers[0]).toMatchObject({position:o.zone,radius:o.radius});
+ expect(m).toEqual(before);
+ expect(operationMessage(m)).toMatch(/Guards remaining: 2/);
+ m.fog=undefined;
+ expect(operationMarkers(m).map(v=>v.label)).toEqual([goal,'Ridge Courier',...o.guards.map(g=>g.name)]);
+});
 it('config31 campaign migration preserves existing match identity and does not inject operation state',()=>{const m={...createMatch('tutorial','beginner',{player:'elves',enemy:'dwarves'}),campaignMission:'first-steps' as const},doc=JSON.parse(encodeSave(m,view));legacyTerrainFixture(doc);doc.configVersion='tribute-config-31';const loaded=decodeSave(JSON.stringify(doc));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(loaded.ok){expect(loaded.match.factions).toEqual(m.factions);expect(loaded.match.capture).toBeUndefined();}});
 it('strict Save rejects spoofed courier, guards, capture time and operation state in legacy/other missions',()=>{
  const escort=operationMatch('mission-escort'),capture=operationMatch('mission-capture'),doc=JSON.parse(encodeSave(escort,view));doc.state.gathering.units.find((u:{id:string})=>u.id==='unit-4').kind='soldier';expect(decodeSave(JSON.stringify(doc)).ok).toBe(false);
@@ -57,4 +66,4 @@ it('old five-completion local progression remains valid and unlocks the new conv
 
 it('a zero-time objective check resets lost control without advancing the match clock',()=>{let m:MatchState=operationMatch('mission-capture');m.combat.enemies=[];const u=soldier(m,operationConfig['mission-capture'].zone);m=updateMatch(m,10);m.gathering.units=m.gathering.units.filter(v=>v.id!==u.id);m=updateMatch(m,0);expect(m.capture?.holdSeconds).toBe(0);expect(m.waves.elapsedSeconds).toBe(10);});
 
-it('dead courier and guards never appear as living mission markers or status',()=>{const m=operationMatch('mission-escort');m.fog=undefined;m.gathering.units.find(u=>u.id==='unit-4')!.hp=0;for(const e of m.combat.enemies)e.hp=0;expect(operationMarkers(m).map(v=>v.label)).toEqual(['Safe Zone']);expect(operationMessage(m)).toMatch(/Courier: lost/);expect(operationMessage(m)).toMatch(/remaining: 0/);});
+it('dead courier and guards never appear as living mission markers or status',()=>{const m=operationMatch('mission-escort');m.fog=undefined;m.gathering.units.find(u=>u.id==='unit-4')!.hp=0;for(const e of m.combat.enemies)e.hp=0;const zone=operationFor(m.scenario)!.zone;expect(operationMarkers(m).map(v=>v.label)).toEqual([`Goal 1 (${zone.x},${zone.y})`]);expect(operationMessage(m)).toMatch(/Courier: lost/);expect(operationMessage(m)).toMatch(/remaining: 0/);});
