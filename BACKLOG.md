@@ -45,6 +45,18 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### CI-korrigering verifierad2026-10-16 — Done
+
+Missionsmarkörerna rättade i0325742 och individuell treägar-Save-timeout i7555ee7,
+båda pushade tillorigin/main. [Actions38952196736](https://github.com/tobisen/warbound/actions/runs/38952196736)
+för7555ee7 är faktiskt **Success**: npm ci, full npm test, strict build,
+presentationsbygge, Pages-artifact och deploy PASS. Verifierat från offentliga
+run-/jobbsidor; inget nytt versionsnummer eller offentlig browsercheck hävdas.
+Tidigare failure38924942583/38949127294 är historik, inte omkörda gröna.
+Ny lokal riktad15/1, unit537/92 och strict build/diff PASS;52/3 från markörfixen
+återanvänds uttryckligen efter enbart testdeadline. Slutlig docsändring granskas
+med text-/diffcheck; inga kodchecks upprepas. Användarändringar bevarade.
+
 ### Andra CI-korrigeringen2026-10-16 — Treägar-Save-timeout
 
 Actions38949127294 för0325742 avslutades failure: enda testannoteringen är

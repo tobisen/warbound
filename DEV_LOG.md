@@ -6329,3 +6329,20 @@ slutade2026/220 PASS773.19s; startade före sista0325742-test/radieändringen
 så slutlig push verifieras separat genom ny CI. GitHub API:s anonyma
 läsgräns nåddes under bevakning; offentliga jobbsidan användes för faktiskt
 fel/slutstatus. Användarens övriga ändringar fortsatt bevarade.
+
+
+## 2026-10-16 — CI och Pages faktiskt gröna efter båda korrigeringarna
+
+Commit0325742 (markörtester + äldre zonradie) och7555ee7 (enskild Save-timeout)
+är pushade tillorigin/main. Slutlig Actions38952196736 för7555ee7 är Success.
+Offentliga build-jobbet117146072314 verifierat: npm ci, full npm test, npm run
+build inklusive strict typecheck, presentationens npm ci/build, artifactupload
+alla success. Deploy-jobbet117153557357: Deploy success. Historiska
+failure38924942583/38949127294 förblir korrekt redovisade; deras fel har inte
+betecknats som omkörda gröna. Slutlig fullregression gäller nu faktiskt pushad
+kod i CI, separat från tidigare lokala2026/220-försök som startade före sista
+radiekorrigeringen. Ingen separat offentlig browsercheck/versionrelease hävdas.
+
+Slutlig dokumentationsuppdatering: textens konsekvens och git diff --check PASS;
+inga kodändringar, redan redovisade kodchecks återanvänds uttryckligen.
+Befintliga style.css, assets/sources/units.mjs, docs/ och :memory:.ses bevarade.
