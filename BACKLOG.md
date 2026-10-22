@@ -6498,3 +6498,9 @@ Webb: https://tobisen.github.io/warbound/presentation/
 PDF: https://tobisen.github.io/warbound/presentation/warbound-agentic-coding.pdf
 Efterföljande dokumentcommit ändrar bara Markdown; nya passerade kod-/browserchecks
 ovan återanvänds uttryckligen, ingen ny CI krävs för dokumentationen.
+
+## Presentation publicerad — 2026-10-22
+
+Användaren beställde Pages-publicering efter skip-ci-pushen. Befintligt `pages.yml` startat manuellt för854af33. [Actions39727019945](https://github.com/tobisen/warbound/actions/runs/39727019945) är faktiskt grön: npm ci, full npm test, strict spelbuild, separat presentationsbuild och Pages-deploy. Deploy klar2026-10-22 kl07:34:01 Europe/Stockholm. Inga lokala testsuiter körda i publiceringsuppdraget.
+
+Publik Chrome-kontroll: HTTP200,13 slides, slide7 ”Warbound i siffror”, sista slide ”HOLLOWBANE”, alla tre teaserbilder laddade och PDF HTTP200. Rårapport `/tmp/warbound-pages-hollowbane-public.json`, screenshot `/tmp/warbound-pages-hollowbane-public.png`. [Presentation](https://tobisen.github.io/warbound/presentation/). Detta ersätter tidigare uppgift om att de två nya slidesen bara finns lokalt/i Git. Användarens övriga ändringar bevarade.
