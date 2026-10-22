@@ -1,6 +1,6 @@
 # Talarstöd – Warbound och Agentic Coding
 
-10 huvudslides, 480 sekunder (8 minuter). Kartan är extra och ingår inte i tiden. Tiderna är talbudgetar, inte en verifierad mänsklig repetition.
+11 huvudslides, 515 sekunder (8 minuter 35 sekunder). Kartan och Hollowbane-teasern är extra och ingår inte i tiden. Tiderna är talbudgetar, inte en verifierad mänsklig repetition.
 
 ## 1. Jag ville bara spela Warcraft II igen… — 40 sek
 
@@ -26,22 +26,30 @@ Här är mitt utvecklingsteam. Jag stod för idéer, prioritering, beslut och te
 
 Sedan blev det förstås lite mer än ett litet RTS. Nu finns fem spelbara raser: Humans, Orcs, Elves, Dwarves och Goblins. Här ser ni ett urval av deras faktiska enheter och byggnader, hämtade ur spelets atlaser. Det finns också sjö- och luftenheter, teknikträd och AI-motståndare. Jag visar inte detta för att räkna funktioner. Poängen är att samma arbetssätt kunde fortsätta efter den första versionen. Över tvåhundra uppgifter, en i taget. Det är väldigt lätt att säga bara en sak till. Backloggen fick bli mitt försök att hålla det där under någorlunda kontroll.
 
-## 7. Ett RTS. En webbläsare. — 40 sek
+## 7. Warbound i siffror — 35 sek
+
+Vi har byggt ett spelbart RTS i webbläsaren, med ekonomi, basbygge, teknikträd och strider på land, till sjöss och i luften. Fem raser har egna namn och varianter av fjorton enhetstyper: elva land- och luftenheter samt tre fartyg. Det blir sjuttio rasvarianter, inte sjuttio olika roller. De tolv byggnadstyperna räknar åtta ordinarie byggnader, hamn, mur, port och torn; uppgraderingar räknas inte som nya typer. Varje raskampanj innehåller femton uppdrag: åtta gemensamma uppdrag och sju rasspecifika. Totalt finns därför fyrtiotre unika uppdragsdefinitioner, inte sjuttiofem unika uppdrag. Dessutom kan man spela skirmish mot upp till fyra AI-motståndare, med lag och möjlighet att spara och ladda.
+
+## 8. Ett RTS. En webbläsare. — 40 sek
 
 Tekniken är ganska okomplicerad. Phaser för spelet, TypeScript för logiken och Vite för att köra och bygga. Git och GitHub håller ihop historiken. GitHub Pages serverar det färdiga bygget. Allt spelande körs direkt i webbläsaren; det behövs ingen backend eller dedikerad spelserver. För den som vill prova är det bara en länk. Det var också värdefullt under utvecklingen. Jag kunde öppna en version och direkt testa vad som hade ändrats, utan att installation och distribution blev ett eget stort projekt. Tekniken gav oss en kort väg från uppgift till något spelbart.
 
-## 8. AI skriver kod. AI skriver också buggar. — 70 sek
+## 9. AI skriver kod. AI skriver också buggar. — 70 sek
 
 Det här betyder förstås inte att AI slutade skriva buggar. Ta byggnaderna igen. Att en byggnad får plats är en sak. Att arbetaren fortfarande kommer hem med veden är en annan. RTS-024 visar varför uppgiften behövde beskriva beteendet runt funktionen, inte bara själva byggknappen. Ett senare exempel var RTS-178. Nya kartval lades till, men en gammal highscore-validator accepterade fortfarande bara Arena för de berörda uppdragen. Den hittades vid slutgranskningen. Fixen accepterade kartan från uppdragskonfigurationen och bevarade gamla resultat. Den fick regressionstester och kontrollerades med en riktig Frontier-resultpost i browsern. Två ganska olika problem, samma lärdom: man måste testa hur systemen möts. Och även när testerna är gröna återstår en annan fråga: vill någon spela? Ett test kan kontrollera att en match går att vinna. Det kan inte automatiskt avgöra om tempot känns bra, om raserna är roliga eller om balansen håller. Där behöver jag fortfarande spela, lyssna och göra en mänsklig bedömning.
 
-## 9. Börja smått. Behåll kontrollen. — 40 sek
+## 10. Börja smått. Behåll kontrollen. — 40 sek
 
 Det jag tar med mig är egentligen tre saker. Börja smått och bygg något spelbart. Fyrkanter duger alldeles utmärkt om de hjälper dig att prova idén. Låt agenten implementera, men behåll kontrollen över vad som ska byggas och om resultatet blev rätt. Och små uppgifter, tester och dokumentation gör skillnad. De hjälper både mig och agenten att hålla riktningen mellan kvällarna. För mig var vinsten inte bara att skriva kod snabbare. AI gjorde det möjligt att bygga något jag annars aldrig hade hunnit. Det var ju trots allt bara Warcraft II jag ville spela.
 
-## 10. Det började med en idé. Nu kan du spela det. — 20 sek
+## 11. Det började med en idé. Nu kan du spela det. — 20 sek
 
 Vill ni prova finns Warbound här. Skanna koden eller öppna länken. Det började som en fredagsidé och blev ett spel jag kan öppna i webbläsaren. Tack! Jag tar gärna frågor. Och ja, det finns säkert fortfarande buggar att hitta.
 
-## Extra. Hela kartan. Och detaljerna. — 0 sek
+## 12. Hela kartan. Och detaljerna. — 0 sek
 
 Extraslide utanför åttaminutersflödet. Här är River Crown. Till vänster hela kartan, utzoomad: skogar, vatten, berg och vägar som formar var man kan röra sig. Till höger samma karta vid spelzoom, med träd, gruvor och skatter. Båda är faktiska spelbilder. Fog of war är avstängd i just de här dokumenterade testbilderna så att terrängen går att se. Det är en visning av kartan, inte en naturligt utforskad match.
+
+## 13. Nästa kapitel: Hollowbane — extra
+
+En sista teaser: nästa projekt heter Hollowbane. Här är bilder från projektet: en bosskamp i Ancient Crypt, Haunted Forest och den tidigare miljö- och rörelseprototypen The Veiled Cloister. Det här är en förhandstitt på ett pågående projekt, inte ett löfte om färdig produkt eller releasedatum. Samma nyfikenhet. Ett nytt kapitel.

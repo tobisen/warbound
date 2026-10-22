@@ -8,7 +8,7 @@ const reportDir=process.env.REPORT_DIR||root+'exports/review';
 const slides=JSON.parse(await readFile(root+'src/data/talk.json','utf8'));
 const qr=PNG.sync.read(await readFile(root+'public/images/qr-warbound.png'));
 if(jsQR(new Uint8ClampedArray(qr.data),qr.width,qr.height)?.data!=='https://tobisen.github.io/warbound/')throw Error('QR mismatch');
-if(slides.length!==11||slides.reduce((t,s)=>t+s.seconds,0)!==480)throw Error('Count or timing mismatch');
+if(slides.length!==13||slides.reduce((t,s)=>t+s.seconds,0)!==515)throw Error('Count or timing mismatch');
 for(const s of slides)for(const e of s.elements)if(e.x<0||e.y<0||e.x+e.w>1600||e.y+e.h>900)throw Error('Outside slide');
 await mkdir(reportDir,{recursive:true});
 const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
@@ -20,7 +20,7 @@ try{
  const icon=await page.request.get(new URL('favicon.svg',target).href);
  if(!icon.ok()||!(await icon.text()).includes('<svg'))throw Error('Favicon missing');
  const cards=page.locator('.warbound-slide');
- if(await cards.count()!==11)throw Error('Rendered slide count');
+ if(await cards.count()!==13)throw Error('Rendered slide count');
  for(let i=0;i<slides.length;i++){
   const card=cards.nth(i);await card.screenshot({path:reportDir+`/slide-${String(i+1).padStart(2,'0')}.png`});
   const issues=await card.evaluate(el=>Array.from(el.querySelectorAll('.talk-text')).filter(n=>n.scrollHeight>n.clientHeight+3||n.scrollWidth>n.clientWidth+3).map(n=>n.textContent));
@@ -39,6 +39,6 @@ try{
  await page.keyboard.press('n');
  await page.setViewportSize({width:1280,height:720});await page.screenshot({path:reportDir+'/browser-1280.png'});
  if(errors.length)throw Error(errors.join('\n'));
- await writeFile(reportDir+'/verification.json',JSON.stringify({slides:11,seconds:480,qrDecoded:true,imagesLoaded:true,textBounds:true,navigation:true,notes:true,browserErrors:errors},null,2)+'\n');
- console.log('PASS: 11 slides, 480s, decoded QR, image loading, text bounds, keyboard navigation, speaker notes.');
+ await writeFile(reportDir+'/verification.json',JSON.stringify({slides:13,seconds:515,qrDecoded:true,imagesLoaded:true,textBounds:true,navigation:true,notes:true,browserErrors:errors},null,2)+'\n');
+ console.log('PASS: 13 slides, 515s, decoded QR, image loading, text bounds, keyboard navigation, speaker notes.');
 }finally{await browser.close();}

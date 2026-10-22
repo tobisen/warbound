@@ -40,7 +40,7 @@
       },
       {
         "kind": "text",
-        "text": "01 / 10",
+        "text": "01 / 11",
         "x": 1370,
         "y": 850,
         "w": 145,
@@ -133,7 +133,7 @@
       },
       {
         "kind": "text",
-        "text": "02 / 10",
+        "text": "02 / 11",
         "x": 1370,
         "y": 850,
         "w": 145,
@@ -297,7 +297,7 @@
       },
       {
         "kind": "text",
-        "text": "03 / 10",
+        "text": "03 / 11",
         "x": 1370,
         "y": 850,
         "w": 145,
@@ -379,7 +379,7 @@
       },
       {
         "kind": "text",
-        "text": "04 / 10",
+        "text": "04 / 11",
         "x": 1370,
         "y": 850,
         "w": 145,
@@ -469,7 +469,7 @@
       },
       {
         "kind": "text",
-        "text": "05 / 10",
+        "text": "05 / 11",
         "x": 1370,
         "y": 850,
         "w": 145,
@@ -743,7 +743,7 @@
       },
       {
         "kind": "text",
-        "text": "06 / 10",
+        "text": "06 / 11",
         "x": 1370,
         "y": 850,
         "w": 145,
@@ -912,6 +912,201 @@
     ]
   },
   {
+    "kicker": "Det här har vi byggt",
+    "title": "Warbound i siffror",
+    "seconds": 35,
+    "notes": "Vi har byggt ett spelbart RTS i webbläsaren, med ekonomi, basbygge, teknikträd och strider på land, till sjöss och i luften. Fem raser har egna namn och varianter av fjorton enhetstyper: elva land- och luftenheter samt tre fartyg. Det blir sjuttio rasvarianter, inte sjuttio olika roller. De tolv byggnadstyperna räknar åtta ordinarie byggnader, hamn, mur, port och torn; uppgraderingar räknas inte som nya typer. Varje raskampanj innehåller femton uppdrag: åtta gemensamma uppdrag och sju rasspecifika. Totalt finns därför fyrtiotre unika uppdragsdefinitioner, inte sjuttiofem unika uppdrag. Dessutom kan man spela skirmish mot upp till fyra AI-motståndare, med lag och möjlighet att spara och ladda.",
+    "elements": [
+      {
+        "kind": "text",
+        "text": "DET HÄR HAR VI BYGGT",
+        "x": 85,
+        "y": 55,
+        "w": 1430,
+        "h": 30,
+        "size": 20,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Warbound i siffror",
+        "x": 85,
+        "y": 110,
+        "w": 1430,
+        "h": 100,
+        "size": 68,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "5",
+        "x": 85,
+        "y": 270,
+        "w": 170,
+        "h": 110,
+        "size": 92,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "spelbara raser",
+        "x": 265,
+        "y": 282,
+        "w": 520,
+        "h": 65,
+        "size": 34,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Människor, orcher, alver, dvärgar och gobliner",
+        "x": 85,
+        "y": 395,
+        "w": 690,
+        "h": 64,
+        "size": 25,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "14",
+        "x": 825,
+        "y": 270,
+        "w": 170,
+        "h": 110,
+        "size": 92,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "enhetstyper per ras",
+        "x": 1005,
+        "y": 282,
+        "w": 520,
+        "h": 65,
+        "size": 34,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "11 land-/lufttyper + 3 fartyg · 70 rasvarianter",
+        "x": 825,
+        "y": 395,
+        "w": 690,
+        "h": 64,
+        "size": 25,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "12",
+        "x": 85,
+        "y": 495,
+        "w": 170,
+        "h": 110,
+        "size": 92,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "byggnadstyper",
+        "x": 265,
+        "y": 507,
+        "w": 520,
+        "h": 65,
+        "size": 34,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Inklusive hamn, mur, port och torn",
+        "x": 85,
+        "y": 620,
+        "w": 690,
+        "h": 64,
+        "size": 25,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "15",
+        "x": 825,
+        "y": 495,
+        "w": 170,
+        "h": 110,
+        "size": 92,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "uppdrag per raskampanj",
+        "x": 1005,
+        "y": 507,
+        "w": 520,
+        "h": 65,
+        "size": 34,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "8 gemensamma + 7 egna · 43 unika totalt",
+        "x": 825,
+        "y": 620,
+        "w": 690,
+        "h": 64,
+        "size": 25,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "Basbygge · teknikträd · land, sjö och luft · upp till 4 AI · spara/ladda",
+        "x": 85,
+        "y": 758,
+        "w": 1430,
+        "h": 60,
+        "size": 30,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "TOBIAS BERTILSSON  /  WARBOUND",
+        "x": 85,
+        "y": 850,
+        "w": 1200,
+        "h": 24,
+        "size": 16,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "07 / 11",
+        "x": 1370,
+        "y": 850,
+        "w": 145,
+        "h": 24,
+        "size": 16,
+        "color": "D8C6C0",
+        "bold": false
+      }
+    ]
+  },
+  {
     "kicker": "Tekniken bakom",
     "title": "Ett RTS. En webbläsare.",
     "seconds": 40,
@@ -952,7 +1147,7 @@
       },
       {
         "kind": "text",
-        "text": "07 / 10",
+        "text": "08 / 11",
         "x": 1370,
         "y": 850,
         "w": 145,
@@ -1045,7 +1240,7 @@
       },
       {
         "kind": "text",
-        "text": "08 / 10",
+        "text": "09 / 11",
         "x": 1370,
         "y": 850,
         "w": 145,
@@ -1152,7 +1347,7 @@
       },
       {
         "kind": "text",
-        "text": "09 / 10",
+        "text": "10 / 11",
         "x": 1370,
         "y": 850,
         "w": 145,
@@ -1226,7 +1421,7 @@
       },
       {
         "kind": "text",
-        "text": "10 / 10",
+        "text": "11 / 11",
         "x": 1370,
         "y": 850,
         "w": 145,
@@ -1371,6 +1566,93 @@
         "w": 1430,
         "h": 23,
         "size": 18,
+        "color": "D8C6C0",
+        "bold": false
+      }
+    ]
+  },
+  {
+    "kicker": "Nästa projekt",
+    "title": "Nästa kapitel: Hollowbane",
+    "seconds": 0,
+    "notes": "En sista teaser: nästa projekt heter Hollowbane. Här är bilder från projektet: en bosskamp i Ancient Crypt, Haunted Forest och den tidigare miljö- och rörelseprototypen The Veiled Cloister. Det här är en förhandstitt på ett pågående projekt, inte ett löfte om färdig produkt eller releasedatum. Samma nyfikenhet. Ett nytt kapitel.",
+    "elements": [
+      {
+        "kind": "text",
+        "text": "EN SISTA SAK…",
+        "x": 85,
+        "y": 55,
+        "w": 1430,
+        "h": 30,
+        "size": 20,
+        "color": "E8A18F",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "HOLLOWBANE",
+        "x": 85,
+        "y": 108,
+        "w": 1430,
+        "h": 110,
+        "size": 84,
+        "color": "F5EEE9",
+        "bold": true
+      },
+      {
+        "kind": "text",
+        "text": "Nästa spel. Ett mörkare kapitel.",
+        "x": 85,
+        "y": 222,
+        "w": 1430,
+        "h": 48,
+        "size": 36,
+        "color": "E8A18F",
+        "bold": false
+      },
+      {
+        "kind": "image",
+        "file": "hollowbane-bosskamp.png",
+        "x": 85,
+        "y": 310,
+        "w": 920,
+        "h": 517.5
+      },
+      {
+        "kind": "image",
+        "file": "hollowbane-skogen.png",
+        "x": 1040,
+        "y": 300,
+        "w": 475,
+        "h": 267.1875
+      },
+      {
+        "kind": "image",
+        "file": "hollowbane-cloister.png",
+        "x": 1095,
+        "y": 580,
+        "w": 365,
+        "h": 270.083
+      },
+      {
+        "kind": "text",
+        "text": "TOBIAS BERTILSSON  /  NÄSTA PROJEKT",
+        "x": 85,
+        "y": 850,
+        "w": 1200,
+        "h": 24,
+        "size": 16,
+        "color": "D8C6C0",
+        "bold": false
+      },
+      {
+        "kind": "text",
+        "text": "TEASER",
+        "x": 1370,
+        "y": 850,
+        "w": 145,
+        "h": 24,
+        "size": 16,
         "color": "D8C6C0",
         "bold": false
       }

@@ -1,5 +1,13 @@
 # Backlog
 
+## Presentation — Hollowbane-teaser 2026-10-22
+
+Sista slide13 visar nästa projekt, Hollowbane, med tre användartillhandahållna bilder. Innehållssliden från föregående uppdrag ingår också i leveransen. PDF/talarstöd uppdaterade; teasern visuellt granskad. Inga tester eller ny build körda för teasern enligt användarens instruktion. Commit/push godkänd; `[skip ci]` förhindrar testworkflow och därmed även automatisk Pages-publicering. Inga nya gameplay-/roadmaptasks.
+
+## Presentation — lokal innehållsslide 2026-10-22
+
+Beställd slide ”Warbound i siffror” tillagd efter rasgalleriet, utan ny roadmaptask eller gameplayändring.5 raser,14 enhetstyper/ras,12 byggnadstyper,15 uppdrag/raskampanj (43 unika totalt). Bygge/typecheck, Chrome och PDF-export PASS; se DEV_LOG. Ingen commit/push/publicering enligt uppdraget.
+
 ## 2026-10-07 — CI-korrigering verifierad på GitHub
 
 Fix67f1cc7 är pushad till origin/main. [Actions37598064764](https://github.com/tobisen/warcraft-2-tribute/actions/runs/37598064764)

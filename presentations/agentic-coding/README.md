@@ -1,6 +1,6 @@
 # Jag ville bara spela Warcraft II igen…
 
-Svensk lightning talk om Agentic Coding och Warbound. **10 huvudslides, 8 minuter, plus en extraslide**.
+Svensk lightning talk om Agentic Coding och Warbound. **11 huvudslides, 8 minuter 35 sekunder, plus två extraslides**.
 
 ## Webbversion
 
@@ -53,7 +53,7 @@ Build med vue-tsc, browserrendering av alla elva slides, textgränser, laddade b
 
 ## Kartslide
 
-Extraslide11 visar River Crown: full kartöversikt och närbild vid zoom1. Båda är rena utsnitt från bildpaketets `karta-rivercrown-utan-fog.png` (553,65–1367,879) och `detalj-rivercrown-utan-fog.png` (0,48–1710,897). Full sikt är uttryckligen en testfixtur och anges på sliden.
+Extraslide12 visar River Crown: full kartöversikt och närbild vid zoom1. Båda är rena utsnitt från bildpaketets `karta-rivercrown-utan-fog.png` (553,65–1367,879) och `detalj-rivercrown-utan-fog.png` (0,48–1710,897). Full sikt är uttryckligen en testfixtur och anges på sliden.
 
 ## GitHub Pages
 
@@ -115,3 +115,11 @@ källan exakt;18 använda bilder och PDF är byte-exakta mot granskad lokal leve
 Presentationsbuild/vue-tsc, spelunit537/92, strict spelbuild och diffcheck PASS
 lokalt; fullregression/build/Pages PASS i denna nya CI. Äldre publiceringsuppgifter
 ovan är historik. Ingen mänsklig repetition eller skanning från publikplats hävdas.
+
+## Lokal innehållsslide — 2026-10-22
+
+Ny slide7, ”Warbound i siffror”:5 raser,14 enhetstyper/ras (11 rosterroller +3 flottroller;70 rasvarianter),12 byggnadstyper (8 i fraktionskatalogen +hamn/mur/port/torn) och15 uppdrag/raskampanj (8 gemensamma +7 egna;43 unika definitioner totalt). Källor: `src/config/factions.ts`, `src/config/defenses.ts`, `src/config/campaign.ts`, `src/config/campaignExpeditions.ts` och `src/config/campaignSeries.ts` i spelprojektet. Inga uppgraderingsnivåer, djur eller kampanj-NPC:er räknas som nya typer. Tidigare publik verifiering ovan gäller den publicerade versionen; denna ändring är lokal och inte committad/publicerad.
+
+## Hollowbane-teaser — 2026-10-22
+
+Sista sliden13 visar ”HOLLOWBANE — Nästa spel. Ett mörkare kapitel.” med tre användartillhandahållna projektbilder. Originalfiler kopierade utan bildändringar från skrivbordet: `01-hollowbane-bosskamp.png`, `02-hollowbane-skogen.png` och `Skärmavbild 2026-10-17 kl. 23.18.44.png`. De lagras som `hollowbane-bosskamp.png`, `hollowbane-skogen.png` och `hollowbane-cloister.png` under `public/images/`. Cloister-bilden är en tidigare miljö-/rörelseprototyp; inget påstående om releasedatum eller slutkvalitet. Teasern är extra, så talbudgeten515s är oförändrad. Inga tester körs för denna ändring enligt användarens instruktion.

@@ -6380,3 +6380,15 @@ riktade47/5, strict build, faktisk browser800/1280, scriptsyntax/diff/review PAS
 Explorativa profiler och konkurrerande mätning ersatta av isolerad slutmätning;
 browserfixturens initiala offscreenklick rättat i testkameran. Inga roadmaptasks
 eller ny CI/Pages/releaseverifiering. Användarens CSS/units.mjs/docs/ bevarade.
+
+## 2026-10-22 — Lokal presentationsslide: Warbound i siffror
+
+Uttryckligt uppdrag utan commit. Ny slide7 efter rasgalleriet i befintlig stil. Antalen kontrollerade genom att läsa in spelets faktiska config:5 raser; vardera11 rosterroller +3 flottroller =14 enhetstyper (70 rasvarianter);8 katalogbyggnader +hamn/mur/port/torn =12 byggnadstyper;8 gemensamma +7 rasspecifika uppdrag =15 per raskampanj och43 unika uppdragsdefinitioner totalt. Uppgraderingar/NPC:er/djur räknas inte som nya typer.
+
+Talarstöd, sidnummer, verifieringsscript, PDF-exportscript och README uppdaterade.12 slides totalt,11 huvudslides och kartan som extra;515 sekunders talbudget, ingen mänsklig repetition hävdas. `npm run build --prefix presentations/agentic-coding` PASS (vue-tsc +Vite). Lokal Chrome `REPORT_DIR=/tmp/warbound-talk-stats-review npm run verify` PASS:12 slides,515s, bilder, textgränser, navigation/notes, title/favicon och QR. Slide7 visuellt granskad. Lokal PDF-export PASS,12 slides utan textoverflow/runtimefel. Ingen bred spelregression eftersom gameplay är oförändrat. Befintliga användarändringar bevarade; ingen commit/push eller publik deploy.
+
+## 2026-10-22 — Sista teaser: Hollowbane
+
+Användaren beställer sista teaserslide med bifogade projektbilder och godkänner commit/push, utan tester. Slide13: ”HOLLOWBANE — Nästa spel. Ett mörkare kapitel.” Tre motsvarande originalbilder hittades på användarens Desktop och kopierades till presentationens public/images; proveniens dokumenterad i paketets README. Den tidigare innehållssliden ingår i samma leverans.13 slides totalt:11 huvudslides samt karta och teaser som extra;515s talbudget oförändrad. PDF/talarstöd och scripts för framtida verifiering/export uppdaterade.
+
+Ingen testsuite, verifieringsscript eller ny build körd efter teaserändringen. PDF och screenshot exporterade direkt från lokal dev-server med Chrome; screenshot visuellt granskad (`/tmp/warbound-hollowbane-teaser.png`). Föregående uppdrags gröna build/browserkontroll gäller12-slidesversionen, inte ny automatiskt testad teaser. Commit märks `[skip ci]` för att även undvika automatiska tester vid push; därför ingen Pages-publicering eller ny publik verifiering. Endast presentationen och dess BACKLOG/DEV_LOG-status ingår; användarens units.mjs/style.css och otrackade filer bevaras.
