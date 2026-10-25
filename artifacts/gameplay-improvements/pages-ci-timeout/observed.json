@@ -1,0 +1,32 @@
+{
+  "run": 40225519236,
+  "headSha": "3b2596acbe1ea9797bf5d5b25badb1870e85853a",
+  "testsPassed": 2068,
+  "testsFailed": 3,
+  "totalTests": 2071,
+  "totalFiles": 225,
+  "wallSeconds": 1648.34,
+  "failures": [
+    {
+      "test": "arena/hard initiative",
+      "observedMs": 312289,
+      "oldBudgetMs": 300000,
+      "newBudgetMs": 600000
+    },
+    {
+      "test": "plains96 paid match/economy",
+      "observedMs": 65325,
+      "oldBudgetMs": 60000,
+      "newBudgetMs": 120000
+    },
+    {
+      "test": "plains128 paid match/economy",
+      "observedMs": 60580,
+      "oldBudgetMs": 60000,
+      "newBudgetMs": 120000
+    }
+  ],
+  "assertionFailuresReported": 0,
+  "gameplayAssertionsAndSimulationTimeChanged": false,
+  "buildAndDeploySkipped": true
+}

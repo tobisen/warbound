@@ -53,6 +53,12 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+Pages-publicering är nu uttryckligen beställd. Actions40225519236 kör för3b2596a;
+Första körningen föll på tre belagda wall-clockdeadlines (312s/300s och61–65s/60s);
+endast dessa testbudgetar justeras. Riktade3/2, unit543/93 och strict build PASS.
+Ny full CI/Pages startas med korrigeringspush; första röda körningen är historik.
+Ingen ny roadmaptask eller versionsändring.
+
 ### Lokal gameplayförbättring — 2026-10-25 — Done
 
 Efterföljande uppdrag godkänner commit/push till origin/main. Ingen publicering;

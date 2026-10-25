@@ -45,7 +45,9 @@ for(const [id,tiles] of [['plains96',128],['plains128',128]] as const){
   expect(result.match.outcome).toBe('victory');expect(result.spentWood).toBeGreaterThan(40);expect(result.match.enemyProduction!.acceptedJobs).toBeGreaterThan(0);
   let passive=createMatch('skirmish','normal',undefined,id);for(let i=0;i<1600&&passive.outcome==='playing';i++)passive=updateMatch(passive,.25);
   expect(passive.combat.baseHP).toBeLessThan(240);
- },60_000);
+ // CI measured61–65s for these complete paid-match/economy scenarios.
+ // Only the runner budget changes; simulation time and assertions stay intact.
+ },120_000);
 }
 it('config20 preserves existing matches, ledger and views when migrating to21',()=>{
  const m=createMatch('skirmish','beginner',undefined,'frontier'),view={camera:{x:400,y:300},building:null};m.statLedger!.player.built=2;

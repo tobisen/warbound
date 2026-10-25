@@ -1,3 +1,29 @@
+## Pages-publicering — 2026-10-25 — pågår
+
+Användarens nya uppdrag godkänner nu även Pages-build/publicering av3b2596a.
+Det ersätter publiceringsundantaget i föregående commit-/pushuppdrag.
+Befintlig pages.yml startad manuellt: [Actions40225519236](https://github.com/tobisen/warbound/actions/runs/40225519236).
+Exakt headSha3b2596acbe1ea9797bf5d5b25badb1870e85853a har verifierats.
+Fulla tester, strict spelbuild, presentationsbuild och deploy följs innan
+publicering räknas som klar. Tidigare lokala PASS är inte ny CI-/Pages-verifiering.
+Ingen versionsändring, inga nya roadmaptasks och användarens lokala arbete bevaras.
+
+CI40225519236 fallerade endast på tre wall-clockdeadlines: Hard-initiativ312289ms
+mot300000ms, stora kartors betalda match/ekonomiprov65325/60580ms mot60000ms.
+2068/2071 tester och223/225 filer passerade; inga assertionsfel rapporterades.
+Build/deploy hoppades över. Hard får600000ms (samma som befintliga Plains96),
+och bara de två stora matchproven120000ms.1200s gameplay, tidsmål, fixtures,
+assertions, global testtimeout och workerantal är oförändrade. Riktad lokal
+omverifiering och därefter ny full CI/Pages krävs; tidigare röda körningen
+räknas inte som publiceringsbelägg.
+
+Lokal deadlinefix verifierad på exporterad kandidat: riktade3 tester/2 filer
+PASS160,77s (11 andra tester filtrerade), unit543/93 PASS21,73s, build med
+strict TypeScript PASS759ms. Källjämförelse bekräftar oförändrade testkroppar
+utöver dessa budgets/kommentarer. [Underlag](artifacts/gameplay-improvements/pages-ci-timeout/README.md).
+Ingen ny lokal fullsimulation; ny full GitHub-körning krävs före deploy.
+Korrigeringscommiten pushas utan skip-ci för att starta befintliga Pages-workflowen.
+
 ## Commit och push godkänd — lokala gameplayförbättringar
 
 Användaren har efter den lokala leveransen uttryckligen beställt commit och push

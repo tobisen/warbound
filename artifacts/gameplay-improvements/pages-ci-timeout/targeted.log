@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/enemyInitiative.test.ts src/gameplay/largeMaps.test.ts -t arena/hard|existing paid skirmish
+
+
+ RUN  v4.1.11 /private/tmp/w2t-gameplay-commit-av5vn19q
+
+
+ Test Files  2 passed (2)
+      Tests  3 passed | 11 skipped (14)
+   Start at  20:49:37
+   Duration  160.77s (transform 1.37s, setup 0ms, import 1.72s, tests 232.50s, environment 0ms)
