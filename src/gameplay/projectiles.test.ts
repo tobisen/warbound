@@ -21,3 +21,23 @@ describe('projectile lifecycle',()=>{
   const result=advanceProjectiles([arrow()],[enemy],2,map);expect(result.damage.size).toBe(0);expect(result.projectiles).toEqual([]);
  });
 });
+
+it('steers toward moving visible air targets, including splash, with unchanged speed/lifetime/damage',()=>{
+ for(const splashRadius of [undefined,40]){
+  let shots=[arrow({airborne:true,targets:['air'],splashRadius,speed:300})],total=0;
+  for(let i=1;i<=30;i++){
+   const moving={...enemy,role:'air' as const,position:{x:200,y:100+i*4}};
+   const previous=shots[0],result=advanceProjectiles(shots,[moving],.05);total+=result.damage.get(enemy.id)??0;
+   if(result.projectiles.length){expect(Math.hypot(result.projectiles[0].position.x-previous.position.x,result.projectiles[0].position.y-previous.position.y)).toBeLessThanOrEqual(15+1e-9);expect(result.projectiles[0].destination).toEqual(moving.position);}
+   shots=result.projectiles;
+  }
+  expect(total).toBe(12);expect(shots).toEqual([]);
+ }
+});
+it('never homes onto hidden, dead or domain-incompatible air targets and still expires',()=>{
+ const air={...enemy,role:'air' as const,position:{x:260,y:180}},shot=arrow({airborne:true,targets:['air']});
+ expect(advanceProjectiles([shot],[air],.1,undefined,()=>false).projectiles).toEqual([]);
+ expect(advanceProjectiles([shot],[{...air,hp:0}],.1).projectiles).toEqual([]);
+ expect(advanceProjectiles([arrow({targets:['land']})],[air],1).damage.size).toBe(0);
+ const expired=advanceProjectiles([shot],[{...air,position:{x:1000,y:1000}}],3);expect(expired.projectiles).toEqual([]);expect(expired.damage.size).toBe(0);
+});

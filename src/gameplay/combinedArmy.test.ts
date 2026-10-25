@@ -54,3 +54,11 @@ it('the short introductory route retains its existing regroup threshold',()=>{
  const m=createMatch('skirmish'),member:Enemy={id:'enemy-produced-1',role:'soldier',hp:66,position:{x:900,y:400},order:{kind:'attack-move',destination:m.gathering.base}},group={id:'enemy-group-1',status:'attack' as const,members:[member.id],destinations:{[member.id]:member.position},startedAt:0,dispatchedAt:0,dispatchedSize:1};
  const r=updateEnemyAI({...createEnemyAI(),elapsedSeconds:11.9,groups:[group]},{...m.combat,enemies:[...m.combat.enemies.filter(e=>e.kind==='base'),member]},m.map,m.gathering.base,.1,[],{...enemyAIConfig,groupSize:6,reserveCount:0,regroup:true});expect(r.state.groups[0].status).toBe('muster');
 });
+
+it('chooses a fitting available recipe instead of waiting forever for a heavy unit under a small supply cap',()=>{
+ const plan={weights:{...combinedArmyConfig.weights},nextDecisionSeconds:1},combat={baseHP:240,enemies:[]},production={remainingSeconds:null,nextUnitNumber:1};
+ expect(compositionRole(plan,combat,production,'crown',tech,undefined,0,5)).toBe('air');
+ const role=compositionRole(plan,combat,production,'crown',tech,undefined,0,5,1);
+ expect(role).toBeDefined();expect(factions.crown.units[role!].supply).toBe(1);
+ expect(compositionRole(plan,combat,production,'crown',tech,undefined,0,5,0)).toBeUndefined();
+});

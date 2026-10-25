@@ -1,0 +1,220 @@
+{
+  "browser": "155.0.8059.85",
+  "note": "Explicit stress bodies/buildings and frozen gameplay for deterministic UI;12 real updateMatch ticks after Save/load and40 live scene frames during pointer motion are measured separately. Not human playtesting.",
+  "reports": [
+    {
+      "width": 800,
+      "idle": [
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "onScreen": true,
+          "ringVisible": true,
+          "buttonVisible": true,
+          "label": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-2"
+          ],
+          "onScreen": true,
+          "ringVisible": true,
+          "buttonVisible": true,
+          "label": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-3"
+          ],
+          "onScreen": true,
+          "ringVisible": true,
+          "buttonVisible": true,
+          "label": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "onScreen": true,
+          "ringVisible": true,
+          "buttonVisible": true,
+          "label": "Idle workers · 3"
+        }
+      ],
+      "setup": {
+        "units": 256,
+        "farms": 64,
+        "obstacles": 3684,
+        "world": [
+          4096,
+          4096
+        ]
+      },
+      "placement": {
+        "count": 1,
+        "active": false,
+        "wood": 950,
+        "gold": 480,
+        "clickMs": 322.5,
+        "previewMs": [
+          0.2999999523162842,
+          1.100000023841858,
+          0.6000000238418579,
+          0.5,
+          0.40000003576278687,
+          0.5,
+          0.6000000238418579,
+          0.3999999761581421,
+          0.5999999642372131,
+          0.3999999761581421,
+          0.5,
+          0.3999999761581421,
+          0.3999999761581421,
+          0.10000002384185791,
+          0,
+          0.19999998807907104
+        ]
+      },
+      "save": {
+        "bytes": 986495,
+        "units": 256,
+        "farms": 64,
+        "tickMs": [
+          89.69999998807907,
+          25.400000035762787,
+          24.599999964237213,
+          23.100000023841858,
+          22.399999976158142,
+          21.900000035762787,
+          22.399999976158142,
+          24.399999976158142,
+          24.200000047683716,
+          23.19999998807907,
+          23.599999964237213,
+          23
+        ]
+      },
+      "live": {
+        "frames": 36,
+        "seconds": 0.8411433333333326,
+        "active": true,
+        "medianCPU": 28.5,
+        "p95CPU": 29.899999976158142
+      },
+      "air": {
+        "hp": 116,
+        "initialHP": 150,
+        "shots": 35
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "idle": [
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "onScreen": true,
+          "ringVisible": true,
+          "buttonVisible": true,
+          "label": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-2"
+          ],
+          "onScreen": true,
+          "ringVisible": true,
+          "buttonVisible": true,
+          "label": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-3"
+          ],
+          "onScreen": true,
+          "ringVisible": true,
+          "buttonVisible": true,
+          "label": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "onScreen": true,
+          "ringVisible": true,
+          "buttonVisible": true,
+          "label": "Idle workers · 3"
+        }
+      ],
+      "setup": {
+        "units": 256,
+        "farms": 64,
+        "obstacles": 3684,
+        "world": [
+          4096,
+          4096
+        ]
+      },
+      "placement": {
+        "count": 1,
+        "active": false,
+        "wood": 950,
+        "gold": 480,
+        "clickMs": 307.0999999642372,
+        "previewMs": [
+          0.30000001192092896,
+          1,
+          0.699999988079071,
+          0.6000000238418579,
+          0.40000003576278687,
+          0.5,
+          0.5,
+          0.40000003576278687,
+          0.40000003576278687,
+          0.6000000238418579,
+          0.3999999761581421,
+          0.40000003576278687,
+          0.3999999761581421,
+          0.19999998807907104,
+          0.19999998807907104,
+          0.09999996423721313
+        ]
+      },
+      "save": {
+        "bytes": 986495,
+        "units": 256,
+        "farms": 64,
+        "tickMs": [
+          98,
+          26.30000001192093,
+          24.19999998807907,
+          22.100000023841858,
+          23.30000001192093,
+          23.399999976158142,
+          22.899999976158142,
+          23,
+          23.200000047683716,
+          22.19999998807907,
+          23,
+          22.099999964237213
+        ]
+      },
+      "live": {
+        "frames": 36,
+        "seconds": 0.7028899999999995,
+        "active": true,
+        "medianCPU": 28.099999964237213,
+        "p95CPU": 29
+      },
+      "air": {
+        "hp": 116,
+        "initialHP": 150,
+        "shots": 35
+      },
+      "errors": []
+    }
+  ]
+}

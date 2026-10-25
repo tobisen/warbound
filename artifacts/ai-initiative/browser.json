@@ -1,0 +1,121 @@
+{
+  "chromium": "155.0.8059.85",
+  "reports": [
+    {
+      "width": 800,
+      "count": 2,
+      "progression": {
+        "fixture": "Paid Normal300s; multiplayer hit sink preserves passive targets, with real fog/range-validated hits.",
+        "ai": [
+          {
+            "id": "enemy",
+            "workers": 8,
+            "jobs": 10,
+            "bases": 2,
+            "buildings": 7,
+            "phase": "attack",
+            "bank": {
+              "wood": 28,
+              "gold": 26
+            }
+          }
+        ],
+        "hits": 337,
+        "save": {
+          "ok": true
+        },
+        "seconds": 301.9999999999982,
+        "outcome": "playing",
+        "progressionMs": 2321,
+        "cpu": {
+          "samples": 100,
+          "medianMs": 2.399999976158142,
+          "p95Ms": 3.600000023841858
+        },
+        "units": 21
+      },
+      "render": {
+        "fixture": "Human-only full reveal for rendering; AI vision unchanged",
+        "firstRevealMs": 6.599999964237213,
+        "medianMs": 1.600000023841858,
+        "p95Ms": 3.100000023841858
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "count": 5,
+      "progression": {
+        "fixture": "Paid four-AI allied team300s; human base has explicit100000HP to preserve the workload. No injected AI entities, resources or vision.",
+        "ai": [
+          {
+            "id": "enemy",
+            "workers": 8,
+            "jobs": 9,
+            "bases": 2,
+            "buildings": 6,
+            "phase": "attack",
+            "bank": {
+              "wood": 16,
+              "gold": 22
+            }
+          },
+          {
+            "id": "ai-2",
+            "workers": 6,
+            "jobs": 7,
+            "bases": 2,
+            "buildings": 5,
+            "phase": "attack",
+            "bank": {
+              "wood": 6,
+              "gold": 63.51916607949194
+            }
+          },
+          {
+            "id": "ai-3",
+            "workers": 8,
+            "jobs": 5,
+            "bases": 2,
+            "buildings": 5,
+            "phase": "buildup",
+            "bank": {
+              "wood": 66,
+              "gold": 45
+            }
+          },
+          {
+            "id": "ai-4",
+            "workers": 8,
+            "jobs": 9,
+            "bases": 2,
+            "buildings": 6,
+            "phase": "attack",
+            "bank": {
+              "wood": 21,
+              "gold": 0
+            }
+          }
+        ],
+        "hits": 0,
+        "seconds": 301.9999999999982,
+        "outcome": "playing",
+        "progressionMs": 150076.39999997616,
+        "cpu": {
+          "samples": 100,
+          "medianMs": 121.60000002384186,
+          "p95Ms": 140
+        },
+        "units": 62
+      },
+      "render": {
+        "fixture": "Human-only full reveal for rendering; AI vision unchanged",
+        "firstRevealMs": 11.300000011920929,
+        "medianMs": 5.400000035762787,
+        "p95Ms": 8.899999976158142
+      },
+      "errors": []
+    }
+  ],
+  "limitations": "Local CPU/render sync measurements, not FPS or a full-match performance guarantee. Durability/hit-sink fixtures are explicit."
+}

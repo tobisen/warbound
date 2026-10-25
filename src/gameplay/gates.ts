@@ -4,7 +4,7 @@ import {hasMainBase} from './extraBases';
 import {nodeRadius} from './gathering';
 import {isAir} from './domains';
 import {enemySize} from './enemyBody';
-import type {MatchState} from './match';import type {Footprint} from './placement';import {placementObstacles,workerResourceTargets,placementMap} from './placement';import {replaceObstacles,overlaps,enemyNavigationMap} from './map';import {canReachFootprint} from './approach';import {spawnCandidates,hasSpawnExit,unitBody} from './spawning';import {combatUnitStats,unitStats} from '../config/unit';
+import type {MatchState} from './match';import type {Footprint} from './placement';import {placementObstacles,workerResourceTargets,placementMap} from './placement';import {replaceObstacles,overlaps,enemyNavigationMap} from './map';import {canReachPlacementFootprint as canReachFootprint} from './approach';import {spawnCandidates,hasSpawnExit,unitBody} from './spawning';import {combatUnitStats,unitStats} from '../config/unit';
 const same=(a:Footprint,b:Footprint)=>a.x===b.x&&a.y===b.y&&a.width===b.width&&a.height===b.height;
 /** Completed friendly gates are passable even while their visual doors are closed. */
 export function withGateRules(m:MatchState):MatchState {

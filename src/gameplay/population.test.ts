@@ -1,4 +1,3 @@
-import {farmLimit} from '../config/buildings';
 import { describe, expect, it } from 'vitest';
 import {createClassicMatch as createMatch} from './testHelpers/classicMatch';
 import {updateMatch, type MatchState} from './match';
@@ -36,7 +35,7 @@ describe('farms and reserved population',()=>{
     s={...s,...resumeConstruction(s.gathering,s.placement,s.map,'farm-1')};s=updateMatch(s,10);
     expect(pop(s).cap).toBe(13);expect(pop(updateMatch(s,1)).cap).toBe(13);
   });
-  it('tracks unique farm IDs, multiple paused sites and an explicit five-farm limit',()=>{
+  it('tracks unique farm IDs and multiple paused sites beyond five farms',()=>{
     let s=farm(ready());s=farm(s,{x:640,y:384});
     expect(s.placement.farms!.map(f=>f.id)).toEqual(['farm-1','farm-2']);
     s=updateMatch(s,12);expect(s.placement.farms![0].construction.remainingSeconds).toBe(5);expect(pop(s).cap).toBe(13);
@@ -44,7 +43,7 @@ describe('farms and reserved population',()=>{
     s=farm(s,{x:768,y:384});s=updateMatch(s,12);expect(pop(s).cap).toBe(23);expect(s.placement.nextFarmNumber).toBe(4);
     s=farm(s,{x:864,y:384});s=updateMatch(s,12);s=farm(s,{x:960,y:384});s=updateMatch(s,12);
     expect(s.placement.farms).toHaveLength(5);expect(pop(s).cap).toBe(33);expect(s.placement.nextFarmNumber).toBe(6);
-    expect(beginPlacement(s.placement,'farm')).toBe(s.placement);
+    expect(beginPlacement(s.placement,'farm').active).toBe(true);
     const reset=createMatch();expect(reset.placement.farms).toEqual([]);expect(reset.placement.nextFarmNumber).toBe(1);expect(pop(reset)).toEqual({cap:8,used:3,reserved:0});
   });
   it('lets separate builders progress concurrently and resumes one site without cancelling the other',()=>{
@@ -76,14 +75,10 @@ describe('farms and reserved population',()=>{
   });
 });
 
-it('uses five farms for small maps and ten for large maps in both entry and placement validation',()=>{
- expect(farmLimit({width:1280,height:960})).toBe(5);expect(farmLimit({width:1600,height:1152})).toBe(5);
- expect(farmLimit({width:3072,height:3072})).toBe(10);expect(farmLimit({width:4096,height:4096})).toBe(10);
+it('allows further farms on small and large maps after the old count limits',()=>{
  const m=ready(),template={id:'farm-1' as const,owner:'player' as const,hp:80,footprint:{x:256,y:384,width:64,height:64},construction:{remainingSeconds:0,builderId:null}};
- const five={...m.placement,farms:Array.from({length:5},(_,i)=>({...template,id:`farm-${i+1}` as const}))},large={...m.map,width:3072,height:3072},small={...m.map,width:1280,height:960};
- expect(beginPlacement(five,'farm',small)).toBe(five);expect(beginPlacement(five,'farm',large)).not.toBe(five);
- expect(placementError({...five,active:true,kind:'farm'},{x:640,y:384},200,[],{map:small,gathering:m.gathering,enemies:[]})).toContain('Maximum');
- const ten={...five,farms:Array.from({length:10},(_,i)=>({...template,id:`farm-${i+1}` as const}))};
- expect(beginPlacement(ten,'farm',large)).toBe(ten);
- expect(placementError({...ten,active:true,kind:'farm'},{x:640,y:384},200,[],{map:large,gathering:m.gathering,enemies:[]})).toContain('Maximum');
+ for(const count of [5,10,80])for(const size of [1280,4096]){
+  const placement={...m.placement,farms:Array.from({length:count},(_,i)=>({...template,id:`farm-${i+1}` as const}))};
+  expect(beginPlacement(placement,'farm',{width:size,height:size}).active).toBe(true);
+ }
 });

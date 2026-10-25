@@ -2250,3 +2250,95 @@ sikt, tickfrekvens, enhetsgräns, rendering eller Save-data.
 [scripts/profile-five-players.mjs](scripts/profile-five-players.mjs) jämför
 produktionsbyggd gameplay i Chromium mot valfri gitref utan checkoutändring;
 slutligt state hashjämförs. Detta är CPU-tid, inte renderad FPS.
+
+## AI-initiativ och långmatch (2026-10-25)
+
+Den befintliga strategipolicyn för regional skirmish återanvänds. enemyStrategy
+omvärderar ekonomi, spaning, uppbyggnad, expansion, anfall, återhämtning och
+försvar med svårighetens intervall (Normal3s). Ekonomins faktiska leveranser,
+betalda köer, research och bygg-/supplygränser förblir auktoritativa. Kampanjens
+scriptade tempo och äldre kartors policy ändras inte.
+
+[enemyRecon](src/gameplay/enemyRecon.ts) avdelar högst en redan producerad
+soldat/archer/cavalry tidigt, separat från garnison och anfallsgrupper. Scouten
+följer befintliga kartvägpunkter och därefter egen utforskad fog, återvänder vid
+skada/synliga hot och kan ersättas efter död. En enda vanlig färdväg planeras
+vid målbyte; blockerade mål hoppas över med begränsat minne. Dedikerade
+flygscouters återanvänder scouting och kontrollerar synliga anti-air-hot var5s.
+
+[enemyObjectives](src/gameplay/enemyObjectives.ts) håller taktiska mål stabila
+i30s. Upptäckt bas, synliga oskyddade ekonomimål och alternativa utforsknings-
+vägar prioriteras efter observerat motstånd. Stora anfallsförluster undviker det
+senaste målet i90s medan betalda ersättare och befintlig combined-arms-policy
+bygger ny styrka. Små överlevande grupper kan sammanföras utan att nollställa
+den äldsta samlingstiden; både melee- och projektilskada ingår i styrkevärdet.
+
+Grundprofilens första dispatchmål är Easy300/Normal240/Hard180 spel-sekunder;
+nya räder tidigast efter270/210/150s när styrkan räcker. Personlighet justerar
+fortsatt tiderna; första strategiska tidsgrinden begränsas till480s. Detta är
+beslutsgrindar, ingen garanti mot fysisk blockering eller försörjningsbrist.
+Fortsatt tryck från redan stridande grupper kräver ingen ny dispatch.
+
+Expansion använder befintliga betalda resursbaser (outposts), med leverans,
+supply och garnison. Andra/tredje basen får separata tidsgrindar; nödvändig
+research får inte blockera expansion obegränsat. Platsval bygger på ihågkomna
+resurser/synliga hot; befintlig bounded admission och15s backoff återanvänds.
+Högst2 baser/12 armysupply på Easy och3 baser/24 respektive32 armysupply på
+Normal/Hard. Arbetare, faktisk supply, byggplatser och byggnadstak begränsar
+utvecklingen ytterligare.
+
+Strategi/spaning/mål/förlustminne är härledda transientfält under enemyPolicy.
+Befintliga enhetsorder, grupper, fog, bank och köer sparas oförändrat; efter
+Load omplaneras strategin från dessa uppgifter. Ingen Save-version ändras.
+[20-minutersscenarierna](src/gameplay/testHelpers/enemyInitiative.ts) använder
+multiplayerns träffsänka: verklig sikt/räckvidd/väg/skada registreras men passiva
+spelarobjekt överlever. Vid12min injiceras uttryckliga arméförluster. Detta är
+automatiserad mekanikverifiering, inte mänskligt helmatch-/balansspeltest.
+
+Resurskunskapens observationsarrayer ersätts vid observation. knownEnemyNode
+indexerar varje sådan snapshot med en WeakMap, så återkommande resurs-/scout-
+uppslag blir O(1) efter en O(n)-indexering i stället för kvadratiska find-loopar.
+Ny array eller ändrad längd invaliderar; cache sparas inte och delas inte mellan
+oberoende ägares observationsarrayer. CPU-jämförelsens identiska fulla statehash
+och identiska20min-rapporter verifierar oförändrat beteende/ekonomi/fog.
+
+## Lokala gameplayförbättringar (2026-10-25)
+
+Byggplaceringens slutkontroll använder `canReachPlacementFootprint` i
+approach.ts och komponentetiketter i navigation.ts. Samma fyrgrannsgraf,
+kroppsclearance, segmentkontroll och kontaktkandidater som rörelsens routing
+används, men inga waypoints skapas för varje aktör/byggnadspar. WeakMap följer
+hindersnapshot; revision, längd, världsmått, tileSize, interactionTarget och
+kroppsstorlek ingår. Högst åtta kartvarianter och4096 kontaktuppslag per variant.
+Placement/gates använder detta; vanlig rörelse och AI:s ruttplanering består.
+Pointermove lagrar senaste previewpunkt, ordinarie scenframe synkar UI/preview.
+Preview gör befintlig billig geometri-/resurs-/siktkontroll; klick gör alltid
+hela rutt-/byggar-/utgångskontrollen och visar ett eventuellt avslag.
+
+Farm- och extra-basantal har ingen separat countspärr. Supply växer med färdiga
+byggnader; köstorlek, ekonomi, teknik, plats och unik Forge består. Save har
+inte längre en separat128-gräns för enheter/producenter/AI-listor. Den generella
+4_000_000-bytebudgeten och specifika struktur-/kö-/referens-/fogvalideringarna
+består. Ingen ny Save-version behövs; äldre giltiga saves är fortsatt giltiga.
+Mycket stora matcher kan nå bytebudgeten eller bli CPU-tunga före kartan fylls.
+
+idleWorkers.ts härleder lediga levande workers ur nuvarande order, orderkö,
+commandMode, navigation och självförsvar. Cursor är scenlokal och återställs vid
+restart/load. Knappen under minimapen väljer en worker, avmarkerar övriga
+land-/sjöenheter, avbryter inputlägen och använder befintligt cameraFocus och
+selectionring. Ingen ny sparad workerstatus eller egen ekonomilogik införs.
+
+advanceProjectiles uppdaterar destination för kompatibla levande synliga luftmål
+vid varje steg. Det gäller även luftvärnssplash; mark-/sjömål behåller fasta
+siktpunkter. Hastighet, livstid, skadevärden, splashradie, per-domain-multipliers,
+fog och målmasker består. Projektilen har fortfarande ett enda ursprungligt
+mål-ID; ingen ommålning till dolda/nya mål. Logisk position är fortsatt skuggans
+markpunkt; bildhöjden påverkar inte räckvidd eller skada. Befintliga Savefält
+räcker också när målet rör sig under projektilens färd.
+
+Sammansatt AI-produktion lämnar ledig supply (global kapacitet minus levande
+armé och samtliga reservationer) till compositionRole. Redan här prioriteras
+bara roller som ryms, så en saknad tung roll blockerar inte billigare förstärkning
+på låg svårighet. Betalning, tech, sjötransportens markplatser och slutlig
+canEnqueue-admission gäller oförändrat. Beginner-recovery efter förluster ingår
+nu tillsammans med Easy/Normal/Hard i20min-regressionen.

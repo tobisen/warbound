@@ -1,0 +1,118 @@
+{
+  "result": {
+    "world": [
+      4096,
+      4096
+    ],
+    "units": 96,
+    "obstacles": 3668,
+    "farms": 48,
+    "point": {
+      "x": 560,
+      "y": 546
+    },
+    "preview": null,
+    "previewMs": 0.10000002384185791,
+    "admission": null,
+    "placed": 1,
+    "times": {
+      "begin": 0,
+      "preview": 0.10000002384185791,
+      "admission": 4585,
+      "place": 4514.099999964237,
+      "cancel": 0
+    }
+  },
+  "hot": [
+    {
+      "name": "nearbyObstacles",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 945
+    },
+    {
+      "name": "nearbyObstacles",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 934
+    },
+    {
+      "name": "nearbyObstacles",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 725
+    },
+    {
+      "name": "findRoute",
+      "url": "http://127.0.0.1:5186/src/gameplay/navigation.ts",
+      "count": 713
+    },
+    {
+      "name": "nearbyObstacles",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 712
+    },
+    {
+      "name": "findRoute",
+      "url": "http://127.0.0.1:5186/src/gameplay/navigation.ts",
+      "count": 681
+    },
+    {
+      "name": "(garbage collector)",
+      "url": "",
+      "count": 400
+    },
+    {
+      "name": "bodyFits",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 327
+    },
+    {
+      "name": "bodyFits",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 307
+    },
+    {
+      "name": "texImage2D",
+      "url": "",
+      "count": 224
+    },
+    {
+      "name": "getImageData",
+      "url": "",
+      "count": 207
+    },
+    {
+      "name": "segmentFits",
+      "url": "http://127.0.0.1:5186/src/gameplay/navigation.ts",
+      "count": 199
+    },
+    {
+      "name": "texImage2D",
+      "url": "",
+      "count": 195
+    },
+    {
+      "name": "approachRoute",
+      "url": "http://127.0.0.1:5186/src/gameplay/approach.ts",
+      "count": 161
+    },
+    {
+      "name": "segmentFits",
+      "url": "http://127.0.0.1:5186/src/gameplay/navigation.ts",
+      "count": 158
+    },
+    {
+      "name": "approachRoute",
+      "url": "http://127.0.0.1:5186/src/gameplay/approach.ts",
+      "count": 149
+    },
+    {
+      "name": "(program)",
+      "url": "",
+      "count": 97
+    },
+    {
+      "name": "nearbyObstacles",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 63
+    }
+  ]
+}

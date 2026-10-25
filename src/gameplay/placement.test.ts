@@ -85,3 +85,17 @@ it('proposed terrain is shared only for the same geometry and does not mutate li
  map.obstacles[0].x=160;map.revision++;expect(placementMap(map,rect).obstacles[0].x).toBe(160);
  const sized={...map,bodyHalf:12};const first=placementMap(sized,rect);sized.bodyHalf=20;expect(placementMap(sized,rect)).not.toBe(first);expect(placementMap(sized,rect).bodyHalf).toBe(20);
 });
+
+it('placement connectivity matches routing across body sizes, walls, partial footprints and revisions',async()=>{
+ const {canReachFootprint,canReachPlacementFootprint}=await import('./approach');
+ const {replaceObstacles}=await import('./map');
+ let seed=1407;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/2**32;};
+ for(const half of [8,12,16,24]){
+  let map:import('./map').WorldMap={width:384,height:320,tileSize:32,revision:0,bodyHalf:half,obstacles:Array.from({length:18},()=>({x:Math.floor(random()*11)*32,y:Math.floor(random()*9)*32,width:16+Math.floor(random()*2)*16,height:32}))};
+  for(let i=0;i<35;i++){
+   const start={x:16+Math.floor(random()*11)*32,y:16+Math.floor(random()*9)*32},target={x:Math.floor(random()*10)*32,y:Math.floor(random()*8)*32,width:32,height:32};
+   expect(canReachPlacementFootprint(map,start,target,24),`${half}/${i}`).toBe(canReachFootprint(map,start,target,24));
+   if(i===15)map=replaceObstacles(map,[...map.obstacles,{x:192,y:0,width:32,height:320}]);
+  }
+ }
+});

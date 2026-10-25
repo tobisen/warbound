@@ -14,12 +14,12 @@ import { costs } from '../config/economy';
 import { canAfford, payCost } from './economy';
 import { arenaConfig } from '../config/arena';
 import { waveSchedule } from '../config/waves';
-import { canReachFootprint } from './approach';
+import { canReachPlacementFootprint as canReachFootprint } from './approach';
 import { bodyFits, overlaps, replaceObstacles, type WorldMap } from './map';
 import { spawnCandidates, hasSpawnExit, unitBody, otherBodySize } from './spawning';
 import type { Unit } from './gathering';
 import { soldierStats, combatUnitStats, unitStats } from '../config/unit';
-import { barracksConfig, farmConfig, farmLimit, worldConfig } from '../config/buildings';
+import { barracksConfig, farmConfig, worldConfig } from '../config/buildings';
 import { gatheringConfig } from '../config/gathering';
 import {nodeRadius,resourceNodes,type GatheringState} from './gathering';
 import type { Position } from './movement';
@@ -78,8 +78,8 @@ export function placementObstacles(state: GatheringState): Footprint[] {
   ];
 }
 
-export function beginPlacement(state: PlacementState,kind:'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate'='barracks',world:{width:number;height:number}=worldConfig): PlacementState {
-  return kind==='base'&&(state.bases?.length??0)>=extraBaseConfig.maxCount || kind==='forge'&&state.forge || kind==='farm'&&(state.farms?.length??0)>=farmLimit(world)
+export function beginPlacement(state: PlacementState,kind:'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate'='barracks',_world:{width:number;height:number}=worldConfig): PlacementState {
+  return kind==='forge'&&state.forge
     ? state : { ...state, active:true,...(kind!=='barracks'?{kind}: {kind:undefined}) };
 }
 
@@ -100,10 +100,8 @@ function checkPlacement(state: PlacementState, point: Position, wood: number, ob
   const kind=state.kind??'barracks';
   const locked=contentReason(context?.gathering.campaignContent,'buildings',kind);if(locked)return locked;
   if(context?.technology){const locked=buildingAvailability(productionFaction(context.gathering),kind==='tower'||kind==='wall'||kind==='gate'?'base':kind,context.technology);if(locked)return locked;}
-  if(kind==='base'&&(state.bases?.length??0)>=extraBaseConfig.maxCount)return 'Maximum three main buildings';
   if(kind==='harbor')return uiText.harborUsesCoastRules;
   if(kind==='forge'&&state.forge)return uiText.forgeExists;
-  if (kind==='farm'&&(state.farms?.length??0)>=farmLimit(context?.map)) return uiText.farmLimit;
   const rect = buildingFootprint(point,kind);
   if (rect.x < 0 || rect.y < 0 || rect.x + rect.width > (context?.map.width??worldConfig.width) || rect.y + rect.height > (context?.map.height??worldConfig.height)) {
     return uiText.outsideTheWorld;

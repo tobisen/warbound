@@ -19,7 +19,6 @@ import {text as uiText} from '../text';
 import type {ResourceCost} from '../config/economy';
 import {factionForTeam,type UnitPrerequisites} from '../config/factions';
 import {costs} from '../config/economy';
-import {farmLimit} from '../config/buildings';
 import {navyConfig} from '../config/navy';
 import {queueConfig} from '../config/production';
 import {upgradeConfig} from '../config/upgrades';
@@ -69,8 +68,8 @@ export function actionPanel(m:MatchState,building:BuildingSelection,playing:bool
   else if((id==='upgrade-tower'||id==='upgrade-tower-air')){visible=!!building?.startsWith('tower-');summary=id==='upgrade-tower-air'?'Permanent Anti-Air: air-only, 256px range, 16 damage; inactive during 10s upgrade':'Permanent Ground Defense: ground-only, 192px range, 24 damage; inactive during 10s upgrade';cost=costLabel(defenseConfig.upgrade.cost);reason=towerUpgradeReason(m,building??'')??'';}
   else if(id==='build-tower'){visible=worker;cost=costLabel(defenseConfig.tower.cost);reason=m.placement.active?'Finish or cancel placement':affordabilityReason(m.gathering,defenseConfig.tower.cost);}
   else if(id==='upgrade-base'){visible=base;const b=baseDevelopment(m);cost=b.level<3?costLabel(baseUpgradeConfig[(b.level+1) as 2|3].cost):undefined;reason=(m.placement.bases?.find(b=>b.id===building)?.construction.remainingSeconds??0)>0?'Construction unfinished':baseUpgradeReason(m)??'';}
-  else if(id==='build-base'){visible=worker;cost=costLabel(extraBaseConfig.cost);reason=m.placement.active?'Finish or cancel placement':(m.placement.bases?.length??0)>=extraBaseConfig.maxCount?'Maximum three main buildings':affordabilityReason(m.gathering,extraBaseConfig.cost);}
-  else if(id.startsWith('build-')){visible=worker;const kind=id.slice(6) as 'siegeWorks'|'aviary'|'stable'|'academy'|'barracks'|'farm'|'forge'|'harbor';const recipe=kind==='harbor'?faction.naval.harbor.cost:faction.buildings[kind].cost;cost=costLabel(recipe);reason=buildingAvailability(faction,kind,technologyFor(m,'player'))??(m.placement.active?'Finish or cancel placement':kind==='forge'&&m.placement.forge?'Already built':kind==='farm'&&(m.placement.farms?.length??0)>=farmLimit(m.map)?'Farm limit reached':affordabilityReason(m.gathering,recipe));}
+  else if(id==='build-base'){visible=worker;cost=costLabel(extraBaseConfig.cost);reason=m.placement.active?'Finish or cancel placement':affordabilityReason(m.gathering,extraBaseConfig.cost);}
+  else if(id.startsWith('build-')){visible=worker;const kind=id.slice(6) as 'siegeWorks'|'aviary'|'stable'|'academy'|'barracks'|'farm'|'forge'|'harbor';const recipe=kind==='harbor'?faction.naval.harbor.cost:faction.buildings[kind].cost;cost=costLabel(recipe);reason=buildingAvailability(faction,kind,technologyFor(m,'player'))??(m.placement.active?'Finish or cancel placement':kind==='forge'&&m.placement.forge?'Already built':affordabilityReason(m.gathering,recipe));}
   else if(id.startsWith('train-')){
    const role=id==='train-ship'?'warship':id.slice(6) as 'worker'|'soldier'|'archer'|'catapult'|'ballista'|'specialist'|'air'|'cavalry'|'healer'|'giant'|'scout'|'transport'|'submarine',naval=role==='submarine'||role==='transport'||role==='warship';
    visible=(role==='worker'?base:naval?harbor:role==='healer'||role==='giant'?building==='academy':role==='catapult'||role==='ballista'?building==='siegeWorks':role==='cavalry'?building==='stable':role==='air'||role==='scout'?building==='aviary':barracks)&&(naval||faction.roster.includes(role as 'worker'|'soldier'|'archer'|'catapult'|'ballista'|'specialist'|'air'|'cavalry'|'healer'|'giant'|'scout'));

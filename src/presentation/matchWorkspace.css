@@ -1,4 +1,5 @@
 /* RTS-188: full-width map; information is reached through the pause menu. */
+#minimap-overlay #idle-workers { display:block; width:100%; min-height:26px; padding:3px 2px; font:11px/1.3 system-ui; white-space:nowrap; }
 #app:not([data-phase="menu"]) { grid-template-columns: minmax(0, 1fr); }
 #app:not([data-phase="menu"]) #game { grid-column: 1 / -1; }
 #app:not([data-phase="menu"]) #hud { display: none; }

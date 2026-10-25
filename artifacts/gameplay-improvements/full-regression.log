@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  225 passed (225)
+      Tests  2071 passed (2071)
+   Start at  19:44:19
+   Duration  1165.56s (transform 2.87s, setup 0ms, import 24.34s, tests 2085.28s, environment 13ms)

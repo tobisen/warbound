@@ -73,6 +73,7 @@ import {commandFeedback,renderCommandFeedback} from '../presentation/commandFeed
 import {createWarningState,warningSnapshot,updateAttackWarnings,renderAttackWarning} from '../presentation/attackWarnings';
 import {orderFeedbackConfig,attackWarningConfig} from '../config/feedback';
 import {cameraShortcut,cameraFocus,selectionFocusPoints} from '../presentation/cameraFocus';
+import {idleWorkers,nextIdleWorker} from '../gameplay/idleWorkers';
 import {bindCameraInput} from '../presentation/cameraInput';
 import {selectedIcons,selectedQueue,renderSelectedIcons,renderSelectedQueue} from '../presentation/selectionCollection';
 import {actionPanel,renderActionPanel} from '../presentation/actionPanel';
@@ -150,7 +151,7 @@ import { soldierStats, combatUnitStats, unitStats } from '../config/unit';
 import type { Position } from '../gameplay/movement';
 import { gatheringConfig } from '../config/gathering';
 import { productionConfig, soldierProductionConfig } from '../config/production';
-import { barracksConfig, farmConfig, farmLimit } from '../config/buildings';
+import { barracksConfig, farmConfig } from '../config/buildings';
 import {hasMainBase,selectedBase,trainBaseWorker} from '../gameplay/extraBases';
 import {workerToolsConfig} from '../config/workerTools';
 import {researchRecipe,researchLevel} from '../gameplay/research';
@@ -206,6 +207,7 @@ export class BootScene extends Phaser.Scene {
   private attackMoveMode=false;
   private attackMoveButton!:HTMLButtonElement;
   private stopButton!: HTMLButtonElement;
+  private lastIdleWorker?:string;
   private defenseVisuals=new Map<string,Phaser.GameObjects.Image>();
   private repairMode=false;
   private spellMode:SpellId|null=null;
@@ -398,6 +400,21 @@ export class BootScene extends Phaser.Scene {
     this.orderVisuals.clear();
     this.farmVisuals.clear();
     this.stopButton = document.querySelector<HTMLButtonElement>('#stop-units')!;
+    this.lastIdleWorker=undefined;
+    const idleButton=document.getElementById('idle-workers') as HTMLButtonElement;
+    const selectIdle=()=>{
+      if(!this.gameplayActive())return;
+      const worker=nextIdleWorker(this.gathering.units,this.lastIdleWorker);if(!worker)return;
+      this.lastIdleWorker=worker.id;
+      this.setSelectable(this.allSelectable().map(u=>({...u,selected:u.id===worker.id})));
+      this.selectedBuilding=null;this.selectedResource=null;this.selectedAnimal=null;
+      this.placement=cancelPlacement(this.placement);this.unloadMode=null;this.scoutRouteMode=false;this.scoutRoutePoints=[];this.attackMoveMode=false;this.patrolMode=false;this.repairMode=false;this.spellMode=null;this.spellFeedback='';
+      this.drag=undefined;this.cameraDrag=undefined;this.wallDrag=undefined;this.dragBox.setVisible(false);
+      const focus=cameraFocus([worker.position],this.map,this.visibleCamera());if(focus)this.setCameraScroll(focus);
+      gameAudio.say(voiceSpeaker(this.allSelectable()),'select',this.factions.player);this.syncVisuals();
+    };
+    idleButton.addEventListener('click',selectIdle);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN,()=>idleButton.removeEventListener('click',selectIdle));
     const stop = () => { const before=voiceOrders(this.allSelectable());this.scoutRouteMode=false;this.scoutRoutePoints=[];this.attackMoveMode=false;this.patrolMode=false;this.repairMode=false;this.spellMode=null;this.spellFeedback=''; if(this.gameplayActive())this.navy=cancelSelectedTransfers(this.currentMatch()).navy;this.gathering.units = stopSelected(this.gathering.units, this.gameplayActive());if(this.gameplayActive())this.navy=stopShips(this.navy);gameAudio.say(orderedSpeaker(before,this.allSelectable()),voiceOrderAction(orderedSpeaker(before,this.allSelectable())),this.factions.player); this.syncVisuals(); };
     for(const id of ['hold-position','patrol-units']){const button=document.getElementById(id)!,handler=()=>{if(!this.gameplayActive())return;if(id==='hold-position'){this.applyMatch(issueOrder(this.currentMatch(),{kind:'hold'},this.input.keyboard?.addKey('SHIFT').isDown??false));}else{this.patrolMode=!this.patrolMode;this.attackMoveMode=false;this.repairMode=false;this.spellMode=null;this.placement=cancelPlacement(this.placement);}this.syncVisuals();};button.addEventListener('click',handler);this.events.once(Phaser.Scenes.Events.SHUTDOWN,()=>button.removeEventListener('click',handler));}
     this.stopButton.addEventListener('click', stop);
@@ -853,13 +870,11 @@ export class BootScene extends Phaser.Scene {
       this.setCameraScroll(scroll);
       if (this.placement.active) {
         this.previewPoint = this.worldPoint(pointer);
-        this.syncPlacement();
       }
       return;
     }
     if (this.placement.active) {
       this.previewPoint = this.worldPoint(pointer);
-      this.syncPlacement();
       return;
     }
     if (!this.drag) return;
@@ -975,9 +990,9 @@ export class BootScene extends Phaser.Scene {
     const stable=this.placement.stable;if(!stable&&this.stableVisual){this.stableVisual.destroy();this.stableVisual=undefined;}if(stable){if(!this.stableVisual)this.stableVisual=this.add.image(stable.footprint.x+32,stable.footprint.y+32,'cavalry',buildingFrame('stable','player',stable.construction.remainingSeconds,10,this.factions.player,stable.hp)).setOrigin(.5,.75);this.stableVisual.setFrame(buildingFrame('stable','player',stable.construction.remainingSeconds,10,this.factions.player,stable.hp)).setDepth(1+(stable.footprint.y+32)/this.map.height*4);}
     const academy=this.placement.academy;if(!academy&&this.academyVisual){this.academyVisual.destroy();this.academyVisual=undefined;}if(academy){if(!this.academyVisual)this.academyVisual=this.add.image(academy.footprint.x+32,academy.footprint.y+32,'buildings',buildingFrame('academy','player',academy.construction.remainingSeconds,10,this.factions.player,academy.hp)).setOrigin(.5,.75);this.academyVisual.setFrame(buildingFrame('academy','player',academy.construction.remainingSeconds,10,this.factions.player,academy.hp)).setDepth(1+(academy.footprint.y+32)/this.map.height*4);}
     const academyButton=document.getElementById('build-academy') as HTMLButtonElement;academyButton.disabled=!this.gameplayActive()||this.placement.active||!!academy||!this.gathering.units.some(u=>u.kind==='worker'&&u.selected);academyButton.setAttribute('aria-pressed',String(this.placement.active&&this.placement.kind==='academy'));
-    (document.getElementById('build-base') as HTMLButtonElement).disabled=!this.gameplayActive()||this.placement.active||(this.placement.bases?.length??0)>=extraBaseConfig.maxCount||!this.gathering.units.some(u=>u.kind==='worker'&&u.selected);
+    (document.getElementById('build-base') as HTMLButtonElement).disabled=!this.gameplayActive()||this.placement.active||!this.gathering.units.some(u=>u.kind==='worker'&&u.selected);
     this.farmButton.disabled=!this.gameplayActive()||this.placement.active
-      ||(this.placement.farms?.length??0)>=farmLimit(this.map)||!this.gathering.units.some(u=>u.kind==='worker'&&u.selected);
+      ||!this.gathering.units.some(u=>u.kind==='worker'&&u.selected);
     document.getElementById('farm-status')!.textContent=(this.placement.farms??[]).map(f=>`${f.id}: ${Math.ceil(f.hp??combatConfig.farmHP)} HP · ${f.construction.remainingSeconds===0?uiText.complete5:f.construction.remainingSeconds.toFixed(1)+uiText.sRemaining}`).join(' · ') || uiText.selectAWorkerACompletedFarmAdds5;
     for(const [id,visual] of this.farmVisuals)if(!this.placement.farms?.some(f=>f.id===id)){visual.destroy();this.farmVisuals.delete(id);}
     for(const farm of this.placement.farms??[]) {
@@ -998,6 +1013,9 @@ export class BootScene extends Phaser.Scene {
   }
 
   private syncVisuals(): void {
+    const idleButton=document.getElementById('idle-workers') as HTMLButtonElement,idleCount=idleWorkers(this.gathering.units).length,idleLabel=`Idle workers · ${idleCount}`;
+    if(idleButton.textContent!==idleLabel)idleButton.textContent=idleLabel;
+    idleButton.disabled=!this.gameplayActive()||idleCount===0;
     const liveDefenses=new Set<string>((this.placement.defenses??[]).map(t=>t.id));for(const [id,image]of this.defenseVisuals)if(!liveDefenses.has(id)){image.destroy();this.defenseVisuals.delete(id);}
     const connections=fortificationConnections(this.placement.defenses??[]);
     for(const t of this.placement.defenses??[]){let image=this.defenseVisuals.get(t.id);if(!image){image=this.add.image(t.footprint.x+t.footprint.width/2,t.footprint.y+16,'buildings').setOrigin(.5,.75);this.defenseVisuals.set(t.id,image);}

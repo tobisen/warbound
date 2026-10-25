@@ -1595,3 +1595,21 @@ exakt en gång via Save-ledger. Guardianens liv krävs inte för kampanjvictory,
 groups eller produktion. Replay/restart skapar nytt möte. Fraktioner har
 sina vanliga enheter/stats; baslinje-solo förlorar, större armé kan vinna.
 Mänsklig balansbedömning och naturlig utforskning över en full match kvarstår.
+
+## Lokalt gameplayuppdrag — 2026-10-25
+
+Användaren beställer profilering/rättad tornplacering, borttagna låga tekniska
+antalsspärrar, proaktiv AI med tidsmål, idle-workerknapp och fungerande luftträffar.
+Ingen commit/push/publicering. Befintliga lokala AI-ändringar bevaras och verifieras
+mot strängare mål; ingen roadmapbatch eller kartombyggnad återupptas.
+
+Farm5/10 och extra-bas2 är inte längre spelregler. Supply, betalda kostnader,
+teknik, tre jobb per produktionskö och unik Forge behålls. Save begränsas av sin
+befintliga4MB-bytebudget, inte128 enheter. Det är inte en FPS-garanti för godtyckligt
+stora arméer. Testade storlekar/mätmiljö redovisas separat.
+
+Tidigare fast aim-beslut gäller fortsatt mark-/sjömål. Projektiler får följa sitt
+ursprungliga, synliga och kompatibla luftmål för att rätta tekniska missar mot
+rörliga flygare; inga skade-/räckvidds-/målmaskändringar. Vanliga torn och
+markspecialisering skjuter fortfarande inte luft, luftspecialisering skjuter
+fortfarande inte mark. Befintliga fraktionsskillnader består.

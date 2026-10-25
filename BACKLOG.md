@@ -53,6 +53,59 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Lokal gameplayförbättring — 2026-10-25 — Done
+
+Efterföljande uppdrag godkänner commit/push till origin/main. Ingen publicering;
+`[skip ci]` hindrar Pages-workflow. Ursprunglig lokal verifiering nedan består.
+Exporterad commitkandidat utan CSS/units.mjs/docs-ändringarna: ny unit543/93,
+strict build och browser800/1280 PASS. Ingen ny fullsimulation eller CI/Pages.
+
+Uttryckligt nytt uppdrag, utan commit/push/publicering. Arbeta i ordning:
+
+1. Profilera och rätta tornplacering på stor karta med många objekt.
+2. Höj tekniska byggnads-/enhetsgränser; bevara supply och testa Save.
+3. Verifiera befintligt lokalt AI-arbete mot Easy120/720/600s,
+   Normal120/540/420s och Hard120/420/300s (scout/andra bas/första anfall).
+4. Lägg till synlig knapp för att välja/centrera/cykla idle workers.
+5. Rätta träffsäkerhet mot rörliga luftmål utan ändrad skada/målmask.
+
+Riktade tester/profilering/browser och slutlig regression/strict build/diff.
+Befintliga lokala AI-/dokumentändringar, CSS, units.mjs och docs bevaras.
+Inga roadmapbatchar eller kartombyggnader startas.
+
+Levererat: cache för byggplaceringens konnektivitet/kontaktpunkter och en
+previewuppdatering per frame; borttagna farm5/10-, extra-bas2- och Save128-
+spärrar; skärpta AI-mål och rättat supply/receptlås på Beginner; idle-workerknapp
+med cykling/fokus; följande projektiler mot synliga kompatibla luftmål.
+Ny full regression2071/225 PASS1165,56s på slutlig kod, strict build PASS,
+unit543/93 (före sista kontaktcachen; sedan riktad48/4 och fullsuite ovan),
+browser800/1280 och diff/scriptsyntax/manifest/länkar PASS. Tornprofil96 enheter:
+place4514→94ms, cold admission4585→140ms.256-enhetsstress bevarar Save/load och
+livepreview; klick335–535ms och CPU över60FPS-budget kvarstår. Save4MB består.
+Se [rapport](artifacts/gameplay-improvements/README.md), HANDOFF och DEV_LOG.
+Första fullförsöket fann Beginnerfelet och avbröts; endast den nya fullsuiten
+ovan räknas som PASS. Ingen ny CI/Pages eller mänsklig helmatchbalans hävdas.
+
+### AI-initiativ och långmatch — 2026-10-25 — Done
+
+Nytt separat lokalt användaruppdrag: tidig fogbegränsad spaning, fortsatt betald
+ekonomi/produktion, säkra resursbaser och tidsatta anfall/återhämtning. Ingen
+commit, push eller publicering. Övriga roadmap/batchar återupptas inte.
+Användarens style.css, units.mjs och otrackade arbete bevarade.
+
+Levererat: separat scout med reträtt/ersättning, tydliga strategiska faser och
+svårighetstider, stabila taktiska ekonomimål/alternativa approacher, smågrupps-
+sammanföring, förlustbackoff och upprepade expansionsgrindar. Härlett resursindex
+ersätter kvadratiska uppslag utan ändrat fog-/ekonomi-/Save-beteende.
+
+Ny full regression2057/223 PASS1205.65s; unit538/92 PASS26.79s och strict build
+PASS671ms. Fyra1200s-scenarier: Normal/Arena+Plains96, Easy/Hard; scouting,
+nya byggnader/trupper utan förluster, andra bas, faktisk spelarträff och betalda
+återanfall efter injicerade förluster verifierade. Browser800/1280 granskad.
+Isolerad fyr-AI/60-enhetsmätning: CPU-median119.8→35.6ms, identisk fullstate-
+hash. Fortsatt över60FPS-budget; ingen mänsklig helmatchbalans eller ny CI/Pages.
+Se [rapport/scenarier](artifacts/ai-initiative/README.md) och HANDOFF.
+
 ### Strategisk fiende-AI — 2026-10-25 — Done
 
 Uttryckligt separat användaruppdrag: proaktiv betald ekonomi/bas/armé, säkrare

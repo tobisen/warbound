@@ -1,3 +1,4 @@
+import {strategyFor} from './enemyStrategy';
 import {isEnemyExpansionScout} from './enemyExpansion';
 import {isRegionalDesign} from '../config/organicTerrain';
 import {isBossLootGoal} from './bosses';
@@ -18,7 +19,15 @@ import type {MatchState} from './match';
 export interface EnemyKnowledgeState {nodes:ResourceNode[];playerBase:Position|null;resourceScoutIndex:number;attackScoutIndex:number}
 export function searchWaypoints(m:MatchState,kind:'resource'|'attack'){if(kind==='attack'&&m.aiContext)return m.aiContext.attackWaypoints;const map=regionDefinition(m.map.id??'arena',maps[m.map.id??'arena'],m.map.design);const base=(m.map.terrainLayout==='reference'?(kind==='resource'?map.referenceResourceWaypoints:map.referenceAttackWaypoints):undefined)??(kind==='resource'?map.enemyResourceWaypoints??config.resourceWaypoints:map.enemyAttackWaypoints??config.attackWaypoints);return kind==='resource'&&m.map.worldLayout==='expanded'&&!m.map.design?[...base,...expansionSites(m.map.id??'arena').map(s=>({x:(s.column+10.5)*32,y:(s.row+5.5)*32}))]:base;}
 export const createEnemyKnowledge=():EnemyKnowledgeState=>({nodes:[],playerBase:null,resourceScoutIndex:0,attackScoutIndex:0});
-export function knownEnemyNode(m:MatchState,node:ResourceNode|undefined):ResourceNode|undefined {return node?(m.enemyKnowledge?m.enemyKnowledge.nodes.find(n=>n.id===node.id):node):undefined;}
+// Observations replace the node array; indexes are derived and never enter Save.
+// Length also invalidates explicit component fixtures that append/remove nodes.
+const knowledgeIndexes=new WeakMap<ResourceNode[],{length:number;byId:Map<string,ResourceNode>}>();
+export function knownEnemyNode(m:MatchState,node:ResourceNode|undefined):ResourceNode|undefined {
+ if(!node||!m.enemyKnowledge)return node;
+ const nodes=m.enemyKnowledge.nodes;let cached=knowledgeIndexes.get(nodes);
+ if(!cached||cached.length!==nodes.length){cached={length:nodes.length,byId:new Map(nodes.map(n=>[n.id,n]))};knowledgeIndexes.set(nodes,cached);}
+ return cached.byId.get(node.id);
+}
 export function observeEnemyKnowledge(m:MatchState):MatchState {
  if(!m.enemyKnowledge||!m.fog)return m;
  const byId=new Map(m.enemyKnowledge.nodes.map(n=>[n.id,n]));for(const node of resourceNodes(m.gathering))if(node&&isVisible(m.fog,'enemy',node.position))byId.set(node.id,{...node,position:{...node.position}});
@@ -27,7 +36,7 @@ export function observeEnemyKnowledge(m:MatchState):MatchState {
  const playerBase=m.aiContext?.humanHostile!==false&&m.combat.baseHP>0&&isVisible(m.fog,'enemy',m.gathering.base)?{...m.gathering.base}:m.aiContext?.humanHostile!==false&&visibleExpansion?{x:visibleExpansion.footprint.x+visibleExpansion.footprint.width/2,y:visibleExpansion.footprint.y+visibleExpansion.footprint.height/2}:retired?null:m.enemyKnowledge.playerBase;
  return {...m,enemyKnowledge:{...m.enemyKnowledge,nodes:[...byId.values()],playerBase}};
 }
-export function enemyAttackDestination(m:MatchState):Position {return m.enemyKnowledge?.playerBase??searchWaypoints(m,'attack')[m.enemyKnowledge?.attackScoutIndex??0];}
+export function enemyAttackDestination(m:MatchState):Position {return strategyFor(m)?.objective?.position??m.enemyKnowledge?.playerBase??searchWaypoints(m,'attack')[m.enemyKnowledge?.attackScoutIndex??0];}
 /** At most one empty non-builder worker searches; loaded work is never discarded. */
 export function prepareEnemyScout(m:MatchState):MatchState {
  if(!m.enemyKnowledge||resourceNodes(m.gathering).filter(Boolean).every(node=>knownEnemyNode(m,node)))return m;
@@ -43,7 +52,7 @@ export function updateEnemyExploration(m:MatchState):MatchState {
  if(!m.enemyKnowledge)return m;
  const waypoints=searchWaypoints(m,'attack');const goal=enemyAttackDestination(m);const reached=m.combat.enemies.some(e=>e.order?.kind==='attack-move'&&Math.hypot(e.position.x-goal.x,e.position.y-goal.y)<=config.attackArrivalRange||e.order?.kind==='attack-move'&&e.navigation?.targetId==='explore-goal'&&e.navigation.status==='arrived'&&canInteract({...enemyNavigationMap(m.map),bodyHalf:enemyUnitStats(e,m.factions?.enemy).size/2},e.position,baseFootprint(goal),enemyUnitStats(e,m.factions?.enemy).range));
  const attackScoutIndex=m.enemyKnowledge.playerBase?m.enemyKnowledge.attackScoutIndex:reached?Math.min(m.enemyKnowledge.attackScoutIndex+1,waypoints.length-1):m.enemyKnowledge.attackScoutIndex;
- const destination=m.enemyKnowledge.playerBase??waypoints[attackScoutIndex];
+ const destination=strategyFor(m)?.objective?.position??m.enemyKnowledge.playerBase??waypoints[attackScoutIndex];
  const oldDestination=[{x:704,y:400},{x:448,y:528},{x:208,y:320}][m.enemyKnowledge.attackScoutIndex];
  const needsRetarget=(e:typeof m.combat.enemies[number])=>e.order?.kind==='attack-move'&&(!e.navalLanding||!!m.enemyKnowledge!.playerBase)&&(e.order.destination.x!==destination.x||e.order.destination.y!==destination.y)&&(!!m.enemyKnowledge!.playerBase||attackScoutIndex!==m.enemyKnowledge!.attackScoutIndex||e.order.destination.x===oldDestination.x&&e.order.destination.y===oldDestination.y);
  if(attackScoutIndex===m.enemyKnowledge.attackScoutIndex&&!m.combat.enemies.some(needsRetarget))return m;

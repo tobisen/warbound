@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/enemyInitiative.test.ts -t arena/beginner
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 4 skipped (5)
+   Start at  19:43:14
+   Duration  16.75s (transform 579ms, setup 0ms, import 706ms, tests 15.97s, environment 0ms)

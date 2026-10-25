@@ -42,7 +42,8 @@ export function updateEnemyProduction(state:EnemyProductionState,combat:CombatSt
   const savingForFarm=()=>buildings?.reserveForFarm!==undefined&&population().used+population().reserved+c.enemies.filter(e=>e.kind==='worker').length+(buildings.workerReservations??0)>=buildings.population.cap-buildings.reserveForFarm;
   while(buildings?.startAllowed!==false&&!savingForFarm()){
    const counter=buildings?.airThreat&&c.enemies.filter(e=>e.role==='archer'&&e.hp>0).length+(p.queue??[]).filter(j=>j.kind==='archer').length<2;
-   const role=counter?'archer':buildings?.armyPlan?compositionRole(buildings.armyPlan,c,p,faction,buildings.technology,buildings.maxArmy,buildings.embarked,acceptedJobs):nextEnemyRole({...state,acceptedJobs},faction,buildings?.technology,buildings?.maxArmy);
+   const pop=population();
+   const role=counter?'archer':buildings?.armyPlan?compositionRole(buildings.armyPlan,c,p,faction,buildings.technology,buildings.maxArmy,buildings.embarked,acceptedJobs,pop.cap-pop.used-pop.reserved):nextEnemyRole({...state,acceptedJobs},faction,buildings?.technology,buildings?.maxArmy);
    if(!role||buildings?.reserve&&(g.wood-(profile?.units[role].cost.wood??enemyProductionConfig.cost.wood)<buildings.reserve.wood||(g.goldBalance??0)-(profile?.units[role].cost.gold??enemyProductionConfig.cost.gold)<buildings.reserve.gold)||role!=='air'&&role!=='scout'&&groundCommitted()+(profile?.units[role].supply??1)>(buildings?.maxArmy??Infinity)||!canEnqueue(g,p,roleBuilding(role),population()))break;
    const started=enqueueProduction(g,p,roleBuilding(role),population());if(spent){spent.wood+=g.wood-started.gathering.wood;spent.gold+=(g.goldBalance??0)-(started.gathering.goldBalance??0);}g=started.gathering;p=started.production;acceptedJobs++;
   }

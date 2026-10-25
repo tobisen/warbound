@@ -3,7 +3,7 @@ import { navigationConfig } from '../config/navigation';
 import { bodyFits, tileCenter, type WorldMap } from './map';
 import type { Footprint } from './placement';
 import type { Position } from './movement';
-import { findRoute, segmentFits, type RouteState } from './navigation';
+import { findRoute, segmentFits, placementRouteExists, type RouteState } from './navigation';
 
 export function footprintDistance(point: Position, rect: Footprint): number {
   return Math.hypot(Math.max(rect.x-point.x,0,point.x-rect.x-rect.width),
@@ -69,4 +69,9 @@ export function approachRoute(map: WorldMap, position: Position, target: Footpri
 /** Connectivity checks need a witness, not the shortest interaction route. */
 export function canReachFootprint(map:WorldMap,position:Position,target:Footprint,range:number):boolean {
  return approachRoute(map,position,target,range,1,true).status!=='blocked';
+}
+
+/** Same contact candidates and square-body connectors as routing, without path construction. */
+export function canReachPlacementFootprint(map:WorldMap,position:Position,target:Footprint,range:number):boolean {
+ return canInteract(map,position,target,range)||interactionCandidates(map,target,range).some(c=>placementRouteExists(map,position,c.point));
 }

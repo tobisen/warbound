@@ -17,9 +17,10 @@ export type PlayerVisibility=(unit:Unit,observer:Enemy)=>boolean;
 export function updateEnemyDefense(state:EnemyAIState,combat:CombatState,map:WorldMap,playerBase:Position,
  player:Unit[],settings:EnemyAISettings,visible:PlayerVisibility=()=>true,faction:FactionId='clans'){
  let enemies=combat.enemies,groups=state.groups;
- const base=enemyBase(combat,map),alive=new Set(enemies.filter(e=>e.hp>0&&e.role!=='scout').map(e=>e.id));
+ const reconnaissance=new Set(settings.reconIds??[]);
+ const base=enemyBase(combat,map),alive=new Set(enemies.filter(e=>e.hp>0&&e.role!=='scout'&&!reconnaissance.has(e.id)).map(e=>e.id));
  let reserve=base?state.reserve.filter(id=>alive.has(id)):[],defenders=state.defenders.filter(d=>alive.has(d.id));
- const produced=enemies.filter(e=>e.hp>0&&e.role!=='scout'&&e.id.startsWith('enemy-produced-')&&!e.navalLanding);
+ const produced=enemies.filter(e=>e.hp>0&&e.role!=='scout'&&!reconnaissance.has(e.id)&&e.id.startsWith('enemy-produced-')&&!e.navalLanding);
  if(base)for(const e of [...produced].sort((a,b)=>Math.hypot(a.position.x-base.position.x,a.position.y-base.position.y)-Math.hypot(b.position.x-base.position.x,b.position.y-base.position.y)||a.id.localeCompare(b.id,'en',{numeric:true}))){
   if(reserve.length>=settings.reserveCount)break;if(!reserve.includes(e.id))reserve.push(e.id);
  }
@@ -49,6 +50,7 @@ export function updateEnemyDefense(state:EnemyAIState,combat:CombatState,map:Wor
   enemies=enemies.map(e=>chosen.some(u=>u.id===e.id)&&!(e.order?.kind==='defend'&&e.order.targetId===threat.id)?{...e,navigation:undefined,order:{kind:'defend',targetId:threat.id}}:e);
  }else{for(const d of defenders)release(d);defenders=[];}
  const protectedIds=new Set([...reserve,...defenders.map(d=>d.id)]);
+ for(const id of reconnaissance)protectedIds.add(id);
  groups=groups.map(g=>({...g,members:g.members.filter(id=>!protectedIds.has(id)),destinations:Object.fromEntries(Object.entries(g.destinations).filter(([id])=>!protectedIds.has(id)))})).filter(g=>g.members.length);
  if(base?.footprint){const guards=settings.guardExpansions?[base,...strongholds.filter(e=>e.buildingType==='outpost')]:[base];
   for(const id of reserve.filter(id=>!defenders.some(d=>d.id===id))){enemies=enemies.map(e=>{

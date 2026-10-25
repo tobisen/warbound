@@ -1,0 +1,34 @@
+{
+  "chromium": "155.0.8059.85",
+  "fixture": {
+    "seconds": 300,
+    "units": 60,
+    "bases": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "kind": "Production-bundled gameplay CPU; identical cloned paid300s four-AI allied state, human-only100000HP soak. No AI entities/resources/vision injected.180 ticks,30 warmup,1/60s. Only knownEnemyNode lookup changes.",
+  "baselineSourceHash": "8a18973b2d77bc307753b03a4fd269bc5b36886859e9052d610d1263106d0819",
+  "indexedSourceHash": "fa9b1db34fd61e50ab3fa8a3da28e13f1343e7478ba8b60262a047ec5b423390",
+  "results": [
+    {
+      "name": "BeforeAI",
+      "medianMs": 119.80000001192093,
+      "p95Ms": 213.9000000357628,
+      "decisions": 4,
+      "seconds": 302.99999999999727,
+      "stateHash": "300d436952a84a933b693b481cd8ba1302ef2578a4f1d499023ed383bbd62e8e"
+    },
+    {
+      "name": "AfterAI",
+      "medianMs": 35.60000002384186,
+      "p95Ms": 40.799999952316284,
+      "decisions": 4,
+      "seconds": 302.99999999999727,
+      "stateHash": "300d436952a84a933b693b481cd8ba1302ef2578a4f1d499023ed383bbd62e8e"
+    }
+  ]
+}

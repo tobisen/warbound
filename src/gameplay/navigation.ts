@@ -60,6 +60,40 @@ function connectors(map: WorldMap, point: Position, half: number): Tile[] {
   });
 }
 
+const connectivityCache=new WeakMap<WorldMap['obstacles'],{length:number;entries:Map<string,{labels:Int32Array;next:number;points:Map<string,Tile[]>}>}>();
+/** Placement needs connectivity, never a shortest path. Label each visited component
+ * once per terrain/body snapshot, sharing work across actors and building anchors. */
+export function placementRouteExists(map:WorldMap,start:Position,destination:Position):boolean {
+ const half=map.bodyHalf??navigationConfig.halfBody;
+ const columns=Math.ceil(map.width/map.tileSize),rows=Math.ceil(map.height/map.tileSize),target=map.interactionTarget;
+ const cacheKey=`${map.width}:${map.height}:${map.tileSize}:${map.revision}:${half}:${target?`${target.x},${target.y},${target.width},${target.height}`:''}`;
+ let cache=connectivityCache.get(map.obstacles);
+ if(!cache||cache.length!==map.obstacles.length){cache={length:map.obstacles.length,entries:new Map()};connectivityCache.set(map.obstacles,cache);}
+ let entry=cache.entries.get(cacheKey);
+ if(!entry&&segmentFits(map,start,destination,half))return true;
+ if(!entry){entry={labels:new Int32Array(columns*rows),next:0,points:new Map()};if(cache.entries.size>=8)cache.entries.delete(cache.entries.keys().next().value!);cache.entries.set(cacheKey,entry);}
+ const points=(p:Position)=>{const key=`${p.x},${p.y}`;let result=entry!.points.get(key);if(!result){result=bodyFits(map,p,half)?connectors(map,p,half):[];if(entry!.points.size>=4096)entry!.points.clear();entry!.points.set(key,result);}return result;};
+ const index=(t:Tile)=>t.row*columns+t.column,starts=points(start),goals=points(destination);
+ if(!starts.length||!goals.length)return segmentFits(map,start,destination,half);
+ for(const first of starts){
+  const firstIndex=index(first);
+  if(!entry.labels[firstIndex]){
+   const label=++entry.next,queue=[first];entry.labels[firstIndex]=label;
+   for(let cursor=0;cursor<queue.length;cursor++){
+    const tile=queue[cursor],center=tileCenter(map,tile)!;
+    for(const [dx,dy] of [[0,-1],[1,0],[0,1],[-1,0]]){
+     const next={column:tile.column+dx,row:tile.row+dy};
+     if(next.column<0||next.row<0||next.column>=columns||next.row>=rows||entry.labels[index(next)])continue;
+     const point=tileCenter(map,next)!;
+     if(segmentFits(map,center,point,half)){entry.labels[index(next)]=label;queue.push(next);}
+    }
+   }
+  }
+  if(goals.some(g=>entry!.labels[index(g)]===entry!.labels[firstIndex]))return true;
+ }
+ return segmentFits(map,start,destination,half);
+}
+
 interface GoalTree {queue:Tile[];cursor:number;parent:Map<string,Tile|null>;depth:Map<string,number>}
 const goalCache=new WeakMap<WorldMap['obstacles'],{length:number;goals:Map<string,GoalTree>}>();
 /** Linear string pulling: keep only bends that the complete square body cannot bypass. */

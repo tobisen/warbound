@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/placement.test.ts src/gameplay/gates.test.ts src/gameplay/towers.test.ts src/gameplay/fortifications.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  4 passed (4)
+      Tests  48 passed (48)
+   Start at  19:44:03
+   Duration  6.76s (transform 1.81s, setup 0ms, import 2.31s, tests 7.41s, environment 0ms)

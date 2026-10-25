@@ -1,0 +1,118 @@
+{
+  "result": {
+    "world": [
+      4096,
+      4096
+    ],
+    "units": 96,
+    "obstacles": 3668,
+    "farms": 48,
+    "point": {
+      "x": 560,
+      "y": 546
+    },
+    "preview": null,
+    "previewMs": 0,
+    "admission": null,
+    "placed": 1,
+    "times": {
+      "begin": 0,
+      "preview": 0,
+      "admission": 132.60000002384186,
+      "place": 89,
+      "cancel": 0.09999996423721313
+    }
+  },
+  "hot": [
+    {
+      "name": "getImageData",
+      "url": "",
+      "count": 189
+    },
+    {
+      "name": "texImage2D",
+      "url": "",
+      "count": 182
+    },
+    {
+      "name": "texImage2D",
+      "url": "",
+      "count": 170
+    },
+    {
+      "name": "(program)",
+      "url": "",
+      "count": 32
+    },
+    {
+      "name": "texImage2D",
+      "url": "",
+      "count": 24
+    },
+    {
+      "name": "toDataURL",
+      "url": "",
+      "count": 23
+    },
+    {
+      "name": "nearbyObstacles",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 23
+    },
+    {
+      "name": "(garbage collector)",
+      "url": "",
+      "count": 17
+    },
+    {
+      "name": "renderActionIcons",
+      "url": "http://127.0.0.1:5186/src/presentation/actionIcons.ts?t=1792952744167",
+      "count": 15
+    },
+    {
+      "name": "nearbyObstacles",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 15
+    },
+    {
+      "name": "texImage2D",
+      "url": "",
+      "count": 13
+    },
+    {
+      "name": "bodyFits",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 12
+    },
+    {
+      "name": "nearbyObstacles",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 12
+    },
+    {
+      "name": "nearbyObstacles",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 12
+    },
+    {
+      "name": "organicResources",
+      "url": "http://127.0.0.1:5186/src/config/organicTerrain.ts",
+      "count": 11
+    },
+    {
+      "name": "open",
+      "url": "http://127.0.0.1:5186/src/config/organicTerrain.ts",
+      "count": 10
+    },
+    {
+      "name": "texImage2D",
+      "url": "",
+      "count": 9
+    },
+    {
+      "name": "nearbyObstacles",
+      "url": "http://127.0.0.1:5186/src/gameplay/map.ts",
+      "count": 9
+    }
+  ]
+}

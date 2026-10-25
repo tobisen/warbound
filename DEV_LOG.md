@@ -1,3 +1,132 @@
+## Commit och push godkänd — lokala gameplayförbättringar
+
+Användaren har efter den lokala leveransen uttryckligen beställt commit och push
+till befintlig origin/main. Detta ersätter tidigare förbud mot commit/push för
+uppdraget. Ingen publicering är beställd; commit får `[skip ci]` eftersom
+pages.yml annars både verifierar och publicerar vid push. Ingen ny CI/Pages-
+verifiering hävdas. Befintlig style.css, units.mjs, docs/ och orelaterade
+ospårade filer lämnas utanför commit. Kod, relevanta AI-beroenden, tester,
+rapporter och projektdokumentation ingår. Den lokala fullregressionen2071/225
+återanvänds för oförändrad implementation; separat verifiering av själva
+commitunderlaget redovisas i DEV_LOG.
+
+Commitunderlaget exporterades från Git-index till separat temporär katalog,
+utan de undantagna användarändringarna. På denna kandidat: `npm run test:unit`
+543/93 PASS24,25s och `npm run build` inklusive strict TypeScript PASS728ms.
+Vites befintliga bundlevarning kvarstår; Gitmetadata saknas i exporten och
+befintlig Build-fallback blir unknown (ingen release/publicering).
+Ny Chrome800/1280 på samma exporterade kandidat PASS:idleknapp/ring/cykling,
+256 enheter/64 farms, grön/röd preview, betald placering/avbryt, Save/load,
+levande scenframes och rörligt luftmål150→116HP; noll pageerrors.
+Den ursprungliga full2071/225 återanvänds för oförändrad gameplaykod, utan en ny
+bred matchsimulering i detta commit-/pushuppdrag. Indexdiff/länkar granskas före
+commit. Loggarnas avslutande whitespace normaliseras för git diff --check utan
+ändrat kommandoresultat. Browserdata och bilder finns i rapportens commit-candidate/.
+
+## Lokal gameplayförbättring — idle workers
+
+Knapp under minimap med liveantal och disabled vid tom mängd/paus/spectator.
+Stabil numerisk cykling, exakt en vald enhet, kamerafokus och rensat inputläge.
+Vanlig selectionring/HP/porträtt markerar valet. Gameplayhelper är Phaserfri;
+aktiva arbets-/stridsorder, köer, commandModes, moving och självförsvar undantas.
+Två riktade tester PASS; browser800/1280 och slutlig strict build återstår.
+
+## Lokal gameplayförbättring — antal och AI-mål
+
+Farm5/10- och extra-bas2-spärrarna borttagna ur admission, UI och Save.
+Save tar inte längre bort möjligheten att ladda fler än128 enheter/producenter;
+befintlig4MB-bytebudget och strikt objekts-/kö-/referensvalidering består.
+Supply/kostnader och tre jobb per produktionskö är fortfarande spelregler;
+AI:s strategi-/svårighetsmål är medvetna budgetmål, inte spelarspärrar.
+Riktade44/4 PASS:256 befintliga→257 efter betald träning,64 farms,5 extra
+baser,140 producenter och komplett Save/load. Befintliga tests som uttryckligen
+krävde de gamla gränserna uppdaterade. Fixture korrigerad för riktiga kartbounds,
+ägare och tillåten bank innan slutligt PASS; inga fel döljda i implementationen.
+
+Lokalt befintlig AI-logik bevarad.20min-testernas mål skärpta till uppdragets
+Easy120/720/600s, Normal120/540/420s, Hard120/420/300s (scout/bas/anfall);
+både dispatch och faktisk träff kontrolleras. Beginner ingår nu separat med
+180/840/720s. Ny körning redovisas i slutrapporten; äldre mätningar är historik.
+
+## Lokal gameplayförbättring — 2026-10-25 — tornplacering
+
+Profilering av oförändrad kod:4096²,96 enheter,48 farms,3668 hinder.
+Preview0,1ms; admission4585ms och faktisk placeTower4514ms. CPU-sampling
+pekar på återkommande findRoute/nearbyObstacles, inte sprites. Placement/gates
+använder nu delad komponentkonnektivitet med samma kroppar/kontaktpunkter;
+vanliga rörelsevägar lämnas intakta. Senaste samma prov: admission132,6ms,
+place89ms, preview under mätupplösningen. Pointermove samlar endast senaste
+punkten; ordinarie scenframe uppdaterar preview/UI. Fortsatt kort klickkostnad,
+ingen allhårdvaru-FPS-garanti. Underlag:artifacts/gameplay-improvements.
+
+## 2026-10-25 — Lokalt AI-initiativ — Done
+
+Separat uppdrag från bifogad text. Ingen stage/commit/push/publicering.
+Befintlig7abb3fc-strategi, gameplaydelta, finite resursleveranser, köer/supply,
+fog, grupper, research och multi-actor-scope undersökta. Baslinjen visade redan
+anfall/expansion i passiva fixtures; nya förbättringar är separat tidig spaning,
+stabila mål/återhämtning och verifiering över20min, inte en total AI-omskrivning.
+
+Implementerat i befintlig arkitektur: EnemyRecon med en betald lämplig markenhet,
+egen fog, normal route vid målbyte och reträtt/ersättning; flygscouts undviker
+synlig AA. Strategiska faser, Easy/Normal/Hard-attack-/rädmål, separata grindar
+för senare resursbaser utan evigt researchlås. EnemyObjectives väljer synliga
+ekonomimål eller annan approach vid underläge,30s målstabilitet och90s förlust-
+backoff. Smågrupper sammanförs även utan powerkrav; äldsta muster-time behålls,
+ranged-DPS används. Ekonomi/produktion/bygggränser/garnisoner/placement-backoff
+återanvänds. Ingen ny Save-version, kampanj-/kartlayout-/kostnadsändring.
+
+Nya integrationer enemyInitiative/enemyTactics (båda i integrationmanifestet),
+delad20min-scenariohjälpare och tre reproducerbara scripts. [Rapport med rådata och bilder](artifacts/ai-initiative/README.md). Fyra produktionsbundlade1200s-
+scenarier: Normal/Arena+Plains96, Easy/Hard. Normal scout47s, dispatch240s,
+faktisk spelarträff251/270s, andra bas239/222s, tredje640/625s. Efter förlust vid
+720s:6/5 nya betalda jobb och nya dispatch/träffar. Easy/Hard båda proaktiva med
+olika tempo/supply. BasnivåIII och attack/defenseII i alla fall, ledgerfel<1.4e-10.
+Inga överskridna worker-/army-/byggnadstak.
+
+Fynd/rättningar: första långtestförsöket2PASS/2FAIL; Easy fastnade i små väntande
+grupper, rättat genom sammanföring utan powerkrav. Plains96 överskred180s wall-
+clock. Gameplaykrav behölls; onödiga scout-formationer ersattes av en route,
+individuella wall-budget300/600s skiljs från1200s gameplaykrav. Expansionstest-
+fixture saknade supply och fick explicit färdiga farms; betalningsassertions
+behölls. Route-cachefixture fick en faktiskt öppen route; blockerade mål ska
+fortsatt hoppas över.
+
+Browser155, dev800/1280:300s betald utveckling, fysisk spelarträff/Save800,
+fyra AI med varsin andra bas PASS, inga pageerrors, bilder visuellt granskade.
+Den första sandboxade Chrome-starten blockerades; därefter tillåten lokal
+browserbehörighet. Initial fyr-AI/62-enhetsupdate121.6/140.0ms median/p95 visade
+en konkret flaskhals: upprepade nodes.find blev kvadratiska vid stor upptäckt.
+Första fullförsöket avbröts utan slutresultat för att rätta detta.
+
+Härlett WeakMap-index per observationsarray ger O(1)-uppslag efter O(n)-bygge;
+ny snapshot/längd invaliderar, ingen sparad cache eller ägarläcka. Regressioner
+för ny observation, dold depletion, separata ägare, append/tömning. Alla fyra
+20min-rapporter exakt identiska före/efter indexet utom wallMs. Ny isolerad
+Vite-produktionsjämförelse: samma klonade300s-fyr-AI/60-enhetstillstånd,180 ticks
+med30 warmup,1/60s. CPU-median119.8→35.6ms, p95213.9→40.8ms; identisk fullstate-
+SHA256300d436952a84a933b693b481cd8ba1302ef2578a4f1d499023ed383bbd62e8e.
+Fyra strategibeslut på3s, ett per AI. Renderkontroller/bilder återanvänds efter
+indexet; ingen ny app-/renderingskörning hävdas för indexändringen.
+
+Slutlig verifiering på rättad spelkod:
+- `npm test`:2057 tester/223 filer PASS1205.65s, faktiskt omkörd efter indexet.
+- `npm run test:unit`:538/92 PASS26.79s.
+- `npm run build`:strict TypeScript och Vite PASS671ms, befintlig bundlevarning.
+- Riktade enemyTactics/enemyKnowledge/enemyStrategy35/3 PASS15.50s efter indexet.
+- Scenarioscriptets fyra1200s-körningar, full rapportslikhet och isolerad Chrome-
+  CPU/statehash-jämförelse PASS. Tidigare riktade103/10, route22/2 och8/1 är
+  uttryckligen tidigare belägg, inte slutlig cacheverifiering.
+- Tre scripts syntax, testmanifest92unit/131integration, nya lokala länkar,
+  egen diffreview och git diff --check PASS. Inga kodchecks upprepas efter
+  slutlig ren dokumentuppdatering.
+
+Kvarstående:35.6/40.8ms är över60FPS-budget; inga allhårdvaru-/fullmatch-FPS- eller
+mänskliga balanspåståenden. Hit-sink respektive100000human-HP-fixture redovisas,
+AI:s ekonomi/enheter/sikt injiceras inte. Ingen ny CI/Pages/release. style.css/
+units.mjs har oförändrade kontrollsummor; docs/, CLEANUP_REPORT.md och :memory:.ses
+bevarade. Uppdraget avslutas lokalt utan att återuppta roadmap/batchar.
+
 ## 2026-10-08 — RTS-238 Done
 
 Full npm test1869/215 PASS516.80s på slutlig kod. Unit527/92 PASS22.78s,
@@ -6455,3 +6584,38 @@ Endast aktuell leveransstatus i Markdown uppdateras och text/diff granskas igen.
 Commit avgränsas till AI-arbetet; style.css, units.mjs, docs/, :memory:.ses och
 CLEANUP_REPORT.md lämnas utanför. Normal push utan force/amend; befintlig
 CI/Pages triggas automatiskt. Ingen ny CI-/deployframgång hävdas före verifiering.
+
+### Slutverifiering lokalt gameplay — slutförd
+
+Browser800/1280 Native PASS: synlig ring, workerfokus/cykling och busy/empty-
+filtrering;256 enheter/64 farms; grön/röd towerpreview, avbryt, betald placering
+utan dubbeldebitering och Save/load986495 bytes. Levande scenframes under
+pointermove fortsätter simulationen; p95 CPU cirka32–42ms i senaste provet.
+Preview0–1,4ms; hela klickhandlern335–535ms i denna större fixture under samtidig
+CPU-belastning. Det är ett kvarvarande kort stopp, inte en60FPS-garanti.
+Rörlig air i scenen150→116HP från flygare och specialiserat luftvärn; noll pageerrors.
+Farmknapp och riktig meny-Save/load efter64 farms: båda kartor×båda upplösningar PASS.
+
+Utökad full regression fann Beginner-recoveryfel: receptplanen valde en tung
+roll trots att bara mindre supply fanns kvar. compositionRole filtrerar nu även
+på verkligt ledig supply inklusive alla reservationer. Inga gratis jobb eller
+höjt armétak. Före rättning0 träffar efter förlust; efter3 betalda nya jobb och
+551 träffhändelser, dispatch360/660/960s. Scout117s, färdig andra bas336s,
+första faktiska träff372s. Data i artifacts/gameplay-improvements/ai-beginner-*
+är nya mätningar. Riktad Beginner20min PASS, combinedArmy/enemyProduction23/2 PASS.
+Den första fullkörningen avbröts (exit130) och räknas inte som PASS. Ny fullsuite
+startad på slutlig kod, inklusive cachade kontaktpunkters kollisionskontroll.
+Ny riktad placement/gate/tower/fortification48/4 PASS; strict build PASS1,26s
+med befintlig bundlevarning. Unit543/93 PASS32,12s; den sista lokala kontaktcache-
+ändringen täcks därefter av riktad48/4 och den nya fulla körningen.
+
+Slutresultat: ny full2071/225 PASS1165,56s efter korrigeringarna. Slutliga16
+implementationsfingeravtryck oförändrade; full/build/unit/riktade råloggar sparade
+i artifacts/gameplay-improvements. Unit543/93 är uttryckligen före sista
+kontaktcachen; slutlig48/4 och fullsuite täcker den. Ny isolerad Chrome-profil
+på slutlig kod efter avslutade tester: cold admission140,4ms, place93,9ms,
+preview0,1ms; jämför före4585/4514ms. Ingen upprepning av redan passerad fullsuite
+för efterföljande Markdown/rapportuppdateringar. Browser-/scriptsyntax-/manifest-/
+länk-/diffgranskning PASS, egen review utan blockerande fynd. BACKLOG markerad
+Done med de observerade stress-/Savebegränsningarna; HANDOFF/QUALITY_REVIEW
+uppdaterade. Ingen commit/push/publicering och inga användarfiler återställda.

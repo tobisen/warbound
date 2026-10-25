@@ -1,0 +1,1823 @@
+[
+  {
+    "map": "arena",
+    "difficulty": "normal",
+    "seconds": 1200,
+    "firstHit": 282,
+    "firstScout": 275,
+    "firstDispatch": 270,
+    "firstExpansion": 239,
+    "thirdBase": 291,
+    "dispatches": [
+      270,
+      331,
+      391,
+      739,
+      774
+    ],
+    "removed": 10,
+    "jobsBeforeLoss": 17,
+    "jobsAfterLoss": 6,
+    "hitsAfterLoss": 6639,
+    "damage": 131047.70777151863,
+    "maxArmySupply": 24,
+    "maxBuildings": 14,
+    "population": {
+      "cap": 39,
+      "used": 33,
+      "reserved": 0
+    },
+    "ledgerError": {
+      "wood": 0,
+      "gold": -3.2741809263825417e-11
+    },
+    "initialUnitsSurvive": true,
+    "snapshots": [
+      {
+        "time": 120,
+        "jobs": 3,
+        "workers": 3,
+        "bases": 1,
+        "armySupply": 3,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge"
+        ],
+        "bank": {
+          "wood": 9,
+          "gold": 8
+        },
+        "priority": "defense",
+        "knownNodes": 133,
+        "knownBase": null,
+        "groups": [
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 240,
+        "jobs": 8,
+        "workers": 5,
+        "bases": 2,
+        "armySupply": 8,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "farm",
+          "outpost"
+        ],
+        "bank": {
+          "wood": 12,
+          "gold": 24
+        },
+        "priority": "army",
+        "knownNodes": 196,
+        "knownBase": null,
+        "groups": [
+          {
+            "status": "ready",
+            "size": 5
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 360,
+        "jobs": 13,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 16,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "farm",
+          "outpost",
+          "outpost",
+          "academy"
+        ],
+        "bank": {
+          "wood": 79,
+          "gold": 78
+        },
+        "priority": "baseUpgrade",
+        "knownNodes": 368,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 6
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 480,
+        "jobs": 17,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 24,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "farm",
+          "outpost",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 29,
+          "gold": 23
+        },
+        "priority": "attack",
+        "knownNodes": 371,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 6
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 600,
+        "jobs": 17,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 24,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "farm",
+          "outpost",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 54,
+          "gold": 58
+        },
+        "priority": "army",
+        "knownNodes": 373,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 6
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 720,
+        "jobs": 17,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 24,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "farm",
+          "outpost",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 389,
+          "gold": 388
+        },
+        "priority": "army",
+        "knownNodes": 384,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 6
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 840,
+        "jobs": 23,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 23,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "farm",
+          "outpost",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "barracks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 415,
+          "gold": 770
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 2
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "attack",
+            "size": 4
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 960,
+        "jobs": 23,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 23,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "farm",
+          "outpost",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "barracks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 725,
+          "gold": 1295
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 2
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "attack",
+            "size": 4
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 1080,
+        "jobs": 23,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 23,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "farm",
+          "outpost",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "barracks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 1005,
+          "gold": 1815
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 2
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "attack",
+            "size": 4
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 1200,
+        "jobs": 23,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 23,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "farm",
+          "outpost",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "barracks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 1275,
+          "gold": 2345
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 2
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "attack",
+            "size": 4
+          }
+        ],
+        "scouts": 1
+      }
+    ],
+    "wallMs": 137189.64712500002
+  },
+  {
+    "map": "plains96",
+    "difficulty": "normal",
+    "seconds": 1200,
+    "firstHit": 302,
+    "firstScout": 275,
+    "firstDispatch": 270,
+    "firstExpansion": 222,
+    "thirdBase": 301,
+    "dispatches": [
+      270,
+      404,
+      751,
+      766
+    ],
+    "removed": 7,
+    "jobsBeforeLoss": 12,
+    "jobsAfterLoss": 9,
+    "hitsAfterLoss": 5264,
+    "damage": 135574.76741827143,
+    "maxArmySupply": 24,
+    "maxBuildings": 14,
+    "population": {
+      "cap": 39,
+      "used": 34,
+      "reserved": 0
+    },
+    "ledgerError": {
+      "wood": -3.183231456205249e-12,
+      "gold": -2.3646862246096134e-11
+    },
+    "initialUnitsSurvive": true,
+    "snapshots": [
+      {
+        "time": 120,
+        "jobs": 3,
+        "workers": 3,
+        "bases": 1,
+        "armySupply": 3,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge"
+        ],
+        "bank": {
+          "wood": 4,
+          "gold": 8
+        },
+        "priority": "defense",
+        "knownNodes": 137,
+        "knownBase": null,
+        "groups": [
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 240,
+        "jobs": 7,
+        "workers": 7,
+        "bases": 2,
+        "armySupply": 8,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost"
+        ],
+        "bank": {
+          "wood": 27,
+          "gold": 34
+        },
+        "priority": "workers",
+        "knownNodes": 225,
+        "knownBase": null,
+        "groups": [
+          {
+            "status": "ready",
+            "size": 5
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 360,
+        "jobs": 10,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 13,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable"
+        ],
+        "bank": {
+          "wood": 26,
+          "gold": 7
+        },
+        "priority": "army",
+        "knownNodes": 904,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 480,
+        "jobs": 12,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 17,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 56,
+          "gold": 62
+        },
+        "priority": "army",
+        "knownNodes": 994,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 600,
+        "jobs": 12,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 17,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 191,
+          "gold": 142
+        },
+        "priority": "army",
+        "knownNodes": 1042,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 720,
+        "jobs": 12,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 17,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 521,
+          "gold": 657
+        },
+        "priority": "army",
+        "knownNodes": 1095,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 840,
+        "jobs": 21,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 24,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks",
+          "barracks",
+          "farm",
+          "barracks",
+          "farm"
+        ],
+        "bank": {
+          "wood": 363,
+          "gold": 981
+        },
+        "priority": "army",
+        "knownNodes": 1988,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 6
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 960,
+        "jobs": 21,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 24,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks",
+          "barracks",
+          "farm",
+          "barracks",
+          "farm"
+        ],
+        "bank": {
+          "wood": 658,
+          "gold": 1516
+        },
+        "priority": "army",
+        "knownNodes": 2046,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 6
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 1080,
+        "jobs": 21,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 24,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks",
+          "barracks",
+          "farm",
+          "barracks",
+          "farm"
+        ],
+        "bank": {
+          "wood": 948,
+          "gold": 2041
+        },
+        "priority": "army",
+        "knownNodes": 2071,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 6
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 1200,
+        "jobs": 21,
+        "workers": 10,
+        "bases": 3,
+        "armySupply": 24,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks",
+          "barracks",
+          "farm",
+          "barracks",
+          "farm"
+        ],
+        "bank": {
+          "wood": 1223,
+          "gold": 2556
+        },
+        "priority": "army",
+        "knownNodes": 2084,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 6
+          },
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 0
+      }
+    ],
+    "wallMs": 185261.551625
+  },
+  {
+    "map": "arena",
+    "difficulty": "easy",
+    "seconds": 1200,
+    "firstHit": 296,
+    "firstScout": 290,
+    "firstDispatch": 285,
+    "firstExpansion": 264,
+    "dispatches": [
+      285,
+      731
+    ],
+    "removed": 5,
+    "jobsBeforeLoss": 10,
+    "jobsAfterLoss": 3,
+    "hitsAfterLoss": 1542,
+    "damage": 72695.1535147769,
+    "maxArmySupply": 12,
+    "maxBuildings": 11,
+    "population": {
+      "cap": 26,
+      "used": 20,
+      "reserved": 0
+    },
+    "ledgerError": {
+      "wood": 0,
+      "gold": -2.1827872842550278e-11
+    },
+    "initialUnitsSurvive": true,
+    "snapshots": [
+      {
+        "time": 120,
+        "jobs": 3,
+        "workers": 3,
+        "bases": 1,
+        "armySupply": 3,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge"
+        ],
+        "bank": {
+          "wood": 14,
+          "gold": 28
+        },
+        "priority": "army",
+        "knownNodes": 131,
+        "knownBase": null,
+        "groups": [
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 240,
+        "jobs": 6,
+        "workers": 4,
+        "bases": 1,
+        "armySupply": 7,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm"
+        ],
+        "bank": {
+          "wood": 55,
+          "gold": 60
+        },
+        "priority": "academy",
+        "knownNodes": 162,
+        "knownBase": null,
+        "groups": [
+          {
+            "status": "ready",
+            "size": 4
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 360,
+        "jobs": 9,
+        "workers": 7,
+        "bases": 2,
+        "armySupply": 11,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy"
+        ],
+        "bank": {
+          "wood": 61,
+          "gold": 32
+        },
+        "priority": "army",
+        "knownNodes": 330,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 480,
+        "jobs": 10,
+        "workers": 8,
+        "bases": 2,
+        "armySupply": 12,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 41,
+          "gold": 27
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 600,
+        "jobs": 10,
+        "workers": 8,
+        "bases": 2,
+        "armySupply": 12,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 31,
+          "gold": 2
+        },
+        "priority": "scoutOptics",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 720,
+        "jobs": 10,
+        "workers": 8,
+        "bases": 2,
+        "armySupply": 12,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 236,
+          "gold": 232
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 840,
+        "jobs": 13,
+        "workers": 8,
+        "bases": 2,
+        "armySupply": 12,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 288,
+          "gold": 456
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 960,
+        "jobs": 13,
+        "workers": 8,
+        "bases": 2,
+        "armySupply": 12,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 488,
+          "gold": 761
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 1080,
+        "jobs": 13,
+        "workers": 8,
+        "bases": 2,
+        "armySupply": 12,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 698,
+          "gold": 1066
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 1200,
+        "jobs": 13,
+        "workers": 8,
+        "bases": 2,
+        "armySupply": 12,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "outpost",
+          "academy",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 878,
+          "gold": 1356
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 3
+          },
+          {
+            "status": "muster",
+            "size": 2
+          }
+        ],
+        "scouts": 1
+      }
+    ],
+    "wallMs": 18750.40183400002
+  },
+  {
+    "map": "arena",
+    "difficulty": "hard",
+    "seconds": 1200,
+    "firstHit": 272,
+    "firstScout": 265,
+    "firstDispatch": 260,
+    "firstExpansion": 186,
+    "thirdBase": 258,
+    "dispatches": [
+      260,
+      330,
+      547,
+      743,
+      766
+    ],
+    "removed": 10,
+    "jobsBeforeLoss": 17,
+    "jobsAfterLoss": 10,
+    "hitsAfterLoss": 8985,
+    "damage": 189281.80751338767,
+    "maxArmySupply": 32,
+    "maxBuildings": 16,
+    "population": {
+      "cap": 49,
+      "used": 44,
+      "reserved": 0
+    },
+    "ledgerError": {
+      "wood": -1.8189894035458565e-12,
+      "gold": -4.274625098332763e-11
+    },
+    "initialUnitsSurvive": true,
+    "snapshots": [
+      {
+        "time": 120,
+        "jobs": 6,
+        "workers": 4,
+        "bases": 1,
+        "armySupply": 5,
+        "buildings": [
+          "base",
+          "barracks",
+          "farm",
+          "forge"
+        ],
+        "bank": {
+          "wood": 8,
+          "gold": 6
+        },
+        "priority": "defense",
+        "knownNodes": 132,
+        "knownBase": null,
+        "groups": [
+          {
+            "status": "muster",
+            "size": 3
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 240,
+        "jobs": 7,
+        "workers": 9,
+        "bases": 2,
+        "armySupply": 8,
+        "buildings": [
+          "base",
+          "barracks",
+          "farm",
+          "forge",
+          "outpost",
+          "academy"
+        ],
+        "bank": {
+          "wood": 67,
+          "gold": 9
+        },
+        "priority": "expansion",
+        "knownNodes": 197,
+        "knownBase": null,
+        "groups": [
+          {
+            "status": "ready",
+            "size": 5
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 360,
+        "jobs": 13,
+        "workers": 12,
+        "bases": 3,
+        "armySupply": 17,
+        "buildings": [
+          "base",
+          "barracks",
+          "farm",
+          "forge",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "farm"
+        ],
+        "bank": {
+          "wood": 31,
+          "gold": 52
+        },
+        "priority": "siegeWorks",
+        "knownNodes": 389,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 4
+          },
+          {
+            "status": "attack",
+            "size": 4
+          },
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 480,
+        "jobs": 15,
+        "workers": 12,
+        "bases": 3,
+        "armySupply": 23,
+        "buildings": [
+          "base",
+          "barracks",
+          "farm",
+          "forge",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "farm"
+        ],
+        "bank": {
+          "wood": 41,
+          "gold": 27
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 4
+          },
+          {
+            "status": "attack",
+            "size": 4
+          },
+          {
+            "status": "muster",
+            "size": 3
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 600,
+        "jobs": 17,
+        "workers": 12,
+        "bases": 3,
+        "armySupply": 31,
+        "buildings": [
+          "base",
+          "barracks",
+          "farm",
+          "forge",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "farm",
+          "farm",
+          "farm"
+        ],
+        "bank": {
+          "wood": 166,
+          "gold": 177
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 4
+          },
+          {
+            "status": "attack",
+            "size": 4
+          },
+          {
+            "status": "attack",
+            "size": 4
+          },
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 720,
+        "jobs": 17,
+        "workers": 12,
+        "bases": 3,
+        "armySupply": 31,
+        "buildings": [
+          "base",
+          "barracks",
+          "farm",
+          "forge",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "farm",
+          "farm",
+          "farm"
+        ],
+        "bank": {
+          "wood": 561,
+          "gold": 432
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 4
+          },
+          {
+            "status": "attack",
+            "size": 4
+          },
+          {
+            "status": "attack",
+            "size": 4
+          },
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 840,
+        "jobs": 27,
+        "workers": 12,
+        "bases": 3,
+        "armySupply": 32,
+        "buildings": [
+          "base",
+          "barracks",
+          "farm",
+          "forge",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "farm",
+          "farm",
+          "farm",
+          "barracks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 556,
+          "gold": 592
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 2
+          },
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "attack",
+            "size": 6
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 960,
+        "jobs": 27,
+        "workers": 12,
+        "bases": 3,
+        "armySupply": 32,
+        "buildings": [
+          "base",
+          "barracks",
+          "farm",
+          "forge",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "farm",
+          "farm",
+          "farm",
+          "barracks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 886,
+          "gold": 977
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 2
+          },
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "attack",
+            "size": 6
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 1080,
+        "jobs": 27,
+        "workers": 12,
+        "bases": 3,
+        "armySupply": 32,
+        "buildings": [
+          "base",
+          "barracks",
+          "farm",
+          "forge",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "farm",
+          "farm",
+          "farm",
+          "barracks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 1136,
+          "gold": 1377
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 2
+          },
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "attack",
+            "size": 6
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 1200,
+        "jobs": 27,
+        "workers": 12,
+        "bases": 3,
+        "armySupply": 32,
+        "buildings": [
+          "base",
+          "barracks",
+          "farm",
+          "forge",
+          "outpost",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "farm",
+          "siegeWorks",
+          "farm",
+          "farm",
+          "farm",
+          "barracks",
+          "barracks"
+        ],
+        "bank": {
+          "wood": 1341,
+          "gold": 1757
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "attack",
+            "size": 2
+          },
+          {
+            "status": "attack",
+            "size": 5
+          },
+          {
+            "status": "attack",
+            "size": 6
+          }
+        ],
+        "scouts": 1
+      }
+    ],
+    "wallMs": 36560.17554200004
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "src/config/buildings.ts": "9dd0a0b05d4fbd471f11fb5527d4095013d62d9be9586ff356a3834a75adb476",
+  "src/config/extraBases.ts": "397538cc102ef69f822e305ce9d006eaff9744c1d38f3613c67737923fd222cf",
+  "src/config/save.ts": "861ca972d7bbb14baf1631b9021a9db8a9e4fd7e1908a80eaa06f6866da061e6",
+  "src/gameplay/approach.ts": "b22e5a149b665c3a3a5cfcce8cfbaed3a7c93e697dc1f18231b802df8b147845",
+  "src/gameplay/navigation.ts": "8f3af8045d462b344cd8e47e69d89dfb578a5e7fa5112ef907ea94dde6461e5b",
+  "src/gameplay/placement.ts": "30fd54e52dc32c7f1467a98f0f8ff71f4e193075ce6aa3d21962bb969c6f1e9e",
+  "src/gameplay/gates.ts": "981f9b4c5827ae372496a57852f6d691631a939972f720dd3fc450d9cda4f3b0",
+  "src/gameplay/towers.ts": "d6949728c99b6bec008b0b5369e0deb55f0a1522c157694fdfee2f2fa1d88ebd",
+  "src/gameplay/projectiles.ts": "9e481523f0ba380a47388f989e414c58ed756ee45c2bf4ad31f732c877030bcc",
+  "src/gameplay/combinedArmy.ts": "eceb0b93f1a1ac07d49aff4acdae6700401d6518664d073de517eb158b50b22b",
+  "src/gameplay/enemyProduction.ts": "8062e13ca55ded5650c431132417b6b3a477ae983c87cabffb089f9d58443f46",
+  "src/gameplay/idleWorkers.ts": "1763cf2a9e88d7b5bbf1775386fbdefdbedf2a377f009b8224c78d5690ca7bfc",
+  "src/scenes/BootScene.ts": "0515ec9817176e710018ab75ea6497844a39cff209101188f0a6f4c0a9639dbf",
+  "src/presentation/actionPanel.ts": "3d2b06f7ac36076be4fd31a523116a0f8f943b0c881d9e2f4eb9640088b10590",
+  "src/presentation/matchWorkspace.css": "e4f5da03ee083b4640fe7c4babcbc67a65f860ba2e17375e64210ae751ea4b99",
+  "index.html": "ef90208818da2e8c4da8082d7b7600eddd76587961fae80c2db2e15cc14b08aa"
+}
