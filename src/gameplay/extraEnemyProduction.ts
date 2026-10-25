@@ -1,3 +1,5 @@
+import {strategyFor} from './enemyStrategy';
+import {enemySupply} from './enemyUnits';
 import {productionTimeAfterConstruction} from './construction';
 import {enemyPopulation} from './enemyConstruction';
 import {enemyBase,hasEnemyBase} from './enemyBases';
@@ -17,7 +19,9 @@ export function updateExtraEnemyProduction(m:MatchState,delta:number):MatchState
   let p={...site.production!,nextUnitNumber:bank.production.nextUnitNumber};let accepted=bank.acceptedJobs;
   const descriptor=(role:Exclude<UnitRole,'worker'>)=>({kind:'barracks' as const,producer:site.buildingType as 'barracks',footprint:site.footprint!,unitType:role,technology:tech,bounds:m.map,ready:true});
   const role=roles[accepted%Math.max(1,roles.length)];
-  if(role){const result=enqueueProduction(g,p,descriptor(role),enemyPopulation(m));g=result.gathering;if(result.production!==p)accepted++;p=result.production;}
+  const strategy=strategyFor(m),population=enemyPopulation(m);
+  const committed=m.combat.enemies.filter(e=>!e.footprint&&e.kind!=='worker').reduce((sum,e)=>sum+enemySupply(e,f.id),0)+population.reserved;
+  if(role&&(!strategy||committed+f.units[role].supply<=strategy.armyCap&&g.wood-f.units[role].cost.wood>=strategy.reserve.wood&&(g.goldBalance??0)-f.units[role].cost.gold>=strategy.reserve.gold)){const result=enqueueProduction(g,p,descriptor(role),population);g=result.gathering;if(result.production!==p)accepted++;p=result.production;}
   const head=(p.queue?.[0]?.kind??role) as Exclude<UnitRole,'worker'>|undefined;
   const result=head?updateQueuedProduction(g,p,productionTimeAfterConstruction(site.construction!,delta),descriptor(head),{map:m.map,enemies:m.gathering.units}):{gathering:g,production:p};
   const spawned=result.gathering.units.slice(units.length).map(u=>({id:`enemy-produced-${u.id.slice(5)}`,kind:'unit' as const,owner:'enemy' as const,role:u.kind==='soldier'?u.archetype??'soldier' as const:'soldier' as const,hp:u.hp!,position:u.position,...(u.kind==='soldier'&&u.archetype==='healer'?{healAutocast:true}:{}),...(u.kind==='soldier'&&u.archetype==='scout'?{scouting:{mode:'auto' as const,waypoints:[],index:0,nextPlanSeconds:0}}:{}),order:{kind:'idle' as const},...(u.kind==='soldier'&&u.mana!==undefined?{mana:u.mana}:{})}));

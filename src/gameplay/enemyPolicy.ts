@@ -1,3 +1,4 @@
+import {strategyFor,type EnemyStrategy} from './enemyStrategy';
 import {baseUpgradeConfig} from '../config/baseUpgrade';
 import {roleResearchKinds,roleResearchConfig,isRoleResearch,type RoleResearchKind} from '../config/roleResearch';
 import {enemyBase,hasEnemyBase} from './enemyBases';
@@ -18,11 +19,12 @@ import {createResearch,startResearch,updateResearch,researchRecipe,type Research
 import {knownResourceFor,enemyWorker} from './enemyGathering';
 import {orderUnits,type GatheringState,type Worker} from './gathering';
 import type {MatchState} from './match';
-export interface EnemyPolicyState {research:ResearchState}
+export interface EnemyPolicyState {research:ResearchState;strategy?:EnemyStrategy}
 export const createEnemyPolicy=():EnemyPolicyState=>({research:createResearch()});
 export type EnemyPriority='baseUpgrade'|'siegeWorks'|'aviary'|'stable'|RoleResearchKind|'expansion'|'workers'|'barracks'|'supply'|'army'|'forge'|'academy'|'attack'|'defense';
 /** Decisions use only own live entities, paid reservations and bank; discovery is RTS-075. */
 export function enemyPriority(m:MatchState):EnemyPriority {
+ const strategy=strategyFor(m);if(strategy)return strategy.priority;
  if(needsEnemyWorker(m))return 'workers';
  if(!m.enemyPolicy)return 'army';
  const p=enemyBuildingView(m),pop=enemyPopulation(m),r=m.enemyPolicy.research;
@@ -52,8 +54,8 @@ export function prepareEnemyPolicy(m:MatchState):MatchState {
  const woodWorkers=new Set(g.units.filter(u=>u.kind==='worker'&&u.hp!>0).map(u=>u.id).sort((a,b)=>a.localeCompare(b,'en',{numeric:true})).filter((_,index)=>index%2===0));
  for(const worker of [...g.units]){if(worker.kind!=='worker'||worker.hp!<=0||worker.order.kind!=='idle'&&!(worker.order.kind==='gather'&&worker.cargo<=config.emptyCargoEpsilon))continue;const type=woodWorkers.has(worker.id)||woodBias||!g.gold?.remaining?'wood':'gold';const current='nodeId' in worker.order?m.enemyKnowledge?.nodes.find(n=>n.id===('nodeId' in worker.order?worker.order.nodeId:undefined)):undefined;const node=current&&(current.resource??'wood')===type&&current.remaining>0?current:knownResourceFor(m,type,worker.position)??knownResourceFor(m,type==='wood'?'gold':'wood',worker.position);if(!node||node.remaining<=0||'nodeId' in worker.order&&worker.order.nodeId===node.id)continue;g.units=orderUnits(g.units.map(u=>({...u,selected:u.id===worker.id})),node.position,node);}
  const byId=new Map(g.units.map(u=>[u.id,u as Worker]));
- return {...m,enemyPolicy:{research},enemyProduction:{...bank,wood:g.wood,gold:g.goldBalance??0,spent:{wood:(bank.spent?.wood??0)+bank.wood-g.wood,gold:(bank.spent?.gold??0)+bank.gold-(g.goldBalance??0)}},combat:{...m.combat,enemies:m.combat.enemies.map(e=>{const u=byId.get(e.id);return u?{...e,navigation:u.navigation,work:{cargo:u.cargo,cargoType:u.cargoType,target:u.target,order:u.order}}:e;})}};
+ return {...m,enemyPolicy:{...m.enemyPolicy,research},enemyProduction:{...bank,wood:g.wood,gold:g.goldBalance??0,spent:{wood:(bank.spent?.wood??0)+bank.wood-g.wood,gold:(bank.spent?.gold??0)+bank.gold-(g.goldBalance??0)}},combat:{...m.combat,enemies:m.combat.enemies.map(e=>{const u=byId.get(e.id);return u?{...e,navigation:u.navigation,work:{cargo:u.cargo,cargoType:u.cargoType,target:u.target,order:u.order}}:e;})}};
 }
 export function advanceEnemyPolicy(m:MatchState,delta:number):EnemyPolicyState|undefined {
- return m.enemyPolicy?{research:updateResearch(m.enemyPolicy.research,enemyBuildingView(m),delta,true,(m.factions??defaultFactions).enemy,hasEnemyBase(m.combat,m.map))}:undefined;
+ return m.enemyPolicy?{...m.enemyPolicy,research:updateResearch(m.enemyPolicy.research,enemyBuildingView(m),delta,true,(m.factions??defaultFactions).enemy,hasEnemyBase(m.combat,m.map))}:undefined;
 }

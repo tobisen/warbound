@@ -1,0 +1,208 @@
+{
+  "chromium": "155.0.8059.85",
+  "baseline": "946a53cfbbb9f605535e044817ea567f4d4a8dd9",
+  "browser": [
+    {
+      "width": 800,
+      "count": 2,
+      "progression": {
+        "fixture": "Natural paid240s economy",
+        "ai": 1,
+        "time": 240,
+        "outcome": "playing",
+        "workers": 5,
+        "jobs": 8,
+        "buildings": [
+          {
+            "kind": "base",
+            "remaining": 0
+          },
+          {
+            "kind": "barracks",
+            "remaining": 0
+          },
+          {
+            "kind": "forge",
+            "remaining": 0
+          },
+          {
+            "kind": "farm",
+            "remaining": 0
+          },
+          {
+            "kind": "farm",
+            "remaining": 0
+          },
+          {
+            "kind": "outpost",
+            "remaining": 0
+          }
+        ],
+        "bank": {
+          "wood": 12,
+          "gold": 24
+        }
+      },
+      "render": {
+        "firstRevealMs": 6.600000023841858,
+        "medianMs": 1.5,
+        "p95Ms": 2.699999988079071,
+        "fixture": "Render-only full human visibility; no enemy vision changed. Main enemy base camera."
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "count": 2,
+      "progression": {
+        "fixture": "Natural paid240s economy",
+        "ai": 1,
+        "time": 240,
+        "outcome": "playing",
+        "workers": 5,
+        "jobs": 8,
+        "buildings": [
+          {
+            "kind": "base",
+            "remaining": 0
+          },
+          {
+            "kind": "barracks",
+            "remaining": 0
+          },
+          {
+            "kind": "forge",
+            "remaining": 0
+          },
+          {
+            "kind": "farm",
+            "remaining": 0
+          },
+          {
+            "kind": "farm",
+            "remaining": 0
+          },
+          {
+            "kind": "outpost",
+            "remaining": 0
+          }
+        ],
+        "bank": {
+          "wood": 12,
+          "gold": 24
+        }
+      },
+      "render": {
+        "firstRevealMs": 7.5,
+        "medianMs": 1.600000023841858,
+        "p95Ms": 3.099999964237213,
+        "fixture": "Render-only full human visibility; no enemy vision changed. Main enemy base camera."
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "count": 5,
+      "progression": {
+        "fixture": "96 injected soldiers after30s paid economy; rendering load only",
+        "ai": 4,
+        "time": 30,
+        "outcome": "playing",
+        "workers": 8,
+        "jobs": 3,
+        "buildings": [
+          {
+            "kind": "base",
+            "remaining": 0
+          },
+          {
+            "kind": "barracks",
+            "remaining": 0
+          },
+          {
+            "kind": "base",
+            "remaining": 0
+          },
+          {
+            "kind": "barracks",
+            "remaining": 0
+          },
+          {
+            "kind": "base",
+            "remaining": 0
+          },
+          {
+            "kind": "barracks",
+            "remaining": 0
+          },
+          {
+            "kind": "base",
+            "remaining": 0
+          },
+          {
+            "kind": "barracks",
+            "remaining": 0
+          }
+        ],
+        "bank": {
+          "wood": 4,
+          "gold": 13
+        }
+      },
+      "render": {
+        "firstRevealMs": 10.5,
+        "medianMs": 2.699999988079071,
+        "p95Ms": 4.900000035762787,
+        "fixture": "Render-only full human visibility; no enemy vision changed. Main enemy base camera."
+      },
+      "errors": []
+    }
+  ],
+  "cpu": [
+    {
+      "baseline": true,
+      "army": false,
+      "medianMs": 14,
+      "p95Ms": 16,
+      "startUnits": 11,
+      "endUnits": 11,
+      "outcome": "playing",
+      "decisions": 0,
+      "seconds": 6
+    },
+    {
+      "baseline": true,
+      "army": true,
+      "medianMs": 38.80000001192093,
+      "p95Ms": 52.30000001192093,
+      "startUnits": 115,
+      "endUnits": 117,
+      "outcome": "playing",
+      "decisions": 0,
+      "seconds": 6
+    },
+    {
+      "baseline": false,
+      "army": false,
+      "medianMs": 14,
+      "p95Ms": 16,
+      "startUnits": 11,
+      "endUnits": 11,
+      "outcome": "playing",
+      "decisions": 8,
+      "seconds": 6
+    },
+    {
+      "baseline": false,
+      "army": true,
+      "medianMs": 38.80000001192093,
+      "p95Ms": 53.19999998807907,
+      "startUnits": 115,
+      "endUnits": 117,
+      "outcome": "playing",
+      "decisions": 8,
+      "seconds": 6
+    }
+  ],
+  "limitations": "CPU samples are production gameplay, not FPS. Large fixture injects 96 soldiers without payment, matching the existing five-player stress workload. AI behavior intentionally differs; no final-state equality claim."
+}

@@ -25,7 +25,7 @@ export function nextEnemyRole(state:EnemyProductionState,faction?:FactionId,tech
  return roles.map((_,i)=>roles[(state.acceptedJobs+i)%roles.length]).find(role=>(!profile||!unitAvailability(profile,role,technology))&&(maxArmy!==2||role==='air'||(profile?.units[role].supply??1)===1));
 }
 /** Adapter to shared atomic queue/time/spawn rules; temporary units never enter player state. */
-export function updateEnemyProduction(state:EnemyProductionState,combat:CombatState,player:GatheringState,map:WorldMap,delta:number,faction?:FactionId,buildings?:{armyPlan?:ArmyPlan;technology?:TechnologyState;site?:Enemy;population:Population;reserveForFarm?:number;startAllowed?:boolean;workerReservations?:number;maxArmy?:number;embarked?:number;airThreat?:boolean}) {
+export function updateEnemyProduction(state:EnemyProductionState,combat:CombatState,player:GatheringState,map:WorldMap,delta:number,faction?:FactionId,buildings?:{armyPlan?:ArmyPlan;technology?:TechnologyState;site?:Enemy;population:Population;reserveForFarm?:number;startAllowed?:boolean;workerReservations?:number;maxArmy?:number;embarked?:number;airThreat?:boolean;armyCap?:number;reserve?:{wood:number;gold:number}}) {
  const base=enemyBase(combat,map);
  if(!base?.footprint)return {combat,state:{...state,production:{...state.production,queue:[],remainingSeconds:null,blockedSpawnKey:undefined}}};
  if(buildings&&(!buildings.site?.footprint||buildings.site.construction?.remainingSeconds!==0))return {combat,state};
@@ -36,14 +36,14 @@ export function updateEnemyProduction(state:EnemyProductionState,combat:CombatSt
   const units:Unit[]=c.enemies.filter(e=>!e.footprint).map(e=>enemySoldier(e,faction??'clans'));
   let g:GatheringState={faction,units,wood:next.wood,goldBalance:next.gold,base:base.position,node:{id:'unused',position:base.position,remaining:0}};
   let p=next.production,acceptedJobs=next.acceptedJobs,spent=next.spent?{...next.spent}:undefined;
-  const population=()=>({cap:Math.min(next.cap,buildings?buildings.population.cap-c.enemies.filter(e=>e.kind==='worker').length-(buildings.workerReservations??0):Infinity),used:c.enemies.filter(e=>!e.footprint&&e.kind!=='ship'&&e.kind!=='worker').reduce((n,e)=>n+enemySupply(e,faction??'clans'),0)+(buildings?.embarked??0),reserved:(p.queue?.reduce((n,j)=>n+(j.supply??1),0)??0)+c.enemies.reduce((n,e)=>n+(e.production?.queue?.reduce((n,j)=>n+(j.supply??1),0)??0),0)});
+  const population=()=>({cap:Math.min(buildings?.armyCap??next.cap,buildings?buildings.population.cap-c.enemies.filter(e=>e.kind==='worker').length-(buildings.workerReservations??0):Infinity),used:c.enemies.filter(e=>!e.footprint&&e.kind!=='ship'&&e.kind!=='worker').reduce((n,e)=>n+enemySupply(e,faction??'clans'),0)+(buildings?.embarked??0),reserved:(p.queue?.reduce((n,j)=>n+(j.supply??1),0)??0)+c.enemies.reduce((n,e)=>n+(e.production?.queue?.reduce((n,j)=>n+(j.supply??1),0)??0),0)});
   // The transport's two land seats do not cap aircraft. All domains still share real supply.
   const groundCommitted=()=>c.enemies.filter(e=>!e.footprint&&e.kind!=='ship'&&e.kind!=='worker'&&!isAir(e)).reduce((n,e)=>n+enemySupply(e,faction??'clans'),0)+(buildings?.embarked??0)+(p.queue??[]).filter(j=>j.kind!=='air'&&j.kind!=='scout').reduce((n,j)=>n+(j.supply??1),0);
   const savingForFarm=()=>buildings?.reserveForFarm!==undefined&&population().used+population().reserved+c.enemies.filter(e=>e.kind==='worker').length+(buildings.workerReservations??0)>=buildings.population.cap-buildings.reserveForFarm;
   while(buildings?.startAllowed!==false&&!savingForFarm()){
    const counter=buildings?.airThreat&&c.enemies.filter(e=>e.role==='archer'&&e.hp>0).length+(p.queue??[]).filter(j=>j.kind==='archer').length<2;
    const role=counter?'archer':buildings?.armyPlan?compositionRole(buildings.armyPlan,c,p,faction,buildings.technology,buildings.maxArmy,buildings.embarked,acceptedJobs):nextEnemyRole({...state,acceptedJobs},faction,buildings?.technology,buildings?.maxArmy);
-   if(!role||role!=='air'&&role!=='scout'&&groundCommitted()+(profile?.units[role].supply??1)>(buildings?.maxArmy??Infinity)||!canEnqueue(g,p,roleBuilding(role),population()))break;
+   if(!role||buildings?.reserve&&(g.wood-(profile?.units[role].cost.wood??enemyProductionConfig.cost.wood)<buildings.reserve.wood||(g.goldBalance??0)-(profile?.units[role].cost.gold??enemyProductionConfig.cost.gold)<buildings.reserve.gold)||role!=='air'&&role!=='scout'&&groundCommitted()+(profile?.units[role].supply??1)>(buildings?.maxArmy??Infinity)||!canEnqueue(g,p,roleBuilding(role),population()))break;
    const started=enqueueProduction(g,p,roleBuilding(role),population());if(spent){spent.wood+=g.wood-started.gathering.wood;spent.gold+=(g.goldBalance??0)-(started.gathering.goldBalance??0);}g=started.gathering;p=started.production;acceptedJobs++;
   }
   if(p.remainingSeconds===null)return {combat:c,state:{...next,wood:g.wood,gold:g.goldBalance??0,production:p,acceptedJobs,...(spent?{spent}:{})}};

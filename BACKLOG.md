@@ -53,6 +53,25 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Strategisk fiende-AI — 2026-10-25 — Done
+
+Uttryckligt separat användaruppdrag: proaktiv betald ekonomi/bas/armé, säkrare
+expansion och anfall, fog och oberoende svårighetsgrader, avgränsade/cachade
+beslut samt verifiering med flera AI. Återanvänd befintliga system; bevara
+style.css, units.mjs och otrackat användararbete. Ursprungligen utan commit/push;
+användaren har därefter uttryckligen godkänt commit och push till origin/main.
+Befintlig roadmap och scriptade kampanjers tidsdesign utökas inte.
+
+Levererat: intervallstyrd betald utveckling, växande ekonomi/armé, budget för
+teknik och överskottsproduktion, begränsade säkra resursbaser och garnisoner,
+samlade anfallsgrupper och backoff för omöjliga byggen. Befintliga fraktions-/
+fog-/produktions-/Save-system återanvänds. Full regression2044/221 PASS856,33s,
+unit538/92 PASS17,41s och build med strict typecheck PASS. Browser800/1280 och
+isolerat femspelarprov PASS utan ändrad CPU-median mot946a53c. Se
+[underlag](artifacts/strategic-ai/README.md) och HANDOFF/DEV_LOG för fixturegränser
+och återstående mänsklig strategi-/balansbedömning. Befintligt CI/Pages-flöde
+startar automatiskt vid push; ny CI/deploy är ännu inte verifierad.
+
 ### Prestanda2026-10-16 — Fyra AI-motståndare — Done
 
 Belagda cachemissar i passagezoner och AI-sikt rättade; lagfog förbereder aktiva

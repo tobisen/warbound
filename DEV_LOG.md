@@ -6398,3 +6398,60 @@ Ingen testsuite, verifieringsscript eller ny build körd efter teaserändringen.
 Användaren beställde Pages-publicering efter skip-ci-pushen. Befintligt `pages.yml` startat manuellt för854af33. [Actions39727019945](https://github.com/tobisen/warbound/actions/runs/39727019945) är faktiskt grön: npm ci, full npm test, strict spelbuild, separat presentationsbuild och Pages-deploy. Deploy klar2026-10-22 kl07:34:01 Europe/Stockholm. Inga lokala testsuiter körda i publiceringsuppdraget.
 
 Publik Chrome-kontroll: HTTP200,13 slides, slide7 ”Warbound i siffror”, sista slide ”HOLLOWBANE”, alla tre teaserbilder laddade och PDF HTTP200. Rårapport `/tmp/warbound-pages-hollowbane-public.json`, screenshot `/tmp/warbound-pages-hollowbane-public.png`. [Presentation](https://tobisen.github.io/warbound/presentation/). Detta ersätter tidigare uppgift om att de två nya slidesen bara finns lokalt/i Git. Användarens övriga ändringar bevarade.
+
+
+## 2026-10-25 — Strategisk skirmish-AI (lokalt, ingen commit/push)
+
+Uttryckligt separat användaruppdrag. Ny intervallstyrd plan ovanpå befintlig
+policy/produktion/construction/gathering/ArmyPlan/defense/expansion. Stegvis
+arbetar- och armétillväxt, första användbar anfallsstyrka före fortsatt teknik,
+reserverad faktisk investeringskostnad med parallell överskottsproduktion,
+fler kaserner när arbete/bank/kö motiverar det, kända säkra resursbaser med
+spacing/tid/antalstak, garnisoner och förenade grupper mot observerat motstånd.
+Egen fog/ihågkomna fyndigheter; inga nya gratis resurser eller ändrade recept.
+Kampanjernas scriptade policy och äldre lägen utan recovery behålls. Flottans
+befintliga två markplatser blockerar inte teknik. Plan/cache härleds om efter
+Load; Save75, version0.8.0 och historiska publiceringar består.
+
+Plats-/accessanalyser begränsas till två försök och backar15s vid misslyckad
+admission, med frigjord armébudget och roterande kandidater. Cachade byggmåls
+antal revalideras före betalning. En instängd arbetarfixture fångade tidigt
+63,8s obegränsad sökning; korrigerad riktad körning65ms. Första fullförsöket
+avbröts efter8 regressionsfynd: legacyfixturer utan recovery (5), äldre fasta
+expansions-/arbetarantaganden (2), för stor växande anfallströskel på Plains128
+(1). Kompatibilitet/arméprioritering korrigerades; betalning/Save/assertions om
+basförlust behölls och endast expansionsantagandena anpassades. Efterföljande
+77/4 och118/11 riktade tester PASS; ytterligare2 cache-/navaltester PASS.
+
+Slutlig unit538/92 PASS17,41s; strict build/typecheck PASS752ms med befintlig
+bundlevarning. Slutlig full regression2044/221 PASS856,33s på korrigerad kod.
+Slutlig diff-/script-syntax-/nya lokala länkgranskning PASS; inga kvarstående
+blockerande fynd vid egen diffreview. Kodchecks upprepas inte för slutlig Markdown.
+Browser/CPU körd isolerat före de slutliga testsuiterna: Chrome155.0.8059.85,
+800/1280 med verklig betald Arena240s:5 workers,8 accepterade truppjobb,
+färdig forge,2 farms och en outpost; bank12wood/24gold. Fyra självständiga AI
+verifierade i MatchState/Save och en renderingsfixture med96 injicerade soldater.
+Första synliggörandet6,6/7,5ms respektive10,5ms i belastningsfixturen;
+visuella bilder granskade, noll pageerrors. Isolerad produktions-CPU mot946a53c:
+tidig femspelare median14,0→14,0ms/p9516,0→16,0;115→117-enhetsfixture
+median38,8→38,8ms/p9552,3→53,2.8 strategiska omplaneringar/6s över fyra AI.
+Kort CPU-/renderingsprov, ingen FPS-/fullmatchgaranti. Tidigare konkurrerande
+provmätning används inte som slutbelägg.
+
+[Underlag och reproduktion](artifacts/strategic-ai/README.md) skiljer naturlig
+utveckling, komponentfixturer,600s simulerad endurance med tomma combatmål och
+återstående mänskligt10–15min speltest/strategi-/balansbedömning. Ingen ny
+CI/Pages/release/commit/push. Användarens style.css, units.mjs, docs/ och andra
+otrackade filer är bevarade. Ingen roadmap eller kartombyggnad startad.
+
+
+### 2026-10-25 — Efterföljande godkännande av commit/push
+
+Användaren ändrar uttryckligen den tidigare lokala leveransinstruktionen och
+beställer commit/push. Branch main och origin git@github.com:tobisen/warbound.git
+kontrollerade. AI-kod, tester och artefakter är oförändrade sedan verifieringen
+ovan; full2044/221, unit538/92, strict build och browser/prestandabelägg återanvänds.
+Endast aktuell leveransstatus i Markdown uppdateras och text/diff granskas igen.
+Commit avgränsas till AI-arbetet; style.css, units.mjs, docs/, :memory:.ses och
+CLEANUP_REPORT.md lämnas utanför. Normal push utan force/amend; befintlig
+CI/Pages triggas automatiskt. Ingen ny CI-/deployframgång hävdas före verifiering.

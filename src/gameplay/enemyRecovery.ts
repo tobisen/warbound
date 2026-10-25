@@ -1,3 +1,4 @@
+import {strategyFor} from './enemyStrategy';
 import {isRegionalDesign} from '../config/organicTerrain';
 import {enemyBase,hasEnemyBase} from './enemyBases';
 import {enemyNavigationMap} from './map';
@@ -12,7 +13,7 @@ import type {MatchState} from './match';
 export interface EnemyRecoveryState {production:ProductionState;nextExpansionAttemptSeconds:number}
 export const createEnemyRecovery=():EnemyRecoveryState=>({nextExpansionAttemptSeconds:0,production:{remainingSeconds:null,nextUnitNumber:enemyEconomyConfig.workerCount+1}});
 export function needsEnemyWorker(m:MatchState):boolean {
- return !!m.enemyRecovery&&m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0).length<enemyEconomyConfig.workerCount+(isRegionalDesign(m.map.design)?2*m.combat.enemies.filter(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0).length:0);
+ return !!m.enemyRecovery&&m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0).length<(strategyFor(m)?.workerTarget??(enemyEconomyConfig.workerCount+(isRegionalDesign(m.map.design)?2*m.combat.enemies.filter(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0).length:0)));
 }
 function view(m:MatchState):GatheringState {
  const base=enemyBase(m.combat,m.map)!;
@@ -21,6 +22,7 @@ function view(m:MatchState):GatheringState {
 /** Start one replacement, paid immediately. Existing army/research jobs keep progressing. */
 export function prepareEnemyRecovery(m:MatchState):MatchState {
  if(!needsEnemyWorker(m)||!m.enemyProduction||!hasEnemyBase(m.combat,m.map)||m.enemyRecovery!.production.remainingSeconds!==null)return m;
+ if(strategyFor(m)&&strategyFor(m)!.priority!=='workers'&&m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0).length>=2)return m;
  const g=view(m),started=enqueueProduction(g,m.enemyRecovery!.production,{kind:'base'},enemyPopulation(m));
  if(started.production===m.enemyRecovery!.production)return m;
  return {...m,enemyRecovery:{...m.enemyRecovery!,production:started.production},enemyProduction:{...m.enemyProduction,wood:started.gathering.wood,gold:started.gathering.goldBalance??0,spent:{wood:(m.enemyProduction.spent?.wood??0)+g.wood-started.gathering.wood,gold:(m.enemyProduction.spent?.gold??0)+(g.goldBalance??0)-(started.gathering.goldBalance??0)}}};

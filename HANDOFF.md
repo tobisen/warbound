@@ -1,3 +1,32 @@
+## Strategisk AI — 2026-10-25 — verifierad, commit/push godkänd
+
+Det ursprungliga uppdraget var lokalt. Användaren har därefter uttryckligen
+beställt commit och push till befintlig origin/main. Kod och verifiering är
+oförändrade; nya text-/diffkontroller körs inför commit. Befintligt CI/Pages-
+flöde startar automatiskt vid kodpush; dess nya resultat är ännu inte verifierat. [Current Focus](BACKLOG.md) och
+[underlag/manuella scenarier](artifacts/strategic-ai/README.md) beskriver scope.
+
+Skirmish på moderna kartor utvecklar arbetare, supply, teknik och armé löpande,
+tränar ur budgetöverskott och etablerar säkra resursbaser. Begränsade/cachade
+beslut, betalda normala köer, egen fog och garnisoner används. Små ofullständiga
+anfallsgrupper väntar; känt motstånd kan kräva förenade styrkor. Scriptad
+kampanj/äldre policy och befintlig navalmodell behålls. Ingen ny Save-/spelversion.
+
+Verifierat: riktade regressioner77/4 och118/11 samt2 särskilda cache-/navaltester;
+slutlig unit538/92, strict build/typecheck, browser800/1280 inklusive fyra AI
+med uttrycklig belastningsfixture. Isolerad femspelar-CPU median14,0→14,0ms
+tidigt och38,8→38,8ms för115→117-enhetsfixture. Slutlig full regression
+2044/221 PASS856,33s. Första försöket avbröts efter korrigerade kompatibilitets-/
+tidsantagandefynd; slutlig suite är faktiskt omkörd på korrigerad kod.
+Tidigare CI/Pageshistorik nedan gäller tidigare publicerade commits.
+
+Mänskligt10–15min test av strategisk kvalitet/balans/hela stora matcher återstår;
+600s automatiserad endurance är inte ett mänskligt speltest. Större matcher kan
+fortfarande vara CPU-tunga. Användarens style.css, units.mjs, docs/, :memory:.ses
+och CLEANUP_REPORT.md är bevarade. Ingen ny roadmap eller kartombyggnad.
+
+---
+
 
 ## Presentation publicerad — 2026-10-22
 

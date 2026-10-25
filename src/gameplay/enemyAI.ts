@@ -1,5 +1,5 @@
 import {combinedArmyConfig} from '../config/combinedArmy';
-import {enemySoldier} from './enemyUnits';
+import {enemyUnitStats,enemySoldier} from './enemyUnits';
 import type {FactionId} from '../config/factions';
 import { updateEnemyDefense,type PlayerVisibility } from './enemyDefense';
 import { enemyAIConfig,type EnemyAISettings } from '../config/enemyAI';
@@ -29,24 +29,42 @@ export function updateEnemyAI(state:EnemyAIState,combat:CombatState,map:WorldMap
   enemies=enemies.map(e=>{const u=byId.get(e.id);return u?{...e,navigation:u.navigation,order:{kind:'muster' as const,destination:{...u.target}}}:e;});
   return {...g,status:'muster',startedAt:elapsedSeconds,dispatchedAt:undefined,destinations:Object.fromEntries(orders.map(u=>[u.id,{...u.target}]))};
  });
+ // Join waiting detachments when observed opposition requires a larger army.
+ if((settings.attackPower??0)>0&&Math.floor(elapsedSeconds)!==Math.floor(state.elapsedSeconds)){
+  const power=(g:EnemyGroup)=>g.members.reduce((sum,id)=>{const e=enemies.find(e=>e.id===id)!;return sum+Math.sqrt(Math.max(0,e.hp)*(enemyUnitStats(e,faction).damagePerSecond??0));},0);
+  const waiting=groups.filter(g=>g.status!=='attack');
+  let lead=waiting[0];
+  if(lead&&power(lead)<settings.attackPower!){
+   for(const donor of waiting.slice(1)){
+    lead={...lead,members:[...lead.members,...donor.members]};groups=groups.filter(g=>g.id!==donor.id);
+    if(power(lead)>=settings.attackPower!)break;
+   }
+   if(lead.members.length>waiting[0].members.length){
+    const ids=new Set(lead.members),orders=commandGroupMove(enemies.filter(e=>ids.has(e.id)).map(e=>({...enemySoldier(e,faction),selected:true})),settings.muster,map),byId=new Map(orders.map(u=>[u.id,u]));
+    enemies=enemies.map(e=>{const u=byId.get(e.id);return u?{...e,navigation:u.navigation,order:{kind:'muster' as const,destination:{...u.target}}}:e;});
+    groups=groups.map(g=>g.id===lead.id?{...lead,status:'muster',startedAt:elapsedSeconds,destinations:Object.fromEntries(orders.map(u=>[u.id,{...u.target}]))}:g);
+   }
+  }
+ }
  const assigned=new Set([...groups.flatMap(g=>g.members),...defense.protectedIds]);
  const recruits=enemies.filter(e=>e.hp>0&&e.role!=='scout'&&e.id.startsWith('enemy-produced-')&&!e.navalLanding&&!assigned.has(e.id)).sort((a,b)=>a.id.localeCompare(b.id,'en',{numeric:true}));
  for(const recruit of recruits){
-  let group=groups.find(g=>g.status==='muster'&&g.members.length<settings.groupSize);
+  let group=groups.find(g=>(g.status==='muster'||!!settings.minimumAttackSize&&g.status==='ready')&&g.members.length<Math.max(settings.groupSize,settings.minimumAttackSize??1));
   if(!group){group={id:`enemy-group-${nextGroupNumber++}`,status:'muster',members:[],destinations:{},startedAt:elapsedSeconds};groups.push(group);}
   const members=[...group.members,recruit.id];
   const units:Unit[]=members.map(id=>{const e=enemies.find(e=>e.id===id)!;return {...enemySoldier(e,faction),selected:true};});
   const orders=commandGroupMove(units,settings.muster,map);
   const destinations=Object.fromEntries(orders.map(u=>[u.id,{...u.target}]));
   enemies=enemies.map(e=>{const u=orders.find(u=>u.id===e.id);return u?{...e,navigation:u.navigation,order:{kind:'muster' as const,destination:{...u.target}}}:e;});
-  groups=groups.map(g=>g.id===group!.id?{...g,members,destinations}:g);
+  groups=groups.map(g=>g.id===group!.id?{...g,status:'muster',members,destinations}:g);
  }
  groups=groups.map(g=>{
   if(g.status==='muster'){
    const arrived=g.members.every(id=>{const e=enemies.find(e=>e.id===id)!,p=g.destinations[id];return Math.hypot(e.position.x-p.x,e.position.y-p.y)<1e-6;});
-   if(g.members.length>=settings.groupSize&&arrived||elapsedSeconds-g.startedAt+1e-9>=settings.musterTimeout)g={...g,status:'ready'};
+   if(g.members.length>=(settings.minimumAttackSize??1)&&(g.members.length>=settings.groupSize&&arrived||elapsedSeconds-g.startedAt+1e-9>=settings.musterTimeout))g={...g,status:'ready'};
   }
-  if(!defense.threat&&g.status==='ready'&&elapsedSeconds+1e-9>=settings.firstAttackSeconds&&(lastDispatchSeconds===null||elapsedSeconds-lastDispatchSeconds+1e-9>=settings.dispatchGapSeconds)){
+  const power=(settings.attackPower??0)>0?g.members.reduce((sum,id)=>{const e=enemies.find(e=>e.id===id)!;return sum+Math.sqrt(Math.max(0,e.hp)*(enemyUnitStats(e,faction).damagePerSecond??0));},0):0;
+  if(!defense.threat&&g.members.length>=(settings.minimumAttackSize??1)&&power>=(settings.attackPower??0)&&g.status==='ready'&&elapsedSeconds+1e-9>=settings.firstAttackSeconds&&(lastDispatchSeconds===null||elapsedSeconds-lastDispatchSeconds+1e-9>=settings.dispatchGapSeconds)){
    enemies=enemies.map(e=>g.members.includes(e.id)?{...e,navigation:undefined,order:{kind:'attack-move' as const,destination:{...playerBase}}}:e);
    lastDispatchSeconds=elapsedSeconds;return {...g,status:'attack',dispatchedAt:elapsedSeconds,dispatchedSize:g.members.length};
   }

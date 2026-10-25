@@ -42,7 +42,7 @@ it('a paid second base builds through contact, gathers locally, produces and sur
 },30000);
 it('normal AI pressure remains held during initial economic establishment',()=>{const m=updateMatch(createMatch('skirmish','normal',undefined,'arena'),60);expect(m.enemyAI!.groups.some(g=>g.status==='attack')).toBe(false);expect(m.enemyProduction!.spent!.wood).toBeGreaterThan(0);},30000);
 
-it('natural paid expansion preserves a valid Save and victory after the original base falls',()=>{let m=createMatch('skirmish','normal',undefined,'frontier',1,'economic');for(let t=0;t<120;t+=.5){m=updateMatch(m,.5);if(m.combat.enemies.some(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0))break;}expect(m.combat.enemies.some(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0)).toBe(true);m.combat.enemies.find(e=>e.kind==='base')!.hp=0;m=updateMatch(m,0);expect(m.outcome).toBe('playing');const loaded=decodeSave(encodeSave(m,view));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);},30000);
+it('natural paid expansion preserves a valid Save and victory after the original base falls',()=>{let m=createMatch('skirmish','normal',undefined,'frontier',1,'economic');for(let t=0;t<300;t+=.5){m=updateMatch(m,.5);if(m.combat.enemies.some(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0))break;}expect(m.combat.enemies.some(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0)).toBe(true);m.combat.enemies.find(e=>e.kind==='base')!.hp=0;m=updateMatch(m,0);expect(m.outcome).toBe('playing');const loaded=decodeSave(encodeSave(m,view));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);},30000);
 
 it.each(['islands','coast'] as const)('%s distant naval economy scouts and builds its paid harbor',id=>{let m=createMatch('skirmish','normal',undefined,id);for(let t=0;t<180;t+=.5){m=updateMatch(m,.5);if(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0))break;}expect(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0)).toBe(true);const loaded=decodeSave(encodeSave(m,view));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);},30000);
 
@@ -61,11 +61,12 @@ it('genuine72 region Save keeps its map, resources and explored fog while new ga
 
 it('a regional AI grows its paid worker economy and preserves Save across expansion phases',()=>{
  let m=createMatch('skirmish','normal',undefined,'frontier',1,'economic');
- for(let t=0;t<180;t+=.5)m=updateMatch(m,.5);
- expect(m.combat.enemies.filter(e=>e.kind==='worker')).toHaveLength(4);
+ // Strategic growth includes time-based workers as well as completed dropoffs.
+ for(let t=0;t<300;t+=.5)m=updateMatch(m,.5);
+ const workers=m.combat.enemies.filter(e=>e.kind==='worker').length;expect(workers).toBeGreaterThanOrEqual(4);expect(workers).toBeLessThanOrEqual(10);
  expect(m.combat.enemies.some(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0)).toBe(true);
  expect(m.enemyProduction!.extracted!.wood).toBeGreaterThan(m.enemyProduction!.wood);
  const saved=decodeSave(encodeSave(m,view));expect(saved.ok,saved.ok?'':saved.error).toBe(true);
  if(!saved.ok)return;const legacy=JSON.parse(encodeSave(createMatch('skirmish','normal',undefined,undefined,1,'balanced',undefined,undefined,'regions'),view));legacy.configVersion='tribute-config-73';expect(decodeSave(JSON.stringify(legacy)).ok).toBe(true);
- const resumed=updateMatch(saved.match,.5);expect(resumed.combat.enemies.filter(e=>e.kind==='worker')).toHaveLength(4);
+ const resumed=updateMatch(saved.match,.5);expect(resumed.combat.enemies.filter(e=>e.kind==='worker').length).toBeGreaterThanOrEqual(workers);
 },30000);

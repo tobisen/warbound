@@ -50,9 +50,9 @@ export function updateEnemyDefense(state:EnemyAIState,combat:CombatState,map:Wor
  }else{for(const d of defenders)release(d);defenders=[];}
  const protectedIds=new Set([...reserve,...defenders.map(d=>d.id)]);
  groups=groups.map(g=>({...g,members:g.members.filter(id=>!protectedIds.has(id)),destinations:Object.fromEntries(Object.entries(g.destinations).filter(([id])=>!protectedIds.has(id)))})).filter(g=>g.members.length);
- if(base?.footprint){const home={x:base.footprint.x-32,y:base.position.y};
+ if(base?.footprint){const guards=settings.guardExpansions?[base,...strongholds.filter(e=>e.buildingType==='outpost')]:[base];
   for(const id of reserve.filter(id=>!defenders.some(d=>d.id===id))){enemies=enemies.map(e=>{
-   if(e.id!==id)return e;if(e.order?.kind==='muster'&&e.order.destination.x===home.x&&e.order.destination.y===home.y)return e;
+   if(e.id!==id)return e;const guarded=guards[reserve.indexOf(id)%guards.length],foot=guarded.footprint!,homes=[{x:foot.x-32,y:guarded.position.y},{x:foot.x+foot.width+32,y:guarded.position.y},{x:guarded.position.x,y:foot.y-32},{x:guarded.position.x,y:foot.y+foot.height+32}],home=settings.guardExpansions?homes.find(p=>bodyFits(movementMap(map,e),p,enemyUnitStats(e,faction).size/2))??homes[0]:homes[0];if(e.order?.kind==='muster'&&e.order.destination.x===home.x&&e.order.destination.y===home.y)return e;
    return bodyFits(movementMap(map,e),home,enemyUnitStats(e,faction).size/2)?{...e,navigation:planRoute({...movementMap(map,e),bodyHalf:enemyUnitStats(e,faction).size/2},e.position,home),order:{kind:'muster',destination:home}}:{...e,navigation:undefined,order:{kind:'idle'}};
   });}
  }

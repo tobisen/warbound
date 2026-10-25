@@ -1,3 +1,45 @@
+## Strategisk skirmish-AI — 2026-10-25
+
+[enemyStrategy.ts](src/gameplay/enemyStrategy.ts) kompletterar befintlig policy
+för skirmish på regions/woodlands-kartor, inklusive upp till fyra självständiga
+AI. Scriptade kampanjer och äldre kartgeometriers policy/tider behålls.
+[enemyStrategy.ts config](src/config/enemyStrategy.ts) styr beslut var
+8/5/3/1,5 gameplaysekunder för Beginner/Easy/Normal/Hard. Startbudgetar,
+recept, faktisk supply, stridsstats och fogregler består; inga nya gratisintäkter.
+
+Prioritering: återställ två arbetare, bygg kasern, säkra supply, öka ekonomin
+stegvis, bygg en första användbar anfallsstyrka/försvara, expandera säkert, utveckla forge/research/
+academy/basnivå/specialproduktion. En investering reserverar sin verkliga kostnad;
+huvudkön och extra producenter får träna ur överskottet medan redan betalda jobb
+fortsätter. Arbetarmål växer med tid och färdiga dropoffs (högst6/8/10/12).
+Armémålet växer med tid, ekonomi och baser (högst8/12/24/32 supply), alltid under
+verklig försörjning. Extra kaserner kräver en aktiv kö, sex arbetare och banköverskott;
+högst tre, beroende på antal baser. Befintlig fogfiltrerad ArmyPlan väljer roller.
+
+Expansion använder ihågkomna fyndigheter och en kartdefinierad scoutpunkt;
+faktisk placering kräver aktuell egen sikt, giltig terräng, byggaraccess och fri
+spawnutgång. Kandidater avvisas vid kända hot, för små avstånd till egna baser,
+saknade närresurser eller kartgräns; tid, profil, ekonomi och karta begränsar
+antalet baser till2–3 inklusive huvudbasen. Oupptäckta dynamiska hinder läses
+inte av kandidatplaneraren. Reserver bevakar huvudbas och färdiga extrabaser.
+
+Byggaren återanvänder placeBuilding/construction; högst två dyra plats-/accessförsök
+per strategiskt byggförsök. Misslyckad admission frigör investeringsbudgeten och
+backar15s, med roterande kandidater. Expansion använder samma sökbudget.
+Cachade byggmål har ett antal som revalideras före betalning.
+Anfallsgrupper väntar på2/3/3/4 medlemmar även efter timeout, fylls på efter
+förluster och förenar väntande grupper när synlig målområdesstyrka kräver det.
+Styrkeheuristiken använder HP/skada och synliga torn; befintlig reträtt används.
+Flottans två markplatser och redan ombordstigna trupper räknas så att teknik
+kan utvecklas utan att kräva en omöjlig markarmé. Utan recovery-system används
+den äldre policyn; planeraren prioriterar inte otillgänglig arbetarproduktion.
+
+Planen ligger i enemyPolicy.strategy och är en härledd, transient cache. Save
+utelämnar den (som navigation); Load räknar om nästa gameplaytick. Banker,
+betalda köer, konstruktioner, forskningsnivåer, fogminne och monotona ID:n använder
+befintlig strikt Savevalidering. Ingen ny Save-/spelversion eller publicering.
+Se [verifiering och manuella scenarier](artifacts/strategic-ai/README.md).
+
 ## RTS-241–248 — Warbound, skog, sikt och kampanjexpeditioner
 
 Vite skriver build/preview under `/warbound/`; dev använder roten. Runtimeassets
