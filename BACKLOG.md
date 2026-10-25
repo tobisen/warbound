@@ -53,18 +53,23 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
-Pages-publicering är nu uttryckligen beställd. Actions40225519236 kör för3b2596a;
-Första körningen föll på tre belagda wall-clockdeadlines (312s/300s och61–65s/60s);
-endast dessa testbudgetar justeras. Riktade3/2, unit543/93 och strict build PASS.
-Ny full CI/Pages startas med korrigeringspush; första röda körningen är historik.
-Ingen ny roadmaptask eller versionsändring.
+Pages är nu publicerad/verifierad för1e8abaf: [CI40228163017](https://github.com/tobisen/warbound/actions/runs/40228163017)
+full2071/225, strict spelbuild, presentation och deploy PASS. Deployment
+2026-10-25 21:23:40 Europe/Stockholm. Ny publik Chrome800/1280:exakt Build,
+idleknapp/fokus/cykling, betald tornplacering och riktig Save/load PASS;
+presentation13 slides/Hollowbane3 bilder/PDF PASS. Inga runtime-/assetfel.
+Första röda körningens3 tidsgränser är rättade utan ändrad gameplay eller assertions.
+[Underlag](artifacts/gameplay-improvements/pages-1e8abaf/README.md). Ingen ny version
+eller roadmaptask; CSS/units.mjs/docs/ bevaras. Rapportpush skip-ci ändrar inte
+publicerad spelbuild.
 
 ### Lokal gameplayförbättring — 2026-10-25 — Done
 
-Efterföljande uppdrag godkänner commit/push till origin/main. Ingen publicering;
+Föregående commitmandat godkände commit/push till origin/main utan publicering;
 `[skip ci]` hindrar Pages-workflow. Ursprunglig lokal verifiering nedan består.
 Exporterad commitkandidat utan CSS/units.mjs/docs-ändringarna: ny unit543/93,
-strict build och browser800/1280 PASS. Ingen ny fullsimulation eller CI/Pages.
+strict build och browser800/1280 PASS. Ingen ny fullsimulation/CI/Pages kördes
+i just commitförberedelsen; senare verifierad publicering redovisas ovan.
 
 Uttryckligt nytt uppdrag, utan commit/push/publicering. Arbeta i ordning:
 

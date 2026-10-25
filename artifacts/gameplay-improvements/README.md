@@ -1,9 +1,10 @@
 # Lokal gameplayförbättring — 2026-10-25
 
-Ursprunglig leverans var lokal. Användaren har därefter godkänt commit/push;
-publicering är fortsatt undantagen och `[skip ci]` hindrar Pages-workflow.
-Befintlig CSS, units.mjs, docs/ och orelaterat arbete lämnas utanför commit.
-Detta är ett separat uppdrag, utan ny roadmapbatch.
+Ursprunglig leverans var lokal, följd av beställd commit/push och därefter
+uttryckligt godkänd Pages-publicering. **Build1e8abaf är nu publicerad och verifierad**;
+[slutrapport och faktisk CI/public-browser](pages-1e8abaf/README.md).
+Befintlig CSS, units.mjs, docs/ och orelaterat arbete är bevarat utanför commits.
+Ingen ny roadmapbatch eller versionsbump.
 
 - Tornplacering: [före](placement-before.json) och [efter](placement-after.json).
   Samma explicita stressfixture:4096²,96 enheter,48 farms,3668 hinder inklusive
@@ -61,9 +62,10 @@ kördes samtidigt med regression och är därför inte en isolerad CPU-jämföre
 Slutliga checks och begränsningar redovisas i HANDOFF.md/DEV_LOG.md. Stora matcher
 kan fortfarande vara CPU-tunga; kort placeringstopp kvarstår i256-fixturen.
 Save har kvar4_000_000 bytes storleksgräns, och lokal storage kan rapportera kvotfel.
-Ingen ny mänsklig helmatchbalans eller CI/Pages-körning hävdas.
+Ingen ny mänsklig helmatchbalans hävdas. Senare CI/Pages-verifiering redovisas
+separat i publiceringsrapporten ovan.
 
-Ny slutlig `npm test`:2071/225 PASS1165,56s ([logg](full-regression.log)).
+Ursprunglig lokal slutlig `npm test`:2071/225 PASS1165,56s ([logg](full-regression.log)).
 `npm run build` inklusive strict TypeScript PASS ([logg](build.log)); befintlig
 bundlevarning kvarstår. Unit543/93 PASS ([logg](unit-before-final-contact-cache.log))
 kördes före den sista kontaktcacheändringen, vilken därefter verifierats med
@@ -76,6 +78,7 @@ Efterföljande commituppdrag: exporterad Git-indexkandidat utan användarens sep
 CSS-/units.mjs-/docs-ändringar verifierad med [unit543/93](commit-candidate-unit.log),
 [build med strict TypeScript](commit-candidate-build.log) och
 [browser800/1280](commit-candidate/browser.json); bilder granskade. Befintliga
-låsta beroenden återanvänds. Ingen ny npm ci eller full matchsimulation körd;
-full2071/225 ovan återanvänds för oförändrad gameplaykod. `[skip ci]` undviker
-automatisk Pages-publicering vid den beställda pushen.
+låsta beroenden återanvänds. Ingen ny npm ci eller full matchsimulation kördes i just commitförberedelsen;
+full2071/225 ovan återanvänds för oförändrad gameplaykod. `[skip ci]` undvek
+automatisk Pages-publicering vid den första beställda pushen; senare uttryckligt
+publiceringsmandat och grön CI redovisas i publiceringsrapporten.

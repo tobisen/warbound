@@ -14,3 +14,8 @@ På exporterad kandidat utan användarens lokala CSS-/units.mjs-/docs-ändringar
 metadatafelet är ingen misslyckad build. Normaliserad loggwhitespace, inga ändrade
 kommandoresultat. Ingen ny lokal fullregression för enbart dessa tidsbudgetar.
 Ny full CI/publicering följs separat; den röda körningen räknas inte som PASS.
+
+Efterföljande [CI40228163017](https://github.com/tobisen/warbound/actions/runs/40228163017)
+för1e8abaf PASS:full2071/225, strict build, presentation och Pages-deploy.
+[Verifierad publicering](../pages-1e8abaf/README.md) redovisas separat från det
+första röda försöket. Alla spelkrav och testassertions är bevarade.

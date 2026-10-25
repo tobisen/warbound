@@ -1,4 +1,38 @@
-## Pages-publicering — 2026-10-25 — pågår
+## Pages publicerad och verifierad — 2026-10-25 — Done
+
+[Spela Warbound](https://tobisen.github.io/warbound/) visar **v0.8.0 / Build1e8abaf**.
+[CI40228163017](https://github.com/tobisen/warbound/actions/runs/40228163017) är faktiskt
+grön för exakt1e8abaf7acf83d1190ee0e42303766211e0f63a0: npm ci,
+full2071 tester/225 filer PASS1757,88s, strict spelbuild, separat presentation,
+artifact och Pages-deploy. Deployment klar2026-10-25 21:23:40 Europe/Stockholm.
+Användarens nya publiceringsmandat ersätter det tidigare undantaget.
+
+Första CI40225519236/3b2596a föll på tre wall-clockdeadlines (312s/300s,
+61–65s/60s); ingen build/deploy utfördes där. Fix1e8abaf är pushad och höjer
+bara dessa testbudgetar till600/120s. Gameplay,1200s-speltid, mål, fixtures,
+assertions och workerantal är oförändrade. Riktad3/2, unit543/93 och strict build
+verifierades lokalt före push; nya fulla CI ovan är det faktiska publiceringsbelägget.
+
+Ny publik Chrome800/1280 Native PASS:HTTP200, exakt Build, idleknapp/cykling/
+fokus/ring, betald tornplacering och riktig Save/load; inga runtime-/assetfel.
+Presentation13 slides, sista HOLLOWBANE/3 laddade bilder och PDF HTTP200 PASS.
+Bilder granskade. [Rapport och underlag](artifacts/gameplay-improvements/pages-1e8abaf/README.md).
+Explicit resurs-/fog-/freeze-fixture används i browser; ingen ny mänsklig
+helmatchbalans eller ljudlyssning hävdas. Tidigare uppmätta stress-/Savegränser
+består. Ingen versionsbump eller ny roadmaptask. Användarens CSS/units.mjs/docs/
+och orelaterade filer är bevarade utanför commits/publicering.
+
+Efterföljande rapportuppdatering är dokumentation/verifieringsdata och pushas
+med `[skip ci]`; den ändrar inte publicerad Build1e8abaf. Kodkontrollerna ovan
+återanvänds, text-/länk-/diffkontroll görs inför rapportcommit.
+
+---
+
+## Pages-publicering — 2026-10-25 — löpande historik
+
+Timeoutkorrigering1e8abaf är pushad; [ny Actions40228163017](https://github.com/tobisen/warbound/actions/runs/40228163017)
+bygger exakt1e8abaf7acf83d1190ee0e42303766211e0f63a0. Den nya fulla CI-körningen
+pågår.40225519236/3b2596a är det tidigare röda försöket, inte en publicering.
 
 Användarens nya uppdrag godkänner nu även Pages-build/publicering av3b2596a.
 Det ersätter publiceringsundantaget i föregående commit-/pushuppdrag.

@@ -1,0 +1,109 @@
+{
+  "url": "https://tobisen.github.io/warbound/",
+  "browser": "155.0.8059.85",
+  "reports": [
+    {
+      "width": 800,
+      "expected": "1e8abaf",
+      "idle": [
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "rings": true,
+          "inView": true,
+          "label": "Idle workers \u00b7 3"
+        },
+        {
+          "ids": [
+            "unit-2"
+          ],
+          "rings": true,
+          "inView": true,
+          "label": "Idle workers \u00b7 3"
+        },
+        {
+          "ids": [
+            "unit-3"
+          ],
+          "rings": true,
+          "inView": true,
+          "label": "Idle workers \u00b7 3"
+        },
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "rings": true,
+          "inView": true,
+          "label": "Idle workers \u00b7 3"
+        }
+      ],
+      "placement": {
+        "count": 1,
+        "wood": 450,
+        "gold": 480,
+        "active": false
+      },
+      "realSaveLoad": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 1280,
+      "expected": "1e8abaf",
+      "idle": [
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "rings": true,
+          "inView": true,
+          "label": "Idle workers \u00b7 3"
+        },
+        {
+          "ids": [
+            "unit-2"
+          ],
+          "rings": true,
+          "inView": true,
+          "label": "Idle workers \u00b7 3"
+        },
+        {
+          "ids": [
+            "unit-3"
+          ],
+          "rings": true,
+          "inView": true,
+          "label": "Idle workers \u00b7 3"
+        },
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "rings": true,
+          "inView": true,
+          "label": "Idle workers \u00b7 3"
+        }
+      ],
+      "placement": {
+        "count": 1,
+        "wood": 450,
+        "gold": 480,
+        "active": false
+      },
+      "realSaveLoad": true,
+      "errors": [],
+      "failed": []
+    }
+  ],
+  "presentation": {
+    "slides": 13,
+    "lastSlide": "HOLLOWBANE",
+    "loadedTeaserImages": 3,
+    "pdfStatus": 200,
+    "pdfBytes": 16873681,
+    "errors": []
+  },
+  "notes": "Public production bundle; bootstrap exposed for deterministic fixtures. Simulation frozen for input assertions. Own resource/reveal fixture explicit; paid tower placement and real localStorage Save/load. No claim of natural full-match balance or listening."
+}
