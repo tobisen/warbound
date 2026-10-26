@@ -1,36 +1,35 @@
-## Commit, push och Pages beställt — 2026-10-26
+## Pages publicerad och verifierad — 2026-10-26 — Done
 
-CI40279167980 för311c835 avslutades med2090 PASS/2093 över229 filer. Endast
-runnerbudgets föll: Plains96495,286s/300s, Plains128230,624s/120s och strikt
-Save75-migration5,280s/5s. Plains96:s20min-initiativprov passerade593,287s/600s,
-vilket lämnar för liten marginal. Individuella budgetar ändras till900/600/30s,
-med900s för detta initiativprov. Gameplay, fixtures,780/1200s-speltid, samtliga
-assertions och två CI-workers är oförändrade. Ingen deploy gjordes på röd CI.
-En ny full GitHub-körning krävs före Pages. Ny lokal Save75-migration1/1 PASS, unit546/94 PASS18,43s och strict build PASS
-före korrigeringscommit; godkända simuleringar och kandidatbrowser återanvänds
-efter granskad diff med enbart runnerbudgetar. [CI-korrigeringens underlag](artifacts/content-balance/ci-recovery/README.md).
+[Spela Warbound](https://tobisen.github.io/warbound/) visar **v0.8.0 / Build791d17f**.
+[CI40283143763](https://github.com/tobisen/warbound/actions/runs/40283143763) är
+faktiskt grön för791d17fb36931013f2a06aac77d69ee29bf8f65c: full2093 tester/229
+filer PASS1183,13s, strict spelbuild, presentation, artifact och Pages-deploy.
+Deployment klar2026-10-26 08:21:00 Europe/Stockholm.
 
+Innehålls-/balansbatch311c835 och CI-korrigering791d17f är pushade till origin/main.
+Första CI40279167980 stannade på tre runner-timeouts (2090 PASS/2093); ingen
+build/deploy utfördes där. Individuella budgetar ökades efter faktiska tider,
+inklusive ett initiativprov med593s/600s marginal. Gameplay, fixtures, samtliga
+assertions,780/1200s-speltid och två workers är oförändrade. Ingen ny produktversion.
 
-Användaren beställer nu uttryckligen commit, push och GitHub Pages-publicering.
-Det ersätter föregående lokala förbud för innehålls-/balansbatchen. Befintlig
-origin/main används utan force eller history rewrite. style.css, units.mjs,
-docs/ och orelaterade lokala filer bevaras utanför commit/publicering.
+Ny publik Chrome800/1280 Native PASS: exakt Build och canonical startsida,
+Human-kampanjens16:e uppdrag,16/15 skepp, Tide Runners/Bombards/Sky Owl, Idle Worker
+antal/cykling/fokus/ring/aktiva order, betald Foundry/Logistics/Tide Runner,
+initial riktig Save/load, Tech Tree, atlas520 frames och omladdning. Presentation13
+slides/HOLLOWBANE3 bilder/PDF200 PASS. Inga runtime-/assetfel; bilder granskade.
+[Publik rapport och råunderlag](artifacts/content-balance/pages-public/README.md).
 
-Commitunderlaget verifieras separat utan dessa användarändringar: unit, strict
-build och native800/1280 för det nya innehållet. Tidigare bred regression med
-riktade korrigeringar återanvänds för oförändrad gameplay; GitHubs workflow kör
-ny full regression och publicerar först efter gröna kontroller. Faktisk CI-/
-Pages-status och publik Build redovisas efter leveransen, inte i förväg.
-Commitkandidaten är nu kontrollerad i separat indexexport utan användarändringarna:
-unit546/94 PASS17,54s, berörda integrationer34/4 PASS22,19s och strict build PASS.
-Ny kandidat-Chrome800/1280 PASS för Idle Worker, sjöuppdrag, betald Foundry/
-Naval Logistics/Tide Runner, Tech Tree, Save/mål/victory/defeat, inga runtime-/
-assetvarningar. Källkod och diff granskade utan blockerande fynd. Ingen ny
-lokal bred simulering behövs för samma gameplay; GitHub kör ny full regression.
-[Commitkandidatens underlag](artifacts/content-balance/pages-candidate/README.md).
+Indexexportens unit546/94, integration34/4, strict build och native800/1280 samt
+minifierad produktionskontroll passerade före push. Finansierad/frysen UI-fixture
+och seedad föregående progression anges uttryckligen; ingen ny mänsklig
+helmatchbalans, naturlig speltid eller ljudlyssning hävdas. Tidigare lokala
+prestandabelägg och begränsningen för stora femspelarmatcher består.
 
-Ingen ny produktversion eller roadmaptask beställs. Mänsklig balansgranskning
-och kvarvarande tung flerparts-Skirmish är fortsatt dokumenterade begränsningar.
+Användarens befintliga style.css, units.mjs, docs/ och orelaterade lokala filer
+är bevarade utanför commits/publicering. Den avslutande rapportpushen använder
+`[skip ci]`: endast dokumentation/verifieringsdata, ingen ändrad publicerad Build.
+Gröna kodkontroller ovan återanvänds för oförändrad appkod; nya text/länk/diff-
+kontroller och den faktiskt körda publika proben verifierar överlämningen.
 
 ---
 

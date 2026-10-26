@@ -1,5 +1,19 @@
 # Innehåll, balans och prestanda — lokal batch2026-10-25
 
+## Publicerad — 2026-10-26
+
+Batch311c835 och budgetkorrigering791d17f är pushade. Pages visar v0.8.0/Build791d17f.
+[Ny faktisk CI](https://github.com/tobisen/warbound/actions/runs/40283143763):
+full2093/229 PASS1183,13s, strict build, presentation och deploy PASS. Publik
+Chrome800/1280/canonical, nytt innehåll, Idle Worker, Save/load, atlas520,
+presentation13/HOLLOWBANE3/PDF200 PASS utan runtime-/assetfel.
+[Publiceringsrapport](pages-public/README.md). CSS/units.mjs/docs/ bevarade.
+Nedan följer den ursprungliga lokala implementationens belägg och begränsningar;
+dess tidigare förbud mot commit/push/publicering ersattes av användarens nya uppdrag.
+
+## Lokal implementation — 2026-10-25
+
+
 Ingen commit, push, publicering eller produktversionsbump. Savekonfiguration76
 migrerar75, inklusive fulla och delade multiplayerdokument. Tidigare publicerade
 v0.8.0/Build1e8abaf är historiskt belägg, inte denna arbetskatalog.

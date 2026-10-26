@@ -18,11 +18,18 @@ npm run dev
 ```
 
 Öppna adressen Vite skriver ut, normalt http://localhost:5173/.
-Nya kartor använder32px tiles: Arena64×64/2048×2048, Forest96×96/3072×3072 och övriga kartor128×128/4096×4096 world pixels. Spelvyn fyller fönstret med karta och en kompakt bottom-bar; mission/tech/hjälp finns under Menu. Mushjulet över kartan zoomar0.5×–2× med stabil punkt under musen, och mittenmusknappen panorerar. Minimap och klick följer det synliga världsutsnittet. Save bevarar utsnittets övre vänstra position; laddning och ny match startar på1× zoom.
+Kartorna använder32px tiles och har olika storlek. Stormgate Straits är96×64 tiles/3072×2048 world pixels. Spelvyn fyller fönstret med karta och en kompakt bottom-bar; mission/tech/hjälp finns under Menu. Mushjulet över kartan zoomar0.5×–2× med stabil punkt under musen, och mittenmusknappen panorerar. Minimap och klick följer det synliga världsutsnittet. Save bevarar utsnittets övre vänstra position; laddning och ny match startar på1× zoom.
 
 ## Spela matchen
 
-I huvudmenyn väljer du Campaign eller Skirmish (med separat Wave-survival-val). Campaign går via ras → svårighet → start/fortsätt → briefing. Alla fem raser har varsin serie med15 spelbara uppdrag: åtta bevarade grundoperationer och sju nya rasspecifika expeditioner med egna namn, kartor och mål; progression är separat för kampanj, ras och svårighet. Skirmish låter dig välja fem raser, karta och AI-spelare. Välj Beginner/Easy/Normal/Hard och gameplayhastighet. Nya kampanjstarter har permanenta faser: preparation, spaning, försvar, passage, transport, eskort, räddning och kustkontroll. Läs aktuellt engelskt phasegoal. Fristående scenarier och äldre kampanj-saves behåller tidigare villkor. Förlust vid basens död har företräde.
+I huvudmenyn väljer du Campaign eller Skirmish (med separat Wave-survival-val). Campaign går via ras → svårighet → start/fortsätt → briefing. Humans har16 spelbara uppdrag och övriga raser15: åtta bevarade grundoperationer, sju rasspecifika expeditioner och för Humans det avslutande sjöslaget Stormgate Armada; progression är separat för kampanj, ras och svårighet. Skirmish låter dig välja fem raser, karta och AI-spelare. Välj Beginner/Easy/Normal/Hard och gameplayhastighet. Nya kampanjstarter har permanenta faser: preparation, spaning, försvar, passage, transport, eskort, räddning och kustkontroll. Läs aktuellt engelskt phasegoal. Fristående scenarier och äldre kampanj-saves behåller tidigare villkor. Förlust vid basens död har företräde.
+
+Stormgate Armada har stora flottor, flera farleder, förstärkningar och landstigning.
+Human Tide Runner är en snabb eskort mot sjö/luft; Dwarf Bombard är ett långsamt
+belägringsfartyg mot sjö/byggnader. Naval Foundry och Naval Logistics låser upp
+dessa fraktionsval. Skirmish ger längre förberedelsetid: planerade första anfall
+inom Easy12–15, Normal9–11 och Hard7–9 spelminuter. Scouting, ekonomi, expansion
+och lokalt försvar fortsätter under tiden; kampanjens klockor är separata.
 
 Resurscheat: tryck **Enter** under en aktiv match, skriv
 `icanseemyhousefromhere` och tryck **Enter**. Varje användning lägger till

@@ -53,25 +53,23 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
-### Publicera innehålls-/balansbatch — 2026-10-26 — In Progress
+### Publicera innehålls-/balansbatch — 2026-10-26 — Done
 
-CI40279167980 för311c835 avslutades med2090 PASS/2093 över229 filer. Endast
-runnerbudgets föll: Plains96495,286s/300s, Plains128230,624s/120s och strikt
-Save75-migration5,280s/5s. Plains96:s20min-initiativprov passerade593,287s/600s,
-vilket lämnar för liten marginal. Individuella budgetar ändras till900/600/30s,
-med900s för detta initiativprov. Gameplay, fixtures,780/1200s-speltid, samtliga
-assertions och två CI-workers är oförändrade. Ingen deploy gjordes på röd CI.
-En ny full GitHub-körning krävs före Pages. Ny lokal Save75-migration1/1 PASS, unit546/94 PASS18,43s och strict build PASS
-före korrigeringscommit; godkända simuleringar och kandidatbrowser återanvänds
-efter granskad diff med enbart runnerbudgetar. [CI-korrigeringens underlag](artifacts/content-balance/ci-recovery/README.md).
+Innehåll311c835 + CI-budgetkorrigering791d17f är pushade till origin/main.
+[CI40283143763](https://github.com/tobisen/warbound/actions/runs/40283143763) full2093/229
+PASS1183,13s, strict build, presentation och deploy PASS. Faktisk Pages visar
+v0.8.0/Build791d17f; deployment klar2026-10-26 08:21:00 Europe/Stockholm.
+Publik Chrome800/1280: rätt Build/canonical URL, nya sjöuppdraget/flottor,
+Idle Worker, betalt nytt innehåll, Save/load, Tech Tree, atlas520 och reload PASS;
+presentation13/HOLLOWBANE3/PDF200 PASS, inga runtime-/assetfel, bilder granskade.
+[Publikt underlag](artifacts/content-balance/pages-public/README.md).
 
-
-Användaren har beställt commit, push och Pages; detta ersätter det äldre lokala
-förbudet nedan. Kandidatens unit/strict build/native800/1280 kontrolleras utan
-användarens CSS/units.mjs/docs/. GitHub kör ny full regression före deploy.
-Kandidat: unit546/94, riktade34/4, strict build och native800/1280 PASS.
-Status, SHA och publik browser-verifiering kompletteras efter faktisk leverans.
-Ingen ny produktversion eller roadmaptask.
+Första röda CI40279167980 föll enbart på tre wall-clockbudgetar; de korrigerades
+utan ändrad gameplay/fixtures/assertions. Ingen deploy gjordes där. Kandidatens
+unit546/94, riktade34/4, strict build och browser PASS. Användarens CSS/units.mjs/
+docs/ är bevarade utanför commits/publicering. Slutrapport pushas med [skip ci]
+och ändrar inte publicerad Build. Ingen ny produktversion eller roadmaptask.
+Mänsklig finbalans och kvarvarande tung femspelars-Skirmish är inte omverifierade.
 
 ### Lokal innehålls-/balansbatch — 2026-10-25 — Done
 

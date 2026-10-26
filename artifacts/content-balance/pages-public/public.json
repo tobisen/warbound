@@ -1,0 +1,269 @@
+{
+  "canonicalBuild": "791d17f",
+  "presentation": {
+    "slides": 13,
+    "lastSlide": "HOLLOWBANE",
+    "loadedTeaserImages": 3,
+    "pdfStatus": 200,
+    "pdfBytes": 16873681,
+    "errors": []
+  },
+  "url": "https://tobisen.github.io/warbound/",
+  "browser": "155.0.8059.85",
+  "reports": [
+    {
+      "width": 800,
+      "expected": "791d17f",
+      "httpStatus": 200,
+      "initial": {
+        "map": "straits",
+        "mission": "crown-stormgate-armada",
+        "factions": {
+          "player": "crown",
+          "enemy": "dwarves"
+        },
+        "phase": 0,
+        "ships": 16,
+        "escorts": 2,
+        "enemyShips": 15,
+        "bombards": 2,
+        "scouts": 1,
+        "atlas": true
+      },
+      "idle": [
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-2"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-3"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        }
+      ],
+      "loaded": {
+        "mission": "crown-stormgate-armada",
+        "phase": 0,
+        "ships": 16
+      },
+      "content": {
+        "wood": 250,
+        "gold": 345,
+        "foundry": "navalFoundry",
+        "research": 1,
+        "ships": 17,
+        "hull": "cutter"
+      },
+      "realSaveLoad": true,
+      "reload": true,
+      "errors": [],
+      "failed": [],
+      "assets": [
+        "https://tobisen.github.io/warbound/assets/index-q7-bR_zD.css",
+        "https://tobisen.github.io/warbound/assets/home-fantasy-126.jpg",
+        "https://tobisen.github.io/warbound/assets/panel.png",
+        "https://tobisen.github.io/warbound/assets/index-CfSnj06e.js",
+        "https://tobisen.github.io/warbound/assets/ui-atlas.json",
+        "https://tobisen.github.io/warbound/assets/world-atlas.png",
+        "https://tobisen.github.io/warbound/assets/air-atlas.json",
+        "https://tobisen.github.io/warbound/assets/cavalry-atlas.json",
+        "https://tobisen.github.io/warbound/assets/healer-atlas.json",
+        "https://tobisen.github.io/warbound/assets/bosses-atlas.json",
+        "https://tobisen.github.io/warbound/assets/aviary-atlas.png",
+        "https://tobisen.github.io/warbound/assets/buildings-atlas.json",
+        "https://tobisen.github.io/warbound/assets/scout-atlas.json",
+        "https://tobisen.github.io/warbound/assets/reference-terrain-atlas.json",
+        "https://tobisen.github.io/warbound/assets/submarine-atlas.png",
+        "https://tobisen.github.io/warbound/assets/ui-atlas.png",
+        "https://tobisen.github.io/warbound/assets/world-atlas.json",
+        "https://tobisen.github.io/warbound/assets/scout-atlas.png",
+        "https://tobisen.github.io/warbound/assets/reference-terrain-atlas.png",
+        "https://tobisen.github.io/warbound/assets/naval-atlas.json",
+        "https://tobisen.github.io/warbound/assets/siegeWorks-atlas.png",
+        "https://tobisen.github.io/warbound/assets/bosses-atlas.png",
+        "https://tobisen.github.io/warbound/assets/ballista-atlas.json",
+        "https://tobisen.github.io/warbound/assets/submarine-atlas.json",
+        "https://tobisen.github.io/warbound/assets/aviary-atlas.json",
+        "https://tobisen.github.io/warbound/assets/ballista-atlas.png",
+        "https://tobisen.github.io/warbound/assets/giant-atlas.json",
+        "https://tobisen.github.io/warbound/assets/healer-atlas.png",
+        "https://tobisen.github.io/warbound/assets/siegeWorks-atlas.json",
+        "https://tobisen.github.io/warbound/assets/giant-atlas.png",
+        "https://tobisen.github.io/warbound/assets/units-atlas.json",
+        "https://tobisen.github.io/warbound/assets/cavalry-atlas.png",
+        "https://tobisen.github.io/warbound/assets/units-atlas.png",
+        "https://tobisen.github.io/warbound/assets/tower-specializations-atlas.png",
+        "https://tobisen.github.io/warbound/assets/naval-content-atlas.json",
+        "https://tobisen.github.io/warbound/assets/tower-specializations-atlas.json",
+        "https://tobisen.github.io/warbound/assets/buildings-atlas.png",
+        "https://tobisen.github.io/warbound/assets/naval-atlas.png",
+        "https://tobisen.github.io/warbound/assets/naval-content-atlas.png",
+        "https://tobisen.github.io/warbound/assets/air-atlas.png",
+        "https://tobisen.github.io/warbound/audio/animal-deer.wav",
+        "https://tobisen.github.io/warbound/audio/animal-rabbit.wav",
+        "https://tobisen.github.io/warbound/audio/animal-fox.wav",
+        "https://tobisen.github.io/warbound/audio/music.ogg",
+        "https://tobisen.github.io/warbound/audio/command.ogg",
+        "https://tobisen.github.io/warbound/audio/impact.ogg",
+        "https://tobisen.github.io/warbound/audio/complete.ogg",
+        "https://tobisen.github.io/warbound/audio/victory.ogg",
+        "https://tobisen.github.io/warbound/audio/defeat.ogg",
+        "https://tobisen.github.io/warbound/audio/cannon.ogg"
+      ]
+    },
+    {
+      "width": 1280,
+      "expected": "791d17f",
+      "httpStatus": 200,
+      "initial": {
+        "map": "straits",
+        "mission": "crown-stormgate-armada",
+        "factions": {
+          "player": "crown",
+          "enemy": "dwarves"
+        },
+        "phase": 0,
+        "ships": 16,
+        "escorts": 2,
+        "enemyShips": 15,
+        "bombards": 2,
+        "scouts": 1,
+        "atlas": true
+      },
+      "idle": [
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-2"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-3"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        }
+      ],
+      "loaded": {
+        "mission": "crown-stormgate-armada",
+        "phase": 0,
+        "ships": 16
+      },
+      "content": {
+        "wood": 250,
+        "gold": 345,
+        "foundry": "navalFoundry",
+        "research": 1,
+        "ships": 17,
+        "hull": "cutter"
+      },
+      "realSaveLoad": true,
+      "reload": true,
+      "errors": [],
+      "failed": [],
+      "assets": [
+        "https://tobisen.github.io/warbound/assets/index-q7-bR_zD.css",
+        "https://tobisen.github.io/warbound/assets/home-fantasy-126.jpg",
+        "https://tobisen.github.io/warbound/assets/panel.png",
+        "https://tobisen.github.io/warbound/assets/index-CfSnj06e.js",
+        "https://tobisen.github.io/warbound/assets/world-atlas.png",
+        "https://tobisen.github.io/warbound/assets/ui-atlas.png",
+        "https://tobisen.github.io/warbound/assets/buildings-atlas.json",
+        "https://tobisen.github.io/warbound/assets/ui-atlas.json",
+        "https://tobisen.github.io/warbound/assets/units-atlas.json",
+        "https://tobisen.github.io/warbound/assets/world-atlas.json",
+        "https://tobisen.github.io/warbound/assets/buildings-atlas.png",
+        "https://tobisen.github.io/warbound/assets/naval-atlas.png",
+        "https://tobisen.github.io/warbound/assets/reference-terrain-atlas.png",
+        "https://tobisen.github.io/warbound/assets/naval-atlas.json",
+        "https://tobisen.github.io/warbound/assets/submarine-atlas.json",
+        "https://tobisen.github.io/warbound/assets/cavalry-atlas.json",
+        "https://tobisen.github.io/warbound/assets/scout-atlas.json",
+        "https://tobisen.github.io/warbound/assets/siegeWorks-atlas.png",
+        "https://tobisen.github.io/warbound/assets/reference-terrain-atlas.json",
+        "https://tobisen.github.io/warbound/assets/bosses-atlas.json",
+        "https://tobisen.github.io/warbound/assets/healer-atlas.json",
+        "https://tobisen.github.io/warbound/assets/bosses-atlas.png",
+        "https://tobisen.github.io/warbound/assets/siegeWorks-atlas.json",
+        "https://tobisen.github.io/warbound/assets/aviary-atlas.json",
+        "https://tobisen.github.io/warbound/assets/giant-atlas.json",
+        "https://tobisen.github.io/warbound/assets/air-atlas.json",
+        "https://tobisen.github.io/warbound/assets/aviary-atlas.png",
+        "https://tobisen.github.io/warbound/assets/cavalry-atlas.png",
+        "https://tobisen.github.io/warbound/assets/ballista-atlas.json",
+        "https://tobisen.github.io/warbound/assets/healer-atlas.png",
+        "https://tobisen.github.io/warbound/assets/submarine-atlas.png",
+        "https://tobisen.github.io/warbound/assets/scout-atlas.png",
+        "https://tobisen.github.io/warbound/assets/giant-atlas.png",
+        "https://tobisen.github.io/warbound/assets/ballista-atlas.png",
+        "https://tobisen.github.io/warbound/assets/units-atlas.png",
+        "https://tobisen.github.io/warbound/assets/air-atlas.png",
+        "https://tobisen.github.io/warbound/assets/naval-content-atlas.png",
+        "https://tobisen.github.io/warbound/assets/tower-specializations-atlas.json",
+        "https://tobisen.github.io/warbound/assets/naval-content-atlas.json",
+        "https://tobisen.github.io/warbound/assets/tower-specializations-atlas.png",
+        "https://tobisen.github.io/warbound/audio/animal-deer.wav",
+        "https://tobisen.github.io/warbound/audio/animal-rabbit.wav",
+        "https://tobisen.github.io/warbound/audio/animal-fox.wav",
+        "https://tobisen.github.io/warbound/audio/music.ogg",
+        "https://tobisen.github.io/warbound/audio/command.ogg",
+        "https://tobisen.github.io/warbound/audio/impact.ogg",
+        "https://tobisen.github.io/warbound/audio/complete.ogg",
+        "https://tobisen.github.io/warbound/audio/victory.ogg",
+        "https://tobisen.github.io/warbound/audio/defeat.ogg",
+        "https://tobisen.github.io/warbound/audio/cannon.ogg",
+        "https://tobisen.github.io/warbound/audio/splash.ogg",
+        "https://tobisen.github.io/warbound/audio/gather.ogg",
+        "https://tobisen.github.io/warbound/audio/build.ogg",
+        "https://tobisen.github.io/warbound/audio/train.ogg",
+        "https://tobisen.github.io/warbound/audio/melee.ogg",
+        "https://tobisen.github.io/warbound/audio/bow.ogg"
+      ]
+    }
+  ],
+  "atlasFrames": 520,
+  "notes": "Actual production bundle and production scene callbacks. Bootstrap exposed only in this browser. Fifteen previous Human missions seeded solely to access the new last mission; no natural campaign progression claim. Frozen input/financed component fixtures are explicit. No human balance or audio listening claim."
+}

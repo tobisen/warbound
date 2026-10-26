@@ -85,5 +85,19 @@
     "git_diff_check": "PASS",
     "asset_export_determinism": "PASS"
   },
-  "baseline_commit": "b5d2f333003dec878aa615cb2be316c8310c163b"
+  "baseline_commit": "b5d2f333003dec878aa615cb2be316c8310c163b",
+  "publication": {
+    "code_commit": "311c8350d21dcab6894c863db5f8a9914f0594b6",
+    "published_commit": "791d17fb36931013f2a06aac77d69ee29bf8f65c",
+    "ci_run": 40283143763,
+    "ci_conclusion": "success",
+    "full_tests": 2093,
+    "full_files": 229,
+    "full_seconds": 1183.13,
+    "pages_url": "https://tobisen.github.io/warbound/",
+    "deployed_at_utc": "2026-10-26T07:21:00Z",
+    "public_browser": "pages-public/public.json",
+    "details": "pages-public/README.md",
+    "note": "This actual new green full CI supersedes the earlier local broad-run-plus-targeted-corrections coverage; original local records remain unchanged."
+  }
 }
