@@ -22,7 +22,7 @@ export function defenseTarget(u:Unit|Ship,enemies:readonly Enemy[],faction:Facti
 /** No pursuit: retaliation is permitted only from the unit's current position. */
 export function canDefend(u:Unit|Ship,e:Enemy,faction:FactionId,map?:WorldMap,visible:(e:Enemy)=>boolean=()=>true):boolean {
  if((u.hp??0)<=0||e.hp<=0||u.order.kind==='attack'||!visible(e)||!canAttackDomain(u,e,faction))return false;
- const stats=u.kind==='ship'?u.role==='submarine'?navyConfig.submarine:factions[faction].naval.units.warship:u.kind==='worker'?workerCombatConfig:combatUnitStats(u,faction);
+ const stats=u.kind==='ship'?factions[faction].naval.units[u.role??'warship']:u.kind==='worker'?workerCombatConfig:combatUnitStats(u,faction);
  const ranged=u.kind==='ship'?stats:u.kind==='soldier'?rangedStats(u,faction):null;
  if((ranged?'damage' in ranged?ranged.damage??0:0:'damagePerSecond' in stats?stats.damagePerSecond??0:0)<=0)return false;
  if('damageByDomain' in stats&&((stats.damageByDomain as Partial<Record<import('../config/domains').TargetDomain,number>>)?.[targetDomain(e)]??1)<=0)return false;

@@ -1,3 +1,4 @@
+import {skirmishAttackSeconds} from '../config/skirmishPacing';
 import {expect,it} from 'vitest';
 import {createClassicMatch as createMatch} from './testHelpers/classicMatch';
 import {updateMatch} from './match';
@@ -9,8 +10,8 @@ import {placeHarbor,trainShip,commandShips,attackShips,matchPopulation} from './
 import {navyConfig} from '../config/navy';
 for(const difficulty of ['easy','normal','hard'] as const)for(const faction of ['crown','clans'] as const){
  it(`${difficulty}/${faction}: doing nothing loses to a paid finite naval assault`,()=>{
-  let m=createMatch('skirmish',difficulty,factionsForPlayer(faction),'islands');for(let i=0;i<1900&&m.outcome==='playing';i++)m=updateMatch(m,.2);
-  expect(m.outcome).toBe('defeat');expect(m.enemyNaval!.phase).toBe('landed');expect(m.enemyProduction!.acceptedJobs).toBeGreaterThanOrEqual(2);expect(m.enemyProduction!.extracted).toEqual({wood:0,gold:0});expect(m.waves.elapsedSeconds).toBeLessThan(350);
+  let m=createMatch('skirmish',difficulty,factionsForPlayer(faction),'islands');for(let i=0;i<(skirmishAttackSeconds(m)+200)/.2&&m.outcome==='playing';i++)m=updateMatch(m,.2);
+  expect(m.outcome).toBe('defeat');expect(m.enemyNaval!.phase).toBe('landed');expect(m.enemyProduction!.acceptedJobs).toBeGreaterThanOrEqual(2);expect(m.enemyProduction!.extracted).toEqual({wood:0,gold:0});expect(m.waves.elapsedSeconds).toBeGreaterThanOrEqual(skirmishAttackSeconds(m));expect(m.waves.elapsedSeconds).toBeLessThan(skirmishAttackSeconds(m)+200);
  },30000);
  it(`${difficulty}/${faction}: a paid early cannon ship stops the carrier without free economy`,()=>{
   let m=createMatch('skirmish',difficulty,factionsForPlayer(faction),'islands');const select=(id:string)=>{m.gathering.units=m.gathering.units.map(u=>({...u,selected:u.id===id}));if(m.navy)m.navy.ships=m.navy.ships.map(s=>({...s,selected:s.id===id}));};

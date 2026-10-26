@@ -34,7 +34,7 @@ export function completeCampaignMission(progress:CampaignProgress,match:MatchSta
 export function startCampaignMission(progress:CampaignProgress,id:CampaignMissionId,difficulty:Difficulty,factions:MatchFactions,speed:GameSpeed=1):MatchState|null{
  const mission=campaignMission(id);
  if(!mission||!campaignMissionsFor(progress.identity?.campaignId).some(m=>m.id===id)||campaignMissionStatus(progress,id)==='locked'||progress.identity&&(progress.identity.faction!==factions.player||progress.identity.difficulty!==difficulty))return null;
- if(progress.identity){const identity=progress.identity,series=seriesForId(identity.campaignId)!;const match={...createMatch(mission.scenario,difficulty,{player:identity.faction,enemy:series.enemy},seriesMissionPlan(id,identity.campaignId).map,speed,'balanced',undefined,id),campaignMission:id,campaignRun:{version:1 as const,phase:0,campaignId:identity.campaignId}};return {...match,gathering:{...match.gathering,campaignContent:missionContent(id)}};}
+ if(progress.identity){const identity=progress.identity,series=seriesForId(identity.campaignId)!;const match={...createMatch(mission.scenario,difficulty,{player:identity.faction,enemy:id==='crown-stormgate-armada'?'dwarves':series.enemy},seriesMissionPlan(id,identity.campaignId).map,speed,'balanced',undefined,id),campaignMission:id,campaignRun:{version:1 as const,phase:0,campaignId:identity.campaignId}};return {...match,gathering:{...match.gathering,campaignContent:missionContent(id)}};}
  return {...createMatch(mission.scenario,difficulty,campaignPreset(id)??factions,campaignPlans[id]?.map??scenarioConfig[mission.scenario].map,speed,'balanced',undefined,id),campaignMission:id};
 }
 /** Only offer the immediate unlocked successor of a campaign victory. */

@@ -1,0 +1,36 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/seaBattle.test.ts src/gameplay/navalContent.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+ ❯ src/gameplay/seaBattle.test.ts (5 tests | 1 failed) 4023ms
+   × requires armed ships and landed ground combatants rather than transports, workers or aircraft 13ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/gameplay/seaBattle.test.ts > requires armed ships and landed ground combatants rather than transports, workers or aircraft
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/gameplay/seaBattle.test.ts:55:40
+     53|  expect(campaignPhaseMet(m,phases[0])).toBe(false);
+     54|  for(const s of m.navy!.ships.filter(s=>s.role!=='transport').slice(0,…
+     55|  expect(campaignPhaseMet(m,phases[0])).toBe(true);
+       |                                        ^
+     56|  m.combat.enemies.find(e=>e.kind==='ship')!.position={...passage};expe…
+     57|  m.combat.enemies=m.combat.enemies.filter(e=>e.kind!=='ship');for(cons…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 10 passed (11)
+   Start at  23:22:24
+   Duration  5.26s (transform 1.85s, setup 0ms, import 2.28s, tests 4.61s, environment 0ms)

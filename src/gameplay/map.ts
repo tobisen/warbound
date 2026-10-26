@@ -67,7 +67,7 @@ export function nearbyObstacles(map:WorldMap,area:Footprint):readonly Footprint[
  let index=collisionIndex.get(map.obstacles);if(!index||index.revision!==map.revision||index.length!==map.obstacles.length){const cells=new Map<string,Footprint[]>();for(const o of map.obstacles)for(let r=Math.floor(o.y/32);r<=Math.floor((o.y+o.height)/32);r++)for(let c=Math.floor(o.x/32);c<=Math.floor((o.x+o.width)/32);c++){const key=`${c},${r}`,list=cells.get(key)??[];list.push(o);cells.set(key,list);}index={revision:map.revision,length:map.obstacles.length,cells,queries:new Map()};collisionIndex.set(map.obstacles,index);}
  const queryKey=`${left},${top},${right},${bottom}`,cached=index.queries.get(queryKey);if(cached)return skip(cached);
  const result=new Set<Footprint>();for(let r=top;r<=bottom;r++)for(let c=left;c<=right;c++)for(const o of index.cells.get(`${c},${r}`)??[])result.add(o);
- const candidates=[...result];if(index.queries.size>=256)index.queries.delete(index.queries.keys().next().value!);index.queries.set(queryKey,candidates);return skip(candidates);
+ const candidates=[...result];if(index.queries.size>=4096)index.queries.delete(index.queries.keys().next().value!);index.queries.set(queryKey,candidates);return skip(candidates);
 }
 export function bodyFits(map: WorldMap, point: Position, halfSize = 0): boolean {
   if (!worldTile(map, point) || halfSize < 0 || !Number.isFinite(halfSize)) return false;

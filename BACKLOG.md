@@ -53,6 +53,45 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Publicera innehålls-/balansbatch — 2026-10-26 — In Progress
+
+Användaren har beställt commit, push och Pages; detta ersätter det äldre lokala
+förbudet nedan. Kandidatens unit/strict build/native800/1280 kontrolleras utan
+användarens CSS/units.mjs/docs/. GitHub kör ny full regression före deploy.
+Kandidat: unit546/94, riktade34/4, strict build och native800/1280 PASS.
+Status, SHA och publik browser-verifiering kompletteras efter faktisk leverans.
+Ingen ny produktversion eller roadmaptask.
+
+### Lokal innehålls-/balansbatch — 2026-10-25 — Done
+
+Nytt uttryckligt användaruppdrag ersätter äldre etappstopp: kontrollera befintlig
+Idle Worker i faktisk spelvy, långsammare första Skirmish-anfall med fortsatt
+aktiv ekonomi/scouting/expansion, ett nytt stort sjöuppdrag, minst en byggnad,
+en forskning och två olika enheter med färdig grafik. Undersök och minska
+upplevt Skirmish-lagg. Återanvänd befintliga system och bevara användarens
+CSS/units.mjs/docs/ och övriga lokala filer. **Ingen commit, push eller publicering.**
+Ingen roadmap återupptas eller ny version beställs.
+
+Aktuell implementation: separat Skirmish-klocka, härledda prestandacachar,
+Stormgate Armada som sista Human-expedition, Naval Foundry/Naval Logistics,
+Human Tide Runner och Dwarf Bombard med ny originalpixelart, samt befintlig Sky Owl
+för spaning. Native800/1280 visar fungerande Idle Worker, innehållsklick, Save/mål/
+victory/defeat; native scenframes klarar hela sjöoperationen vid69,26s med lagliga
+automatiska order. Mänsklig finbalans/speltid är inte verifierad.
+
+Slutlig unit546/94 och strict build PASS. Full2093/229 avslutad med19 äldre
+katalog-/tidsfönster-/testbot-/fixturefel; dessa rättades och verifierades i
+riktade omkörningar (57-testskontroll55 PASS, sedan katalog3/1 och Plains961/1
+PASS). Inga kvarstående testfel; ingen andra helt grön helkörning hävdas.
+Manifest, nya assetexportens determinism, text-/länk-/diffkontroll PASS.
+Isolerad CPU för5spelare minskar20–29% med exakt samma hela spelstater;
+native128-kropparsstress15,9→13,5ms medianupdate. Stora femspelarmatcher är
+fortsatt CPU-tunga. Se [rapport](artifacts/content-balance/README.md), HANDOFF,
+QUALITY_REVIEW och PERFORMANCE. Tidigare publiceringsbelägg nedan är historiska
+och säger inget om denna arbetskatalog. **Ingen commit, push eller publicering.**
+
+### Föregående verifierade publicering
+
 Pages är nu publicerad/verifierad för1e8abaf: [CI40228163017](https://github.com/tobisen/warbound/actions/runs/40228163017)
 full2071/225, strict spelbuild, presentation och deploy PASS. Deployment
 2026-10-25 21:23:40 Europe/Stockholm. Ny publik Chrome800/1280:exakt Build,

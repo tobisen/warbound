@@ -1,3 +1,4 @@
+import {skirmishAttackSeconds} from '../config/skirmishPacing';
 import {legacyTerrainFixture} from './testHelpers/legacyTerrainFixture';
 import {placementObstacles} from './placement';
 import {resourceNodes} from './gathering';
@@ -43,11 +44,11 @@ for(const [id,tiles] of [['plains96',128],['plains128',128]] as const){
  it(`${id}: existing paid skirmish and enemy economy remain playable`,()=>{
   const result=releasePlaythrough('skirmish','normal',undefined,{faction:'crown',abilities:true,map:id});
   expect(result.match.outcome).toBe('victory');expect(result.spentWood).toBeGreaterThan(40);expect(result.match.enemyProduction!.acceptedJobs).toBeGreaterThan(0);
-  let passive=createMatch('skirmish','normal',undefined,id);for(let i=0;i<1600&&passive.outcome==='playing';i++)passive=updateMatch(passive,.25);
+  let passive=createMatch('skirmish','normal',undefined,id);for(let i=0;i<skirmishAttackSeconds(passive)+180&&passive.outcome==='playing';i++)passive=updateMatch(passive,1);
   expect(passive.combat.baseHP).toBeLessThan(240);
- // CI measured61–65s for these complete paid-match/economy scenarios.
- // Only the runner budget changes; simulation time and assertions stay intact.
- },120_000);
+ // The new780s passive horizon measured236s on Plains96 under the final checks.
+ // Budget only: paid victory, actual base contact and gameplay horizon remain asserted.
+ },id==='plains96'?300_000:120_000);
 }
 it('config20 preserves existing matches, ledger and views when migrating to21',()=>{
  const m=createMatch('skirmish','beginner',undefined,'frontier'),view={camera:{x:400,y:300},building:null};m.statLedger!.player.built=2;

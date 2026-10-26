@@ -1,0 +1,13 @@
+
+> warcraft-2-tribute@0.8.0 test:unit
+> node scripts/test-unit.mjs
+
+Unit suite: 94 files; 135 explicitly classified integration files run via npm test or targeted commands.
+
+ RUN  v4.1.11 /private/tmp/w2t-naval-release-z0qct3q_
+
+
+ Test Files  94 passed (94)
+      Tests  546 passed (546)
+   Start at  07:14:02
+   Duration  17.54s (transform 1.02s, setup 0ms, import 8.47s, tests 21.23s, environment 4ms)

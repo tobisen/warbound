@@ -9,7 +9,7 @@ import { unitStats,workerStats } from '../config/unit';
 import type { GatheringState, Unit } from './gathering';
 import type { PlacementState, ConstructionJob, Footprint } from './placement';
 import type { WorldMap } from './map';
-type SiteId = `producer-${number}`| `base-${number}`|`wall-${number}`|`gate-${number}`|`tower-${number}`| 'siegeWorks'|'aviary'|'stable'|'academy'|'harbor'|'outpost'|`outpost-${number}`|'barracks'|'forge'|`farm-${number}`;
+type SiteId = 'navalFoundry'| `producer-${number}`| `base-${number}`|`wall-${number}`|`gate-${number}`|`tower-${number}`| 'siegeWorks'|'aviary'|'stable'|'academy'|'harbor'|'outpost'|`outpost-${number}`|'barracks'|'forge'|`farm-${number}`;
 export function barracksReady(placement:PlacementState):boolean {
   return placement.barracks!==null && (!placement.construction || placement.construction.remainingSeconds===0);
 }

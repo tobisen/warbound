@@ -7,15 +7,15 @@ export type MovementGate=(position:Position,route:RouteState,speed:number,delta:
 export type GateFor=(id:string)=>MovementGate;
 export interface TrafficBody {id:string;position:Position;half:number;speed:number;active:boolean;waypoints:readonly Position[]}
 // Match snapshots copy the map while retaining its immutable obstacle array.
-const cache=new WeakMap<WorldMap['obstacles'],{signature:string;zones:Map<string,number>}>();
+const cache=new WeakMap<WorldMap['obstacles'],{signature:string;length:number;zones:Map<string,number>}>();
 function passageZones(map:WorldMap):Map<string,number>{
- const signature=`${map.revision}:${map.width}:${map.height}:${map.tileSize}:`+map.obstacles.map(o=>`${o.x},${o.y},${o.width},${o.height}`).join(';'),old=cache.get(map.obstacles);if(old?.signature===signature)return old.zones;
+ const signature=`${map.revision}:${map.width}:${map.height}:${map.tileSize}`,old=cache.get(map.obstacles);if(old?.signature===signature&&old.length===map.obstacles.length)return old.zones;
  const free=new Set<string>(),narrow=new Set<string>(),key=(x:number,y:number)=>`${x},${y}`;
  for(let y=0;y<Math.ceil(map.height/map.tileSize);y++)for(let x=0;x<Math.ceil(map.width/map.tileSize);x++){const p=tileCenter(map,{column:x,row:y});if(p&&bodyFits(map,p,unitStats.size/2))free.add(key(x,y));}
  for(const k of free){const [x,y]=k.split(',').map(Number);if([[0,-1],[1,0],[0,1],[-1,0]].filter(([dx,dy])=>free.has(key(x+dx,y+dy))).length<=2)narrow.add(k);}
  const zones=new Map<string,number>();let number=0;
  for(const first of narrow){if(zones.has(first))continue;const queue=[first];zones.set(first,number);for(let i=0;i<queue.length;i++){const [x,y]=queue[i].split(',').map(Number);for(const [dx,dy] of [[0,-1],[1,0],[0,1],[-1,0]]){const n=key(x+dx,y+dy);if(narrow.has(n)&&!zones.has(n)){zones.set(n,number);queue.push(n);}}}number++;}
- cache.set(map.obstacles,{signature,zones});return zones;
+ cache.set(map.obstacles,{signature,length:map.obstacles.length,zones});return zones;
 }
 /** Admission is per simulation step, derived from live bodies. Idle bodies never retain a lock. */
 export function trafficGates(map:WorldMap,bodies:readonly TrafficBody[],elapsed:number,delta:number):GateFor{

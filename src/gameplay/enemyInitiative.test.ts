@@ -1,6 +1,7 @@
 import {it,expect,afterAll} from 'vitest';
 import {simulateEnemyInitiative} from './testHelpers/enemyInitiative';
 import {decodeSave,encodeSave} from './save';
+import {skirmishPacing} from '../config/skirmishPacing';
 import {enemyStrategyConfig} from '../config/enemyStrategy';
 import type {Difficulty} from '../config/difficulty';
 import type {MapId} from '../config/maps';
@@ -10,11 +11,13 @@ for(const [map,difficulty] of [['arena','normal'],['plains96','normal'],['arena'
  it(`takes initiative on ${map}/${difficulty} over twenty gameplay minutes and recovers after losses`,()=>{
   const {match:m,report:r}=simulateEnemyInitiative(map,difficulty);reports.push(r);
   expect(r.seconds).toBe(1200);
-  const goals={beginner:{scout:180,attack:720,expansion:840},easy:{scout:120,attack:600,expansion:720},normal:{scout:120,attack:420,expansion:540},hard:{scout:120,attack:300,expansion:420}}[difficulty];
+  const goals={beginner:{scout:180,attack:1080,expansion:840},easy:{scout:120,attack:900,expansion:720},normal:{scout:120,attack:660,expansion:540},hard:{scout:120,attack:540,expansion:420}}[difficulty];
   expect(r.scoutTime).toBeLessThanOrEqual(goals.scout);
   expect(r.firstScout).toBeLessThanOrEqual(goals.scout);
   expect(r.firstDispatch).toBeLessThanOrEqual(goals.attack);
-  expect(r.firstHit).toBeLessThanOrEqual(goals.attack);
+  expect(r.firstDispatch).toBeGreaterThanOrEqual(skirmishPacing[difficulty].first);
+  expect(r.firstHit).toBeGreaterThanOrEqual(skirmishPacing[difficulty].first);
+  expect(r.firstHit).toBeLessThanOrEqual(goals.attack+120);
   expect(r.firstExpansion).toBeLessThanOrEqual(goals.expansion);
   if(difficulty==='normal'||difficulty==='hard')expect(r.thirdBase).toBeLessThanOrEqual(1200);
   expect(r.snapshots[4].jobs).toBeGreaterThan(r.snapshots[1].jobs);
@@ -26,7 +29,7 @@ for(const [map,difficulty] of [['arena','normal'],['plains96','normal'],['arena'
   expect(r.jobsAfterLoss).toBeGreaterThan(0);
   expect(r.hitsAfterLoss).toBeGreaterThan(0);
   expect(r.dispatches.some(t=>t>720)).toBe(true);
-  expect(r.dispatches.slice(1).every((time,i)=>time-r.dispatches[i]>=enemyStrategyConfig[difficulty].raidSeconds)).toBe(true);
+  expect(r.dispatches.slice(1).every((time,i)=>time-r.dispatches[i]>=skirmishPacing[difficulty].gap)).toBe(true);
   expect(r.maxArmySupply).toBeLessThanOrEqual(enemyStrategyConfig[difficulty].maxArmy);
   expect(r.maxBuildings).toBeLessThanOrEqual(20);
   expect(m.combat.enemies.filter(e=>e.kind==='worker').length).toBeLessThanOrEqual(enemyStrategyConfig[difficulty].maxWorkers);

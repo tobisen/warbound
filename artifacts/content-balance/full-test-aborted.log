@@ -1,0 +1,15 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+ ❯ src/gameplay/skirmishBalance.test.ts (31 tests | 7 failed) 188542ms
+   × passive arena/crown reaches defeat without free income 2342ms
+   × passive arena/clans reaches defeat without free income 2366ms
+   × passive forest/crown reaches defeat without free income 2338ms
+   × passive forest/clans reaches defeat without free income 2261ms
+   × passive river/crown reaches defeat without free income 2227ms
+   × passive river/clans reaches defeat without free income 2241ms
+   × search waypoints remain land positions on every handcrafted map 4ms

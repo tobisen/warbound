@@ -1,0 +1,45 @@
+{
+  "chromium": "155.0.8059.85",
+  "kind": "production gameplay CPU, not rendered FPS",
+  "results": [
+    {
+      "ref": "working-tree",
+      "count": 2,
+      "army": false,
+      "medianMs": 1.2000000476837158,
+      "p95Ms": 1.5,
+      "totalMs": 592.3000000119209,
+      "startUnits": 5,
+      "endUnits": 5,
+      "elapsed": 5.999999999999984,
+      "outcome": "playing",
+      "stateHash": "c1827a21eac0032e8aaeabeba6d91e436c65d9394b700ab6a1c9faf3ff2cc41c"
+    },
+    {
+      "ref": "working-tree",
+      "count": 5,
+      "army": false,
+      "medianMs": 8.599999964237213,
+      "p95Ms": 10.099999964237213,
+      "totalMs": 3643.2000000476837,
+      "startUnits": 11,
+      "endUnits": 11,
+      "elapsed": 5.999999999999984,
+      "outcome": "playing",
+      "stateHash": "5bc871e3e9c2c102d19853bc0aecdec76a60f344b589c66e45b697889782b84e"
+    },
+    {
+      "ref": "working-tree",
+      "count": 5,
+      "army": true,
+      "medianMs": 31.19999998807907,
+      "p95Ms": 36.200000047683716,
+      "totalMs": 12289.899999976158,
+      "startUnits": 115,
+      "endUnits": 117,
+      "elapsed": 35.99999999999966,
+      "outcome": "playing",
+      "stateHash": "5ae045844d71f2c5d27e70bf85799d685f08d3341e38f6c3f1b85fb6cf057eb1"
+    }
+  ]
+}

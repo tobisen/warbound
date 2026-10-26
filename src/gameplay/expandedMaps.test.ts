@@ -1,7 +1,7 @@
 import {isNewSkirmishMap} from '../config/skirmishMaps';
 import {createClassicMatch as createMatch} from './testHelpers/classicMatch';
 import {expect,it} from 'vitest';
-import {maps,mapResources,mapResourceTotals,type MapId} from '../config/maps';
+import {skirmishMapIds,maps,mapResources,mapResourceTotals,type MapId} from '../config/maps';
 import {campaignPlans} from '../config/campaignPhases';
 import {operationConfig} from '../config/operations';
 
@@ -13,7 +13,7 @@ import {matchFog} from './matchFog';
 import {canReachFootprint} from './approach';
 import {findDomainRoute} from './terrainNavigation';
 const view={camera:{x:0,y:0},building:null};
-it.each((Object.keys(maps) as MapId[]).filter(id=>!isNewSkirmishMap(id)))('%s has128×128 real tiles, finite reachable expansions and consistent resource totals',id=>{const m=createMatch('skirmish','beginner',undefined,id),nodes=resourceNodes(m.gathering),extra=nodes.filter(n=>n.id.startsWith('expansion-'));
+it.each(skirmishMapIds.filter(id=>!isNewSkirmishMap(id)))('%s has128×128 real tiles, finite reachable expansions and consistent resource totals',id=>{const m=createMatch('skirmish','beginner',undefined,id),nodes=resourceNodes(m.gathering),extra=nodes.filter(n=>n.id.startsWith('expansion-'));
   expect(m.map).toMatchObject({worldLayout:'expanded',width:4096,height:4096,tileSize:32});expect(m.fog!.teams.player.visible).toHaveLength(16384);expect(extra.length).toBeGreaterThan(50);
   expect(nodes.reduce((n,r)=>n+(r.resource==='wood'?r.remaining:0),0)).toBeCloseTo(mapResourceTotals(id,'trees','expanded').wood);
   for(const n of extra){expect(bodyFits(m.map,n.position,12)).toBe(false);expect(n.position.x).toBeLessThan(4096);expect(n.position.y).toBeLessThan(4096);}

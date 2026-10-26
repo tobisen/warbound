@@ -1,3 +1,4 @@
+import {isShipRole,type ShipRole,navalRoleAvailable} from '../config/navy';
 import {defending} from './selfDefense';
 import {bossEnemies} from './bosses';
 import {hasMainBase} from './extraBases';
@@ -27,18 +28,18 @@ import {domainMap,coastalFootprint,planDomainRoute,advanceDomainRoute} from './t
 import type {RouteState} from './navigation';
 import type {Position} from './movement';
 import type {MatchState} from './match';
-export interface Ship extends SelectableUnit, OrderState {transfer?:import('./autoTransport').TransportTransfer;kind:'ship';role?:'warship'|'transport'|'submarine';passengers?:Unit[];owner:'player';hp:number;attackCooldown?:number;order:{kind:'idle'|'move'}|{kind:'attack';enemyId:string}|{kind:'hunt';animalId:string};navigation?:RouteState}
+export interface Ship extends SelectableUnit, OrderState {transfer?:import('./autoTransport').TransportTransfer;kind:'ship';role?:ShipRole;passengers?:Unit[];owner:'player';hp:number;attackCooldown?:number;order:{kind:'idle'|'move'}|{kind:'attack';enemyId:string}|{kind:'hunt';animalId:string};navigation?:RouteState}
 export interface Harbor {owner:'player';hp:number;footprint:Footprint;construction:ConstructionJob}
 export interface NavyState {harbor:Harbor|null;ships:Ship[];production:ProductionState}
 export const createNavy=():NavyState=>({harbor:null,ships:[],production:{remainingSeconds:null,nextUnitNumber:1}});
-export const shipRecipe=(m:MatchState,role:'warship'|'transport'|'submarine'='warship')=>factionForTeam(m,'player').naval.units[role];
+export const shipRecipe=(m:MatchState,role:ShipRole='warship')=>factionForTeam(m,'player').naval.units[role];
 export function matchPopulation(m:MatchState):Population {
  const pop=populationState({...m.gathering,...(m.combat.baseHP<=0?{primaryDropoff:false}:{})},m.placement,[m.production,m.soldierProduction,...(m.placement.producers??[]).map(p=>p.production),...(m.placement.academy?.production?[m.placement.academy.production]:[]),...(m.placement.siegeWorks?[m.placement.siegeWorks.production]:[]),...(m.placement.aviary?[m.placement.aviary.production]:[]),...(m.placement.stable?[m.placement.stable.production]:[]),...(m.placement.bases??[]).map(b=>b.production),...(m.navy?[m.navy.production]:[])]);
  return {...pop,used:pop.used+(m.navy?.ships??[]).reduce((n,s)=>n+shipRecipe(m,s.role).supply,0)+populationState({...m.gathering,units:passengerUnits(m.navy)},m.placement,[]).used};
 }
 export function harborFootprint(point:Position):Footprint {return buildingFootprint(point,'harbor');}
 const navalOccupants=(m:MatchState)=>[...m.combat.enemies,...bossEnemies(m).filter(e=>e.seaMonster)].filter(e=>!e.footprint&&!isAir(e)).map(e=>unitBody(e.position,e.seaMonster?32:24));
-export function harborSpawn(m:MatchState,footprint:Footprint,occupancy=true,role:'warship'|'transport'|'submarine'='warship'):Position|null {
+export function harborSpawn(m:MatchState,footprint:Footprint,occupancy=true,role:ShipRole='warship'):Position|null {
  const map={...domainMap(m.map,'water'),bodyHalf:shipRecipe(m,role).size/2,obstacles:[...domainMap(m.map,'water').obstacles,footprint]};
  return spawnCandidates(map,footprint,'barracks',shipRecipe(m,role).size).find(p=>hasSpawnExit(map,p)&&(!occupancy||![...m.gathering.units.filter(u=>!isAir(u)).map(u=>unitBody(u.position,u.kind==='worker'?unitStats.size:combatUnitStats(u).size)),...(m.navy?.ships??[]).map(u=>unitBody(u.position,shipRecipe(m,role).size)),...navalOccupants(m)].some(b=>overlaps(unitBody(p,shipRecipe(m,role).size),b))))??null;
 }
@@ -71,8 +72,8 @@ export function placeHarbor(m:MatchState,point:Position):MatchState {
  const builder=m.gathering.units.filter(u=>u.kind==='worker'&&u.selected).sort((a,b)=>a.id.localeCompare(b.id,'en',{numeric:true}))[0],footprint=harborFootprint(point);
  return {...m,map:replaceObstacles(m.map,[...m.map.obstacles,footprint]),placement:{...m.placement,active:false,kind:undefined},navy:{...(m.navy??createNavy()),harbor:{owner:'player',hp:factionForTeam(m,'player').naval.harbor.hp,footprint,construction:{remainingSeconds:factionForTeam(m,'player').naval.harbor.constructionSeconds,builderId:builder.id}}},gathering:{...payCost(m.gathering,factionForTeam(m,'player').naval.harbor.cost),units:m.gathering.units.map(u=>u.id===builder.id&&u.kind==='worker'?{...u,commandMode:undefined,orderQueue:undefined,navigation:undefined,order:{kind:'build' as const,buildingId:'harbor' as const}}:u)}};
 }
-export function canTrainShip(m:MatchState,role:'warship'|'transport'|'submarine'='warship'){return !campaignActionReason(m,role==='transport'?'train-transport':role==='submarine'?'train-submarine':'train-ship')&&(role!=='submarine'||!!m.research?.submarineDesign)&&m.outcome==='playing'&&!m.paused&&(!m.multiplePlayers||hasMainBase(m))&&!!m.navy?.harbor&&m.navy.harbor.construction.remainingSeconds===0&&productionJobCount(m.navy.production)<queueConfig.maxJobs&&hasPopulation(matchPopulation(m),shipRecipe(m,role).supply)&&canAfford(m.gathering,shipRecipe(m,role).cost);}
-export function trainShip(m:MatchState,role:'warship'|'transport'|'submarine'='warship'):MatchState {
+export function canTrainShip(m:MatchState,role:ShipRole='warship'){return navalRoleAvailable(factionForTeam(m,'player').id,role)&&(!['cutter','bombard'].includes(role)||!!m.research?.navalLogistics)&&!campaignActionReason(m,role==='warship'?'train-ship':`train-${role}`)&&(role!=='submarine'||!!m.research?.submarineDesign)&&m.outcome==='playing'&&!m.paused&&(!m.multiplePlayers||hasMainBase(m))&&!!m.navy?.harbor&&m.navy.harbor.construction.remainingSeconds===0&&productionJobCount(m.navy.production)<queueConfig.maxJobs&&hasPopulation(matchPopulation(m),shipRecipe(m,role).supply)&&canAfford(m.gathering,shipRecipe(m,role).cost);}
+export function trainShip(m:MatchState,role:ShipRole='warship'):MatchState {
  if(!canTrainShip(m,role))return m;const recipe=shipRecipe(m,role);const navy=m.navy!,p=navy.production,number=p.nextJobNumber??1,job={id:`harbor-job-${number}`,kind:role,supply:recipe.supply,cost:{...recipe.cost},durationSeconds:recipe.durationSeconds,remainingSeconds:recipe.durationSeconds};
  return {...m,gathering:payCost(m.gathering,job.cost),navy:{...navy,production:{...p,queue:[...(p.queue??[]),job],nextJobNumber:number+1,remainingSeconds:p.remainingSeconds??job.durationSeconds}}};
 }
@@ -91,9 +92,9 @@ export function updateNavy(m:MatchState,delta:number):MatchState {
  if(harbor?.construction.remainingSeconds===0)while(p.queue?.length){
   const head=p.queue[0],time=Math.max(0,head.remainingSeconds-remaining);
   if(time>1e-10){p={...p,remainingSeconds:time,queue:p.queue.map((j,i)=>i?j:{...j,remainingSeconds:time})};break;}
-  const position=harborSpawn({...m,gathering,navy},harbor.footprint,true,head.kind==='transport'?'transport':head.kind==='submarine'?'submarine':'warship');
+  const position=harborSpawn({...m,gathering,navy},harbor.footprint,true,isShipRole(head.kind)?head.kind:'warship');
   if(!position){p={...p,remainingSeconds:0,queue:p.queue.map((j,i)=>i?j:{...j,remainingSeconds:0})};break;}
-  const id=`ship-${p.nextUnitNumber}`;navy={...navy,ships:[...navy.ships,{id,kind:'ship',...(head.kind==='transport'?{role:'transport' as const,passengers:[]}:head.kind==='submarine'?{role:'submarine' as const}:{}),owner:'player',hp:shipRecipe(m,head.kind==='transport'?'transport':head.kind==='submarine'?'submarine':'warship').hp,selected:false,position,target:{...position},order:{kind:'idle'}}]};remaining=Math.max(0,remaining-head.remainingSeconds);const queue=p.queue.slice(1);p={...p,queue,remainingSeconds:queue[0]?.remainingSeconds??null,nextUnitNumber:p.nextUnitNumber+1};if(remaining<=0)break;
+  const id=`ship-${p.nextUnitNumber}`;navy={...navy,ships:[...navy.ships,{id,kind:'ship',...(head.kind==='transport'?{role:'transport' as const,passengers:[]}:head.kind!=='warship'&&isShipRole(head.kind)?{role:head.kind}:{}),owner:'player',hp:shipRecipe(m,isShipRole(head.kind)?head.kind:'warship').hp,selected:false,position,target:{...position},order:{kind:'idle'}}]};remaining=Math.max(0,remaining-head.remainingSeconds);const queue=p.queue.slice(1);p={...p,queue,remainingSeconds:queue[0]?.remainingSeconds??null,nextUnitNumber:p.nextUnitNumber+1};if(remaining<=0)break;
  }
  return {...m,gathering,navy:{...navy,production:p}};
 }

@@ -1,7 +1,7 @@
 import {createClassicMatch} from './testHelpers/classicMatch';
 import {legacyTerrainFixture} from './testHelpers/legacyTerrainFixture';
 import {expect,it} from 'vitest';
-import {maps} from '../config/maps';
+import {skirmishMapIds,maps} from '../config/maps';
 import {groveForNode} from '../config/referenceTerrain';
 import {placementObstacles} from './placement';
 import {createMap} from './map';
@@ -79,6 +79,6 @@ it('mine visual hit polygon excludes transparent corners while its work footprin
  expect(approachRoute(m.map,m.gathering.units[2].position,{x:mine.position.x-20,y:mine.position.y-20,width:40,height:40},24).status).not.toBe('blocked');
 });
 
-it.each(Object.keys(maps) as (keyof typeof maps)[])('%s uses reference ground, physical harvestable trees and strict Save',id=>{const m=createMatch('skirmish','beginner',undefined,id);expect(m.map.terrainLayout).toBe('reference');const nodes=resourceNodes(m.gathering);expect(nodes.filter(n=>n.resource==='wood').every(n=>n.tree)).toBe(true);expect(nodes.filter(n=>n.resource==='gold').every(n=>n.mine)).toBe(true);for(const n of nodes.filter(n=>n.tree))expect(bodyFits(m.map,n.position,12)).toBe(false);expect(decodeSave(encodeSave(m,view)).ok).toBe(true);
+it.each(skirmishMapIds)('%s uses reference ground, physical harvestable trees and strict Save',id=>{const m=createMatch('skirmish','beginner',undefined,id);expect(m.map.terrainLayout).toBe('reference');const nodes=resourceNodes(m.gathering);expect(nodes.filter(n=>n.resource==='wood').every(n=>n.tree)).toBe(true);expect(nodes.filter(n=>n.resource==='gold').every(n=>n.mine)).toBe(true);for(const n of nodes.filter(n=>n.tree))expect(bodyFits(m.map,n.position,12)).toBe(false);expect(decodeSave(encodeSave(m,view)).ok).toBe(true);
  if(id==='forest'){expect(resourceNodes(m.gathering).filter(n=>n.id.startsWith('forest-tree-'))).toHaveLength(21);expect(terrainPatches(m.map).some(p=>p.column===5&&p.row===4)).toBe(false);}
 });

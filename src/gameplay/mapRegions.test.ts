@@ -1,6 +1,6 @@
 import {isNewSkirmishMap} from '../config/skirmishMaps';
 import {expect,it} from 'vitest';
-import {maps,type MapId} from '../config/maps';
+import {skirmishMapIds,maps,type MapId} from '../config/maps';
 import {regionBases,regionExpansion} from '../config/mapRegions';
 import {createMatch,updateMatch} from './match';
 import {bodyFits,terrainPatches} from './map';
@@ -18,7 +18,7 @@ import {hasEnemyBase} from './enemyBases';
 import {enemyBase} from './enemyBases';
 import {cleanDestroyed} from './destruction';
 const view={camera:{x:0,y:0},building:null};
-it.each(Object.keys(maps) as MapId[])('%s has a distant reachable region, usable resources, curved land/water and strict Save',id=>{
+it.each(skirmishMapIds)('%s has a distant reachable region, usable resources, curved land/water and strict Save',id=>{
  const m=createMatch('skirmish','beginner',undefined,id),base=regionBases[id],route=approachRoute(m.map,m.gathering.units[2].position,base,24),nodes=resourceNodes(m.gathering);expect(m.map.design).toBe('woodlands-connected');expect(terrainPatches(m.map).filter(p=>p.kind==='water').length).toBeGreaterThan(5);
  expect(isVisible(m.fog!,'player',{x:base.x+48,y:base.y+48})).toBe(false);
  if(!maps[id].enemyNaval){expect(route.status,id).not.toBe('blocked');const points=[m.gathering.units[2].position,...route.waypoints],length=points.slice(1).reduce((n,p,i)=>n+Math.hypot(p.x-points[i].x,p.y-points[i].y),0);expect(length,id).toBeGreaterThan(1500);}
@@ -46,7 +46,7 @@ it('natural paid expansion preserves a valid Save and victory after the original
 
 it.each(['islands','coast'] as const)('%s distant naval economy scouts and builds its paid harbor',id=>{let m=createMatch('skirmish','normal',undefined,id);for(let t=0;t<180;t+=.5){m=updateMatch(m,.5);if(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0))break;}expect(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0)).toBe(true);const loaded=decodeSave(encodeSave(m,view));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);},30000);
 
-it.each((Object.keys(maps) as MapId[]).filter(id=>!isNewSkirmishMap(id)))('%s woodland version adds connected forest and preserves existing gold sites',async id=>{
+it.each(skirmishMapIds.filter(id=>!isNewSkirmishMap(id)))('%s woodland version adds connected forest and preserves existing gold sites',async id=>{
  const {mapResources}=await import('../config/maps');const before=mapResources(id,'trees','expanded','regions'),after=mapResources(id,'trees','expanded','woodlands-connected');
  expect(after.filter(n=>n.tree).length).toBeGreaterThan(before.filter(n=>n.tree).length*1.6);
  for(const mine of before.filter(n=>n.mine))expect(after.find(n=>n.id===mine.id),`${id}:${mine.id}`).toEqual(mine);

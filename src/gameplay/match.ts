@@ -1,3 +1,4 @@
+import {initializeSeaBattle,advanceSeaBattle} from './seaBattle';
 import {prepareEnemyStrategy,strategyFor,strategicAISettings} from './enemyStrategy';
 import {isRegionalDesign} from '../config/organicTerrain';
 import {prepareExtraEnemyHarbor,updateExtraEnemyHarbors} from './extraEnemyHarbor';
@@ -175,6 +176,7 @@ export function createMatch(scenario:MatchScenario='survival',difficulty:Difficu
   if(!players&&(scenario==='skirmish'||campaignId))state.bosses=createBosses(state.map,difficulty);
   if(!players&&!state.bosses){const sea=createSeaMonsters(state.map,difficulty);if(sea.length)state.bosses={version:1,guardians:{},sea};}
   initializeOperation(state);
+  initializeSeaBattle(state);
   state.fog=matchFog(state);
   return players?initializeMultiplePlayers(state,players):state;
 }
@@ -207,6 +209,7 @@ function advance(state: MatchState, delta: number, scope?:CombatScope): MatchSta
   state=advanceMana(state,delta);
   state=updateRepair(state,ownDelta);
   state=prepareEnemyStrategy(prepareArmyPlan(observeEnemyKnowledge(state)));
+  state=advanceSeaBattle(state,delta);
   state=prepareEnemyNaval(state);state=prepareExtraEnemyHarbor(state);
   state=prepareEnemyRecovery(state);
   state=prepareEnemyPolicy(state);

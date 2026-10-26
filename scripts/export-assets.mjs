@@ -50,3 +50,5 @@ await import('./export-tower-specializations.mjs');
 await import('./export-ballistas.mjs');
 await import('./export-siege-works.mjs');
 await import('./export-submarines.mjs');
+
+await import('./export-naval-content.mjs');

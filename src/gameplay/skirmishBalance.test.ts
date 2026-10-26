@@ -1,3 +1,4 @@
+import {skirmishAttackSeconds} from '../config/skirmishPacing';
 import {expect,it} from 'vitest';
 import {resourceNodes} from './gathering';
 import {maps,mapResourceTotals,type MapId} from '../config/maps';
@@ -34,8 +35,9 @@ for(const map of ['arena','forest','river'] as MapId[])for(const faction of ['cr
 for(const map of ['arena','forest','river'] as MapId[])for(const faction of ['crown','clans'] as const){
  it(`passive ${map}/${faction} reaches defeat without free income`,()=>{
   let m=createMatch('skirmish','normal',factionsForPlayer(faction),map);
-  for(let i=0;i<1500&&m.outcome==='playing';i++){m=updateMatch(m,.2);if(i%25===0)conserved(m);}
-  expect(m.outcome).toBe('defeat');conserved(m);expect(matchStats(m).player.wood.gathered).toBe(0);
+  const firstAttack=skirmishAttackSeconds(m);
+  for(let i=0;i<Math.ceil((firstAttack+180)/.2)&&m.outcome==='playing';i++){m=updateMatch(m,.2);if(i%25===0)conserved(m);}
+  expect(m.outcome,JSON.stringify({seconds:m.waves.elapsedSeconds,baseHP:m.combat.baseHP,ai:m.enemyAI,bank:m.enemyProduction,enemies:m.combat.enemies.map(e=>({id:e.id,hp:e.hp,role:e.role,position:e.position,order:e.order,navigation:e.navigation}))})).toBe('defeat');expect(m.waves.elapsedSeconds).toBeGreaterThanOrEqual(firstAttack);conserved(m);expect(matchStats(m).player.wood.gathered).toBe(0);
   expect(updateMatch(m,600)).toEqual(m);
   console.info(JSON.stringify({passive:true,map,faction,seconds:m.waves.elapsedSeconds,enemySpent:m.enemyProduction!.spent,enemyGathered:m.enemyProduction!.extracted}));
  },30_000);

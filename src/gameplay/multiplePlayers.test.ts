@@ -117,3 +117,35 @@ it('migrates genuine71 multiplayer fog without inventing hidden building memorie
  const old=(encoded:string)=>{const d=JSON.parse(encoded);d.configVersion='tribute-config-71';delete d.state.fog.buildings;return JSON.stringify(d);};doc.human=old(doc.human);for(const ai of doc.ai)ai.document=old(ai.document);
  const loaded=decodeSave(JSON.stringify(doc));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(loaded.ok)expect(loaded.match.multiplePlayers!.ai).toHaveLength(2);
 });
+
+
+import {bodyFits,overlaps} from './map';
+it('keeps the Naval Foundry physical and damageable in Skirmish projections, and isolates cached terrain between matches',()=>{
+ const roster=matchPlayers(undefined,undefined,3);
+ let m=createMatch('skirmish','normal',{player:'crown',enemy:'clans'},'plains96',1,'balanced',roster);
+ const first={...m.map.obstacles[0]};
+ let footprint:{x:number;y:number;width:number;height:number}|undefined;
+ for(let y=576;y<768&&!footprint;y+=32)for(let x=480;x<800&&!footprint;x+=32){const f={x,y,width:64,height:64};if(!m.map.obstacles.some(o=>overlaps(o,{x:x-48,y:y-32,width:112,height:128})))footprint=f;}
+ expect(footprint).toBeDefined();const f=footprint!;
+ // Explicit completed-building component fixture, not a paid-economy assertion.
+ m.placement.producers=[{id:'producer-1',kind:'navalFoundry',owner:'player',hp:180,footprint:f,construction:{remainingSeconds:0,builderId:null},production:{remainingSeconds:null,nextUnitNumber:4}}];m.placement.nextProducerNumber=2;
+ m=projectMultiplePlayers(m);expect(m.map.obstacles.filter(o=>o.x===f.x&&o.y===f.y&&o.width===64&&o.height===64)).toHaveLength(1);
+ expect(bodyFits(m.map,{x:f.x+32,y:f.y+32},12)).toBe(false);
+ m=updateMatch(m,.1);const saved=decodeSave(encodeSave(m,{camera:{x:0,y:0},building:null}));expect(saved.ok,saved.ok?'':saved.error).toBe(true);
+ const bot=m.multiplePlayers!.ai[0];bot.state.combat.enemies.push({id:'enemy-9',owner:'enemy',hp:36,position:{x:f.x-24,y:f.y+32},order:{kind:'defend',targetId:'producer-1'}});
+ m=updateMatch(m,.1);expect(m.placement.producers![0].hp).toBeLessThan(180);
+ m.map.obstacles[0].x+=32;
+ const fresh=createMatch('skirmish','normal',{player:'crown',enemy:'clans'},'plains96',1,'balanced',roster);expect(fresh.map.obstacles[0]).toEqual(first);
+});
+
+
+it('migrates both complete and shared v75 Skirmish saves through strict child validation',()=>{
+ for(const count of [3,5]){
+  const m=createMatch('skirmish','normal',{player:'crown',enemy:'clans'},'plains128',1,'balanced',matchPlayers(undefined,undefined,count)),doc=JSON.parse(encodeSave(m,{camera:{x:0,y:0},building:null}));
+  doc.configVersion='tribute-config-75';
+  const legacy=(encoded:string)=>{const child=JSON.parse(encoded);child.configVersion='tribute-config-75';return JSON.stringify(child);};
+  doc.human=legacy(doc.human);for(const bot of doc.ai)bot.document=legacy(bot.document);
+  const loaded=decodeSave(JSON.stringify(doc));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(loaded.ok){expect(loaded.match.multiplePlayers!.ai).toHaveLength(count-1);expect(loaded.match.gathering.wood).toBe(m.gathering.wood);}
+  const mixed=JSON.parse(JSON.stringify(doc));const part=JSON.parse(mixed.ai[0].document);part.configVersion='tribute-config-76';mixed.ai[0].document=JSON.stringify(part);expect(decodeSave(JSON.stringify(mixed)).ok).toBe(false);
+ }
+});

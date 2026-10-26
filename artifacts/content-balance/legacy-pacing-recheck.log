@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/seaBattle.test.ts src/gameplay/navalBalance.test.ts src/gameplay/frontier.test.ts src/gameplay/highlands.test.ts -t requires armed|doing nothing|can fund|enemy scouts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  4 passed (4)
+      Tests  9 passed | 21 skipped (30)
+   Start at  23:23:51
+   Duration  44.61s (transform 1.67s, setup 0ms, import 2.48s, tests 67.30s, environment 1ms)

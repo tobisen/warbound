@@ -23,7 +23,7 @@ export function updateEnemyAI(state:EnemyAIState,combat:CombatState,map:WorldMap
   if(g.status!=='attack')return g;
   const time=elapsedSeconds-(g.dispatchedAt??elapsedSeconds),members=enemies.filter(e=>g.members.includes(e.id));
   const longRoute=Math.hypot(settings.muster.x-playerBase.x,settings.muster.y-playerBase.y)>1024;
-  const weakened=g.members.length<Math.ceil((longRoute?g.dispatchedSize??settings.groupSize:settings.groupSize)/2)&&time>=combinedArmyConfig.retreatAfterSeconds;
+  const weakened=g.members.length<Math.ceil((settings.regroupFromDispatch||longRoute?g.dispatchedSize??settings.groupSize:settings.groupSize)/2)&&time>=combinedArmyConfig.retreatAfterSeconds;
   const blocked=members.length>0&&members.every(e=>e.navigation?.status==='blocked')&&time>=combinedArmyConfig.blockedAfterSeconds;
   if(!weakened&&!blocked)return g;
   const orders=commandGroupMove(members.map(e=>({...enemySoldier(e,faction),selected:true})),settings.muster,map),byId=new Map(orders.map(u=>[u.id,u]));

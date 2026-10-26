@@ -34,14 +34,14 @@ export interface PlacementContext {
 export interface ConstructionJob {remainingSeconds:number;builderId:string|null}
 export interface Farm {owner?:'player';hp?:number;id:`farm-${number}`;footprint:Footprint;construction:ConstructionJob}
 export interface ExtraBase {id:`base-${number}`;owner:'player';hp:number;footprint:Footprint;construction:ConstructionJob;production:import('./production').ProductionState}
-export type ProducerKind='barracks'|'stable'|'academy'|'aviary'|'siegeWorks'|'harbor';
+export type ProducerKind='navalFoundry'|'barracks'|'stable'|'academy'|'aviary'|'siegeWorks'|'harbor';
 export type ProducerId=`producer-${number}`;
 export interface ExtraProducer {id:ProducerId;kind:ProducerKind;owner:'player';hp:number;footprint:Footprint;construction:ConstructionJob;production:import('./production').ProductionState}
 export interface PlacementState {
   producers?:ExtraProducer[];nextProducerNumber?:number;
   bases?:ExtraBase[];nextBaseNumber?:number;
   defenses?:import('./towers').Defense[];nextDefenseNumber?:number;
-  kind?:'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate';
+  kind?:'navalFoundry'|'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate';
   siegeWorks?:{id:'siegeWorks';owner:'player';hp:number;footprint:Footprint;construction:ConstructionJob;production:import('./production').ProductionState};
   aviary?:{id:'aviary';owner:'player';hp:number;footprint:Footprint;construction:ConstructionJob;production:import('./production').ProductionState};
   stable?:{id:'stable';owner:'player';hp:number;footprint:Footprint;construction:ConstructionJob;production:import('./production').ProductionState};
@@ -56,9 +56,9 @@ export interface PlacementState {
   barracksHP?:number;
 }
 
-export function buildingFootprint(point: Position,kind:'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate'='barracks'): Footprint {
+export function buildingFootprint(point: Position,kind:'navalFoundry'|'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate'='barracks'): Footprint {
   if(kind==='tower'||kind==='wall'||kind==='gate')return {x:Math.floor(point.x/32)*32,y:Math.floor(point.y/32)*32,width:defenseConfig[kind].size,height:32};
-  const config=kind==='siegeWorks'||kind==='aviary'||kind==='academy'||kind==='stable'?academyConfig:kind==='base'?extraBaseConfig:kind==='harbor'?navyConfig.harbor:kind==='forge'?forgeConfig:kind==='farm'?farmConfig:barracksConfig;
+  const config=kind==='navalFoundry'||kind==='siegeWorks'||kind==='aviary'||kind==='academy'||kind==='stable'?academyConfig:kind==='base'?extraBaseConfig:kind==='harbor'?navyConfig.harbor:kind==='forge'?forgeConfig:kind==='farm'?farmConfig:barracksConfig;
   const size = config.tileSize * config.footprintTiles;
   return {
     x: Math.floor(point.x / config.tileSize) * config.tileSize,
@@ -78,7 +78,7 @@ export function placementObstacles(state: GatheringState): Footprint[] {
   ];
 }
 
-export function beginPlacement(state: PlacementState,kind:'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate'='barracks',_world:{width:number;height:number}=worldConfig): PlacementState {
+export function beginPlacement(state: PlacementState,kind:'navalFoundry'|'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate'='barracks',_world:{width:number;height:number}=worldConfig): PlacementState {
   return kind==='forge'&&state.forge
     ? state : { ...state, active:true,...(kind!=='barracks'?{kind}: {kind:undefined}) };
 }
@@ -110,7 +110,7 @@ function checkPlacement(state: PlacementState, point: Position, wood: number, ob
     && rect.y < other.y + other.height && rect.y + rect.height > other.y)) {
     return uiText.overlapsTheBaseOrAResourceNode;
   }
-  if (!canAfford({wood,goldBalance:context?.gathering.goldBalance},(kind==='base'?extraBaseConfig.cost:kind==='tower'||kind==='wall'||kind==='gate'?defenseConfig[kind].cost:context?productionFaction(context.gathering).buildings[kind].cost:kind==='academy'?academyConfig.cost:kind==='siegeWorks'?{wood:90,gold:50}:kind==='aviary'?{wood:80,gold:40}:kind==='stable'?{wood:70,gold:30}:costs[kind]))) return uiText.notEnoughWoodOrGold;
+  if (!canAfford({wood,goldBalance:context?.gathering.goldBalance},(kind==='base'?extraBaseConfig.cost:kind==='tower'||kind==='wall'||kind==='gate'?defenseConfig[kind].cost:context?productionFaction(context.gathering).buildings[kind].cost:kind==='navalFoundry'?productionFaction({}).buildings.navalFoundry.cost:kind==='academy'?academyConfig.cost:kind==='siegeWorks'?{wood:90,gold:50}:kind==='aviary'?{wood:80,gold:40}:kind==='stable'?{wood:70,gold:30}:costs[kind]))) return uiText.notEnoughWoodOrGold;
   if (context) {
     if([...context.map.obstacles,...(context.map.enemyPassageBlocks??[])].some(o=>overlaps(rect,o)))return uiText.overlapsTerrainOrABuilding;
     if(context.gathering.units.some(u=>!isAir(u)&&overlaps(rect,unitBody(u.position,u.kind==='worker'?unitStats.size:combatUnitStats(u).size)))
@@ -163,9 +163,17 @@ export function placementPreviewError(state:PlacementState,point:Position,wood:n
 export function placeBuilding(state: PlacementState, point: Position, wood: number, obstacles: Footprint[], context?: PlacementContext):
   {placement:PlacementState;wood:number;map?:WorldMap;gathering?:GatheringState} {
   const producerKind=state.kind??'barracks';
+  if(producerKind==='navalFoundry'){
+   if(!state.active||!context||placementError(state,point,wood,obstacles,context))return {placement:state,wood};
+   const recipe=productionFaction(context.gathering).buildings.navalFoundry,number=state.nextProducerNumber??1,id=`producer-${number}` as const,rect=buildingFootprint(point,producerKind);
+   const builder=context.gathering.units.filter(u=>u.kind==='worker'&&u.selected).sort((a,b)=>a.id.localeCompare(b.id,'en',{numeric:true}))[0]!;
+   const gathering=payCost(context.gathering,recipe.cost);
+   return {wood:gathering.wood,map:placementMap(context.map,rect),placement:{...state,active:false,kind:undefined,nextProducerNumber:number+1,producers:[...(state.producers??[]),{id,kind:producerKind,owner:'player',hp:recipe.hp,footprint:rect,construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder.id},production:{remainingSeconds:null,nextUnitNumber:Math.max(4,...gathering.units.map(u=>Number(u.id.slice(5))+1))}}]},gathering:{...gathering,units:gathering.units.map(u=>u.id===builder.id&&u.kind==='worker'?{...u,commandMode:undefined,orderQueue:undefined,navigation:undefined,order:{kind:'build' as const,buildingId:id}}:u)}};
+  }
+
   if(!context&&['barracks','stable','academy','aviary','siegeWorks'].includes(producerKind)&&(producerKind==='barracks'?state.barracks:state[producerKind as 'stable']))return {placement:state,wood};
   if(state.active&&context&&['barracks','stable','academy','aviary','siegeWorks'].includes(producerKind)&&(producerKind==='barracks'?state.barracks:state[producerKind as 'stable'])){
-    const kind=producerKind as Exclude<ProducerKind,'harbor'>,number=state.nextProducerNumber??1,id=`producer-${number}` as const;
+    const kind=producerKind as Exclude<ProducerKind,'harbor'|'navalFoundry'>,number=state.nextProducerNumber??1,id=`producer-${number}` as const;
     const temporary=kind==='barracks'?{...state,barracks:null,construction:undefined,barracksHP:undefined}:{...state,[kind]:undefined};
     const result=placeBuilding(temporary,point,wood,obstacles,context);
     if(!result.gathering||result.wood===wood)return {...result,placement:state};

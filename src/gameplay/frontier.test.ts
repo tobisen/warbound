@@ -1,3 +1,4 @@
+import {skirmishAttackSeconds} from '../config/skirmishPacing';
 import {legacyTerrainFixture} from './testHelpers/legacyTerrainFixture';
 import {expect,it} from 'vitest';
 import {maps,mapResources,mapResourceTotals} from '../config/maps';
@@ -65,7 +66,7 @@ for(const faction of ['crown','clans'] as const)it(`${faction}: a paid finite-re
 },60_000);
 it('the configured enemy can fund an army and reach the player base across the valley',()=>{
  let m=createMatch('skirmish','normal',undefined,'frontier');
- for(let i=0;i<1600&&m.outcome==='playing'&&m.combat.baseHP===240;i++)m=updateMatch(m,.25);
+ for(let i=0;i<(skirmishAttackSeconds(m)+180)*4&&m.outcome==='playing'&&m.combat.baseHP===240;i++)m=updateMatch(m,.25);
  expect(m.enemyProduction!.acceptedJobs).toBeGreaterThan(0);
  expect(m.combat.baseHP).toBeLessThan(240);
 },30_000);

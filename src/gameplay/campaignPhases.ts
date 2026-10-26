@@ -17,6 +17,8 @@ export function campaignPhaseMet(m:MatchState,p:CampaignPhase):boolean{
   case 'tutorial':return m.tutorial?.step===6;
   case 'force':return [...m.gathering.units,...passengerUnits(m.navy)].filter(u=>u.kind==='soldier'&&(u.archetype??'soldier')===p.role&&(u.hp??0)>0).length>=(p.count??1);
   case 'research':return (m.research?.[p.research!]??0)>0;
+  case 'enemy-fleet':return !m.combat.enemies.some(e=>e.hp>0&&e.kind==='ship'&&e.navalRole&&e.navalRole!=='transport');
+  case 'sea-position':return p.points!.every(point=>(m.navy?.ships??[]).filter(s=>s.hp>0&&s.role!=='transport'&&Math.hypot(s.position.x-point.x,s.position.y-point.y)<=160).length>=(p.count??1)&&!m.combat.enemies.some(e=>e.hp>0&&e.kind==='ship'&&Math.hypot(e.position.x-point.x,e.position.y-point.y)<=224));
   case 'fleet':return (m.navy?.ships??[]).filter(s=>(s.role??'warship')===p.ship&&s.hp>0).length>=(p.count??1);
   case 'prepare':return !!m.placement.barracks&&(m.placement.barracksHP??1)>0&&(m.placement.construction?.remainingSeconds??0)===0&&[...land,...passengerUnits(m.navy).filter(u=>u.kind==='soldier'&&(u.hp??0)>0&&!isAir(u))].length>=2;
   case 'explore':return !!m.fog&&p.points!.every(point=>isExplored(m.fog!,'player',point));

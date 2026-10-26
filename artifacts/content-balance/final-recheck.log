@@ -1,0 +1,46 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/config/factions.test.ts src/gameplay/roleResearch.test.ts src/gameplay/coast.test.ts src/gameplay/frontier.test.ts src/gameplay/largeMaps.test.ts src/gameplay/navalBalance.test.ts src/gameplay/seaBattle.test.ts src/gameplay/navalContent.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+ ❯ src/config/factions.test.ts (3 tests | 1 failed) 150ms
+   × implemented factions define all shared roles with distinct, globally unique type IDs 6ms
+ ❯ src/gameplay/largeMaps.test.ts (9 tests | 1 failed) 338810ms
+   × plains96: existing paid skirmish and enemy economy remain playable 236258ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/config/factions.test.ts > implemented factions define all shared roles with distinct, globally unique type IDs
+AssertionError: expected 110 to be 105 // Object.is equality
+
+- Expected
++ Received
+
+- 105
++ 110
+
+ ❯ src/config/factions.test.ts:22:20
+     20|     }
+     21|   }
+     22|   expect(ids.size).toBe(110);
+       |                    ^
+     23| });
+     24| it('catalog values preserve current baseline and costs do not alias th…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/gameplay/largeMaps.test.ts > plains96: existing paid skirmish and enemy economy remain playable
+Error: Test timed out in 120000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/gameplay/largeMaps.test.ts:44:2
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 6 passed (8)
+      Tests  2 failed | 55 passed (57)
+   Start at  23:30:32
+   Duration  339.29s (transform 678ms, setup 0ms, import 1.28s, tests 434.22s, environment 0ms)

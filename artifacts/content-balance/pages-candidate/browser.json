@@ -1,0 +1,212 @@
+{
+  "browser": "155.0.8059.85",
+  "note": "Real native scene frames; time frozen only for deterministic Idle Worker input. Campaign progression seeded in browser test storage to access the appended mission.",
+  "reports": [
+    {
+      "width": 800,
+      "initial": {
+        "mission": "crown-stormgate-armada",
+        "faction": {
+          "player": "crown",
+          "enemy": "dwarves"
+        },
+        "map": "straits",
+        "ships": 16,
+        "enemies": 15,
+        "phase": 0
+      },
+      "idle": [
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-2"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-3"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        }
+      ],
+      "live": {
+        "samples": 150,
+        "medianCPU": 3.799999952316284,
+        "p95CPU": 4.399999976158142,
+        "p95Frame": 16.700000000000728,
+        "seconds": 2.998189999999995,
+        "outcome": "playing"
+      },
+      "loaded": {
+        "mission": "crown-stormgate-armada",
+        "ships": 16,
+        "phase": 0
+      },
+      "content": {
+        "research": 1,
+        "foundry": "navalFoundry",
+        "newHull": "cutter",
+        "ships": 17,
+        "wood": 250,
+        "gold": 345
+      },
+      "playthrough": {
+        "phases": [
+          {
+            "phase": 1,
+            "seconds": 18.25,
+            "ships": 14,
+            "enemyShips": 6
+          },
+          {
+            "phase": 2,
+            "seconds": 31.25,
+            "ships": 13,
+            "enemyShips": 0
+          },
+          {
+            "phase": 3,
+            "seconds": 58.75,
+            "ships": 14,
+            "enemyShips": 0
+          },
+          {
+            "phase": 4,
+            "seconds": 76,
+            "ships": 15,
+            "enemyShips": 0
+          }
+        ],
+        "outcome": "victory",
+        "baseHP": 240,
+        "seconds": 76
+      },
+      "defeat": "defeat",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "width": 1280,
+      "initial": {
+        "mission": "crown-stormgate-armada",
+        "faction": {
+          "player": "crown",
+          "enemy": "dwarves"
+        },
+        "map": "straits",
+        "ships": 16,
+        "enemies": 15,
+        "phase": 0
+      },
+      "idle": [
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-2"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-3"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        },
+        {
+          "ids": [
+            "unit-1"
+          ],
+          "focus": true,
+          "ring": true,
+          "text": "Idle workers · 3"
+        }
+      ],
+      "live": {
+        "samples": 150,
+        "medianCPU": 3.100000023841858,
+        "p95CPU": 3.5,
+        "p95Frame": 16.700000000000728,
+        "seconds": 2.998169999999991,
+        "outcome": "playing"
+      },
+      "loaded": {
+        "mission": "crown-stormgate-armada",
+        "ships": 16,
+        "phase": 0
+      },
+      "content": {
+        "research": 1,
+        "foundry": "navalFoundry",
+        "newHull": "cutter",
+        "ships": 17,
+        "wood": 250,
+        "gold": 345
+      },
+      "playthrough": {
+        "phases": [
+          {
+            "phase": 1,
+            "seconds": 18.25,
+            "ships": 14,
+            "enemyShips": 6
+          },
+          {
+            "phase": 2,
+            "seconds": 31.25,
+            "ships": 13,
+            "enemyShips": 0
+          },
+          {
+            "phase": 3,
+            "seconds": 58.75,
+            "ships": 14,
+            "enemyShips": 0
+          },
+          {
+            "phase": 4,
+            "seconds": 76,
+            "ships": 15,
+            "enemyShips": 0
+          }
+        ],
+        "outcome": "victory",
+        "baseHP": 240,
+        "seconds": 76
+      },
+      "defeat": "defeat",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

@@ -1,8 +1,49 @@
+## Lokal sjö-/balansbatch — 2026-10-25
+
+[skirmishPacing.ts](src/config/skirmishPacing.ts) ligger efter strategi/personlighet
+så även äldre Skirmish-kartor och den navala transportlanseringen respekterar
+förberedelsetiden. Kampanjer undantas. Skirmish-reträtt jämför med faktiskt dispatchedSize, så en
+intakt liten grupp inte dras hem bara för att teknik höjde gruppmålet under
+förberedelsetiden. Scouting, betald ekonomi, expansion och
+lokalt försvar behåller sina egna klockor. Standarddispatch Easy810/Normal600/
+Hard480 gameplaysekunder; beteendeprofil väljer en punkt inom svårighetsfönstret.
+
+Naval Foundry använder befintliga `producer-N`-instanser, placering, construction,
+reparation, destruction och completed-building-teknik. Naval Logistics är en vanlig
+betald rollforskning som låser upp Human Tide Runner eller Dwarf Bombard. De är
+nya sjöroller i samma Harbor-kö/supply/formation/target/projectile-flöde. Faction-
+gates gäller vid enqueue, menyer och Save; gamla accepterade recept omprissätts
+inte. Enemy-naval-adaptern återanvänder samma recipes och firingRoute även för
+beväpnade ytfartyg. Ny valpolicy gäller endast Skirmish/Stormgate; gamla kampanjer
+behåller sin tidigare flottpolicy.
+
+[seaBattle.ts config](src/config/seaBattle.ts) anger en egen3072×2048-karta och
+svårighetsprofiler. Kartan har `campaignOnly` och ingår inte i `skirmishMapIds`;
+regionala Skirmish-fixtures försöker därför inte spela denna96×64-operation som
+en128×128 ekonomisk storkarta. Befintlig Sky Owl används för obeväpnad spaning;
+flyg får inte räknas i landstigningsmålet. [gameplay](src/gameplay/seaBattle.ts) lägger bara till den
+fördeklarerade initialstyrkan och skvadronernas vanliga siktbegränsade order.
+Fyra mål återanvänder campaignRun.phase, transport, landmål och base-victory;
+`sea-position` och `enemy-fleet` är små datadrivna målpredikat. Human-expeditionen
+har16 uppdrag; andra raskampanjer15 och den blandade legacy-serien8.
+Save76 migrerar75 även i fulla/delade multiplayerdokument; kontrollerna avvisar
+nytt innehåll med äldre versionsstämpel. Ingen produktversionsbump/publicering.
+
+Prestandaförbättringar behåller identiska simulationsteg: passagecache invalideras
+av hinderidentitet/längd/revision/geometri, projektion jämför rektangelvärden utan
+JSON-strängar, skogsminnet kopieras först vid verklig observationsändring och
+siktunion för en enda aktiv egen teammedlem kan återanvändas. Bounded LOS-/
+kollisionscachar är härledda och osparade. Terrängmallar exponeras inte som delade
+muterbara matchobjekt. Extrabyggnader ingår i multiplayerprojektionens hinder och
+samlade skadeledger, så även Naval Foundry kan blockera och förstöras.
+
+[Källor, browserbilder, reproduktion och nya belägg](artifacts/content-balance/README.md).
+
 ## Strategisk skirmish-AI — 2026-10-25
 
 [enemyStrategy.ts](src/gameplay/enemyStrategy.ts) kompletterar befintlig policy
 för skirmish på regions/woodlands-kartor, inklusive upp till fyra självständiga
-AI. Scriptade kampanjer och äldre kartgeometriers policy/tider behålls.
+AI. Scriptade kampanjers policy/tider och äldre kartgeometriers ekonomipolicy behålls. Alla Skirmish-anfall använder nu den separata klockan ovan.
 [enemyStrategy.ts config](src/config/enemyStrategy.ts) styr beslut var
 8/5/3/1,5 gameplaysekunder för Beginner/Easy/Normal/Hard. Startbudgetar,
 recept, faktisk supply, stridsstats och fogregler består; inga nya gratisintäkter.

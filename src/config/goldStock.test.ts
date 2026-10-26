@@ -2,7 +2,7 @@ import {it,expect} from 'vitest';
 import {maps,mapResources,type MapId} from './maps';
 import {goldConfig} from './gathering';
 it('makes every authored and generated mine substantially larger across all map layouts',()=>{
- const starts:Record<MapId,number>={lakehold:3000,fivepasses:3000,rivercrown:3000,arena:3000,forest:2500,river:4000,islands:4000,frontier:3000,plains96:3000,plains128:3000,highlands:3000,coast:4000};
+ const starts:Record<MapId,number>={straits:6000,lakehold:3000,fivepasses:3000,rivercrown:3000,arena:3000,forest:2500,river:4000,islands:4000,frontier:3000,plains96:3000,plains128:3000,highlands:3000,coast:4000};
  const seen=new Set<string>();
  for(const id of Object.keys(maps) as MapId[]){
   expect(maps[id].gold).toBe(starts[id]);

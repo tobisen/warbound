@@ -1,3 +1,87 @@
+## Commit, push och Pages beställt — 2026-10-26
+
+Användaren beställer nu uttryckligen commit, push och GitHub Pages-publicering.
+Det ersätter föregående lokala förbud för innehålls-/balansbatchen. Befintlig
+origin/main används utan force eller history rewrite. style.css, units.mjs,
+docs/ och orelaterade lokala filer bevaras utanför commit/publicering.
+
+Commitunderlaget verifieras separat utan dessa användarändringar: unit, strict
+build och native800/1280 för det nya innehållet. Tidigare bred regression med
+riktade korrigeringar återanvänds för oförändrad gameplay; GitHubs workflow kör
+ny full regression och publicerar först efter gröna kontroller. Faktisk CI-/
+Pages-status och publik Build redovisas efter leveransen, inte i förväg.
+Commitkandidaten är nu kontrollerad i separat indexexport utan användarändringarna:
+unit546/94 PASS17,54s, berörda integrationer34/4 PASS22,19s och strict build PASS.
+Ny kandidat-Chrome800/1280 PASS för Idle Worker, sjöuppdrag, betald Foundry/
+Naval Logistics/Tide Runner, Tech Tree, Save/mål/victory/defeat, inga runtime-/
+assetvarningar. Källkod och diff granskade utan blockerande fynd. Ingen ny
+lokal bred simulering behövs för samma gameplay; GitHub kör ny full regression.
+[Commitkandidatens underlag](artifacts/content-balance/pages-candidate/README.md).
+
+Ingen ny produktversion eller roadmaptask beställs. Mänsklig balansgranskning
+och kvarvarande tung flerparts-Skirmish är fortsatt dokumenterade begränsningar.
+
+---
+
+## Lokal innehålls-, balans- och prestandabatch — 2026-10-25
+
+**Ingen commit, push, publicering eller produktversionsbump.** Detta är ett nytt
+lokalt användaruppdrag; publiceringsbeläggen längre ned gäller den äldre
+Build1e8abaf och verifierar inte dessa ändringar. Användarens befintliga
+style.css, assets/sources/units.mjs, docs/ och övriga lokala filer bevaras.
+
+Idle Worker är granskad i faktisk Chrome800×600/1280×720: antal, cykling,
+kamerafokus, markering och filtrering av aktiva order fungerar. Implementation
+behålls. Skirmish har första planerade dispatch13:30/10:00/8:00 på Easy/Normal/Hard
+(personligheter12–15/9–11/7–9 minuter), med fortsatta riktiga ekonomi-/scout-/
+expansions-/produktionssystem och tidigt lokalt försvar. Kampanjklockor bevaras.
+Regroup använder faktiskt utskickad storlek så intakta små Skirmishgrupper inte
+retirerar bara för att teknik ökade önskad gruppstorlek under väntetiden.
+
+Stormgate Armada är Human-kampanjens sextonde expedition, mot Dwarves, med egen
+96×64 sjökarta, tre farleder, två öar, stora initialflottor, befintlig obeväpnad Sky Owl för spaning, betalda förstärkningar,
+passagesäkring → fiendeflotta → landstigning → fiendebas. Kartan är kampanjspecifik
+och erbjuds inte som fri Skirmishkarta. Naval Foundry + Naval Logistics låser upp
+Human Tide Runner (snabb sea/air-eskort) respektive Dwarf Bombard (långsam sea/
+byggnadsskjutare). Befintlig Human Cutter/övriga fraktioner bevaras. Menyer,
+Tech Tree/Commands, kostnader/supply, AI, domänmasker, projektiler och Save76
+inklusive75-migration använder samma innehåll. Ny originalpixelart är exporterad
+separat; ingen omexport av användarens enhetsgrafik. Mellanframes är härledda,
+inte separat målade poser för varje renderingsframe.
+
+Chrome verifierar native bygg-/research-/träningsklick, initial Save/load,
+fasvis strict Save/load, faktisk måluppfyllelse/victory och separat basförlust/
+defeat. Den lagliga perfekta fokusorder-simuleringen vann Normal vid76 spelsekunder;
+detta bevisar teknisk spelbarhet, inte mänsklig speltid eller färdig finbalans.
+Finansierad komponentfixture används endast för UI-provet, inte taktikspelet.
+Inga runtime-/assetvarningar i passerad browserkörning. Bilder är granskade. Även
+native-scenframes med fortlöpande lagliga fokusorder når victory69,26s, fas4,
+bas240HP och15 skepp; sex sekunders laglig setup föregår native-spelet.
+Aktivt sjöslag10 reala sekunder: median4,3ms/p955,4ms update, frame-p9516,7ms,
+17 projektiler, inga runtimefel. Detta är automatiserat taktiskt belägg och
+ersätter inte mänsklig balans-/tidsgranskning.
+
+Prestandaändringar tar bort upprepad hindertext, kartrekonstruktion och onödiga
+sikt-/skogskopior; bounded cacher behåller faktisk geometri/revision. En extra
+producerbyggnad ingår nu korrekt i flerpartsprojektionens kollision/skador.
+Ingen ändrad upplösning, grafiknivå, simulationsfrekvens eller enhetsgräns.
+
+Ny full2093/229 genomförd:2074 PASS,19 korrigerade katalog-/tidsfönster-/testbot-/
+fixturefel. Slutlig täckning via riktad57-testsomkörning55 PASS, sedan katalog3/1
+och Plains961/1 PASS215,87s; inga kvarstående testfel. En andra helt grön
+helkörning hävdas inte. Slutlig unit546/94 PASS17,48s, strict build PASS,
+manifest94+135 och text/länkar/diff PASS. Isolerad Chrome155.85: tidig2spelare1,5→1,3ms, tidig5spelare12,4→8,8ms,
+större5spelare39,0→31,2ms medianCPU; exakt samma hela MatchState i alla par.
+Native128 kroppar/32 väggar15,9→13,5ms update, frame-p9533,3→16,8ms.
+Stora femspelarmatcher är fortsatt CPU-tunga; inget generellt60FPS-löfte. Befintlig
+Vite-varning för stor JS-chunk kvarstår. Tidigare avbrutna regressionsförsök
+räknas inte som PASS. Mänskligt helmatchspel/finbalans, andra hårdvaror och
+slutlig subjektiv laggupplevelse är inte verifierade; inga nya CI-/Pages-/ljudbelägg.
+
+[Detaljer, verifieringsdata och reproduktion](artifacts/content-balance/README.md).
+
+---
+
 ## Pages publicerad och verifierad — 2026-10-25 — Done
 
 [Spela Warbound](https://tobisen.github.io/warbound/) visar **v0.8.0 / Build1e8abaf**.

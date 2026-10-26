@@ -1,6 +1,10 @@
 import {text as uiText} from '../text';
 import { gameplayKeyAllowed,type KeyContext } from './keyboard';
 export const hotkeys=[
+ {key:'F22',button:'build-navalFoundry',label:'Humans/Dwarves: build a Naval Foundry after Forge and base II;95 wood/55 gold/18s.'},
+ {key:'F23',button:'research-navalLogistics',label:'Research Naval Logistics at a completed Naval Foundry;100 wood/75 gold/30s. Unlocks the faction’s specialized hull.'},
+ {key:'F24',button:'train-cutter',label:'Humans: train a fast Tide Runner escort after Naval Logistics;55 wood/25 gold/12s/2 supply. Ships and air only.'},
+ {key:'BACKSPACE',button:'train-bombard',label:'Dwarves: train a slow long-range Bombard after Naval Logistics;110 wood/75 gold/28s/4 supply. Ships and buildings only; needs escorts.'},
  {key:'F20',button:'research-submarineDesign',label:'Submarine Design:45 wood/30 gold/12s,Forge+Academy; unlocks harbor submarine.'},
  {key:'F21',button:'train-submarine',label:'Train a stealth submarine at Harbor after Submarine Design; water and ship targets only.'},
  {key:'F15',button:'research-cavalryArmor',label:'Cavalry Armor:20% less incoming damage for your existing and future cavalry,45 wood/30 gold/12s,Forge+Stable.'},

@@ -1,3 +1,4 @@
+import {skirmishAttackSeconds} from '../config/skirmishPacing';
 import {legacyTerrainFixture} from './testHelpers/legacyTerrainFixture';
 import {legacyEnemyFixture} from './testHelpers/legacyEnemyFixture';
 import {expect,it} from 'vitest';
@@ -40,7 +41,7 @@ for(const faction of ['crown','clans'] as const)it(`${faction}: paid finite-reso
  expect(createMatch('skirmish','normal',undefined,'highlands').gathering.extraNodes!.map(n=>n.remaining)).toEqual(mapResources('highlands','trees','expanded').slice(2).map(n=>n.amount));
 },120_000);
 it('enemy scouts nearby authored resources, funds an army and reaches the player across the ridge',()=>{
- let m=createMatch('skirmish','normal',undefined,'highlands');for(let i=0;i<1200&&m.outcome==='playing';i++)m=updateMatch(m,.25);
+ let m=createMatch('skirmish','normal',undefined,'highlands');for(let i=0;i<(skirmishAttackSeconds(m)+180)*4&&m.outcome==='playing';i++)m=updateMatch(m,.25);
  const barracks=m.combat.enemies.find(e=>e.buildingType==='barracks');expect(barracks?.footprint?.x).toBeGreaterThan(2400);
  expect(m.enemyKnowledge!.nodes.some(n=>n.id==='wood-4'||n.id==='gold-4')).toBe(true);expect(m.enemyProduction!.acceptedJobs).toBeGreaterThan(0);expect(m.combat.baseHP).toBeLessThan(240);
 },30_000);

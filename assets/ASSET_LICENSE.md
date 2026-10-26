@@ -159,3 +159,10 @@ Per-file credits, source links, changes and licenses:
 Aubrey John Williams / The British Library Board, CC BY-SA4.0 including these
 derivatives; rabbit: kessir, CC0 1.0. Original files and decoded masters are
 under audio/wildlife-sources/. Earlier synthetic wildlife provenance is historical.
+
+
+## Lokal sjöbatch2026-10-25
+
+Tide Runner, Bombard och Naval Foundry är nya imagegen-original för projektet,
+inte kopior av externa spelassets. [Källor, exakta prompter och exportflöde](sources/naval-content/README.md).
+Bygg-/attack-/sjunkfeedback återanvänder befintliga ljud; nya inspelningar ingår inte.

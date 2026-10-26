@@ -1,6 +1,7 @@
-export const roleResearchKinds=['cavalryArmor','healerTraining','scoutOptics','submarineDesign'] as const;
+export const roleResearchKinds=['navalLogistics','cavalryArmor','healerTraining','scoutOptics','submarineDesign'] as const;
 export type RoleResearchKind=typeof roleResearchKinds[number];
 export const roleResearchConfig={
+ navalLogistics:{name:'Naval Logistics',cost:{wood:100,gold:75},durationSeconds:30,buildings:['navalFoundry'] as const,description:'Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships.'},
  submarineDesign:{name:'Submarine Design',cost:{wood:45,gold:30},durationSeconds:12,buildings:['forge','academy'] as const,description:'Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision.'},
  cavalryArmor:{name:'Cavalry Armor',cost:{wood:45,gold:30},durationSeconds:12,buildings:['forge','stable'] as const,description:'Cavalry only: 20% less incoming damage; stacks once with normal defense research.'},
  healerTraining:{name:'Healer Training',cost:{wood:45,gold:30},durationSeconds:12,buildings:['forge','academy'] as const,description:'Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged.'},

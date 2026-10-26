@@ -9,7 +9,7 @@ import type { Footprint } from './placement';
 import type { WorldMap } from './map';
 import { segmentFits } from './navigation';
 export interface Projectile {
- bossProfile?:import('../config/bosses').BossDamageProfile;submarine?:true;targets?:readonly TargetDomain[];damageByDomain?:Partial<Record<TargetDomain,number>>;airborne?:true;owner?:'enemy';marine?:true;id:string; shooterId?:string; targetId:string; position:Position; destination:Position;
+ navalRole?:import('../config/navy').ShipRole;bossProfile?:import('../config/bosses').BossDamageProfile;submarine?:true;targets?:readonly TargetDomain[];damageByDomain?:Partial<Record<TargetDomain,number>>;airborne?:true;owner?:'enemy';marine?:true;id:string; shooterId?:string; targetId:string; position:Position; destination:Position;
  defenseMultiplier?:number;shooterFootprint?:Footprint;splashRadius?:number;targetFootprint?:Footprint;
  speed:number; remainingLife:number; damage:number; hitRadius:number;
 }

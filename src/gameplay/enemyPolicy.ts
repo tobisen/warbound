@@ -1,3 +1,5 @@
+import {navalContentAI} from '../config/seaBattle';
+import {navalFoundryAvailable} from '../config/navy';
 import {strategyFor,type EnemyStrategy} from './enemyStrategy';
 import {baseUpgradeConfig} from '../config/baseUpgrade';
 import {roleResearchKinds,roleResearchConfig,isRoleResearch,type RoleResearchKind} from '../config/roleResearch';
@@ -21,7 +23,7 @@ import {orderUnits,type GatheringState,type Worker} from './gathering';
 import type {MatchState} from './match';
 export interface EnemyPolicyState {research:ResearchState;strategy?:EnemyStrategy}
 export const createEnemyPolicy=():EnemyPolicyState=>({research:createResearch()});
-export type EnemyPriority='baseUpgrade'|'siegeWorks'|'aviary'|'stable'|RoleResearchKind|'expansion'|'workers'|'barracks'|'supply'|'army'|'forge'|'academy'|'attack'|'defense';
+export type EnemyPriority='navalFoundry'|'baseUpgrade'|'siegeWorks'|'aviary'|'stable'|RoleResearchKind|'expansion'|'workers'|'barracks'|'supply'|'army'|'forge'|'academy'|'attack'|'defense';
 /** Decisions use only own live entities, paid reservations and bank; discovery is RTS-075. */
 export function enemyPriority(m:MatchState):EnemyPriority {
  const strategy=strategyFor(m);if(strategy)return strategy.priority;
@@ -35,10 +37,10 @@ export function enemyPriority(m:MatchState):EnemyPriority {
  const development=m.enemyProduction?.baseDevelopment;
  if(p.forge?.construction.remainingSeconds===0&&(academyCampaignReason(m)||p.academy?.construction.remainingSeconds===0)&&!contentReason(campaignContentFor(m),'units','cavalry')){
   if((development?.level??1)<2||development?.remainingSeconds!=null)return 'baseUpgrade';
-  for(const building of ['siegeWorks','aviary','stable'] as const)if(!contentReason(campaignContentFor(m),'buildings',building)&&!p[building])return building;
+  for(const building of ['siegeWorks','aviary','stable','navalFoundry'] as const)if((building!=='navalFoundry'||navalContentAI(m)&&!!m.enemyNaval&&navalFoundryAvailable((m.factions??defaultFactions).enemy))&&!contentReason(campaignContentFor(m),'buildings',building)&&!(building==='navalFoundry'?p.producers?.some(s=>s.kind===building):p[building]))return building;
   if(development?.level===2&&r.attack>=2&&r.defense>=2&&!contentReason(campaignContentFor(m),'units','giant'))return 'baseUpgrade';
  }
- if(r.job||r.attack>=factions[(m.factions??defaultFactions).enemy].upgrades.attack.maxLevel&&r.defense>=factions[(m.factions??defaultFactions).enemy].upgrades.defense.maxLevel)return r.job?'army':roleResearchKinds.find(k=>!r[k]&&!contentReason(campaignContentFor(m),'research',k)&&roleResearchConfig[k].buildings.every(b=>{const site=p[b];return !!site&&site.construction.remainingSeconds===0;}))??'army';
+ if(r.job||r.attack>=factions[(m.factions??defaultFactions).enemy].upgrades.attack.maxLevel&&r.defense>=factions[(m.factions??defaultFactions).enemy].upgrades.defense.maxLevel)return r.job?'army':roleResearchKinds.find(k=>!r[k]&&!contentReason(campaignContentFor(m),'research',k)&&roleResearchConfig[k].buildings.every(b=>{const site=b==='navalFoundry'?undefined:p[b];return !!site&&site.construction.remainingSeconds===0||!!p.producers?.some(s=>s.kind===b&&s.hp>0&&s.construction.remainingSeconds===0);}))??'army';
  if(!p.forge||p.forge.construction.remainingSeconds>0)return 'forge';
  const first=aiProfile(m).researchFirst;if(r[first]<1)return first;const second=first==='attack'?'defense':'attack';if(r[second]<1)return second;if(academyCampaignReason(m))return 'army';if(!p.academy||p.academy.construction.remainingSeconds>0)return 'academy';return r[first]<factions[(m.factions??defaultFactions).enemy].upgrades[first].maxLevel?first:first==='attack'?'defense':'attack';
 }
@@ -49,7 +51,7 @@ export function prepareEnemyPolicy(m:MatchState):MatchState {
  let research=m.enemyPolicy.research;
  if(priority==='attack'||priority==='defense'||isRoleResearch(priority)){const started=startResearch(g,research,enemyBuildingView(m),priority);g=started.gathering;research=started.research;}
  const faction=factions[(m.factions??defaultFactions).enemy],recipe=faction.units[nextEnemyRole(bank,faction.id,technologyFor(m,'enemy'),m.enemyNaval?2:undefined)??'soldier'].cost;
- const desired=priority==='baseUpgrade'?baseUpgradeConfig[(Math.min(3,(bank.baseDevelopment?.level??1)+1)) as 2|3].cost:priority==='siegeWorks'||priority==='aviary'||priority==='stable'?faction.buildings[priority].cost:priority==='expansion'?enemyExpansionConfig.cost:priority==='workers'?faction.units.worker.cost:priority==='academy'?faction.buildings.academy.cost:priority==='forge'?faction.buildings.forge.cost:priority==='attack'||priority==='defense'||isRoleResearch(priority)?researchRecipe(faction,priority,research[priority]??0).cost:priority==='barracks'?faction.buildings.barracks.cost:priority==='supply'?faction.buildings.farm.cost:{wood:recipe.wood*queueConfig.maxJobs,gold:recipe.gold*queueConfig.maxJobs};
+ const desired=priority==='baseUpgrade'?baseUpgradeConfig[(Math.min(3,(bank.baseDevelopment?.level??1)+1)) as 2|3].cost:priority==='navalFoundry'||priority==='siegeWorks'||priority==='aviary'||priority==='stable'?faction.buildings[priority].cost:priority==='expansion'?enemyExpansionConfig.cost:priority==='workers'?faction.units.worker.cost:priority==='academy'?faction.buildings.academy.cost:priority==='forge'?faction.buildings.forge.cost:priority==='attack'||priority==='defense'||isRoleResearch(priority)?researchRecipe(faction,priority,research[priority]??0).cost:priority==='barracks'?faction.buildings.barracks.cost:priority==='supply'?faction.buildings.farm.cost:{wood:recipe.wood*queueConfig.maxJobs,gold:recipe.gold*queueConfig.maxJobs};
  const woodBias=(g.goldBalance??0)>=desired.gold&&g.wood<desired.wood;
  const woodWorkers=new Set(g.units.filter(u=>u.kind==='worker'&&u.hp!>0).map(u=>u.id).sort((a,b)=>a.localeCompare(b,'en',{numeric:true})).filter((_,index)=>index%2===0));
  for(const worker of [...g.units]){if(worker.kind!=='worker'||worker.hp!<=0||worker.order.kind!=='idle'&&!(worker.order.kind==='gather'&&worker.cargo<=config.emptyCargoEpsilon))continue;const type=woodWorkers.has(worker.id)||woodBias||!g.gold?.remaining?'wood':'gold';const current='nodeId' in worker.order?m.enemyKnowledge?.nodes.find(n=>n.id===('nodeId' in worker.order?worker.order.nodeId:undefined)):undefined;const node=current&&(current.resource??'wood')===type&&current.remaining>0?current:knownResourceFor(m,type,worker.position)??knownResourceFor(m,type==='wood'?'gold':'wood',worker.position);if(!node||node.remaining<=0||'nodeId' in worker.order&&worker.order.nodeId===node.id)continue;g.units=orderUnits(g.units.map(u=>({...u,selected:u.id===worker.id})),node.position,node);}

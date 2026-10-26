@@ -1,5 +1,47 @@
 # Prestanda
 
+## Lokal innehålls-/balansbatch —2026-10-25
+
+Slutlig isolerad jämförelse i samma Chrome155.0.8059.85, produktionsbyggd
+pure gameplay mot b5d2f333003dec878aa615cb2be316c8310c163b:s fem
+optimeringsfiler (dåvarande HEAD).360 ticks à1/60s,60 warmup
+uteslutna,300 samples; inga parallella tester. Hela MatchState har exakt
+samma SHA256 i alla tre före/efter-par, inklusive fog/order/ekonomi/HP.
+
+| Samma arbetslast | Före median / p95 | Efter median / p95 |
+| --- | ---: | ---: |
+| Två spelare, tidigt |1,5 /1,7ms|1,3 /1,5ms|
+| Fem spelare, tidigt |12,4 /14,7ms|8,8 /10,4ms|
+| Fem spelare,115→117 kroppar |39,0 /51,4ms|31,2 /35,4ms|
+
+Medianen minskar13% för tidig tvåspelarmatch,29% för tidig femspelarmatch och
+20% i den större fixturen; där minskar p95 cirka31%. Det är simulationens CPU,
+inte renderad FPS. Arméfixturen kör först30s ekonomi och injicerar därefter
+16 egna +80 AI-soldater över normal supply; den mäter belastning, inte balans.
+
+Separat native1280×720/1280×488-canvas,128 kroppar +32 väggar, samma
+Chrome: update median15,9→13,5ms, p9518,2→16,2ms; frame-p9533,3→16,8ms.
+10s-proverna har567 respektive591 uppdateringssampel. Noll runtimefel.
+Bilder och JSON: `artifacts/performance-many/content-before.json` och `artifacts/performance-many/content-after.json`.
+Detta är ett begränsat lokalt stressprov; ingen garanti om60fps under alla
+strider. Större femspelarmatch är fortfarande CPU-tung och särskilt långa
+simuleringar/andra hårdvaror kan fortsatt upplevas som långsamma.
+
+Förbättringarna tar bort återkommande hindertext/kartrekonstruktion och onödiga
+sikt-/skogskopior samt behåller fler exakta LOS-/kollisionsfrågor i bounded
+cachar. Simulationsfrekvens, grafik, upplösning, animationer, fogregler och tak
+är oförändrade. Tidiga explorativa prov ligger kvar i `artifacts/content-balance/cpu-before.json` och
+`artifacts/content-balance/cpu-after-initial.json`; slutsiffrorna kommer från `artifacts/content-balance/cpu-final.json` i en enda
+samlad före/efter-körning. CPU-profiler ligger bredvid för reproduktion.
+
+[Detaljer och råunderlag](artifacts/content-balance/README.md).
+
+Aktivt nytt sjöslag, native1280: update median4,3ms/p955,4ms, frame-p9516,7ms
+för572 samples under10 reala sekunder,17 samtidiga projektiler. Laglig automatisk
+native-genomspelning vinner vid69,26s,15 skepp och full huvudbas kvar. Sex sekunder
+laglig setup i0,25s-ticks föregår native-spelet. Inget mänskligt balans-/tidsprov.
+[Native-data](artifacts/content-balance/naval-performance.json).
+
 ## Fyra AI-motståndare —2026-10-16
 
 CPU-profilering visade återkommande full kartscanning för passagezoner och

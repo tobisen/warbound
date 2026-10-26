@@ -1,7 +1,7 @@
 import {expandedCampaignMissions} from './campaignExpeditions';
 import type {CampaignMissionId} from './campaign';
 import type {MapId} from './maps';
-export type CampaignGoal='prepare'|'explore'|'waves'|'position'|'base'|'transport'|'guards'|'operation'|'tutorial'|'force'|'research'|'fleet'|'expand';
+export type CampaignGoal='sea-position'|'enemy-fleet'|'prepare'|'explore'|'waves'|'position'|'base'|'transport'|'guards'|'operation'|'tutorial'|'force'|'research'|'fleet'|'expand';
 export interface CampaignPhase {goal:CampaignGoal;text:string;role?:import('./factions').UnitRole;research?:import('./factions').UpgradeRole;ship?:'transport'|'warship';count?:number;points?:readonly {x:number;y:number}[]}
 export interface CampaignPlan {map:MapId;intro:string;phases:readonly CampaignPhase[]}
 const prepare:CampaignPhase={goal:'prepare',text:'Build your barracks and field two living land combatants. Gather wood and gold; add supply before training more troops.'};

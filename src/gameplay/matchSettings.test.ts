@@ -1,6 +1,6 @@
 import {enemyStartingBudget} from '../config/enemyNaval';
 import {expect,it} from 'vitest';
-import {mapResources,maps,mapResourceTotals,type MapId} from '../config/maps';
+import {skirmishMapIds,mapResources,maps,mapResourceTotals,type MapId} from '../config/maps';
 import {factionsForPlayer,factions} from '../config/factions';
 import {difficultyProfiles,type Difficulty} from '../config/difficulty';
 import {createSession,changeOptions,sessionTransition} from './session';
@@ -15,7 +15,7 @@ it('rejects invalid option patches atomically and normalizes a scenario-only map
 it('playing, paused and ended choices stay locked; new menu can isolate a new choice',()=>{
  const s=createSession(initial),playing=sessionTransition(s,'start');for(const phase of ['playing','paused','ended'] as const)expect(changeOptions({...playing,phase},{faction:'crown',map:'river',difficulty:'easy'}).options).toEqual(initial);const menu=sessionTransition(playing,'new-match');expect(changeOptions(menu,{faction:'crown',map:'river',difficulty:'easy'}).options).toEqual({...initial,faction:'crown',map:'river',difficulty:'easy'});expect(s.options).toEqual(initial);
 });
-for(const map of Object.keys(maps) as MapId[])for(const faction of ['crown','clans'] as const)for(const difficulty of Object.keys(difficultyProfiles) as Difficulty[]){
+for(const map of skirmishMapIds)for(const faction of ['crown','clans'] as const)for(const difficulty of Object.keys(difficultyProfiles) as Difficulty[]){
  it(`${map}/${faction}/${difficulty} applies menu choice to fresh model, saved choices and restart`,()=>{
   const s=sessionTransition(createSession({scenario:'skirmish',map,faction,difficulty}),'start'),o=s.options;
   let m=createMatch(o.scenario,o.difficulty,factionsForPlayer(o.faction!),o.map);expect(m.map.id).toBe(map);expect(m.factions!.player).toBe(faction);expect(m.difficulty).toBe(difficulty);const budget=enemyStartingBudget(difficultyProfiles[difficulty].budget,maps[map].enemyNaval===true);expect(m.enemyProduction!.wood).toBe(budget.wood);expect(m.enemyProduction!.gold).toBe(budget.gold);expect(m.gathering.node.remaining).toBe(mapResources(map,'trees','expanded','regions')[0].amount);const summary=matchSettingsSummary(o);expect(summary).toContain(maps[map].label);expect(summary).toContain(factions[faction].label);expect(summary).toContain(difficultyProfiles[difficulty].label);expect(summary).toContain(`${mapResourceTotals(map,'trees','expanded','regions').wood} wood / ${mapResourceTotals(map,'trees','expanded','regions').gold} gold`);

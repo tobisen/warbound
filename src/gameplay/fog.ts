@@ -38,7 +38,7 @@ export function updateFog(fog:FogState,observers:readonly VisionObserver[],block
   // LOS depends on geometry, not actor-local IDs (which repeat across AI views).
   let memo=cache.masks.get(key);
   if(memo)cache.masks.delete(key);
-  else {memo=new Int8Array(Math.max(0,columns*(maxRow-minRow+1)));if(cache.masks.size>=256)cache.masks.delete(cache.masks.keys().next().value!);}
+  else {memo=new Int8Array(Math.max(0,columns*(maxRow-minRow+1)));if(cache.masks.size>=1024)cache.masks.delete(cache.masks.keys().next().value!);}
   cache.masks.set(key,memo);
   const team=next.teams[o.owner];
   for(let row=minRow;row<=maxRow;row++)for(let col=minCol;col<=maxCol;col++){

@@ -1,3 +1,6 @@
+import {navalContentAI} from '../config/seaBattle';
+import {navalFoundryAvailable} from '../config/navy';
+import {skirmishAISettings} from '../config/skirmishPacing';
 import {enemyObjective,type EnemyObjective} from './enemyObjectives';
 import type {EnemyAISettings} from '../config/enemyAI';
 import {prepareEnemyRecon,type EnemyRecon} from './enemyRecon';
@@ -102,12 +105,12 @@ export function prepareEnemyStrategy(m:MatchState):MatchState {
    else if(p.academy.construction.remainingSeconds===0){
     if((bank.baseDevelopment?.level??1)<2&&bank.baseDevelopment?.remainingSeconds==null)priority='baseUpgrade';
     else if((bank.baseDevelopment?.level??1)>=2){
-     const missing=(['stable','aviary','siegeWorks'] as const).find(k=>!p[k]);
+     const missing=(['stable','aviary','siegeWorks','navalFoundry'] as const).find(k=>k==='navalFoundry'?navalContentAI(m)&&!!m.enemyNaval&&navalFoundryAvailable(f.id)&&!p.producers?.some(s=>s.kind===k):!p[k]);
      if(missing)choose(missing,missing);
      else if(r[first]<2)priority=first;
      else if(r[second]<2)priority=second;
      else if(bank.baseDevelopment?.level===2&&bank.baseDevelopment.remainingSeconds==null)priority='baseUpgrade';
-     else priority=roleResearchKinds.find(k=>!r[k]&&roleResearchConfig[k].buildings.every(b=>p[b]?.construction.remainingSeconds===0))??'army';
+     else priority=roleResearchKinds.find(k=>!r[k]&&roleResearchConfig[k].buildings.every(b=>b==='navalFoundry'?p.producers?.some(s=>s.kind===b&&s.hp>0&&s.construction.remainingSeconds===0):p[b]?.construction.remainingSeconds===0))??'army';
     }
    }
   }
@@ -136,7 +139,6 @@ export function deferEnemyInvestment(m:MatchState,kind:NonNullable<EnemyStrategy
 
 /** Personality stays independent; deadlines prevent indefinite buildup on large maps. */
 export function strategicAISettings(m:MatchState,settings:EnemyAISettings):EnemyAISettings {
- const plan=strategyFor(m);if(!plan)return settings;
- const cfg=strategySettings(m),profile=aiProfile(m);
- return {...settings,reconIds:plan.recon?.ids,firstAttackSeconds:Math.min(480,cfg.attackSeconds*profile.attackTime),dispatchGapSeconds:cfg.raidSeconds*profile.dispatchTime};
+ const plan=strategyFor(m);
+ return skirmishAISettings(m,{...settings,...(plan?{reconIds:plan.recon?.ids}:{})});
 }

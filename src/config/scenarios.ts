@@ -1,5 +1,5 @@
 import {text as uiText} from '../text';
-import type {MapId} from './maps';
+import {maps,type MapId} from './maps';
 import {difficultyProfiles,type Difficulty} from './difficulty';
 export type MatchScenario='tutorial'|'survival'|'skirmish'|'siege-test'|'mission-waves'|'mission-base'|'mission-outpost'|'mission-sea'|'mission-escort'|'mission-rescue'|'mission-capture';
 export const enemyBaseConfig={id:'enemy-base',hp:240,footprint:{x:960,y:96,width:96,height:96}};
@@ -21,4 +21,4 @@ export const playableScenarios:MatchScenario[]=['tutorial','survival','skirmish'
 export function initialScenario(value:string|null):MatchScenario{return value&&Object.hasOwn(scenarioConfig,value)?value as MatchScenario:'survival';}
 export function scenarioWaves(scenario:MatchScenario,difficulty:Difficulty){const custom=scenarioConfig[scenario].waveSchedule;if(!custom)return difficultyProfiles[difficulty].waves;return custom.map(w=>({atSeconds:w.atSeconds+difficultyProfiles[difficulty].mission.delaySeconds,count:Math.max(1,w.count+difficultyProfiles[difficulty].mission.countAdjustment)}));}
 
-export function scenarioMapAllowed(scenario:MatchScenario,map:MapId):boolean{return scenario==='skirmish'||map===scenarioConfig[scenario].map;}
+export function scenarioMapAllowed(scenario:MatchScenario,map:MapId):boolean{return scenario==='skirmish'?!maps[map].campaignOnly:map===scenarioConfig[scenario].map;}

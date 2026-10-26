@@ -1,6 +1,6 @@
 import {terrainPatches} from './map';
 import {expect,it} from 'vitest';
-import {maps,type MapId} from '../config/maps';
+import {skirmishMapIds,maps,type MapId} from '../config/maps';
 import {createMap,replaceObstacles} from './map';
 import {segmentFits} from './navigation';
 import {createMatch} from './match';
@@ -33,7 +33,7 @@ it('coast requires positive land and water area and rejects rocks, buildings and
  for(const bad of [{x:1024,y:320,width:64,height:64},{x:1088,y:320,width:64,height:64},{x:1250,y:320,width:64,height:64},{x:80,y:80,width:64,height:64},{...rect,width:0},{...rect,x:NaN}])expect(coastalFootprint(map,bad)).toBe(false);
  expect(coastalFootprint(replaceObstacles(map,[...map.obstacles,{x:1056,y:320,width:32,height:32}]),rect)).toBe(false);
 });
-for(const id of Object.keys(maps) as MapId[])it(`${id} reconstructs water routes after Save/load/reset without persistent adapters`,()=>{
+for(const id of skirmishMapIds)it(`${id} reconstructs water routes after Save/load/reset without persistent adapters`,()=>{
  const match=createMatch('skirmish','normal',undefined,id),patch=terrainPatches(match.map).find(p=>p.kind==='water')!;
  const start={x:patch.column*32+16,y:patch.row*32+16},end={x:(patch.column+patch.columns)*32-16,y:(patch.row+patch.rows)*32-16};
  const expected=findDomainRoute(match.map,'water',start,end,12);expect(expected.ok).toBe(true);

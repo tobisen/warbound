@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/seaBattle.test.ts src/gameplay/navalContent.test.ts src/gameplay/skirmishPacing.test.ts src/gameplay/multiplePlayers.test.ts
+
+
+ RUN  v4.1.11 /private/tmp/w2t-naval-release-z0qct3q_
+
+
+ Test Files  4 passed (4)
+      Tests  34 passed (34)
+   Start at  07:14:45
+   Duration  22.19s (transform 845ms, setup 0ms, import 1.24s, tests 27.43s, environment 0ms)

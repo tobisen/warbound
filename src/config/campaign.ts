@@ -21,4 +21,4 @@ export function campaignMissionForScenario(scenario:unknown){return campaignMiss
 export function campaignDetails(id:CampaignMissionId){const m=campaignMission(id)!;const plan=campaignPlans[id];return {...m,...(plan?{briefing:`${plan.intro} Map: ${maps[plan.map].label}. ${plan.phases.map(p=>p.text).join(' ')} Keep your base alive.`,map:plan.map}:{}),title:'title' in m?m.title:scenarioConfig[m.scenario].label,goal:plan?.phases[0].text??scenarioConfig[m.scenario].instruction};}
 
 /** Presets only constrain new campaign starts; loaded match factions remain authoritative. */
-export function campaignPreset(id:unknown):MatchFactions|undefined {const mission=campaignMission(id);return mission&&'factions' in mission?{...mission.factions}:undefined;}
+export function campaignPreset(id:unknown):MatchFactions|undefined {if(id==='crown-stormgate-armada')return {player:'crown',enemy:'dwarves'};const mission=campaignMission(id);return mission&&'factions' in mission?{...mission.factions}:undefined;}

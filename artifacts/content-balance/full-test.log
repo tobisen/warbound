@@ -1,0 +1,175 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+ ❯ src/gameplay/largeMaps.test.ts (9 tests | 2 failed) 52921ms
+   × plains96: existing paid skirmish and enemy economy remain playable 25927ms
+   × plains128: existing paid skirmish and enemy economy remain playable 25213ms
+ ❯ src/gameplay/navalBalance.test.ts (12 tests | 6 failed) 49300ms
+   × easy/crown: doing nothing loses to a paid finite naval assault 3629ms
+   × easy/clans: doing nothing loses to a paid finite naval assault 3481ms
+   × normal/crown: doing nothing loses to a paid finite naval assault 3467ms
+   × normal/clans: doing nothing loses to a paid finite naval assault 3216ms
+   × hard/crown: doing nothing loses to a paid finite naval assault 3172ms
+   × hard/clans: doing nothing loses to a paid finite naval assault 3307ms
+ ❯ src/gameplay/frontier.test.ts (7 tests | 1 failed) 38461ms
+   × the configured enemy can fund an army and reach the player base across the valley 7243ms
+ ❯ src/gameplay/coast.test.ts (7 tests | 3 failed) 24934ms
+   × skirmish/normal/crown gathers, pays for army/harbor/transport, lands and wins through land combat 10343ms
+   × skirmish/normal/clans gathers, pays for army/harbor/transport, lands and wins through land combat 10204ms
+   × the paid coastal AI fleet boards, crosses, lands and can defeat an undefended player 3071ms
+ ❯ src/gameplay/roleResearch.test.ts (8 tests | 5 failed) 268ms
+   × crown shares cost/time/prerequisites, rejects duplicate research, preserves finished and active jobs 59ms
+   × clans shares cost/time/prerequisites, rejects duplicate research, preserves finished and active jobs 14ms
+   × elves shares cost/time/prerequisites, rejects duplicate research, preserves finished and active jobs 13ms
+   × dwarves shares cost/time/prerequisites, rejects duplicate research, preserves finished and active jobs 12ms
+   × goblins shares cost/time/prerequisites, rejects duplicate research, preserves finished and active jobs 12ms
+ ❯ src/gameplay/seaBattle.test.ts (5 tests | 1 failed) 2906ms
+   × starts a real scalable naval expedition with legal fleets, coastal production and supply 28ms
+ ❯ src/config/factions.test.ts (3 tests | 1 failed) 174ms
+   × implemented factions define all shared roles with distinct, globally unique type IDs 5ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 19 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/config/factions.test.ts > implemented factions define all shared roles with distinct, globally unique type IDs
+AssertionError: expected [ 'navalFoundry', 'base', …(7) ] to deeply equal [ 'base', 'barracks', 'farm', …(5) ]
+
+- Expected
++ Received
+
+@@ -1,6 +1,7 @@
+  [
++   "navalFoundry",
+    "base",
+    "barracks",
+    "farm",
+    "forge",
+    "siegeWorks",
+
+ ❯ src/config/factions.test.ts:15:38
+     13|   for(const id of factionIds){const f=factions[id];
+     14|     expect(Object.keys(f.units)).toEqual(['worker','soldier','archer',…
+     15|     expect(Object.keys(f.buildings)).toEqual(['base','barracks','farm'…
+       |                                      ^
+     16|     expect(Object.keys(f.upgrades)).toEqual(['attack','defense']);
+     17|     for(const group of [f.units,f.buildings,f.upgrades])for(const [rol…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/19]⎯
+
+ FAIL  src/gameplay/coast.test.ts > skirmish/normal/crown gathers, pays for army/harbor/transport, lands and wins through land combat
+ FAIL  src/gameplay/coast.test.ts > skirmish/normal/clans gathers, pays for army/harbor/transport, lands and wins through land combat
+AssertionError: expected 'playing' to be 'victory' // Object.is equality
+
+Expected: "victory"
+Received: "playing"
+
+ ❯ src/gameplay/coast.test.ts:41:20
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/19]⎯
+
+ FAIL  src/gameplay/coast.test.ts > the paid coastal AI fleet boards, crosses, lands and can defeat an undefended player
+AssertionError: expected [ 'waiting' ] to deeply equal ArrayContaining{…}
+
+- Expected
++ Received
+
+- ArrayContaining [
+-   "loading",
+-   "sailing",
+-   "landed",
++ [
++   "waiting",
+  ]
+
+ ❯ src/gameplay/coast.test.ts:79:22
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/19]⎯
+
+ FAIL  src/gameplay/frontier.test.ts > the configured enemy can fund an army and reach the player base across the valley
+AssertionError: expected 240 to be less than 240
+ ❯ src/gameplay/frontier.test.ts:70:26
+     68|  let m=createMatch('skirmish','normal',undefined,'frontier');
+     69|  for(let i=0;i<(skirmishAttackSeconds(m)+180)*4&&m.outcome==='playing'…
+     70|  expect(m.enemyProduction!.acceptedJobs).toBeGreaterThan(0);
+       |                          ^
+     71|  expect(m.combat.baseHP).toBeLessThan(240);
+     72| },30_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/19]⎯
+
+ FAIL  src/gameplay/largeMaps.test.ts > plains96: existing paid skirmish and enemy economy remain playable
+ FAIL  src/gameplay/largeMaps.test.ts > plains128: existing paid skirmish and enemy economy remain playable
+AssertionError: expected 240 to be less than 240
+ ❯ src/gameplay/largeMaps.test.ts:47:33
+     45|   const result=releasePlaythrough('skirmish','normal',undefined,{facti…
+     46|   expect(result.match.outcome).toBe('victory');expect(result.spentWood…
+     47|   let passive=createMatch('skirmish','normal',undefined,id);for(let i=…
+       |                                 ^
+     48|   expect(passive.combat.baseHP).toBeLessThan(240);
+     49|  // CI measured61–65s for these complete paid-match/economy scenarios.
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/19]⎯
+
+ FAIL  src/gameplay/navalBalance.test.ts > easy/crown: doing nothing loses to a paid finite naval assault
+ FAIL  src/gameplay/navalBalance.test.ts > easy/clans: doing nothing loses to a paid finite naval assault
+ FAIL  src/gameplay/navalBalance.test.ts > normal/crown: doing nothing loses to a paid finite naval assault
+ FAIL  src/gameplay/navalBalance.test.ts > normal/clans: doing nothing loses to a paid finite naval assault
+ FAIL  src/gameplay/navalBalance.test.ts > hard/crown: doing nothing loses to a paid finite naval assault
+ FAIL  src/gameplay/navalBalance.test.ts > hard/clans: doing nothing loses to a paid finite naval assault
+AssertionError: expected 'playing' to be 'defeat' // Object.is equality
+
+Expected: "defeat"
+Received: "playing"
+
+ ❯ src/gameplay/navalBalance.test.ts:13:21
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/19]⎯
+
+ FAIL  src/gameplay/roleResearch.test.ts > crown shares cost/time/prerequisites, rejects duplicate research, preserves finished and active jobs
+ FAIL  src/gameplay/roleResearch.test.ts > clans shares cost/time/prerequisites, rejects duplicate research, preserves finished and active jobs
+ FAIL  src/gameplay/roleResearch.test.ts > elves shares cost/time/prerequisites, rejects duplicate research, preserves finished and active jobs
+ FAIL  src/gameplay/roleResearch.test.ts > dwarves shares cost/time/prerequisites, rejects duplicate research, preserves finished and active jobs
+ FAIL  src/gameplay/roleResearch.test.ts > goblins shares cost/time/prerequisites, rejects duplicate research, preserves finished and active jobs
+AssertionError: expected +0 to be 45 // Object.is equality
+
+- Expected
++ Received
+
+- 45
++ 0
+
+ ❯ src/gameplay/roleResearch.test.ts:14:306
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/19]⎯
+
+ FAIL  src/gameplay/seaBattle.test.ts > starts a real scalable naval expedition with legal fleets, coastal production and supply
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/gameplay/seaBattle.test.ts:20:82
+     18|   expect(m.navy!.ships.length).toBe(16);expect(m.combat.enemies.filter…
+     19|   expect(m.navy!.ships.every(s=>domainBodyFits(m.map,'water',s.positio…
+     20|   expect(m.gathering.units.filter(u=>u.kind==='soldier'&&u.archetype==…
+       |                                                                                  ^
+     21|   expect(m.campaignRun!.phase).toBe(0);expect(m.outcome).toBe('playing…
+     22|  }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/19]⎯
+
+
+ Test Files  7 failed | 222 passed (229)
+      Tests  19 failed | 2074 passed (2093)
+   Start at  23:11:00
+   Duration  1101.65s (transform 2.47s, setup 0ms, import 25.96s, tests 2159.53s, environment 13ms)

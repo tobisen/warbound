@@ -1,0 +1,8 @@
+{
+  "deterministic": true,
+  "sha256": {
+    "public/assets/naval-content-atlas.png": "757ac909b327fa84c9636b9448ff259c9eeac81471bb15806a6180e3a8589fda",
+    "public/assets/naval-content-atlas.json": "6d316a63afd6b732433fce619d263930a96e558840cbac876aaa360ff2bda02f",
+    "public/assets/manifest.json": "2b6bf8cdbd1881ebe5b8ab291291a6525d68e5b6af4ae09d1d1dec64d5f9bcad"
+  }
+}

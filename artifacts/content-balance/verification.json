@@ -1,0 +1,89 @@
+{
+  "full_run": {
+    "command": "npm test",
+    "files": 229,
+    "tests": 2093,
+    "passed": 2074,
+    "failed": 19,
+    "seconds": 1101.65,
+    "log": "full-test.log",
+    "note": "Completed broad regression. Legacy pacing/catalog/bot assumptions and an in-flight mission fixture change were corrected; this run is not reported as a clean full PASS."
+  },
+  "corrections": {
+    "command": "npm test -- src/config/factions.test.ts src/gameplay/roleResearch.test.ts src/gameplay/coast.test.ts src/gameplay/frontier.test.ts src/gameplay/largeMaps.test.ts src/gameplay/navalBalance.test.ts src/gameplay/seaBattle.test.ts src/gameplay/navalContent.test.ts",
+    "passed": 55,
+    "failed": 2,
+    "files": 8,
+    "tests": 57,
+    "log": "final-recheck.log",
+    "note": "Remaining failures were the old105-ID expectation and Plains96 wall-clock budget; both verified separately below."
+  },
+  "final_catalog": {
+    "command": "npm test -- src/config/factions.test.ts",
+    "passed": 3,
+    "files": 1,
+    "log": "faction-final.log"
+  },
+  "final_plains96": {
+    "command": "npm test -- src/gameplay/largeMaps.test.ts -t 'plains96: existing paid skirmish'",
+    "passed": 1,
+    "skipped": 8,
+    "files": 1,
+    "seconds": 215.87,
+    "log": "plains96-final.log",
+    "note": "300s runner budget; same780s gameplay horizon, paid victory, active AI economy and actual contact asserted. Other Plains128 case passed in corrections."
+  },
+  "unit": {
+    "command": "npm run test:unit",
+    "passed": 546,
+    "files": 94,
+    "seconds": 17.48,
+    "log": "unit-final.log"
+  },
+  "build": {
+    "command": "npm run build",
+    "result": "PASS",
+    "strict_typecheck": true,
+    "warning": "Existing JS chunk >500kB warning",
+    "log": "build.log"
+  },
+  "current_status": "No unresolved test failures. All229 files covered by the completed full run and targeted final-source corrections; no second whole-suite green run claimed.",
+  "human_balance_verified": false,
+  "committed": false,
+  "pushed": false,
+  "published": false,
+  "performance": {
+    "cpu": "cpu-final.json",
+    "exact_states": true,
+    "five_player_median_reduction_percent": [
+      29,
+      20
+    ],
+    "rendered_stress": "../performance-many/content-after.json",
+    "native_mission": "naval-performance.json",
+    "native_victory_seconds": 69.2618333333338,
+    "native_combat_update_median_ms": 4.3,
+    "native_combat_update_p95_ms": 5.4,
+    "human_balance_verified": false
+  },
+  "browser": {
+    "viewports": [
+      "800x600",
+      "1280x720"
+    ],
+    "errors": 0,
+    "warnings": 0,
+    "data": "browser.json"
+  },
+  "preserved_sha256": {
+    "src/style.css": "8f6e13235190fd7410c0d3fb1df123d68185df08134047a87d1b3128eadf9b6c",
+    "assets/sources/units.mjs": "a24680e7baa1828184695c5319e3243b507890a7393601e2fc49ff375f14d758"
+  },
+  "final_static_checks": {
+    "local_markdown_references": "PASS",
+    "new_verification_script_syntax": "PASS",
+    "git_diff_check": "PASS",
+    "asset_export_determinism": "PASS"
+  },
+  "baseline_commit": "b5d2f333003dec878aa615cb2be316c8310c163b"
+}

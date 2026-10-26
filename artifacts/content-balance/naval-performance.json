@@ -1,0 +1,40 @@
+{
+  "playthrough": {
+    "outcome": "victory",
+    "phase": 4,
+    "seconds": 69.2618333333338,
+    "baseHP": 240,
+    "ships": 15,
+    "orderBatches": 63
+  },
+  "browser": "155.0.8059.85",
+  "headless": true,
+  "note": "Native1280 active combat; legal automated orders, six gameplay seconds of legal setup, first ten real seconds measured, then continued native tactical playthrough. Not a human balance trial.",
+  "initial": {
+    "ships": 16,
+    "enemyShips": 14,
+    "seconds": 6
+  },
+  "update": {
+    "samples": 572,
+    "medianMs": 4.300000011920929,
+    "p95Ms": 5.400000035762787
+  },
+  "frame": {
+    "samples": 571,
+    "medianMs": 16.699999999999818,
+    "p95Ms": 16.700000000000728
+  },
+  "orderBatches": 10,
+  "peakShots": 17,
+  "seconds": 16.06413333333319,
+  "phase": 0,
+  "outcome": "playing",
+  "ships": 13,
+  "enemyShips": 8,
+  "canvas": {
+    "width": 1280,
+    "height": 488
+  },
+  "errors": []
+}

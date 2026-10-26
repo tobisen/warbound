@@ -1,0 +1,27 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/largeMaps.test.ts -t existing paid skirmish
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+ ❯ src/gameplay/largeMaps.test.ts (9 tests | 2 failed | 7 skipped) 435405ms
+   × plains96: existing paid skirmish and enemy economy remain playable 182794ms
+   × plains128: existing paid skirmish and enemy economy remain playable 252609ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/gameplay/largeMaps.test.ts > plains96: existing paid skirmish and enemy economy remain playable
+ FAIL  src/gameplay/largeMaps.test.ts > plains128: existing paid skirmish and enemy economy remain playable
+Error: Test timed out in 120000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/gameplay/largeMaps.test.ts:44:2
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 7 skipped (9)
+   Start at  23:19:27
+   Duration  436.33s (transform 684ms, setup 0ms, import 825ms, tests 435.40s, environment 0ms)
