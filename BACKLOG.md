@@ -55,6 +55,17 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ### Publicera innehålls-/balansbatch — 2026-10-26 — In Progress
 
+CI40279167980 för311c835 avslutades med2090 PASS/2093 över229 filer. Endast
+runnerbudgets föll: Plains96495,286s/300s, Plains128230,624s/120s och strikt
+Save75-migration5,280s/5s. Plains96:s20min-initiativprov passerade593,287s/600s,
+vilket lämnar för liten marginal. Individuella budgetar ändras till900/600/30s,
+med900s för detta initiativprov. Gameplay, fixtures,780/1200s-speltid, samtliga
+assertions och två CI-workers är oförändrade. Ingen deploy gjordes på röd CI.
+En ny full GitHub-körning krävs före Pages. Ny lokal Save75-migration1/1 PASS, unit546/94 PASS18,43s och strict build PASS
+före korrigeringscommit; godkända simuleringar och kandidatbrowser återanvänds
+efter granskad diff med enbart runnerbudgetar. [CI-korrigeringens underlag](artifacts/content-balance/ci-recovery/README.md).
+
+
 Användaren har beställt commit, push och Pages; detta ersätter det äldre lokala
 förbudet nedan. Kandidatens unit/strict build/native800/1280 kontrolleras utan
 användarens CSS/units.mjs/docs/. GitHub kör ny full regression före deploy.

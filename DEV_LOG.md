@@ -1,5 +1,16 @@
 ## Commit, push och Pages beställt — 2026-10-26
 
+CI40279167980 för311c835 avslutades med2090 PASS/2093 över229 filer. Endast
+runnerbudgets föll: Plains96495,286s/300s, Plains128230,624s/120s och strikt
+Save75-migration5,280s/5s. Plains96:s20min-initiativprov passerade593,287s/600s,
+vilket lämnar för liten marginal. Individuella budgetar ändras till900/600/30s,
+med900s för detta initiativprov. Gameplay, fixtures,780/1200s-speltid, samtliga
+assertions och två CI-workers är oförändrade. Ingen deploy gjordes på röd CI.
+En ny full GitHub-körning krävs före Pages. Ny lokal Save75-migration1/1 PASS, unit546/94 PASS18,43s och strict build PASS
+före korrigeringscommit; godkända simuleringar och kandidatbrowser återanvänds
+efter granskad diff med enbart runnerbudgetar. [CI-korrigeringens underlag](artifacts/content-balance/ci-recovery/README.md).
+
+
 Användaren beställer nu uttryckligen commit, push och GitHub Pages-publicering.
 Det ersätter föregående lokala förbud för innehålls-/balansbatchen. Befintlig
 origin/main används utan force eller history rewrite. style.css, units.mjs,

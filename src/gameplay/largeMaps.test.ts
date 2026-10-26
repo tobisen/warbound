@@ -46,9 +46,9 @@ for(const [id,tiles] of [['plains96',128],['plains128',128]] as const){
   expect(result.match.outcome).toBe('victory');expect(result.spentWood).toBeGreaterThan(40);expect(result.match.enemyProduction!.acceptedJobs).toBeGreaterThan(0);
   let passive=createMatch('skirmish','normal',undefined,id);for(let i=0;i<skirmishAttackSeconds(passive)+180&&passive.outcome==='playing';i++)passive=updateMatch(passive,1);
   expect(passive.combat.baseHP).toBeLessThan(240);
- // The new780s passive horizon measured236s on Plains96 under the final checks.
+ // CI measured495s/231s for the unchanged780s passive horizons on Plains96/128.
  // Budget only: paid victory, actual base contact and gameplay horizon remain asserted.
- },id==='plains96'?300_000:120_000);
+ },id==='plains96'?900_000:600_000);
 }
 it('config20 preserves existing matches, ledger and views when migrating to21',()=>{
  const m=createMatch('skirmish','beginner',undefined,'frontier'),view={camera:{x:400,y:300},building:null};m.statLedger!.player.built=2;

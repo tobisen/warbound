@@ -148,4 +148,5 @@ it('migrates both complete and shared v75 Skirmish saves through strict child va
   const loaded=decodeSave(JSON.stringify(doc));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);if(loaded.ok){expect(loaded.match.multiplePlayers!.ai).toHaveLength(count-1);expect(loaded.match.gathering.wood).toBe(m.gathering.wood);}
   const mixed=JSON.parse(JSON.stringify(doc));const part=JSON.parse(mixed.ai[0].document);part.configVersion='tribute-config-76';mixed.ai[0].document=JSON.stringify(part);expect(decodeSave(JSON.stringify(mixed)).ok).toBe(false);
  }
-});
+// CI measured5.28s for complete+shared strict documents; assertions stay unchanged.
+},30_000);

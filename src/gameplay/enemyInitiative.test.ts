@@ -36,9 +36,9 @@ for(const [map,difficulty] of [['arena','normal'],['plains96','normal'],['arena'
   expect(r.initialUnitsSurvive).toBe(true);
   for(const value of Object.values(r.ledgerError))expect(value).toBeCloseTo(0,6);
   const save=decodeSave(encodeSave(m,{camera:{x:0,y:0},building:null}));expect(save.ok,save.ok?'':save.error).toBe(true);
- // CI measured312s for Hard and244s for Plains96 under concurrent CPU load.
+ // Latest CI measured593s/600s budget on Plains96; retain headroom for CPU variance.
  // This is a wall-clock budget; gameplay criteria and assertions stay1200s.
- },map==='plains96'||difficulty==='hard'?600000:300000);
+ },map==='plains96'?900000:difficulty==='hard'?600000:300000);
 }
 afterAll(()=>{
  const easy=reports.find(r=>r.map==='arena'&&r.difficulty==='easy')!,normal=reports.find(r=>r.map==='arena'&&r.difficulty==='normal')!,hard=reports.find(r=>r.map==='arena'&&r.difficulty==='hard')!;
