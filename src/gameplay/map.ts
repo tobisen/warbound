@@ -53,6 +53,21 @@ export function overlaps(a: Footprint, b: Footprint): boolean {
   return a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y;
 }
 
+const exclusionCache=new WeakMap<Footprint[],{revision:number;length:number;entries:Map<string,Footprint[]>}>();
+/** Shot endpoints may lie inside their own/target building. Reuse the collision
+ * snapshot instead of filtering every obstacle and rebuilding its index per shot. */
+export function withoutFootprints(map:WorldMap,footprints:readonly (Footprint|undefined)[]):WorldMap {
+ const same=(a:Footprint,b:Footprint)=>a.x===b.x&&a.y===b.y&&a.width===b.width&&a.height===b.height;
+ const excluded=footprints.filter((f):f is Footprint=>!!f&&nearbyObstacles(map,f).some(o=>same(o,f)));
+ if(!excluded.length)return map;
+ let cache=exclusionCache.get(map.obstacles);
+ if(!cache||cache.revision!==map.revision||cache.length!==map.obstacles.length){cache={revision:map.revision,length:map.obstacles.length,entries:new Map()};exclusionCache.set(map.obstacles,cache);}
+ const key=excluded.map(f=>`${f.x},${f.y},${f.width},${f.height}`).sort().join(';');
+ let obstacles=cache.entries.get(key);
+ if(!obstacles){obstacles=map.obstacles.filter(o=>!excluded.some(f=>same(o,f)));if(cache.entries.size>=64)cache.entries.delete(cache.entries.keys().next().value!);cache.entries.set(key,obstacles);}
+ return {...map,obstacles};
+}
+
 export function blockedTile(map: WorldMap, tile: Tile): boolean {
   const rect = tileFootprint(map, tile);
   return !rect || map.obstacles.some(obstacle => overlaps(rect, obstacle));

@@ -1,3 +1,66 @@
+## Commit/push av forskning/anfall/AI-rättning — 2026-10-27 — Verifierad kandidat
+
+Nytt uttryckligt mandat efter lokal leverans: commit och push av rättningen.
+Användarens tidigare CSS/units.mjs och otrackade docs/CLEANUP_REPORT/:memory:.ses
+bevaras och ingår inte. Main-workflow publicerar normalt Pages vid kodpush;
+`[skip ci]` används för detta avgränsade commit/push-uppdrag. Ingen ny release
+eller publicering. Spelkodens full2106/231 PASS från rättningen återanvänds;
+ren commitkandidat har verifierats separat:
+
+Ren exporterad commitkandidat utan användarens CSS/units.mjs/docs: unit548/94
+PASS18,01s, build med strict TypeScript PASS577ms och browser640/800/1024/1280/
+1920 PASS (rader, alla alternativ, kostnad/status, verkligt betalt klick).
+Native1280-anfall: maxframe33,2ms, stridsp957,9ms, noll frames över50ms,
+noll runtimefel. Bilder800/1280 granskade. Indexets ändrade src/scripts och
+oförändrad original-CSS/units.mjs är byte-identiska med den testade exporten.
+Full2106/231 på samma gameplaykod återanvänds; ingen andra fullsimulation
+behövs för att exkludera CSS/asset-authoring som ligger utanför commiten.
+Exporten saknar .git, så build-ID blirunknown där; build/typecheck lyckas.
+Befintlig bundlevarning kvarstår. Ny CI/Pages körs inte med `[skip ci]`.
+
+Ingen commit/push hävdas före git-resultatet; hash/push rapporteras i slutsvaret.
+
+## Lokal rättning av forskning, anfall och AI-expansion — 2026-10-27 — Done
+
+Nytt användaruppdrag utan commit/push/publicering. Befintlig forskningspanel,
+combat/navigation, AI/expansion, fog, rendering och tidigare prestandabelägg
+lästa före ändring. Ingen delegering, version eller roadmaptask.
+
+- Högst åtta forskningsval/sida; navigation i rubriken, fyra kolumner/två rader,
+  befintliga kontroll-ID:n, callbacks, ikoner, kostnader och status. Faktiska
+  browserkoordinater och betalt klick PASS640/800/1024/1280/1920, alla nio
+  Human-val nåbara. Övriga rasers alternativlistor testade.
+- Profil: arméns första optimala utforskningskontakt orsakar engångsspiken;
+  upprepade filtrerade hinderarrayer orsakar nya spatiala index i skott/combat.
+  Första nåbara utforskningskontakt och återanvända kollisionssnapshotar tar
+  bort kostnaderna. Native maxframe700,0→33,4ms, strid median7,6→5,9ms och
+  p9512,2→8,3ms, inga frames över50ms efteråt. Deterministisk1800-ticks-
+  MatchState har identisk SHA256 före/efter. Fog/stridsstats/tickfrekvens består.
+- Alla expansionspolicyer delar bas-/byggplatsavstånd, nyttiga kända resurser,
+  gränser och kända/synliga hot. Egen aktuell tomtsikt, verklig byggarrutt och
+  spawnutgång krävs före betalning. Normal basdistans320px;15s misslyckat
+  platsminne och högst två sökningar/försök. Gamla täta kandidater korrigerade.
+  Slutgranskningen spärrade också dold resursinformation i äldre lägen utan
+  kunskapssnapshot samt lade till synliga torn som hot. Save utelämnar transient
+  plan och befintliga byggnader/sparningar flyttas inte.
+
+Riktade119/12 PASS före sista foggranskningen; därefter32/3 PASS för AI,
+expansion och stora anfall. Unit548/94 PASS; strict build PASS efter sista
+kodändringen, med befintlig chunk-varning. Första full2105/231 hade3 Frontier-fel. De rättades med kartdefinierad
+expansionsspaning och budgetreservation även medan platsen är dold; byggstart
+kräver fortfarande observerade resurser. Riktade region/strategi/expansion60/3
+PASS. Slutlig ny full `npm test`:2106/231 PASS1021,79s på slutlig kod.
+Den tidiga helkörningen som avbröts för fogrättningen hävdas inte som PASS.
+Slutlig strict build PASS523ms; ingen separat dubbel typecheck behövs.
+Nya browser-/CPU-mätningar efter sista AI-rättningen bekräftar de slutliga
+siffrorna ovan och identisk statehash. Inga kvarstående testfel.
+Manifest och diff kontrollerade. CSS/units.mjs SHA256 identiska med uppstarten;
+docs/ och övriga användarfiler orörda. Inga remotehandlingar.
+
+[Rapport och reproduktion](artifacts/attack-expansion/README.md).
+Lokal tvåsidig markstress under30s; inget nytt påstående om femspelarlångmatch,
+annan hårdvara, mänsklig finbalans eller publicerad build.
+
 ## Pages publicerad och verifierad — 2026-10-26 — Done
 
 [Spela Warbound](https://tobisen.github.io/warbound/) visar **v0.8.0 / Build791d17f**.

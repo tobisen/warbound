@@ -1,5 +1,35 @@
 # Prestanda
 
+## Lokal anfallsrättning — 2026-10-27
+
+Chrome156.0.8078.48/WebGL, native1280×720, faktisk Phaser i30 gameplaysekunder:
+40 injicerade angripare mot24 försvarare och spelarbas, vanlig sikt/AI/strid.
+Mätverktyget startas före mätfönstret. Slutlig före/efter-jämförelse ersätter
+bara map/combat/projectiles med0a4056e-kod; övriga källor/fixture/CSS är lika.
+
+| Mått | Före | Efter |
+| --- | ---: | ---: |
+| Dyraste första färdvägsuppdatering |703,5ms|34,3ms|
+| Strid median / p95 |7,6 /12,2ms|5,9 /8,3ms|
+| Längsta bildruta |700,0ms|33,4ms|
+| Bildrutor över50ms |1|0|
+| Bildruta p95 |16,8ms|16,7ms|
+
+Dyr optimal kontaktsökning för avlägsna utforskningsmål använder nu första
+nåbara kontakt. Skott/projektiler återanvänder hinderidentitet och bounded
+byggnadsundantag i stället för att filtrera/indexera hela kartan per kontroll.
+Fog, målval, animationer, grafik och uppdateringsfrekvens består. Första reveal
+7,2→7,4ms; första strid9,8→8,3ms. Ingen kvarvarande tydlig stoppbild i provet.
+
+Isolerad1800-ticks-IIFE: första uppdatering681,4→46,5ms och stridsp959,3→5,2ms.
+Hela sluttillståndets SHA256 är identisk före/efter, inklusive fog/HP/order.
+CPU-profiler kontrollerar AI, målval, formationer, navigation, fog, byggnader/
+enheter, projektiler och GC; browsern mäter dessutom syncVisuals/rendering.
+[Fixture, rådata, bilder, stackkategorier och kommandon](artifacts/attack-expansion/README.md).
+Ingen ny femspelarlångmatch eller annan hårdvara mätt. Historiska siffror nedan
+är äldre separata belägg; ingen ny CI/Pages eller release beställs.
+
+
 ## Lokal innehålls-/balansbatch —2026-10-25
 
 Slutlig isolerad jämförelse i samma Chrome155.0.8059.85, produktionsbyggd

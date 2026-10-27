@@ -6,7 +6,7 @@ import { footprintDistance } from './approach';
 import { moveTowards, type Position } from './movement';
 import type { Enemy } from './combat';
 import type { Footprint } from './placement';
-import type { WorldMap } from './map';
+import {withoutFootprints,type WorldMap} from './map';
 import { segmentFits } from './navigation';
 export interface Projectile {
  navalRole?:import('../config/navy').ShipRole;bossProfile?:import('../config/bosses').BossDamageProfile;submarine?:true;targets?:readonly TargetDomain[];damageByDomain?:Partial<Record<TargetDomain,number>>;airborne?:true;owner?:'enemy';marine?:true;id:string; shooterId?:string; targetId:string; position:Position; destination:Position;
@@ -28,7 +28,7 @@ export function advanceProjectiles(projectiles:readonly Projectile[], enemies:re
   const position=moveTowards(p.position,destination,p.speed,time);
   const footprint=p.targetFootprint??enemy?.footprint;
   const shotMap=map&&p.airborne?airMap(map):map&&(p.marine||p.targets?.includes('sea'))?marineFlightMap(map):map;
-  const flightMap=shotMap&&(footprint||p.shooterFootprint)?{...shotMap,obstacles:shotMap.obstacles.filter(o=>![footprint,p.shooterFootprint].some(f=>f&&o.x===f.x&&o.y===f.y&&o.width===f.width&&o.height===f.height))}:shotMap;
+  const flightMap=shotMap&&(footprint||p.shooterFootprint)?withoutFootprints(shotMap,[footprint,p.shooterFootprint]):shotMap;
   if(flightMap&&!segmentFits(flightMap,p.position,position,0))continue;
   if(travel<=time+1e-9){
    if(p.splashRadius){

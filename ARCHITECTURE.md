@@ -1,3 +1,29 @@
+## Lokal forskning/anfall/expansion — 2026-10-27
+
+`researchPages.ts` håller forskningsalternativ till åtta per sida. `actionPanel`
+återanvänder befintliga DOM-kontroller/callbacks och håller sidnavigation i
+rubriken; statusuppdateringar bevarar sidan medan ändrad alternativlista
+återställer den. Fyra kolumner ger högst två alternativrader även i800-vyn.
+
+`map.withoutFootprints` bevarar hinderidentiteten för skott som inte faktiskt
+behöver undanta en byggnad. Byggnadsundantag har bounded64-posterscache per
+hindersnapshot, med revision/längd/geometri-invalidering. Vanlig combat och
+projektiler delar hjälparen, så spatiala index inte byggs om varje frame.
+`combatApproach` använder första nåbara kontakt för `explore-goal`, via den
+befintliga reachableOnly-parametern; stridsmål behåller kontaktsökningen.
+
+`enemyExpansionSites.ts` ger gemensamma krav för strategisk/äldre AI: egna
+färdiga/pågående footprints, normalt320px basavstånd, nyttiga kända resurser,
+kända/synliga hot, gränser och bara synlig dynamisk occupancy. Executor kräver
+egen aktuell tomtsikt, byggaraccess och spawnutgång före betalning. Äldre AI
+utan snapshot använder endast synliga resurser. `enemyRecovery.expansionPlan`
+håller transient scoutmål och högst24 misslyckade platser i15s; Save utelämnar
+fältet och planerar om från befintlig kunskap. Kartans publika expansionspunkt
+får scoutas före resursobservation; detta ger ingen byggadmission. Expansions-
+budget reserveras under spaningen så den inte förbrukas på annan produktion.
+Betalda byggen/saves flyttas inte.
+Ingen ny Save-/produktversion. [Mätningar och verifiering](artifacts/attack-expansion/README.md).
+
 ## Lokal sjö-/balansbatch — 2026-10-25
 
 [skirmishPacing.ts](src/config/skirmishPacing.ts) ligger efter strategi/personlighet

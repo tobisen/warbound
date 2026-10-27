@@ -30,6 +30,8 @@ it.each(skirmishMapIds)('%s has a distant reachable region, usable resources, cu
 });
 it('a paid second base builds through contact, gathers locally, produces and survives original-base destruction',()=>{
  let m=prepareEnemyConstruction(createMatch('skirmish','normal',undefined,'frontier'));const bar=m.combat.enemies.find(e=>e.buildingType==='barracks')!;bar.construction={remainingSeconds:0,builderId:null};delete m.enemyKnowledge;
+ // Explicit contact/build component fixture: candidate/resources are already in own sight.
+ m.fog!.teams.enemy.visible.fill(true);m.fog!.teams.enemy.explored.fill(true);
  for(const e of m.combat.enemies)if(e.work){e.work.order={kind:'idle'};e.navigation=undefined;}
  m.enemyPolicy!.research={attack:1,defense:1,job:null};m.combat.enemies.push(...Array.from({length:3},(_,i)=>({id:`enemy-produced-${i+1}`,kind:'unit' as const,owner:'enemy' as const,role:'soldier' as const,hp:48,position:{x:3400+i*32,y:3480},order:{kind:'idle' as const}})));m.enemyProduction!.production.nextUnitNumber=4;
  m.enemyProduction!.wood=200;m.enemyProduction!.gold=100;const bank=m.enemyProduction!.wood;m=prepareEnemyExpansion(m);const outpost=m.combat.enemies.find(e=>e.buildingType==='outpost')!;expect(outpost.footprint).toMatchObject(regionExpansion(regionBases.frontier,'frontier'));expect(m.enemyProduction!.wood).toBe(bank-80);expect(outpost.construction!.remainingSeconds).toBe(10);

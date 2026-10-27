@@ -101,3 +101,17 @@ it('dead combatants cannot damage anyone', () => {
   expect(result.gathering.units).toHaveLength(0);
   expect(updateCombat(economy(),fight(132,0),1).gathering.units[0]).toMatchObject({hp:60,order:{kind:'idle'}});
 });
+
+import {vi} from 'vitest';
+import * as interaction from './approach';
+import {combatApproach} from './combat';
+it('plans exploration once, reuses the route during unchanged frames, and replans when terrain changes',()=>{
+ const map={width:800,height:600,tileSize:32,revision:0,obstacles:[{x:320,y:64,width:64,height:224}]},position={x:100,y:100},target={x:640,y:96,width:96,height:96};
+ const search=vi.spyOn(interaction,'approachRoute');
+ try{
+  let step=combatApproach(map,position,target,'explore-goal',65,32,1/60);expect(search).toHaveBeenCalledTimes(1);expect(search.mock.calls[0][5]).toBe(true);
+  for(let i=0;i<60;i++)step=combatApproach(map,step.position,target,'explore-goal',65,32,1/60,step.navigation);
+  expect(search).toHaveBeenCalledTimes(1);expect(step.navigation.status).toBe('moving');
+  step=combatApproach({...map,revision:1},step.position,target,'explore-goal',65,32,1/60,step.navigation);expect(search).toHaveBeenCalledTimes(2);expect(step.navigation.revision).toBe(1);
+ }finally{search.mockRestore();}
+});

@@ -62,3 +62,14 @@ it('reuses spatial candidates while honoring interaction exclusions and obstacle
  // Initialization additions to the same array must invalidate both index and query cache.
  const added={...target};map.obstacles.push(added);expect(nearbyObstacles(map,area)).toContain(added);
 });
+
+import {withoutFootprints} from './map';
+it('shot endpoint exclusions reuse a collision snapshot and invalidate on terrain revisions and initialization additions',()=>{
+ const a={x:96,y:96,width:64,height:64},b={x:224,y:96,width:64,height:64},map={width:512,height:512,tileSize:32,revision:0,obstacles:[a,b]};
+ const first=withoutFootprints(map,[{...a}]);expect(first.obstacles).toEqual([b]);expect(withoutFootprints({...map},[{...a}]).obstacles).toBe(first.obstacles);
+ expect(withoutFootprints(map,[{x:180,y:180,width:24,height:24}])).toBe(map);
+ expect(withoutFootprints(map,[a,b]).obstacles).toEqual([]);expect(map.obstacles).toEqual([a,b]);
+ const c={x:320,y:320,width:32,height:32};map.obstacles.push(c);expect(withoutFootprints(map,[a]).obstacles).toEqual([b,c]);
+ const revised=replaceObstacles(map,[a]);expect(withoutFootprints(revised,[a]).obstacles).toEqual([]);
+ map.revision++;map.obstacles[1]={...b,x:256};expect(withoutFootprints(map,[a]).obstacles).toEqual([map.obstacles[1],c]);
+});

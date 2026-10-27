@@ -36,3 +36,10 @@
 @media (min-width:1200px) {
  #action-panel [data-action-group='Research']:not([data-action-group='Orders']) { grid-template-columns:repeat(4,64px); }
 }
+
+/* Navigation shares the heading; option pages always contain at most two rows. */
+#action-panel [data-action-group='Research'] h3 { display:flex; align-items:center; justify-content:space-between; gap:6px; min-height:20px; }
+#action-panel .research-pages { display:inline-flex; align-items:center; gap:4px; white-space:nowrap; }
+#action-panel .research-pages[hidden] { display:none; }
+#action-panel [data-action-group='Research'] .research-pages button { width:24px; height:20px; min-height:20px; padding:0; font:16px/18px system-ui; }
+#action-panel .research-pages button::after { content:none; }

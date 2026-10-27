@@ -188,3 +188,11 @@ it('develops technology while the existing naval transport limits ground troops 
  const m=ready();m.enemyNaval=createEnemyNaval();m.combat.enemies=m.combat.enemies.filter(e=>!e.role||['enemy-produced-1','enemy-produced-2'].includes(e.id));
  expect(strategyFor(prepareEnemyStrategy(m))!.building).toBe('forge');
 });
+
+it('scouts the authored expansion before its resources are known, but cannot pay for an empty visible site',()=>{
+ let m=ready();m.enemyKnowledge!.nodes=[];m.fog!.teams.enemy.visible.fill(false);m=prepareEnemyStrategy(m);
+ expect(strategyFor(m)!.expand).toBe(true);expect(strategyFor(m)!.priority).toBe('expansion');const bank=m.enemyProduction!.wood;
+ m=prepareEnemyExpansion(m);expect(m.enemyRecovery!.expansionPlan?.scout).toBeDefined();expect(m.enemyProduction!.wood).toBe(bank);expect(m.combat.enemies.some(e=>e.buildingType==='outpost')).toBe(false);
+ m.fog!.teams.enemy.visible.fill(true);m.waves.elapsedSeconds+=1;m=prepareEnemyExpansion(m);
+ expect(m.enemyProduction!.wood).toBe(bank);expect(m.combat.enemies.some(e=>e.buildingType==='outpost')).toBe(false);
+});

@@ -1,0 +1,93 @@
+{
+  "method": "Exclusive sampled CPU classification by stack ancestry; navigation before combat, projectiles before combat. Includes fixture setup; not frame timings.",
+  "before": {
+    "totalSampledMs": 11307.517,
+    "groups": {
+      "other": {
+        "ms": 996.35,
+        "percent": 8.8
+      },
+      "fog": {
+        "ms": 1370.381,
+        "percent": 12.1
+      },
+      "buildingsAndUnits": {
+        "ms": 422.164,
+        "percent": 3.7
+      },
+      "ai": {
+        "ms": 46.322,
+        "percent": 0.4
+      },
+      "navigation": {
+        "ms": 1558.616,
+        "percent": 13.8
+      },
+      "separationAndTraffic": {
+        "ms": 1955.888,
+        "percent": 17.3
+      },
+      "gc": {
+        "ms": 734.359,
+        "percent": 6.5
+      },
+      "combat": {
+        "ms": 2911.329,
+        "percent": 25.7
+      },
+      "targetSelection": {
+        "ms": 177.144,
+        "percent": 1.6
+      },
+      "projectiles": {
+        "ms": 1134.964,
+        "percent": 10
+      }
+    }
+  },
+  "after": {
+    "totalSampledMs": 6205.415,
+    "groups": {
+      "other": {
+        "ms": 866.396,
+        "percent": 14
+      },
+      "gc": {
+        "ms": 191.004,
+        "percent": 3.1
+      },
+      "fog": {
+        "ms": 1395.895,
+        "percent": 22.5
+      },
+      "buildingsAndUnits": {
+        "ms": 426.93,
+        "percent": 6.9
+      },
+      "ai": {
+        "ms": 35.972,
+        "percent": 0.6
+      },
+      "navigation": {
+        "ms": 787.817,
+        "percent": 12.7
+      },
+      "separationAndTraffic": {
+        "ms": 1846.955,
+        "percent": 29.8
+      },
+      "targetSelection": {
+        "ms": 155.692,
+        "percent": 2.5
+      },
+      "combat": {
+        "ms": 485.07,
+        "percent": 7.8
+      },
+      "projectiles": {
+        "ms": 13.684,
+        "percent": 0.2
+      }
+    }
+  }
+}

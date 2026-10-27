@@ -2,6 +2,7 @@ import {isShipRole,navalRoleAvailable,navalFoundryAvailable} from '../config/nav
 import {extraProducer} from '../gameplay/extraProducers';
 import {dismissProposal} from '../gameplay/dismiss';
 import {roleResearchConfig,isRoleResearch} from '../config/roleResearch';
+import {researchPage} from './researchPages';
 import {canResearch} from '../gameplay/research';
 import {workerToolsConfig} from '../config/workerTools';
 import {researchRecipe} from '../gameplay/research';
@@ -115,14 +116,31 @@ export function bindActionPanel():void{
  document.getElementById('app')!.append(document.getElementById('minimap-overlay')!);
  for(const group of actionGroups){const section=document.createElement('section'),heading=document.createElement('h3');section.dataset.actionGroup=group;section.setAttribute('aria-label',group);heading.textContent=group==='Orders'?'Orders / Actions':group;section.append(heading);(group==='Orders'?fieldset:actions).append(section);}
  for(const id of actionIds){const button=document.getElementById(id)!;let wrapper=button.parentElement!;if(!wrapper.classList.contains('control')){wrapper=document.createElement('div');wrapper.className='control';button.before(wrapper);wrapper.append(button);}const reason=document.createElement('span');reason.id=`${id}-reason`;reason.className='action-reason';button.setAttribute('aria-describedby',reason.id);wrapper.append(reason);fieldset.querySelector(`[data-action-group="${actionGroup(id)}"]`)!.append(wrapper);}
+ const research=fieldset.querySelector<HTMLElement>('[data-action-group="Research"]')!;
+ const pager=document.createElement('span');pager.className='research-pages';
+ const previous=document.createElement('button'),next=document.createElement('button'),status=document.createElement('span');
+ previous.type=next.type='button';previous.textContent='‹';next.textContent='›';
+ previous.setAttribute('aria-label','Previous research page');next.setAttribute('aria-label','Next research page');
+ status.setAttribute('aria-live','polite');pager.append(previous,status,next);research.querySelector('h3')!.append(pager);
+ let page=0,lastOptions='';
+ const renderPages=()=>{
+  const options=actionIds.filter(id=>actionGroup(id)==='Research'&&research.querySelector<HTMLElement>(`#${id}`)!.parentElement!.dataset.available==='true');
+  const key=options.join(',');if(key!==lastOptions){page=0;lastOptions=key;}
+  const result=researchPage(options,page);page=result.current;
+  for(const id of actionIds.filter(id=>actionGroup(id)==='Research'))document.getElementById(id)!.parentElement!.hidden=!result.options.includes(id);
+  pager.hidden=result.pages===1;const label=`${page+1} / ${result.pages}`;if(status.textContent!==label)status.textContent=label;previous.disabled=page===0;next.disabled=page===result.pages-1;
+ };
+ previous.addEventListener('click',()=>{page--;renderPages();});next.addEventListener('click',()=>{page++;renderPages();});
+ research.addEventListener('research-options',renderPages);
  bar.append(document.getElementById('production-queue')!);
 }
 /** Called after authoritative gameplay disabled-state sync. */
 export function renderActionPanel(model:ReturnType<typeof actionPanel>):void{
- for(const id of actionIds){const button=document.getElementById(id) as HTMLButtonElement,action=model[id],wrapper=button.parentElement!,reason=document.getElementById(`${id}-reason`)!;wrapper.hidden=!action.visible;button.disabled=button.disabled||!action.visible||!!action.reason;reason.textContent=button.disabled?(action.reason||'Action unavailable'):'';
+ for(const id of actionIds){const button=document.getElementById(id) as HTMLButtonElement,action=model[id],wrapper=button.parentElement!,reason=document.getElementById(`${id}-reason`)!;wrapper.hidden=!action.visible;wrapper.dataset.available=String(action.visible);button.disabled=button.disabled||!action.visible||!!action.reason;reason.textContent=button.disabled?(action.reason||'Action unavailable'):'';
   const hotkey=hotkeys.find(h=>h.button===id)?.key;button.dataset.producing=String(!!action.producing);if(action.active!==undefined)button.setAttribute('aria-pressed',String(action.active));const presentation={...action,reason:reason.textContent},label=button.textContent??'',tip=actionTooltip(id,presentation,label);button.removeAttribute('title');button.setAttribute('aria-label',actionDescription(id,presentation,label));if(wrapper.dataset.tooltip!==tip)wrapper.dataset.tooltip=tip;wrapper.setAttribute('tabindex',button.disabled?'0':'-1');wrapper.setAttribute('aria-label',button.getAttribute('aria-label')!);if(hotkey){button.dataset.hotkey=hotkey;setActionLabel(button,button.textContent??'');}
  }
  for(const group of actionGroups)(document.querySelector(`[data-action-group="${group}"]`) as HTMLElement).hidden=!actionIds.some(id=>actionGroup(id)===group&&model[id].visible);
+ document.querySelector('[data-action-group="Research"]')!.dispatchEvent(new Event('research-options'));
  document.getElementById('context-actions')!.classList.toggle('spell-context',actionIds.some(id=>id.startsWith('cast-')&&model[id].visible));
  const productionSelected=actionIds.some(id=>id.startsWith('train-')&&model[id].visible);document.getElementById('production-queue')!.hidden=!productionSelected;
  document.getElementById('action-hint')!.textContent=model['train-transport'].visible?'Ships spawn at a free harbor exit. Select a ship to command it.':productionSelected?'Right-click the world to set a production rally point.':Object.values(model).some(x=>x.visible)?'Right-click: move, gather (workers), attack (workers and combat). Escape: cancel placement.':'Select a unit or production building for actions.';

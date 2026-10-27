@@ -53,6 +53,42 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Commit/push av lokal rättning — 2026-10-27 — Verifierad kandidat
+
+Användaren har efter verifierad rättning uttryckligen beställt commit och push.
+Endast forskning/anfall/AI-rättningen och dess tester/underlag ingår. Befintlig
+style.css, units.mjs, docs/, CLEANUP_REPORT.md och :memory:.ses lämnas utanför.
+Commit får `[skip ci]` eftersom befintlig main-workflow annars publicerar Pages;
+publicering är inte beställd. Ingen ny produktversion. Tidigare full2106/231
+på spelkoden består. Ren kandidat: unit548/94, strict build, browser640–1920
+och native anfall PASS (maxframe33,2ms; stridsp957,9ms). Inga nya kodändringar
+efter verifiering. Index/source/exkludering granskade; befintliga användarfiler
+är bevarade. Hash och faktiskt pushresultat redovisas i slutsvaret.
+
+
+### Lokal rättning — forskning, anfallslagg och AI-expansion — 2026-10-27 — Done
+
+Nytt uttryckligt uppdrag: undersök befintlig forskningsvy/AI och profilera
+upptäckt→framryckning→strid; håll forskning till två rader med alla val nåbara,
+optimera uppmätta flaskhalsar och välj separata, användbara AI-expansioner med
+fog, verklig access och omvärdering efter blockerad plats. Ingen ny roadmaptask,
+commit, push, publicering eller version. Användarens befintliga ändringar bevaras.
+
+Implementerat: åtta forskningsval/sida med rubriknavigation; återanvänt
+skottkollisionssnapshot och första nåbara utforskningskontakt; gemensamma
+expansionskrav för alla policyer, normalt320px basavstånd och15s platsminne.
+Native-bildrutans max700,0→33,4ms. [Rapporten](artifacts/attack-expansion/README.md)
+redovisar stridens median7,6→5,9ms,
+p9512,2→8,3ms. Hela deterministiska sluttillståndets hash är identisk.
+Browser forskning640–1920 PASS; riktade119/12 och efter sista foggranskning32/3
+PASS. Fullkörning2105/231 hittade3 Frontier-regressioner; rättade genom explicit
+spaning och reserverad expansionsbudget, därefter60/3 PASS. Slutlig ny
+fullregression2106/231 PASS1021,79s på slutlig kod. Unit548/94 och strict build
+PASS. Slutlig text-/länk-/diffkontroll och bevarandekontroll PASS.
+Inga kvarstående testfel. Befintlig bundlevarning består; annan hårdvara och
+tunga femspelarlångmatcher är inte omprofilerade. Ingen commit/push/publicering.
+
+
 ### Publicera innehålls-/balansbatch — 2026-10-26 — Done
 
 Innehåll311c835 + CI-budgetkorrigering791d17f är pushade till origin/main.

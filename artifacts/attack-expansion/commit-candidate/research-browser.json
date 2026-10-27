@@ -1,0 +1,689 @@
+{
+  "results": [
+    {
+      "width": 640,
+      "page": "‹1 / 2›",
+      "options": [
+        {
+          "id": "research-workerTools",
+          "left": 394.3999938964844,
+          "right": 429.6000061035156,
+          "top": 424,
+          "bottom": 459.20001220703125,
+          "label": "Worker Tools I – level 0/3 · 10% shorter gathering · 60 wood + 30 gold · 15s [F9] · Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research · Research Worker Tools I–III at a completed main building. Wood/gold gathering takes 10/20/30% less time; each level replaces the previous bonus. Capacity remains 5. · Cost: 60 wood + 30 gold · Key: F9 · Requires: Completed main building",
+          "tooltip": "Worker Tools I [F9] · Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research · 60 wood + 30 gold"
+        },
+        {
+          "id": "upgrade-base",
+          "left": 432.8000183105469,
+          "right": 468,
+          "top": 424,
+          "bottom": 459.20001220703125,
+          "label": "Upgrade base to level 2 [I] · Upgrade the selected base. All main-building worker queues pause and resumes with its remaining time intact. · Cost: 80 wood + 60 gold · Key: I",
+          "tooltip": "Upgrade base to level 2 [I] · 80 wood + 60 gold"
+        },
+        {
+          "id": "research-attack",
+          "left": 471.20001220703125,
+          "right": 506.3999938964844,
+          "top": 424,
+          "bottom": 459.20001220703125,
+          "label": "Tempered Arms I – 40 wood + 10 gold [U] · Attack research – completed forge · Cost: 40 wood + 10 gold · Key: U · Requires: Completed forge · Unavailable: Complete Forge",
+          "tooltip": "Tempered Arms I [U] · 40 wood + 10 gold · Complete Forge"
+        },
+        {
+          "id": "research-defense",
+          "left": 509.6000061035156,
+          "right": 544.7999877929688,
+          "top": 424,
+          "bottom": 459.20001220703125,
+          "label": "Plate Craft I – 40 wood + 10 gold [D] · Defense research – completed forge · Cost: 40 wood + 10 gold · Key: D · Requires: Completed forge · Unavailable: Complete Forge",
+          "tooltip": "Plate Craft I [D] · 40 wood + 10 gold · Complete Forge"
+        },
+        {
+          "id": "research-cavalryArmor",
+          "left": 394.3999938964844,
+          "right": 429.6000061035156,
+          "top": 462.3999938964844,
+          "bottom": 497.6000061035156,
+          "label": "Cavalry Armor · 45 wood + 30 gold · Cavalry only: 20% less incoming damage; stacks once with normal defense research. [F15] · Cavalry only: 20% less incoming damage; stacks once with normal defense research. · 12s · Cavalry Armor:20% less incoming damage for your existing and future cavalry,45 wood/30 gold/12s,Forge+Stable. · Cost: 45 wood + 30 gold · Key: F15 · Requires: Forge + Stable · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Cavalry Armor [F15] · Cavalry only: 20% less incoming damage; stacks once with normal defense research. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-scoutOptics",
+          "left": 432.8000183105469,
+          "right": 468,
+          "top": 462.3999938964844,
+          "bottom": 497.6000061035156,
+          "label": "Scout Optics · 45 wood + 30 gold · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. [F17] · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. · 12s · Scout Optics:128px submarine detection in current team vision,45 wood/30 gold/12s,Forge+flight building. · Cost: 45 wood + 30 gold · Key: F17 · Requires: Forge + Royal Aviary · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Scout Optics [F17] · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-healerTraining",
+          "left": 471.20001220703125,
+          "right": 506.3999938964844,
+          "top": 462.3999938964844,
+          "bottom": 497.6000061035156,
+          "label": "Healer Training · 45 wood + 30 gold · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. [F16] · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. · 12s · Healer Training:+50 maximum mana only,45 wood/30 gold/12s,Forge+Academy. · Cost: 45 wood + 30 gold · Key: F16 · Requires: Forge + Royal Academy · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Healer Training [F16] · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-submarineDesign",
+          "left": 509.6000061035156,
+          "right": 544.7999877929688,
+          "top": 462.3999938964844,
+          "bottom": 497.6000061035156,
+          "label": "Submarine Design · 45 wood + 30 gold · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. [F20] · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. · 12s · Submarine Design:45 wood/30 gold/12s,Forge+Academy; unlocks harbor submarine. · Cost: 45 wood + 30 gold · Key: F20 · Requires: Forge + Royal Academy · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Submarine Design [F20] · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        }
+      ],
+      "research": {
+        "left": 390.3999938964844,
+        "right": 548.7999877929688,
+        "top": 400.8000183105469,
+        "bottom": 501.6000061035156
+      },
+      "queue": {
+        "left": 555.2000122070312,
+        "right": 651.2000122070312,
+        "top": 400.8000183105469,
+        "bottom": 421.6000061035156
+      },
+      "bar": {
+        "left": 0,
+        "right": 640,
+        "top": 392.8000183105469,
+        "bottom": 540
+      },
+      "canvas": {
+        "w": 800,
+        "h": 368
+      }
+    },
+    {
+      "width": 640,
+      "page": "‹2 / 2›",
+      "options": [
+        {
+          "id": "research-navalLogistics",
+          "left": 394.3999938964844,
+          "right": 429.6000061035156,
+          "top": 424,
+          "bottom": 459.20001220703125,
+          "label": "Naval Logistics · 100 wood + 75 gold · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. [F23] · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. · 30s · Research Naval Logistics at a completed Naval Foundry;100 wood/75 gold/30s. Unlocks the faction’s specialized hull. · Cost: 100 wood + 75 gold · Key: F23 · Requires: Naval Foundry · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Naval Logistics [F23] · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. · 30s · 100 wood + 75 gold · Complete prerequisites and afford research"
+        }
+      ],
+      "research": {
+        "left": 390.3999938964844,
+        "right": 548.7999877929688,
+        "top": 400.8000183105469,
+        "bottom": 463.20001220703125
+      },
+      "queue": {
+        "left": 555.2000122070312,
+        "right": 651.2000122070312,
+        "top": 400.8000183105469,
+        "bottom": 421.6000061035156
+      },
+      "bar": {
+        "left": 0,
+        "right": 640,
+        "top": 392.8000183105469,
+        "bottom": 540
+      },
+      "canvas": {
+        "w": 800,
+        "h": 368
+      }
+    },
+    {
+      "width": 800,
+      "page": "‹1 / 2›",
+      "options": [
+        {
+          "id": "research-workerTools",
+          "left": 493,
+          "right": 537,
+          "top": 455,
+          "bottom": 499,
+          "label": "Worker Tools I – level 0/3 · 10% shorter gathering · 60 wood + 30 gold · 15s [F9] · Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research · Research Worker Tools I–III at a completed main building. Wood/gold gathering takes 10/20/30% less time; each level replaces the previous bonus. Capacity remains 5. · Cost: 60 wood + 30 gold · Key: F9 · Requires: Completed main building",
+          "tooltip": "Worker Tools I [F9] · Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research · 60 wood + 30 gold"
+        },
+        {
+          "id": "upgrade-base",
+          "left": 541,
+          "right": 585,
+          "top": 455,
+          "bottom": 499,
+          "label": "Upgrade base to level 2 [I] · Upgrade the selected base. All main-building worker queues pause and resumes with its remaining time intact. · Cost: 80 wood + 60 gold · Key: I",
+          "tooltip": "Upgrade base to level 2 [I] · 80 wood + 60 gold"
+        },
+        {
+          "id": "research-attack",
+          "left": 589,
+          "right": 633,
+          "top": 455,
+          "bottom": 499,
+          "label": "Tempered Arms I – 40 wood + 10 gold [U] · Attack research – completed forge · Cost: 40 wood + 10 gold · Key: U · Requires: Completed forge · Unavailable: Complete Forge",
+          "tooltip": "Tempered Arms I [U] · 40 wood + 10 gold · Complete Forge"
+        },
+        {
+          "id": "research-defense",
+          "left": 637,
+          "right": 681,
+          "top": 455,
+          "bottom": 499,
+          "label": "Plate Craft I – 40 wood + 10 gold [D] · Defense research – completed forge · Cost: 40 wood + 10 gold · Key: D · Requires: Completed forge · Unavailable: Complete Forge",
+          "tooltip": "Plate Craft I [D] · 40 wood + 10 gold · Complete Forge"
+        },
+        {
+          "id": "research-cavalryArmor",
+          "left": 493,
+          "right": 537,
+          "top": 503,
+          "bottom": 547,
+          "label": "Cavalry Armor · 45 wood + 30 gold · Cavalry only: 20% less incoming damage; stacks once with normal defense research. [F15] · Cavalry only: 20% less incoming damage; stacks once with normal defense research. · 12s · Cavalry Armor:20% less incoming damage for your existing and future cavalry,45 wood/30 gold/12s,Forge+Stable. · Cost: 45 wood + 30 gold · Key: F15 · Requires: Forge + Stable · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Cavalry Armor [F15] · Cavalry only: 20% less incoming damage; stacks once with normal defense research. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-scoutOptics",
+          "left": 541,
+          "right": 585,
+          "top": 503,
+          "bottom": 547,
+          "label": "Scout Optics · 45 wood + 30 gold · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. [F17] · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. · 12s · Scout Optics:128px submarine detection in current team vision,45 wood/30 gold/12s,Forge+flight building. · Cost: 45 wood + 30 gold · Key: F17 · Requires: Forge + Royal Aviary · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Scout Optics [F17] · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-healerTraining",
+          "left": 589,
+          "right": 633,
+          "top": 503,
+          "bottom": 547,
+          "label": "Healer Training · 45 wood + 30 gold · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. [F16] · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. · 12s · Healer Training:+50 maximum mana only,45 wood/30 gold/12s,Forge+Academy. · Cost: 45 wood + 30 gold · Key: F16 · Requires: Forge + Royal Academy · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Healer Training [F16] · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-submarineDesign",
+          "left": 637,
+          "right": 681,
+          "top": 503,
+          "bottom": 547,
+          "label": "Submarine Design · 45 wood + 30 gold · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. [F20] · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. · 12s · Submarine Design:45 wood/30 gold/12s,Forge+Academy; unlocks harbor submarine. · Cost: 45 wood + 30 gold · Key: F20 · Requires: Forge + Royal Academy · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Submarine Design [F20] · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        }
+      ],
+      "research": {
+        "left": 488,
+        "right": 686,
+        "top": 426,
+        "bottom": 552
+      },
+      "queue": {
+        "left": 694,
+        "right": 814,
+        "top": 426,
+        "bottom": 452
+      },
+      "bar": {
+        "left": 0,
+        "right": 800,
+        "top": 416,
+        "bottom": 600
+      },
+      "canvas": {
+        "w": 800,
+        "h": 368
+      }
+    },
+    {
+      "width": 800,
+      "page": "‹2 / 2›",
+      "options": [
+        {
+          "id": "research-navalLogistics",
+          "left": 493,
+          "right": 537,
+          "top": 455,
+          "bottom": 499,
+          "label": "Naval Logistics · 100 wood + 75 gold · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. [F23] · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. · 30s · Research Naval Logistics at a completed Naval Foundry;100 wood/75 gold/30s. Unlocks the faction’s specialized hull. · Cost: 100 wood + 75 gold · Key: F23 · Requires: Naval Foundry · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Naval Logistics [F23] · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. · 30s · 100 wood + 75 gold · Complete prerequisites and afford research"
+        }
+      ],
+      "research": {
+        "left": 488,
+        "right": 686,
+        "top": 426,
+        "bottom": 504
+      },
+      "queue": {
+        "left": 694,
+        "right": 814,
+        "top": 426,
+        "bottom": 452
+      },
+      "bar": {
+        "left": 0,
+        "right": 800,
+        "top": 416,
+        "bottom": 600
+      },
+      "canvas": {
+        "w": 800,
+        "h": 368
+      }
+    },
+    {
+      "width": 1024,
+      "page": "‹1 / 2›",
+      "options": [
+        {
+          "id": "research-workerTools",
+          "left": 695,
+          "right": 739,
+          "top": 623,
+          "bottom": 667,
+          "label": "Worker Tools I – level 0/3 · 10% shorter gathering · 60 wood + 30 gold · 15s [F9] · Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research · Research Worker Tools I–III at a completed main building. Wood/gold gathering takes 10/20/30% less time; each level replaces the previous bonus. Capacity remains 5. · Cost: 60 wood + 30 gold · Key: F9 · Requires: Completed main building",
+          "tooltip": "Worker Tools I [F9] · Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research · 60 wood + 30 gold"
+        },
+        {
+          "id": "upgrade-base",
+          "left": 743,
+          "right": 787,
+          "top": 623,
+          "bottom": 667,
+          "label": "Upgrade base to level 2 [I] · Upgrade the selected base. All main-building worker queues pause and resumes with its remaining time intact. · Cost: 80 wood + 60 gold · Key: I",
+          "tooltip": "Upgrade base to level 2 [I] · 80 wood + 60 gold"
+        },
+        {
+          "id": "research-attack",
+          "left": 791,
+          "right": 835,
+          "top": 623,
+          "bottom": 667,
+          "label": "Tempered Arms I – 40 wood + 10 gold [U] · Attack research – completed forge · Cost: 40 wood + 10 gold · Key: U · Requires: Completed forge · Unavailable: Complete Forge",
+          "tooltip": "Tempered Arms I [U] · 40 wood + 10 gold · Complete Forge"
+        },
+        {
+          "id": "research-defense",
+          "left": 839,
+          "right": 883,
+          "top": 623,
+          "bottom": 667,
+          "label": "Plate Craft I – 40 wood + 10 gold [D] · Defense research – completed forge · Cost: 40 wood + 10 gold · Key: D · Requires: Completed forge · Unavailable: Complete Forge",
+          "tooltip": "Plate Craft I [D] · 40 wood + 10 gold · Complete Forge"
+        },
+        {
+          "id": "research-cavalryArmor",
+          "left": 695,
+          "right": 739,
+          "top": 671,
+          "bottom": 715,
+          "label": "Cavalry Armor · 45 wood + 30 gold · Cavalry only: 20% less incoming damage; stacks once with normal defense research. [F15] · Cavalry only: 20% less incoming damage; stacks once with normal defense research. · 12s · Cavalry Armor:20% less incoming damage for your existing and future cavalry,45 wood/30 gold/12s,Forge+Stable. · Cost: 45 wood + 30 gold · Key: F15 · Requires: Forge + Stable · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Cavalry Armor [F15] · Cavalry only: 20% less incoming damage; stacks once with normal defense research. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-scoutOptics",
+          "left": 743,
+          "right": 787,
+          "top": 671,
+          "bottom": 715,
+          "label": "Scout Optics · 45 wood + 30 gold · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. [F17] · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. · 12s · Scout Optics:128px submarine detection in current team vision,45 wood/30 gold/12s,Forge+flight building. · Cost: 45 wood + 30 gold · Key: F17 · Requires: Forge + Royal Aviary · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Scout Optics [F17] · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-healerTraining",
+          "left": 791,
+          "right": 835,
+          "top": 671,
+          "bottom": 715,
+          "label": "Healer Training · 45 wood + 30 gold · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. [F16] · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. · 12s · Healer Training:+50 maximum mana only,45 wood/30 gold/12s,Forge+Academy. · Cost: 45 wood + 30 gold · Key: F16 · Requires: Forge + Royal Academy · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Healer Training [F16] · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-submarineDesign",
+          "left": 839,
+          "right": 883,
+          "top": 671,
+          "bottom": 715,
+          "label": "Submarine Design · 45 wood + 30 gold · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. [F20] · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. · 12s · Submarine Design:45 wood/30 gold/12s,Forge+Academy; unlocks harbor submarine. · Cost: 45 wood + 30 gold · Key: F20 · Requires: Forge + Royal Academy · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Submarine Design [F20] · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        }
+      ],
+      "research": {
+        "left": 690,
+        "right": 888,
+        "top": 594,
+        "bottom": 720
+      },
+      "queue": {
+        "left": 896,
+        "right": 1016,
+        "top": 594,
+        "bottom": 620
+      },
+      "bar": {
+        "left": 0,
+        "right": 1024,
+        "top": 584,
+        "bottom": 768
+      },
+      "canvas": {
+        "w": 1024,
+        "h": 536
+      }
+    },
+    {
+      "width": 1024,
+      "page": "‹2 / 2›",
+      "options": [
+        {
+          "id": "research-navalLogistics",
+          "left": 695,
+          "right": 739,
+          "top": 623,
+          "bottom": 667,
+          "label": "Naval Logistics · 100 wood + 75 gold · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. [F23] · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. · 30s · Research Naval Logistics at a completed Naval Foundry;100 wood/75 gold/30s. Unlocks the faction’s specialized hull. · Cost: 100 wood + 75 gold · Key: F23 · Requires: Naval Foundry · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Naval Logistics [F23] · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. · 30s · 100 wood + 75 gold · Complete prerequisites and afford research"
+        }
+      ],
+      "research": {
+        "left": 690,
+        "right": 888,
+        "top": 594,
+        "bottom": 672
+      },
+      "queue": {
+        "left": 896,
+        "right": 1016,
+        "top": 594,
+        "bottom": 620
+      },
+      "bar": {
+        "left": 0,
+        "right": 1024,
+        "top": 584,
+        "bottom": 768
+      },
+      "canvas": {
+        "w": 1024,
+        "h": 536
+      }
+    },
+    {
+      "width": 1280,
+      "page": "‹1 / 2›",
+      "options": [
+        {
+          "id": "research-workerTools",
+          "left": 871,
+          "right": 935,
+          "top": 575,
+          "bottom": 639,
+          "label": "Worker Tools I – level 0/3 · 10% shorter gathering · 60 wood + 30 gold · 15s [F9] · Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research · Research Worker Tools I–III at a completed main building. Wood/gold gathering takes 10/20/30% less time; each level replaces the previous bonus. Capacity remains 5. · Cost: 60 wood + 30 gold · Key: F9 · Requires: Completed main building",
+          "tooltip": "Worker Tools I [F9] · Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research · 60 wood + 30 gold"
+        },
+        {
+          "id": "upgrade-base",
+          "left": 939,
+          "right": 1003,
+          "top": 575,
+          "bottom": 639,
+          "label": "Upgrade base to level 2 [I] · Upgrade the selected base. All main-building worker queues pause and resumes with its remaining time intact. · Cost: 80 wood + 60 gold · Key: I",
+          "tooltip": "Upgrade base to level 2 [I] · 80 wood + 60 gold"
+        },
+        {
+          "id": "research-attack",
+          "left": 1007,
+          "right": 1071,
+          "top": 575,
+          "bottom": 639,
+          "label": "Tempered Arms I – 40 wood + 10 gold [U] · Attack research – completed forge · Cost: 40 wood + 10 gold · Key: U · Requires: Completed forge · Unavailable: Complete Forge",
+          "tooltip": "Tempered Arms I [U] · 40 wood + 10 gold · Complete Forge"
+        },
+        {
+          "id": "research-defense",
+          "left": 1075,
+          "right": 1139,
+          "top": 575,
+          "bottom": 639,
+          "label": "Plate Craft I – 40 wood + 10 gold [D] · Defense research – completed forge · Cost: 40 wood + 10 gold · Key: D · Requires: Completed forge · Unavailable: Complete Forge",
+          "tooltip": "Plate Craft I [D] · 40 wood + 10 gold · Complete Forge"
+        },
+        {
+          "id": "research-cavalryArmor",
+          "left": 871,
+          "right": 935,
+          "top": 643,
+          "bottom": 707,
+          "label": "Cavalry Armor · 45 wood + 30 gold · Cavalry only: 20% less incoming damage; stacks once with normal defense research. [F15] · Cavalry only: 20% less incoming damage; stacks once with normal defense research. · 12s · Cavalry Armor:20% less incoming damage for your existing and future cavalry,45 wood/30 gold/12s,Forge+Stable. · Cost: 45 wood + 30 gold · Key: F15 · Requires: Forge + Stable · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Cavalry Armor [F15] · Cavalry only: 20% less incoming damage; stacks once with normal defense research. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-scoutOptics",
+          "left": 939,
+          "right": 1003,
+          "top": 643,
+          "bottom": 707,
+          "label": "Scout Optics · 45 wood + 30 gold · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. [F17] · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. · 12s · Scout Optics:128px submarine detection in current team vision,45 wood/30 gold/12s,Forge+flight building. · Cost: 45 wood + 30 gold · Key: F17 · Requires: Forge + Royal Aviary · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Scout Optics [F17] · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-healerTraining",
+          "left": 1007,
+          "right": 1071,
+          "top": 643,
+          "bottom": 707,
+          "label": "Healer Training · 45 wood + 30 gold · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. [F16] · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. · 12s · Healer Training:+50 maximum mana only,45 wood/30 gold/12s,Forge+Academy. · Cost: 45 wood + 30 gold · Key: F16 · Requires: Forge + Royal Academy · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Healer Training [F16] · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-submarineDesign",
+          "left": 1075,
+          "right": 1139,
+          "top": 643,
+          "bottom": 707,
+          "label": "Submarine Design · 45 wood + 30 gold · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. [F20] · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. · 12s · Submarine Design:45 wood/30 gold/12s,Forge+Academy; unlocks harbor submarine. · Cost: 45 wood + 30 gold · Key: F20 · Requires: Forge + Royal Academy · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Submarine Design [F20] · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        }
+      ],
+      "research": {
+        "left": 866,
+        "right": 1144,
+        "top": 546,
+        "bottom": 712
+      },
+      "queue": {
+        "left": 1152,
+        "right": 1272,
+        "top": 546,
+        "bottom": 572
+      },
+      "bar": {
+        "left": 0,
+        "right": 1280,
+        "top": 536,
+        "bottom": 720
+      },
+      "canvas": {
+        "w": 1280,
+        "h": 488
+      }
+    },
+    {
+      "width": 1280,
+      "page": "‹2 / 2›",
+      "options": [
+        {
+          "id": "research-navalLogistics",
+          "left": 871,
+          "right": 935,
+          "top": 575,
+          "bottom": 639,
+          "label": "Naval Logistics · 100 wood + 75 gold · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. [F23] · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. · 30s · Research Naval Logistics at a completed Naval Foundry;100 wood/75 gold/30s. Unlocks the faction’s specialized hull. · Cost: 100 wood + 75 gold · Key: F23 · Requires: Naval Foundry · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Naval Logistics [F23] · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. · 30s · 100 wood + 75 gold · Complete prerequisites and afford research"
+        }
+      ],
+      "research": {
+        "left": 866,
+        "right": 1144,
+        "top": 546,
+        "bottom": 644
+      },
+      "queue": {
+        "left": 1152,
+        "right": 1272,
+        "top": 546,
+        "bottom": 572
+      },
+      "bar": {
+        "left": 0,
+        "right": 1280,
+        "top": 536,
+        "bottom": 720
+      },
+      "canvas": {
+        "w": 1280,
+        "h": 488
+      }
+    },
+    {
+      "width": 1920,
+      "page": "‹1 / 2›",
+      "options": [
+        {
+          "id": "research-workerTools",
+          "left": 1511,
+          "right": 1575,
+          "top": 935,
+          "bottom": 999,
+          "label": "Worker Tools I – level 0/3 · 10% shorter gathering · 60 wood + 30 gold · 15s [F9] · Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research · Research Worker Tools I–III at a completed main building. Wood/gold gathering takes 10/20/30% less time; each level replaces the previous bonus. Capacity remains 5. · Cost: 60 wood + 30 gold · Key: F9 · Requires: Completed main building",
+          "tooltip": "Worker Tools I [F9] · Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research · 60 wood + 30 gold"
+        },
+        {
+          "id": "upgrade-base",
+          "left": 1579,
+          "right": 1643,
+          "top": 935,
+          "bottom": 999,
+          "label": "Upgrade base to level 2 [I] · Upgrade the selected base. All main-building worker queues pause and resumes with its remaining time intact. · Cost: 80 wood + 60 gold · Key: I",
+          "tooltip": "Upgrade base to level 2 [I] · 80 wood + 60 gold"
+        },
+        {
+          "id": "research-attack",
+          "left": 1647,
+          "right": 1711,
+          "top": 935,
+          "bottom": 999,
+          "label": "Tempered Arms I – 40 wood + 10 gold [U] · Attack research – completed forge · Cost: 40 wood + 10 gold · Key: U · Requires: Completed forge · Unavailable: Complete Forge",
+          "tooltip": "Tempered Arms I [U] · 40 wood + 10 gold · Complete Forge"
+        },
+        {
+          "id": "research-defense",
+          "left": 1715,
+          "right": 1779,
+          "top": 935,
+          "bottom": 999,
+          "label": "Plate Craft I – 40 wood + 10 gold [D] · Defense research – completed forge · Cost: 40 wood + 10 gold · Key: D · Requires: Completed forge · Unavailable: Complete Forge",
+          "tooltip": "Plate Craft I [D] · 40 wood + 10 gold · Complete Forge"
+        },
+        {
+          "id": "research-cavalryArmor",
+          "left": 1511,
+          "right": 1575,
+          "top": 1003,
+          "bottom": 1067,
+          "label": "Cavalry Armor · 45 wood + 30 gold · Cavalry only: 20% less incoming damage; stacks once with normal defense research. [F15] · Cavalry only: 20% less incoming damage; stacks once with normal defense research. · 12s · Cavalry Armor:20% less incoming damage for your existing and future cavalry,45 wood/30 gold/12s,Forge+Stable. · Cost: 45 wood + 30 gold · Key: F15 · Requires: Forge + Stable · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Cavalry Armor [F15] · Cavalry only: 20% less incoming damage; stacks once with normal defense research. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-scoutOptics",
+          "left": 1579,
+          "right": 1643,
+          "top": 1003,
+          "bottom": 1067,
+          "label": "Scout Optics · 45 wood + 30 gold · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. [F17] · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. · 12s · Scout Optics:128px submarine detection in current team vision,45 wood/30 gold/12s,Forge+flight building. · Cost: 45 wood + 30 gold · Key: F17 · Requires: Forge + Royal Aviary · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Scout Optics [F17] · Scouts detect submarines within128px and current team vision; ordinary288px vision unchanged. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-healerTraining",
+          "left": 1647,
+          "right": 1711,
+          "top": 1003,
+          "bottom": 1067,
+          "label": "Healer Training · 45 wood + 30 gold · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. [F16] · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. · 12s · Healer Training:+50 maximum mana only,45 wood/30 gold/12s,Forge+Academy. · Cost: 45 wood + 30 gold · Key: F16 · Requires: Forge + Royal Academy · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Healer Training [F16] · Healers only: +50 maximum mana; initial mana, regeneration, Heal amount/range/cost/cooldown unchanged. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        },
+        {
+          "id": "research-submarineDesign",
+          "left": 1715,
+          "right": 1779,
+          "top": 1003,
+          "bottom": 1067,
+          "label": "Submarine Design · 45 wood + 30 gold · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. [F20] · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. · 12s · Submarine Design:45 wood/30 gold/12s,Forge+Academy; unlocks harbor submarine. · Cost: 45 wood + 30 gold · Key: F20 · Requires: Forge + Royal Academy · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Submarine Design [F20] · Unlocks harbor submarines: water only, torpedoes against ships only; enemy detection requires nearby detector and current vision. · 12s · 45 wood + 30 gold · Complete prerequisites and afford research"
+        }
+      ],
+      "research": {
+        "left": 1506,
+        "right": 1784,
+        "top": 906,
+        "bottom": 1072
+      },
+      "queue": {
+        "left": 1792,
+        "right": 1912,
+        "top": 906,
+        "bottom": 932
+      },
+      "bar": {
+        "left": 0,
+        "right": 1920,
+        "top": 896,
+        "bottom": 1080
+      },
+      "canvas": {
+        "w": 1920,
+        "h": 848
+      }
+    },
+    {
+      "width": 1920,
+      "page": "‹2 / 2›",
+      "options": [
+        {
+          "id": "research-navalLogistics",
+          "left": 1511,
+          "right": 1575,
+          "top": 935,
+          "bottom": 999,
+          "label": "Naval Logistics · 100 wood + 75 gold · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. [F23] · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. · 30s · Research Naval Logistics at a completed Naval Foundry;100 wood/75 gold/30s. Unlocks the faction’s specialized hull. · Cost: 100 wood + 75 gold · Key: F23 · Requires: Naval Foundry · Unavailable: Complete prerequisites and afford research",
+          "tooltip": "Naval Logistics [F23] · Humans unlock the fast Tide Runner escort (ships/air); Dwarves unlock the slow long-range Bombard (ships/buildings). Invest in specialized hulls instead of immediate warships. · 30s · 100 wood + 75 gold · Complete prerequisites and afford research"
+        }
+      ],
+      "research": {
+        "left": 1506,
+        "right": 1784,
+        "top": 906,
+        "bottom": 1004
+      },
+      "queue": {
+        "left": 1792,
+        "right": 1912,
+        "top": 906,
+        "bottom": 932
+      },
+      "bar": {
+        "left": 0,
+        "right": 1920,
+        "top": 896,
+        "bottom": 1080
+      },
+      "canvas": {
+        "w": 1920,
+        "h": 848
+      }
+    }
+  ]
+}

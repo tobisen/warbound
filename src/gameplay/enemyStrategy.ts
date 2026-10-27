@@ -1,3 +1,4 @@
+import {validExpansionSites} from './enemyExpansionSites';
 import {navalContentAI} from '../config/seaBattle';
 import {navalFoundryAvailable} from '../config/navy';
 import {skirmishAISettings} from '../config/skirmishPacing';
@@ -63,16 +64,10 @@ function freeSite(m:MatchState,rect:Footprint){return rect.x>=0&&rect.y>=0&&rect
 /** Bounded, deterministic candidates around remembered deposits and the map's authored scout site. */
 export function strategicExpansionSites(m:MatchState):Position[]{
  const base=enemyBase(m.combat,m.map);if(!base?.footprint)return [];
- const bases=m.combat.enemies.filter(e=>e.hp>0&&(e.kind==='base'||e.buildingType==='outpost'));
  const nodes=(m.enemyKnowledge?.nodes??[]).filter(n=>n.remaining>0);
- const danger=visibleHostiles(m).filter(u=>u.kind==='soldier');
- const points=[regionExpansion(base.footprint,m.map.id??'arena'),...nodes.filter(n=>n.resource==='gold').flatMap(n=>[{x:n.position.x-144,y:n.position.y+96},{x:n.position.x+96,y:n.position.y-144},{x:n.position.x-144,y:n.position.y-144}])];
- const seen=new Set<string>();
- return points.map(p=>({x:Math.floor(p.x/32)*32,y:Math.floor(p.y/32)*32})).filter(p=>{
-  const key=`${p.x}:${p.y}`;if(seen.has(key))return false;seen.add(key);
-  const rect={...p,width:enemyExpansionConfig.size,height:enemyExpansionConfig.size},center={x:p.x+rect.width/2,y:p.y+rect.height/2};
-  return freeSite(m,rect)&&bases.every(b=>Math.hypot(center.x-b.position.x,center.y-b.position.y)>=limits.baseSpacing)&&nodes.some(n=>Math.hypot(center.x-n.position.x,center.y-n.position.y)<=limits.resourceRange)&&(!m.enemyKnowledge?.playerBase||Math.hypot(center.x-m.enemyKnowledge.playerBase.x,center.y-m.enemyKnowledge.playerBase.y)>limits.dangerRange)&&danger.every(u=>Math.hypot(center.x-u.position.x,center.y-u.position.y)>limits.dangerRange);
- }).sort((a,b)=>Math.hypot(a.x-base.position.x,a.y-base.position.y)-Math.hypot(b.x-base.position.x,b.y-base.position.y)||a.x-b.x||a.y-b.y).slice(0,limits.maxCandidates);
+ const scoutPoint=regionExpansion(base.footprint,m.map.id??'arena');
+ const points=[scoutPoint,...nodes.filter(n=>n.resource==='gold').flatMap(n=>[{x:n.position.x-144,y:n.position.y+96},{x:n.position.x+96,y:n.position.y-144},{x:n.position.x-144,y:n.position.y-144}])];
+ return validExpansionSites(m,points,scoutPoint).sort((a,b)=>Math.hypot(a.x-base.position.x,a.y-base.position.y)-Math.hypot(b.x-base.position.x,b.y-base.position.y)||a.x-b.x||a.y-b.y).slice(0,limits.maxCandidates);
 }
 /** Derived, transient plan: no navigation searches; paid executors revalidate every action. */
 export function prepareEnemyStrategy(m:MatchState):MatchState {
@@ -94,7 +89,7 @@ export function prepareEnemyStrategy(m:MatchState):MatchState {
  else if(pop.used+pop.reserved>=pop.cap-enemyConstructionConfig.supplyMargin&&(p.farms?.length??0)<enemyConstructionConfig.maxFarms)choose('farm','supply');
  else if(workers<workerTarget&&(!threatened||army.length>=profile.minArmy))priority='workers';
  else if(army.length+(m.enemyNaval?.passengers.length??0)<(m.enemyNaval?Math.min(2,minimumArmy):minimumArmy)||threatened)priority='army';
- else if(expand&&expansionSites.some(s=>visibleSite(m,{...s,width:96,height:96})))priority='expansion';
+ else if(expand)priority='expansion';
  else if(!r.job){
   if(!p.forge)choose('forge','forge');
   else if(p.forge.construction.remainingSeconds===0){

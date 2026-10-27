@@ -10,7 +10,7 @@ import {enemyPopulation} from './enemyConstruction';
 import type {ProductionState} from './production';
 import type {GatheringState,Worker} from './gathering';
 import type {MatchState} from './match';
-export interface EnemyRecoveryState {production:ProductionState;nextExpansionAttemptSeconds:number}
+export interface EnemyRecoveryState {expansionPlan?:import('./enemyExpansionSites').ExpansionPlan;production:ProductionState;nextExpansionAttemptSeconds:number}
 export const createEnemyRecovery=():EnemyRecoveryState=>({nextExpansionAttemptSeconds:0,production:{remainingSeconds:null,nextUnitNumber:enemyEconomyConfig.workerCount+1}});
 export function needsEnemyWorker(m:MatchState):boolean {
  return !!m.enemyRecovery&&m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0).length<(strategyFor(m)?.workerTarget??(enemyEconomyConfig.workerCount+(isRegionalDesign(m.map.design)?2*m.combat.enemies.filter(e=>e.buildingType==='outpost'&&e.construction?.remainingSeconds===0).length:0)));

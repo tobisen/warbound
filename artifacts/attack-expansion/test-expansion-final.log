@@ -1,0 +1,13 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/mapRegions.test.ts src/gameplay/enemyStrategy.test.ts src/gameplay/enemyExpansion.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  3 passed (3)
+      Tests  60 passed (60)
+   Start at  20:57:34
+   Duration  23.06s (transform 664ms, setup 0ms, import 906ms, tests 36.57s, environment 0ms)
+

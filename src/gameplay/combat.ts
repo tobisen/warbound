@@ -10,7 +10,7 @@ import {airPresentation} from '../config/air';
 import {attackTargets,canAttackDomain,isAir,movementMap,targetDomain} from './domains';
 import {spellModifiers,type SpellState} from './spells';
 import {defenseBalanceConfig} from '../config/repair';
-import {enemyNavigationMap} from './map';
+import {enemyNavigationMap,withoutFootprints} from './map';
 import {towerShots} from './towers';
 import {enemyUnitStats,enemyRangedStats,enemySoldier} from './enemyUnits';
 import {factions,type FactionId} from '../config/factions';
@@ -87,7 +87,9 @@ export function combatApproach(map: WorldMap, position: Position, target: Footpr
   }
   const needsPlan=!cached || cached.revision!==map.revision
     || retryAfter===0 && (cached.goalKey!==goalKey || cached.status==='arrived');
-  const route=needsPlan?{...approachRoute(targetMap,position,target,range,cached?.commandNumber??1),
+  // Long-range exploration needs one reachable contact, not an optimal search
+  // over every side of the destination for every arriving army member.
+  const route=needsPlan?{...approachRoute(targetMap,position,target,range,cached?.commandNumber??1,targetId==='explore-goal'),
     goalKey,targetId,retryAfter:navigationConfig.pursuitReplanSeconds}:{...cached!,retryAfter};
   // A moving target may invalidate the current connector. Stop until its bounded replan trigger.
   if(route.waypoints[0] && !segmentFits(targetMap,position,route.waypoints[0])) {
@@ -140,7 +142,7 @@ export function updateCombat(gathering: GatheringState, combat: CombatState, del
       : approach(unit.position, enemy.position, speed, range, delta);
     if(ranged&&unit.kind==='soldier') {
       let cooldown=Math.max(0,(unit.attackCooldown??0)-(delta-step.attackSeconds)),time=step.attackSeconds;
-      const canFire=(!visible||visible(enemy,unit))&&(!map||isAir(unit)||isAir(enemy)||segmentFits(enemy.footprint?{...marineFlightMap(map),obstacles:map.obstacles.filter(o=>!(o.x===enemy.footprint!.x&&o.y===enemy.footprint!.y&&o.width===enemy.footprint!.width&&o.height===enemy.footprint!.height))}:marineFlightMap(map),step.position,enemy.position,0));
+      const canFire=(!visible||visible(enemy,unit))&&(!map||isAir(unit)||isAir(enemy)||segmentFits(enemy.footprint?withoutFootprints(map,[enemy.footprint]):marineFlightMap(map),step.position,enemy.position,0));
       while(canFire&&time>0&&time+1e-9>=cooldown) {
         time=Math.max(0,time-cooldown);
         shots.push({projectile:{bossProfile:bossDamageProfile(unit.kind==='soldier'?unit.archetype:undefined,true),id:`arrow-${nextProjectileNumber++}`,shooterId:unit.id,targetId:enemy.id,
@@ -206,7 +208,7 @@ export function updateCombat(gathering: GatheringState, combat: CombatState, del
     const soldier=enemySoldier(enemy,enemyFaction);
     if(ranged){
       let cooldown=Math.max(0,(enemy.attackCooldown??0)-(delta-step.attackSeconds)),time=step.attackSeconds;
-      const canFire=!!enemy.boss||!map||isAir(enemy)||target.domain==='air'||segmentFits({...marineFlightMap(map),obstacles:marineFlightMap(map).obstacles.filter(o=>!(o.x===footprint.x&&o.y===footprint.y&&o.width===footprint.width&&o.height===footprint.height))},step.position,center,0);
+      const canFire=!!enemy.boss||!map||isAir(enemy)||target.domain==='air'||segmentFits(withoutFootprints(marineFlightMap(map),[footprint]),step.position,center,0);
       while(canFire&&time>0&&time+1e-9>=cooldown){
         time=Math.max(0,time-cooldown);
         shots.push({projectile:{bossProfile:bossDamageProfile(enemy.role,true),owner:'enemy',id:`enemy-arrow-${nextProjectileNumber++}`,shooterId:enemy.id,targetId:target.id,

@@ -1,0 +1,14 @@
+
+> warcraft-2-tribute@0.8.0 test:unit
+> node scripts/test-unit.mjs
+
+Unit suite: 94 files; 137 explicitly classified integration files run via npm test or targeted commands.
+
+ RUN  v4.1.11 /private/tmp/warbound-attack-commit.3JEAtj
+
+
+ Test Files  94 passed (94)
+      Tests  548 passed (548)
+   Start at  23:51:06
+   Duration  18.01s (transform 1.04s, setup 0ms, import 8.84s, tests 21.33s, environment 4ms)
+
