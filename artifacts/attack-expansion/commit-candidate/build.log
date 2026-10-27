@@ -17,7 +17,7 @@ dist/assets/index-CiSUKYDw.css     33.74 kB │ gzip:   7.61 kB
 dist/assets/index-DoP3GGBT.js   2,186.04 kB │ gzip: 582.40 kB
 
 ✓ built in 577ms
-[plugin builtin:vite-reporter] 
+[plugin builtin:vite-reporter]
 (!) Some chunks are larger than 500 kB after minification. Consider:
 - Using dynamic import() to code-split the application
 - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting

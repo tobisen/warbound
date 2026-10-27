@@ -197,3 +197,6 @@ Exporten saknar .git, så build-ID blirunknown där; build/typecheck lyckas.
 Befintlig bundlevarning kvarstår. Ny CI/Pages körs inte med `[skip ci]`.
 
 JSON, screenshots, CPU-profil och loggar finns i `commit-candidate/`.
+
+Spelkodscommit: `b6284ba`. Sparade textloggar är whitespace-normaliserade
+(utan ändrade resultat); uppföljningen ändrar bara loggar/leveransnoteringar.

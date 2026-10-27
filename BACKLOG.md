@@ -53,7 +53,7 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
-### Commit/push av lokal rättning — 2026-10-27 — Verifierad kandidat
+### Commit/push av lokal rättning — 2026-10-27 — Commit verifierad
 
 Användaren har efter verifierad rättning uttryckligen beställt commit och push.
 Endast forskning/anfall/AI-rättningen och dess tester/underlag ingår. Befintlig
@@ -63,7 +63,9 @@ publicering är inte beställd. Ingen ny produktversion. Tidigare full2106/231
 på spelkoden består. Ren kandidat: unit548/94, strict build, browser640–1920
 och native anfall PASS (maxframe33,2ms; stridsp957,9ms). Inga nya kodändringar
 efter verifiering. Index/source/exkludering granskade; befintliga användarfiler
-är bevarade. Hash och faktiskt pushresultat redovisas i slutsvaret.
+är bevarade. Spelkodscommitb6284ba är skapad. En uppföljning normaliserar
+whitespace i sparade loggar; ingen spelkod ändras. Slutlig samlad diffkontroll
+PASS. Faktiskt pushresultat och slutlig HEAD redovisas i slutsvaret.
 
 
 ### Lokal rättning — forskning, anfallslagg och AI-expansion — 2026-10-27 — Done

@@ -1,4 +1,4 @@
-## Commit/push av forskning/anfall/AI-rättning — 2026-10-27 — Verifierad kandidat
+## Commit/push av forskning/anfall/AI-rättning — 2026-10-27 — Commit verifierad
 
 Nytt uttryckligt mandat efter lokal leverans: commit och push av rättningen.
 Användarens tidigare CSS/units.mjs och otrackade docs/CLEANUP_REPORT/:memory:.ses
@@ -18,7 +18,11 @@ behövs för att exkludera CSS/asset-authoring som ligger utanför commiten.
 Exporten saknar .git, så build-ID blirunknown där; build/typecheck lyckas.
 Befintlig bundlevarning kvarstår. Ny CI/Pages körs inte med `[skip ci]`.
 
-Ingen commit/push hävdas före git-resultatet; hash/push rapporteras i slutsvaret.
+Spelkodscommitb6284ba skapad. Diffkontrollens whitespaceutslag i nysparade
+loggar missades före den commiten; en uppföljningscommit normaliserar loggarna
+och uppdaterar denna leveransnotering. Ingen ändring av spelkod eller testutfall,
+så unit/build/browser/fullregression återanvänds. Samlad diffkontroll körs före
+uppföljningscommit. Pushresultat och slutlig HEAD rapporteras i slutsvaret.
 
 ## Lokal rättning av forskning, anfall och AI-expansion — 2026-10-27 — Done
 
