@@ -1,3 +1,14 @@
+## Publiceringsgranskning 2026-10-30 — verifierad
+
+Commit bd6d0f3 är pushad och publicerad. Ny CI2150/235, strict build och Pages
+PASS; exakt kandidat unit552/94 och produktionsbrowser PASS. Publicerad build
+bd6d0f3 bekräftad i Chrome:10/10 fraktionsflöden och4/4 releaseflöden, inga
+runtime-/assetfel. Bilder800/1280 granskade. Endast browserkontrollens väntan på
+laddad scen rättades vid nätkontrollen; ingen spelkod ändrades efter CI.
+[Underlag och begränsningar](artifacts/tides-publication/README.md).
+Separata användarfiler är oförändrade och ej committade. Tidigare lokal granskning
+nedan är historik; dess saknade helt gröna fullkörning kompletteras av ny CI.
+
 ## Tides of War — egen granskning 2026-10-30
 
 Källkod, förändringen mot bevarad arbetskopia, fraktionsconfig, researchkedjor,

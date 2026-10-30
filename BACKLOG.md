@@ -53,26 +53,41 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
-## Beställd commit, push och Pages-publicering — 2026-10-30
+## Tides of War publicerad — 2026-10-30 — Done
 
-Nytt uttryckligt mandat ersätter förbudet mot commit/push/publicering för den
-lokala leveransen. Innehållspaketet och den verifierade lokala AI/navigation-
-rättningen ingår. Användarens separata style.css, assets/sources/units.mjs,
-docs/, CLEANUP_REPORT.md och :memory:.ses lämnas orörda och utanför commit.
-Produktversion0.8.0 består; git/build-ID identifierar publiceringen.
+[Spela Warbound](https://tobisen.github.io/warbound/) visar **v0.8.0 / Build bd6d0f3**.
+Kodcommit [bd6d0f38b4bcd8952b9e437a913cb77ac0286481](https://github.com/tobisen/warbound/commit/bd6d0f38b4bcd8952b9e437a913cb77ac0286481)
+är pushad till origin/main utan force. Nytt uttryckligt commit/push/publicerings-
+mandat är genomfört. Innehållspaketet och den tidigare verifierade lokala
+AI/navigation-rättningen ingår; inga nya gameplayändringar under publiceringen.
 
-Den exakta commitkandidaten exporteras utan dessa användarfiler och kontrolleras
-med unit, strict build och browser före push. Befintligt Pages-workflow kör
-full regression och build före deploy. Publicerad build och resurser kontrolleras
-i browser när deployment är klar. Resultat och hash kompletteras efter utförande.
-Tidigare lokala test-/prestanda-/ljudbegränsningar i rapporterna består.
+[CI41110668899](https://github.com/tobisen/warbound/actions/runs/41110668899)
+är faktiskt grön för denna commit: **2150 tester/235 filer PASS1406,32s**,
+strict TypeScript/produktionsbygge PASS894ms, presentationsbygge och Pages-
+deploy PASS. Detta är en ny komplett fullkörning med samtliga tester gröna,
+och kompletterar den tidigare lokala körningen med ett rättat förväntansfel.
 
+Exakt exporterad commitkandidat utan användarens separata filer: unit552/94
+PASS17,49s, strict build PASS523ms, produktionsbrowser10/10 och releasebrowser
+PASS. Faktisk publicerad sida: research/Tech Tree/kostnader/aktiv Save/Load
+för fem fraktioner vid800/1280 PASS10/10; releasekontroll vid800/1280 samt
+1600 Native/Fit PASS4/4 för kampanj, skirmish, team/spectator, Save/Load,
+pause/replay/menu, fullscreen, upplösningar, reload och assetladdning.
+Samtliga fyra releaseprov bekräftar Build bd6d0f3; noll runtime- eller assetfel.
+Representativa publicerade800/1280-bilder är visuellt granskade.
 
-Exakt exporterad commitkandidat: unit552/94 PASS17,49s, build inklusive strict
-TypeScript PASS523ms, produktionsbrowser10/10 för nya fraktionsval/Save och
-befintlig releasebrowser PASS800/1280/1600 Native/Fit. Visuell800-granskning,
-diff och exkluderade användarfiler kontrollerade. Full regression körs i CI före
-deploy; CI/Pages är ännu inte verifierade. Se [publiceringsunderlaget](artifacts/tides-publication/README.md).
+Den publika nätladdningen blottade en för tidig fixturestart i nya browser-
+skriptet. Kontrollen väntar nu på initial scen/resurser och vald Fleet-match;
+inga assertions togs bort och ingen spelkod ändrades. Skriptet kördes därefter
+med ovanstående PASS. Uppföljningscommit för verifieringsskript, dokument och
+artefakter använder [skip ci]; den ändrar inte den redan verifierade spelbuilden.
+
+Se [loggar, CI och bilder](artifacts/tides-publication/README.md).
+Användarens style.css, assets/sources/units.mjs, docs/, CLEANUP_REPORT.md och
+:memory:.ses är bevarade och utanför båda commits. Produktversionen är oförändrad.
+Känd storarmélagg, liten CPU-ökning i80-fixturen, delad Foundry-grafik, AI:s
+äldre tvåsoldaterslandstigning och ej gjord mänsklig balans-/ljudgranskning
+kvarstår enligt innehållsrapporten. Inga nya tasks eller publiceringar startas.
 
 ### Tides of War — 2026-10-30 — Implementerad och verifierad lokalt med begränsningar
 

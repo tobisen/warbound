@@ -1,6 +1,8 @@
 # Tides of War — lokalt innehållsuppdrag 2026-10-30
 
-Status: implementerat och verifierat lokalt med nedanstående begränsningar. Ingen commit, push eller publicering.
+Status: publicerat som v0.8.0 / Build bd6d0f3 efter uttryckligt nytt mandat.
+Ny CI2150/235, strict build, Pages och faktisk publicerad browser PASS.
+Se [publiceringsrapport](artifacts/tides-publication/README.md).
 Befintlig arbetskatalog, särskilt AI/navigation, CSS, units.mjs och docs, bevaras.
 
 ## Inventering före ändringar
@@ -63,7 +65,7 @@ rättades till Coast Ballistas avsiktliga begränsning och verifierar nu både
 oförändrad mål-HP och utebliven projektil mot luft. Hela projectileDomains-filen
 kördes om:13/13 PASS594ms. Ingen spelkod ändrades efter fullkörningen; dess
 234 godkända filer återanvänds. Därmed finns godkända belägg för samtliga2150
-aktuella testfall, men ingen andra fullkörning med allt grönt i samma körning.
+aktuella testfall, men ingen andra lokal fullkörning. Efterföljande CI2150/235 är helt grön.
 Slutlig build med strict TypeScript PASS546ms efter teständringen. Unit552/94
 återanvänds från samma spelkod; den ändrade filen är integration. Diff och
 lokala dokumentlänkar PASS. Se loggarna i artefaktrapporten.

@@ -6,9 +6,10 @@ const browser=await chromium.launch({headless:true,executablePath:'/Applications
 try{for(const width of [800,1280])for(const faction of ['crown','clans','elves','dwarves','goblins']){
  const height=width===800?600:720,p=await browser.newPage({viewport:{width,height}}),errors=[];p.on('pageerror',e=>errors.push(e.message));
  await p.route('**/assets/index-*.js',async r=>{const response=await r.fetch();let body=await response.text();const match=[...body.matchAll(/new ([A-Za-z_$][\w$]*)\.Game\(\{/g)].at(-1);assert(match,'Phaser bootstrap missing');body=body.slice(0,match.index)+'window.__gameCheck='+body.slice(match.index);await r.fulfill({response,body});});
- await p.goto(process.env.W2T_RELEASE_URL??'http://127.0.0.1:5197/warbound/',{waitUntil:'domcontentloaded'});
+ await p.goto(process.env.W2T_RELEASE_URL??'http://127.0.0.1:5197/warbound/',{waitUntil:'networkidle',timeout:60000});
+ await p.waitForFunction(()=>{const s=window.__gameCheck?.scene.keys.BootScene;return !!s?.gathering&&!!s.map&&!s.restartPending;},{},{timeout:60000});
  if(process.env.W2T_EXPECT_BUILD)assert.equal(await p.locator('#home-release').getAttribute('title'),`Build ${process.env.W2T_EXPECT_BUILD}`);assert.equal(await p.locator('#ai-profile-select option[value="siege"]').count(),1);await p.locator('#menu-settings').click();await p.selectOption('#display-resolution',`${width}x${height}`);await p.selectOption('#display-mode','native');await p.locator('#menu-back').click();
- await p.locator('#menu-skirmish').click();await p.selectOption('#faction-select',faction);await p.selectOption('#ai-profile-select','fleet');await p.locator('#start-match').click();await p.waitForFunction(()=>!window.__gameCheck.scene.keys.BootScene.restartPending);
+ await p.locator('#menu-skirmish').click();await p.selectOption('#faction-select',faction);await p.selectOption('#ai-profile-select','fleet');await p.locator('#start-match').click();await p.waitForFunction(faction=>{const s=window.__gameCheck?.scene.keys.BootScene;return !!s?.gathering&&!!s.map&&!s.restartPending&&s.factions?.player===faction&&s.currentMatch().aiProfile==='fleet';},faction,{timeout:60000});
  const setup=await p.evaluate(async faction=>{
   const s=window.__gameCheck.scene.keys.BootScene;s.update=()=>{};s.sys.sceneUpdate=()=>{};const m=s.currentMatch();
   m.gathering.wood=800;m.gathering.goldBalance=800;m.combat.baseDevelopment={level:2,remainingSeconds:null};
