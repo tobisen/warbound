@@ -5,6 +5,7 @@ import type {Position} from '../gameplay/movement';
 export interface Discovery {id:string;kind:'treasure'|'recruit';position:Position}
 export const discoveryConfig={range:48,reward:{wood:20,gold:10}};
 const sites:Record<MapId,readonly [Position,Position,Position]>={
+ tidebreak:[{x:528,y:752},{x:2000,y:1552},{x:2848,y:864}],
  straits:[{x:528,y:752},{x:1328,y:1808},{x:2848,y:864}],
  lakehold:[{x:816,y:1008},{x:1264,y:1088},{x:528,y:1184}],
  fivepasses:[{x:1200,y:976},{x:1936,y:2000},{x:1424,y:1712}],
@@ -20,6 +21,7 @@ const sites:Record<MapId,readonly [Position,Position,Position]>={
  plains128:[{x:784,y:752},{x:1872,y:2256},{x:1136,y:1136}],
 };
 const regionalSites:Record<MapId,readonly [Position,Position,Position]>={
+ tidebreak:[{x:528,y:752},{x:2000,y:1552},{x:2848,y:864}],
  straits:[{x:528,y:752},{x:1328,y:1808},{x:2848,y:864}],
  lakehold:[{x:816,y:1008},{x:1264,y:1088},{x:528,y:1184}],
  fivepasses:[{x:1200,y:976},{x:1936,y:2000},{x:1424,y:1712}],

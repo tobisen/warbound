@@ -12,6 +12,8 @@ export interface WorldMap {
   attackAcrossWater?:boolean;ignoreAttackOcclusion?:boolean;enemyPassageBlocks?:Footprint[];bodyHalf?:number;
   linearCollision?:true;
   interactionTarget?:Footprint;
+  /** Transient combat body layered over the shared static collision index. */
+  blockingTarget?:Footprint;
   design?:TerrainDesign;
   worldLayout?:'expanded';
   resourceLayout?:'trees';
@@ -77,7 +79,12 @@ const collisionIndex=new WeakMap<Footprint[],{revision:number;length:number;cell
 /** Shared spatial lookup for immutable obstacle snapshots; initialization push is detected by length. */
 export function nearbyObstacles(map:WorldMap,area:Footprint):readonly Footprint[]{
  const left=Math.floor(area.x/32),top=Math.floor(area.y/32),right=Math.floor((area.x+area.width)/32),bottom=Math.floor((area.y+area.height)/32);
- const skip=(obstacles:readonly Footprint[])=>map.interactionTarget?obstacles.filter(o=>{const t=map.interactionTarget!;return o.x!==t.x||o.y!==t.y||o.width!==t.width||o.height!==t.height;}):obstacles;
+ const skip=(obstacles:readonly Footprint[])=>{
+  const target=map.blockingTarget,ignored=map.interactionTarget;
+  const same=(a:Footprint,b:Footprint)=>a.x===b.x&&a.y===b.y&&a.width===b.width&&a.height===b.height;
+  const base=ignored?obstacles.filter(o=>!same(o,ignored)):obstacles;
+  return target&&(!ignored||!same(target,ignored))&&target.x<=area.x+area.width&&target.x+target.width>=area.x&&target.y<=area.y+area.height&&target.y+target.height>=area.y?[...base,target]:base;
+ };
  if(map.linearCollision||map.obstacles.length<32||(right-left+1)*(bottom-top+1)>map.obstacles.length*2)return skip(map.obstacles);
  let index=collisionIndex.get(map.obstacles);if(!index||index.revision!==map.revision||index.length!==map.obstacles.length){const cells=new Map<string,Footprint[]>();for(const o of map.obstacles)for(let r=Math.floor(o.y/32);r<=Math.floor((o.y+o.height)/32);r++)for(let c=Math.floor(o.x/32);c<=Math.floor((o.x+o.width)/32);c++){const key=`${c},${r}`,list=cells.get(key)??[];list.push(o);cells.set(key,list);}index={revision:map.revision,length:map.obstacles.length,cells,queries:new Map()};collisionIndex.set(map.obstacles,index);}
  const queryKey=`${left},${top},${right},${bottom}`,cached=index.queries.get(queryKey);if(cached)return skip(cached);
@@ -99,4 +106,13 @@ export function replaceObstacles(map: WorldMap, obstacles: Footprint[]): WorldMa
 }
 
 /** Open own gates remain impassable to the opposing team. */
-export function enemyNavigationMap(map:WorldMap):WorldMap{return map.enemyPassageBlocks?.length?{...map,enemyPassageBlocks:undefined,obstacles:[...map.obstacles,...map.enemyPassageBlocks]}:map;}
+const enemyPassageCache=new WeakMap<Footprint[],{revision:number;length:number;blockKey:string;obstacles:Footprint[]}>();
+export function enemyNavigationMap(map:WorldMap):WorldMap {
+ const blocks=map.enemyPassageBlocks;if(!blocks?.length)return map;
+ const blockKey=blocks.map(b=>`${b.x},${b.y},${b.width},${b.height}`).join(';');
+ let cached=enemyPassageCache.get(map.obstacles);
+ if(!cached||cached.revision!==map.revision||cached.length!==map.obstacles.length||cached.blockKey!==blockKey){
+  cached={revision:map.revision,length:map.obstacles.length,blockKey,obstacles:[...map.obstacles,...blocks]};enemyPassageCache.set(map.obstacles,cached);
+ }
+ return {...map,enemyPassageBlocks:undefined,obstacles:cached.obstacles};
+}

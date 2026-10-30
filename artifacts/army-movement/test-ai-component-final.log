@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/enemyTactics.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  1 passed (1)
+      Tests  15 passed (15)
+   Start at  16:49:48
+   Duration  704ms (transform 333ms, setup 0ms, import 408ms, tests 238ms, environment 0ms)

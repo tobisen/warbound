@@ -1,3 +1,4 @@
+import {isRegionalDesign} from '../config/organicTerrain';
 import {baseFootprint} from './buildingSelection';
 import {isVisible} from './fog';
 import {attackTargets} from './domains';
@@ -12,13 +13,13 @@ import type {Footprint} from './placement';
 export interface ExpansionPlan {failed:{point:Position;retryAt:number}[];scout?:Position}
 export function expansionVisible(m:MatchState,rect:Footprint):boolean{return !m.fog||placementVisible({...m.fog,teams:{...m.fog.teams,player:m.fog.teams.enemy}},rect);}
 export const knownExpansionResources=(m:MatchState)=>m.enemyKnowledge?.nodes??resourceNodes(m.gathering).filter(n=>!m.fog||isVisible(m.fog,'enemy',n.position));
-export const expansionSpacing=(m:MatchState)=>Math.max(config.size*3,Math.min(limits.baseSpacing,Math.min(m.map.width,m.map.height)/3));
+export const expansionSpacing=(m:MatchState)=>Math.max(config.size*3,Math.min(m.scenario==='skirmish'&&!m.campaignMission&&!!m.enemyPolicy?.strategy&&isRegionalDesign(m.map.design)&&Math.min(m.map.width,m.map.height)>=3072?limits.largeBaseSpacing:limits.baseSpacing,Math.min(m.map.width,m.map.height)/3));
 /** All policies use the same owner-known bases/sites and remembered resources.
  * Hidden dynamic occupancy is checked only by the executor after scouting. */
 export function validExpansionSites(m:MatchState,points:readonly Position[],scoutPoint?:Position):Position[]{
  const own=m.combat.enemies.filter(e=>e.hp>0&&e.footprint),bases=own.filter(e=>e.kind==='base'||e.buildingType==='outpost');
  const known=knownExpansionResources(m);
- const useful=known.filter(n=>n.remaining>0&&!bases.some(b=>Math.hypot(b.position.x-n.position.x,b.position.y-n.position.y)<expansionSpacing(m)));
+ const useful=known.filter(n=>n.remaining>0&&!bases.some(b=>Math.hypot(b.position.x-n.position.x,b.position.y-n.position.y)<Math.min(expansionSpacing(m),limits.resourceRange)));
  const threats=m.gathering.units.filter(u=>u.kind==='soldier'&&attackTargets(u,m.factions?.player??'crown').length>0&&(u.hp??0)>0&&(!m.fog||entityVisible(m.fog,'enemy',u)));
  const danger=[...threats.map(u=>u.position),...(m.placement.defenses??[]).filter(t=>t.kind==='tower'&&t.hp>0&&t.construction.remainingSeconds===0&&(!m.fog||entityVisible(m.fog,'enemy',{footprint:t.footprint,position:{x:t.footprint.x+t.footprint.width/2,y:t.footprint.y+t.footprint.height/2}}))).map(t=>({x:t.footprint.x+t.footprint.width/2,y:t.footprint.y+t.footprint.height/2}))];
  const knownBase=m.enemyKnowledge?.playerBase??(m.combat.baseHP>0&&(!m.fog||entityVisible(m.fog,'enemy',{position:m.gathering.base,footprint:baseFootprint(m.gathering.base)}))?m.gathering.base:undefined);

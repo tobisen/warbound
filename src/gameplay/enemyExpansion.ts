@@ -56,13 +56,19 @@ export function prepareEnemyExpansion(m:MatchState):MatchState {
  const additional=isRegionalDesign(m.map.design)?known.filter(n=>(n.resource??'wood')==='gold'&&n.remaining>0&&!m.combat.enemies.some(e=>(e.kind==='base'||e.buildingType==='outpost')&&Math.hypot(e.position.x-n.position.x,e.position.y-n.position.y)<320)).flatMap(n=>[{x:n.position.x-144,y:n.position.y+96},{x:n.position.x+96,y:n.position.y-144},{x:n.position.x-144,y:n.position.y-144}].map(p=>({x:Math.floor(p.x/32)*32,y:Math.floor(p.y/32)*32}))):[];
  const candidates=validExpansionSites(m,strategyFor(m)?strategicExpansionSites(m):outposts.length?additional:isRegionalDesign(m.map.design)?[regionExpansion(enemyBase(m.combat,m.map)!.footprint!,m.map.id??'arena'),...additional]:config.candidates,isRegionalDesign(m.map.design)?regionExpansion(enemyBase(m.combat,m.map)!.footprint!,m.map.id??'arena'):undefined);
  const next=1+Math.max(0,...outposts.map(e=>e.id==='enemy-outpost'?1:Number(e.id.slice(14)))),id:'outpost'|`outpost-${number}`=next===1?'outpost':`outpost-${next}`;
- const strategy=strategyFor(m),cursor=(strategy?.expansionCursor??0)%Math.max(1,candidates.length),ordered=strategy?[...candidates.slice(cursor),...candidates.slice(0,cursor)]:candidates,budget={remaining:enemyStrategyLimits.maxPlacementSearches};let examined=0;
- const fail=(point:{x:number;y:number})=>{const failed=(m.enemyRecovery!.expansionPlan?.failed??[]).filter(f=>f.retryAt>m.waves.elapsedSeconds&&(f.point.x!==point.x||f.point.y!==point.y));m={...m,enemyRecovery:{...m.enemyRecovery!,expansionPlan:{failed:[...failed.slice(-23),{point,retryAt:m.waves.elapsedSeconds+config.failedSiteRetrySeconds}]}}};};
+ const strategy=strategyFor(m),active=m.enemyRecovery!.expansionPlan?.scout,keepActive=active&&validExpansionSites(m,[active],isRegionalDesign(m.map.design)?regionExpansion(enemyBase(m.combat,m.map)!.footprint!,m.map.id??'arena'):undefined).length>0,cursor=(strategy?.expansionCursor??0)%Math.max(1,candidates.length),rotated=strategy?[...candidates.slice(cursor),...candidates.slice(0,cursor)]:candidates,ordered=keepActive?[active,...rotated.filter(p=>p.x!==active.x||p.y!==active.y)]:rotated,budget={remaining:enemyStrategyLimits.maxPlacementSearches};let examined=0;
+ const fail=(point:{x:number;y:number})=>{const failed=(m.enemyRecovery!.expansionPlan?.failed??[]).filter(f=>f.retryAt>m.waves.elapsedSeconds&&(f.point.x!==point.x||f.point.y!==point.y));m={...m,enemyRecovery:{...m.enemyRecovery!,expansionPlan:{failed:[...failed.slice(-23),{point,retryAt:m.waves.elapsedSeconds+(strategy?enemyStrategyLimits.failedSiteRetrySeconds:config.failedSiteRetrySeconds)}]}}};
+  if(active?.x===point.x&&active.y===point.y)m={...m,combat:{...m.combat,enemies:m.combat.enemies.map(e=>e.kind==='worker'&&e.work?.order.kind==='move'&&e.work.target.x===point.x+48&&e.work.target.y===point.y+48?{...e,navigation:undefined,work:{...e.work,order:{kind:'idle' as const}}}:e)}};
+ };
+ if(active&&!keepActive)fail(active);
  for(const point of ordered){examined++;if(m.enemyRecovery!.expansionPlan?.failed.some(f=>f.point.x===point.x&&f.point.y===point.y&&f.retryAt>m.waves.elapsedSeconds))continue;const rect={...point,width:config.size,height:config.size};
   if(m.fog&&!placementVisible({...m.fog,teams:{...m.fog.teams,player:m.fog.teams.enemy}},rect)){
-   const scout=m.combat.enemies.find(e=>e.kind==='worker'&&e.hp>0&&e.work?.order.kind!=='build');
+   const available=m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0&&e.work&&e.work.order.kind!=='build');
+   const scout=available.find(e=>e.work!.order.kind==='move'&&e.work!.target.x===rect.x+48&&e.work!.target.y===rect.y+48)??available.filter(e=>e.work!.cargo===0).sort((a,b)=>Math.hypot(a.position.x-rect.x,a.position.y-rect.y)-Math.hypot(b.position.x-rect.x,b.position.y-rect.y)||a.id.localeCompare(b.id,'en',{numeric:true}))[0];
    if(!scout)continue;
-   if(scout.work?.order.kind==='move'&&scout.work.target.x===rect.x+48&&scout.work.target.y===rect.y+48){if(scout.navigation?.status==='blocked'){fail(point);continue;}return m;}
+   const sameGoal=scout.work?.target.x===rect.x+48&&scout.work.target.y===rect.y+48;
+   if(sameGoal&&(scout.navigation?.status==='blocked'||scout.navigation?.status==='arrived')){fail(point);continue;}
+   if(sameGoal&&scout.work?.order.kind==='move')return {...m,enemyRecovery:{...m.enemyRecovery!,expansionPlan:{failed:m.enemyRecovery!.expansionPlan?.failed??[],scout:point}}};
    if(budget.remaining--<=0)return deferEnemyInvestment(m,'expansion',cursor+examined-1);
    const moved=commandMappedMove([{...enemyWorker(scout)!,selected:true}],{x:rect.x+48,y:rect.y+48},enemyNavigationMap(m.map))[0] as Worker;
    if(moved.navigation?.status==='blocked'){fail(point);continue;}

@@ -1,0 +1,31 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+ ❯ src/gameplay/projectileDomains.test.ts (13 tests | 1 failed) 219ms
+   × dwarves ranged roster fires and hits ground/sea/air; melee rejects sea/air 17ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/gameplay/projectileDomains.test.ts > dwarves ranged roster fires and hits ground/sea/air; melee rejects sea/air
+AssertionError: ballista/air: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/gameplay/projectileDomains.test.ts:13:562
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 234 passed (235)
+      Tests  1 failed | 2149 passed (2150)
+   Start at  18:58:25
+   Duration  902.70s (transform 2.55s, setup 0ms, import 26.94s, tests 1760.52s, environment 13ms)

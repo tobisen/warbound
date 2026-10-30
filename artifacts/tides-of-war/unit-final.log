@@ -1,0 +1,13 @@
+
+> warcraft-2-tribute@0.8.0 test:unit
+> node scripts/test-unit.mjs
+
+Unit suite: 94 files; 141 explicitly classified integration files run via npm test or targeted commands.
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  94 passed (94)
+      Tests  552 passed (552)
+   Start at  18:58:06
+   Duration  17.96s (transform 959ms, setup 0ms, import 8.77s, tests 21.81s, environment 4ms)

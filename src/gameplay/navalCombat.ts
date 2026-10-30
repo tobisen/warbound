@@ -1,3 +1,5 @@
+import {fleetDoctrineConfig as doctrine} from '../config/fleetDoctrine';
+import type {ResearchState} from './research';
 import {defenseTarget} from './selfDefense';
 import {factions,type FactionId} from '../config/factions';
 import type {PlayerTarget} from './targets';
@@ -41,7 +43,7 @@ export function attackStep(ship:Ship,enemy:Enemy,delta:number,map:WorldMap|undef
  return {position:step.position,navigation:{...step.route,targetId:enemy.id,retryAfter:route.retryAfter},attackSeconds:step.route.status==='arrived'&&canShoot(map,step.position,enemy,cfg)?step.remaining:0};
 }
 /** Prepare movement/shots from the same live snapshot as land combat; damage applies afterwards. */
-export function prepareNavalCombat(navy:NavyState|undefined,enemies:readonly Enemy[],delta:number,map:WorldMap|undefined,nextProjectileNumber:number,attackMultiplier=1,visible:(e:Enemy)=>boolean=()=>true,cfg:ShipStats=navyConfig.ship,faction:FactionId='crown'){
+export function prepareNavalCombat(navy:NavyState|undefined,enemies:readonly Enemy[],delta:number,map:WorldMap|undefined,nextProjectileNumber:number,attackMultiplier=1,visible:(e:Enemy)=>boolean=()=>true,cfg:ShipStats=navyConfig.ship,faction:FactionId='crown',research?:ResearchState){
  const shots:{projectile:Projectile;time:number}[]=[];if(!navy||delta<=0)return {navy,shots,nextProjectileNumber};
  const ships=navy.ships.map(original=>{
   const stats:ShipStats=original.role&&original.role!=='warship'?factions[faction].naval.units[original.role]:cfg;
@@ -50,15 +52,16 @@ export function prepareNavalCombat(navy:NavyState|undefined,enemies:readonly Ene
   if(!retaliation&&ship.commandMode&&ship.role!=='transport'){const target=enemies.filter(e=>e.hp>0&&visible(e)&&stats.targets.includes(targetDomain(e))&&canShoot(map,ship.position,e,stats)).sort((a,b)=>Math.hypot(a.position.x-ship.position.x,a.position.y-ship.position.y)-Math.hypot(b.position.x-ship.position.x,b.position.y-ship.position.y)||a.id.localeCompare(b.id))[0];if(target)ship={...ship,order:{kind:'attack',enemyId:target.id}};else if(ship.order.kind==='attack')ship={...ship,navigation:undefined,order:{kind:'idle'}};}
 
   if(ship.hp<=0||ship.role==='transport'||ship.order.kind!=='attack')return {...ship,attackCooldown:Math.max(0,(ship.attackCooldown??0)-delta)};
+  if(faction==='goblins'&&ship.role==='submarine'&&research?.volatileTorpedoes&&ship.hp<=doctrine.volatile.hullCost)return {...ship,order:{kind:'idle' as const}};
   const enemy=enemies.find(e=>ship.order.kind==='attack'&&e.id===ship.order.enemyId&&e.hp>0);
   if(!enemy||!stats.targets.includes(targetDomain(enemy))||!visible(enemy))return {...ship,navigation:undefined,attackCooldown:Math.max(0,(ship.attackCooldown??0)-delta),order:{kind:'idle' as const}};
   const step=attackStep(ship,enemy,delta,map,stats);let cooldown=Math.max(0,(ship.attackCooldown??0)-(delta-step.attackSeconds)),time=step.attackSeconds;
-  while(time>0&&time+1e-9>=cooldown){time=Math.max(0,time-cooldown);shots.push({projectile:{bossProfile:'projectile' as const,targets:stats.targets,damageByDomain:stats.damageByDomain,...(isAir(enemy)?{airborne:true as const}:{}),marine:true,...(ship.role==='cutter'||ship.role==='bombard'?{navalRole:ship.role}:{}),...(ship.role==='submarine'?{submarine:true as const}:{}),id:`arrow-${nextProjectileNumber++}`,shooterId:ship.id,targetId:enemy.id,position:{...step.position},destination:{...enemy.position},speed:stats.projectileSpeed,remainingLife:stats.projectileLifetime,damage:stats.damage*attackMultiplier,hitRadius:stats.hitRadius,...(enemy.footprint?{targetFootprint:{...enemy.footprint}}:{})},time});cooldown=stats.attackInterval;}
-  return retaliation?{...original,attackCooldown:Math.max(0,cooldown-time)}:{...ship,position:step.position,navigation:step.navigation,attackCooldown:Math.max(0,cooldown-time)};
+  while(time>0&&time+1e-9>=cooldown&&!(faction==='goblins'&&ship.role==='submarine'&&research?.volatileTorpedoes&&ship.hp<=doctrine.volatile.hullCost)){time=Math.max(0,time-cooldown);shots.push({projectile:{bossProfile:'projectile' as const,targets:stats.targets,damageByDomain:faction==='dwarves'&&ship.role==='bombard'&&research?.preciseShells?{...stats.damageByDomain,building:doctrine.shells.buildingMultiplier}:stats.damageByDomain,...(faction==='dwarves'&&ship.role==='bombard'&&research?.siegeShells||faction==='goblins'&&ship.role==='submarine'&&research?.volatileTorpedoes?{splashRadius:doctrine.shells.splashRadius}:{}),...(isAir(enemy)?{airborne:true as const}:{}),marine:true,...(ship.role==='cutter'||ship.role==='bombard'?{navalRole:ship.role}:{}),...(ship.role==='submarine'?{submarine:true as const}:{}),id:`arrow-${nextProjectileNumber++}`,shooterId:ship.id,targetId:enemy.id,position:{...step.position},destination:{...enemy.position},speed:stats.projectileSpeed,remainingLife:stats.projectileLifetime,damage:stats.damage*attackMultiplier,hitRadius:stats.hitRadius,...(enemy.footprint?{targetFootprint:{...enemy.footprint}}:{})},time});cooldown=stats.attackInterval;if(faction==='goblins'&&ship.role==='submarine'&&research?.volatileTorpedoes)ship={...ship,hp:Math.max(1,ship.hp-doctrine.volatile.hullCost)};}
+  return retaliation?{...original,hp:ship.hp,attackCooldown:Math.max(0,cooldown-time)}:{...ship,position:step.position,navigation:step.navigation,attackCooldown:Math.max(0,cooldown-time)};
  });return {navy:{...navy,ships},shots,nextProjectileNumber};
 }
 
-export function prepareEnemySubmarines(enemies:readonly Enemy[],targets:readonly PlayerTarget[],delta:number,map:WorldMap|undefined,next:number,faction:FactionId,attackMultiplier:number,visible:(t:PlayerTarget,e:Enemy)=>boolean){
+export function prepareEnemySubmarines(enemies:readonly Enemy[],targets:readonly PlayerTarget[],delta:number,map:WorldMap|undefined,next:number,faction:FactionId,attackMultiplier:number,visible:(t:PlayerTarget,e:Enemy)=>boolean,research?:ResearchState){
  const shots:{projectile:Projectile;time:number}[]=[];
  const bodies=enemies.map(enemy=>{
   if(!enemy.navalRole||enemy.navalRole==='transport'||enemy.hp<=0)return enemy;
@@ -68,8 +71,8 @@ export function prepareEnemySubmarines(enemies:readonly Enemy[],targets:readonly
   if(!chosen)return {...enemy,...(enemy.navalRole!=='submarine'&&enemy.order?.kind==='muster'?{}:{navigation:undefined,order:{kind:'idle' as const}}),attackCooldown:Math.max(0,(enemy.attackCooldown??0)-delta)};
   const ship:Ship={id:enemy.id,kind:'ship',role:enemy.navalRole,owner:'player',hp:enemy.hp,selected:false,position:enemy.position,target:enemy.position,navigation:enemy.navigation,attackCooldown:enemy.attackCooldown,order:{kind:'attack',enemyId:chosen.id}};
   const projected=candidates.map(t=>({id:t.id,kind:t.kind==='ship'?'ship' as const:t.kind==='soldier'||t.kind==='worker'?'unit' as const:'building' as const,...(t.domain==='air'?{role:'air' as const}:{}),...(t.kind!=='ship'&&t.kind!=='soldier'&&t.kind!=='worker'?{footprint:t.footprint}:{}),position:{x:t.footprint.x+t.footprint.width/2,y:t.footprint.y+t.footprint.height/2},hp:t.hp}));
-  const result=prepareNavalCombat({harbor:null,ships:[ship],production:{remainingSeconds:null,nextUnitNumber:1}},projected,delta,map,next,attackMultiplier,()=>true,factions[faction].naval.units.warship,faction);next=result.nextProjectileNumber;
+  const result=prepareNavalCombat({harbor:null,ships:[ship],production:{remainingSeconds:null,nextUnitNumber:1}},projected,delta,map,next,attackMultiplier,()=>true,factions[faction].naval.units.warship,faction,research);next=result.nextProjectileNumber;
   shots.push(...result.shots.map(s=>({...s,projectile:{...s.projectile,owner:'enemy' as const,...(enemy.navalRole!=='submarine'?{navalRole:enemy.navalRole}:{}),id:s.projectile.id.replace('arrow-','enemy-arrow-'),...(enemy.navalRole==='submarine'?{submarine:true as const}:{})}})));
-  const moved=result.navy!.ships[0];return {...enemy,position:moved.position,navigation:moved.navigation,attackCooldown:moved.attackCooldown,order:moved.order.kind==='attack'?{kind:'defend' as const,targetId:moved.order.enemyId}:{kind:'idle' as const}};
+  const moved=result.navy!.ships[0];return {...enemy,hp:moved.hp,position:moved.position,navigation:moved.navigation,attackCooldown:moved.attackCooldown,order:moved.order.kind==='attack'?{kind:'defend' as const,targetId:moved.order.enemyId}:{kind:'idle' as const}};
  });return {enemies:bodies,shots,next};
 }

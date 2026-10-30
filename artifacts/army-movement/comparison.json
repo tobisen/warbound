@@ -1,0 +1,1045 @@
+{
+  "before-final-2": {
+    "browser": "156.0.8078.76",
+    "players": 2,
+    "attackers": 80,
+    "gate": null,
+    "duration": 40,
+    "frames": {
+      "samples": 2275,
+      "p50": 16.69999999999709,
+      "p95": 33.299999999995634,
+      "max": 2583.2000000000003,
+      "over50ms": 3
+    },
+    "cpu": {
+      "samples": 2276,
+      "p50": 13.5,
+      "p95": 24.600000023841858,
+      "max": 2507.5,
+      "over50ms": 2
+    },
+    "phases": {
+      "assembly": {
+        "cpu": {
+          "samples": 181,
+          "p50": 7.5,
+          "p95": 9.200000047683716,
+          "max": 2507.5,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 181,
+          "p50": 16.699999999999818,
+          "p95": 16.800000000000182,
+          "max": 2583.2000000000003,
+          "over50ms": 1
+        }
+      },
+      "pathing": {
+        "cpu": {
+          "samples": 206,
+          "p50": 7.5,
+          "p95": 8.5,
+          "max": 34.5,
+          "over50ms": 0
+        },
+        "frames": {
+          "samples": 206,
+          "p50": 16.69999999999891,
+          "p95": 16.700000000000728,
+          "max": 33.400000000000546,
+          "over50ms": 0
+        }
+      },
+      "contact": {
+        "cpu": {
+          "samples": 86,
+          "p50": 8.5,
+          "p95": 14.800000071525574,
+          "max": 30.300000071525574,
+          "over50ms": 0
+        },
+        "frames": {
+          "samples": 86,
+          "p50": 16.69999999999891,
+          "p95": 16.799999999999272,
+          "max": 33.400000000001455,
+          "over50ms": 0
+        }
+      },
+      "combat": {
+        "cpu": {
+          "samples": 1803,
+          "p50": 14.399999976158142,
+          "p95": 25.600000023841858,
+          "max": 126.80000007152557,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 1802,
+          "p50": 16.69999999999709,
+          "p95": 33.29999999999927,
+          "max": 116.59999999999854,
+          "over50ms": 2
+        }
+      }
+    },
+    "visuals": {
+      "samples": 2276,
+      "p50": 2.5999999046325684,
+      "p95": 3.700000047683716,
+      "max": 11.399999976158142,
+      "over50ms": 0
+    },
+    "render": {
+      "samples": 2276,
+      "p50": 0.5999999046325684,
+      "p95": 0.8000000715255737,
+      "max": 5.600000023841858,
+      "over50ms": 0
+    },
+    "events": [
+      {
+        "kind": "dispatch",
+        "seconds": 3.014080000002423
+      },
+      {
+        "kind": "reveal",
+        "seconds": 6.463909999999714,
+        "ms": 8.599999904632568
+      },
+      {
+        "kind": "combat",
+        "seconds": 7.9005399999985,
+        "ms": 14.5
+      }
+    ],
+    "errors": [],
+    "sampledInclusiveCPUms": {
+      "matchFog": 3426.6,
+      "syncVisuals": 5854.7,
+      "nearbyObstacles": 8484.4,
+      "findRoute": 117.2,
+      "assembleArmy": 2424.9,
+      "commandGroupMove": 2424.9,
+      "findFormationRoute": 2335.5,
+      "prepareEnemyStrategy": 43.6,
+      "trafficGates": 1535.2,
+      "approachRoute": 5425.3,
+      "separateBodies": 4570.2,
+      "acquireTargets": 383.9,
+      "updateEnemyAI": 117.4
+    },
+    "sampledInclusiveCPUmsPerUpdate": {
+      "matchFog": 1.506,
+      "syncVisuals": 2.572,
+      "nearbyObstacles": 3.728,
+      "findRoute": 0.051,
+      "assembleArmy": 1.065,
+      "commandGroupMove": 1.065,
+      "findFormationRoute": 1.026,
+      "prepareEnemyStrategy": 0.019,
+      "trafficGates": 0.675,
+      "approachRoute": 2.384,
+      "separateBodies": 2.008,
+      "acquireTargets": 0.169,
+      "updateEnemyAI": 0.052
+    },
+    "over50FrameGoalMet": false
+  },
+  "delivered-2": {
+    "browser": "156.0.8078.76",
+    "players": 2,
+    "attackers": 80,
+    "gate": false,
+    "duration": 40,
+    "frames": {
+      "samples": 2408,
+      "p50": 16.69999999999709,
+      "p95": 16.700000000004366,
+      "max": 216.79999999999973,
+      "over50ms": 2
+    },
+    "cpu": {
+      "samples": 2409,
+      "p50": 8,
+      "p95": 12.399999976158142,
+      "max": 132.19999992847443,
+      "over50ms": 2
+    },
+    "phases": {
+      "assembly": {
+        "cpu": {
+          "samples": 181,
+          "p50": 6.5,
+          "p95": 9.100000023841858,
+          "max": 132.19999992847443,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 181,
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999727,
+          "max": 216.79999999999973,
+          "over50ms": 1
+        }
+      },
+      "pathing": {
+        "cpu": {
+          "samples": 209,
+          "p50": 6.5,
+          "p95": 7.600000023841858,
+          "max": 28.600000023841858,
+          "over50ms": 0
+        },
+        "frames": {
+          "samples": 209,
+          "p50": 16.699999999999818,
+          "p95": 16.700000000000728,
+          "max": 16.800000000000182,
+          "over50ms": 0
+        }
+      },
+      "contact": {
+        "cpu": {
+          "samples": 85,
+          "p50": 7.600000023841858,
+          "p95": 10.799999952316284,
+          "max": 12.700000047683716,
+          "over50ms": 0
+        },
+        "frames": {
+          "samples": 85,
+          "p50": 16.69999999999891,
+          "p95": 16.700000000000728,
+          "max": 16.80000000000109,
+          "over50ms": 0
+        }
+      },
+      "combat": {
+        "cpu": {
+          "samples": 1934,
+          "p50": 8.200000047683716,
+          "p95": 12.699999928474426,
+          "max": 72.89999997615814,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 1933,
+          "p50": 16.69999999999709,
+          "p95": 16.700000000004366,
+          "max": 66.59999999999854,
+          "over50ms": 1
+        }
+      }
+    },
+    "visuals": {
+      "samples": 2409,
+      "p50": 2.5999999046325684,
+      "p95": 3.3000000715255737,
+      "max": 10.399999976158142,
+      "over50ms": 0
+    },
+    "render": {
+      "samples": 2409,
+      "p50": 0.5,
+      "p95": 0.7000000476837158,
+      "max": 2.3000000715255737,
+      "over50ms": 0
+    },
+    "events": [
+      {
+        "kind": "dispatch",
+        "seconds": 3.013943333334737
+      },
+      {
+        "kind": "reveal",
+        "seconds": 6.4971433333319055,
+        "ms": 8.200000047683716
+      },
+      {
+        "kind": "combat",
+        "seconds": 7.913763333330735,
+        "ms": 10.199999928474426
+      }
+    ],
+    "errors": [],
+    "sampledInclusiveCPUms": {
+      "matchFog": 3707.5,
+      "syncVisuals": 6096.7,
+      "nearbyObstacles": 1235.5,
+      "findRoute": 91.1,
+      "assembleArmy": 65.2,
+      "commandGroupMove": 65.2,
+      "findFormationRoute": 2.2,
+      "prepareEnemyStrategy": 30.0,
+      "trafficGates": 222.0,
+      "approachRoute": 454.6,
+      "acquireTargets": 359.0,
+      "separateBodies": 1906.4,
+      "updateEnemyAI": 120.4
+    },
+    "sampledInclusiveCPUmsPerUpdate": {
+      "matchFog": 1.539,
+      "syncVisuals": 2.531,
+      "nearbyObstacles": 0.513,
+      "findRoute": 0.038,
+      "assembleArmy": 0.027,
+      "commandGroupMove": 0.027,
+      "findFormationRoute": 0.001,
+      "prepareEnemyStrategy": 0.012,
+      "trafficGates": 0.092,
+      "approachRoute": 0.189,
+      "acquireTargets": 0.149,
+      "separateBodies": 0.791,
+      "updateEnemyAI": 0.05
+    },
+    "over50FrameGoalMet": false
+  },
+  "before-final-5": {
+    "browser": "156.0.8078.76",
+    "players": 5,
+    "attackers": 128,
+    "gate": null,
+    "duration": 40,
+    "frames": {
+      "samples": 649,
+      "p50": 50,
+      "p95": 166.70000000000437,
+      "max": 4333.200000000001,
+      "over50ms": 278
+    },
+    "cpu": {
+      "samples": 650,
+      "p50": 47.09999990463257,
+      "p95": 169.70000004768372,
+      "max": 4091.600000023842,
+      "over50ms": 304
+    },
+    "phases": {
+      "assembly": {
+        "cpu": {
+          "samples": 143,
+          "p50": 29.399999976158142,
+          "p95": 32.700000047683716,
+          "max": 4091.600000023842,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 143,
+          "p50": 33.30000000000018,
+          "p95": 33.400000000001455,
+          "max": 4333.200000000001,
+          "over50ms": 1
+        }
+      },
+      "pathing": {
+        "cpu": {
+          "samples": 88,
+          "p50": 34.200000047683716,
+          "p95": 45.300000071525574,
+          "max": 140.70000004768372,
+          "over50ms": 4
+        },
+        "frames": {
+          "samples": 88,
+          "p50": 33.399999999999636,
+          "p95": 50.100000000000364,
+          "max": 149.89999999999964,
+          "over50ms": 7
+        }
+      },
+      "contact": {
+        "cpu": {
+          "samples": 30,
+          "p50": 38,
+          "p95": 47.60000002384186,
+          "max": 58.10000002384186,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 30,
+          "p50": 33.399999999999636,
+          "p95": 50.099999999998545,
+          "max": 66.5,
+          "over50ms": 2
+        }
+      },
+      "combat": {
+        "cpu": {
+          "samples": 389,
+          "p50": 65.10000002384186,
+          "p95": 184.30000007152557,
+          "max": 286.59999990463257,
+          "over50ms": 298
+        },
+        "frames": {
+          "samples": 388,
+          "p50": 66.70000000000073,
+          "p95": 183.39999999999782,
+          "max": 300,
+          "over50ms": 268
+        }
+      }
+    },
+    "visuals": {
+      "samples": 650,
+      "p50": 3.600000023841858,
+      "p95": 5.399999976158142,
+      "max": 10.600000023841858,
+      "over50ms": 0
+    },
+    "render": {
+      "samples": 650,
+      "p50": 0.5999999046325684,
+      "p95": 1.100000023841858,
+      "max": 3.799999952316284,
+      "over50ms": 0
+    },
+    "events": [
+      {
+        "kind": "dispatch",
+        "seconds": 3.0098099999979695
+      },
+      {
+        "kind": "reveal",
+        "seconds": 6.309659999995915,
+        "ms": 39.5
+      },
+      {
+        "kind": "combat",
+        "seconds": 7.556269999995152,
+        "ms": 58.10000002384186
+      }
+    ],
+    "errors": [],
+    "sampledInclusiveCPUms": {
+      "acquireTargets": 236.5,
+      "syncVisuals": 2124.7,
+      "findRoute": 925.0,
+      "nearbyObstacles": 11865.2,
+      "matchFog": 8208.3,
+      "assembleArmy": 3895.4,
+      "commandGroupMove": 3893.9,
+      "findFormationRoute": 3780.3,
+      "approachRoute": 2725.5,
+      "trafficGates": 2478.3,
+      "separateBodies": 5623.3,
+      "prepareEnemyStrategy": 172.8,
+      "updateEnemyAI": 103.0
+    },
+    "sampledInclusiveCPUmsPerUpdate": {
+      "acquireTargets": 0.364,
+      "syncVisuals": 3.269,
+      "findRoute": 1.423,
+      "nearbyObstacles": 18.254,
+      "matchFog": 12.628,
+      "assembleArmy": 5.993,
+      "commandGroupMove": 5.991,
+      "findFormationRoute": 5.816,
+      "approachRoute": 4.193,
+      "trafficGates": 3.813,
+      "separateBodies": 8.651,
+      "prepareEnemyStrategy": 0.266,
+      "updateEnemyAI": 0.159
+    },
+    "over50FrameGoalMet": false
+  },
+  "delivered-5": {
+    "browser": "156.0.8078.76",
+    "players": 5,
+    "attackers": 128,
+    "gate": false,
+    "duration": 40,
+    "frames": {
+      "samples": 964,
+      "p50": 33.399999999999636,
+      "p95": 83.39999999999418,
+      "max": 450,
+      "over50ms": 202
+    },
+    "cpu": {
+      "samples": 965,
+      "p50": 35.10000002384186,
+      "p95": 82.10000002384186,
+      "max": 192.79999995231628,
+      "over50ms": 197
+    },
+    "phases": {
+      "assembly": {
+        "cpu": {
+          "samples": 145,
+          "p50": 26.799999952316284,
+          "p95": 36.299999952316284,
+          "max": 192.79999995231628,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 145,
+          "p50": 33.30000000000018,
+          "p95": 33.400000000000546,
+          "max": 450,
+          "over50ms": 1
+        }
+      },
+      "pathing": {
+        "cpu": {
+          "samples": 103,
+          "p50": 30.200000047683716,
+          "p95": 41.700000047683716,
+          "max": 93,
+          "over50ms": 5
+        },
+        "frames": {
+          "samples": 103,
+          "p50": 33.30000000000018,
+          "p95": 50,
+          "max": 83.39999999999964,
+          "over50ms": 5
+        }
+      },
+      "contact": {
+        "cpu": {
+          "samples": 32,
+          "p50": 38.60000002384186,
+          "p95": 43.800000071525574,
+          "max": 46.60000002384186,
+          "over50ms": 0
+        },
+        "frames": {
+          "samples": 32,
+          "p50": 33.400000000001455,
+          "p95": 50.100000000000364,
+          "max": 50.100000000000364,
+          "over50ms": 3
+        }
+      },
+      "combat": {
+        "cpu": {
+          "samples": 685,
+          "p50": 36.60000002384186,
+          "p95": 86.19999992847443,
+          "max": 169.10000002384186,
+          "over50ms": 191
+        },
+        "frames": {
+          "samples": 684,
+          "p50": 33.400000000001455,
+          "p95": 83.40000000000146,
+          "max": 166.70000000000073,
+          "over50ms": 193
+        }
+      }
+    },
+    "visuals": {
+      "samples": 965,
+      "p50": 4,
+      "p95": 5.599999904632568,
+      "max": 7.600000023841858,
+      "over50ms": 0
+    },
+    "render": {
+      "samples": 965,
+      "p50": 0.8000000715255737,
+      "p95": 1.5,
+      "max": 6.299999952316284,
+      "over50ms": 0
+    },
+    "events": [
+      {
+        "kind": "dispatch",
+        "seconds": 3.00220000000013
+      },
+      {
+        "kind": "reveal",
+        "seconds": 6.418749999997772,
+        "ms": 38
+      },
+      {
+        "kind": "combat",
+        "seconds": 7.685329999996952,
+        "ms": 40.700000047683716
+      }
+    ],
+    "errors": [],
+    "sampledInclusiveCPUms": {
+      "syncVisuals": 3639.5,
+      "nearbyObstacles": 3407.4,
+      "findRoute": 512.5,
+      "matchFog": 11642.4,
+      "assembleArmy": 69.9,
+      "commandGroupMove": 68.5,
+      "findFormationRoute": 2.5,
+      "approachRoute": 478.6,
+      "trafficGates": 469.1,
+      "acquireTargets": 296.8,
+      "prepareEnemyStrategy": 96.7,
+      "separateBodies": 3606.2,
+      "updateEnemyAI": 156.5
+    },
+    "sampledInclusiveCPUmsPerUpdate": {
+      "syncVisuals": 3.772,
+      "nearbyObstacles": 3.531,
+      "findRoute": 0.531,
+      "matchFog": 12.065,
+      "assembleArmy": 0.072,
+      "commandGroupMove": 0.071,
+      "findFormationRoute": 0.003,
+      "approachRoute": 0.496,
+      "trafficGates": 0.486,
+      "acquireTargets": 0.308,
+      "prepareEnemyStrategy": 0.1,
+      "separateBodies": 3.737,
+      "updateEnemyAI": 0.162
+    },
+    "over50FrameGoalMet": false
+  },
+  "gate-control-2": {
+    "browser": "156.0.8078.76",
+    "players": 2,
+    "attackers": 40,
+    "gate": true,
+    "duration": 12,
+    "frames": {
+      "samples": 190,
+      "p50": 83.39999999999964,
+      "p95": 183.3000000000029,
+      "max": 283.2999999999993,
+      "over50ms": 167
+    },
+    "cpu": {
+      "samples": 191,
+      "p50": 87.10000002384186,
+      "p95": 177.70000004768372,
+      "max": 280.3000000715256,
+      "over50ms": 168
+    },
+    "phases": {
+      "assembly": {
+        "cpu": {
+          "samples": 120,
+          "p50": 76.5,
+          "p95": 94.30000007152557,
+          "max": 148.20000004768372,
+          "over50ms": 97
+        },
+        "frames": {
+          "samples": 120,
+          "p50": 83.29999999999927,
+          "p95": 100,
+          "max": 266.5999999999999,
+          "over50ms": 97
+        }
+      },
+      "pathing": {
+        "cpu": {
+          "samples": 36,
+          "p50": 127.5,
+          "p95": 206.60000002384186,
+          "max": 234,
+          "over50ms": 36
+        },
+        "frames": {
+          "samples": 36,
+          "p50": 133.29999999999927,
+          "p95": 216.70000000000073,
+          "max": 233.3000000000011,
+          "over50ms": 36
+        }
+      },
+      "contact": {
+        "cpu": {
+          "samples": 10,
+          "p50": 168.39999997615814,
+          "p95": 207.5,
+          "max": 207.5,
+          "over50ms": 10
+        },
+        "frames": {
+          "samples": 10,
+          "p50": 166.70000000000073,
+          "p95": 216.6999999999971,
+          "max": 216.6999999999971,
+          "over50ms": 10
+        }
+      },
+      "combat": {
+        "cpu": {
+          "samples": 25,
+          "p50": 162.39999997615814,
+          "p95": 188.79999995231628,
+          "max": 280.3000000715256,
+          "over50ms": 25
+        },
+        "frames": {
+          "samples": 24,
+          "p50": 166.70000000000073,
+          "p95": 183.40000000000146,
+          "max": 283.2999999999993,
+          "over50ms": 24
+        }
+      }
+    },
+    "visuals": {
+      "samples": 191,
+      "p50": 2.8000000715255737,
+      "p95": 5.299999952316284,
+      "max": 6.900000095367432,
+      "over50ms": 0
+    },
+    "render": {
+      "samples": 191,
+      "p50": 0.2999999523162842,
+      "p95": 0.6999999284744263,
+      "max": 4.599999904632568,
+      "over50ms": 0
+    },
+    "events": [
+      {
+        "kind": "dispatch",
+        "seconds": 3.0331499999985
+      },
+      {
+        "kind": "reveal",
+        "seconds": 6.944669999998155,
+        "ms": 141.80000007152557
+      },
+      {
+        "kind": "combat",
+        "seconds": 8.46961999999803,
+        "ms": 207.5
+      }
+    ],
+    "errors": [],
+    "sampledInclusiveCPUms": {
+      "syncVisuals": 600.9,
+      "nearbyObstacles": 11926.7,
+      "findRoute": 165.1,
+      "matchFog": 334.4,
+      "assembleArmy": 48.5,
+      "commandGroupMove": 47.2,
+      "findFormationRoute": 1.6,
+      "prepareEnemyStrategy": 51.5,
+      "approachRoute": 170.2,
+      "trafficGates": 39.7,
+      "acquireTargets": 17.4,
+      "separateBodies": 9296.2,
+      "updateEnemyAI": 4.2
+    },
+    "sampledInclusiveCPUmsPerUpdate": {
+      "syncVisuals": 3.146,
+      "nearbyObstacles": 62.444,
+      "findRoute": 0.865,
+      "matchFog": 1.751,
+      "assembleArmy": 0.254,
+      "commandGroupMove": 0.247,
+      "findFormationRoute": 0.008,
+      "prepareEnemyStrategy": 0.269,
+      "approachRoute": 0.891,
+      "trafficGates": 0.208,
+      "acquireTargets": 0.091,
+      "separateBodies": 48.671,
+      "updateEnemyAI": 0.022
+    },
+    "over50FrameGoalMet": false
+  },
+  "gate-after-2": {
+    "browser": "156.0.8078.76",
+    "players": 2,
+    "attackers": 40,
+    "gate": true,
+    "duration": 12,
+    "frames": {
+      "samples": 724,
+      "p50": 16.69999999999891,
+      "p95": 16.700000000000728,
+      "max": 233.4000000000001,
+      "over50ms": 1
+    },
+    "cpu": {
+      "samples": 725,
+      "p50": 6.5,
+      "p95": 9.399999976158142,
+      "max": 122.70000004768372,
+      "over50ms": 1
+    },
+    "phases": {
+      "assembly": {
+        "cpu": {
+          "samples": 181,
+          "p50": 6.099999904632568,
+          "p95": 8.100000023841858,
+          "max": 122.70000004768372,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 181,
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999272,
+          "max": 233.4000000000001,
+          "over50ms": 1
+        }
+      },
+      "pathing": {
+        "cpu": {
+          "samples": 230,
+          "p50": 6.100000023841858,
+          "p95": 6.800000071525574,
+          "max": 29.5,
+          "over50ms": 0
+        },
+        "frames": {
+          "samples": 230,
+          "p50": 16.699999999999818,
+          "p95": 16.700000000000728,
+          "max": 16.80000000000109,
+          "over50ms": 0
+        }
+      },
+      "contact": {
+        "cpu": {
+          "samples": 85,
+          "p50": 6.799999952316284,
+          "p95": 10.5,
+          "max": 13.600000023841858,
+          "over50ms": 0
+        },
+        "frames": {
+          "samples": 85,
+          "p50": 16.69999999999891,
+          "p95": 16.700000000000728,
+          "max": 16.80000000000109,
+          "over50ms": 0
+        }
+      },
+      "combat": {
+        "cpu": {
+          "samples": 229,
+          "p50": 8.599999904632568,
+          "p95": 9.700000047683716,
+          "max": 12.299999952316284,
+          "over50ms": 0
+        },
+        "frames": {
+          "samples": 228,
+          "p50": 16.69999999999891,
+          "p95": 16.700000000000728,
+          "max": 16.80000000000109,
+          "over50ms": 0
+        }
+      }
+    },
+    "visuals": {
+      "samples": 725,
+      "p50": 2.4000000953674316,
+      "p95": 3.5,
+      "max": 4.799999952316284,
+      "over50ms": 0
+    },
+    "render": {
+      "samples": 725,
+      "p50": 0.20000004768371582,
+      "p95": 0.5,
+      "max": 5.5,
+      "over50ms": 0
+    },
+    "events": [
+      {
+        "kind": "dispatch",
+        "seconds": 3.013933333334421
+      },
+      {
+        "kind": "reveal",
+        "seconds": 6.847113333331322,
+        "ms": 8.200000047683716
+      },
+      {
+        "kind": "combat",
+        "seconds": 8.263733333330151,
+        "ms": 11.199999928474426
+      }
+    ],
+    "errors": [],
+    "sampledInclusiveCPUms": {
+      "matchFog": 994.9,
+      "syncVisuals": 1943.7,
+      "nearbyObstacles": 460.1,
+      "findRoute": 53.2,
+      "assembleArmy": 48.8,
+      "commandGroupMove": 48.8,
+      "findFormationRoute": 2.1,
+      "prepareEnemyStrategy": 32.5,
+      "approachRoute": 68.2,
+      "trafficGates": 67.6,
+      "separateBodies": 209.0,
+      "acquireTargets": 79.4,
+      "updateEnemyAI": 27.1
+    },
+    "sampledInclusiveCPUmsPerUpdate": {
+      "matchFog": 1.372,
+      "syncVisuals": 2.681,
+      "nearbyObstacles": 0.635,
+      "findRoute": 0.073,
+      "assembleArmy": 0.067,
+      "commandGroupMove": 0.067,
+      "findFormationRoute": 0.003,
+      "prepareEnemyStrategy": 0.045,
+      "approachRoute": 0.094,
+      "trafficGates": 0.093,
+      "separateBodies": 0.288,
+      "acquireTargets": 0.11,
+      "updateEnemyAI": 0.037
+    },
+    "over50FrameGoalMet": false
+  },
+  "gate-multi-after-5": {
+    "browser": "156.0.8078.76",
+    "players": 5,
+    "attackers": 128,
+    "gate": true,
+    "duration": 12,
+    "frames": {
+      "samples": 408,
+      "p50": 33.30000000000109,
+      "p95": 50,
+      "max": 466.6999999999998,
+      "over50ms": 13
+    },
+    "cpu": {
+      "samples": 409,
+      "p50": 31.09999990463257,
+      "p95": 45.60000002384186,
+      "max": 200.40000009536743,
+      "over50ms": 13
+    },
+    "phases": {
+      "assembly": {
+        "cpu": {
+          "samples": 151,
+          "p50": 26,
+          "p95": 32.09999990463257,
+          "max": 200.40000009536743,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 151,
+          "p50": 33.30000000000018,
+          "p95": 33.400000000000546,
+          "max": 466.6999999999998,
+          "over50ms": 1
+        }
+      },
+      "pathing": {
+        "cpu": {
+          "samples": 105,
+          "p50": 29.5,
+          "p95": 45.60000002384186,
+          "max": 91.80000007152557,
+          "over50ms": 3
+        },
+        "frames": {
+          "samples": 105,
+          "p50": 33.30000000000018,
+          "p95": 50.099999999999454,
+          "max": 100,
+          "over50ms": 6
+        }
+      },
+      "contact": {
+        "cpu": {
+          "samples": 32,
+          "p50": 38.200000047683716,
+          "p95": 46.300000071525574,
+          "max": 56.10000002384186,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 32,
+          "p50": 33.400000000001455,
+          "p95": 50,
+          "max": 50.100000000000364,
+          "over50ms": 1
+        }
+      },
+      "combat": {
+        "cpu": {
+          "samples": 121,
+          "p50": 36.89999997615814,
+          "p95": 51.299999952316284,
+          "max": 66.60000002384186,
+          "over50ms": 8
+        },
+        "frames": {
+          "samples": 120,
+          "p50": 33.399999999999636,
+          "p95": 50,
+          "max": 66.69999999999891,
+          "over50ms": 5
+        }
+      }
+    },
+    "visuals": {
+      "samples": 409,
+      "p50": 2.899999976158142,
+      "p95": 4.399999976158142,
+      "max": 8.200000047683716,
+      "over50ms": 0
+    },
+    "render": {
+      "samples": 409,
+      "p50": 0.2999999523162842,
+      "p95": 0.7000000476837158,
+      "max": 7.799999952316284,
+      "over50ms": 0
+    },
+    "events": [
+      {
+        "kind": "dispatch",
+        "seconds": 3.003820000000246
+      },
+      {
+        "kind": "reveal",
+        "seconds": 6.415349999997602,
+        "ms": 34.800000071525574
+      },
+      {
+        "kind": "combat",
+        "seconds": 7.688649999996528,
+        "ms": 38.199999928474426
+      }
+    ],
+    "errors": [],
+    "sampledInclusiveCPUms": {
+      "syncVisuals": 1270.4,
+      "findRoute": 184.7,
+      "nearbyObstacles": 1602.6,
+      "matchFog": 4408.8,
+      "assembleArmy": 65.2,
+      "commandGroupMove": 63.9,
+      "findFormationRoute": 3.5,
+      "approachRoute": 170.9,
+      "trafficGates": 138.2,
+      "acquireTargets": 86.9,
+      "prepareEnemyStrategy": 47.4,
+      "separateBodies": 569.5,
+      "updateEnemyAI": 36.5
+    },
+    "sampledInclusiveCPUmsPerUpdate": {
+      "syncVisuals": 3.106,
+      "findRoute": 0.452,
+      "nearbyObstacles": 3.918,
+      "matchFog": 10.78,
+      "assembleArmy": 0.159,
+      "commandGroupMove": 0.156,
+      "findFormationRoute": 0.009,
+      "approachRoute": 0.418,
+      "trafficGates": 0.338,
+      "acquireTargets": 0.213,
+      "prepareEnemyStrategy": 0.116,
+      "separateBodies": 1.392,
+      "updateEnemyAI": 0.089
+    },
+    "over50FrameGoalMet": false
+  }
+}

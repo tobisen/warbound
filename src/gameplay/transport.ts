@@ -1,6 +1,6 @@
+import {transportCapacity,transportContactRange} from './fleetService';
 import {hasMainBase} from './extraBases';
 import {isAir} from './domains';
-import {navyConfig} from '../config/navy';
 import {unitStats,combatUnitStats} from '../config/unit';
 import {bodyFits,overlaps,tileCenter} from './map';
 import {segmentFits} from './navigation';
@@ -11,14 +11,13 @@ import {cleanDestroyed} from './destruction';
 import type {Unit} from './gathering';
 import type {Position} from './movement';
 import type {MatchState} from './match';
-const cfg=navyConfig.transport;
 const size=(u:Unit)=>u.kind==='worker'?unitStats.size:combatUnitStats(u).size;
-function contact(m:MatchState,ship:Position,point:Position){return Math.hypot(ship.x-point.x,ship.y-point.y)<=cfg.contactRange+1e-9&&segmentFits(marineFlightMap(m.map),ship,point,0);}
+function contact(m:MatchState,ship:Position,point:Position){return Math.hypot(ship.x-point.x,ship.y-point.y)<=transportContactRange(m.factions?.player??'crown',m.research)+1e-9&&segmentFits(marineFlightMap(m.map),ship,point,0);}
 /** Immediate boarding only: players first move units to a free visible shore. */
 export function loadTransport(m:MatchState,shipId:string):MatchState {
  if(m.outcome!=='playing'||m.paused||!!m.multiplePlayers&&!hasMainBase(m))return m;
  const ship=m.navy?.ships.find(s=>s.id===shipId&&s.role==='transport'&&s.hp>0);if(!ship)return m;
- let seats=cfg.capacity-(ship.passengers?.length??0);
+ let seats=transportCapacity(m.factions?.player??'crown',m.research)-(ship.passengers?.length??0);
  const boarding=m.gathering.units.filter(u=>!isAir(u)&&u.selected&&(u.hp??1)>0&&(!m.fog||placementVisible(m.fog,unitBody(u.position,size(u))))&&bodyFits({...m.map,bodyHalf:size(u)/2},u.position,size(u)/2)&&contact(m,ship.position,u.position)&&seats-->0);
  if(!boarding.length)return m;
  const passengers=boarding.map((u):Unit=>({...u,selected:false,commandMode:undefined,orderQueue:undefined,navigation:undefined,target:{...u.position},order:{kind:'idle'},...(u.kind==='soldier'?{attackMoveTarget:undefined,autoOrigin:undefined,autoDisabled:true}: {})}));

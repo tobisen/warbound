@@ -97,11 +97,18 @@ export function shareTeamVision(m:MatchState):MatchState{
  if(!m.multiplePlayers||!m.fog)return m;
  const multi=m.multiplePlayers,visions=new Map<PlayerId,FogTeam>([['player',m.fog.teams.player],...multi.ai.map(bot=>[bot.id,bot.vision] as [PlayerId,FogTeam])]);
  const shared=new Map<PlayerId,FogTeam>();
- const active=new Set(multi.roster.filter(p=>!playerEliminated(m,p.id)).map(p=>p.id));
+ const active=new Set(multi.roster.filter(p=>!playerEliminated(m,p.id)).map(p=>p.id)),unions=new Map<string,FogTeam>();
  for(const player of multi.roster){
   const allies=multi.roster.filter(p=>canSupport(player.id,p.id,multi.roster)),current=allies.filter(p=>active.has(p.id)).map(p=>visions.get(p.id)!),known=allies.map(p=>visions.get(p.id)!);
   if(known.length===1&&current.length===1){shared.set(player.id,known[0]);continue;}
-  shared.set(player.id,{visible:visions.get(player.id)!.visible.map((_,i)=>current.some(v=>v.visible[i])),explored:visions.get(player.id)!.explored.map((_,i)=>known.some(v=>v.explored[i]))});
+  const key=allies.map(p=>p.id).join(',');let union=unions.get(key);
+  if(!union){
+   const length=visions.get(player.id)!.visible.length,visible=Array<boolean>(length).fill(false),explored=Array<boolean>(length).fill(false);
+   for(const view of current)for(let i=0;i<length;i++)if(view.visible[i])visible[i]=true;
+   for(const view of known)for(let i=0;i<length;i++)if(view.explored[i])explored[i]=true;
+   union={visible,explored};unions.set(key,union);
+  }
+  shared.set(player.id,union);
  }
  return {...m,fog:{...m.fog,teams:{player:shared.get('player')!,enemy:shared.get('enemy')!}},multiplePlayers:{...multi,ai:multi.ai.map(bot=>({...bot,vision:shared.get(bot.id)!}))}};
 }

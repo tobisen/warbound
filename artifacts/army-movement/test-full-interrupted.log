@@ -1,0 +1,9 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+ ❯ src/gameplay/enemyInitiative.test.ts (5 tests | 1 failed) 92327ms
+   × takes initiative on arena/beginner over twenty gameplay minutes and recovers after losses 5553ms

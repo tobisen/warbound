@@ -1,0 +1,715 @@
+{
+  "r": {
+    "map": "arena",
+    "difficulty": "beginner",
+    "seconds": 1200,
+    "firstScout": 105,
+    "scoutTime": 99,
+    "firstExpansion": 336,
+    "thirdBase": 877,
+    "dispatches": [],
+    "removed": 4,
+    "preLossSurvivors": 7,
+    "jobsBeforeLoss": 7,
+    "jobsAfterLoss": 3,
+    "hitsAfterLoss": 0,
+    "damage": 0,
+    "maxArmySupply": 8,
+    "maxBuildings": 10,
+    "population": {
+      "cap": 29,
+      "used": 14,
+      "reserved": 0
+    },
+    "research": {
+      "attack": 2,
+      "defense": 2,
+      "job": null,
+      "cavalryArmor": 1,
+      "healerTraining": 1,
+      "scoutOptics": 1,
+      "submarineDesign": 1
+    },
+    "baseDevelopment": {
+      "level": 3,
+      "remainingSeconds": null
+    },
+    "ledgerError": {
+      "wood": 2.2737367544323206e-13,
+      "gold": 1.1368683772161603e-12
+    },
+    "initialUnitsSurvive": true,
+    "snapshots": [
+      {
+        "time": 120,
+        "jobs": 3,
+        "workers": 2,
+        "bases": 1,
+        "armySupply": 3,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge"
+        ],
+        "bank": {
+          "wood": 14,
+          "gold": 18
+        },
+        "priority": "attack",
+        "knownNodes": 228,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [],
+        "scouts": 0
+      },
+      {
+        "time": 240,
+        "jobs": 5,
+        "workers": 3,
+        "bases": 1,
+        "armySupply": 5,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm"
+        ],
+        "bank": {
+          "wood": 46,
+          "gold": 32
+        },
+        "priority": "academy",
+        "knownNodes": 460,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "ready",
+            "size": 2
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 360,
+        "jobs": 5,
+        "workers": 6,
+        "bases": 2,
+        "armySupply": 5,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "academy",
+          "outpost"
+        ],
+        "bank": {
+          "wood": 51,
+          "gold": 72
+        },
+        "priority": "baseUpgrade",
+        "knownNodes": 614,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "ready",
+            "size": 2
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 480,
+        "jobs": 7,
+        "workers": 6,
+        "bases": 2,
+        "armySupply": 8,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary"
+        ],
+        "bank": {
+          "wood": 63,
+          "gold": 51
+        },
+        "priority": "siegeWorks",
+        "knownNodes": 714,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "ready",
+            "size": 4
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 600,
+        "jobs": 7,
+        "workers": 6,
+        "bases": 2,
+        "armySupply": 8,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 63,
+          "gold": 36
+        },
+        "priority": "baseUpgrade",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "ready",
+            "size": 4
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 720,
+        "jobs": 7,
+        "workers": 6,
+        "bases": 2,
+        "armySupply": 8,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 28,
+          "gold": 6
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "ready",
+            "size": 4
+          }
+        ],
+        "scouts": 0
+      },
+      {
+        "time": 840,
+        "jobs": 9,
+        "workers": 6,
+        "bases": 2,
+        "armySupply": 6,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks"
+        ],
+        "bank": {
+          "wood": 33,
+          "gold": 21
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 960,
+        "jobs": 10,
+        "workers": 6,
+        "bases": 3,
+        "armySupply": 8,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks",
+          "outpost"
+        ],
+        "bank": {
+          "wood": 143,
+          "gold": 126
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 1080,
+        "jobs": 10,
+        "workers": 6,
+        "bases": 3,
+        "armySupply": 8,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks",
+          "outpost"
+        ],
+        "bank": {
+          "wood": 313,
+          "gold": 391
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 1
+      },
+      {
+        "time": 1200,
+        "jobs": 10,
+        "workers": 6,
+        "bases": 3,
+        "armySupply": 8,
+        "buildings": [
+          "base",
+          "barracks",
+          "forge",
+          "farm",
+          "academy",
+          "outpost",
+          "stable",
+          "aviary",
+          "siegeWorks",
+          "outpost"
+        ],
+        "bank": {
+          "wood": 473,
+          "gold": 651
+        },
+        "priority": "army",
+        "knownNodes": 715,
+        "knownBase": {
+          "x": 400,
+          "y": 450
+        },
+        "groups": [
+          {
+            "status": "muster",
+            "size": 1
+          }
+        ],
+        "scouts": 1
+      }
+    ]
+  },
+  "ai": {
+    "reserve": [
+      "enemy-produced-1",
+      "enemy-produced-2",
+      "enemy-produced-8"
+    ],
+    "defenders": [],
+    "threatId": null,
+    "elapsedSeconds": 1200,
+    "nextGroupNumber": 5,
+    "groups": [
+      {
+        "id": "enemy-group-4",
+        "status": "muster",
+        "members": [
+          "enemy-produced-10"
+        ],
+        "destinations": {
+          "enemy-produced-10": {
+            "x": 1548,
+            "y": 1696
+          }
+        },
+        "startedAt": 900.5
+      }
+    ],
+    "lastDispatchSeconds": null
+  },
+  "strategy": {
+    "phase": "buildup",
+    "objective": {
+      "position": {
+        "x": 400,
+        "y": 450
+      },
+      "kind": "base",
+      "power": 0,
+      "until": 1198
+    },
+    "attackMembers": [],
+    "recon": {
+      "ids": [
+        "enemy-produced-7"
+      ],
+      "index": 122,
+      "goal": {
+        "x": 409.6,
+        "y": 409.6
+      },
+      "blocked": [
+        {
+          "x": 400,
+          "y": 144
+        },
+        {
+          "x": 528,
+          "y": 144
+        },
+        {
+          "x": 144,
+          "y": 656
+        },
+        {
+          "x": 656,
+          "y": 1424
+        },
+        {
+          "x": 528,
+          "y": 1424
+        },
+        {
+          "x": 400,
+          "y": 1424
+        },
+        {
+          "x": 272,
+          "y": 1424
+        },
+        {
+          "x": 144,
+          "y": 1168
+        },
+        {
+          "x": 528,
+          "y": 1552
+        },
+        {
+          "x": 144,
+          "y": 1296
+        },
+        {
+          "x": 400,
+          "y": 1552
+        },
+        {
+          "x": 400,
+          "y": 1680
+        },
+        {
+          "x": 144,
+          "y": 1552
+        },
+        {
+          "x": 1040,
+          "y": 1552
+        },
+        {
+          "x": 1638.4,
+          "y": 1638.4
+        }
+      ],
+      "retreatUntil": 0
+    },
+    "nextDecisionSeconds": 1200,
+    "minimumAttackSize": 2,
+    "priority": "army",
+    "workerTarget": 6,
+    "armyCap": 8,
+    "reserve": {
+      "wood": 0,
+      "gold": 0
+    },
+    "expand": false,
+    "threatened": false,
+    "attackPower": 0,
+    "expansionSites": [
+      {
+        "x": 1952,
+        "y": 1216
+      },
+      {
+        "x": 1248,
+        "y": 1152
+      },
+      {
+        "x": 1184,
+        "y": 1216
+      },
+      {
+        "x": 1280,
+        "y": 928
+      },
+      {
+        "x": 1120,
+        "y": 1024
+      },
+      {
+        "x": 896,
+        "y": 1408
+      },
+      {
+        "x": 896,
+        "y": 1792
+      },
+      {
+        "x": 1376,
+        "y": 768
+      },
+      {
+        "x": 1184,
+        "y": 832
+      },
+      {
+        "x": 704,
+        "y": 1344
+      },
+      {
+        "x": 704,
+        "y": 1856
+      },
+      {
+        "x": 608,
+        "y": 1504
+      },
+      {
+        "x": 608,
+        "y": 1728
+      },
+      {
+        "x": 608,
+        "y": 1184
+      },
+      {
+        "x": 544,
+        "y": 1376
+      },
+      {
+        "x": 512,
+        "y": 1408
+      },
+      {
+        "x": 512,
+        "y": 1792
+      },
+      {
+        "x": 448,
+        "y": 1600
+      },
+      {
+        "x": 544,
+        "y": 992
+      },
+      {
+        "x": 480,
+        "y": 1088
+      },
+      {
+        "x": 352,
+        "y": 1440
+      },
+      {
+        "x": 992,
+        "y": 352
+      },
+      {
+        "x": 256,
+        "y": 1312
+      },
+      {
+        "x": 800,
+        "y": 416
+      }
+    ]
+  },
+  "units": [
+    {
+      "id": "enemy-worker-1",
+      "kind": "worker"
+    },
+    {
+      "id": "enemy-worker-2",
+      "kind": "worker"
+    },
+    {
+      "id": "enemy-produced-1",
+      "role": "soldier",
+      "kind": "unit",
+      "order": {
+        "kind": "muster",
+        "destination": {
+          "x": 1600,
+          "y": 1584
+        }
+      }
+    },
+    {
+      "id": "enemy-produced-2",
+      "role": "archer",
+      "kind": "unit",
+      "order": {
+        "kind": "muster",
+        "destination": {
+          "x": 1920,
+          "y": 1648
+        }
+      }
+    },
+    {
+      "id": "enemy-worker-3",
+      "kind": "worker"
+    },
+    {
+      "id": "enemy-worker-4",
+      "kind": "worker"
+    },
+    {
+      "id": "enemy-worker-5",
+      "kind": "worker"
+    },
+    {
+      "id": "enemy-worker-6",
+      "kind": "worker"
+    },
+    {
+      "id": "enemy-produced-7",
+      "role": "soldier",
+      "kind": "unit",
+      "order": {
+        "kind": "muster",
+        "destination": {
+          "x": 1472,
+          "y": 1728
+        }
+      }
+    },
+    {
+      "id": "enemy-produced-8",
+      "role": "healer",
+      "kind": "unit",
+      "order": {
+        "kind": "muster",
+        "destination": {
+          "x": 1536,
+          "y": 1264
+        }
+      }
+    },
+    {
+      "id": "enemy-produced-9",
+      "role": "scout",
+      "kind": "unit",
+      "order": {
+        "kind": "muster",
+        "destination": {
+          "x": 1638.4,
+          "y": 1638.4
+        }
+      }
+    },
+    {
+      "id": "enemy-produced-10",
+      "role": "catapult",
+      "kind": "unit",
+      "order": {
+        "kind": "muster",
+        "destination": {
+          "x": 1548,
+          "y": 1696
+        }
+      }
+    }
+  ],
+  "armyPlan": {
+    "weights": {
+      "ballista": 1,
+      "soldier": 3,
+      "archer": 2,
+      "catapult": 1,
+      "specialist": 1,
+      "air": 1,
+      "cavalry": 1,
+      "healer": 1,
+      "giant": 1,
+      "scout": 1
+    },
+    "nextDecisionSeconds": 1200
+  }
+}

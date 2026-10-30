@@ -1,0 +1,580 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+ ✓ src/gameplay/largeMaps.test.ts > plains96: full bounds, fog, camera and minimap use authored dimensions 189ms
+ ✓ src/gameplay/largeMaps.test.ts > plains96: long blocked-direct routes search beyond the former small-map budget 82ms
+ ✓ src/gameplay/largeMaps.test.ts > plains96: far camera and active far movement survive strict Save/load 605ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid arena/crown/beginner completes with conserved finite economy
+{"map":"arena","faction":"crown","difficulty":"beginner","seconds":175.15000000000558,"spentWood":180,"spentGold":30,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid arena/crown/beginner completes with conserved finite economy 7919ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid arena/crown/easy completes with conserved finite economy
+{"map":"arena","faction":"crown","difficulty":"easy","seconds":180.45000000000678,"spentWood":200,"spentGold":35,"kills":6}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid arena/crown/easy completes with conserved finite economy 7530ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid arena/crown/normal completes with conserved finite economy
+{"map":"arena","faction":"crown","difficulty":"normal","seconds":176.50000000000588,"spentWood":200,"spentGold":35,"kills":6}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid arena/crown/normal completes with conserved finite economy 7311ms
+ ✓ src/gameplay/largeMaps.test.ts > plains96: existing paid skirmish and enemy economy remain playable 24294ms
+ ✓ src/gameplay/largeMaps.test.ts > plains128: full bounds, fog, camera and minimap use authored dimensions 169ms
+ ✓ src/gameplay/largeMaps.test.ts > plains128: long blocked-direct routes search beyond the former small-map budget 74ms
+ ✓ src/gameplay/largeMaps.test.ts > plains128: far camera and active far movement survive strict Save/load 471ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid arena/crown/hard completes with conserved finite economy
+{"map":"arena","faction":"crown","difficulty":"hard","seconds":191.40000000000927,"spentWood":240,"spentGold":45,"kills":6}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid arena/crown/hard completes with conserved finite economy 8045ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid arena/clans/beginner completes with conserved finite economy
+{"map":"arena","faction":"clans","difficulty":"beginner","seconds":171.3500000000047,"spentWood":168,"spentGold":36,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid arena/clans/beginner completes with conserved finite economy 7327ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid arena/clans/easy completes with conserved finite economy
+{"map":"arena","faction":"clans","difficulty":"easy","seconds":185.20000000000786,"spentWood":186,"spentGold":42,"kills":7}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid arena/clans/easy completes with conserved finite economy 7612ms
+ ✓ src/gameplay/largeMaps.test.ts > plains128: existing paid skirmish and enemy economy remain playable 25108ms
+ ✓ src/gameplay/largeMaps.test.ts > config20 preserves existing matches, ledger and views when migrating to21 212ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid arena/clans/normal completes with conserved finite economy
+{"map":"arena","faction":"clans","difficulty":"normal","seconds":179.30000000000652,"spentWood":186,"spentGold":42,"kills":6}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid arena/clans/normal completes with conserved finite economy 7731ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/survival/easy: paid victory with abilities and ledger
+{"faction":"crown","scenario":"survival","difficulty":"easy","outcome":"victory","time":146.6499999999991,"baseHP":240,"wood":120,"gold":20,"abilities":8}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/survival/easy: paid victory with abilities and ledger 4226ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/survival/normal: paid victory with abilities and ledger
+{"faction":"crown","scenario":"survival","difficulty":"normal","outcome":"victory","time":122.49999999999518,"baseHP":240,"wood":120,"gold":20,"abilities":8}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/survival/normal: paid victory with abilities and ledger 3539ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid arena/clans/hard completes with conserved finite economy
+{"map":"arena","faction":"clans","difficulty":"hard","seconds":171.95000000000485,"spentWood":212,"spentGold":44,"kills":6}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid arena/clans/hard completes with conserved finite economy 7180ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/survival/hard: paid victory with abilities and ledger
+{"faction":"crown","scenario":"survival","difficulty":"hard","outcome":"victory","time":113.04999999999572,"baseHP":240,"wood":120,"gold":20,"abilities":7}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/survival/hard: paid victory with abilities and ledger 3115ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid forest/crown/beginner completes with conserved finite economy
+{"map":"forest","faction":"crown","difficulty":"beginner","seconds":179.95000000000667,"spentWood":180,"spentGold":30,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid forest/crown/beginner completes with conserved finite economy 7398ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/skirmish/easy: paid victory with abilities and ledger
+{"faction":"crown","scenario":"skirmish","difficulty":"easy","outcome":"victory","time":180.45000000000678,"baseHP":240,"wood":200,"gold":35,"abilities":10}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/skirmish/easy: paid victory with abilities and ledger 8109ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid forest/crown/easy completes with conserved finite economy
+{"map":"forest","faction":"crown","difficulty":"easy","seconds":167.45000000000383,"spentWood":180,"spentGold":30,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid forest/crown/easy completes with conserved finite economy 7412ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/skirmish/normal: paid victory with abilities and ledger
+{"faction":"crown","scenario":"skirmish","difficulty":"normal","outcome":"victory","time":176.50000000000588,"baseHP":240,"wood":200,"gold":35,"abilities":10}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/skirmish/normal: paid victory with abilities and ledger 8022ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid forest/crown/normal completes with conserved finite economy
+{"map":"forest","faction":"crown","difficulty":"normal","seconds":162.40000000000268,"spentWood":180,"spentGold":30,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid forest/crown/normal completes with conserved finite economy 7039ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/skirmish/hard: paid victory with abilities and ledger
+{"faction":"crown","scenario":"skirmish","difficulty":"hard","outcome":"victory","time":191.40000000000927,"baseHP":240,"wood":240,"gold":45,"abilities":9}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/skirmish/hard: paid victory with abilities and ledger 8278ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/mission-waves/easy: paid victory with abilities and ledger
+{"faction":"crown","scenario":"mission-waves","difficulty":"easy","outcome":"victory","time":146.44999999999905,"baseHP":240,"wood":120,"gold":20,"abilities":11}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/mission-waves/easy: paid victory with abilities and ledger 4425ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid forest/crown/hard completes with conserved finite economy
+{"map":"forest","faction":"crown","difficulty":"hard","seconds":210.25000000001359,"spentWood":260,"spentGold":50,"kills":6}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid forest/crown/hard completes with conserved finite economy 9330ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/mission-waves/normal: paid victory with abilities and ledger
+{"faction":"crown","scenario":"mission-waves","difficulty":"normal","outcome":"victory","time":122.2499999999952,"baseHP":240,"wood":120,"gold":20,"abilities":10}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/mission-waves/normal: paid victory with abilities and ledger 3568ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/mission-waves/hard: paid victory with abilities and ledger
+{"faction":"crown","scenario":"mission-waves","difficulty":"hard","outcome":"victory","time":112.54999999999575,"baseHP":240,"wood":120,"gold":20,"abilities":10}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/mission-waves/hard: paid victory with abilities and ledger 3232ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid forest/clans/beginner completes with conserved finite economy
+{"map":"forest","faction":"clans","difficulty":"beginner","seconds":169.30000000000425,"spentWood":168,"spentGold":36,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid forest/clans/beginner completes with conserved finite economy 7071ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/mission-base/easy: paid victory with abilities and ledger
+{"faction":"crown","scenario":"mission-base","difficulty":"easy","outcome":"victory","time":158.75000000000185,"baseHP":240,"wood":200,"gold":35,"abilities":9}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/mission-base/easy: paid victory with abilities and ledger 7598ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid forest/clans/easy completes with conserved finite economy
+{"map":"forest","faction":"clans","difficulty":"easy","seconds":172.70000000000502,"spentWood":168,"spentGold":36,"kills":6}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid forest/clans/easy completes with conserved finite economy 8539ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/mission-base/normal: paid victory with abilities and ledger
+{"faction":"crown","scenario":"mission-base","difficulty":"normal","outcome":"victory","time":155.70000000000115,"baseHP":240,"wood":200,"gold":35,"abilities":8}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/mission-base/normal: paid victory with abilities and ledger 6733ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid forest/clans/normal completes with conserved finite economy
+{"map":"forest","faction":"clans","difficulty":"normal","seconds":147.89999999999938,"spentWood":150,"spentGold":30,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid forest/clans/normal completes with conserved finite economy 6349ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/mission-base/hard: paid victory with abilities and ledger
+{"faction":"crown","scenario":"mission-base","difficulty":"hard","outcome":"victory","time":170.20000000000445,"baseHP":240,"wood":240,"gold":45,"abilities":9}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/mission-base/hard: paid victory with abilities and ledger 7398ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid forest/clans/hard completes with conserved finite economy
+{"map":"forest","faction":"clans","difficulty":"hard","seconds":185.70000000000798,"spentWood":230,"spentGold":50,"kills":6}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid forest/clans/hard completes with conserved finite economy 8799ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/mission-outpost/easy: paid victory with abilities and ledger
+{"faction":"crown","scenario":"mission-outpost","difficulty":"easy","outcome":"victory","time":89.99999999999703,"baseHP":240,"wood":120,"gold":20,"abilities":4}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/mission-outpost/easy: paid victory with abilities and ledger 3207ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/mission-outpost/normal: paid victory with abilities and ledger
+{"faction":"crown","scenario":"mission-outpost","difficulty":"normal","outcome":"victory","time":89.99999999999703,"baseHP":240,"wood":120,"gold":20,"abilities":5}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/mission-outpost/normal: paid victory with abilities and ledger 3182ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance crown/mission-outpost/hard: paid victory with abilities and ledger
+{"faction":"crown","scenario":"mission-outpost","difficulty":"hard","outcome":"victory","time":89.99999999999703,"baseHP":240,"wood":120,"gold":20,"abilities":3}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance crown/mission-outpost/hard: paid victory with abilities and ledger 2994ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid river/crown/beginner completes with conserved finite economy
+{"map":"river","faction":"crown","difficulty":"beginner","seconds":152.05000000000032,"spentWood":140,"spentGold":25,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid river/crown/beginner completes with conserved finite economy 7335ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/survival/easy: paid victory with abilities and ledger
+{"faction":"clans","scenario":"survival","difficulty":"easy","outcome":"victory","time":146.14999999999898,"baseHP":260,"wood":112,"gold":24,"abilities":8}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/survival/easy: paid victory with abilities and ledger 4533ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid river/crown/easy completes with conserved finite economy
+{"map":"river","faction":"crown","difficulty":"easy","seconds":148.64999999999955,"spentWood":140,"spentGold":25,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid river/crown/easy completes with conserved finite economy 7208ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/survival/normal: paid victory with abilities and ledger
+{"faction":"clans","scenario":"survival","difficulty":"normal","outcome":"victory","time":121.94999999999521,"baseHP":260,"wood":112,"gold":24,"abilities":7}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/survival/normal: paid victory with abilities and ledger 3631ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/survival/hard: paid victory with abilities and ledger
+{"faction":"clans","scenario":"survival","difficulty":"hard","outcome":"victory","time":112.79999999999573,"baseHP":260,"wood":112,"gold":24,"abilities":7}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/survival/hard: paid victory with abilities and ledger 3527ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid river/crown/normal completes with conserved finite economy
+{"map":"river","faction":"crown","difficulty":"normal","seconds":144.34999999999857,"spentWood":140,"spentGold":25,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid river/crown/normal completes with conserved finite economy 7259ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/skirmish/easy: paid victory with abilities and ledger
+{"faction":"clans","scenario":"skirmish","difficulty":"easy","outcome":"victory","time":185.20000000000786,"baseHP":260,"wood":186,"gold":42,"abilities":10}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/skirmish/easy: paid victory with abilities and ledger 9267ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid river/crown/hard completes with conserved finite economy
+{"map":"river","faction":"crown","difficulty":"hard","seconds":164.65000000000316,"spentWood":160,"spentGold":30,"kills":7}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid river/crown/hard completes with conserved finite economy 8271ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/skirmish/normal: paid victory with abilities and ledger
+{"faction":"clans","scenario":"skirmish","difficulty":"normal","outcome":"victory","time":179.30000000000652,"baseHP":260,"wood":186,"gold":42,"abilities":10}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/skirmish/normal: paid victory with abilities and ledger 7822ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid river/clans/beginner completes with conserved finite economy
+{"map":"river","faction":"clans","difficulty":"beginner","seconds":154.85000000000096,"spentWood":130,"spentGold":30,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid river/clans/beginner completes with conserved finite economy 6683ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/skirmish/hard: paid victory with abilities and ledger
+{"faction":"clans","scenario":"skirmish","difficulty":"hard","outcome":"victory","time":171.95000000000485,"baseHP":260,"wood":212,"gold":44,"abilities":5}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/skirmish/hard: paid victory with abilities and ledger 7552ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid river/clans/easy completes with conserved finite economy
+{"map":"river","faction":"clans","difficulty":"easy","seconds":147.0999999999992,"spentWood":130,"spentGold":30,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid river/clans/easy completes with conserved finite economy 6492ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/mission-waves/easy: paid victory with abilities and ledger
+{"faction":"clans","scenario":"mission-waves","difficulty":"easy","outcome":"victory","time":146.14999999999898,"baseHP":260,"wood":112,"gold":24,"abilities":9}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/mission-waves/easy: paid victory with abilities and ledger 4142ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid river/clans/normal completes with conserved finite economy
+{"map":"river","faction":"clans","difficulty":"normal","seconds":147.79999999999936,"spentWood":130,"spentGold":30,"kills":5}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid river/clans/normal completes with conserved finite economy 6355ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/mission-waves/normal: paid victory with abilities and ledger
+{"faction":"clans","scenario":"mission-waves","difficulty":"normal","outcome":"victory","time":121.64999999999523,"baseHP":260,"wood":112,"gold":24,"abilities":9}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/mission-waves/normal: paid victory with abilities and ledger 3438ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/mission-waves/hard: paid victory with abilities and ledger
+{"faction":"clans","scenario":"mission-waves","difficulty":"hard","outcome":"victory","time":112.29999999999576,"baseHP":260,"wood":112,"gold":24,"abilities":8}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/mission-waves/hard: paid victory with abilities and ledger 3222ms
+stdout | src/gameplay/skirmishBalance.test.ts > paid river/clans/hard completes with conserved finite economy
+{"map":"river","faction":"clans","difficulty":"hard","seconds":166.0000000000035,"spentWood":148,"spentGold":36,"kills":8}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > paid river/clans/hard completes with conserved finite economy 7479ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/mission-base/easy: paid victory with abilities and ledger
+{"faction":"clans","scenario":"mission-base","difficulty":"easy","outcome":"victory","time":127.94999999999487,"baseHP":260,"wood":150,"gold":30,"abilities":5}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/mission-base/easy: paid victory with abilities and ledger 5875ms
+stdout | src/gameplay/skirmishBalance.test.ts > passive arena/crown reaches defeat without free income
+{"passive":true,"map":"arena","faction":"crown","seconds":620.200000000004,"enemySpent":{"wood":541,"gold":227},"enemyGathered":{"wood":480,"gold":229.99999999979627}}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > passive arena/crown reaches defeat without free income 6349ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/mission-base/normal: paid victory with abilities and ledger
+{"faction":"clans","scenario":"mission-base","difficulty":"normal","outcome":"victory","time":134.3499999999963,"baseHP":260,"wood":150,"gold":30,"abilities":5}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/mission-base/normal: paid victory with abilities and ledger 6075ms
+stdout | src/gameplay/skirmishBalance.test.ts > passive arena/clans reaches defeat without free income
+{"passive":true,"map":"arena","faction":"clans","seconds":626.0000000000053,"enemySpent":{"wood":550,"gold":220},"enemyGathered":{"wood":492.9087287004204,"gold":219.99999999980355}}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > passive arena/clans reaches defeat without free income 5564ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/mission-base/hard: paid victory with abilities and ledger
+{"faction":"clans","scenario":"mission-base","difficulty":"hard","outcome":"victory","time":161.50000000000247,"baseHP":260,"wood":230,"gold":50,"abilities":8}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/mission-base/hard: paid victory with abilities and ledger 6695ms
+stdout | src/gameplay/skirmishBalance.test.ts > passive forest/crown reaches defeat without free income
+{"passive":true,"map":"forest","faction":"crown","seconds":621.2000000000043,"enemySpent":{"wood":621,"gold":267},"enemyGathered":{"wood":577.4332295917775,"gold":269.9999999997599}}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > passive forest/crown reaches defeat without free income 5070ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/mission-outpost/easy: paid victory with abilities and ledger
+{"faction":"clans","scenario":"mission-outpost","difficulty":"easy","outcome":"victory","time":89.99999999999703,"baseHP":260,"wood":112,"gold":24,"abilities":4}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/mission-outpost/easy: paid victory with abilities and ledger 2613ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/mission-outpost/normal: paid victory with abilities and ledger
+{"faction":"clans","scenario":"mission-outpost","difficulty":"normal","outcome":"victory","time":89.99999999999703,"baseHP":260,"wood":112,"gold":24,"abilities":5}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/mission-outpost/normal: paid victory with abilities and ledger 2633ms
+stdout | src/gameplay/skirmishBalance.test.ts > passive forest/clans reaches defeat without free income
+{"passive":true,"map":"forest","faction":"clans","seconds":623.2000000000047,"enemySpent":{"wood":630,"gold":260},"enemyGathered":{"wood":592.62831991844,"gold":259.99999999977445}}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > passive forest/clans reaches defeat without free income 5108ms
+stdout | src/gameplay/factionBalance.test.ts > faction balance clans/mission-outpost/hard: paid victory with abilities and ledger
+{"faction":"clans","scenario":"mission-outpost","difficulty":"hard","outcome":"victory","time":89.99999999999703,"baseHP":260,"wood":112,"gold":24,"abilities":6}
+
+ ✓ src/gameplay/factionBalance.test.ts > faction balance clans/mission-outpost/hard: paid victory with abilities and ledger 2741ms
+ ✓ src/gameplay/factionBalance.test.ts > crown can lose through actual enemy attacks and next match isolates every choice 764ms
+ ✓ src/gameplay/factionBalance.test.ts > clans can lose through actual enemy attacks and next match isolates every choice 635ms
+stdout | src/gameplay/skirmishBalance.test.ts > passive river/crown reaches defeat without free income
+{"passive":true,"map":"river","faction":"crown","seconds":620.200000000004,"enemySpent":{"wood":450.99999999999994,"gold":177},"enemyGathered":{"wood":460,"gold":195.2707005572811}}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > passive river/crown reaches defeat without free income 5677ms
+stdout | src/gameplay/skirmishBalance.test.ts > passive river/clans reaches defeat without free income
+{"passive":true,"map":"river","faction":"clans","seconds":626.0000000000053,"enemySpent":{"wood":460,"gold":170},"enemyGathered":{"wood":470,"gold":194.99999999983265}}
+
+ ✓ src/gameplay/skirmishBalance.test.ts > passive river/clans reaches defeat without free income 5829ms
+ ✓ src/gameplay/skirmishBalance.test.ts > search waypoints remain land positions on every handcrafted map 25ms
+stdout | src/gameplay/campaignQuality.test.ts > first-steps: Beginner paid completion, recoverable preparation and phase-boundary Save
+{
+  mission: 'first-steps',
+  difficulty: 'beginner',
+  automatedGameplaySeconds: 32.00000000000032,
+  base: 240,
+  woodSpent: 60.00000000000887,
+  goldSpent: 5.00000000003638,
+  humanDurationVerified: false
+}
+
+ ✓ src/gameplay/campaignQuality.test.ts > first-steps: Beginner paid completion, recoverable preparation and phase-boundary Save 6967ms
+stdout | src/gameplay/campaignQuality.test.ts > forest-watch: Beginner paid completion, recoverable preparation and phase-boundary Save
+{
+  mission: 'forest-watch',
+  difficulty: 'beginner',
+  automatedGameplaySeconds: 449.60000000003373,
+  base: 260,
+  woodSpent: 132.0000000000013,
+  goldSpent: 23.9999999998181,
+  humanDurationVerified: false
+}
+
+ ✓ src/gameplay/campaignQuality.test.ts > forest-watch: Beginner paid completion, recoverable preparation and phase-boundary Save 21053ms
+stdout | src/gameplay/campaignQuality.test.ts > the-siege: Beginner paid completion, recoverable preparation and phase-boundary Save
+{
+  mission: 'the-siege',
+  difficulty: 'beginner',
+  automatedGameplaySeconds: 207.5999999999925,
+  base: 220,
+  woodSpent: 139.99999999999565,
+  goldSpent: 23.999999999898137,
+  humanDurationVerified: false
+}
+
+ ✓ src/gameplay/campaignQuality.test.ts > the-siege: Beginner paid completion, recoverable preparation and phase-boundary Save 12138ms
+ ✓ src/gameplay/aiTerritory.test.ts > normal explores and pays for three geographically separate Plains128 bases within 25 minutes 53045ms
+stdout | src/gameplay/campaignQuality.test.ts > the-outpost: Beginner paid completion, recoverable preparation and phase-boundary Save
+{
+  mission: 'the-outpost',
+  difficulty: 'beginner',
+  automatedGameplaySeconds: 355.20000000001227,
+  base: 300,
+  woodSpent: 162.99999999999932,
+  goldSpent: 19.999999999865018,
+  humanDurationVerified: false
+}
+
+ ✓ src/gameplay/campaignQuality.test.ts > the-outpost: Beginner paid completion, recoverable preparation and phase-boundary Save 18768ms
+stdout | src/gameplay/campaignQuality.test.ts > the-crossing: Beginner paid completion, recoverable preparation and phase-boundary Save
+{
+  mission: 'the-crossing',
+  difficulty: 'beginner',
+  automatedGameplaySeconds: 194.79999999999322,
+  base: 200,
+  woodSpent: 187.00000000005645,
+  goldSpent: 35.99999999987964,
+  humanDurationVerified: false
+}
+
+ ✓ src/gameplay/campaignQuality.test.ts > the-crossing: Beginner paid completion, recoverable preparation and phase-boundary Save 14432ms
+stdout | src/gameplay/campaignQuality.test.ts > ridge-convoy: Beginner paid completion, recoverable preparation and phase-boundary Save
+{
+  mission: 'ridge-convoy',
+  difficulty: 'beginner',
+  automatedGameplaySeconds: 128.299999999997,
+  base: 260,
+  woodSpent: 132.0000000000278,
+  goldSpent: 23.99999999994543,
+  humanDurationVerified: false
+}
+
+ ✓ src/gameplay/campaignQuality.test.ts > ridge-convoy: Beginner paid completion, recoverable preparation and phase-boundary Save 5915ms
+ ✓ src/gameplay/aiTerritory.test.ts > easy explores and pays for three geographically separate Plains128 bases within 25 minutes 39871ms
+stdout | src/gameplay/campaignQuality.test.ts > valley-rescue: Beginner paid completion, recoverable preparation and phase-boundary Save
+{
+  mission: 'valley-rescue',
+  difficulty: 'beginner',
+  automatedGameplaySeconds: 166.29999999999484,
+  base: 220,
+  woodSpent: 139.99999999999685,
+  goldSpent: 23.99999999993088,
+  humanDurationVerified: false
+}
+
+ ✓ src/gameplay/campaignQuality.test.ts > valley-rescue: Beginner paid completion, recoverable preparation and phase-boundary Save 12169ms
+stdout | src/gameplay/campaignQuality.test.ts > coastal-banner: Beginner paid completion, recoverable preparation and phase-boundary Save
+{
+  mission: 'coastal-banner',
+  difficulty: 'beginner',
+  automatedGameplaySeconds: 208.09999999999232,
+  base: 240,
+  woodSpent: 220.00000000004206,
+  goldSpent: 39.99999999987348,
+  humanDurationVerified: false
+}
+
+ ✓ src/gameplay/campaignQuality.test.ts > coastal-banner: Beginner paid completion, recoverable preparation and phase-boundary Save 9833ms
+ ✓ src/gameplay/islands.test.ts > islands have reachable finite resources, separate landmasses and one connected sea 49ms
+ ✓ src/gameplay/islands.test.ts > skirmish/easy/crown gathers, pays for army/harbor/transport, lands and wins through land combat 9067ms
+ ✓ src/gameplay/islands.test.ts > skirmish/easy/clans gathers, pays for army/harbor/transport, lands and wins through land combat 10637ms
+ ✓ src/gameplay/aiTerritory.test.ts > beginner explores and pays for three geographically separate Plains128 bases within 25 minutes 38384ms
+stdout | src/gameplay/releaseMatrix.test.ts > release survival/easy: legal economy, combat, pause/save, outcome and fresh restart
+survival/easy: victory 146.50s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release survival/easy: legal economy, combat, pause/save, outcome and fresh restart 7015ms
+ ✓ src/gameplay/islands.test.ts > skirmish/normal/crown gathers, pays for army/harbor/transport, lands and wins through land combat 9031ms
+stdout | src/gameplay/releaseMatrix.test.ts > release survival/normal: legal economy, combat, pause/save, outcome and fresh restart
+survival/normal: victory 122.50s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release survival/normal: legal economy, combat, pause/save, outcome and fresh restart 5115ms
+ ✓ src/gameplay/islands.test.ts > skirmish/normal/clans gathers, pays for army/harbor/transport, lands and wins through land combat 8303ms
+stdout | src/gameplay/releaseMatrix.test.ts > release survival/hard: legal economy, combat, pause/save, outcome and fresh restart
+survival/hard: victory 114.90s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release survival/hard: legal economy, combat, pause/save, outcome and fresh restart 4879ms
+ ✓ src/gameplay/islands.test.ts > skirmish/hard/crown gathers, pays for army/harbor/transport, lands and wins through land combat 9086ms
+stdout | src/gameplay/releaseMatrix.test.ts > release skirmish/easy: legal economy, combat, pause/save, outcome and fresh restart
+skirmish/easy: victory 180.45s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release skirmish/easy: legal economy, combat, pause/save, outcome and fresh restart 13539ms
+ ✓ src/gameplay/islands.test.ts > skirmish/hard/clans gathers, pays for army/harbor/transport, lands and wins through land combat 8631ms
+ ✓ src/gameplay/islands.test.ts > mission-sea/easy/crown gathers, pays for army/harbor/transport, lands and wins through land combat 7860ms
+stdout | src/gameplay/releaseMatrix.test.ts > release skirmish/normal: legal economy, combat, pause/save, outcome and fresh restart
+skirmish/normal: victory 176.50s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release skirmish/normal: legal economy, combat, pause/save, outcome and fresh restart 12063ms
+ ✓ src/gameplay/islands.test.ts > mission-sea/easy/clans gathers, pays for army/harbor/transport, lands and wins through land combat 9039ms
+stdout | src/gameplay/releaseMatrix.test.ts > release skirmish/hard: legal economy, combat, pause/save, outcome and fresh restart
+skirmish/hard: victory 191.40s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release skirmish/hard: legal economy, combat, pause/save, outcome and fresh restart 14827ms
+ ✓ src/gameplay/islands.test.ts > mission-sea/normal/crown gathers, pays for army/harbor/transport, lands and wins through land combat 9309ms
+stdout | src/gameplay/releaseMatrix.test.ts > release mission-waves/easy: legal economy, combat, pause/save, outcome and fresh restart
+mission-waves/easy: victory 146.30s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release mission-waves/easy: legal economy, combat, pause/save, outcome and fresh restart 6887ms
+ ✓ src/gameplay/islands.test.ts > mission-sea/normal/clans gathers, pays for army/harbor/transport, lands and wins through land combat 8679ms
+stdout | src/gameplay/releaseMatrix.test.ts > release mission-waves/normal: legal economy, combat, pause/save, outcome and fresh restart
+mission-waves/normal: victory 122.20s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release mission-waves/normal: legal economy, combat, pause/save, outcome and fresh restart 5830ms
+stdout | src/gameplay/releaseMatrix.test.ts > release mission-waves/hard: legal economy, combat, pause/save, outcome and fresh restart
+mission-waves/hard: victory 113.40s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release mission-waves/hard: legal economy, combat, pause/save, outcome and fresh restart 5119ms
+ ✓ src/gameplay/islands.test.ts > mission-sea/hard/crown gathers, pays for army/harbor/transport, lands and wins through land combat 8989ms
+ ✓ src/gameplay/islands.test.ts > mission-sea/hard/clans gathers, pays for army/harbor/transport, lands and wins through land combat 5536ms
+ ✓ src/gameplay/islands.test.ts > island profile and map-specific resource positions cannot be forged as old saves 87ms
+stdout | src/gameplay/releaseMatrix.test.ts > release mission-base/easy: legal economy, combat, pause/save, outcome and fresh restart
+mission-base/easy: victory 158.75s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release mission-base/easy: legal economy, combat, pause/save, outcome and fresh restart 8956ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > preserves eight legacy operations and fifteen per race, plus the appended Human naval expedition 3ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-border-granaries' has a valid unique start, full phase sequence and Save at every transition 2260ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-lanterns-in-the-wood' has a valid unique start, full phase sequence and Save at every transition 971ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-three-roads' has a valid unique start, full phase sequence and Save at every transition 1513ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-the-returning-envoy' has a valid unique start, full phase sequence and Save at every transition 1505ms
+stdout | src/gameplay/releaseMatrix.test.ts > release mission-base/normal: legal economy, combat, pause/save, outcome and fresh restart
+mission-base/normal: victory 155.70s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release mission-base/normal: legal economy, combat, pause/save, outcome and fresh restart 7643ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-tidal-supply' has a valid unique start, full phase sequence and Save at every transition 3575ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-the-allied-foothold' has a valid unique start, full phase sequence and Save at every transition 2183ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-oath-at-dawn' has a valid unique start, full phase sequence and Save at every transition 2066ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-exiles-camp' has a valid unique start, full phase sequence and Save at every transition 1830ms
+stdout | src/gameplay/releaseMatrix.test.ts > release mission-base/hard: legal economy, combat, pause/save, outcome and fresh restart
+mission-base/hard: victory 170.20s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release mission-base/hard: legal economy, combat, pause/save, outcome and fresh restart 8111ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-ashwood-trails' has a valid unique start, full phase sequence and Save at every transition 902ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-stand-at-redwater' has a valid unique start, full phase sequence and Save at every transition 2222ms
+stdout | src/gameplay/releaseMatrix.test.ts > release mission-outpost/easy: legal economy, combat, pause/save, outcome and fresh restart
+mission-outpost/easy: victory 90.00s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release mission-outpost/easy: legal economy, combat, pause/save, outcome and fresh restart 3175ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-the-broken-chain' has a valid unique start, full phase sequence and Save at every transition 1809ms
+stdout | src/gameplay/releaseMatrix.test.ts > release mission-outpost/normal: legal economy, combat, pause/save, outcome and fresh restart
+mission-outpost/normal: victory 90.00s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release mission-outpost/normal: legal economy, combat, pause/save, outcome and fresh restart 3142ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-across-the-reeds' has a valid unique start, full phase sequence and Save at every transition 3634ms
+stdout | src/gameplay/releaseMatrix.test.ts > release mission-outpost/hard: legal economy, combat, pause/save, outcome and fresh restart
+mission-outpost/hard: victory 90.00s base=240.0
+
+ ✓ src/gameplay/releaseMatrix.test.ts > release mission-outpost/hard: legal economy, combat, pause/save, outcome and fresh restart 3302ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-warband-confluence' has a valid unique start, full phase sequence and Save at every transition 1821ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-a-shore-of-our-own' has a valid unique start, full phase sequence and Save at every transition 2080ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-rootward-haven' has a valid unique start, full phase sequence and Save at every transition 988ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-hidden-canopies' has a valid unique start, full phase sequence and Save at every transition 1798ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-guard-the-springs' has a valid unique start, full phase sequence and Save at every transition 2072ms
+stdout | src/gameplay/campaignEarly.test.ts > first-steps: paid normal playthrough completes the actual goal, Save checkpoint, progression and fresh replay
+{
+  mission: 'first-steps',
+  pair: { player: 'crown', enemy: 'clans' },
+  seconds: 32.00000000000032,
+  wood: 60,
+  gold: 5,
+  base: 240,
+  abilities: 1
+}
+
+ ✓ src/gameplay/campaignEarly.test.ts > first-steps: new campaign starts use their story profiles, not unrelated Skirmish preferences 44ms
+ ✓ src/gameplay/campaignEarly.test.ts > first-steps: paid normal playthrough completes the actual goal, Save checkpoint, progression and fresh replay 8175ms
+ ✓ src/gameplay/campaignEarly.test.ts > first-steps: base defeat blocks completion even when the success condition is also satisfied 9ms
+ ✓ src/gameplay/campaignEarly.test.ts > forest-watch: new campaign starts use their story profiles, not unrelated Skirmish preferences 159ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-the-lost-circle' has a valid unique start, full phase sequence and Save at every transition 1884ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-moonlit-channel' has a valid unique start, full phase sequence and Save at every transition 3642ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-roots-reunited' has a valid unique start, full phase sequence and Save at every transition 1737ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-heartwood-vigil' has a valid unique start, full phase sequence and Save at every transition 1179ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-stonebreak-depot' has a valid unique start, full phase sequence and Save at every transition 1392ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-prospectors-ridges' has a valid unique start, full phase sequence and Save at every transition 1586ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-hold-the-switchbacks' has a valid unique start, full phase sequence and Save at every transition 1380ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-the-last-courier' has a valid unique start, full phase sequence and Save at every transition 1404ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-iron-tide' has a valid unique start, full phase sequence and Save at every transition 3470ms
+stdout | src/gameplay/campaignEarly.test.ts > forest-watch: paid normal playthrough completes the actual goal, Save checkpoint, progression and fresh replay
+{
+  mission: 'forest-watch',
+  pair: { player: 'clans', enemy: 'crown' },
+  seconds: 329.5000000000064,
+  wood: 131.99999999999974,
+  gold: 23.999999999869033,
+  base: 260,
+  abilities: 10
+}
+
+ ✓ src/gameplay/campaignEarly.test.ts > forest-watch: paid normal playthrough completes the actual goal, Save checkpoint, progression and fresh replay 17605ms
+ ✓ src/gameplay/campaignEarly.test.ts > forest-watch: base defeat blocks completion even when the success condition is also satisfied 52ms
+ ✓ src/gameplay/campaignEarly.test.ts > the-siege: new campaign starts use their story profiles, not unrelated Skirmish preferences 114ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-twin-holds' has a valid unique start, full phase sequence and Save at every transition 1692ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-the-road-reopened' has a valid unique start, full phase sequence and Save at every transition 2661ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-ledger-outpost' has a valid unique start, full phase sequence and Save at every transition 358ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-surveyors-cut' has a valid unique start, full phase sequence and Save at every transition 1466ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-tollgate-defense' has a valid unique start, full phase sequence and Save at every transition 1626ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-recover-the-witness' has a valid unique start, full phase sequence and Save at every transition 1842ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-contraband-passage' has a valid unique start, full phase sequence and Save at every transition 3635ms
+stdout | src/gameplay/campaignEarly.test.ts > the-siege: paid normal playthrough completes the actual goal, Save checkpoint, progression and fresh replay
+{
+  mission: 'the-siege',
+  pair: { player: 'elves', enemy: 'goblins' },
+  seconds: 208.29999999999245,
+  wood: 140.0000000000253,
+  gold: 23.999999999956344,
+  base: 220,
+  abilities: 4
+}
+
+ ✓ src/gameplay/campaignEarly.test.ts > the-siege: paid normal playthrough completes the actual goal, Save checkpoint, progression and fresh replay 13440ms
+ ✓ src/gameplay/campaignEarly.test.ts > the-siege: base defeat blocks completion even when the success condition is also satisfied 52ms
+ ✓ src/gameplay/campaignEarly.test.ts > the-outpost: new campaign starts use their story profiles, not unrelated Skirmish preferences 58ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-two-sided-bargain' has a valid unique start, full phase sequence and Save at every transition 2498ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-the-charter-reclaimed' has a valid unique start, full phase sequence and Save at every transition 1860ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-border-granaries' coordinates retain land routes, build space and actual operation triggers 72ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-lanterns-in-the-wood' coordinates retain land routes, build space and actual operation triggers 47ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-three-roads' coordinates retain land routes, build space and actual operation triggers 96ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-the-returning-envoy' coordinates retain land routes, build space and actual operation triggers 46ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-tidal-supply' coordinates retain land routes, build space and actual operation triggers 110ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-the-allied-foothold' coordinates retain land routes, build space and actual operation triggers 103ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'crown-oath-at-dawn' coordinates retain land routes, build space and actual operation triggers 79ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-exiles-camp' coordinates retain land routes, build space and actual operation triggers 64ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-ashwood-trails' coordinates retain land routes, build space and actual operation triggers 32ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-stand-at-redwater' coordinates retain land routes, build space and actual operation triggers 85ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-the-broken-chain' coordinates retain land routes, build space and actual operation triggers 52ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-across-the-reeds' coordinates retain land routes, build space and actual operation triggers 97ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-warband-confluence' coordinates retain land routes, build space and actual operation triggers 97ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'clans-a-shore-of-our-own' coordinates retain land routes, build space and actual operation triggers 71ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-rootward-haven' coordinates retain land routes, build space and actual operation triggers 31ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-hidden-canopies' coordinates retain land routes, build space and actual operation triggers 94ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-guard-the-springs' coordinates retain land routes, build space and actual operation triggers 91ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-the-lost-circle' coordinates retain land routes, build space and actual operation triggers 54ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-moonlit-channel' coordinates retain land routes, build space and actual operation triggers 102ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-roots-reunited' coordinates retain land routes, build space and actual operation triggers 74ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'elves-heartwood-vigil' coordinates retain land routes, build space and actual operation triggers 53ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-stonebreak-depot' coordinates retain land routes, build space and actual operation triggers 60ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-prospectors-ridges' coordinates retain land routes, build space and actual operation triggers 71ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-hold-the-switchbacks' coordinates retain land routes, build space and actual operation triggers 56ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-the-last-courier' coordinates retain land routes, build space and actual operation triggers 42ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-iron-tide' coordinates retain land routes, build space and actual operation triggers 93ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-twin-holds' coordinates retain land routes, build space and actual operation triggers 92ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'dwarves-the-road-reopened' coordinates retain land routes, build space and actual operation triggers 116ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-ledger-outpost' coordinates retain land routes, build space and actual operation triggers 12ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-surveyors-cut' coordinates retain land routes, build space and actual operation triggers 101ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-tollgate-defense' coordinates retain land routes, build space and actual operation triggers 70ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-recover-the-witness' coordinates retain land routes, build space and actual operation triggers 52ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-contraband-passage' coordinates retain land routes, build space and actual operation triggers 96ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-two-sided-bargain' coordinates retain land routes, build space and actual operation triggers 98ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > 'goblins-the-charter-reclaimed' coordinates retain land routes, build space and actual operation triggers 90ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > the expansion goal requires a completed living paid base at the authored clearing 58ms
+ ✓ src/gameplay/campaignExpeditions.test.ts > Save75 rejects foreign or legacy-spoofed expeditions and migrates genuine74 359ms
+ ✓ src/gameplay/navalBalance.test.ts > easy/crown: doing nothing loses to a paid finite naval assault 5691ms
+ ✓ src/gameplay/navalBalance.test.ts > easy/crown: a paid early cannon ship stops the carrier without free economy 4725ms
+stdout | src/gameplay/campaignEarly.test.ts > the-outpost: paid normal playthrough completes the actual goal, Save checkpoint, progression and fresh replay
+{
+  mission: 'the-outpost',
+  pair: { player: 'dwarves', enemy: 'goblins' },
+  seconds: 325.5000000000055,
+  wood: 163,
+  gold: 19.99999999987631,
+  base: 300,
+  abilities: 6
+}
+
+ ✓ src/gameplay/campaignEarly.test.ts > the-outpost: paid normal playthrough completes the actual goal, Save checkpoint, progression and fresh replay 17903ms
+ ✓ src/gameplay/campaignEarly.test.ts > the-outpost: base defeat blocks completion even when the success condition is also satisfied 65ms
+ ✓ src/gameplay/campaignEarly.test.ts > legacy campaign saves retain their chosen factions and fresh restart can use that saved identity 68ms
+ ✓ src/gameplay/navalBalance.test.ts > easy/clans: doing nothing loses to a paid finite naval assault 8038ms
+ ✓ src/gameplay/navalBalance.test.ts > easy/clans: a paid early cannon ship stops the carrier without free economy 6120ms
+ ✓ src/gameplay/maps.test.ts > arena/crown has finite configured stocks, valid spawns, resources and connected bases 37ms
+ ✓ src/gameplay/maps.test.ts > arena/crown completes a paid finite-resource skirmish and roundtrips its own map 13421ms
+ ✓ src/gameplay/navalBalance.test.ts > normal/crown: doing nothing loses to a paid finite naval assault 7341ms
+ ✓ src/gameplay/navalBalance.test.ts > normal/crown: a paid early cannon ship stops the carrier without free economy 6625ms
+ ✓ src/gameplay/maps.test.ts > arena/clans has finite configured stocks, valid spawns, resources and connected bases 15ms
+ ✓ src/gameplay/maps.test.ts > arena/clans completes a paid finite-resource skirmish and roundtrips its own map 14051ms
+ ✓ src/gameplay/navalBalance.test.ts > normal/clans: doing nothing loses to a paid finite naval assault 3994ms
+ ✓ src/gameplay/navalBalance.test.ts > normal/clans: a paid early cannon ship stops the carrier without free economy 3826ms
+ ✓ src/gameplay/maps.test.ts > forest/crown has finite configured stocks, valid spawns, resources and connected bases 14ms
+ ✓ src/gameplay/maps.test.ts > forest/crown completes a paid finite-resource skirmish and roundtrips its own map 7826ms
+ ✓ src/gameplay/navalBalance.test.ts > hard/crown: doing nothing loses to a paid finite naval assault 3133ms
+ ✓ src/gameplay/navalBalance.test.ts > hard/crown: a paid early cannon ship stops the carrier without free economy 3677ms
+ ✓ src/gameplay/maps.test.ts > forest/clans has finite configured stocks, valid spawns, resources and connected bases 9ms
+ ✓ src/gameplay/maps.test.ts > forest/clans completes a paid finite-resource skirmish and roundtrips its own map 6904ms

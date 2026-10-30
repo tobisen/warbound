@@ -1,0 +1,89 @@
+{
+  "fixture": "Previous campaign progression seeded solely to unlock mission17. Actual briefing/start menu; legal automated logistics strategy in accelerated quarter-second gameplay ticks; strict Save/load per transition. Not human playtime.",
+  "results": [
+    {
+      "width": 800,
+      "initial": {
+        "mission": "crown-tidebreak-relief",
+        "ships": 16,
+        "phase": 0
+      },
+      "play": {
+        "outcome": "victory",
+        "phase": 6,
+        "time": 108.25,
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": null,
+          "convoyService": 1
+        },
+        "phases": [
+          {
+            "phase": 2,
+            "time": 5,
+            "ships": 16
+          },
+          {
+            "phase": 4,
+            "time": 38,
+            "ships": 10
+          },
+          {
+            "phase": 5,
+            "time": 65.5,
+            "ships": 10
+          },
+          {
+            "phase": 6,
+            "time": 108.25,
+            "ships": 10
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "initial": {
+        "mission": "crown-tidebreak-relief",
+        "ships": 16,
+        "phase": 0
+      },
+      "play": {
+        "outcome": "victory",
+        "phase": 6,
+        "time": 108.25,
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": null,
+          "convoyService": 1
+        },
+        "phases": [
+          {
+            "phase": 2,
+            "time": 5,
+            "ships": 16
+          },
+          {
+            "phase": 4,
+            "time": 38,
+            "ships": 10
+          },
+          {
+            "phase": 5,
+            "time": 65.5,
+            "ships": 10
+          },
+          {
+            "phase": 6,
+            "time": 108.25,
+            "ships": 10
+          }
+        ]
+      },
+      "errors": []
+    }
+  ]
+}

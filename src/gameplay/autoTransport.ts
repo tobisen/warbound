@@ -1,3 +1,4 @@
+import {transportCapacity,transportContactRange} from './fleetService';
 import {hasMainBase} from './extraBases';
 import {navyConfig} from '../config/navy';
 import {bodyFits,tileCenter} from './map';
@@ -19,7 +20,7 @@ export function requestTransport(m:MatchState,shipId:string,kind:'load'|'unload'
  if(m.paused||m.outcome!=='playing'||!hasMainBase(m))return m;
  const ship=m.navy?.ships.find(s=>s.id===shipId&&s.role==='transport'&&s.hp>0);if(!ship)return m;
  if(kind==='load'){const immediate=loadTransport(m,shipId);if(immediate!==m)return requestTransport(immediate,shipId,kind);}
- const units=m.gathering.units.filter(u=>u.selected&&!isAir(u)&&(u.hp??1)>0).slice(0,navyConfig.transport.capacity-(ship.passengers?.length??0));
+ const units=m.gathering.units.filter(u=>u.selected&&!isAir(u)&&(u.hp??1)>0).slice(0,transportCapacity(m.factions?.player??'crown',m.research)-(ship.passengers?.length??0));
  if(kind==='load'&&!units.length||kind==='unload'&&!ship.passengers?.length)return m;
  const land=domainMap(m.map,'land'),water=domainMap(m.map,'water'),radius=navyConfig.transport.searchRadius,candidates:Position[]=[];
  for(let row=Math.max(0,Math.floor((ship.position.y-radius)/32));row<=Math.floor((ship.position.y+radius)/32);row++)for(let column=Math.max(0,Math.floor((ship.position.x-radius)/32));column<=Math.floor((ship.position.x+radius)/32);column++){
@@ -28,14 +29,14 @@ export function requestTransport(m:MatchState,shipId:string,kind:'load'|'unload'
  candidates.sort((a,b)=>distance(a,ship.position)-distance(b,ship.position)||a.y-b.y||a.x-b.x);
  for(const shore of candidates){
   const waterPoints:Position[]=[];
-  for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const p={x:shore.x+dx*32,y:shore.y+dy*32};if(bodyFits(water,p,16)&&distance(p,shore)<=navyConfig.transport.contactRange)waterPoints.push(p);}
+  for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const p={x:shore.x+dx*32,y:shore.y+dy*32};if(bodyFits(water,p,16)&&distance(p,shore)<=transportContactRange(m.factions?.player??'crown',m.research))waterPoints.push(p);}
   waterPoints.sort((a,b)=>distance(a,ship.position)-distance(b,ship.position));
   for(const point of waterPoints){
    const preview={...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>s.id===shipId?{...s,position:point,selected:true}:s)}};
    if(kind==='unload'&&unloadTransport(preview,shipId,shore)===preview)continue;
    if(kind==='load'&&units.some(u=>distance(u.position,shore)>navyConfig.transport.boardingRadius))continue;
    const routes=kind==='load'?allocateFormation(units.map(u=>({id:u.id,position:u.position,half:size(u)/2,domain:'land',map:land,commandNumber:(u.navigation?.commandNumber??0)+1})),shore):new Map();
-   if(kind==='load'&&(routes.size!==units.length||units.some(u=>{const r=routes.get(u.id);return !r||r.status==='blocked'||distance(r.destination,point)>navyConfig.transport.contactRange;})))continue;
+   if(kind==='load'&&(routes.size!==units.length||units.some(u=>{const r=routes.get(u.id);return !r||r.status==='blocked'||distance(r.destination,point)>transportContactRange(m.factions?.player??'crown',m.research);})))continue;
    const navigation=planDomainRoute(m.map,'water',ship.position,point,16,(ship.navigation?.commandNumber??0)+1);if(navigation.status==='blocked')continue;
    const transfer:TransportTransfer={kind,shore,water:point,unitIds:kind==='load'?units.map(u=>u.id):[],goals:Object.fromEntries([...routes].map(([id,r])=>[id,r.destination])),remainingSeconds:navyConfig.transport.transferSeconds};
    return {...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>s===ship?{...s,transfer,navigation,target:point,commandMode:undefined,orderQueue:undefined,order:{kind:navigation.status==='moving'?'move' as const:'idle' as const}}:s)},gathering:{...m.gathering,units:m.gathering.units.map(u=>{const r=routes.get(u.id);return r?{...u,navigation:r,target:r.destination,commandMode:undefined,orderQueue:undefined,...(u.kind==='soldier'?{attackMoveTarget:undefined,autoOrigin:undefined,autoDisabled:true}:{}),order:{kind:r.status==='moving'?'move' as const:'idle' as const}}:u;})}};

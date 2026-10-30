@@ -22,7 +22,8 @@ export function autoScoutGoal(m:Pick<MatchState,'fog'|'map'>,position:Position,t
  const fit=(p:Position)=>({x:Math.max(11,Math.min(m.map.width-11,p.x)),y:Math.max(11,Math.min(m.map.height-11,p.y))});
  for(let row=0;row<rows;row+=scoutRules.sampleStride)for(let col=0;col<columns;col+=scoutRules.sampleStride){if(fog?.teams[team].explored[row*columns+col])continue;const p=fit({x:(col+.5)*step,y:(row+.5)*step}),d=Math.hypot(p.x-position.x,p.y-position.y);if(excluded.some(old=>Math.hypot(p.x-old.x,p.y-old.y)<64)||d<24||previous&&Math.hypot(p.x-previous.x,p.y-previous.y)<24)continue;if(d<score){best=p;score=d;}}
  if(best)return best;
- return [{x:m.map.width*.2,y:m.map.height*.2},{x:m.map.width*.8,y:m.map.height*.2},{x:m.map.width*.8,y:m.map.height*.8},{x:m.map.width*.2,y:m.map.height*.8}].map(fit).sort((a,b)=>Math.hypot(b.x-position.x,b.y-position.y)-Math.hypot(a.x-position.x,a.y-position.y))[0];
+ const fallback=[{x:m.map.width*.2,y:m.map.height*.2},{x:m.map.width*.8,y:m.map.height*.2},{x:m.map.width*.8,y:m.map.height*.8},{x:m.map.width*.2,y:m.map.height*.8}].map(fit).filter(p=>!excluded.some(old=>Math.hypot(p.x-old.x,p.y-old.y)<64)).sort((a,b)=>Math.hypot(b.x-position.x,b.y-position.y)-Math.hypot(a.x-position.x,a.y-position.y));
+ return fallback[0]??{...position};
 }
 function nextState(m:MatchState,u:{position:Position;scouting?:ScoutState},team:'player'|'enemy'):ScoutState|undefined{const old=u.scouting;if(!old)return;let index=old.index,goal=old.waypoints[index];const arrived=goal&&Math.hypot(goal.x-u.position.x,goal.y-u.position.y)<1e-6;
  if(old.mode==='route')return arrived?{...old,index:(index+1)%old.waypoints.length}:old;

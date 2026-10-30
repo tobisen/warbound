@@ -66,3 +66,16 @@ it('actor-local observer IDs and bounded cache eviction preserve exact visibilit
  }
  const returned=[observer('enemy-base',16,240,180,'enemy')];expect(updateFog(warm,returned,blockers)).toEqual(updateFog(cold,returned,fresh()));
 });
+it('cached allied visibility unions remain exact across owner history, order, deaths, geometry and terrain',()=>{
+ const blockers=[{x:224,y:96,width:32,height:288}],fog=createFog({width:640,height:512});
+ const observers=[observer('one',160,160,192),observer('two',384,256,160),observer('ally',160,352,128,'enemy')];
+ const variants=[observers,[...observers].reverse(),observers.map(o=>({...o,owner:'enemy' as const})),observers.slice(1),observers.map(o=>({...o,position:{x:o.position.x+1,y:o.position.y}})),observers.map(o=>({...o,airborne:true as const})),observers.map(o=>({...o,radius:o.radius/2}))];
+ let previous=fog;
+ for(const units of [...variants,...variants.reverse()]){
+  const before=JSON.stringify(previous),cached=updateFog(previous,units,blockers),fresh=updateFog(previous,units,blockers.map(b=>({...b})));
+  expect(cached).toEqual(fresh);expect(JSON.stringify(previous)).toBe(before);previous=cached;
+ }
+ const changed=[...blockers,{x:320,y:0,width:32,height:512}];
+ expect(updateFog(previous,observers,changed)).toEqual(updateFog(previous,observers,changed.map(b=>({...b}))));
+ expect(updateFog({...previous,revealed:true},observers,blockers).teams.player.visible.every(Boolean)).toBe(true);
+});

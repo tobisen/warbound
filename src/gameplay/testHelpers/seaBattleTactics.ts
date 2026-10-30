@@ -8,8 +8,7 @@ import {trainShip,commandShips,attackShips} from '../navy';
 import {startResearch} from '../research';
 import {entityVisible} from '../visibility';
 /** Legal orders and paid reinforcements; no health, damage, resources, fog or deaths injected. */
-export function prepareSeaBattleTactics():MatchState {
- let m=seaBattle();
+export function prepareSeaBattleTactics(m:MatchState=seaBattle()):MatchState {
  for(const [index,u]of m.gathering.units.filter(u=>u.kind==='worker').entries()){
   const node=index===2?m.gathering.gold!:m.gathering.node;
   m.gathering={...m.gathering,units:orderUnits(m.gathering.units.map(w=>({...w,selected:w.id===u.id})),node.position,node)};
@@ -18,12 +17,12 @@ export function prepareSeaBattleTactics():MatchState {
  for(const kind of ['attack','defense'] as const){const result=startResearch(m.gathering,m.research!,m.placement,kind);m={...m,...result};}
  return m;
 }
-export function seaBattleTacticalOrders(m:MatchState):MatchState {
+export function seaBattleTacticalOrders(m:MatchState,passage={x:1600,y:480},reinforce=true):MatchState {
  const armed=m.navy!.ships.filter(s=>s.hp>0&&s.role!=='transport'),visible=m.combat.enemies.filter(e=>e.hp>0&&(e.kind==='ship'&&e.navalRole||m.campaignRun!.phase>=2&&(e.role==='archer'||e.buildingType==='harbor'))&&(!m.fog||entityVisible(m.fog,'player',e)));
  const near=visible.sort((a,b)=>Math.min(...armed.map(s=>Math.hypot(s.position.x-a.position.x,s.position.y-a.position.y)))-Math.min(...armed.map(s=>Math.hypot(s.position.x-b.position.x,s.position.y-b.position.y))))[0];
  if(near){m={...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>({...s,selected:s.role!=='transport'&&canAttackDomain(s,near,m.factions!.player)&&(s.order.kind!=='attack'||s.order.enemyId!==near.id)}))}};m={...m,navy:attackShips(m,near.id)};}
  else {
-  const goal=m.campaignRun!.phase===0?{x:1600,y:480}:{x:2288,y:880};
+  const goal=m.campaignRun!.phase===0?passage:{x:2288,y:880};
   const idle=armed.some(s=>s.order.kind==='idle'&&Math.hypot(s.position.x-goal.x,s.position.y-goal.y)>96);
   if(idle){m={...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>({...s,selected:s.role!=='transport'&&s.order.kind==='idle'}))}};m={...m,navy:commandShips(m,goal)};}
  }
@@ -46,7 +45,7 @@ export function seaBattleTacticalOrders(m:MatchState):MatchState {
   }
  }
  // Sustain paid reinforcement only from the real delivered economy and supply.
- if(m.waves.elapsedSeconds%4<.25)m=trainShip(m,'warship');
+ if(reinforce&&m.waves.elapsedSeconds%4<.25)m=trainShip(m,'warship');
  return m;
 }
 export function simulateSeaBattle(seconds=720,onPhase?:(m:MatchState)=>void){

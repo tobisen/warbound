@@ -1,3 +1,103 @@
+## Beställd commit, push och Pages-publicering — 2026-10-30
+
+Nytt uttryckligt mandat ersätter förbudet mot commit/push/publicering för den
+lokala leveransen. Innehållspaketet och den verifierade lokala AI/navigation-
+rättningen ingår. Användarens separata style.css, assets/sources/units.mjs,
+docs/, CLEANUP_REPORT.md och :memory:.ses lämnas orörda och utanför commit.
+Produktversion0.8.0 består; git/build-ID identifierar publiceringen.
+
+Den exakta commitkandidaten exporteras utan dessa användarfiler och kontrolleras
+med unit, strict build och browser före push. Befintligt Pages-workflow kör
+full regression och build före deploy. Publicerad build och resurser kontrolleras
+i browser när deployment är klar. Resultat och hash kompletteras efter utförande.
+Tidigare lokala test-/prestanda-/ljudbegränsningar i rapporterna består.
+
+Exakt exporterad commitkandidat: unit552/94 PASS17,49s, build inklusive strict
+TypeScript PASS523ms, produktionsbrowser10/10 för nya fraktionsval/Save och
+befintlig releasebrowser PASS800/1280/1600 Native/Fit. Visuell800-granskning,
+diff och exkluderade användarfiler kontrollerade. Full regression körs i CI före
+deploy; CI/Pages är ännu inte verifierade. Se [publiceringsunderlaget](artifacts/tides-publication/README.md).
+
+## Tides of War — lokalt innehållsuppdrag 2026-10-30
+
+Implementerat och verifierat lokalt med redovisade begränsningar. Ingen commit, push, ny release,
+CI eller Pages-publicering. Produktversion0.8.0 består; sparformatet är77.
+Användarens föregående AI/navigation, style.css, units.mjs och docs/ bevaras.
+Inga agenter har delegerats och inga andra roadmaptasks har startats.
+
+- Fem fraktionsval via sex nya forskningar; Dwarf-ammunition är exklusiv.
+- Tre omarbetade byggnadsroller: Harbor, Naval Foundry, Siege Works.
+- Åtta omarbetade enhetsvarianter för logistik, sjöstrid, flygspaning och kustförsvar.
+- Fleet och Siege är valbara AI-doktriner med olika betald produktion.
+- Human mission17 Tidebreak Relief på separat96×64 Tidebreak Reaches,
+  sex målled, ny resursö/tre farleder och ändliga upptäcktsbelöningar.
+- Strikt Save77/76-migration, lastning av sex Orc-passagerare och två rader
+  research. Gamla Orc-kanonsalvor konverteras till nya rollregler vid Load.
+
+Slutlig unit552/94 PASS17,96s och build med strict TypeScript PASS. Browser
+fem fraktioner ×800/1280 PASS10/10, kampanjbriefing/start/victory PASS2/2;
+accelererade lagliga Screen/Logistics-strategier vinner. Ny verifiering redovisas separat från äldre
+historik i [innehållsrapporten](TIDES_OF_WAR.md) och
+[reproducerbart underlag](artifacts/tides-of-war/README.md).
+
+Fullkörningen på slutlig spelkod:2149 PASS/1 FAIL över235 filer,902,70s.
+Enda felet var en äldre förväntan att Dwarf-ballistan angriper luft. Testet
+rättades till Coast Ballistas avsiktliga begränsning och verifierar nu både
+oförändrad mål-HP och utebliven projektil mot luft. Hela projectileDomains-filen
+kördes om:13/13 PASS594ms. Ingen spelkod ändrades efter fullkörningen; dess
+234 godkända filer återanvänds. Därmed finns godkända belägg för samtliga2150
+aktuella testfall, men ingen andra fullkörning med allt grönt i samma körning.
+Slutlig build med strict TypeScript PASS546ms efter teständringen. Unit552/94
+återanvänds från samma spelkod; den ändrade filen är integration. Diff och
+lokala dokumentlänkar PASS. Se loggarna i artefaktrapporten.
+
+Kvar: ingen mänsklig balans-/tidsgranskning eller ny ljudlyssning. Riktiga
+befintliga sprites/ljud används; inga nya raster-/ljudresurser, Foundry delar
+byggnadsbild. AI:s äldre transportskript nyttjar inte sex platser. Stora
+AI-arméer stannar fortfarande periodvis.80-provets CPU-median ökar0,3–1,2ms
+mellan paren medan frame-median/p95 i praktiken består; ingen garanti om noll
+prestandaregression. Inga höjda caps, sänkta ticks eller bred omskrivning.
+
+Nästa användarval behövs för nya uppdrag; ingen automatisk fortsättning,
+commit eller publicering är auktoriserad av den här leveransen.
+
+## Lokal AI-/anfallsrättning — 2026-10-30
+
+Senaste lokala användaruppdrag: ingen commit, push, publicering eller version ändrad.
+Befintlig style.css, assets/sources/units.mjs, docs/ och orelaterade filer bevaras.
+Ingen delegering eller roadmap-/karttask har startats.
+
+Portfallets löpande lagg är rättat: fiendens hinderlista/index skapades på nytt
+för varje enhet. Isolerad40-enhetskontroll/12s ger frame-p50/p95/max
+83,4/183,3/283,3→16,7/16,7/233,4ms. Under vägval/kontakt/strid finns inga
+frame-stopp över50ms efteråt. Porten finns kvar och blockerar fortsatt fienden.
+
+**Absolut stoppfrihet är inte uppnådd.** Första kalla samlingen har en topp.
+Längre80-enhetsprov ger16,7/33,3/2583,2→16,7/16,7/216,8ms frame;128/fyra AI
+50,0/166,7/4333,2→33,4/83,4/450,0ms. Fyra AI med port efteråt:
+33,3/50,0/466,7ms. Inga outliers tas bort, ingen lagg-väntetid/tick-/grafik-
+sänkning införs. Belastningsarméerna är explicita hållbara fixtures över supply.
+
+Betalda25-minutersmatcher har tre separata baser vid12:13 Normal,
+12:50 Easy och14:38 Beginner; minsta basavstånd702,5px.
+Fortlöpande scouting, omval och skyddad aktiv resa är testade. Vanlig fog och
+faktisk betalning gäller. Bara passiva mänskliga mål hålls vid liv med befintligt
+damage-scope. Save/load och återupptagna native-frames PASS på alla tre nivåer;
+human-only reveal används efteråt för bilder. Ingen AI-sikt/resurs injiceras.
+
+Garnisonen lämnar ett minsta fältdetachement även på Beginner efter förluster,
+utan höjd cap/kortare anfallsklocka. Övergiven scoutorder avbryts med bevarad last
+och transient reservation återställs efter omplanering/Load. Ursprunglig
+formations-BFS-ordning behålls: sjökampanjen vinner åter vid76s med oförändrade
+assertions. Två avbrutna fullförsök och en mellanversion med sjöregression är
+inte PASS. Alla slutprofiler och ekonomiprov är uppdaterade efter rättningen.
+
+Full regression2124/233 PASS915.28s. Unit555/95 PASS18.31s och build inklusive strict
+typecheck PASS723ms. Befintlig bundlevarning. Se
+[slutrapport och reproduktion](artifacts/army-movement/README.md).
+
+---
+
 ## Pages publicerad och verifierad — 2026-10-26 — Done
 
 [Spela Warbound](https://tobisen.github.io/warbound/) visar **v0.8.0 / Build791d17f**.

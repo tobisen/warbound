@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/combinedArmsBalance.test.ts src/gameplay/tidesOfWar.test.ts src/gameplay/tidebreak.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  3 passed (3)
+      Tests  95 passed (95)
+   Start at  18:49:08
+   Duration  10.01s (transform 1.22s, setup 0ms, import 1.72s, tests 17.46s, environment 0ms)

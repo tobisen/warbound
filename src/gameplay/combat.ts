@@ -1,3 +1,4 @@
+import type {ResearchState} from './research';
 import {canDefend,defenseTarget,defendingEnemy,enemyDefender} from './selfDefense';
 import {marineFlightMap} from './terrainNavigation';
 import {seaMonsterStep} from './bosses';
@@ -61,17 +62,6 @@ function approach(position: Position, target: Position, speed: number, range: nu
   };
 }
 
-// Shared attackers must not rebuild the whole terrain index for an identical target body.
-// Geometry, terrain revision and initialization length invalidate this bounded derived cache.
-const targetObstacleCache=new WeakMap<WorldMap['obstacles'],{revision:number;length:number;targets:Map<string,Footprint[]>}>();
-function combatObstacles(map:WorldMap,target:Footprint):Footprint[]{
- if(map.ignoreAttackOcclusion)return map.obstacles;
- let cache=targetObstacleCache.get(map.obstacles);
- if(!cache||cache.revision!==map.revision||cache.length!==map.obstacles.length){cache={revision:map.revision,length:map.obstacles.length,targets:new Map()};targetObstacleCache.set(map.obstacles,cache);}
- const key=`${target.x},${target.y},${target.width},${target.height}`,cached=cache.targets.get(key);if(cached)return cached;
- const obstacles=[...map.obstacles,{...target}];if(cache.targets.size>=16)cache.targets.delete(cache.targets.keys().next().value!);cache.targets.set(key,obstacles);return obstacles;
-}
-
 export function combatApproach(map: WorldMap, position: Position, target: Footprint, targetId: string,
   speed: number, range: number, delta: number, cached?: RouteState, gate?:MovementGate) {
   const center={x:target.x+target.width/2,y:target.y+target.height/2};
@@ -80,7 +70,7 @@ export function combatApproach(map: WorldMap, position: Position, target: Footpr
   if(canInteract(map,position,target,range))return {position:{...position},attackSeconds:delta,
     navigation:{commandNumber:cached?.commandNumber??1,destination:{...position},waypoints:[],
       revision:map.revision,status:'arrived' as const,goalKey,targetId,retryAfter}};
-  const targetMap={...map,obstacles:combatObstacles(map,target)};
+  const targetMap={...map,blockingTarget:map.ignoreAttackOcclusion?undefined:target};
   if(cached?.targetId && cached.targetId!==targetId && retryAfter>0 && cached.revision===map.revision) {
     return {position:{...position},attackSeconds:0,navigation:{...cached,targetId,goalKey,
       waypoints:[],status:'arrived' as const,retryAfter}};
@@ -106,7 +96,7 @@ const unitFootprint=(position:Position,size:number):Footprint=>({x:position.x-si
 
 export interface CombatScope {side:'player'|'enemy';canTarget?:(enemy:Enemy)=>boolean;targets?:PlayerTarget[];onDamage?:(damage:Map<string,number>)=>void;onHit?:(targetId:string,attackerId:string,amount:number)=>void}
 
-export function updateCombat(gathering: GatheringState, combat: CombatState, deltaSeconds: number, map?: WorldMap, placement?:PlacementState, visible?:EnemyVisibility,playerVisible:(target:PlayerTarget,enemy:Enemy)=>boolean=()=>true,projectileVisible?:(enemy:Enemy,projectile:Projectile)=>boolean,gateFor?:GateFor,navy?:NavyState,navalVisible:(enemy:Enemy)=>boolean=()=>true,enemyFaction:FactionId='clans',towerVisible:(e:Enemy)=>boolean=()=>!visible,scope?:CombatScope) {
+export function updateCombat(gathering: GatheringState, combat: CombatState, deltaSeconds: number, map?: WorldMap, placement?:PlacementState, visible?:EnemyVisibility,playerVisible:(target:PlayerTarget,enemy:Enemy)=>boolean=()=>true,projectileVisible?:(enemy:Enemy,projectile:Projectile)=>boolean,gateFor?:GateFor,navy?:NavyState,navalVisible:(enemy:Enemy)=>boolean=()=>true,enemyFaction:FactionId='clans',towerVisible:(e:Enemy)=>boolean=()=>!visible,scope?:CombatScope,research?:ResearchState,enemyResearch?:ResearchState) {
   const delta = Math.max(0, deltaSeconds);
   const damage = new Map<string, number>();
   const attackers=new Map<string,string>();
@@ -116,7 +106,7 @@ export function updateCombat(gathering: GatheringState, combat: CombatState, del
   const attackMultiplier=upgradeMultiplier(player.upgrades.attack.multiplier,combat.upgrades?.attack);
   const defenseMultiplier=upgradeMultiplier(player.upgrades.defense.multiplier,combat.upgrades?.defense);
   let nextProjectileNumber=combat.nextProjectileNumber??1;
-  const naval=prepareNavalCombat(navy,attackableEnemies,scope?.side==='enemy'?0:delta,map,nextProjectileNumber,attackMultiplier,navalVisible,player.naval.units.warship,gathering.faction);nextProjectileNumber=naval.nextProjectileNumber;
+  const naval=prepareNavalCombat(navy,attackableEnemies,scope?.side==='enemy'?0:delta,map,nextProjectileNumber,attackMultiplier,navalVisible,player.naval.units.warship,gathering.faction,research);nextProjectileNumber=naval.nextProjectileNumber;
   const towers=towerShots(placement,attackableEnemies,scope?.side==='enemy'?0:delta,nextProjectileNumber,towerVisible);placement=towers.placement;nextProjectileNumber=towers.next;
   const shots:{projectile:Projectile;time:number}[]=[...naval.shots,...towers.shots];
   const previousOrders=new Map<string,Unit>();
@@ -165,7 +155,7 @@ export function updateCombat(gathering: GatheringState, combat: CombatState, del
   const originalTargets=[...(scope?.targets??playerTargets(gathering,combat,placement,navy)),...neutralTargets];
   const bossTargets:PlayerTarget[]=neutralTargets.length||combat.projectiles?.some(p=>p.shooterId?.startsWith('enemy-boss-'))?[...originalTargets.filter(t=>!t.boss&&!t.id.startsWith('enemy-sea-monster-')),...combat.enemies.filter(e=>!e.boss&&e.hp>0).map(e=>({id:e.id,domain:targetDomain(e),kind:e.kind==='ship'?'ship' as const:e.kind==='worker'?'worker' as const:e.footprint?'barracks' as const:'soldier' as const,owner:'player' as const,hp:e.hp,footprint:enemyBody(e)}))]:[];
   const bossTargetIds=new Set(bossTargets.map(t=>t.id));
-  const enemyNavy=prepareEnemySubmarines(combat.enemies,originalTargets,scope?.side==='player'?0:delta,map,nextProjectileNumber,enemyFaction,upgradeMultiplier(opponent.upgrades.attack.multiplier,combat.enemyUpgrades?.attack),playerVisible);nextProjectileNumber=enemyNavy.next;shots.push(...enemyNavy.shots);
+  const enemyNavy=prepareEnemySubmarines(combat.enemies,originalTargets,scope?.side==='player'?0:delta,map,nextProjectileNumber,enemyFaction,upgradeMultiplier(opponent.upgrades.attack.multiplier,combat.enemyUpgrades?.attack),playerVisible,enemyResearch);nextProjectileNumber=enemyNavy.next;shots.push(...enemyNavy.shots);
   const priority={navalFoundry:7,siegeWorks:7,aviary:7,stable:5,academy:2,wall:2,gate:2,tower:2,ship:0,harbor:2,soldier:0,worker:1,barracks:2,farm:2,forge:2,base:3};
   const enemyGathering={...gathering,faction:enemyFaction};
   const movingEnemies = enemyNavy.enemies.filter(e => e.hp > 0).map(enemy => {

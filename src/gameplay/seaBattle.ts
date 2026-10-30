@@ -1,4 +1,4 @@
-import {seaBattleMission,seaBattleDifficulty} from '../config/seaBattle';
+import {isSeaBattleMission,seaBattleDifficulty} from '../config/seaBattle';
 import {factionForTeam} from '../config/factions';
 import {matchFog} from './matchFog';
 import {bodyFits,replaceObstacles} from './map';
@@ -13,7 +13,7 @@ import type {Footprint} from './placement';
 const ready={remainingSeconds:0,builderId:null};
 /** Explicit initial expedition forces, not recurring rewards or unpaid production. */
 export function initializeSeaBattle(m:MatchState):void {
- if(m.campaignMission!==seaBattleMission)return;
+ if(!isSeaBattleMission(m.campaignMission))return;
  const player=factionForTeam(m,'player'),enemy=factionForTeam(m,'enemy'),cfg=seaBattleDifficulty[m.difficulty??'normal'];
  const add=(foot:Footprint)=>m.map.obstacles.push(foot);
  const harbor={x:704,y:640,width:64,height:64};
@@ -49,7 +49,7 @@ export function initializeSeaBattle(m:MatchState):void {
 }
 /** Authored staggered squadrons; no new spawns and no hidden target lookup. */
 export function advanceSeaBattle(m:MatchState,delta:number):MatchState {
- if(m.campaignMission!==seaBattleMission||delta<=0)return m;
+ if(!isSeaBattleMission(m.campaignMission)||delta<=0)return m;
  const cfg=seaBattleDifficulty[m.difficulty??'normal'],targets=(m.navy?.ships??[]).filter(s=>s.hp>0&&(!m.fog||entityVisible(m.fog,'enemy',s)));
  const enemies=m.combat.enemies.map((e):Enemy=>{
   if(e.kind!=='ship'||!e.navalRole||e.navalRole==='submarine'||e.hp<=0)return e;

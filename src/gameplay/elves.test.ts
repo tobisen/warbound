@@ -56,7 +56,7 @@ it('Elf naval recipes pay per role and spawn the proper HP/speed profile, also a
  expect(m.navy!.ships[0]).toMatchObject({hp:80,selected:false});
  m=trainShip(m,'transport');expect(m.gathering).toMatchObject({wood:75,goldBalance:65});m=updateNavy(m,8);
  expect(m.navy!.ships[1]).toMatchObject({role:'transport',hp:80,selected:false});
- expect(factions.elves.naval.units.warship.speed).toBe(125);expect(factions.elves.naval.units.transport.speed).toBe(125);
+ expect(factions.elves.naval.units.warship.speed).toBe(150);expect(factions.elves.naval.units.transport.speed).toBe(125);
  const json=encodeSave(m,{camera:{x:0,y:0},building:'harbor'}),d=JSON.parse(json);
  expect(d.state.navy.ships.map((s:{typeId:string})=>s.typeId)).toEqual(['elves:naval:warship','elves:naval:transport']);
  expect(decodeSave(json).ok).toBe(true);

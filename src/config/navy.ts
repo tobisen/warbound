@@ -16,4 +16,4 @@ export const advancedNaval={
 };
 
 export const navalRoleAvailable=(faction:string,role:ShipRole)=>role==='cutter'?faction==='crown':role==='bombard'?faction==='dwarves':true;
-export const navalFoundryAvailable=(faction:string)=>faction==='crown'||faction==='dwarves';
+export const navalFoundryAvailable=(faction:string)=>['crown','clans','elves','dwarves','goblins'].includes(faction);

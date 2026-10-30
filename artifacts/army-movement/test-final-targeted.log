@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/enemyTactics.test.ts src/gameplay/armyNavigation.test.ts src/gameplay/gates.test.ts src/gameplay/fortifications.test.ts src/gameplay/teams.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  5 passed (5)
+      Tests  45 passed (45)
+   Start at  17:13:49
+   Duration  3.19s (transform 687ms, setup 0ms, import 954ms, tests 3.87s, environment 0ms)

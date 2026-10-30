@@ -1,3 +1,78 @@
+## Tides of War — egen granskning 2026-10-30
+
+Källkod, förändringen mot bevarad arbetskopia, fraktionsconfig, researchkedjor,
+betalning, target masks, transport, fog, AI-profiler, Save, kampanjmål och
+presentation granskade utan separat agent. Slutkontroller redovisas i
+[verifieringsrapporten](artifacts/tides-of-war/README.md).
+
+Rättade konkreta fynd: generisk ballistasummary skrev över Dwarf-kustrollen;
+Tech Tree återanvänder nu rätt träningsbeskrivning. Legacy76 Orc-kanonsalvor
+validerades tidigare mot nya skadan utan migration; nya riktade testet verifierar
+Load och omsparning, samt avvisad fabricerad skada. Exklusiv ammo spärras köad,
+aktiv och färdig. Nya forskningar är fraktionsbundna även i Save och kampanj.
+Goblins betalar med eget skrov, ytskada respekterar target masks; service betalar
+båda resurserna och återupplivar inte. Sea-monster-regeln är oförändrad.
+
+Nya belägg: unit552/94, build med strict TypeScript,26/2 riktat efter sista
+sparrättningen, browser10/10 research/Save-flöden och2/2 kampanjflöden. Fullkörning och riktad omkörning redovisas nedan. Forskningsknappar har högst
+två rader vid800×600. Bilder granskade och verkliga befintliga sprites används.
+
+Begränsningar: automatiserade segrar ersätter inte mänsklig balans/speltid.
+Ingen ny ljudlyssning, unik Foundry-bild eller autonom sexplatslandstigning hos
+AI.80-enhetsprovets CPU ligger något högre trots jämförbar frame-frekvens;
+512-enhetsprovet har fortsatt stora stopp före och efter. Fullständig frånvaro
+av prestandaregression är alltså inte visad. Ingen bred prestandaändring har
+förts in. Inga andra blockerande funktionsfynd i den granskade omfattningen;
+funktionell leverans är verifierad med nedanstående kontroller.
+
+Fullkörningen på slutlig spelkod:2149 PASS/1 FAIL över235 filer,902,70s.
+Enda felet var en äldre förväntan att Dwarf-ballistan angriper luft. Testet
+rättades till Coast Ballistas avsiktliga begränsning och verifierar nu både
+oförändrad mål-HP och utebliven projektil mot luft. Hela projectileDomains-filen
+kördes om:13/13 PASS594ms. Ingen spelkod ändrades efter fullkörningen; dess
+234 godkända filer återanvänds. Därmed finns godkända belägg för samtliga2150
+aktuella testfall, men ingen andra fullkörning med allt grönt i samma körning.
+Slutlig build med strict TypeScript PASS546ms efter teständringen. Unit552/94
+återanvänds från samma spelkod; den ändrade filen är integration. Diff och
+lokala dokumentlänkar PASS. Se loggarna i artefaktrapporten.
+
+## Lokal armé-/AI-rättning — 2026-10-30 — Delvis uppnått prestandamål
+
+Senaste lokala användaruppdrag: ingen commit, push, publicering eller version ändrad.
+Befintlig style.css, assets/sources/units.mjs, docs/ och orelaterade filer bevaras.
+Ingen delegering eller roadmap-/karttask har startats.
+
+Portfallets löpande lagg är rättat: fiendens hinderlista/index skapades på nytt
+för varje enhet. Isolerad40-enhetskontroll/12s ger frame-p50/p95/max
+83,4/183,3/283,3→16,7/16,7/233,4ms. Under vägval/kontakt/strid finns inga
+frame-stopp över50ms efteråt. Porten finns kvar och blockerar fortsatt fienden.
+
+**Absolut stoppfrihet är inte uppnådd.** Första kalla samlingen har en topp.
+Längre80-enhetsprov ger16,7/33,3/2583,2→16,7/16,7/216,8ms frame;128/fyra AI
+50,0/166,7/4333,2→33,4/83,4/450,0ms. Fyra AI med port efteråt:
+33,3/50,0/466,7ms. Inga outliers tas bort, ingen lagg-väntetid/tick-/grafik-
+sänkning införs. Belastningsarméerna är explicita hållbara fixtures över supply.
+
+Betalda25-minutersmatcher har tre separata baser vid12:13 Normal,
+12:50 Easy och14:38 Beginner; minsta basavstånd702,5px.
+Fortlöpande scouting, omval och skyddad aktiv resa är testade. Vanlig fog och
+faktisk betalning gäller. Bara passiva mänskliga mål hålls vid liv med befintligt
+damage-scope. Save/load och återupptagna native-frames PASS på alla tre nivåer;
+human-only reveal används efteråt för bilder. Ingen AI-sikt/resurs injiceras.
+
+Garnisonen lämnar ett minsta fältdetachement även på Beginner efter förluster,
+utan höjd cap/kortare anfallsklocka. Övergiven scoutorder avbryts med bevarad last
+och transient reservation återställs efter omplanering/Load. Ursprunglig
+formations-BFS-ordning behålls: sjökampanjen vinner åter vid76s med oförändrade
+assertions. Två avbrutna fullförsök och en mellanversion med sjöregression är
+inte PASS. Alla slutprofiler och ekonomiprov är uppdaterade efter rättningen.
+
+Full regression2124/233 PASS915.28s. Unit555/95 PASS18.31s och build inklusive strict
+typecheck PASS723ms. Befintlig bundlevarning. Se
+[slutrapport och reproduktion](artifacts/army-movement/README.md).
+
+---
+
 ## Pages publicerad och verifierad — 2026-10-26 — Done
 
 [Spela Warbound](https://tobisen.github.io/warbound/) visar **v0.8.0 / Build791d17f**.

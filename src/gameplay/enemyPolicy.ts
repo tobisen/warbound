@@ -2,7 +2,7 @@ import {navalContentAI} from '../config/seaBattle';
 import {navalFoundryAvailable} from '../config/navy';
 import {strategyFor,type EnemyStrategy} from './enemyStrategy';
 import {baseUpgradeConfig} from '../config/baseUpgrade';
-import {roleResearchKinds,roleResearchConfig,isRoleResearch,type RoleResearchKind} from '../config/roleResearch';
+import {roleResearchAvailable,researchConflict,roleResearchKinds,roleResearchConfig,isRoleResearch,type RoleResearchKind} from '../config/roleResearch';
 import {enemyBase,hasEnemyBase} from './enemyBases';
 import {academyCampaignReason,campaignContentFor,contentReason} from '../config/campaignContent';
 import {aiProfile} from '../config/aiProfiles';
@@ -37,10 +37,10 @@ export function enemyPriority(m:MatchState):EnemyPriority {
  const development=m.enemyProduction?.baseDevelopment;
  if(p.forge?.construction.remainingSeconds===0&&(academyCampaignReason(m)||p.academy?.construction.remainingSeconds===0)&&!contentReason(campaignContentFor(m),'units','cavalry')){
   if((development?.level??1)<2||development?.remainingSeconds!=null)return 'baseUpgrade';
-  for(const building of ['siegeWorks','aviary','stable','navalFoundry'] as const)if((building!=='navalFoundry'||navalContentAI(m)&&!!m.enemyNaval&&navalFoundryAvailable((m.factions??defaultFactions).enemy))&&!contentReason(campaignContentFor(m),'buildings',building)&&!(building==='navalFoundry'?p.producers?.some(s=>s.kind===building):p[building]))return building;
+  for(const building of (m.aiProfile==='fleet'?['navalFoundry','aviary','siegeWorks','stable'] as const:['siegeWorks','aviary','stable','navalFoundry'] as const))if((building!=='navalFoundry'||navalContentAI(m)&&!!m.enemyNaval&&navalFoundryAvailable((m.factions??defaultFactions).enemy))&&!contentReason(campaignContentFor(m),'buildings',building)&&!(building==='navalFoundry'?p.producers?.some(s=>s.kind===building):p[building]))return building;
   if(development?.level===2&&r.attack>=2&&r.defense>=2&&!contentReason(campaignContentFor(m),'units','giant'))return 'baseUpgrade';
  }
- if(r.job||r.attack>=factions[(m.factions??defaultFactions).enemy].upgrades.attack.maxLevel&&r.defense>=factions[(m.factions??defaultFactions).enemy].upgrades.defense.maxLevel)return r.job?'army':roleResearchKinds.find(k=>!r[k]&&!contentReason(campaignContentFor(m),'research',k)&&roleResearchConfig[k].buildings.every(b=>{const site=b==='navalFoundry'?undefined:p[b];return !!site&&site.construction.remainingSeconds===0||!!p.producers?.some(s=>s.kind===b&&s.hp>0&&s.construction.remainingSeconds===0);}))??'army';
+ if(r.job||r.attack>=factions[(m.factions??defaultFactions).enemy].upgrades.attack.maxLevel&&r.defense>=factions[(m.factions??defaultFactions).enemy].upgrades.defense.maxLevel)return r.job?'army':roleResearchKinds.find(k=>roleResearchAvailable(k,(m.factions??defaultFactions).enemy)&&!researchConflict(k,r)&&!r[k]&&!contentReason(campaignContentFor(m),'research',k)&&roleResearchConfig[k].buildings.every(b=>{const site=b==='navalFoundry'?undefined:p[b];return !!site&&site.construction.remainingSeconds===0||!!p.producers?.some(s=>s.kind===b&&s.hp>0&&s.construction.remainingSeconds===0);}))??'army';
  if(!p.forge||p.forge.construction.remainingSeconds>0)return 'forge';
  const first=aiProfile(m).researchFirst;if(r[first]<1)return first;const second=first==='attack'?'defense':'attack';if(r[second]<1)return second;if(academyCampaignReason(m))return 'army';if(!p.academy||p.academy.construction.remainingSeconds>0)return 'academy';return r[first]<factions[(m.factions??defaultFactions).enemy].upgrades[first].maxLevel?first:first==='attack'?'defense':'attack';
 }

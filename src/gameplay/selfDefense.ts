@@ -11,6 +11,7 @@ import {canInteract,footprintDistance} from './approach';
 import {enemyBody} from './enemyBody';
 import {marineFlightMap} from './terrainNavigation';
 import {segmentFits} from './navigation';
+import {withoutFootprints} from './map';
 
 /** Transient interruption. The actual order and its route remain intact. */
 export interface SelfDefense {attackerId:string;order:object}
@@ -28,7 +29,7 @@ export function canDefend(u:Unit|Ship,e:Enemy,faction:FactionId,map?:WorldMap,vi
  if('damageByDomain' in stats&&((stats.damageByDomain as Partial<Record<import('../config/domains').TargetDomain,number>>)?.[targetDomain(e)]??1)<=0)return false;
  const range=stats.range??16,body=enemyBody(e);
  if(map? !canInteract({...movementMap(map,u),attackAcrossWater:!!ranged&&targetDomain(e)==='sea',ignoreAttackOcclusion:isAir(e)},u.position,body,range):footprintDistance(u.position,body)>range)return false;
- return !ranged||!map||isAir(u)||isAir(e)||segmentFits({...marineFlightMap(map),obstacles:marineFlightMap(map).obstacles.filter(o=>!e.footprint||o.x!==body.x||o.y!==body.y||o.width!==body.width||o.height!==body.height)},u.position,e.position,0);
+ return !ranged||!map||isAir(u)||isAir(e)||segmentFits(withoutFootprints(marineFlightMap(map),e.footprint?[body]:[]),u.position,e.position,0);
 }
 
 /** Enemy controllers retain their own AI/work order; the same weapon gate applies. */

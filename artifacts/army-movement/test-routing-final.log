@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/armyNavigation.test.ts src/gameplay/groupMovement.test.ts src/gameplay/traffic.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  3 passed (3)
+      Tests  18 passed (18)
+   Start at  16:35:44
+   Duration  1.12s (transform 385ms, setup 0ms, import 535ms, tests 782ms, environment 0ms)

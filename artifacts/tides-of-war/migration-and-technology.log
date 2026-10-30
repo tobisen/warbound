@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/tidesOfWar.test.ts src/presentation/technologyView.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  2 passed (2)
+      Tests  26 passed (26)
+   Start at  18:57:47
+   Duration  4.13s (transform 689ms, setup 0ms, import 856ms, tests 3.78s, environment 0ms)

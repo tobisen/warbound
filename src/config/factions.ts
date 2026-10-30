@@ -213,3 +213,11 @@ for(const id of factionIds)factions[id].roster=[...factions[id].roster,'scout'];
 factions.dwarves.units.scout.healable=false;factions.goblins.units.scout.healable=false;
 
 for(const f of Object.values(factions)){f.units.catapult={...f.units.catapult,trainedAt:'siegeWorks',prerequisites:{...f.units.catapult.prerequisites,baseLevel:2,buildings:['forge','siegeWorks']}};f.roster=[...f.roster,'ballista'];}
+
+// Tides of War: existing hull artwork, distinct target roles rather than more tiers.
+factions.clans.naval.units.warship={...factions.clans.naval.units.warship,name:'Fire Barge',targets:['sea','building'],range:96,damage:30,damageByDomain:{building:1.4}};
+factions.elves.naval.units.warship={...factions.elves.naval.units.warship,targets:['sea','air'],speed:150,damageByDomain:{air:1.25}};
+factions.dwarves.buildingNames.navalFoundry='Naval Foundry';
+// Coastal counterweight: trade general siege/anti-air coverage for anti-ship bolts.
+factions.dwarves.unitNames.ballista='Coast Ballista';
+factions.dwarves.units.ballista={...factions.dwarves.units.ballista,targets:['land','sea','building'],damageByDomain:{sea:1.75},buildingDamageMultiplier:1.25};

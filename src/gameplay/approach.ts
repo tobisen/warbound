@@ -24,8 +24,8 @@ export function canInteract(map: WorldMap, point: Position, target: Footprint, r
 const candidateCache=new WeakMap<WorldMap['obstacles'],{length:number;entries:Map<string,{point:Position;index:number}[]>}>();
 /** Contact geometry is independent of the actor; retain original tie indices. */
 function interactionCandidates(map:WorldMap,target:Footprint,range:number){
- const half=map.bodyHalf??navigationConfig.halfBody,t=map.interactionTarget;
- const cacheKey=`${map.width}:${map.height}:${map.tileSize}:${map.revision}:${half}:${!!map.ignoreAttackOcclusion}:${!!map.attackAcrossWater}:${t?`${t.x},${t.y},${t.width},${t.height}`:''}:${target.x},${target.y},${target.width},${target.height}:${range}`;
+ const half=map.bodyHalf??navigationConfig.halfBody,t=map.interactionTarget,b=map.blockingTarget;
+ const cacheKey=`${map.width}:${map.height}:${map.tileSize}:${map.revision}:${half}:${!!map.ignoreAttackOcclusion}:${!!map.attackAcrossWater}:${t?`${t.x},${t.y},${t.width},${t.height}`:''}:${target.x},${target.y},${target.width},${target.height}:${range}:${b?`${b.x},${b.y},${b.width},${b.height}`:''}`;
  let cache=candidateCache.get(map.obstacles);if(!cache||cache.length!==map.obstacles.length){cache={length:map.obstacles.length,entries:new Map()};candidateCache.set(map.obstacles,cache);}
  const cached=cache.entries.get(cacheKey);if(cached)return cached;
   const points: Position[]=[

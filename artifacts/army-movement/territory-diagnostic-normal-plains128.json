@@ -1,0 +1,6995 @@
+{
+  "stage": "diagnostic",
+  "difficulty": "normal",
+  "map": "plains128",
+  "seconds": 800,
+  "wallSeconds": 22.618,
+  "description": "1s simulation steps, paid AI with original starting budget/resources and ordinary fog. Human damage sink preserves passive targets for long skirmish. Not a human playtest or real-time frame benchmark.",
+  "snapshots": [
+    {
+      "seconds": 60,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 2,
+      "jobs": 3,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3184,
+            "y": 3376
+          },
+          "work": {
+            "cargo": 3.5935483870967744,
+            "cargoType": "wood",
+            "target": {
+              "x": 3152,
+              "y": 3344
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-98-104"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3184,
+              "y": 3376
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3434.470964227675,
+            "y": 3268.94192845535
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 3376,
+              "y": 3184
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-tree-3-2"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3408,
+              "y": 3216
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 39,
+        "gold": 23
+      },
+      "knownNodes": 505,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2975
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 2317,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 707.7173037436838,
+          "y": 3287.434607487368
+        },
+        "goal": {
+          "x": 448,
+          "y": 480
+        },
+        "status": "moving",
+        "index": 2
+      },
+      "priority": "forge",
+      "sites": [
+        {
+          "x": 3072,
+          "y": 2912
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 120,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 3,
+      "jobs": 3,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3376,
+            "y": 3184
+          },
+          "work": {
+            "cargo": 0.12627546052652594,
+            "cargoType": "wood",
+            "target": {
+              "x": 3344,
+              "y": 3152
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-tree-2-1"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3376,
+              "y": 3184
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3408,
+            "y": 3152
+          },
+          "work": {
+            "cargo": 2.9555513810892444,
+            "cargoType": "wood",
+            "target": {
+              "x": 3376,
+              "y": 3120
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-tree-3-0"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3408,
+              "y": 3152
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 3344,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 2.364362759307833,
+            "cargoType": "wood",
+            "target": {
+              "x": 3312,
+              "y": 3216
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-tree-1-3"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3344,
+              "y": 3248
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 9,
+        "gold": 8
+      },
+      "knownNodes": 1405,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2955
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        }
+      ],
+      "explored": 6983,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 3920,
+          "y": 2090.372382949927
+        },
+        "goal": {
+          "x": 3072,
+          "y": 2912
+        },
+        "status": "moving",
+        "index": 5
+      },
+      "priority": "defense",
+      "sites": [
+        {
+          "x": 3072,
+          "y": 2912
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 180,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 4,
+      "jobs": 6,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3184,
+            "y": 3408
+          },
+          "work": {
+            "cargo": 4.389956844395037,
+            "cargoType": "wood",
+            "target": {
+              "x": 3152,
+              "y": 3408
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-98-106"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3184,
+              "y": 3408
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3600,
+            "y": 3263.750001625
+          },
+          "work": {
+            "cargo": 4.511258593084079,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3600,
+              "y": 3263.750001625
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 3344,
+            "y": 3216
+          },
+          "work": {
+            "cargo": 2.840870029203821,
+            "cargoType": "wood",
+            "target": {
+              "x": 3312,
+              "y": 3184
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-tree-1-2"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3344,
+              "y": 3216
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 3600,
+            "y": 3239.750000625
+          },
+          "work": {
+            "cargo": 2.5044342840626035,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3600,
+              "y": 3239.750000625
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 10,
+        "gold": 30
+      },
+      "knownNodes": 2021,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2898.9843071228534
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 3000
+        }
+      ],
+      "explored": 9775,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2704,
+          "y": 2960
+        },
+        "goal": {
+          "x": 2832,
+          "y": 2576
+        },
+        "status": "blocked",
+        "index": 10
+      },
+      "priority": "academy",
+      "sites": [
+        {
+          "x": 3104,
+          "y": 2944
+        },
+        {
+          "x": 3072,
+          "y": 2912
+        },
+        {
+          "x": 3328,
+          "y": 2688
+        },
+        {
+          "x": 3104,
+          "y": 2688
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 240,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 5,
+      "jobs": 7,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3344,
+            "y": 3229.5
+          },
+          "work": {
+            "cargo": 2.562244659289745,
+            "cargoType": "wood",
+            "target": {
+              "x": 3184,
+              "y": 3248
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-99-101"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3344,
+              "y": 3248
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3279.516102188817,
+            "y": 3157.7484575368803
+          },
+          "work": {
+            "cargo": 3.6730796740438083,
+            "cargoType": "wood",
+            "target": {
+              "x": 3184,
+              "y": 3248
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-99-101"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3216,
+              "y": 3216
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 3233.5,
+            "y": 3150
+          },
+          "work": {
+            "cargo": 3.1577295544444985,
+            "cargoType": "wood",
+            "target": {
+              "x": 3184,
+              "y": 3248
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-99-101"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3184,
+              "y": 3216
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 3270.477044401085,
+            "y": 3181.74845853688
+          },
+          "work": {
+            "cargo": 1.071575632392089,
+            "cargoType": "wood",
+            "target": {
+              "x": 3184,
+              "y": 3248
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-99-101"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3216,
+              "y": 3248
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-5",
+          "position": {
+            "x": 3184,
+            "y": 3112
+          },
+          "work": {
+            "cargo": 0.3865825242026325,
+            "cargoType": "wood",
+            "target": {
+              "x": 3184,
+              "y": 3248
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-99-101"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3184,
+              "y": 3112
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 2,
+        "gold": 19
+      },
+      "knownNodes": 2343,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2890
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 10938,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1296,
+          "y": 2832
+        },
+        "goal": {
+          "x": 1040,
+          "y": 3088
+        },
+        "status": "blocked",
+        "index": 30
+      },
+      "priority": "workers",
+      "sites": [
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 300,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 8,
+      "jobs": 9,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3216,
+            "y": 3504
+          },
+          "work": {
+            "cargo": 2.2253029192424063,
+            "cargoType": "wood",
+            "target": {
+              "x": 3184,
+              "y": 3536
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-99-110"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3216,
+              "y": 3504
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3600,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 0.7037283427776975,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3600,
+              "y": 3248
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 3088,
+            "y": 3099.0190799222632
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 3056,
+              "y": 3312
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-95-103"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3088,
+              "y": 3280
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 3248,
+            "y": 2880
+          },
+          "work": {
+            "cargo": 1.5679948567654205,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3248,
+              "y": 2880
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-5",
+          "position": {
+            "x": 3024,
+            "y": 3216
+          },
+          "work": {
+            "cargo": 0.5458649021597132,
+            "cargoType": "wood",
+            "target": {
+              "x": 2992,
+              "y": 3248
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-93-101"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3024,
+              "y": 3216
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-6",
+          "position": {
+            "x": 3216,
+            "y": 2864
+          },
+          "work": {
+            "cargo": 4.003142209404524,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3216,
+              "y": 2864
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-7",
+          "position": {
+            "x": 3323.8528528318293,
+            "y": 3468
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 3152,
+              "y": 3504
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-98-109"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3184,
+              "y": 3472
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-8",
+          "position": {
+            "x": 3632,
+            "y": 3264
+          },
+          "work": {
+            "cargo": 2.603925794865815,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3632,
+              "y": 3264
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 31,
+        "gold": 27
+      },
+      "knownNodes": 2343,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2852.6923458623564
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2960.428862933829
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 11003,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1296,
+          "y": 2832
+        },
+        "goal": {
+          "x": 912,
+          "y": 2960
+        },
+        "status": "blocked",
+        "index": 50
+      },
+      "priority": "baseUpgrade",
+      "sites": [
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 360,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 9,
+      "jobs": 11,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3086.846115520782,
+            "y": 3157.3744352286244
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 3056,
+              "y": 3408
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "organic-7-tree-95-106"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3088,
+              "y": 3056
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3088,
+            "y": 3413.8593764519355
+          },
+          "work": {
+            "cargo": 4.349313536660545,
+            "cargoType": "wood",
+            "target": {
+              "x": 3056,
+              "y": 3408
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-95-106"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3088,
+              "y": 3413.8593764519355
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 2896,
+            "y": 3216
+          },
+          "work": {
+            "cargo": 3.6659462559393274,
+            "cargoType": "wood",
+            "target": {
+              "x": 2864,
+              "y": 3248
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-89-101"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2896,
+              "y": 3216
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 3248,
+            "y": 2880
+          },
+          "work": {
+            "cargo": 2.520076128003214,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3248,
+              "y": 2880
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-5",
+          "position": {
+            "x": 3026.8594910421593,
+            "y": 3198.6611875682956
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 2960,
+              "y": 3312
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "organic-7-tree-92-103"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3088,
+              "y": 3056
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-6",
+          "position": {
+            "x": 3024,
+            "y": 2832
+          },
+          "work": {
+            "cargo": 3.098886067493949,
+            "cargoType": "wood",
+            "target": {
+              "x": 2992,
+              "y": 2800
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-tree-3-2"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3024,
+              "y": 2832
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-7",
+          "position": {
+            "x": 3056,
+            "y": 3344
+          },
+          "work": {
+            "cargo": 4.6499865427357285,
+            "cargoType": "wood",
+            "target": {
+              "x": 3024,
+              "y": 3344
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-94-104"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3056,
+              "y": 3344
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-8",
+          "position": {
+            "x": 3600,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 4.66361750315772,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3600,
+              "y": 3248
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-9",
+          "position": {
+            "x": 3056,
+            "y": 3280
+          },
+          "work": {
+            "cargo": 0.35610523455943355,
+            "cargoType": "wood",
+            "target": {
+              "x": 3024,
+              "y": 3312
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-94-103"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3056,
+              "y": 3280
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 46,
+        "gold": 47
+      },
+      "knownNodes": 2343,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2775.8363824968424
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2897.979923871994
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 11015,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1296,
+          "y": 2832
+        },
+        "goal": {
+          "x": 1680,
+          "y": 3088
+        },
+        "status": "blocked",
+        "index": 70
+      },
+      "priority": "stable",
+      "sites": [
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 420,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 17,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3072.274560769901,
+            "y": 3134.6271961504945
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 2992,
+              "y": 3408
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "organic-7-tree-93-106"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3088,
+              "y": 3056
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3600,
+            "y": 3256.8959313397204
+          },
+          "work": {
+            "cargo": 4.1001914597252425,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3600,
+              "y": 3256.8959313397204
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 2832,
+            "y": 3120
+          },
+          "work": {
+            "cargo": 3.384202794683622,
+            "cargoType": "wood",
+            "target": {
+              "x": 2800,
+              "y": 3152
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-87-98"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2832,
+              "y": 3120
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 3232.029100172255,
+            "y": 2903.9563497416175
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3248,
+              "y": 2880
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-5",
+          "position": {
+            "x": 3024,
+            "y": 3376
+          },
+          "work": {
+            "cargo": 0.9998255877999063,
+            "cargoType": "wood",
+            "target": {
+              "x": 2992,
+              "y": 3408
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-93-106"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3024,
+              "y": 3376
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-6",
+          "position": {
+            "x": 3024,
+            "y": 2800
+          },
+          "work": {
+            "cargo": 2.0022846111618335,
+            "cargoType": "wood",
+            "target": {
+              "x": 2992,
+              "y": 2768
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-tree-3-1"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3024,
+              "y": 2800
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-7",
+          "position": {
+            "x": 2960,
+            "y": 2864
+          },
+          "work": {
+            "cargo": 4.662430056382388,
+            "cargoType": "wood",
+            "target": {
+              "x": 2928,
+              "y": 2832
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-tree-1-3"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2960,
+              "y": 2864
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-8",
+          "position": {
+            "x": 3088,
+            "y": 3440
+          },
+          "work": {
+            "cargo": 1.0169794788574782,
+            "cargoType": "wood",
+            "target": {
+              "x": 3056,
+              "y": 3472
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-95-108"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3088,
+              "y": 3440
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-9",
+          "position": {
+            "x": 2992,
+            "y": 2832
+          },
+          "work": {
+            "cargo": 0.5517269889172278,
+            "cargoType": "wood",
+            "target": {
+              "x": 2960,
+              "y": 2800
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-tree-2-2"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2992,
+              "y": 2832
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-10",
+          "position": {
+            "x": 3151.2824793855025,
+            "y": 3376.7175206144975
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 3056,
+              "y": 3472
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-95-108"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3088,
+              "y": 3440
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 26,
+        "gold": 97
+      },
+      "knownNodes": 2348,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2701.3998085402745
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2844.999999999996
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 11084,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1296,
+          "y": 2832
+        },
+        "goal": {
+          "x": 1424,
+          "y": 3344
+        },
+        "status": "blocked",
+        "index": 90
+      },
+      "priority": "aviary",
+      "sites": [
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 480,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 17,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3026.425663725677,
+            "y": 2832.2339648291418
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 2896,
+              "y": 2800
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "region-0-1-tree-0-2"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3088,
+              "y": 2928
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3561.9697177501585,
+            "y": 3408.9390870249613
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3632,
+              "y": 3264
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 2800,
+            "y": 3056
+          },
+          "work": {
+            "cargo": 2.7659551285110866,
+            "cargoType": "wood",
+            "target": {
+              "x": 2768,
+              "y": 3056
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-86-95"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2800,
+              "y": 3056
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 3216,
+            "y": 2876.000001
+          },
+          "work": {
+            "cargo": 3.0766708851677897,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3216,
+              "y": 2876.000001
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-5",
+          "position": {
+            "x": 2992,
+            "y": 3440
+          },
+          "work": {
+            "cargo": 1.363803771139859,
+            "cargoType": "wood",
+            "target": {
+              "x": 2960,
+              "y": 3472
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-92-108"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2992,
+              "y": 3440
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-6",
+          "position": {
+            "x": 3216,
+            "y": 2852
+          },
+          "work": {
+            "cargo": 2.03680686243977,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3216,
+              "y": 2852
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-7",
+          "position": {
+            "x": 2924.928087785533,
+            "y": 2832
+          },
+          "work": {
+            "cargo": 0.730233285486602,
+            "cargoType": "wood",
+            "target": {
+              "x": 2896,
+              "y": 2800
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-tree-0-2"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2924.928087785533,
+              "y": 2832
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-8",
+          "position": {
+            "x": 3614.1972932232206,
+            "y": 3295.154736859364
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3632,
+              "y": 3264
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-9",
+          "position": {
+            "x": 2960,
+            "y": 2800
+          },
+          "work": {
+            "cargo": 1.4492049215697724,
+            "cargoType": "wood",
+            "target": {
+              "x": 2928,
+              "y": 2768
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-tree-1-1"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2960,
+              "y": 2800
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-10",
+          "position": {
+            "x": 3572.0455878714815,
+            "y": 3275.9544121285185
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3600,
+              "y": 3248
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 56,
+        "gold": 42
+      },
+      "knownNodes": 2348,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2660.037477320994
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2820.886522252388
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 11108,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1296,
+          "y": 2832
+        },
+        "goal": {
+          "x": 1552,
+          "y": 3344
+        },
+        "status": "blocked",
+        "index": 110
+      },
+      "priority": "army",
+      "sites": [
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 540,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 2732.062499671875,
+            "y": 3056
+          },
+          "work": {
+            "cargo": 0.6052383966276114,
+            "cargoType": "wood",
+            "target": {
+              "x": 2704,
+              "y": 3056
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-84-95"
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3356.846556892691,
+            "y": 3467.9428701953493
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 2992,
+              "y": 3536
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "organic-7-tree-93-110"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3440,
+              "y": 3408
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 3079.065746035737,
+            "y": 3032.934253964263
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 2768,
+              "y": 3152
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-86-98"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 2800,
+              "y": 3152
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 2800,
+            "y": 3127.67744435583
+          },
+          "work": {
+            "cargo": 3.4,
+            "cargoType": "wood",
+            "target": {
+              "x": 2768,
+              "y": 3152
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-86-98"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2800,
+              "y": 3127.67744435583
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-5",
+          "position": {
+            "x": 2960,
+            "y": 3440
+          },
+          "work": {
+            "cargo": 0.2695917379953525,
+            "cargoType": "wood",
+            "target": {
+              "x": 2928,
+              "y": 3472
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-91-108"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2960,
+              "y": 3440
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-6",
+          "position": {
+            "x": 2756.062500671875,
+            "y": 3056
+          },
+          "work": {
+            "cargo": 2.6154345847539404,
+            "cargoType": "wood",
+            "target": {
+              "x": 2704,
+              "y": 3056
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-84-95"
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-7",
+          "position": {
+            "x": 2906.567897091881,
+            "y": 3024
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 2736,
+              "y": 3088
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "organic-7-tree-85-96"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3088,
+              "y": 3024
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-8",
+          "position": {
+            "x": 3200.1963720043677,
+            "y": 3500.1400746244085
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 2992,
+              "y": 3536
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "organic-7-tree-93-110"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3440,
+              "y": 3408
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-9",
+          "position": {
+            "x": 3026.931554831408,
+            "y": 3072.63694158464
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 2768,
+              "y": 3152
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-86-98"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 2800,
+              "y": 3152
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-10",
+          "position": {
+            "x": 3600,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 3.054157953692671,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3600,
+              "y": 3248
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 116,
+        "gold": 142
+      },
+      "knownNodes": 3830,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2552.4458420463015
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2779.9999999999945
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 14318,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 232.52514594720495,
+          "y": 2427.0335608118253
+        },
+        "goal": {
+          "x": 528,
+          "y": 3600
+        },
+        "status": "moving",
+        "index": 124
+      },
+      "priority": "baseUpgrade",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 3200,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 600,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 2870.972299809982,
+            "y": 3024
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 2672,
+              "y": 3088
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-83-96"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 2704,
+              "y": 3056
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3240.1967415327836,
+            "y": 2880
+          },
+          "work": {
+            "cargo": 1.586590005212945,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3240.1967415327836,
+              "y": 2880
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 2768,
+            "y": 3184
+          },
+          "work": {
+            "cargo": 0.557044554134812,
+            "cargoType": "wood",
+            "target": {
+              "x": 2736,
+              "y": 3216
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-85-100"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2768,
+              "y": 3184
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 3264.196742532784,
+            "y": 2880
+          },
+          "work": {
+            "cargo": 4.092472756382638,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3264.196742532784,
+              "y": 2880
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-5",
+          "position": {
+            "x": 3032.467093114679,
+            "y": 3157.8103292897554
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 2864,
+              "y": 3440
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "organic-7-tree-89-107"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3088,
+              "y": 3056
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-6",
+          "position": {
+            "x": 3441.7968384836827,
+            "y": 2480
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 3344,
+              "y": 2416
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-5-tree-104-75"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3376,
+              "y": 2448
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-7",
+          "position": {
+            "x": 2832,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 0.24846287332967898,
+            "cargoType": "wood",
+            "target": {
+              "x": 2800,
+              "y": 3280
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-87-102"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2832,
+              "y": 3248
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-8",
+          "position": {
+            "x": 3600,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 4.5172973527662235,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3600,
+              "y": 3248
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-9",
+          "position": {
+            "x": 3019.027701190018,
+            "y": 3024
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 2672,
+              "y": 3088
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-83-96"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 2704,
+              "y": 3056
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-10",
+          "position": {
+            "x": 3576,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 1.406146983430272,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 6,
+        "gold": 82
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2474.921716954112
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2690.3209372383894
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16374,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2668.1990331593074,
+          "y": 2956.1990331593074
+        },
+        "goal": {
+          "x": 16,
+          "y": 16
+        },
+        "status": "moving",
+        "index": 137
+      },
+      "priority": "submarineDesign",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 3200,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 660,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3395.2976673314397,
+            "y": 1424
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 3248,
+              "y": 1968
+            },
+            "order": {
+              "kind": "move"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3248,
+              "y": 1968
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3248,
+            "y": 2904
+          },
+          "work": {
+            "cargo": 4.286844827170695,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 3077.4521513762384,
+            "y": 3024
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 2608,
+              "y": 3088
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "organic-7-tree-81-96"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3088,
+              "y": 3024
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 3259.9546674459816,
+            "y": 2880
+          },
+          "work": {
+            "cargo": 3.4301021687966773,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-5",
+          "position": {
+            "x": 3001.1150179834362,
+            "y": 3133.231095125834
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 2768,
+              "y": 3312
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "organic-7-tree-86-103"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3088,
+              "y": 3056
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-6",
+          "position": {
+            "x": 3235.9546664459813,
+            "y": 2880.0000073008828
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3216,
+              "y": 2928
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-7",
+          "position": {
+            "x": 2768,
+            "y": 3216
+          },
+          "work": {
+            "cargo": 2.823749226739952,
+            "cargoType": "wood",
+            "target": {
+              "x": 2736,
+              "y": 3248
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-85-101"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2768,
+              "y": 3216
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-8",
+          "position": {
+            "x": 3600,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 0.5183251337044907,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3600,
+              "y": 3248
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-9",
+          "position": {
+            "x": 2640,
+            "y": 3056
+          },
+          "work": {
+            "cargo": 2.2613967180111954,
+            "cargoType": "wood",
+            "target": {
+              "x": 2608,
+              "y": 3024
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-81-94"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2640,
+              "y": 3056
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-10",
+          "position": {
+            "x": 3575.999999,
+            "y": 3259.6045103196802
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3568,
+              "y": 3280
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 191,
+        "gold": 157
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2425.2209570864143
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2658.4723210527022
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2741.3583695346174,
+          "y": 3029.3583695346174
+        },
+        "goal": {
+          "x": 3276.8,
+          "y": 3276.8
+        },
+        "status": "moving",
+        "index": 138
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 3200,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 720,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3280,
+            "y": 1602.6226839959625
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 1520,
+              "y": 2256
+            },
+            "order": {
+              "kind": "move"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 1520,
+              "y": 2256
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3266.2101082452605,
+            "y": 2880
+          },
+          "work": {
+            "cargo": 0.6299020921085974,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 2640,
+            "y": 3088
+          },
+          "work": {
+            "cargo": 2.559960502269249,
+            "cargoType": "wood",
+            "target": {
+              "x": 2608,
+              "y": 3120
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-81-97"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2640,
+              "y": 3088
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 3244.3228297548067,
+            "y": 2884.375672275303
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3248,
+              "y": 2880
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-5",
+          "position": {
+            "x": 2934.561816410855,
+            "y": 3163.4067285124015
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 2736,
+              "y": 3312
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "organic-7-tree-85-103"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3088,
+              "y": 3056
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-6",
+          "position": {
+            "x": 3220.322828754807,
+            "y": 2880
+          },
+          "work": {
+            "cargo": 1.3082153094266455,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-7",
+          "position": {
+            "x": 2685.316292195297,
+            "y": 3150.6683707804705
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 2640,
+              "y": 3184
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-82-99"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 2672,
+              "y": 3152
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-8",
+          "position": {
+            "x": 3599.961087291306,
+            "y": 3249.3321288866478
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3568,
+              "y": 3280
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-9",
+          "position": {
+            "x": 2608,
+            "y": 3056
+          },
+          "work": {
+            "cargo": 4.554645451403271,
+            "cargoType": "wood",
+            "target": {
+              "x": 2576,
+              "y": 3088
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-80-96"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2608,
+              "y": 3056
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-10",
+          "position": {
+            "x": 3575.961086291306,
+            "y": 3254.939723022418
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3568,
+              "y": 3280
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 306,
+        "gold": 412
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2330.769689257029
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2504.061882598447
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2792.3506662736095,
+          "y": 3068.1753331368045
+        },
+        "goal": {
+          "x": 819.2,
+          "y": 819.2
+        },
+        "status": "moving",
+        "index": 141
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 780,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3280,
+            "y": 1602.522543337617
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 1520,
+              "y": 2256
+            },
+            "order": {
+              "kind": "move"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 1520,
+              "y": 2256
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3227.9284182186175,
+            "y": 2880
+          },
+          "work": {
+            "cargo": 3.133939160672365,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 2832,
+            "y": 3344
+          },
+          "work": {
+            "cargo": 3.9485237576217505,
+            "cargoType": "wood",
+            "target": {
+              "x": 2800,
+              "y": 3376
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-87-105"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2832,
+              "y": 3344
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 3251.9283901726385,
+            "y": 2880
+          },
+          "work": {
+            "cargo": 2.342867600392915,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-5",
+          "position": {
+            "x": 2640,
+            "y": 3152
+          },
+          "work": {
+            "cargo": 2.0347291592203174,
+            "cargoType": "wood",
+            "target": {
+              "x": 2608,
+              "y": 3184
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-81-99"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2640,
+              "y": 3152
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-6",
+          "position": {
+            "x": 3275.9283911726384,
+            "y": 2880
+          },
+          "work": {
+            "cargo": 3.6991202117711532,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-7",
+          "position": {
+            "x": 2576,
+            "y": 3120
+          },
+          "work": {
+            "cargo": 1.0590680334076459,
+            "cargoType": "wood",
+            "target": {
+              "x": 2544,
+              "y": 3152
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-79-98"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2576,
+              "y": 3120
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-8",
+          "position": {
+            "x": 3600,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 3.7612145764510667,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3600,
+              "y": 3248
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-9",
+          "position": {
+            "x": 2608,
+            "y": 2992
+          },
+          "work": {
+            "cargo": 4.63769414245596,
+            "cargoType": "wood",
+            "target": {
+              "x": 2576,
+              "y": 2992
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-80-93"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2608,
+              "y": 2992
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-10",
+          "position": {
+            "x": 3576,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 4.987065912743021,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 411,
+        "gold": 657
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2237.096880801086
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2347.324073027146
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1856.2391472436836,
+          "y": 1516.5001288682424
+        },
+        "goal": {
+          "x": 819.2,
+          "y": 819.2
+        },
+        "status": "moving",
+        "index": 143
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 800,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "workerOrders": [
+        {
+          "id": "enemy-worker-1",
+          "position": {
+            "x": 3280,
+            "y": 1602.5041522536121
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "wood",
+            "target": {
+              "x": 1520,
+              "y": 2256
+            },
+            "order": {
+              "kind": "move"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 1520,
+              "y": 2256
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-2",
+          "position": {
+            "x": 3245.352254416762,
+            "y": 2882.76384396537
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3248,
+              "y": 2880
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-3",
+          "position": {
+            "x": 2800,
+            "y": 3344
+          },
+          "work": {
+            "cargo": 3.51465882233395,
+            "cargoType": "wood",
+            "target": {
+              "x": 2768,
+              "y": 3376
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-86-105"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2800,
+              "y": 3344
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-4",
+          "position": {
+            "x": 3223.513781630415,
+            "y": 2882.6618187210624
+          },
+          "work": {
+            "cargo": 5,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "deliver",
+              "nodeId": "region-0-1-mine"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 3216,
+              "y": 2928
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-5",
+          "position": {
+            "x": 2753.130495153975,
+            "y": 3139.9057920705022
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 2576,
+              "y": 3184
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-80-99"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 2608,
+              "y": 3152
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-6",
+          "position": {
+            "x": 3269.352255416762,
+            "y": 2880
+          },
+          "work": {
+            "cargo": 0.62197579087648,
+            "cargoType": "gold",
+            "target": {
+              "x": 3248,
+              "y": 2848
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-1-mine"
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-7",
+          "position": {
+            "x": 3074.962143145779,
+            "y": 3064.6919045694804
+          },
+          "work": {
+            "cargo": 0,
+            "target": {
+              "x": 2512,
+              "y": 3120
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-78-97"
+            }
+          },
+          "navigation": {
+            "status": "moving",
+            "destination": {
+              "x": 2544,
+              "y": 3120
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-8",
+          "position": {
+            "x": 3600,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 1.5432462312097113,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 3600,
+              "y": 3248
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-9",
+          "position": {
+            "x": 2576,
+            "y": 2992
+          },
+          "work": {
+            "cargo": 0.4420250035805273,
+            "cargoType": "wood",
+            "target": {
+              "x": 2544,
+              "y": 2992
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "organic-7-tree-79-93"
+            }
+          },
+          "navigation": {
+            "status": "arrived",
+            "destination": {
+              "x": 2576,
+              "y": 2992
+            }
+          }
+        },
+        {
+          "id": "enemy-worker-10",
+          "position": {
+            "x": 3576,
+            "y": 3248
+          },
+          "work": {
+            "cargo": 3.265476571002442,
+            "cargoType": "gold",
+            "target": {
+              "x": 3632,
+              "y": 3232
+            },
+            "order": {
+              "kind": "gather",
+              "nodeId": "region-0-0-mine"
+            }
+          }
+        }
+      ],
+      "bank": {
+        "wood": 451,
+        "gold": 747
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2206.036438488064
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2295.3596140914165
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1893.4275883986156,
+          "y": 1861.851736192385
+        },
+        "goal": {
+          "x": 3276.8,
+          "y": 3276.8
+        },
+        "status": "moving",
+        "index": 144
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 3200,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    }
+  ],
+  "scoutGoals": [
+    {
+      "time": 37,
+      "goal": {
+        "x": 3200,
+        "y": 3440
+      },
+      "position": {
+        "x": 3360,
+        "y": 3456
+      }
+    },
+    {
+      "time": 40,
+      "goal": {
+        "x": 1952,
+        "y": 1888
+      },
+      "position": {
+        "x": 3360,
+        "y": 3456
+      }
+    },
+    {
+      "time": 43,
+      "goal": {
+        "x": 448,
+        "y": 480
+      },
+      "position": {
+        "x": 3232.832605020035,
+        "y": 3551.167394979965
+      }
+    },
+    {
+      "time": 82,
+      "goal": {
+        "x": 208,
+        "y": 320
+      },
+      "position": {
+        "x": 386.17732857236854,
+        "y": 358.1808561226504
+      }
+    },
+    {
+      "time": 85,
+      "goal": {
+        "x": 3328,
+        "y": 3168
+      },
+      "position": {
+        "x": 208,
+        "y": 320
+      }
+    },
+    {
+      "time": 88,
+      "goal": {
+        "x": 3072,
+        "y": 2912
+      },
+      "position": {
+        "x": 367.97449589527116,
+        "y": 322.8566874267013
+      }
+    },
+    {
+      "time": 130,
+      "goal": {
+        "x": 2944,
+        "y": 3360
+      },
+      "position": {
+        "x": 3072,
+        "y": 2912
+      }
+    },
+    {
+      "time": 133,
+      "goal": {
+        "x": 2960,
+        "y": 3216
+      },
+      "position": {
+        "x": 3016.687142587623,
+        "y": 3062.134898690738
+      }
+    },
+    {
+      "time": 136,
+      "goal": {
+        "x": 2704,
+        "y": 2960
+      },
+      "position": {
+        "x": 3111.7893276880823,
+        "y": 3165.403557437306
+      }
+    },
+    {
+      "time": 175,
+      "goal": {
+        "x": 2448,
+        "y": 3216
+      },
+      "position": {
+        "x": 2704,
+        "y": 2960
+      }
+    },
+    {
+      "time": 178,
+      "goal": {
+        "x": 2832,
+        "y": 2576
+      },
+      "position": {
+        "x": 2704,
+        "y": 2960
+      }
+    },
+    {
+      "time": 181,
+      "goal": {
+        "x": 2320,
+        "y": 3088
+      },
+      "position": {
+        "x": 2544,
+        "y": 2960
+      }
+    },
+    {
+      "time": 184,
+      "goal": {
+        "x": 2320,
+        "y": 3216
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 187,
+      "goal": {
+        "x": 2192,
+        "y": 3216
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 190,
+      "goal": {
+        "x": 2320,
+        "y": 3344
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 193,
+      "goal": {
+        "x": 2064,
+        "y": 3216
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 196,
+      "goal": {
+        "x": 2448,
+        "y": 3344
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 199,
+      "goal": {
+        "x": 2192,
+        "y": 3344
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 202,
+      "goal": {
+        "x": 2064,
+        "y": 2832
+      },
+      "position": {
+        "x": 2206.761816764609,
+        "y": 2972.1076532733023
+      }
+    },
+    {
+      "time": 205,
+      "goal": {
+        "x": 1808,
+        "y": 2576
+      },
+      "position": {
+        "x": 1950.8629150101524,
+        "y": 2718.8629150101524
+      }
+    },
+    {
+      "time": 208,
+      "goal": {
+        "x": 1680,
+        "y": 2448
+      },
+      "position": {
+        "x": 1808,
+        "y": 2576
+      }
+    },
+    {
+      "time": 211,
+      "goal": {
+        "x": 1552,
+        "y": 2576
+      },
+      "position": {
+        "x": 1736.0867745708158,
+        "y": 2711.913225429184
+      }
+    },
+    {
+      "time": 214,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1552,
+        "y": 2576
+      }
+    },
+    {
+      "time": 217,
+      "goal": {
+        "x": 1296,
+        "y": 2320
+      },
+      "position": {
+        "x": 1438.8629150101524,
+        "y": 2462.8629150101524
+      }
+    },
+    {
+      "time": 220,
+      "goal": {
+        "x": 1040,
+        "y": 2064
+      },
+      "position": {
+        "x": 1296,
+        "y": 2320
+      }
+    },
+    {
+      "time": 223,
+      "goal": {
+        "x": 1552,
+        "y": 2064
+      },
+      "position": {
+        "x": 1296,
+        "y": 2320
+      }
+    },
+    {
+      "time": 226,
+      "goal": {
+        "x": 1040,
+        "y": 2576
+      },
+      "position": {
+        "x": 1182.8629150101524,
+        "y": 2433.1370849898476
+      }
+    },
+    {
+      "time": 229,
+      "goal": {
+        "x": 784,
+        "y": 2320
+      },
+      "position": {
+        "x": 1040,
+        "y": 2576
+      }
+    },
+    {
+      "time": 232,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1040,
+        "y": 2576
+      }
+    },
+    {
+      "time": 235,
+      "goal": {
+        "x": 1296,
+        "y": 2832
+      },
+      "position": {
+        "x": 1153.1370849898476,
+        "y": 2689.1370849898476
+      }
+    },
+    {
+      "time": 238,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 241,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 244,
+      "goal": {
+        "x": 1296,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 247,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 250,
+      "goal": {
+        "x": 1168,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 253,
+      "goal": {
+        "x": 1424,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 256,
+      "goal": {
+        "x": 1680,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 259,
+      "goal": {
+        "x": 1552,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 262,
+      "goal": {
+        "x": 1296,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 265,
+      "goal": {
+        "x": 1424,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 268,
+      "goal": {
+        "x": 1680,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 271,
+      "goal": {
+        "x": 1808,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 274,
+      "goal": {
+        "x": 1552,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 277,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 280,
+      "goal": {
+        "x": 1808,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 283,
+      "goal": {
+        "x": 1680,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 286,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 289,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 292,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 295,
+      "goal": {
+        "x": 1296,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 298,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 301,
+      "goal": {
+        "x": 1168,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 304,
+      "goal": {
+        "x": 1424,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 307,
+      "goal": {
+        "x": 1680,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 310,
+      "goal": {
+        "x": 1552,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 313,
+      "goal": {
+        "x": 1296,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 316,
+      "goal": {
+        "x": 1424,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 319,
+      "goal": {
+        "x": 1680,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 322,
+      "goal": {
+        "x": 1808,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 325,
+      "goal": {
+        "x": 1552,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 328,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 331,
+      "goal": {
+        "x": 1808,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 334,
+      "goal": {
+        "x": 1680,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 337,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 340,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 343,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 346,
+      "goal": {
+        "x": 1296,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 349,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 352,
+      "goal": {
+        "x": 1168,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 355,
+      "goal": {
+        "x": 1424,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 358,
+      "goal": {
+        "x": 1680,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 361,
+      "goal": {
+        "x": 1552,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 364,
+      "goal": {
+        "x": 1296,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 367,
+      "goal": {
+        "x": 1424,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 370,
+      "goal": {
+        "x": 1680,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 373,
+      "goal": {
+        "x": 1808,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 376,
+      "goal": {
+        "x": 1552,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 379,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 382,
+      "goal": {
+        "x": 1808,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 385,
+      "goal": {
+        "x": 1680,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 388,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 391,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 394,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 397,
+      "goal": {
+        "x": 1296,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 400,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 403,
+      "goal": {
+        "x": 1168,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 406,
+      "goal": {
+        "x": 1424,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 409,
+      "goal": {
+        "x": 1680,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 412,
+      "goal": {
+        "x": 1552,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 415,
+      "goal": {
+        "x": 1296,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 418,
+      "goal": {
+        "x": 1424,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 421,
+      "goal": {
+        "x": 1680,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 424,
+      "goal": {
+        "x": 1808,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 427,
+      "goal": {
+        "x": 1552,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 430,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 433,
+      "goal": {
+        "x": 1808,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 436,
+      "goal": {
+        "x": 1680,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 439,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 442,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 445,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 448,
+      "goal": {
+        "x": 1296,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 451,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 454,
+      "goal": {
+        "x": 1168,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 457,
+      "goal": {
+        "x": 1424,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 460,
+      "goal": {
+        "x": 1680,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 463,
+      "goal": {
+        "x": 1552,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 466,
+      "goal": {
+        "x": 1296,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 469,
+      "goal": {
+        "x": 1424,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 472,
+      "goal": {
+        "x": 1680,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 475,
+      "goal": {
+        "x": 1808,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 478,
+      "goal": {
+        "x": 1552,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 481,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 484,
+      "goal": {
+        "x": 1808,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 487,
+      "goal": {
+        "x": 1680,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 490,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 493,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 496,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 499,
+      "goal": {
+        "x": 656,
+        "y": 2704
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 502,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 505,
+      "goal": {
+        "x": 656,
+        "y": 2576
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 508,
+      "goal": {
+        "x": 784,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 511,
+      "goal": {
+        "x": 912,
+        "y": 2192
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 514,
+      "goal": {
+        "x": 1040,
+        "y": 2064
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 517,
+      "goal": {
+        "x": 912,
+        "y": 2064
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 520,
+      "goal": {
+        "x": 528,
+        "y": 3600
+      },
+      "position": {
+        "x": 1283.4894007490188,
+        "y": 2672.4898595499917
+      }
+    },
+    {
+      "time": 550,
+      "goal": {
+        "x": 272,
+        "y": 3856
+      },
+      "position": {
+        "x": 414.8629150101524,
+        "y": 3713.1370849898476
+      }
+    },
+    {
+      "time": 553,
+      "goal": {
+        "x": 16,
+        "y": 3600
+      },
+      "position": {
+        "x": 158.8629150101524,
+        "y": 3742.8629150101524
+      }
+    },
+    {
+      "time": 556,
+      "goal": {
+        "x": 16,
+        "y": 3216
+      },
+      "position": {
+        "x": 16,
+        "y": 3440
+      }
+    },
+    {
+      "time": 559,
+      "goal": {
+        "x": 784,
+        "y": 3856
+      },
+      "position": {
+        "x": 138.91540473558013,
+        "y": 3318.429503946317
+      }
+    },
+    {
+      "time": 565,
+      "goal": {
+        "x": 1040,
+        "y": 3984
+      },
+      "position": {
+        "x": 894.5421774469385,
+        "y": 3906.1082642184783
+      }
+    },
+    {
+      "time": 568,
+      "goal": {
+        "x": 1424,
+        "y": 3984
+      },
+      "position": {
+        "x": 1200,
+        "y": 3984
+      }
+    },
+    {
+      "time": 571,
+      "goal": {
+        "x": 1808,
+        "y": 3984
+      },
+      "position": {
+        "x": 1584,
+        "y": 3984
+      }
+    },
+    {
+      "time": 574,
+      "goal": {
+        "x": 2192,
+        "y": 3984
+      },
+      "position": {
+        "x": 1968,
+        "y": 3984
+      }
+    },
+    {
+      "time": 577,
+      "goal": {
+        "x": 2576,
+        "y": 3984
+      },
+      "position": {
+        "x": 2352,
+        "y": 3984
+      }
+    },
+    {
+      "time": 580,
+      "goal": {
+        "x": 2960,
+        "y": 3984
+      },
+      "position": {
+        "x": 2736,
+        "y": 3984
+      }
+    },
+    {
+      "time": 583,
+      "goal": {
+        "x": 3344,
+        "y": 3984
+      },
+      "position": {
+        "x": 3120,
+        "y": 3984
+      }
+    },
+    {
+      "time": 586,
+      "goal": {
+        "x": 3728,
+        "y": 3984
+      },
+      "position": {
+        "x": 3504,
+        "y": 3984
+      }
+    },
+    {
+      "time": 589,
+      "goal": {
+        "x": 16,
+        "y": 16
+      },
+      "position": {
+        "x": 3709.3054003892166,
+        "y": 3825.09590330834
+      }
+    },
+    {
+      "time": 631,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 175.93084071429647,
+        "y": 20.703848256302834
+      }
+    },
+    {
+      "time": 667,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3128.721264630858,
+        "y": 3225.7823930140266
+      }
+    },
+    {
+      "time": 694,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 718,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3081.820839109231,
+        "y": 3204.4640177769234
+      }
+    },
+    {
+      "time": 742,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 766,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3084.818125965769,
+        "y": 3205.8264208935316
+      }
+    },
+    {
+      "time": 790,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 1005.8949815640976,
+        "y": 859.0562320193018
+      }
+    }
+  ],
+  "ledger": {
+    "wood": -1.8189894035458565e-12,
+    "gold": -6.571099220309407e-11
+  },
+  "hits": 3809
+}

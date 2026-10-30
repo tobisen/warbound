@@ -1,3 +1,72 @@
+## Tides of War — lokalt innehåll 2026-10-30
+
+[Fleet doctrine](src/config/fleetDoctrine.ts) och
+[role research](src/config/roleResearch.ts) beskriver fraktionsbundna val,
+ömsesidig ammunitionsspärr och värden. [Fleet service](src/gameplay/fleetService.ts)
+håller betald hamnvård och transportkapacitet utanför Phaser. Befintlig
+navalCombat/transport/matchFog använder forskningen; AI använder samma
+kostnader och target masks. Inga nya tickfrekvenser eller enhetstak.
+
+[Sea battle config](src/config/seaBattle.ts) beskriver separat Tidebreak-karta
+med extra resursö och Human-kampanjens sjättefasiga Tidebreak Relief. Samma
+kampanjledger, svårigheter, kontroll och progression används. Fleet/Siege
+utökar befintliga AI-profiler och betald produktionspolicy.
+
+Save77 migrerar76 utan gratis forskning och validerar nya fraktionsval,
+exklusivitet, transportplatser, sjöprojektiler, AI-profil och kampanjidentitet.
+Produktversionen ändras inte. Research behåller åtta val per sida/två rader;
+Tech Tree, Commands och enhetsinspektion beskriver samma config.
+Se [innehåll, roller och begränsningar](TIDES_OF_WAR.md).
+
+## Lokal arméframryckning och AI-territorium — 2026-10-30
+
+`navigation` delar exakt tile-edge-clearance per hinderidentitet, revision,
+bounds, kroppsstorlek och undantagsfootprint. Formationskommandon återanvänder
+giltiga korridorer med nya kontrollerade start-/slutsegment; direkt fri väg
+prioriteras. Ursprunglig source-BFS-ordning bevaras; efter reachability byggs
+inte alternativa slotkontakter om i onödan. Fristående mål och oförenliga kroppar/domäner valideras separat.
+`map.blockingTarget` är en transient stridskropp över det befintliga spatiala
+indexet, inte en ändrad/sparad världskarta. Route-/kontaktcacher tar med kroppen.
+Självförsvar återanvänder samma footprint-undantag som projektiler.
+`enemyNavigationMap` återanvänder också den gate-blockerade hinderlistan per
+statisk snapshot/revision och portgeometri, inklusive geometriskt identiska
+AI-projektioner. Fiendens portar är fortsatt fysiska hinder; ny/borttagen port,
+init-push, terräng eller revision invaliderar, utan att skapa ett nytt spatialt
+index för varje soldat.
+
+`traffic` behåller clearancehistorik för högst åtta kartprofiler. Ändrade
+footprints uppdaterar berörda tile-centers och deras narrow-neighbors; passage-
+komponenterna märks om utan ny kollisionssökning över varje världscell.
+Stora geometriändringar bygger om, och sparad geometrikopia skyddar även
+init-push/in-place-ändring med revision. Numeriska cell-ID:n och återanvänd
+Intl.Collator behåller deterministisk ordning. Separation räknar varje
+neighbor-avstånd en gång; scoped multiplayer separerar bara ägarens kroppar.
+
+Fog återanvänder exakta synunioner med oförändrad observergeometri/radier,
+airborne, bounds och statisk blockeridentitet. Ägarens explored-historik
+kopieras vid ny upptäckt; borttagna/rörliga observatörer invaliderar unionen.
+Lagkamrater delar en beräknad union per snapshot. Ingen sänkt fog-/simulations-
+frekvens eller dold AI-sikt införs.
+
+Recon följer okända resursvägpunkter och fortsätter till fog-fronten. Upp till
+256 olika blockerade mål minns transient; fallback respekterar dem. Stora
+strategiska skirmishkartor kräver minst640px basavstånd; mindre/äldre lägen
+behåller befintlig kartanpassning. Easy/Beginner tillåter tre baser med samma
+betalning/sikt/access som övriga nivåer. Fler gridade kandidater ligger runt
+observerade gruvor. Ett aktivt giltigt scoutingmål behålls genom omrangering
+eller utgången felhistorik. Bekräftat misslyckade strategiska platser undantas
+120s (legacy15s); framkommen scout utan hel tomtsikt väljer en annan plats.
+Byggadmission kräver fortfarande aktuell tomtsikt, verklig access, spawnutgång,
+ledig fysisk footprint och verklig budget. Betalda gamla baser flyttas inte. Övergiven aktiv arbetarorder avbryts med
+bevarad last; en fortfarande pågående scout får tillbaka sin transient
+reservation efter Load/omplanering. Garnisonsmålet begränsas av faktiska betalda
+enhetskroppar så att minst ett fältdetachement ryms även på Beginner med tre
+baser; överskjutande reserv släpps till grupperna utan höjd supply/armécap.
+
+Inget Save-/produktversionsbyte. Härledda cacher/planer sparas inte. Nya
+fixturer/scripts är fristående verifiering, utan levererad debug-API eller
+ändrad Phaser-scene. [Mätningar och kända prestandatoppar](artifacts/army-movement/README.md).
+
 ## Lokal forskning/anfall/expansion — 2026-10-27
 
 `researchPages.ts` håller forskningsalternativ till åtta per sida. `actionPanel`

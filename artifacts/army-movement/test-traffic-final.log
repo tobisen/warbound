@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/traffic.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  16:33:07
+   Duration  159ms (transform 69ms, setup 0ms, import 93ms, tests 15ms, environment 0ms)

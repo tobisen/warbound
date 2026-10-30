@@ -12,6 +12,8 @@ export interface ArmyPlan {nextDecisionSeconds:number;weights:Record<ArmyRole,nu
 export function prepareArmyPlan(m:MatchState):MatchState {
  if(!m.enemyProduction?.roster||m.paused||m.outcome!=='playing'||m.waves.elapsedSeconds+1e-9<(m.armyPlan?.nextDecisionSeconds??0))return m;
  const weights={...combinedArmyConfig.weights};
+ if(m.aiProfile==='siege'){weights.ballista=4;weights.catapult=3;weights.archer=3;weights.cavalry=1;}
+ if(m.aiProfile==='fleet'){weights.scout=2;weights.archer=4;weights.catapult=1;}
  if(m.aiProfile==='offensive'){weights.soldier=4;weights.catapult=2;}else if(m.aiProfile==='defensive'){weights.archer=3;weights.specialist=2;}else if(m.aiProfile==='economic')weights.soldier=2;
  const visibleUnits=m.gathering.units.filter(u=>(u.hp??0)>0&&(!m.fog||entityVisible(m.fog,'enemy',u)));
  if(visibleUnits.some(isAir))weights.archer=Math.max(weights.archer,4);

@@ -25,14 +25,27 @@ export function visionLine(fog:FogState,from:Position,to:Position,blockers:reado
  return segmentFits({...map,obstacles,linearCollision:true},from,to,0);
 }
 const emptyBlockers:readonly Footprint[]=[];
-const observerCache=new WeakMap<readonly Footprint[],{length:number;masks:Map<string,Int8Array>}>();
+const observerCache=new WeakMap<readonly Footprint[],{length:number;masks:Map<string,Int8Array>;teams:Map<string,boolean[]>}>();
 /** Exact observer/terrain LOS results are reused; union-covered cells need no separate ray or update. */
 export function updateFog(fog:FogState,observers:readonly VisionObserver[],blockers:readonly Footprint[]=emptyBlockers):FogState {
  const next={...fog,teams:{player:{visible:Array<boolean>(fog.columns*fog.rows).fill(false),explored:fog.teams.player.explored},enemy:{visible:Array<boolean>(fog.columns*fog.rows).fill(false),explored:fog.teams.enemy.explored}}};
- let cache=observerCache.get(blockers);if(!cache||cache.length!==blockers.length){cache={length:blockers.length,masks:new Map()};observerCache.set(blockers,cache);}
+ let cache=observerCache.get(blockers);if(!cache||cache.length!==blockers.length){cache={length:blockers.length,masks:new Map(),teams:new Map()};observerCache.set(blockers,cache);}
+ const observerKey=(o:VisionObserver)=>{const r=o.footprint??{...o.position,width:0,height:0};return `${fog.width}:${fog.height}:${fog.tileSize}:${o.position.x}:${o.position.y}:${o.radius}:${o.airborne}:${r.x}:${r.y}:${r.width}:${r.height}`;};
+ const keys=new Map(observers.map(o=>[o,observerKey(o)]));
+ // Allied views often ask for the identical visibility union in a different ID
+ // order. Reuse only exact geometry, radii, airborne state, bounds and terrain.
+ const teamKeys={player:'',enemy:''},reused={player:false,enemy:false};
+ for(const owner of ['player','enemy'] as const){
+  const signature=`${fog.width}:${fog.height}:${fog.tileSize}|`+observers.filter(o=>o.owner===owner).map(o=>keys.get(o)!).sort().join('|');teamKeys[owner]=signature;
+  const visible=cache.teams.get(signature);if(!visible)continue;
+  cache.teams.delete(signature);cache.teams.set(signature,visible);
+  const team=next.teams[owner];team.visible=visible.slice();reused[owner]=true;
+  for(let i=0;i<visible.length;i++)if(visible[i]&&!team.explored[i]){if(team.explored===fog.teams[owner].explored)team.explored=[...team.explored];team.explored[i]=true;}
+ }
  for(const o of observers){
+  if(reused[o.owner])continue;
   const rect=o.footprint??{...o.position,width:0,height:0};
-  const key=`${fog.width}:${fog.height}:${fog.tileSize}:${o.position.x}:${o.position.y}:${o.radius}:${o.airborne}:${rect.x}:${rect.y}:${rect.width}:${rect.height}`;
+  const key=keys.get(o)!;
   const minCol=Math.max(0,Math.floor((rect.x-o.radius)/fog.tileSize)),maxCol=Math.min(fog.columns-1,Math.floor((rect.x+rect.width+o.radius)/fog.tileSize));
   const minRow=Math.max(0,Math.floor((rect.y-o.radius)/fog.tileSize)),maxRow=Math.min(fog.rows-1,Math.floor((rect.y+rect.height+o.radius)/fog.tileSize)),columns=maxCol-minCol+1;
   // LOS depends on geometry, not actor-local IDs (which repeat across AI views).
@@ -48,6 +61,7 @@ export function updateFog(fog:FogState,observers:readonly VisionObserver[],block
    if(result!==1)continue;team.visible[i]=true;if(!team.explored[i]){if(team.explored===fog.teams[o.owner].explored)team.explored=[...team.explored];team.explored[i]=true;}
   }
  }
+ for(const owner of ['player','enemy'] as const)if(!reused[owner]){if(cache.teams.size>=16)cache.teams.delete(cache.teams.keys().next().value!);cache.teams.set(teamKeys[owner],next.teams[owner].visible.slice());}
  if(fog.revealed)next.teams.player={visible:Array<boolean>(fog.columns*fog.rows).fill(true),explored:Array<boolean>(fog.columns*fog.rows).fill(true)};
  return next;
 }

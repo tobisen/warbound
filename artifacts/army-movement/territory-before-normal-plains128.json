@@ -1,0 +1,7244 @@
+{
+  "stage": "before",
+  "difficulty": "normal",
+  "map": "plains128",
+  "seconds": 1500,
+  "wallSeconds": 80.659,
+  "description": "1s simulation steps, paid AI with original starting budget/resources and ordinary fog. Human damage sink preserves passive targets for long skirmish. Not a human playtest or real-time frame benchmark.",
+  "snapshots": [
+    {
+      "seconds": 60,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 2,
+      "jobs": 3,
+      "bank": {
+        "wood": 39,
+        "gold": 23
+      },
+      "knownNodes": 505,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2975
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 2317,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 707.7173037436838,
+          "y": 3287.434607487368
+        },
+        "goal": {
+          "x": 448,
+          "y": 480
+        },
+        "status": "moving",
+        "index": 2
+      },
+      "priority": "forge",
+      "sites": [
+        {
+          "x": 3072,
+          "y": 2912
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 120,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 3,
+      "jobs": 3,
+      "bank": {
+        "wood": 9,
+        "gold": 8
+      },
+      "knownNodes": 1405,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2955
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        }
+      ],
+      "explored": 6983,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 3920,
+          "y": 2090.372382949927
+        },
+        "goal": {
+          "x": 3072,
+          "y": 2912
+        },
+        "status": "moving",
+        "index": 5
+      },
+      "priority": "defense",
+      "sites": [
+        {
+          "x": 3072,
+          "y": 2912
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 180,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 4,
+      "jobs": 6,
+      "bank": {
+        "wood": 10,
+        "gold": 30
+      },
+      "knownNodes": 2021,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2898.9843071228534
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 3000
+        }
+      ],
+      "explored": 9775,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2704,
+          "y": 2960
+        },
+        "goal": {
+          "x": 2832,
+          "y": 2576
+        },
+        "status": "blocked",
+        "index": 10
+      },
+      "priority": "academy",
+      "sites": [
+        {
+          "x": 3104,
+          "y": 2944
+        },
+        {
+          "x": 3072,
+          "y": 2912
+        },
+        {
+          "x": 3328,
+          "y": 2688
+        },
+        {
+          "x": 3104,
+          "y": 2688
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 240,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 5,
+      "jobs": 7,
+      "bank": {
+        "wood": 2,
+        "gold": 19
+      },
+      "knownNodes": 2343,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2890
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 10938,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1296,
+          "y": 2832
+        },
+        "goal": {
+          "x": 1040,
+          "y": 3088
+        },
+        "status": "blocked",
+        "index": 30
+      },
+      "priority": "workers",
+      "sites": [
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 300,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 8,
+      "jobs": 9,
+      "bank": {
+        "wood": 31,
+        "gold": 27
+      },
+      "knownNodes": 2343,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2852.6923458623564
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2960.428862933829
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 11003,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1296,
+          "y": 2832
+        },
+        "goal": {
+          "x": 912,
+          "y": 2960
+        },
+        "status": "blocked",
+        "index": 50
+      },
+      "priority": "baseUpgrade",
+      "sites": [
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 360,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 9,
+      "jobs": 11,
+      "bank": {
+        "wood": 46,
+        "gold": 47
+      },
+      "knownNodes": 2343,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2775.8363824968424
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2897.979923871994
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 11015,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1296,
+          "y": 2832
+        },
+        "goal": {
+          "x": 1680,
+          "y": 3088
+        },
+        "status": "blocked",
+        "index": 70
+      },
+      "priority": "stable",
+      "sites": [
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 420,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 17,
+      "bank": {
+        "wood": 26,
+        "gold": 97
+      },
+      "knownNodes": 2348,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2701.3998085402745
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2844.999999999996
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 11084,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1296,
+          "y": 2832
+        },
+        "goal": {
+          "x": 1424,
+          "y": 3344
+        },
+        "status": "blocked",
+        "index": 90
+      },
+      "priority": "aviary",
+      "sites": [
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 480,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 17,
+      "bank": {
+        "wood": 56,
+        "gold": 42
+      },
+      "knownNodes": 2348,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2660.037477320994
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2820.886522252388
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 11108,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1296,
+          "y": 2832
+        },
+        "goal": {
+          "x": 1552,
+          "y": 3344
+        },
+        "status": "blocked",
+        "index": 110
+      },
+      "priority": "army",
+      "sites": [
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 540,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 116,
+        "gold": 142
+      },
+      "knownNodes": 3830,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2552.4458420463015
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2779.9999999999945
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 14318,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 232.52514594720495,
+          "y": 2427.0335608118253
+        },
+        "goal": {
+          "x": 528,
+          "y": 3600
+        },
+        "status": "moving",
+        "index": 124
+      },
+      "priority": "baseUpgrade",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 3200,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 600,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 6,
+        "gold": 82
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2474.921716954112
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2690.3209372383894
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16374,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2668.1990331593074,
+          "y": 2956.1990331593074
+        },
+        "goal": {
+          "x": 16,
+          "y": 16
+        },
+        "status": "moving",
+        "index": 137
+      },
+      "priority": "submarineDesign",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 3200,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 660,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 191,
+        "gold": 157
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2425.2209570864143
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2658.4723210527022
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2741.3583695346174,
+          "y": 3029.3583695346174
+        },
+        "goal": {
+          "x": 3276.8,
+          "y": 3276.8
+        },
+        "status": "moving",
+        "index": 138
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 3200,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 720,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 306,
+        "gold": 412
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2330.769689257029
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2504.061882598447
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2792.3506662736095,
+          "y": 3068.1753331368045
+        },
+        "goal": {
+          "x": 819.2,
+          "y": 819.2
+        },
+        "status": "moving",
+        "index": 141
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 780,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 411,
+        "gold": 657
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2237.096880801086
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2347.324073027146
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1856.2391472436836,
+          "y": 1516.5001288682424
+        },
+        "goal": {
+          "x": 819.2,
+          "y": 819.2
+        },
+        "status": "moving",
+        "index": 143
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 840,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 516,
+        "gold": 907
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2143.094207725267
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2190.8835937559575
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1205.86530590112,
+          "y": 1026.93265295056
+        },
+        "goal": {
+          "x": 3276.8,
+          "y": 3276.8
+        },
+        "status": "moving",
+        "index": 146
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 900,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 611,
+        "gold": 1157
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 2049.323365376584
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 2039.0418902102206
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2170.877346807302,
+          "y": 2362.877346807302
+        },
+        "goal": {
+          "x": 3276.8,
+          "y": 3276.8
+        },
+        "status": "moving",
+        "index": 148
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 960,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 711,
+        "gold": 1407
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 1955.2837205016854
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 1884.26345429075
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2791.750145107991,
+          "y": 3067.8750725539953
+        },
+        "goal": {
+          "x": 819.2,
+          "y": 819.2
+        },
+        "status": "moving",
+        "index": 151
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 1020,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 816,
+        "gold": 1652
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 1860.7880781629028
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 1728.5692962643664
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1924.5594393717395,
+          "y": 2040.2890351833357
+        },
+        "goal": {
+          "x": 819.2,
+          "y": 819.2
+        },
+        "status": "moving",
+        "index": 153
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 1080,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 916,
+        "gold": 1902
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 1767.0968828610203
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 1572.3523924741726
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 852.7284108642981,
+          "y": 837.2153787380313
+        },
+        "goal": {
+          "x": 819.2,
+          "y": 819.2
+        },
+        "status": "moving",
+        "index": 155
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 1140,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 1021,
+        "gold": 2157
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 1673.0942079513022
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 1416.905043656638
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1925.718275209594,
+          "y": 2039.450513652766
+        },
+        "goal": {
+          "x": 3276.8,
+          "y": 3276.8
+        },
+        "status": "moving",
+        "index": 158
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 1200,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 1121,
+        "gold": 2402
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 1579.3233653794478
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 1261.0712470019248
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 3174.5589929488874,
+          "y": 3246.617724067676
+        },
+        "goal": {
+          "x": 3276.8,
+          "y": 3276.8
+        },
+        "status": "moving",
+        "index": 160
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 1260,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 1221,
+        "gold": 2657
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 1485.283720501734
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 1105.5225200601105
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2170.9212784432707,
+          "y": 2362.9212784432707
+        },
+        "goal": {
+          "x": 819.2,
+          "y": 819.2
+        },
+        "status": "moving",
+        "index": 163
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 1320,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 1316,
+        "gold": 2902
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 1390.7880781629433
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 950.024860368618
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1167.3289518615566,
+          "y": 1007.3289518615564
+        },
+        "goal": {
+          "x": 819.2,
+          "y": 819.2
+        },
+        "status": "moving",
+        "index": 165
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 1380,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 1406,
+        "gold": 3147
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 1297.0968828610603
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 795.3010010032865
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 1831.43655814757,
+          "y": 1545.9626169816822
+        },
+        "goal": {
+          "x": 3276.8,
+          "y": 3276.8
+        },
+        "status": "moving",
+        "index": 168
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        },
+        {
+          "x": 704,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 1440,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 1476,
+        "gold": 3402
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 1203.0942079513422
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 640.3891578796613
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2791.530662166492,
+          "y": 3067.765331083246
+        },
+        "goal": {
+          "x": 3276.8,
+          "y": 3276.8
+        },
+        "status": "moving",
+        "index": 170
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 3200,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        },
+        {
+          "x": 928,
+          "y": 64
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    },
+    {
+      "seconds": 1500,
+      "bases": [
+        {
+          "id": "enemy-base",
+          "position": {
+            "x": 3504,
+            "y": 3344
+          },
+          "remaining": 0
+        },
+        {
+          "id": "enemy-outpost",
+          "position": {
+            "x": 3152,
+            "y": 2992
+          },
+          "remaining": 0
+        }
+      ],
+      "workers": 10,
+      "jobs": 19,
+      "bank": {
+        "wood": 1551,
+        "gold": 3642
+      },
+      "knownNodes": 3949,
+      "knownMines": [
+        {
+          "id": "region-0-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 3232
+          },
+          "remaining": 1109.3233653794878
+        },
+        {
+          "id": "organic-mine-5",
+          "position": {
+            "x": 592,
+            "y": 3312
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "gold-1",
+          "position": {
+            "x": 850,
+            "y": 220
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 320
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-1-0-mine",
+          "position": {
+            "x": 3632,
+            "y": 384
+          },
+          "remaining": 3000
+        },
+        {
+          "id": "region-0-1-mine",
+          "position": {
+            "x": 3248,
+            "y": 2848
+          },
+          "remaining": 489.22812157281436
+        },
+        {
+          "id": "organic-mine-1",
+          "position": {
+            "x": 1392,
+            "y": 2352
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-3",
+          "position": {
+            "x": 3344,
+            "y": 2064
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-0",
+          "position": {
+            "x": 752,
+            "y": 1648
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-6",
+          "position": {
+            "x": 1680,
+            "y": 1232
+          },
+          "remaining": 2500
+        },
+        {
+          "id": "organic-mine-2",
+          "position": {
+            "x": 2320,
+            "y": 816
+          },
+          "remaining": 2500
+        }
+      ],
+      "explored": 16378,
+      "tiles": 16384,
+      "scout": {
+        "id": "enemy-produced-3",
+        "position": {
+          "x": 2170.877346807302,
+          "y": 2362.877346807302
+        },
+        "goal": {
+          "x": 819.2,
+          "y": 819.2
+        },
+        "status": "moving",
+        "index": 173
+      },
+      "priority": "expansion",
+      "sites": [
+        {
+          "x": 3200,
+          "y": 2144
+        },
+        {
+          "x": 3424,
+          "y": 1920
+        },
+        {
+          "x": 3200,
+          "y": 1920
+        },
+        {
+          "x": 1472,
+          "y": 2208
+        },
+        {
+          "x": 1248,
+          "y": 2432
+        },
+        {
+          "x": 1248,
+          "y": 2208
+        },
+        {
+          "x": 2176,
+          "y": 896
+        },
+        {
+          "x": 1536,
+          "y": 1312
+        },
+        {
+          "x": 672,
+          "y": 3168
+        },
+        {
+          "x": 1760,
+          "y": 1088
+        },
+        {
+          "x": 3488,
+          "y": 480
+        },
+        {
+          "x": 2400,
+          "y": 672
+        },
+        {
+          "x": 3104,
+          "y": 416
+        },
+        {
+          "x": 2176,
+          "y": 672
+        },
+        {
+          "x": 1536,
+          "y": 1088
+        },
+        {
+          "x": 448,
+          "y": 3392
+        },
+        {
+          "x": 448,
+          "y": 3168
+        },
+        {
+          "x": 3488,
+          "y": 224
+        },
+        {
+          "x": 3712,
+          "y": 224
+        },
+        {
+          "x": 3328,
+          "y": 160
+        },
+        {
+          "x": 3104,
+          "y": 160
+        },
+        {
+          "x": 832,
+          "y": 1504
+        },
+        {
+          "x": 608,
+          "y": 1728
+        },
+        {
+          "x": 608,
+          "y": 1504
+        }
+      ],
+      "failed": [
+        {
+          "point": {
+            "x": 3200,
+            "y": 2144
+          },
+          "retryAt": 640
+        },
+        {
+          "point": {
+            "x": 3424,
+            "y": 1920
+          },
+          "retryAt": 640
+        }
+      ],
+      "outcome": "playing"
+    }
+  ],
+  "scoutGoals": [
+    {
+      "time": 37,
+      "goal": {
+        "x": 3200,
+        "y": 3440
+      },
+      "position": {
+        "x": 3360,
+        "y": 3456
+      }
+    },
+    {
+      "time": 40,
+      "goal": {
+        "x": 1952,
+        "y": 1888
+      },
+      "position": {
+        "x": 3360,
+        "y": 3456
+      }
+    },
+    {
+      "time": 43,
+      "goal": {
+        "x": 448,
+        "y": 480
+      },
+      "position": {
+        "x": 3232.832605020035,
+        "y": 3551.167394979965
+      }
+    },
+    {
+      "time": 82,
+      "goal": {
+        "x": 208,
+        "y": 320
+      },
+      "position": {
+        "x": 386.17732857236854,
+        "y": 358.1808561226504
+      }
+    },
+    {
+      "time": 85,
+      "goal": {
+        "x": 3328,
+        "y": 3168
+      },
+      "position": {
+        "x": 208,
+        "y": 320
+      }
+    },
+    {
+      "time": 88,
+      "goal": {
+        "x": 3072,
+        "y": 2912
+      },
+      "position": {
+        "x": 367.97449589527116,
+        "y": 322.8566874267013
+      }
+    },
+    {
+      "time": 130,
+      "goal": {
+        "x": 2944,
+        "y": 3360
+      },
+      "position": {
+        "x": 3072,
+        "y": 2912
+      }
+    },
+    {
+      "time": 133,
+      "goal": {
+        "x": 2960,
+        "y": 3216
+      },
+      "position": {
+        "x": 3016.687142587623,
+        "y": 3062.134898690738
+      }
+    },
+    {
+      "time": 136,
+      "goal": {
+        "x": 2704,
+        "y": 2960
+      },
+      "position": {
+        "x": 3111.7893276880823,
+        "y": 3165.403557437306
+      }
+    },
+    {
+      "time": 175,
+      "goal": {
+        "x": 2448,
+        "y": 3216
+      },
+      "position": {
+        "x": 2704,
+        "y": 2960
+      }
+    },
+    {
+      "time": 178,
+      "goal": {
+        "x": 2832,
+        "y": 2576
+      },
+      "position": {
+        "x": 2704,
+        "y": 2960
+      }
+    },
+    {
+      "time": 181,
+      "goal": {
+        "x": 2320,
+        "y": 3088
+      },
+      "position": {
+        "x": 2544,
+        "y": 2960
+      }
+    },
+    {
+      "time": 184,
+      "goal": {
+        "x": 2320,
+        "y": 3216
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 187,
+      "goal": {
+        "x": 2192,
+        "y": 3216
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 190,
+      "goal": {
+        "x": 2320,
+        "y": 3344
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 193,
+      "goal": {
+        "x": 2064,
+        "y": 3216
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 196,
+      "goal": {
+        "x": 2448,
+        "y": 3344
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 199,
+      "goal": {
+        "x": 2192,
+        "y": 3344
+      },
+      "position": {
+        "x": 2320.9554399953495,
+        "y": 3084.178240018602
+      }
+    },
+    {
+      "time": 202,
+      "goal": {
+        "x": 2064,
+        "y": 2832
+      },
+      "position": {
+        "x": 2206.761816764609,
+        "y": 2972.1076532733023
+      }
+    },
+    {
+      "time": 205,
+      "goal": {
+        "x": 1808,
+        "y": 2576
+      },
+      "position": {
+        "x": 1950.8629150101524,
+        "y": 2718.8629150101524
+      }
+    },
+    {
+      "time": 208,
+      "goal": {
+        "x": 1680,
+        "y": 2448
+      },
+      "position": {
+        "x": 1808,
+        "y": 2576
+      }
+    },
+    {
+      "time": 211,
+      "goal": {
+        "x": 1552,
+        "y": 2576
+      },
+      "position": {
+        "x": 1736.0867745708158,
+        "y": 2711.913225429184
+      }
+    },
+    {
+      "time": 214,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1552,
+        "y": 2576
+      }
+    },
+    {
+      "time": 217,
+      "goal": {
+        "x": 1296,
+        "y": 2320
+      },
+      "position": {
+        "x": 1438.8629150101524,
+        "y": 2462.8629150101524
+      }
+    },
+    {
+      "time": 220,
+      "goal": {
+        "x": 1040,
+        "y": 2064
+      },
+      "position": {
+        "x": 1296,
+        "y": 2320
+      }
+    },
+    {
+      "time": 223,
+      "goal": {
+        "x": 1552,
+        "y": 2064
+      },
+      "position": {
+        "x": 1296,
+        "y": 2320
+      }
+    },
+    {
+      "time": 226,
+      "goal": {
+        "x": 1040,
+        "y": 2576
+      },
+      "position": {
+        "x": 1182.8629150101524,
+        "y": 2433.1370849898476
+      }
+    },
+    {
+      "time": 229,
+      "goal": {
+        "x": 784,
+        "y": 2320
+      },
+      "position": {
+        "x": 1040,
+        "y": 2576
+      }
+    },
+    {
+      "time": 232,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1040,
+        "y": 2576
+      }
+    },
+    {
+      "time": 235,
+      "goal": {
+        "x": 1296,
+        "y": 2832
+      },
+      "position": {
+        "x": 1153.1370849898476,
+        "y": 2689.1370849898476
+      }
+    },
+    {
+      "time": 238,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 241,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 244,
+      "goal": {
+        "x": 1296,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 247,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 250,
+      "goal": {
+        "x": 1168,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 253,
+      "goal": {
+        "x": 1424,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 256,
+      "goal": {
+        "x": 1680,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 259,
+      "goal": {
+        "x": 1552,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 262,
+      "goal": {
+        "x": 1296,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 265,
+      "goal": {
+        "x": 1424,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 268,
+      "goal": {
+        "x": 1680,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 271,
+      "goal": {
+        "x": 1808,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 274,
+      "goal": {
+        "x": 1552,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 277,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 280,
+      "goal": {
+        "x": 1808,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 283,
+      "goal": {
+        "x": 1680,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 286,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 289,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 292,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 295,
+      "goal": {
+        "x": 1296,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 298,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 301,
+      "goal": {
+        "x": 1168,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 304,
+      "goal": {
+        "x": 1424,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 307,
+      "goal": {
+        "x": 1680,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 310,
+      "goal": {
+        "x": 1552,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 313,
+      "goal": {
+        "x": 1296,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 316,
+      "goal": {
+        "x": 1424,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 319,
+      "goal": {
+        "x": 1680,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 322,
+      "goal": {
+        "x": 1808,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 325,
+      "goal": {
+        "x": 1552,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 328,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 331,
+      "goal": {
+        "x": 1808,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 334,
+      "goal": {
+        "x": 1680,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 337,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 340,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 343,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 346,
+      "goal": {
+        "x": 1296,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 349,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 352,
+      "goal": {
+        "x": 1168,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 355,
+      "goal": {
+        "x": 1424,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 358,
+      "goal": {
+        "x": 1680,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 361,
+      "goal": {
+        "x": 1552,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 364,
+      "goal": {
+        "x": 1296,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 367,
+      "goal": {
+        "x": 1424,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 370,
+      "goal": {
+        "x": 1680,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 373,
+      "goal": {
+        "x": 1808,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 376,
+      "goal": {
+        "x": 1552,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 379,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 382,
+      "goal": {
+        "x": 1808,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 385,
+      "goal": {
+        "x": 1680,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 388,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 391,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 394,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 397,
+      "goal": {
+        "x": 1296,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 400,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 403,
+      "goal": {
+        "x": 1168,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 406,
+      "goal": {
+        "x": 1424,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 409,
+      "goal": {
+        "x": 1680,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 412,
+      "goal": {
+        "x": 1552,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 415,
+      "goal": {
+        "x": 1296,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 418,
+      "goal": {
+        "x": 1424,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 421,
+      "goal": {
+        "x": 1680,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 424,
+      "goal": {
+        "x": 1808,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 427,
+      "goal": {
+        "x": 1552,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 430,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 433,
+      "goal": {
+        "x": 1808,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 436,
+      "goal": {
+        "x": 1680,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 439,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 442,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 445,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 448,
+      "goal": {
+        "x": 1296,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 451,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 454,
+      "goal": {
+        "x": 1168,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 457,
+      "goal": {
+        "x": 1424,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 460,
+      "goal": {
+        "x": 1680,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 463,
+      "goal": {
+        "x": 1552,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 466,
+      "goal": {
+        "x": 1296,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 469,
+      "goal": {
+        "x": 1424,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 472,
+      "goal": {
+        "x": 1680,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 475,
+      "goal": {
+        "x": 1808,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 478,
+      "goal": {
+        "x": 1552,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 481,
+      "goal": {
+        "x": 1680,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 484,
+      "goal": {
+        "x": 1808,
+        "y": 3216
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 487,
+      "goal": {
+        "x": 1680,
+        "y": 3344
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 490,
+      "goal": {
+        "x": 784,
+        "y": 2832
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 493,
+      "goal": {
+        "x": 1040,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 496,
+      "goal": {
+        "x": 1552,
+        "y": 3088
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 499,
+      "goal": {
+        "x": 656,
+        "y": 2704
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 502,
+      "goal": {
+        "x": 912,
+        "y": 2960
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 505,
+      "goal": {
+        "x": 656,
+        "y": 2576
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 508,
+      "goal": {
+        "x": 784,
+        "y": 2320
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 511,
+      "goal": {
+        "x": 912,
+        "y": 2192
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 514,
+      "goal": {
+        "x": 1040,
+        "y": 2064
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 517,
+      "goal": {
+        "x": 912,
+        "y": 2064
+      },
+      "position": {
+        "x": 1296,
+        "y": 2832
+      }
+    },
+    {
+      "time": 520,
+      "goal": {
+        "x": 528,
+        "y": 3600
+      },
+      "position": {
+        "x": 1283.4894007490188,
+        "y": 2672.4898595499917
+      }
+    },
+    {
+      "time": 550,
+      "goal": {
+        "x": 272,
+        "y": 3856
+      },
+      "position": {
+        "x": 414.8629150101524,
+        "y": 3713.1370849898476
+      }
+    },
+    {
+      "time": 553,
+      "goal": {
+        "x": 16,
+        "y": 3600
+      },
+      "position": {
+        "x": 158.8629150101524,
+        "y": 3742.8629150101524
+      }
+    },
+    {
+      "time": 556,
+      "goal": {
+        "x": 16,
+        "y": 3216
+      },
+      "position": {
+        "x": 16,
+        "y": 3440
+      }
+    },
+    {
+      "time": 559,
+      "goal": {
+        "x": 784,
+        "y": 3856
+      },
+      "position": {
+        "x": 138.91540473558013,
+        "y": 3318.429503946317
+      }
+    },
+    {
+      "time": 565,
+      "goal": {
+        "x": 1040,
+        "y": 3984
+      },
+      "position": {
+        "x": 894.5421774469385,
+        "y": 3906.1082642184783
+      }
+    },
+    {
+      "time": 568,
+      "goal": {
+        "x": 1424,
+        "y": 3984
+      },
+      "position": {
+        "x": 1200,
+        "y": 3984
+      }
+    },
+    {
+      "time": 571,
+      "goal": {
+        "x": 1808,
+        "y": 3984
+      },
+      "position": {
+        "x": 1584,
+        "y": 3984
+      }
+    },
+    {
+      "time": 574,
+      "goal": {
+        "x": 2192,
+        "y": 3984
+      },
+      "position": {
+        "x": 1968,
+        "y": 3984
+      }
+    },
+    {
+      "time": 577,
+      "goal": {
+        "x": 2576,
+        "y": 3984
+      },
+      "position": {
+        "x": 2352,
+        "y": 3984
+      }
+    },
+    {
+      "time": 580,
+      "goal": {
+        "x": 2960,
+        "y": 3984
+      },
+      "position": {
+        "x": 2736,
+        "y": 3984
+      }
+    },
+    {
+      "time": 583,
+      "goal": {
+        "x": 3344,
+        "y": 3984
+      },
+      "position": {
+        "x": 3120,
+        "y": 3984
+      }
+    },
+    {
+      "time": 586,
+      "goal": {
+        "x": 3728,
+        "y": 3984
+      },
+      "position": {
+        "x": 3504,
+        "y": 3984
+      }
+    },
+    {
+      "time": 589,
+      "goal": {
+        "x": 16,
+        "y": 16
+      },
+      "position": {
+        "x": 3709.3054003892166,
+        "y": 3825.09590330834
+      }
+    },
+    {
+      "time": 631,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 175.93084071429647,
+        "y": 20.703848256302834
+      }
+    },
+    {
+      "time": 667,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3128.721264630858,
+        "y": 3225.7823930140266
+      }
+    },
+    {
+      "time": 694,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 718,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3081.820839109231,
+        "y": 3204.4640177769234
+      }
+    },
+    {
+      "time": 742,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 766,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3084.818125965769,
+        "y": 3205.8264208935316
+      }
+    },
+    {
+      "time": 790,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 1005.8949815640976,
+        "y": 859.0562320193018
+      }
+    },
+    {
+      "time": 814,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3105.2444901712306,
+        "y": 3214.0513316071056
+      }
+    },
+    {
+      "time": 838,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 862,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3128.721264630858,
+        "y": 3225.7823930140266
+      }
+    },
+    {
+      "time": 886,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 910,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3081.3499075231016,
+        "y": 3204.249957965046
+      }
+    },
+    {
+      "time": 934,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 958,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3081.2096162576822,
+        "y": 3204.1861892080374
+      }
+    },
+    {
+      "time": 982,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 1009,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3128.721264630858,
+        "y": 3225.7823930140266
+      }
+    },
+    {
+      "time": 1033,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 997.7581286708603,
+        "y": 861.1888226164841
+      }
+    },
+    {
+      "time": 1057,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3128.721264630858,
+        "y": 3225.7823930140266
+      }
+    },
+    {
+      "time": 1081,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 1010.4582413206736,
+        "y": 864.072418489334
+      }
+    },
+    {
+      "time": 1105,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3128.721264630858,
+        "y": 3225.7823930140266
+      }
+    },
+    {
+      "time": 1129,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 1025.9493691961434,
+        "y": 863.3573505596272
+      }
+    },
+    {
+      "time": 1153,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3128.5814065557097,
+        "y": 3225.7188211616863
+      }
+    },
+    {
+      "time": 1177,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 1204,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3128.721264630858,
+        "y": 3225.7823930140266
+      }
+    },
+    {
+      "time": 1228,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 1252,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3081.4064674228925,
+        "y": 3204.275667010406
+      }
+    },
+    {
+      "time": 1276,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 1300,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3081.4064674228925,
+        "y": 3204.275667010406
+      }
+    },
+    {
+      "time": 1324,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 1348,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3080.9862219844244,
+        "y": 3204.0846463565567
+      }
+    },
+    {
+      "time": 1372,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 1001.2397675157451,
+        "y": 858.0624222786422
+      }
+    },
+    {
+      "time": 1396,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3113.369832274096,
+        "y": 3206.9479329096384
+      }
+    },
+    {
+      "time": 1420,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 1444,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3080.9862219844244,
+        "y": 3204.0846463565567
+      }
+    },
+    {
+      "time": 1468,
+      "goal": {
+        "x": 3276.8,
+        "y": 3276.8
+      },
+      "position": {
+        "x": 975.6740689925498,
+        "y": 852.6045765264994
+      }
+    },
+    {
+      "time": 1492,
+      "goal": {
+        "x": 819.2,
+        "y": 819.2
+      },
+      "position": {
+        "x": 3081.3499075231016,
+        "y": 3204.249957965046
+      }
+    }
+  ],
+  "ledger": {
+    "wood": 9.094947017729282e-13,
+    "gold": -9.094947017729282e-12
+  },
+  "hits": 20354
+}

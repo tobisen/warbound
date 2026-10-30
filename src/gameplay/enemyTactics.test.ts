@@ -115,3 +115,96 @@ it('indexes each owner knowledge snapshot without leaking hidden stock or retain
  a.enemyKnowledge!.nodes.push({...extra,remaining:88});expect(knownEnemyNode(a,extra)!.remaining).toBe(88);
  a.enemyKnowledge!.nodes=[];expect(knownEnemyNode(a,extra)).toBeUndefined();
 });
+
+it('keeps scouting an active expansion when an earlier failed site becomes eligible again',()=>{
+ let m=fixture(true);m.waves.elapsedSeconds=900;
+ // Explicit component bank and observed deposits; no economy claims in this fixture.
+ m.enemyProduction!.wood=500;m.enemyProduction!.gold=300;
+ m.enemyKnowledge!.nodes=[{id:'scouted-mine',resource:'gold',remaining:2500,position:{x:1000,y:1056}}];
+ m.fog!.teams.enemy.visible.fill(false);m.fog!.teams.enemy.explored.fill(false);
+ const sites=strategicExpansionSites(m);expect(sites.length).toBeGreaterThan(1);
+ const first=sites[0],active=sites[1],worker=m.combat.enemies.find(e=>e.kind==='worker')!;
+ worker.work={cargo:0,target:{x:active.x+48,y:active.y+48},order:{kind:'move'}};
+ worker.navigation={commandNumber:1,destination:worker.work.target,waypoints:[worker.work.target],revision:m.map.revision,status:'moving'};
+ m.enemyRecovery!.expansionPlan={scout:active,failed:[{point:first,retryAt:899}]};
+ m.enemyPolicy!.strategy={...strategyFor(m)!,expand:true,priority:'expansion'};
+ const next=prepareEnemyExpansion(m);
+ expect(next.enemyRecovery!.expansionPlan!.scout).toEqual(active);
+ expect(next.combat.enemies.find(e=>e.id===worker.id)!.work!.target).toEqual(worker.work.target);
+ expect(next.enemyProduction!.wood).toBe(500);
+ // Reaching a point without full footprint vision cannot reserve it forever.
+ const arrived=structuredClone(next);arrived.waves.elapsedSeconds+=2;
+ arrived.combat.enemies.find(e=>e.id===worker.id)!.navigation!.status='arrived';
+ const retried=prepareEnemyExpansion(arrived);
+ expect(retried.enemyRecovery!.expansionPlan!.failed.some(f=>f.point.x===active.x&&f.point.y===active.y)).toBe(true);
+ expect(retried.enemyRecovery!.expansionPlan!.scout).not.toEqual(active);
+ expect(retried.enemyProduction!.wood).toBe(500);
+});
+it('continues reconnaissance after authored scouting points and respects owner fog',()=>{
+ const a=fixture(true),plan=strategyFor(a)!,scout=a.combat.enemies.find(e=>plan.recon!.ids.includes(e.id))!;
+ scout.navigation={commandNumber:1,destination:scout.position,waypoints:[],revision:a.map.revision,status:'arrived'};
+ a.enemyPolicy!.strategy={...plan,recon:{...plan.recon!,index:100,goal:scout.position}};
+ const hidden=structuredClone(a);hidden.gathering.gold!.remaining=0;hidden.gathering.gold!.position={x:64,y:64};
+ expect(prepareEnemyRecon(a).enemyPolicy!.strategy!.recon).toEqual(prepareEnemyRecon(hidden).enemyPolicy!.strategy!.recon);
+ const next=prepareEnemyRecon(a),goal=next.enemyPolicy!.strategy!.recon!.goal!;
+ expect(goal).not.toEqual(scout.position);expect(next.combat.enemies.find(e=>e.id===scout.id)!.order?.kind).toBe('muster');
+ const advanced=structuredClone(next),unit=advanced.combat.enemies.find(e=>e.id===scout.id)!;
+ unit.position=goal;unit.navigation!.status='arrived';
+ expect(prepareEnemyRecon(advanced).enemyPolicy!.strategy!.recon!.goal).not.toEqual(goal);
+});
+
+import {updateMatch} from './match';
+it('scoped AI separation keeps foreign human bodies fixed and moves only its own body',()=>{
+ const m=fixture(true);m.enemyAI=undefined;m.enemyProduction=undefined;
+ const human=m.gathering.units[0];human.order={kind:'idle'};
+ m.combat.enemies=m.combat.enemies.filter(e=>e.footprint);
+ const position={x:human.position.x+8,y:human.position.y};
+ m.combat.enemies.push({id:'own-body',kind:'unit',role:'soldier',owner:'enemy',hp:100,position,order:{kind:'idle'}});
+ const before=m.gathering.units.map(u=>({...u.position})),next=updateMatch(m,.1,{side:'enemy'});
+ expect(next.gathering.units.map(u=>u.position)).toEqual(before);
+ expect(next.combat.enemies.find(e=>e.id==='own-body')!.position).not.toEqual(position);
+});
+it('continues beyond more than sixteen unreachable frontier points without cycling the same blocked goals',()=>{
+ const m=fixture(true),plan=strategyFor(m)!,scout=m.combat.enemies.find(e=>plan.recon!.ids.includes(e.id))!;
+ const blocked=Array.from({length:40},(_,i)=>({x:16+(i%8)*128,y:16+Math.floor(i/8)*128}));
+ m.fog!.teams.enemy.explored.fill(false);
+ const last=blocked.at(-1)!;m.enemyPolicy!.strategy={...plan,recon:{...plan.recon!,index:100,goal:last,blocked:blocked.slice(0,-1)}};
+ scout.navigation={commandNumber:1,destination:last,waypoints:[],revision:m.map.revision,status:'blocked',error:'unreachable'};
+ const next=prepareEnemyRecon(m),recon=next.enemyPolicy!.strategy!.recon!;
+ expect(recon.blocked).toHaveLength(40);expect(blocked).not.toContainEqual(recon.goal);
+ expect(prepareEnemyRecon(next).enemyPolicy!.strategy!.recon!.blocked!.length).toBeLessThanOrEqual(41);
+});
+it('cancels an abandoned scout order when its active expansion becomes visibly dangerous',()=>{
+ let m=fixture(true);m.waves.elapsedSeconds=900;m.fog!.teams.enemy.visible.fill(true);
+ m.enemyKnowledge!.nodes=[{id:'scouted-mine',resource:'gold',remaining:2500,position:{x:1000,y:1056}}];
+ m.enemyProduction!.wood=500;m.enemyProduction!.gold=300;
+ const active=strategicExpansionSites(m)[0];expect(active).toBeDefined();
+ const worker=m.combat.enemies.find(e=>e.kind==='worker')!,goal={x:active.x+48,y:active.y+48};
+ worker.work={cargo:3,cargoType:'wood',target:goal,order:{kind:'move'}};
+ worker.navigation={commandNumber:1,destination:goal,waypoints:[goal],revision:m.map.revision,status:'moving'};
+ m.enemyRecovery!.expansionPlan={scout:active,failed:[]};m.enemyPolicy!.strategy={...strategyFor(m)!,expand:true,priority:'expansion'};
+ m.gathering.units.push({id:'observed-threat',kind:'soldier',owner:'player',hp:60,cargo:0,selected:false,position:goal,target:goal,order:{kind:'idle'}});
+ const next=prepareEnemyExpansion(m),oldScout=next.combat.enemies.find(e=>e.id===worker.id)!;
+ expect(next.enemyRecovery!.expansionPlan!.scout).not.toEqual(active);
+ expect(next.enemyRecovery!.expansionPlan!.failed.some(f=>f.point.x===active.x&&f.point.y===active.y)).toBe(true);
+ expect(oldScout.work!.order.kind==='move'&&oldScout.work!.target.x===goal.x&&oldScout.work!.target.y===goal.y).toBe(false);
+ expect(oldScout.work!.cargo).toBe(3);
+});
+it('keeps a minimum field detachment when more bases compete for a small paid army',()=>{
+ let m=fixture(true);m={...m,difficulty:'beginner',enemyPolicy:{...m.enemyPolicy!,strategy:{...strategyFor(m)!,minimumAttackSize:2}}};const recon=strategyFor(m)!.recon!.ids[0];
+ m.combat.enemies=m.combat.enemies.filter(e=>e.footprint||e.kind==='worker'||e.id===recon||['enemy-produced-1','enemy-produced-2','enemy-produced-4','enemy-produced-5'].includes(e.id));
+ m.enemyAI!.reserve=['enemy-produced-1','enemy-produced-2','enemy-produced-4'];
+ const settings=strategicAISettings(m,{...enemyAIConfig,reserveCount:3});
+ expect(settings.reserveCount).toBe(2);
+ const r=updateEnemyAI(m.enemyAI!,m.combat,m.map,m.gathering.base,1,[],settings);
+ expect(r.state.reserve).toHaveLength(2);expect(r.state.groups.flatMap(g=>g.members)).toHaveLength(2);
+ expect(r.state.groups.flatMap(g=>g.members)).not.toContain(recon);
+});
+it('restores a transient expansion reservation for a still-moving worker after planning state is discarded',()=>{
+ let m=fixture(true);m.waves.elapsedSeconds=900;m.fog!.teams.enemy.visible.fill(false);
+ m.enemyKnowledge!.nodes=[{id:'scouted-mine',resource:'gold',remaining:2500,position:{x:1000,y:1056}}];m.enemyProduction!.wood=500;m.enemyProduction!.gold=300;
+ const point=strategicExpansionSites(m)[0],worker=m.combat.enemies.find(e=>e.kind==='worker')!,goal={x:point.x+48,y:point.y+48};
+ worker.work={cargo:0,target:goal,order:{kind:'move'}};worker.navigation={commandNumber:1,destination:goal,waypoints:[goal],revision:m.map.revision,status:'moving'};
+ delete m.enemyRecovery!.expansionPlan;m.enemyPolicy!.strategy={...strategyFor(m)!,expand:true,priority:'expansion'};
+ const next=prepareEnemyExpansion(m);expect(next.enemyRecovery!.expansionPlan!.scout).toEqual(point);expect(next.enemyProduction!.wood).toBe(500);expect(next.combat.enemies.find(e=>e.id===worker.id)!.work!.order.kind).toBe('move');
+});

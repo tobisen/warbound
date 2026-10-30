@@ -5,7 +5,7 @@ import {skirmishAISettings} from '../config/skirmishPacing';
 import {enemyObjective,type EnemyObjective} from './enemyObjectives';
 import type {EnemyAISettings} from '../config/enemyAI';
 import {prepareEnemyRecon,type EnemyRecon} from './enemyRecon';
-import {roleResearchKinds,roleResearchConfig,isRoleResearch} from '../config/roleResearch';
+import {roleResearchAvailable,researchConflict,roleResearchKinds,roleResearchConfig,isRoleResearch} from '../config/roleResearch';
 import {enemyStrategyConfig, enemyStrategyLimits as limits} from '../config/enemyStrategy';
 import {aiProfile} from '../config/aiProfiles';
 import {isRegionalDesign} from '../config/organicTerrain';
@@ -66,7 +66,7 @@ export function strategicExpansionSites(m:MatchState):Position[]{
  const base=enemyBase(m.combat,m.map);if(!base?.footprint)return [];
  const nodes=(m.enemyKnowledge?.nodes??[]).filter(n=>n.remaining>0);
  const scoutPoint=regionExpansion(base.footprint,m.map.id??'arena');
- const points=[scoutPoint,...nodes.filter(n=>n.resource==='gold').flatMap(n=>[{x:n.position.x-144,y:n.position.y+96},{x:n.position.x+96,y:n.position.y-144},{x:n.position.x-144,y:n.position.y-144}])];
+ const points=[scoutPoint,...nodes.filter(n=>n.resource==='gold').flatMap(n=>[{x:n.position.x-144,y:n.position.y+96},{x:n.position.x+96,y:n.position.y-144},{x:n.position.x-144,y:n.position.y-144},...Array.from({length:8},(_,i)=>({x:n.position.x-48+Math.round(Math.cos(i*Math.PI/4)*limits.expansionSearchRadius/32)*32,y:n.position.y-48+Math.round(Math.sin(i*Math.PI/4)*limits.expansionSearchRadius/32)*32}))])];
  return validExpansionSites(m,points,scoutPoint).sort((a,b)=>Math.hypot(a.x-base.position.x,a.y-base.position.y)-Math.hypot(b.x-base.position.x,b.y-base.position.y)||a.x-b.x||a.y-b.y).slice(0,limits.maxCandidates);
 }
 /** Derived, transient plan: no navigation searches; paid executors revalidate every action. */
@@ -100,12 +100,12 @@ export function prepareEnemyStrategy(m:MatchState):MatchState {
    else if(p.academy.construction.remainingSeconds===0){
     if((bank.baseDevelopment?.level??1)<2&&bank.baseDevelopment?.remainingSeconds==null)priority='baseUpgrade';
     else if((bank.baseDevelopment?.level??1)>=2){
-     const missing=(['stable','aviary','siegeWorks','navalFoundry'] as const).find(k=>k==='navalFoundry'?navalContentAI(m)&&!!m.enemyNaval&&navalFoundryAvailable(f.id)&&!p.producers?.some(s=>s.kind===k):!p[k]);
+     const missing=(m.aiProfile==='siege'?['siegeWorks','stable','aviary','navalFoundry'] as const:m.aiProfile==='fleet'?['navalFoundry','aviary','stable','siegeWorks'] as const:['stable','aviary','siegeWorks','navalFoundry'] as const).find(k=>k==='navalFoundry'?navalContentAI(m)&&!!m.enemyNaval&&navalFoundryAvailable(f.id)&&!p.producers?.some(s=>s.kind===k):!p[k]);
      if(missing)choose(missing,missing);
      else if(r[first]<2)priority=first;
      else if(r[second]<2)priority=second;
      else if(bank.baseDevelopment?.level===2&&bank.baseDevelopment.remainingSeconds==null)priority='baseUpgrade';
-     else priority=roleResearchKinds.find(k=>!r[k]&&roleResearchConfig[k].buildings.every(b=>b==='navalFoundry'?p.producers?.some(s=>s.kind===b&&s.hp>0&&s.construction.remainingSeconds===0):p[b]?.construction.remainingSeconds===0))??'army';
+     else priority=roleResearchKinds.find(k=>roleResearchAvailable(k,f.id)&&!researchConflict(k,r)&&!r[k]&&roleResearchConfig[k].buildings.every(b=>b==='navalFoundry'?p.producers?.some(s=>s.kind===b&&s.hp>0&&s.construction.remainingSeconds===0):p[b]?.construction.remainingSeconds===0))??'army';
     }
    }
   }
@@ -135,5 +135,9 @@ export function deferEnemyInvestment(m:MatchState,kind:NonNullable<EnemyStrategy
 /** Personality stays independent; deadlines prevent indefinite buildup on large maps. */
 export function strategicAISettings(m:MatchState,settings:EnemyAISettings):EnemyAISettings {
  const plan=strategyFor(m);
- return skirmishAISettings(m,{...settings,...(plan?{reconIds:plan.recon?.ids}:{})});
+ const reconIds=plan?.recon?.ids??[];
+ // A small paid army must retain a field detachment after adding another base.
+ // Count actual bodies, since heavy recipes consume more than one supply slot.
+ const available=m.combat.enemies.filter(e=>e.hp>0&&e.id.startsWith('enemy-produced-')&&e.role!=='scout'&&!e.navalLanding&&!reconIds.includes(e.id)).length;
+ return skirmishAISettings(m,{...settings,...(plan?{reconIds,reserveCount:Math.min(settings.reserveCount,Math.max(0,available-plan.minimumAttackSize))}:{})});
 }

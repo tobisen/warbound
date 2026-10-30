@@ -1,0 +1,291 @@
+{
+  "fixture": "Native faction/profile menu, funded completed-building component fixture, actual research clicks and costs, strict active save, native Save/load, research page bounds and Tech Tree. No completed economy match claim.",
+  "results": [
+    {
+      "width": 800,
+      "faction": "crown",
+      "kind": "convoyService",
+      "setup": {
+        "faction": "crown",
+        "profile": "fleet"
+      },
+      "complete": {
+        "level": 1,
+        "wood": 730,
+        "gold": 755
+      },
+      "reached": [
+        "research-workerTools",
+        "upgrade-base",
+        "research-attack",
+        "research-defense",
+        "research-cavalryArmor",
+        "research-scoutOptics",
+        "research-healerTraining",
+        "research-submarineDesign",
+        "research-navalLogistics",
+        "research-convoyService"
+      ],
+      "activeSave": true,
+      "nativeSaveLoad": true,
+      "errors": []
+    },
+    {
+      "width": 800,
+      "faction": "clans",
+      "kind": "assaultRamps",
+      "setup": {
+        "faction": "clans",
+        "profile": "fleet"
+      },
+      "complete": {
+        "level": 1,
+        "wood": 740,
+        "gold": 760
+      },
+      "reached": [
+        "research-workerTools",
+        "upgrade-base",
+        "research-attack",
+        "research-defense",
+        "research-cavalryArmor",
+        "research-scoutOptics",
+        "research-healerTraining",
+        "research-submarineDesign",
+        "research-assaultRamps"
+      ],
+      "activeSave": true,
+      "nativeSaveLoad": true,
+      "errors": []
+    },
+    {
+      "width": 800,
+      "faction": "elves",
+      "kind": "tidewatch",
+      "setup": {
+        "faction": "elves",
+        "profile": "fleet"
+      },
+      "complete": {
+        "level": 1,
+        "wood": 745,
+        "gold": 755
+      },
+      "reached": [
+        "research-workerTools",
+        "upgrade-base",
+        "research-attack",
+        "research-defense",
+        "research-cavalryArmor",
+        "research-scoutOptics",
+        "research-healerTraining",
+        "research-submarineDesign",
+        "research-tidewatch"
+      ],
+      "activeSave": true,
+      "nativeSaveLoad": true,
+      "errors": []
+    },
+    {
+      "width": 800,
+      "faction": "dwarves",
+      "kind": "siegeShells",
+      "setup": {
+        "faction": "dwarves",
+        "profile": "fleet"
+      },
+      "complete": {
+        "level": 1,
+        "wood": 720,
+        "gold": 735
+      },
+      "reached": [
+        "research-workerTools",
+        "upgrade-base",
+        "research-attack",
+        "research-defense",
+        "research-cavalryArmor",
+        "research-scoutOptics",
+        "research-healerTraining",
+        "research-submarineDesign",
+        "research-navalLogistics",
+        "research-siegeShells",
+        "research-preciseShells"
+      ],
+      "activeSave": true,
+      "nativeSaveLoad": true,
+      "errors": []
+    },
+    {
+      "width": 800,
+      "faction": "goblins",
+      "kind": "volatileTorpedoes",
+      "setup": {
+        "faction": "goblins",
+        "profile": "fleet"
+      },
+      "complete": {
+        "level": 1,
+        "wood": 745,
+        "gold": 740
+      },
+      "reached": [
+        "research-workerTools",
+        "upgrade-base",
+        "research-attack",
+        "research-defense",
+        "research-cavalryArmor",
+        "research-scoutOptics",
+        "research-healerTraining",
+        "research-submarineDesign",
+        "research-volatileTorpedoes"
+      ],
+      "activeSave": true,
+      "nativeSaveLoad": true,
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "crown",
+      "kind": "convoyService",
+      "setup": {
+        "faction": "crown",
+        "profile": "fleet"
+      },
+      "complete": {
+        "level": 1,
+        "wood": 730,
+        "gold": 755
+      },
+      "reached": [
+        "research-workerTools",
+        "upgrade-base",
+        "research-attack",
+        "research-defense",
+        "research-cavalryArmor",
+        "research-scoutOptics",
+        "research-healerTraining",
+        "research-submarineDesign",
+        "research-navalLogistics",
+        "research-convoyService"
+      ],
+      "activeSave": true,
+      "nativeSaveLoad": true,
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "clans",
+      "kind": "assaultRamps",
+      "setup": {
+        "faction": "clans",
+        "profile": "fleet"
+      },
+      "complete": {
+        "level": 1,
+        "wood": 740,
+        "gold": 760
+      },
+      "reached": [
+        "research-workerTools",
+        "upgrade-base",
+        "research-attack",
+        "research-defense",
+        "research-cavalryArmor",
+        "research-scoutOptics",
+        "research-healerTraining",
+        "research-submarineDesign",
+        "research-assaultRamps"
+      ],
+      "activeSave": true,
+      "nativeSaveLoad": true,
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "elves",
+      "kind": "tidewatch",
+      "setup": {
+        "faction": "elves",
+        "profile": "fleet"
+      },
+      "complete": {
+        "level": 1,
+        "wood": 745,
+        "gold": 755
+      },
+      "reached": [
+        "research-workerTools",
+        "upgrade-base",
+        "research-attack",
+        "research-defense",
+        "research-cavalryArmor",
+        "research-scoutOptics",
+        "research-healerTraining",
+        "research-submarineDesign",
+        "research-tidewatch"
+      ],
+      "activeSave": true,
+      "nativeSaveLoad": true,
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "dwarves",
+      "kind": "siegeShells",
+      "setup": {
+        "faction": "dwarves",
+        "profile": "fleet"
+      },
+      "complete": {
+        "level": 1,
+        "wood": 720,
+        "gold": 735
+      },
+      "reached": [
+        "research-workerTools",
+        "upgrade-base",
+        "research-attack",
+        "research-defense",
+        "research-cavalryArmor",
+        "research-scoutOptics",
+        "research-healerTraining",
+        "research-submarineDesign",
+        "research-navalLogistics",
+        "research-siegeShells",
+        "research-preciseShells"
+      ],
+      "activeSave": true,
+      "nativeSaveLoad": true,
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "goblins",
+      "kind": "volatileTorpedoes",
+      "setup": {
+        "faction": "goblins",
+        "profile": "fleet"
+      },
+      "complete": {
+        "level": 1,
+        "wood": 745,
+        "gold": 740
+      },
+      "reached": [
+        "research-workerTools",
+        "upgrade-base",
+        "research-attack",
+        "research-defense",
+        "research-cavalryArmor",
+        "research-scoutOptics",
+        "research-healerTraining",
+        "research-submarineDesign",
+        "research-volatileTorpedoes"
+      ],
+      "activeSave": true,
+      "nativeSaveLoad": true,
+      "errors": []
+    }
+  ]
+}

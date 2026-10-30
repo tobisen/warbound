@@ -15,3 +15,20 @@ it('copied map snapshots retain admission, and terrain edits invalidate previous
  const after=run({...world});expect(after).toEqual(run({...world,obstacles:world.obstacles.map(o=>({...o}))}));expect(after).not.toEqual(before);
  const resized={...world,width:256};expect(run(resized)).toEqual(run({...resized,obstacles:world.obstacles.map(o=>({...o}))}));
 });
+
+import {vi} from 'vitest';
+import * as geometry from './map';
+it('updates local passage clearance after one footprint change without another full-world collision scan',()=>{
+ const world:WorldMap={width:2048,height:2048,tileSize:32,revision:0,obstacles:[{x:960,y:256,width:32,height:1024}]};
+ trafficGates(world,[],0,.1);
+ const query=vi.spyOn(geometry,'bodyFits');
+ try{
+  const changed={...world,revision:1,obstacles:[...world.obstacles,{x:1024,y:1024,width:32,height:32}]};
+  trafficGates(changed,[],0,.1);expect(query.mock.calls.length).toBeGreaterThan(0);expect(query.mock.calls.length).toBeLessThan(100);
+  query.mockClear();trafficGates({...changed,revision:2,obstacles:[...world.obstacles]},[],0,.1);
+  expect(query.mock.calls.length).toBeGreaterThan(0);expect(query.mock.calls.length).toBeLessThan(100);
+  // Geometry history must not alias mutable init/test footprints.
+  world.obstacles[0].x+=64;world.revision=3;query.mockClear();trafficGates(world,[],0,.1);
+  expect(query.mock.calls.length).toBeGreaterThan(0);expect(query.mock.calls.length).toBeLessThan(256);
+ }finally{query.mockRestore();}
+});

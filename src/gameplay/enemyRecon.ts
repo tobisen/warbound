@@ -5,6 +5,7 @@ import {planRoute} from './navigation';
 import {enemyUnitStats} from './enemyUnits';
 import {entityVisible} from './visibility';
 import {autoScoutGoal} from './scouting';
+import {isExplored} from './fog';
 import {strategyFor,strategySettings} from './enemyStrategy';
 import type {MatchState} from './match';
 import type {Position} from './movement';
@@ -29,18 +30,19 @@ export function prepareEnemyRecon(m:MatchState):MatchState {
  let retreatUntil=old.retreatUntil;
  if(danger||members.some(e=>towers.some(t=>Math.hypot(e.position.x-t.footprint.x,e.position.y-t.footprint.y)<384)))retreatUntil=time+45;
  let index=old.index,goal=old.goal;const blocked=[...(old.blocked??[])];
- if(scout.navigation?.status==='blocked'&&goal)blocked.push(goal);
+ if(scout.navigation?.status==='blocked'&&goal&&!blocked.some(p=>p.x===goal!.x&&p.y===goal!.y))blocked.push(goal);
  const returning=old.retreatUntil>0&&old.goal?.x===home.position.x-128&&old.goal?.y===home.position.y+160;
  if(strategy.threatened||time<retreatUntil)goal={x:home.position.x-128,y:home.position.y+160};
  else if(!goal||returning&&time>=old.retreatUntil||Math.hypot(scout.position.x-goal.x,scout.position.y-goal.y)<64||scout.navigation?.status==='arrived'||scout.navigation?.status==='blocked'){
-  const points=[...searchWaypoints(m,'attack'),...searchWaypoints(m,'resource')];
+  const points=[...searchWaypoints(m,'resource'),...searchWaypoints(m,'attack')];
   if(goal)index++;
-  goal=index<points.length?points[index]:autoScoutGoal(m,scout.position,'enemy',goal,blocked.slice(-16));
+  while(index<points.length&&m.fog&&isExplored(m.fog,'enemy',points[index]))index++;
+  goal=index<points.length?points[index]:autoScoutGoal(m,scout.position,'enemy',goal,blocked.slice(-256));
  }
  // A single scout needs one route, not a formation search. Keep the active route
  // when a goal was adjusted or terrain changed; normal navigation repairs revisions.
  const changed=old.goal?.x!==goal!.x||old.goal?.y!==goal!.y||members.some(e=>e.order?.kind!=='muster'||e.navigation?.status==='blocked');
  let enemies=m.combat.enemies;
  if(changed)enemies=enemies.map(e=>ids.includes(e.id)?{...e,navigation:planRoute({...enemyNavigationMap(m.map),bodyHalf:enemyUnitStats(e,m.factions?.enemy).size/2},e.position,goal!,(e.navigation?.commandNumber??0)+1),order:{kind:'muster',destination:{...goal!}}}:e);
- return {...m,combat:{...m.combat,enemies},enemyPolicy:{...m.enemyPolicy!,strategy:{...strategy,recon:{ids,index,goal,blocked:blocked.slice(-16),retreatUntil}}}};
+ return {...m,combat:{...m.combat,enemies},enemyPolicy:{...m.enemyPolicy!,strategy:{...strategy,recon:{ids,index,goal,blocked:blocked.slice(-256),retreatUntil}}}};
 }

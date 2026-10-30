@@ -53,6 +53,81 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+## Beställd commit, push och Pages-publicering — 2026-10-30
+
+Nytt uttryckligt mandat ersätter förbudet mot commit/push/publicering för den
+lokala leveransen. Innehållspaketet och den verifierade lokala AI/navigation-
+rättningen ingår. Användarens separata style.css, assets/sources/units.mjs,
+docs/, CLEANUP_REPORT.md och :memory:.ses lämnas orörda och utanför commit.
+Produktversion0.8.0 består; git/build-ID identifierar publiceringen.
+
+Den exakta commitkandidaten exporteras utan dessa användarfiler och kontrolleras
+med unit, strict build och browser före push. Befintligt Pages-workflow kör
+full regression och build före deploy. Publicerad build och resurser kontrolleras
+i browser när deployment är klar. Resultat och hash kompletteras efter utförande.
+Tidigare lokala test-/prestanda-/ljudbegränsningar i rapporterna består.
+
+
+Exakt exporterad commitkandidat: unit552/94 PASS17,49s, build inklusive strict
+TypeScript PASS523ms, produktionsbrowser10/10 för nya fraktionsval/Save och
+befintlig releasebrowser PASS800/1280/1600 Native/Fit. Visuell800-granskning,
+diff och exkluderade användarfiler kontrollerade. Full regression körs i CI före
+deploy; CI/Pages är ännu inte verifierade. Se [publiceringsunderlaget](artifacts/tides-publication/README.md).
+
+### Tides of War — 2026-10-30 — Implementerad och verifierad lokalt med begränsningar
+
+Nytt användaruppdrag: inventering → fraktions-/sjöinnehåll → nytt sjöuppdrag →
+AI/kartvariation → sammanhängande verifiering, en del i taget.
+Se [inventering/design](TIDES_OF_WAR.md). Ingen commit/push/publicering.
+Tidigare lokala AI-/navigationsändringar och användarfiler bevaras.
+
+Leverans: tre omarbetade byggnadsroller, åtta enhetsvarianter, sex forskningar,
+fem fraktionsidentiteter, Fleet/Siege och Human17 Tidebreak Relief på separat
+sjökarta. Save77 med76-migration och research inom två rader.
+
+Fullkörningen på slutlig spelkod:2149 PASS/1 FAIL över235 filer,902,70s.
+Enda felet var en äldre förväntan att Dwarf-ballistan angriper luft. Testet
+rättades till Coast Ballistas avsiktliga begränsning och verifierar nu både
+oförändrad mål-HP och utebliven projektil mot luft. Hela projectileDomains-filen
+kördes om:13/13 PASS594ms. Ingen spelkod ändrades efter fullkörningen; dess
+234 godkända filer återanvänds. Därmed finns godkända belägg för samtliga2150
+aktuella testfall, men ingen andra fullkörning med allt grönt i samma körning.
+Slutlig build med strict TypeScript PASS546ms efter teständringen. Unit552/94
+återanvänds från samma spelkod; den ändrade filen är integration. Diff och
+lokala dokumentlänkar PASS. Se loggarna i artefaktrapporten.
+Browser800/1280: research/Save10/10 och kampanj2/2 PASS. Två automatiserade
+strategier vinner. Ingen mänsklig balans-/tids-/ljudgranskning, nya rasterassets
+eller autonom sexplatslandstigning hos AI. Känd storarmélagg kvarstår och
+80-provet visar liten CPU-ökning trots jämförbara frames; ingen garanti om
+noll prestandaregression. Ingen commit/push/publicering. Ingen ny task startas.
+Se [HANDOFF](HANDOFF.md) och [underlag](artifacts/tides-of-war/README.md).
+
+
+
+
+### Lokal rättning — arméframryckning och geografisk AI-expansion — 2026-10-30 — Verifierad rättning; prestandamålet delvis uppnått
+
+Nytt separat användaruppdrag efter föregående optimering. Ingen commit, push,
+publicering, version eller ny roadmaptask. Befintlig CSS, units.mjs, docs/ och
+övriga användarfiler bevaras; ingen delegering.
+
+- Ny faktisk browser-/CDP-profilering med stor karta, portar och40/80/128 enheter,
+  inklusive fyra AI. Uppmätta formations-, kollisionsindex-, gate-, trafik- och
+  fogkostnader rättade utan sänkt tick eller godtycklig lagg-väntetid.
+- Betald fortlöpande scouting och tre baser på skilda platser vid12:13,
+  12:50,14:38 Normal/Easy/Beginner. Minsta basavstånd702,5px.
+  Fog, access, kostnader, misslyckat platsomval och fortsatt fältarmé verifierade.
+- Save/load och native-baser PASS. Original formationsvägordning bevaras;
+  sjökampanjseger76s med oförändrade assertions. Unit555/95 och strict build PASS.
+  Full regression2124/233 PASS915.28s.
+- **Helt stoppfri anfallsuppdatering är inte uppnådd:** kalla första bildrutor och
+  tung fyr-AI-belastning har kvar toppar. Markeras inte som helt laggfritt/Done.
+
+[Rapport, alla kvantiler och rådata](artifacts/army-movement/README.md) skiljer
+belastningsfixture, riktig betald ekonomi, mellanliggande fel och slutkontroller.
+HANDOFF och QUALITY_REVIEW är uppdaterade; tidigare CI/Pages är historik.
+
+
 ### Commit/push av lokal rättning — 2026-10-27 — Commit verifierad
 
 Användaren har efter verifierad rättning uttryckligen beställt commit och push.

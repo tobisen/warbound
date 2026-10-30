@@ -1,3 +1,4 @@
+import {isSeaBattleMission} from '../config/seaBattle';
 import {expect,it} from 'vitest';
 import {expandedCampaignMissions} from '../config/campaignExpeditions';
 import {campaignMissions,campaignDetails} from '../config/campaign';
@@ -48,12 +49,12 @@ function satisfy(m:MatchState,p:CampaignPhase):MatchState{
  return m;
 }
 it('preserves eight legacy operations and fifteen per race, plus the appended Human naval expedition',()=>{
- expect(campaignMissions).toHaveLength(8);expect(expandedCampaignMissions).toHaveLength(36);expect(new Set(expandedCampaignMissions.map(m=>m.id)).size).toBe(36);
- for(const faction of factionIds){const identity=identityFor(faction,'normal'),list=campaignMissionsFor(identity.campaignId);expect(list).toHaveLength(faction==='crown'?16:15);expect(new Set(list.slice(8).map(m=>'plan' in m&&m.plan.map)).size).toBeGreaterThanOrEqual(5);expect(new Set(list.slice(8).map(m=>'faction' in m&&m.faction))).toEqual(new Set([faction]));
+ expect(campaignMissions).toHaveLength(8);expect(expandedCampaignMissions).toHaveLength(37);expect(new Set(expandedCampaignMissions.map(m=>m.id)).size).toBe(37);
+ for(const faction of factionIds){const identity=identityFor(faction,'normal'),list=campaignMissionsFor(identity.campaignId);expect(list).toHaveLength(faction==='crown'?17:15);expect(new Set(list.slice(8).map(m=>'plan' in m&&m.plan.map)).size).toBeGreaterThanOrEqual(5);expect(new Set(list.slice(8).map(m=>'faction' in m&&m.faction))).toEqual(new Set([faction]));
   const progress={version:1 as const,identity,completed:campaignMissions.map(m=>m.id)};expect(campaignMissionStatus(progress,list[8].id)).toBe('available');expect(campaignMissionStatus(progress,list[9].id)).toBe('locked');expect(validateCampaignProgress(progress)).toEqual(progress);
  }
 });
-it.each(expandedCampaignMissions.filter(m=>m.id!=='crown-stormgate-armada'))('$id has a valid unique start, full phase sequence and Save at every transition',mission=>{
+it.each(expandedCampaignMissions.filter(m=>!isSeaBattleMission(m.id)))('$id has a valid unique start, full phase sequence and Save at every transition',mission=>{
  let m=admitted(mission);expect(m).toBeTruthy();expect(m.map.id).toBe(mission.plan.map);expect(m.factions!.player).toBe(mission.faction);expect(campaignDetails(mission.id).title).toBe(mission.title);expect(campaignDetails(mission.id).briefing.length).toBeGreaterThan(100);m=roundtrip(m);
  const dead={...m,combat:{...m.combat,baseHP:0}};expect(updateMatch(dead,0).outcome).toBe('defeat');
  for(const p of mission.plan.phases){const phase=m.campaignRun!.phase;expect(campaignPhaseMet(m,p),`${mission.id}/${phase} initially unmet`).toBe(false);m=satisfy(m,p);expect(campaignPhaseMet(m,p),`${mission.id}/${phase} satisfied`).toBe(true);m=advanceCampaignPhases(m);expect(m.campaignRun!.phase).toBe(phase+1);m=updateMatch(m,0);m=roundtrip(m);}
@@ -63,7 +64,7 @@ it.each(expandedCampaignMissions.filter(m=>m.id!=='crown-stormgate-armada'))('$i
  const foreign=expandedCampaignMissions.find(x=>x.faction!==mission.faction)!;expect(startCampaignMission(progress,foreign.id,'normal',{player:mission.faction,enemy:'clans'})).toBeNull();
  if(mission.scenario==='mission-escort'){const lost=admitted(mission);lost.gathering.units=lost.gathering.units.filter(u=>u.id!=='unit-4');expect(updateMatch(lost,0).outcome).toBe('defeat');}
 },30000);
-it.each(expandedCampaignMissions.filter(m=>m.id!=='crown-stormgate-armada'))('$id coordinates retain land routes, build space and actual operation triggers',mission=>{
+it.each(expandedCampaignMissions.filter(m=>!isSeaBattleMission(m.id)))('$id coordinates retain land routes, build space and actual operation triggers',mission=>{
  const m=admitted(mission),origin=m.gathering.units[0].position,naval=mission.scenario==='mission-sea';
  for(const p of mission.plan.phases)for(const point of p.points??[]){expect(bodyFits(m.map,point,12),`${mission.id}: land ${JSON.stringify(point)}`).toBe(true);
   const from=naval?(m.map.id==='coast'?{x:960,y:320}:{x:960,y:480}):origin;expect(planRoute({...m.map,bodyHalf:12},from,point).status,`${mission.id}: route ${JSON.stringify(point)}`).not.toBe('blocked');

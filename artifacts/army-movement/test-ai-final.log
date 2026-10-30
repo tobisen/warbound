@@ -1,0 +1,36 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/enemyTactics.test.ts src/gameplay/enemyExpansion.test.ts src/gameplay/enemyStrategy.test.ts src/gameplay/enemyAI.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+ ❯ src/gameplay/enemyTactics.test.ts (15 tests | 1 failed) 408ms
+   × keeps a minimum field detachment when more bases compete for a small paid army 24ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/gameplay/enemyTactics.test.ts > keeps a minimum field detachment when more bases compete for a small paid army
+AssertionError: expected 1 to be 2 // Object.is equality
+
+- Expected
++ Received
+
+- 2
++ 1
+
+ ❯ src/gameplay/enemyTactics.test.ts:198:32
+    196|  m.enemyAI!.reserve=['enemy-produced-1','enemy-produced-2','enemy-prod…
+    197|  const settings=strategicAISettings(m,{...enemyAIConfig,reserveCount:3…
+    198|  expect(settings.reserveCount).toBe(2);
+       |                                ^
+    199|  const r=updateEnemyAI(m.enemyAI!,m.combat,m.map,m.gathering.base,1,[]…
+    200|  expect(r.state.reserve).toHaveLength(2);expect(r.state.groups.flatMap…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 53 passed (54)
+   Start at  16:48:32
+   Duration  11.25s (transform 711ms, setup 0ms, import 1.06s, tests 15.00s, environment 0ms)

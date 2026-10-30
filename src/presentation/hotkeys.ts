@@ -1,7 +1,14 @@
+import {roleResearchConfig} from '../config/roleResearch';
 import {text as uiText} from '../text';
 import { gameplayKeyAllowed,type KeyContext } from './keyboard';
 export const hotkeys=[
- {key:'F22',button:'build-navalFoundry',label:'Humans/Dwarves: build a Naval Foundry after Forge and base II;95 wood/55 gold/18s.'},
+ {key:',',button:'research-convoyService',label:roleResearchConfig.convoyService.description},
+ {key:'.',button:'research-assaultRamps',label:roleResearchConfig.assaultRamps.description},
+ {key:'/',button:'research-tidewatch',label:roleResearchConfig.tidewatch.description},
+ {key:';',button:'research-siegeShells',label:roleResearchConfig.siegeShells.description},
+ {key:"'",button:'research-preciseShells',label:roleResearchConfig.preciseShells.description},
+ {key:'-',button:'research-volatileTorpedoes',label:roleResearchConfig.volatileTorpedoes.description},
+ {key:'F22',button:'build-navalFoundry',label:'All factions: build a Naval Foundry after Forge and base II;95 wood/55 gold/18s.'},
  {key:'F23',button:'research-navalLogistics',label:'Research Naval Logistics at a completed Naval Foundry;100 wood/75 gold/30s. Unlocks the faction’s specialized hull.'},
  {key:'F24',button:'train-cutter',label:'Humans: train a fast Tide Runner escort after Naval Logistics;55 wood/25 gold/12s/2 supply. Ships and air only.'},
  {key:'BACKSPACE',button:'train-bombard',label:'Dwarves: train a slow long-range Bombard after Naval Logistics;110 wood/75 gold/28s/4 supply. Ships and buildings only; needs escorts.'},
@@ -12,7 +19,7 @@ export const hotkeys=[
  {key:'F17',button:'research-scoutOptics',label:'Scout Optics:128px submarine detection in current team vision,45 wood/30 gold/12s,Forge+flight building.'},
  {key:'F14',button:'upgrade-tower-air',label:'Permanently specialize this tower as Anti-Air: air-only,256px range; base II,Forge,attack I. Inactive for10s.'},
  {key:'F18',button:'build-siegeWorks',label:'Build the dedicated siege workshop after Forge and base II.'},
- {key:'F19',button:'train-ballista',label:'Train a direct-shot ballista at the siege workshop; double building damage.'},
+ {key:'F19',button:'train-ballista',label:'Train a direct-shot ballista at the siege workshop; double building damage except Dwarf Coast Ballista:1.25× buildings,1.75× ships, no air targets.'},
  {key:'F13',button:'build-aviary',label:'Build a dedicated flight producer after base II; 80 wood, 40 gold, 12 seconds.'},
  {key:'END',button:'train-scout',label:'Train an unarmed flyer at the flight building after base II.'},
  {key:'PAGEUP',button:'scout-route',label:'Add multiple waypoints, click this action again to start repeating Scout Route.'},

@@ -22,7 +22,7 @@ Kartorna använder32px tiles och har olika storlek. Stormgate Straits är96×64 
 
 ## Spela matchen
 
-I huvudmenyn väljer du Campaign eller Skirmish (med separat Wave-survival-val). Campaign går via ras → svårighet → start/fortsätt → briefing. Humans har16 spelbara uppdrag och övriga raser15: åtta bevarade grundoperationer, sju rasspecifika expeditioner och för Humans det avslutande sjöslaget Stormgate Armada; progression är separat för kampanj, ras och svårighet. Skirmish låter dig välja fem raser, karta och AI-spelare. Välj Beginner/Easy/Normal/Hard och gameplayhastighet. Nya kampanjstarter har permanenta faser: preparation, spaning, försvar, passage, transport, eskort, räddning och kustkontroll. Läs aktuellt engelskt phasegoal. Fristående scenarier och äldre kampanj-saves behåller tidigare villkor. Förlust vid basens död har företräde.
+I huvudmenyn väljer du Campaign eller Skirmish (med separat Wave-survival-val). Campaign går via ras → svårighet → start/fortsätt → briefing. Humans har17 spelbara uppdrag och övriga raser15: åtta bevarade grundoperationer, sju rasspecifika expeditioner och för Humans sjöslagen Stormgate Armada och Tidebreak Relief; progression är separat för kampanj, ras och svårighet. Skirmish låter dig välja fem raser, karta och AI-spelare. Välj Beginner/Easy/Normal/Hard och gameplayhastighet. Nya kampanjstarter har permanenta faser: preparation, spaning, försvar, passage, transport, eskort, räddning och kustkontroll. Läs aktuellt engelskt phasegoal. Fristående scenarier och äldre kampanj-saves behåller tidigare villkor. Förlust vid basens död har företräde.
 
 Stormgate Armada har stora flottor, flera farleder, förstärkningar och landstigning.
 Human Tide Runner är en snabb eskort mot sjö/luft; Dwarf Bombard är ett långsamt
@@ -30,6 +30,16 @@ belägringsfartyg mot sjö/byggnader. Naval Foundry och Naval Logistics låser u
 dessa fraktionsval. Skirmish ger längre förberedelsetid: planerade första anfall
 inom Easy12–15, Normal9–11 och Hard7–9 spelminuter. Scouting, ekonomi, expansion
 och lokalt försvar fortsätter under tiden; kampanjens klockor är separata.
+
+Tides of War utökar de befintliga rollerna: Humans kan betala för hamnservice,
+Orcs landsätter sex trupper med Assault Ramps och använder kortdistanseld från
+Fire Barges, Elves spanar och jagar ubåtar med Tidewatch, Dwarves väljer mellan
+Bombard-ytskada och precis kustbeskjutning, och Goblins får explosiva torpeder
+som kostar eget skrov. Naval Foundry finns för alla fem fraktioner; Dwarf-valen
+kräver även Siege Works. Forskningsmenyn använder fortsatt högst två rader med
+sidbyte. Fleet/Siege är nya valbara AI-doktriner. Tidebreak Relief har en egen
+96×64-karta med Reef Island, finita framflyttade resurser och transportlandstigning.
+Se [innehåll, balans och verifieringsbegränsningar](TIDES_OF_WAR.md).
 
 Resurscheat: tryck **Enter** under en aktiv match, skriv
 `icanseemyhousefromhere` och tryck **Enter**. Varje användning lägger till

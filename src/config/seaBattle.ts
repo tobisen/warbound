@@ -1,6 +1,6 @@
 import type {MapDefinition,TerrainPatch} from './maps';
 /** Three sea lanes around the signal island; southern resource island is optional. */
-export function seaBattleTerrain():TerrainPatch[]{
+export function seaBattleTerrain(relief=false):TerrainPatch[]{
  const patches:TerrainPatch[]=[];
  for(let row=0;row<64;row++){
   let start:number|undefined;
@@ -9,7 +9,8 @@ export function seaBattleTerrain():TerrainPatch[]{
    const enemy=column>=75+Math.round(2*Math.sin(row*.25))&&row<=31;
    const signal=((column-49)/5)**2+((row-26)/7)**2<1;
    const southern=((column-42)/7)**2+((row-55)/6)**2<1;
-   const water=column<96&&!home&&!enemy&&!signal&&!southern;
+   const reef=relief&&((column-63)/6)**2+((row-45)/8)**2<1;
+   const water=column<96&&!home&&!enemy&&!signal&&!southern&&!reef;
    if(water&&start===undefined)start=column;
    if(!water&&start!==undefined){patches.push({column:start,row,columns:column-start,rows:1,kind:'water'});start=undefined;}
   }
@@ -30,4 +31,10 @@ export const seaBattlePassage={x:1600,y:480};
 export const seaBattleLanding={x:2496,y:864};
 export const seaBattleDifficulty={beginner:{enemyShips:10,release:150},easy:{enemyShips:12,release:120},normal:{enemyShips:15,release:90},hard:{enemyShips:18,release:60}} as const;
 
-export const navalContentAI=(m:{scenario?:string;campaignMission?:string})=>m.scenario==='skirmish'&&!m.campaignMission||m.campaignMission===seaBattleMission;
+export const navalContentAI=(m:{scenario?:string;campaignMission?:string})=>m.scenario==='skirmish'&&!m.campaignMission||isSeaBattleMission(m.campaignMission);
+
+export const tidebreakMission='crown-tidebreak-relief' as const;
+export const isSeaBattleMission=(id:unknown)=>id===seaBattleMission||id===tidebreakMission;
+
+/** A separate chart: Reef Island splits the southern approach and carries a finite forward cache. */
+export const tidebreakMap:MapDefinition={...seaBattleMap,label:'Tidebreak Reaches',instruction:'Scout the southern supply island. Reef Island divides the central/southern approach; a finite cache rewards a risky forward landing. Bring escorts and preserve a route back to your harbor.',terrain:seaBattleTerrain(true),extraResources:[...seaBattleMap.extraResources!,{id:'wood-4',resource:'wood',position:{x:1968,y:1392},amount:600},{id:'gold-4',resource:'gold',position:{x:2080,y:1472},amount:1500}]};

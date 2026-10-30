@@ -1,3 +1,5 @@
+import {fleetDoctrineConfig} from '../config/fleetDoctrine';
+import {fleetVision} from './fleetService';
 import {observeEnemyBuildings} from './buildingMemory';
 import {scoutDetectorRadius} from '../config/roleResearch';
 import {concealSubmarines} from './submarines';
@@ -14,9 +16,9 @@ import { baseFootprint } from './buildingSelection';
 import type { MatchState } from './match';
 import { createFog,updateFog,type VisionObserver } from './fog';
 export function visionObservers(state:MatchState):VisionObserver[]{
- const observers:VisionObserver[]=state.gathering.units.filter(u=>(u.hp??1)>0).map(u=>({...(isAir(u)?{airborne:true as const}:{}),detectorRadius:scoutDetectorRadius(u.kind==='soldier'?u.archetype:undefined,state.research?.scoutOptics),id:u.id,owner:'player',position:{...u.position},radius:u.kind==='worker'?fogConfig.workerRadius:factions[(state.factions??defaultFactions).player].units[u.archetype??'soldier'].visionRadius??fogConfig.combatRadius}));
+ const observers:VisionObserver[]=state.gathering.units.filter(u=>(u.hp??1)>0).map(u=>({...(isAir(u)?{airborne:true as const}:{}),detectorRadius:scoutDetectorRadius(u.kind==='soldier'?u.archetype:undefined,state.research?.scoutOptics),id:u.id,owner:'player',position:{...u.position},radius:u.kind==='soldier'&&u.archetype==='scout'&&state.factions?.player==='elves'&&state.research?.tidewatch?fleetDoctrineConfig.tidewatch.scoutVision:u.kind==='worker'?fogConfig.workerRadius:factions[(state.factions??defaultFactions).player].units[u.archetype??'soldier'].visionRadius??fogConfig.combatRadius}));
  const building=(id:string,footprint:{x:number;y:number;width:number;height:number},radius:number)=>observers.push({id,owner:'player',footprint,position:{x:footprint.x+footprint.width/2,y:footprint.y+footprint.height/2},radius});
- for(const ship of state.navy?.ships??[])if(ship.hp>0)observers.push({detectorRadius:ship.role==='transport'||ship.role==='submarine'?0:96,id:ship.id,owner:'player',position:{...ship.position},radius:fogConfig.combatRadius});
+ for(const ship of state.navy?.ships??[])if(ship.hp>0)observers.push({detectorRadius:fleetVision(state.factions?.player??'crown',ship.role,state.research).detector,id:ship.id,owner:'player',position:{...ship.position},radius:fleetVision(state.factions?.player??'crown',ship.role,state.research).radius??fogConfig.combatRadius});
  const harbor=state.navy?.harbor;if(harbor&&harbor.hp>0&&harbor.construction.remainingSeconds===0)building('harbor',harbor.footprint,fogConfig.barracksRadius);
  for(const b of state.placement.producers??[])if(b.hp>0&&b.construction.remainingSeconds===0)building(b.id,b.footprint,fogConfig.forgeRadius);
  for(const b of state.placement.bases??[])if(b.hp>0&&b.construction.remainingSeconds===0)building(b.id,b.footprint,fogConfig.baseRadius);
@@ -29,7 +31,10 @@ export function visionObservers(state:MatchState):VisionObserver[]{
  const forge=state.placement.forge;if(forge&&forge.hp>0&&forge.construction.remainingSeconds===0)building('forge',forge.footprint,fogConfig.forgeRadius);
  for(const t of state.placement.defenses??[])if(t.hp>0&&t.construction.remainingSeconds===0)building(t.id,t.footprint,t.kind==='tower'?fogConfig.towerRadius:fogConfig.wallRadius);
  for(const farm of state.placement.farms??[])if((farm.hp??1)>0&&farm.construction.remainingSeconds===0)building(farm.id,farm.footprint,fogConfig.farmRadius);
- for(const enemy of state.combat.enemies)if(enemy.hp>0)observers.push({...(isAir(enemy)?{airborne:true as const}:{}),detectorRadius:enemy.kind==='ship'&&enemy.navalRole&&enemy.navalRole!=='submarine'&&enemy.navalRole!=='transport'?96:scoutDetectorRadius(enemy.role,(state.multiplePlayers?.ai.find(bot=>bot.id===(enemy.playerId??'enemy'))?.state.enemyPolicy??state.enemyPolicy)?.research.scoutOptics),id:enemy.id,owner:'enemy',position:{...enemy.position},footprint:enemy.footprint,radius:enemy.kind==='base'||enemy.buildingType==='outpost'?fogConfig.baseRadius:enemy.kind==='worker'?fogConfig.workerRadius:enemy.buildingType==='barracks'?fogConfig.barracksRadius:enemy.buildingType==='forge'?fogConfig.forgeRadius:enemy.buildingType==='farm'?fogConfig.farmRadius:enemy.role?factions[enemy.faction??(state.factions??defaultFactions).enemy].units[enemy.role].visionRadius??fogConfig.combatRadius:fogConfig.combatRadius});
+ for(const enemy of state.combat.enemies)if(enemy.hp>0){
+  const research=(state.multiplePlayers?.ai.find(bot=>bot.id===(enemy.playerId??'enemy'))?.state.enemyPolicy??state.enemyPolicy)?.research;
+  observers.push({...(isAir(enemy)?{airborne:true as const}:{}),detectorRadius:enemy.kind==='ship'&&enemy.navalRole&&enemy.navalRole!=='submarine'&&enemy.navalRole!=='transport'?fleetVision(enemy.faction??state.factions?.enemy??'clans',enemy.navalRole,research).detector:scoutDetectorRadius(enemy.role,research?.scoutOptics),id:enemy.id,owner:'enemy',position:{...enemy.position},footprint:enemy.footprint,radius:enemy.kind==='ship'?fleetVision(enemy.faction??state.factions?.enemy??'clans',enemy.navalRole??'transport',research).radius??fogConfig.combatRadius:enemy.role==='scout'&&(enemy.faction??state.factions?.enemy)==='elves'&&research?.tidewatch?fleetDoctrineConfig.tidewatch.scoutVision:enemy.kind==='base'||enemy.buildingType==='outpost'?fogConfig.baseRadius:enemy.kind==='worker'?fogConfig.workerRadius:enemy.buildingType==='barracks'?fogConfig.barracksRadius:enemy.buildingType==='forge'?fogConfig.forgeRadius:enemy.buildingType==='farm'?fogConfig.farmRadius:enemy.role?factions[enemy.faction??(state.factions??defaultFactions).enemy].units[enemy.role].visionRadius??fogConfig.combatRadius:fogConfig.combatRadius});
+ }
  return observers;
 }
 const blockerCache=new WeakMap<object,{x:number;y:number;width:number;height:number}[]>();

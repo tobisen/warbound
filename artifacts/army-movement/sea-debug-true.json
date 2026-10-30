@@ -1,0 +1,714 @@
+{
+  "oldFormation": true,
+  "outcome": "playing",
+  "time": 720,
+  "phase": 3,
+  "ships": [
+    {
+      "id": "ship-2",
+      "role": "warship",
+      "pos": {
+        "x": 2288,
+        "y": 880
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2288,
+          "y": 880
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-3",
+      "role": "warship",
+      "pos": {
+        "x": 2288,
+        "y": 844
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2288,
+          "y": 844
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-4",
+      "role": "warship",
+      "pos": {
+        "x": 2252,
+        "y": 880
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2252,
+          "y": 880
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-5",
+      "role": "warship",
+      "pos": {
+        "x": 2324,
+        "y": 880
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2324,
+          "y": 880
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-6",
+      "role": "warship",
+      "pos": {
+        "x": 2288,
+        "y": 916
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2288,
+          "y": 916
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-7",
+      "role": "warship",
+      "pos": {
+        "x": 2252,
+        "y": 844
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2252,
+          "y": 844
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-9",
+      "role": "warship",
+      "pos": {
+        "x": 2324,
+        "y": 844
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2324,
+          "y": 844
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-10",
+      "role": "warship",
+      "pos": {
+        "x": 2252,
+        "y": 916
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2252,
+          "y": 916
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-15",
+      "role": "transport",
+      "pos": {
+        "x": 2320,
+        "y": 656
+      },
+      "passengers": [],
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 4,
+        "destination": {
+          "x": 2320,
+          "y": 656
+        },
+        "revision": 4,
+        "waypoints": [],
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-16",
+      "role": "transport",
+      "pos": {
+        "x": 1120,
+        "y": 672
+      },
+      "passengers": [],
+      "order": {
+        "kind": "idle"
+      }
+    },
+    {
+      "id": "ship-17",
+      "pos": {
+        "x": 2324,
+        "y": 916
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2324,
+          "y": 916
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-18",
+      "pos": {
+        "x": 2288,
+        "y": 808
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2288,
+          "y": 808
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-19",
+      "pos": {
+        "x": 2216,
+        "y": 880
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2216,
+          "y": 880
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-20",
+      "pos": {
+        "x": 2360,
+        "y": 880
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2360,
+          "y": 880
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-21",
+      "pos": {
+        "x": 2288,
+        "y": 952
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2288,
+          "y": 952
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-22",
+      "pos": {
+        "x": 2252,
+        "y": 808
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2252,
+          "y": 808
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-23",
+      "pos": {
+        "x": 2324,
+        "y": 808
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2324,
+          "y": 808
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-24",
+      "pos": {
+        "x": 2216,
+        "y": 844
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2216,
+          "y": 844
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-25",
+      "pos": {
+        "x": 2360,
+        "y": 844
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2360,
+          "y": 844
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-26",
+      "pos": {
+        "x": 2216,
+        "y": 916
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2216,
+          "y": 916
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-27",
+      "pos": {
+        "x": 2360,
+        "y": 916
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2360,
+          "y": 916
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    },
+    {
+      "id": "ship-28",
+      "pos": {
+        "x": 2252,
+        "y": 952
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 2252,
+          "y": 952
+        },
+        "waypoints": [],
+        "revision": 12,
+        "status": "arrived"
+      }
+    }
+  ],
+  "ground": [
+    {
+      "id": "unit-1",
+      "pos": {
+        "x": 514.8619745234665,
+        "y": 307.4994153555584
+      },
+      "hp": 30,
+      "order": {
+        "kind": "gather",
+        "nodeId": "wood-1"
+      },
+      "target": {
+        "x": 650,
+        "y": 180
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 624,
+          "y": 208
+        },
+        "waypoints": [
+          {
+            "x": 624,
+            "y": 208
+          }
+        ],
+        "revision": 12,
+        "status": "moving",
+        "goalKey": "gather:wood-1:634:164"
+      }
+    },
+    {
+      "id": "unit-2",
+      "pos": {
+        "x": 538.3897322989015,
+        "y": 286.76213019206347
+      },
+      "hp": 30,
+      "order": {
+        "kind": "gather",
+        "nodeId": "wood-1"
+      },
+      "target": {
+        "x": 650,
+        "y": 180
+      },
+      "navigation": {
+        "commandNumber": 1,
+        "destination": {
+          "x": 624,
+          "y": 208
+        },
+        "waypoints": [
+          {
+            "x": 624,
+            "y": 208
+          }
+        ],
+        "revision": 12,
+        "status": "moving",
+        "goalKey": "gather:wood-1:634:164"
+      }
+    },
+    {
+      "id": "unit-3",
+      "pos": {
+        "x": 562.3897332989015,
+        "y": 304
+      },
+      "hp": 30,
+      "order": {
+        "kind": "gather",
+        "nodeId": "gold-1"
+      },
+      "target": {
+        "x": 600,
+        "y": 300
+      }
+    },
+    {
+      "id": "unit-8",
+      "pos": {
+        "x": 576,
+        "y": 384
+      },
+      "hp": 35,
+      "order": {
+        "kind": "idle"
+      },
+      "target": {
+        "x": 576,
+        "y": 384
+      }
+    }
+  ],
+  "enemies": [
+    {
+      "id": "enemy-base",
+      "hp": 300,
+      "pos": {
+        "x": 2704,
+        "y": 464
+      },
+      "kind": "base"
+    },
+    {
+      "id": "enemy-worker-1",
+      "hp": 40,
+      "pos": {
+        "x": 2640,
+        "y": 379.2696842600722
+      },
+      "kind": "worker"
+    },
+    {
+      "id": "enemy-worker-2",
+      "hp": 40,
+      "pos": {
+        "x": 2815.100646068156,
+        "y": 334.0590955045811
+      },
+      "kind": "worker"
+    },
+    {
+      "id": "enemy-farm-8",
+      "hp": 110,
+      "pos": {
+        "x": 2848,
+        "y": 768
+      },
+      "kind": "building"
+    },
+    {
+      "id": "enemy-barracks",
+      "hp": 160,
+      "pos": {
+        "x": 2560,
+        "y": 384
+      },
+      "kind": "building"
+    },
+    {
+      "id": "enemy-produced-6",
+      "hp": 16.445312500000036,
+      "pos": {
+        "x": 2624,
+        "y": 464
+      },
+      "kind": "unit",
+      "role": "soldier"
+    }
+  ],
+  "snapshots": [
+    {
+      "seconds": 60,
+      "ships": 14,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 0,
+      "gold": 85
+    },
+    {
+      "seconds": 120,
+      "ships": 16,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 30,
+      "gold": 110
+    },
+    {
+      "seconds": 180,
+      "ships": 18,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 20,
+      "gold": 120
+    },
+    {
+      "seconds": 240,
+      "ships": 20,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 10,
+      "gold": 130
+    },
+    {
+      "seconds": 300,
+      "ships": 21,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 30,
+      "gold": 155
+    },
+    {
+      "seconds": 360,
+      "ships": 22,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 60,
+      "gold": 180
+    },
+    {
+      "seconds": 420,
+      "ships": 22,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 130,
+      "gold": 220
+    },
+    {
+      "seconds": 480,
+      "ships": 22,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 200,
+      "gold": 265
+    },
+    {
+      "seconds": 540,
+      "ships": 22,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 260,
+      "gold": 305
+    },
+    {
+      "seconds": 600,
+      "ships": 22,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 330,
+      "gold": 345
+    },
+    {
+      "seconds": 660,
+      "ships": 22,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 400,
+      "gold": 385
+    },
+    {
+      "seconds": 720,
+      "ships": 22,
+      "enemyShips": 0,
+      "phase": 3,
+      "baseHP": 240,
+      "wood": 470,
+      "gold": 425
+    }
+  ]
+}

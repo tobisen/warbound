@@ -9,6 +9,12 @@ export function actionIcon(id:ActionId,faction:FactionId):ActionIcon {
  if(id.startsWith('train-')){const type=(id==='train-ship'?'warship':id.slice(6)) as UnitArt;return {atlas:artAtlas(type),frame:unitFrame(motion(undefined,{x:0,y:0},'idle',0,type,'player',undefined,faction),0)};}
  if(id==='upgrade-tower'||id==='upgrade-tower-air')return {atlas:'tower-specializations',frame:`${faction==='crown'?'':faction+'-'}tower-${id==='upgrade-tower'?'ground':'air'}-player-complete`,badge:'upgrade'};
  if(id==='upgrade-base')return {atlas:'buildings',frame:buildingFrame(id==='upgrade-base'?'base':'tower','player',0,5,faction,undefined,2),badge:'upgrade'};
+ if(id==='research-convoyService')return {...actionIcon('train-transport',faction),glyph:'repair',badge:'research'};
+ if(id==='research-assaultRamps')return {...actionIcon('train-transport',faction),glyph:'unload',badge:'research'};
+ if(id==='research-tidewatch')return {...actionIcon('train-scout',faction),glyph:'explore',badge:'research'};
+ if(id==='research-siegeShells')return {...actionIcon('train-bombard','dwarves'),glyph:'advance',badge:'research'};
+ if(id==='research-preciseShells')return {...actionIcon('build-siegeWorks',faction),badge:'research'};
+ if(id==='research-volatileTorpedoes')return {...actionIcon('train-submarine',faction),glyph:'ability',badge:'research'};
  if(id==='research-navalLogistics')return {...actionIcon('build-navalFoundry',faction),badge:'research'};
  if(id==='research-cavalryArmor')return {...actionIcon('train-cavalry',faction),badge:'research'};
  if(id==='research-healerTraining')return {...actionIcon('train-healer',faction),badge:'research'};

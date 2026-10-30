@@ -1,0 +1,27 @@
+{
+  "newMarkdownLinksChecked": 18,
+  "sourceWhitespaceChecked": 7,
+  "logsWhitespaceNormalizedOnly": [
+    "test-ai-final.log",
+    "test-abandoned-scout.log",
+    "test-routing-final.log",
+    "test-full-final.log",
+    "test-gate-cache-final.log",
+    "build-final.log",
+    "test-sea-routing-final.log",
+    "test-traffic-final.log",
+    "test-final-targeted.log",
+    "test-unit-final.log",
+    "test-full-before-sea-route.log",
+    "test-ai-component-final.log",
+    "test-beginner-final.log"
+  ],
+  "unit": "555/95 PASS",
+  "full": "2124/233 PASS 915.28s",
+  "build": "strict TypeScript + production PASS 723ms; existing chunk warning",
+  "sourceChecksums": "all source/script fingerprints passed",
+  "userFiles": "style.css and units.mjs SHA unchanged; docs/ and other unrelated files preserved",
+  "gitHead": "ebc75acde9d79c9aee9df06f2a11e864a520c409",
+  "commitPushPublishing": "none",
+  "responsivenessGoal": "partly met; cold first frames and heavy four-AI spikes remain"
+}

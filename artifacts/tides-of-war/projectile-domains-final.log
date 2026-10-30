@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/projectileDomains.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  19:14:15
+   Duration  594ms (transform 325ms, setup 0ms, import 400ms, tests 138ms, environment 0ms)

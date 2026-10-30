@@ -4,7 +4,7 @@ import {extraProducer,trainExtraProducer,cancelExtraProduction,setExtraProducer}
 import {buildingUpgradeMarkers} from '../presentation/buildingUpgrades';
 import {wallLine,placeWallLine} from '../gameplay/wallDrag';
 import {siegeBuilding,trainSiege} from '../gameplay/siegeProduction';
-import {roleResearchConfig,isRoleResearch} from '../config/roleResearch';
+import {roleResearchKinds,roleResearchConfig,isRoleResearch} from '../config/roleResearch';
 import {flightBuilding,trainFlyer} from '../gameplay/flightProduction';
 import {fortificationConnections} from '../gameplay/fortifications';
 import {fortificationTexture} from '../presentation/fortifications';
@@ -530,7 +530,7 @@ export class BootScene extends Phaser.Scene {
     this.forgeButton.addEventListener('click',beginForge);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN,()=>this.forgeButton.removeEventListener('click',beginForge));
     this.researchButtons.clear();
-    for(const kind of ['navalLogistics','workerTools','attack','defense','cavalryArmor','healerTraining','scoutOptics','submarineDesign'] as const){
+    for(const kind of ['workerTools','attack','defense',...roleResearchKinds] as const){
       const button=document.querySelector<HTMLButtonElement>(`#research-${kind}`)!;
       const research=()=>{const result=startResearch(this.gathering,this.research,this.placement,kind,this.gameplayActive(),hasMainBase(this.currentMatch()));this.gathering=result.gathering;this.research=result.research;this.syncVisuals();};
       this.researchButtons.set(kind,button);button.addEventListener('click',research);
