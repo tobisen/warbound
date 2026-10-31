@@ -1,0 +1,91 @@
+{
+  "browser": "156.0.8078.76",
+  "headless": true,
+  "note": "Uncapped, native1280,10 wall seconds per scenario, large-unit recipe HP, ordinary combat/AI/fog; escort archers explicitly45 HP each (normal Goblin30), a durable stress fixture. Injected armies above paid supply; not economy/balance proof. Capital12v12; zeppelin8+16 archers each side; behemoth16v16. No concurrent tests.",
+  "results": [
+    {
+      "faction": "crown",
+      "role": "capital",
+      "initial": {
+        "own": 12,
+        "enemy": 12
+      },
+      "metrics": {
+        "cpu": {
+          "samples": 597,
+          "p50": 4.299999952316284,
+          "p95": 5,
+          "max": 65.5,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 596,
+          "p50": 16.699999999999818,
+          "p95": 16.700000000000728,
+          "max": 133.29999999999995,
+          "over50ms": 1
+        },
+        "peakShots": 24,
+        "outcome": "playing",
+        "seconds": 9.947233333333315
+      },
+      "errors": []
+    },
+    {
+      "faction": "goblins",
+      "role": "zeppelin",
+      "initial": {
+        "own": 24,
+        "enemy": 24
+      },
+      "metrics": {
+        "cpu": {
+          "samples": 597,
+          "p50": 3.9000000953674316,
+          "p95": 4.900000095367432,
+          "max": 68.29999995231628,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 596,
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999727,
+          "max": 100,
+          "over50ms": 1
+        },
+        "peakShots": 46,
+        "outcome": "playing",
+        "seconds": 9.947159999999977
+      },
+      "errors": []
+    },
+    {
+      "faction": "clans",
+      "role": "behemoth",
+      "initial": {
+        "own": 16,
+        "enemy": 16
+      },
+      "metrics": {
+        "cpu": {
+          "samples": 598,
+          "p50": 4.600000023841858,
+          "p95": 5.399999976158142,
+          "max": 66.39999997615814,
+          "over50ms": 1
+        },
+        "frames": {
+          "samples": 597,
+          "p50": 16.699999999999818,
+          "p95": 16.700000000000728,
+          "max": 100,
+          "over50ms": 1
+        },
+        "peakShots": 0,
+        "outcome": "playing",
+        "seconds": 9.964153333333309
+      },
+      "errors": []
+    }
+  ]
+}

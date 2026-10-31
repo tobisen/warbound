@@ -1,0 +1,13 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/harborRally.test.ts src/presentation/selectionInfo.test.ts src/presentation/hotkeys.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  3 passed (3)
+      Tests  25 passed (25)
+   Start at  20:14:26
+   Duration  869ms (transform 766ms, setup 0ms, import 1.04s, tests 444ms, environment 0ms)
+

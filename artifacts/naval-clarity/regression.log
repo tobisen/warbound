@@ -1,0 +1,64 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+ ❯ src/gameplay/replayObjectives.test.ts (5 tests | 1 failed) 3333ms
+   × single-player Save78 loads without colony fields and rejects injected legacy fields 25ms
+ ❯ src/config/factions.test.ts (3 tests | 1 failed) 153ms
+   × implemented factions define all shared roles with distinct, globally unique type IDs 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/config/factions.test.ts > implemented factions define all shared roles with distinct, globally unique type IDs
+AssertionError: expected [ 'marine', 'sapper', …(14) ] to deeply equal [ 'marine', 'sapper', …(12) ]
+
+- Expected
++ Received
+
+@@ -5,10 +5,12 @@
+    "worker",
+    "soldier",
+    "archer",
+    "catapult",
+    "specialist",
++   "zeppelin",
++   "behemoth",
+    "ballista",
+    "scout",
+    "giant",
+    "healer",
+    "cavalry",
+
+ ❯ src/config/factions.test.ts:14:34
+     12|   const ids=new Set<string>();
+     13|   for(const id of factionIds){const f=factions[id];
+     14|     expect(Object.keys(f.units)).toEqual(['marine','sapper','harpooner…
+       |                                  ^
+     15|     expect(Object.keys(f.buildings)).toEqual(['drydock','signalTower',…
+     16|     expect(Object.keys(f.upgrades)).toEqual(['attack','defense']);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/gameplay/replayObjectives.test.ts > single-player Save78 loads without colony fields and rejects injected legacy fields
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/gameplay/replayObjectives.test.ts:34:175
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 241 passed (243)
+      Tests  2 failed | 2286 passed (2288)
+   Start at  19:56:45
+   Duration  988.06s (transform 2.60s, setup 0ms, import 30.49s, tests 1927.57s, environment 13ms)
+

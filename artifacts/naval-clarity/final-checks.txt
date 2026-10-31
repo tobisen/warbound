@@ -1,0 +1,15 @@
+Final local checks, 2026-10-31
+
+npm run test:unit: exit 0; 567 tests / 96 files.
+npm run build: exit 0; strict tsc --noEmit and Vite production build; existing large-bundle warning.
+npm test: exit 1; 2286/2288 cases, 241/243 files passed.
+Corrected two outdated fixtures; targeted rerun of both files: exit 0, 8/8.
+Final research-name behavior test added after full run: included in final unit suite.
+Final research-label/actionPanel/researchHost targeted run: 12/3 PASS.
+Research browser final: exit 0, all five factions at native 800x600 / 1280x720.
+Waypoints/large units/campaign browser evidence: separate JSON and screenshots.
+33 local documentation links resolved.
+git diff --check: exit 0.
+Protected src/style.css and assets/sources/units.mjs SHA256: OK.
+No commit, push, release, publication or delegation.
+No human listening or long-match human balance approval claimed.

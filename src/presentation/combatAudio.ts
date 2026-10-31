@@ -5,7 +5,7 @@ import {factions} from '../config/factions';
 import {audioConfig} from '../config/audio';
 import type {Sound} from './audioPolicy';
 export interface AudibleBody {id:string;hp:number;position:Position;building:boolean}
-export interface AudibleAttack {id:string;position:Position;visible:boolean;cooldown:number;sound:'melee'|'bow'|'siege'|'cannon';target?:string;range:number}
+export interface AudibleAttack {id:string;position:Position;visible:boolean;cooldown:number;sound:'melee'|'bow'|'siege'|'cannon'|'large-capital'|'large-zeppelin'|'large-behemoth';target?:string;range:number}
 export interface CombatAudioSnapshot {bodies:AudibleBody[];attacks:AudibleAttack[];shots:{id:string;shooter?:string;visible:boolean}[];destroyed?:{id:string;position:Position}[]}
 /** Public presentation snapshot only; never publishes hidden units or creates observers. */
 export function combatAudioSnapshot(m:MatchState,previous?:CombatAudioSnapshot):CombatAudioSnapshot{
@@ -21,12 +21,12 @@ export function combatAudioSnapshot(m:MatchState,previous?:CombatAudioSnapshot):
  for(const t of p.defenses??[])if(t.kind==='tower'&&t.hp>0&&t.construction.remainingSeconds===0){const position={x:t.footprint.x+16,y:t.footprint.y+16};attacks.push({id:t.id,position,visible:seen(position),cooldown:t.cooldown,sound:'bow',range:t.level===2?192:176});}
  for(const [team,units]of [['player',m.gathering.units],['enemy',m.combat.enemies]] as const)for(const u of units){
   if(u.kind==='worker'||u.kind==='base'||u.kind==='building'||'footprint'in u&&u.footprint)continue;
-  const type='archetype'in u?u.archetype??'soldier':'role'in u?u.role??'soldier':'soldier',stats=factions[m.factions?.[team]??'crown'].units[type==='ballista'||type==='archer'||type==='catapult'||type==='specialist'?type:'soldier'];
-  const sound=u.kind==='ship'?'cannon':type==='catapult'?'siege':stats.projectileSpeed?'bow':'melee';
+  const type='archetype'in u?u.archetype??'soldier':'role'in u?u.role??'soldier':'soldier',stats=factions[m.factions?.[team]??'crown'].units[type==='zeppelin'||type==='behemoth'||type==='ballista'||type==='archer'||type==='catapult'||type==='specialist'?type:'soldier'];
+  const sound=type==='zeppelin'?'large-zeppelin':type==='behemoth'?'large-behemoth':u.kind==='ship'?'cannon':type==='catapult'?'siege':stats.projectileSpeed?'bow':'melee';
   const target='order'in u&&u.order?.kind==='attack'&&'enemyId'in u.order?u.order.enemyId:u.navigation?.targetId;
   attacks.push({id:u.id,position:{...u.position},visible:seen(u.position),cooldown:u.attackCooldown??0,sound,target,range:stats.range??32});
  }
- for(const u of n?.ships??[])if(u.role!=='transport')attacks.push({id:u.id,position:{...u.position},visible:seen(u.position),cooldown:u.attackCooldown??0,sound:'cannon',target:u.order.kind==='attack'?u.order.enemyId:undefined,range:220});
+ for(const u of n?.ships??[])if(u.role!=='transport')attacks.push({id:u.id,position:{...u.position},visible:seen(u.position),cooldown:u.attackCooldown??0,sound:u.role==='capital'?'large-capital':'cannon',target:u.order.kind==='attack'?u.order.enemyId:undefined,range:220});
  // A missing formerly visible building is destruction only if its position is
  // still visible AND the entity is actually absent. Fog/reveal never emits it.
  const destroyed=(previous?.bodies??[]).filter(b=>b.building&&b.hp>0&&seen(b.position)&&!bodies.some(n=>n.id===b.id)).map(b=>({id:b.id,position:{...b.position}}));
@@ -44,7 +44,7 @@ export function combatAudioCues(before:CombatAudioSnapshot|undefined,next:Combat
  for(const b of damaged)emit(b.building?(b.hp<=0?'destruction':'buildingHit'):'impact',b.position);
  for(const b of next.destroyed??[])if(!before.destroyed?.some(old=>old.id===b.id))emit('destruction',b.position);
  for(const a of next.attacks){const old=before.attacks.find(p=>p.id===a.id);if(!old)continue;
-  if(a.sound!=='melee'){
+  if(a.sound!=='melee'&&a.sound!=='large-behemoth'){
    const fresh=next.shots.some(s=>s.visible&&s.shooter===a.id&&!before.shots.some(p=>p.id===s.id));
    if(fresh||a.cooldown>old.cooldown+1e-6)emit(a.sound,a.position);
   }else{const victim=damaged.find(b=>b.id===(a.target??old.target));if(victim&&Math.hypot(victim.position.x-a.position.x,victim.position.y-a.position.y)<=a.range+64)emit('melee',a.position);}

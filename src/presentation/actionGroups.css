@@ -31,15 +31,15 @@
  #action-panel #context-actions.spell-context [data-action-group] button { height:64px; min-height:64px; }
 }
 
-/* Eight main-building upgrades stay within two button rows. */
-#action-panel [data-action-group='Research']:not([data-action-group='Orders']) { grid-template-columns:repeat(4,44px); }
-@media (min-width:1200px) {
- #action-panel [data-action-group='Research']:not([data-action-group='Orders']) { grid-template-columns:repeat(4,64px); }
-}
-
-/* Navigation shares the heading; option pages always contain at most two rows. */
-#action-panel [data-action-group='Research'] h3 { display:flex; align-items:center; justify-content:space-between; gap:6px; min-height:20px; }
-#action-panel .research-pages { display:inline-flex; align-items:center; gap:4px; white-space:nowrap; }
-#action-panel .research-pages[hidden] { display:none; }
-#action-panel [data-action-group='Research'] .research-pages button { width:24px; height:20px; min-height:20px; padding:0; font:16px/18px system-ui; }
-#action-panel .research-pages button::after { content:none; }
+/* All research at its host, at most two rows, with readable name/cost/status. */
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) { grid-template-columns:repeat(var(--research-columns,2),108px); }
+#action-panel [data-action-group='Research'] .control { width:108px; height:72px; display:flex; flex-direction:column; }
+#action-panel [data-action-group='Research'] .control[hidden] { display:none; }
+#action-panel [data-action-group='Research'] button { width:108px; height:42px; min-height:42px; padding:2px; }
+#action-panel [data-action-group='Research'] button[data-action-icon]::before { width:28px;height:28px;flex-basis:28px;background-size:28px 28px; }
+#action-panel [data-action-group='Research'] button::after { content:attr(data-short-label); font:10px/11px system-ui;white-space:normal;overflow:visible;max-height:none; }
+#action-panel .research-detail { color:#e4d2ac;font:10px/11px system-ui;white-space:normal;overflow-wrap:anywhere; }
+#action-panel [data-action-group='Research'] .action-reason {display:none;}
+#action-panel [data-action-group='Research'] .control > .research-detail { display:block; }
+#action-panel [data-action-group='Research'] button { display:flex;flex-direction:row;align-items:center;gap:3px; }
+#action-panel [data-action-group='Research'] button::after { position:static;flex:1;min-width:0;max-width:none; }

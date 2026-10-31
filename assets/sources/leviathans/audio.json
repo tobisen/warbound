@@ -1,0 +1,260 @@
+{
+  "large-capital": {
+    "layers": [
+      [
+        "cannon",
+        0,
+        0.72,
+        0.8
+      ],
+      [
+        "cannon",
+        0.16,
+        0.58,
+        0.9
+      ],
+      [
+        "siege",
+        0.03,
+        0.3,
+        0.7
+      ]
+    ],
+    "duration": 2.0,
+    "peak": 0.78,
+    "sha256": "e0886cbdd52cecc160768838aeb3c2688c3ac317a6087dbf2419313ded933fee",
+    "license": "CC0-1.0",
+    "sourceMasters": [
+      {
+        "path": "public/audio/cannon.wav",
+        "sha256": "93fb5d5d026925193cf9a06497067df8abf9e70cdd471539aebd09efe555fc31"
+      },
+      {
+        "path": "public/audio/cannon.wav",
+        "sha256": "93fb5d5d026925193cf9a06497067df8abf9e70cdd471539aebd09efe555fc31"
+      },
+      {
+        "path": "public/audio/siege.wav",
+        "sha256": "7a1f10cc0dcad6978c9d20fe9b625ee47284c75876f18de09621de8577f76232"
+      }
+    ],
+    "sources": [
+      {
+        "original": "assets/sources/audio-identity/originals/thimras/cannon_fire_1.ogg",
+        "sha256": "2b21ffa41e5c3be4eecdfbd3490544f5aa8b6d1581787265863e13de1a8e599d",
+        "delay": 0,
+        "gain": 1,
+        "author": "Thimras",
+        "source": "https://opengameart.org/content/battle-at-sea",
+        "download": "https://opengameart.org/sites/default/files/cannon_fire_1.ogg",
+        "license": "CC0-1.0"
+      },
+      {
+        "original": "assets/sources/audio-identity/originals/thimras/cannon_fire_1.ogg",
+        "sha256": "2b21ffa41e5c3be4eecdfbd3490544f5aa8b6d1581787265863e13de1a8e599d",
+        "delay": 0,
+        "gain": 1,
+        "author": "Thimras",
+        "source": "https://opengameart.org/content/battle-at-sea",
+        "download": "https://opengameart.org/sites/default/files/cannon_fire_1.ogg",
+        "license": "CC0-1.0"
+      },
+      {
+        "original": "assets/sources/audio-identity/originals/impactPlank_medium_000.ogg",
+        "sha256": "8403cd7a043f0391574c88c55dd205743725b5363d2407f6de145f201690b68f",
+        "delay": 0,
+        "gain": 1,
+        "author": "Kenney",
+        "source": "https://kenney.nl/assets/impact-sounds",
+        "license": "CC0-1.0"
+      },
+      {
+        "original": "assets/sources/audio-identity/originals/impactWood_medium_000.ogg",
+        "sha256": "1723a9fd25103ed41af06054814e84e65f4a772bac86ab2dc927da93d9592ff5",
+        "delay": 0.05,
+        "gain": 0.45,
+        "author": "Kenney",
+        "source": "https://kenney.nl/assets/impact-sounds",
+        "license": "CC0-1.0"
+      }
+    ],
+    "listeningVerified": false
+  },
+  "large-zeppelin": {
+    "layers": [
+      [
+        "bow",
+        0,
+        0.45,
+        0.7
+      ],
+      [
+        "siege",
+        0.16,
+        0.6,
+        0.65
+      ],
+      [
+        "buildingHit",
+        0.34,
+        0.5,
+        0.8
+      ]
+    ],
+    "duration": 1.6,
+    "peak": 0.78,
+    "sha256": "c7d6c360626804fd144bdd22f9a570e69d7f05651262e121ef2d0dd9f25c1744",
+    "license": "CC0-1.0",
+    "sourceMasters": [
+      {
+        "path": "public/audio/bow.wav",
+        "sha256": "71ce3717d155c491fb8e6b8d34fb55a4e38a70583f61e659ffe4eeea2b34d68f"
+      },
+      {
+        "path": "public/audio/siege.wav",
+        "sha256": "7a1f10cc0dcad6978c9d20fe9b625ee47284c75876f18de09621de8577f76232"
+      },
+      {
+        "path": "public/audio/buildingHit.wav",
+        "sha256": "e46164e1eeb5f9bebda687da6dce9e8561df5f1d364dc31ad3be3c4ccecfe517"
+      }
+    ],
+    "sources": [
+      {
+        "original": "assets/sources/audio-identity/originals/rpg/clothBelt.ogg",
+        "sha256": "f29560a2aea95bbfeb643e1e8f56ec2b6f7e32f32ce4e140645a36db81de3253",
+        "delay": 0,
+        "gain": 0.7,
+        "author": "Kenney",
+        "source": "https://kenney.nl/assets/rpg-audio",
+        "license": "CC0-1.0"
+      },
+      {
+        "original": "assets/sources/audio-identity/originals/rpg/knifeSlice.ogg",
+        "sha256": "4cd96dc630bed9840c15f1dd2306da2cc56a4da26a5d3f1a03c5a7265ac5e54f",
+        "delay": 0.035,
+        "gain": 0.45,
+        "author": "Kenney",
+        "source": "https://kenney.nl/assets/rpg-audio",
+        "license": "CC0-1.0"
+      },
+      {
+        "original": "assets/sources/audio-identity/originals/impactPlank_medium_000.ogg",
+        "sha256": "8403cd7a043f0391574c88c55dd205743725b5363d2407f6de145f201690b68f",
+        "delay": 0,
+        "gain": 1,
+        "author": "Kenney",
+        "source": "https://kenney.nl/assets/impact-sounds",
+        "license": "CC0-1.0"
+      },
+      {
+        "original": "assets/sources/audio-identity/originals/impactWood_medium_000.ogg",
+        "sha256": "1723a9fd25103ed41af06054814e84e65f4a772bac86ab2dc927da93d9592ff5",
+        "delay": 0.05,
+        "gain": 0.45,
+        "author": "Kenney",
+        "source": "https://kenney.nl/assets/impact-sounds",
+        "license": "CC0-1.0"
+      },
+      {
+        "original": "assets/sources/audio-identity/originals/thimras/cannon_hit_wall_no_splash.ogg",
+        "sha256": "7ae0a35447ca22ec446db9a6aa3e96be51c32814da1bf11fc6ce718367d7f4dd",
+        "delay": 0,
+        "gain": 0.65,
+        "author": "Thimras",
+        "source": "https://opengameart.org/content/battle-at-sea",
+        "download": "https://opengameart.org/sites/default/files/cannon_hit_wall_no_splash.ogg",
+        "license": "CC0-1.0"
+      },
+      {
+        "original": "assets/sources/audio-identity/originals/impactMining_002.ogg",
+        "sha256": "059558ec751115ca6b1441e00f0adc837c1a3eeb0a066b109e0fd879fc5d0b0c",
+        "delay": 0.06,
+        "gain": 0.35,
+        "author": "Kenney",
+        "source": "https://kenney.nl/assets/impact-sounds",
+        "license": "CC0-1.0"
+      }
+    ],
+    "listeningVerified": false
+  },
+  "large-behemoth": {
+    "layers": [
+      [
+        "impact",
+        0,
+        0.8,
+        0.55
+      ],
+      [
+        "melee",
+        0.05,
+        0.4,
+        0.65
+      ],
+      [
+        "impact",
+        0.25,
+        0.55,
+        0.45
+      ]
+    ],
+    "duration": 1.2,
+    "peak": 0.78,
+    "sha256": "ae8e43d977454078c20883b4c077d55802d7deb7af730327cd30b6191415c620",
+    "license": "CC0-1.0",
+    "sourceMasters": [
+      {
+        "path": "public/audio/impact.wav",
+        "sha256": "9ced3263851898f58f6eb81cc7e197bd0f6a1f1c58e4494ee8d2b816c9311ee7"
+      },
+      {
+        "path": "public/audio/melee.wav",
+        "sha256": "5b4e4b2119b027e9164af5bdeb601c738144ea5657ec01b4109154ba5a33865a"
+      },
+      {
+        "path": "public/audio/impact.wav",
+        "sha256": "9ced3263851898f58f6eb81cc7e197bd0f6a1f1c58e4494ee8d2b816c9311ee7"
+      }
+    ],
+    "sources": [
+      {
+        "original": "assets/sources/audio-identity/originals/impactPunch_heavy_000.ogg",
+        "sha256": "b33a8f14068aec24ec69ba85e5e87fdc41228975f6a1a3e44a6e7d6fc3d9f8d8",
+        "delay": 0,
+        "gain": 1,
+        "author": "Kenney",
+        "source": "https://kenney.nl/assets/impact-sounds",
+        "license": "CC0-1.0"
+      },
+      {
+        "original": "assets/sources/audio-identity/originals/impactMetal_light_000.ogg",
+        "sha256": "33b5e6e37c6e9d54e07bf5a89b12c76e879f40c1ea83cdd82714df1d6f9fec6d",
+        "delay": 0,
+        "gain": 0.65,
+        "author": "Kenney",
+        "source": "https://kenney.nl/assets/impact-sounds",
+        "license": "CC0-1.0"
+      },
+      {
+        "original": "assets/sources/audio-identity/originals/impactPunch_heavy_000.ogg",
+        "sha256": "b33a8f14068aec24ec69ba85e5e87fdc41228975f6a1a3e44a6e7d6fc3d9f8d8",
+        "delay": 0.012,
+        "gain": 0.7,
+        "author": "Kenney",
+        "source": "https://kenney.nl/assets/impact-sounds",
+        "license": "CC0-1.0"
+      },
+      {
+        "original": "assets/sources/audio-identity/originals/impactPunch_heavy_000.ogg",
+        "sha256": "b33a8f14068aec24ec69ba85e5e87fdc41228975f6a1a3e44a6e7d6fc3d9f8d8",
+        "delay": 0,
+        "gain": 1,
+        "author": "Kenney",
+        "source": "https://kenney.nl/assets/impact-sounds",
+        "license": "CC0-1.0"
+      }
+    ],
+    "listeningVerified": false
+  }
+}

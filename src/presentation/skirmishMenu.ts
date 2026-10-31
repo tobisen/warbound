@@ -9,6 +9,7 @@ import type {MatchOptions} from '../gameplay/session';
 const element=(id:string)=>document.getElementById(id)!;
 export function bindSkirmishMenu():void{
  const setup=element('match-setup');
+ const sea=document.createElement('p');sea.id='skirmish-water-summary';sea.setAttribute('role','status');element('map-select').closest('label')!.after(sea);
  const mapSelect=element('map-select') as HTMLSelectElement;for(const id of [...islandMapIds,'lakehold','fivepasses','rivercrown'] as const)if(!mapSelect.querySelector(`option[value="${id}"]`))mapSelect.add(new Option(maps[id].label,id));
  const human=document.createElement('fieldset');human.id='skirmish-human';human.innerHTML='<legend>Your faction</legend><p id="skirmish-faction-description"></p>';human.prepend(element('faction-select').closest('label')!);setup.append(human);
  const opponents=document.createElement('section');opponents.id='skirmish-opponents';opponents.innerHTML='<h3>Opponents</h3><p id="skirmish-capacity" role="status"></p><fieldset id="skirmish-ai-1"><legend>AI 1</legend><p id="skirmish-ai-1-description"></p></fieldset><fieldset id="skirmish-ai-2"><legend>AI 2</legend><p id="skirmish-ai-2-description"></p></fieldset>';
@@ -19,7 +20,7 @@ export function bindSkirmishMenu():void{
  for(const n of [3,4]){const field=element('skirmish-ai-2').cloneNode(true) as HTMLElement;for(const node of [field,...field.querySelectorAll<HTMLElement>('[id]')])node.id=node.id.replace('ai-2',`ai-${n}`).replace('additional-ai-settings',`additional-ai-${n}-settings`);field.querySelector('legend')!.textContent=`AI ${n}`;for(const label of field.querySelectorAll('label'))for(const child of label.childNodes)if(child.nodeType===Node.TEXT_NODE)child.textContent=child.textContent!.replace('AI 2',`AI ${n}`);(field.querySelector(`#ai-${n}-faction-select`) as HTMLSelectElement).value=n===3?'dwarves':'goblins';opponents.append(field);}
  for(const [i,id] of playerIds.entries()){const select=element(`${id}-team-select`) as HTMLSelectElement;select.replaceChildren(...[1,2,3,4,5].map(n=>new Option(`Team ${n}`,String(n),false,n===i+1)));}
  const advanced=document.createElement('details');advanced.id='skirmish-advanced';advanced.innerHTML='<summary>Advanced match settings</summary>';advanced.append(element('team-settings'),element('speed-select').closest('label')!,element('speed-description'));setup.append(advanced);
- const presets=document.createElement('details');presets.id='skirmish-presets';presets.innerHTML='<summary>Naval match ideas</summary><p>Playable setups with ordinary base-destruction victory. All settings remain editable; no unlocks or scores.</p>';
+ const presets=document.createElement('details');presets.id='skirmish-presets';presets.innerHTML='<summary>Optional naval match ideas</summary><p>The map automatically enables ships, coastal building and AI crossings. No naval switches are required. These shortcuts only choose a map, factions, opponent count and AI style; victory still requires destroying enemy bases. You can edit every choice.</p>';
  for(const preset of [
   {name:'Race for Trident',map:'trident',faction:'elves',enemy:'dwarves',profile:'economic',count:'2',text:'Scout first, then transport workers to the rich southern island before the Economic Dwarves settle it.'},
   {name:'Narrows Raid',map:'twinwake',faction:'clans',enemy:'crown',profile:'defensive',count:'2',text:'Use Flame Galleys and assault infantry against Human armor and repairs. An early landing can bypass the defending fleet.'},
@@ -32,6 +33,8 @@ export function bindSkirmishMenu():void{
 export function syncSkirmishMenu(active:boolean,options:MatchOptions):void{
  for(const id of ['skirmish-human','skirmish-opponents','skirmish-advanced','skirmish-presets'])element(id).hidden=!active;
  if(!active)return;
+ const focus=maps[options.map].enemyNaval?'Sea-focused':['river','rivercrown','frontier','lakehold'].includes(options.map)?'Mixed land / water':'Land-focused';
+ element('skirmish-water-summary').textContent=`${focus} · ${maps[options.map].enemyNaval?'Naval play is automatic: build harbors, escort transports and cross to enemy shores. Standard AI already builds ships; Fleet changes its spending priorities.':'Ground routes are the default. Water is terrain; choosing Fleet does not turn a land map into an island map.'} Difficulty and opponents remain your choice.`;
  const faction=options.faction??'crown',max=Math.max(...supportedPlayerCounts(options.map,options.scenario)),count=options.players?.length??2;
  element('skirmish-faction-description').textContent=factionDescriptions[faction];
  syncFactionPortrait(element('skirmish-faction-description'),faction);

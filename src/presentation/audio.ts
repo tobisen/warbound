@@ -50,7 +50,7 @@ export class GameAudio {
   }catch{document.getElementById('audio-status')!.textContent=uiText.audioUnavailableGameplayRemainsAvailable;}
  }
  private async load():Promise<void>{
-  for(const name of audioFiles){for(const ext of name.startsWith('animal-')?['wav']:['ogg','wav'])try{const response=await fetch(`${import.meta.env.BASE_URL}audio/${name}.${ext}`);if(!response.ok)throw new Error('missing audio');this.buffers.set(name,await this.context!.decodeAudioData(await response.arrayBuffer()));break;}catch{/* Validated PCM fallback; missing sound never blocks gameplay. */}}
+  for(const name of audioFiles){for(const ext of name.startsWith('animal-')||name.startsWith('large-')?['wav']:['ogg','wav'])try{const response=await fetch(`${import.meta.env.BASE_URL}audio/${name}.${ext}`);if(!response.ok)throw new Error('missing audio');this.buffers.set(name,await this.context!.decodeAudioData(await response.arrayBuffer()));break;}catch{/* Validated PCM fallback; missing sound never blocks gameplay. */}}
   for(const name of ['animal-deer','animal-rabbit','animal-fox']){const variants:AudioBuffer[]=[];const first=this.buffers.get(name as AudioName);if(first)variants.push(first);for(const suffix of [2,3])try{const response=await fetch(`${import.meta.env.BASE_URL}audio/${name}-${suffix}.wav`);if(response.ok)variants.push(await this.context!.decodeAudioData(await response.arrayBuffer()));}catch{/* Retain the loaded recording if a variation is unavailable. */}this.animalVariants.set(name,variants);}
   try{
    const response=await fetch(`${import.meta.env.BASE_URL}audio/voices/manifest.json`);

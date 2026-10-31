@@ -19,7 +19,14 @@ function terrain(id:IslandMapId):TerrainPatch[]{const d=designs[id],out:TerrainP
 function resources(id:IslandMapId):MapResource[]{const d=designs[id],out:MapResource[]=[];
  for(const [i,p] of d.islands.entries()){
   // Connected groves outside the base/production rectangle; ordinary finite trees.
-  for(let row=0;row<3;row++)for(let col=0;col<5;col++)out.push({id:`island-${i}-tree-${col}-${row}`,tree:true,resource:'wood',position:{x:p.x-208+col*32,y:p.y+208+row*32},amount:60});
+  for(let row=0;row<3;row++)for(let col=0;col<5;col++)out.push({id:`island-${i}-tree-${col}-${row}`,tree:true,resource:'wood',position:{x:p.x-208+col*32,y:p.y+208+row*32},amount:180});
+  // Two additional compact groves flank the homeland; the center and shore
+  // approaches stay open. Their asymmetric lobes follow each island's shape.
+  for(const [g,offset] of [[0,{x:-160,y:320}],[1,{x:96,y:320}]] as const)
+   for(let row=0;row<3;row++)for(let col=0;col<4;col++){
+    const position={x:p.x+offset.x+col*32,y:p.y+offset.y+row*32};
+    if(landAt(Math.floor(position.x/32),Math.floor(position.y/32),p))out.push({id:`island-${i}-grove-${g}-${col}-${row}`,tree:true,resource:'wood',position,amount:180});
+   }
   out.push({id:`island-${i}-gold`,mine:true,resource:'gold',position:{x:p.x+176,y:p.y+176},amount:i<d.starts.length?1800:4500});
   if(i>0&&i<d.starts.length){out.push({id:`island-${i}-supply-tree`,tree:true,resource:'wood',position:{x:p.x+128,y:p.y-256},amount:700},{id:`island-${i}-near-gold`,mine:true,resource:'gold',position:{x:p.x+128,y:p.y+64},amount:1800});}
  }return out;

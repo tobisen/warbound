@@ -25,7 +25,7 @@ function ready(faction:typeof factionIds[number]='crown'){
 it.each(factionIds)('%s pays for only its own new choices and persists active/completed research',faction=>{
  for(const kind of factionResearchKinds){let m=ready(faction);const allowed=roleResearchAvailable(kind,faction),cfg=roleResearchConfig[kind];
   expect(canResearch(m.gathering,m.research!,m.placement,kind)).toBe(allowed);
-  expect(actionPanel(m,'base',true)[`research-${kind}`].visible).toBe(allowed);
+  expect(actionPanel(m,'base',true)[`research-${kind}`].visible).toBe(false);expect(actionPanel(m,'producer-1',true)[`research-${kind}`].visible).toBe(allowed);
   const before=m.gathering.wood;m={...m,...startResearch(m.gathering,m.research!,m.placement,kind)};
   if(!allowed){expect(m.gathering.wood).toBe(before);continue;}
   expect(m.gathering.wood).toBe(before-cfg.cost.wood);let save=decodeSave(encodeSave(m,view));expect(save.ok,save.ok?'':save.error).toBe(true);

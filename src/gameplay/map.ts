@@ -10,6 +10,8 @@ import type { Footprint } from './placement';
 
 export interface Tile { column: number; row: number }
 export interface WorldMap {
+  /** Save79 and older island games retain their exact finite forest layout. */
+  legacyIslandForests?:true;
   attackAcrossWater?:boolean;ignoreAttackOcclusion?:boolean;enemyPassageBlocks?:Footprint[];bodyHalf?:number;
   linearCollision?:true;
   interactionTarget?:Footprint;

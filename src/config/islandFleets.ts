@@ -3,7 +3,7 @@ export const fleetShips=['survey','raider','mortarShip','tender','torpedoBoat'] 
 export const marineRoles=['marine','sapper','harpooner'] as const;
 export const fleetResearch=['lightHulls','armoredHulls','navalOptics','repairCrane','marineDrill','coastalGunnery'] as const;
 export const isFleetBuilding=(s:string):s is typeof fleetBuildings[number]=>fleetBuildings.some(k=>k===s);
-export const isFleetShip=(s:string):s is typeof fleetShips[number]=>fleetShips.some(k=>k===s);
+export const isFleetShip=(s:string):s is typeof fleetShips[number]|'capital'=>s==='capital'||fleetShips.some(k=>k===s);
 export const isMarine=(s:string):s is typeof marineRoles[number]=>marineRoles.some(k=>k===s);
 export const fleetBuildingPurpose={drydock:'Paid hull repair within224px:6HP/s,0.25 wood+0.1 gold per HP; idle ships only. Repair Cranes doubles speed.',signalTower:'Coastal lookout:512px vision and256px submarine detection in current sight. Unlocks Naval Optics and Harpooners.',navalAcademy:'Unlocks your unique faction ship; choose faster hulls or damage protection. Research coastal weapons.',marineBarracks:'Dedicated amphibious infantry production. Humans/Orcs: marines; Dwarves/Goblins: sappers; Elves: harpooners.'};
 
@@ -12,6 +12,7 @@ export function fleetStats<T extends {speed:number;damageByDomain?:Partial<Recor
 }
 
 export const fleetUnitPurpose={
+ capital:'Human Storm Ark: heavy sea/coastal capital ship,520HP,272px range,7 supply. No anti-air; aircraft and submarines counter it.',
  survey:'Unarmed Elven survey launch: 512px vision, 160px submarine detection in current sight. Fast and fragile; avoid escorts.',
  raider:'Orc Flame Galley: fast close-range sea/coastal raider; 1.5× building damage. Longer-range ships and aircraft counter it.',
  mortarShip:'Dwarf Mortar Monitor: slow heavy sea/coastal artillery; 352px range, 2.25× building damage, 5 supply. Needs close escort; cannot target aircraft.',

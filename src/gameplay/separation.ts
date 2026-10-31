@@ -29,9 +29,15 @@ export function separateBodies(map:WorldMap, bodies:readonly SeparationBody[], d
     for(const actor of actors){const key=`${Math.floor(actor.position.x/config.cellSize)},${Math.floor(actor.position.y/config.cellSize)}`;const list=cells.get(key)??[];list.push(actor);cells.set(key,list);}
     for(const a of actors){
       const cx=Math.floor(a.position.x/config.cellSize),cy=Math.floor(a.position.y/config.cellSize),near:{actor:typeof actors[number];distance:number}[]=[];
-      for(let y=cy-1;y<=cy+1;y++)for(let x=cx-1;x<=cx+1;x++)for(const actor of cells.get(`${x},${y}`)??[])if(actor!==a){const dx=actor.position.x-a.position.x,dy=actor.position.y-a.position.y;near.push({actor,distance:dx*dx+dy*dy});}
-      near.sort((b,c)=>b.distance-c.distance||b.actor.rank-c.actor.rank);
-      for(const {actor:b} of near.slice(0,config.neighbors)){
+      // Only the nearest bounded set participates. Keep the same distance/rank
+      // ordering without allocating and sorting every body in a crowded cell.
+      for(let y=cy-1;y<=cy+1;y++)for(let x=cx-1;x<=cx+1;x++)for(const actor of cells.get(`${x},${y}`)??[])if(actor!==a){
+        const dx=actor.position.x-a.position.x,dy=actor.position.y-a.position.y,distance=dx*dx+dy*dy;
+        let index=near.length;
+        while(index>0&&(distance<near[index-1].distance||distance===near[index-1].distance&&actor.rank<near[index-1].actor.rank))index--;
+        if(index<config.neighbors){near.splice(index,0,{actor,distance});if(near.length>config.neighbors)near.pop();}
+      }
+      for(const {actor:b} of near){
         if(a.rank>=b.rank||a.fixed&&b.fixed)continue;
         const dx=b.position.x-a.position.x,dy=b.position.y-a.position.y,sum=a.half+b.half,ox=sum-Math.abs(dx),oy=sum-Math.abs(dy);
         if(ox<=config.epsilon||oy<=config.epsilon)continue;

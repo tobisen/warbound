@@ -2,6 +2,7 @@ import {prepareEnemyColony,type EnemyColony} from './enemyColonies';
 import {islandNavalPlan} from './islandNavalPlan';
 import {isIslandMap} from '../config/islandMaps';
 import {fleetShips,fleetStats} from '../config/islandFleets';
+import {technologyFor} from './productionPrerequisites';
 import {navalRoleAvailable} from '../config/navy';
 import {navalContentAI} from '../config/seaBattle';
 import {skirmishAttackSeconds} from '../config/skirmishPacing';
@@ -64,7 +65,8 @@ export function updateEnemyNaval(m:MatchState,delta:number):MatchState {
   const faction=factionForTeam(m,'enemy'),advanced=faction.id==='crown'?'cutter':faction.id==='dwarves'?'bombard':undefined;
   const combatShips=m.combat.enemies.filter(e=>e.kind==='ship'&&e.navalRole&&e.hp>0),playerShips=m.navy?.ships.filter(s=>s.hp>0&&(!m.fog||entityVisible(m.fog!,'enemy',s)))??[];
   const unique=fleetShips.find(r=>navalRoleAvailable(faction.id,r)),academy=m.combat.enemies.some(e=>e.buildingType==='navalAcademy'&&e.hp>0&&e.construction?.remainingSeconds===0);
-  const role=island&&academy&&unique&&!combatShips.some(e=>e.navalRole===unique)?unique:island&&combatShips.length<3?'warship':navalContentAI(m)&&advanced&&m.enemyPolicy?.research.navalLogistics&&combatShips.filter(e=>e.navalRole===advanced).length<2?advanced:m.enemyPolicy?.research.submarineDesign&&!combatShips.some(e=>e.navalRole==='submarine')?'submarine':navalContentAI(m)&&(playerShips.length||m.aiProfile==='fleet')&&combatShips.length<(m.aiProfile==='fleet'?6:Math.min(6,playerShips.length))?'warship':undefined;
+  const tech=technologyFor(m,'enemy'),capitalReady=faction.id==='crown'&&(tech.baseLevel??1)>=3&&(tech.research.attack??0)>=2&&(tech.research.defense??0)>=2&&tech.buildings.includes('drydock')&&academy&&!combatShips.some(e=>e.navalRole==='capital');
+  const role=capitalReady?'capital':island&&academy&&unique&&!combatShips.some(e=>e.navalRole===unique)?unique:island&&combatShips.length<3?'warship':navalContentAI(m)&&advanced&&m.enemyPolicy?.research.navalLogistics&&combatShips.filter(e=>e.navalRole===advanced).length<2?advanced:m.enemyPolicy?.research.submarineDesign&&!combatShips.some(e=>e.navalRole==='submarine')?'submarine':navalContentAI(m)&&(playerShips.length||m.aiProfile==='fleet')&&combatShips.length<(m.aiProfile==='fleet'?6:Math.min(6,playerShips.length))?'warship':undefined;
   if(role){const r=faction.naval.units[role],n=state.production.nextJobNumber??2,pop=enemyPopulation(m);if(canAfford({wood:m.enemyProduction.wood,goldBalance:m.enemyProduction.gold},r.cost)&&pop.used+pop.reserved+r.supply<=pop.cap){m=spend(m,r.cost);state={...state,production:{...state.production,queue:[{id:`enemy-harbor-job-${n}`,kind:role,supply:r.supply,cost:{...r.cost},durationSeconds:r.durationSeconds,remainingSeconds:r.durationSeconds}],remainingSeconds:r.durationSeconds,nextJobNumber:n+1}};}}
  }
 

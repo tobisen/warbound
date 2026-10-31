@@ -2,6 +2,7 @@
 export const audioConfig={musicLoopSeconds:16,menuMusicGain:.35,maxEffects:6,nearRadius:256,audibleRadius:1400};
 /** Leave two source slots for alerts/results; quiet work cues repeat less often. */
 export const effectMix={
+ 'large-capital':{gain:.7,cooldown:.4},'large-zeppelin':{gain:.65,cooldown:.4},'large-behemoth':{gain:.7,cooldown:.45},
  'animal-deer':{gain:.55,cooldown:2.5},'animal-rabbit':{gain:.4,cooldown:1},'animal-fox':{gain:.5,cooldown:1},
  melee:{gain:.65,cooldown:.22},bow:{gain:.65,cooldown:.18},siege:{gain:.75,cooldown:.3},buildingHit:{gain:.7,cooldown:.25},
  command:{gain:.65,cooldown:.12},impact:{gain:.65,cooldown:.16},complete:{gain:.65,cooldown:.4},
@@ -12,4 +13,4 @@ export const effectMix={
  destruction:{gain:.7,cooldown:.5},
 } as const;
 
-export const audioFiles=['animal-deer','animal-rabbit','animal-fox','music','command','impact','complete','victory','defeat','cannon','splash','gather','build','train','melee','bow','siege','buildingHit','chop','mining','treasure','destruction'] as const;
+export const audioFiles=['large-capital','large-zeppelin','large-behemoth','animal-deer','animal-rabbit','animal-fox','music','command','impact','complete','victory','defeat','cannon','splash','gather','build','train','melee','bow','siege','buildingHit','chop','mining','treasure','destruction'] as const;

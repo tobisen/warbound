@@ -1,3 +1,53 @@
+## Publicering av sjö-/tydlighetsuppdrag — 2026-10-31 — pågår
+
+Användaren har nu uttryckligen beställt commit, push och publicering. Detta
+ersätter föregående lokala uppdrags publiceringsförbud. Leveransen görs till
+befintlig origin/main och GitHub Pages, utan versionshöjning eller nya tasks.
+Användarens style.css, units.mjs, docs/, :memory:.ses och CLEANUP_REPORT.md
+bevaras utanför commiten. Tidigare lokala testresultat nedan är historik;
+publiceringskopians nya kontroller redovisas separat i
+[publiceringsrapporten](artifacts/naval-clarity-publication/README.md).
+Ny isolerad leveranskopia med repositoryts CSS: unit568/96, strict build och
+native browser800/1280 för alla fem raser PASS. Ett extra för långt
+forskningsstatusfält rättades och skyddas av beteendetest; riktat13/3 PASS.
+Faktisk fullregression/CI-/Pages-status uppdateras efter push. Inget framtida
+PASS hävdas; tidigare lokala kontroller nedan avser föregående kodstadium.
+
+## Lokalt sjö-/tydlighetsuppdrag — 2026-10-31
+
+Nytt lokalt uppdrag, utan commit/push/publicering eller delegering. Forskning
+finns vid rätt byggnad utan sidor, i högst två rader. De två UI-spärrarna mot
+fler hamnar är borttagna. Varje hamn har egen vattenwaypoint och kö; högerklick
+sätter/flyttar, Shift + högerklick rensar. Save80 bevarar köer/punkter och
+behåller äldre ömatchers ursprungliga skog, resurser och statistik.
+
+Nya ömatcher har större sammanhängande skogsbestånd, tydlig land/sjöprofil och
+automatiskt sjöspel. Kampanjfilter för nya sjöroller är rättat; Stormgate Armada
+och Tidebreak Relief ger tillgång till de nya sjöbyggnaderna, teknikerna och
+trupperna. Båda målplanerna är genomspelade till faktisk renderad seger i800/1280.
+
+Tre egna stora enheter: Human Storm Ark (kapitalfartyg), Goblin Brass Leviathan
+(bombzeppelinare), Orc Ironback Behemoth (bepansrat urtidsdjur). Betald produktion,
+verkligt urval/rörelse, AI, motspel, Save och kampanjåtkomst är riktat verifierade.
+Originalspriter och tre nya PCM-mixar ingår; ingen mänsklig ljud-/balansgranskning
+hävdas. Grafik och forskningsvy är granskade native800×600/1280×720.
+
+Se [rapport med belägg](artifacts/naval-clarity/README.md) och
+[prestandamätningar](artifacts/naval-clarity/performance.md). Trängselns CPU p95
+18,2→16,0 ms i128-fiendersprovet; spelarens markerade framryckning förbättras
+betydligt mindre24,5→24,2 ms och behåller frame p95≈33 ms. Kvarstående enstaka
+toppar redovisas. Inga AI-/fog-/stridsregler sänktes av optimeringen.
+
+Slutlig unit567/96 och produktionsbygge inklusive strict typecheck PASS.
+Full `npm test` gav2286/2288 PASS (241/243 filer), exit1: två gamla förväntningar
+om rollkatalogen och Save78-fixturens skog. Efter rättning passerar båda filerna,
+8/8 tester. Övriga passerade fall kördes inte om; ingen sammanhängande fullkörning
+med exit0 hävdas. Sista UI-ändringarna täcks av färska riktade tester och browser; ett nytt
+namnfältstest ingår i slutlig unit567/96.
+Diff- och dokumentkontroll PASS. Ny CI/Pages är inte körd. Användarens style.css/
+units.mjs är SHA256-oförändrade; docs/ och övriga fristående filer bevarade.
+Inga nya roadmaptasks eller karteditor startas. Inget commit/push/publicering.
+
 ## Island Fleets och omspelbarhet — publicerat 2026-10-31
 
 Leveranscommit `4ddbf39` är pushad till origin/main och faktiskt publicerad som

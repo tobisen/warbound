@@ -1,0 +1,13 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/presentation/actionPanel.test.ts src/presentation/actionLabel.test.ts src/presentation/researchPages.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  3 passed (3)
+      Tests  13 passed (13)
+   Start at  23:42:36
+   Duration  660ms (transform 684ms, setup 0ms, import 871ms, tests 176ms, environment 0ms)
+

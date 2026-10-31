@@ -1,3 +1,4 @@
+import {legacyIslandForests} from './testHelpers/legacyIslandForests';
 import {it,expect} from 'vitest';
 import {tidebreak,simulateTidebreak} from './testHelpers/tidebreak';
 import {campaignPhaseMet,advanceCampaignPhases,controlsBlockade,navalMissionLost,campaignPlan} from './campaignPhases';
@@ -31,5 +32,5 @@ it('new evacuation wins with the enemy command intact and round-trips its final 
  const m=simulateTidebreak('screen');expect(m.outcome).toBe('victory');expect(m.combat.enemies.some(e=>e.kind==='base'&&e.hp>0)).toBe(true);expect(decodeSave(encodeSave(m,view)).ok).toBe(true);
 },120000);
 it('single-player Save78 loads without colony fields and rejects injected legacy fields',()=>{
- const doc=JSON.parse(encodeSave(createMatch('skirmish','normal',undefined,'trident'),view));doc.configVersion='tribute-config-78';expect(decodeSave(JSON.stringify(doc)).ok).toBe(true);doc.state.enemyNaval.nextColonySeconds=10;expect(decodeSave(JSON.stringify(doc)).ok).toBe(false);
+ const doc=JSON.parse(encodeSave(createMatch('skirmish','normal',undefined,'trident'),view));legacyIslandForests(doc);doc.configVersion='tribute-config-78';expect(decodeSave(JSON.stringify(doc)).ok).toBe(true);doc.state.enemyNaval.nextColonySeconds=10;expect(decodeSave(JSON.stringify(doc)).ok).toBe(false);
 });

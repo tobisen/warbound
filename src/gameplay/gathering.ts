@@ -38,7 +38,7 @@ export interface Soldier extends SelectableUnit, SpellState, importOrderState {
   mana?:number;
   ability?:AbilityState;
   faction?:FactionId;
-  archetype?: 'marine'|'sapper'|'harpooner'|'archer'|'catapult'|'ballista'|'specialist'|'air'|'cavalry'|'healer'|'giant'|'scout';
+  archetype?: 'marine'|'sapper'|'harpooner'|'archer'|'catapult'|'ballista'|'specialist'|'air'|'cavalry'|'healer'|'giant'|'zeppelin'|'behemoth'|'scout';
   attackCooldown?: number;
   autoOrigin?: Position;
   attackMoveTarget?: Position;

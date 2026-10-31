@@ -15,7 +15,7 @@ export function matchAudioSnapshot(m:MatchState,visibleEnemies:MatchState['comba
   readyUnits:g.units.filter(u=>u.owner===undefined||u.owner==='player').map(u=>({id:u.id,role:voiceRole(u),faction:('faction' in u?u.faction:undefined)??m.factions?.player??g.faction??'crown'})),
   own:Object.fromEntries([...g.units.map(u=>[u.id,u.hp??combatConfig.workerHP]),...(n?.ships??[]).map(s=>[s.id,s.hp])]),
   visibleEnemies:Object.fromEntries(visibleEnemies.map(e=>[e.id,e.hp])),
-  navalShots:(m.combat.projectiles??[]).filter(s=>s.marine).map(s=>({id:s.id,audible:!m.fog||isVisible(m.fog,'player',s.position)})),
+  navalShots:(m.combat.projectiles??[]).filter(s=>s.marine&&s.navalRole!=='capital').map(s=>({id:s.id,audible:!m.fog||isVisible(m.fog,'player',s.position)})),
   work:Object.fromEntries(g.units.filter(u=>u.kind==='worker'&&u.order.kind==='gather'&&(u.owner===undefined||u.owner==='player')).map(u=>[u.id,u.cargo])),
   workMaterials:Object.fromEntries(g.units.flatMap(u=>{
    if(u.kind!=='worker'||u.order.kind!=='gather'||u.owner!==undefined&&u.owner!=='player')return [];

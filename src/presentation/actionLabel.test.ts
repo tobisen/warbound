@@ -8,3 +8,10 @@ it('preserves the pressed button text and other children across repeated labels 
  setActionLabel(button,'Upgrading: 19s');expect(node.textContent).toBe('Upgrading: 19s [I]');expect(button.childNodes[1]).toBe(node);
  setActionLabel(button,'Upgrading: 19s [I]');expect(node.textContent).toBe('Upgrading: 19s [I]');
 });
+it('keeps research name compact while preserving full cost and effect for accessible labels',()=>{
+ const node={nodeType:3,textContent:''};
+ const button={id:'research-submarineDesign',dataset:{},childNodes:[node]} as unknown as HTMLButtonElement;
+ setActionLabel(button,'Submarine Design · 45 wood + 30 gold · Unlocks submarines.');
+ expect(button.dataset.shortLabel).toBe('Submarine Design');
+ expect(node.textContent).toBe('Submarine Design · 45 wood + 30 gold · Unlocks submarines. [F20]');
+});

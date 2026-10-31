@@ -3,6 +3,9 @@ import {roleResearchConfig} from '../config/roleResearch';
 import {text as uiText} from '../text';
 import { gameplayKeyAllowed,type KeyContext } from './keyboard';
 export const hotkeys=[
+ {key:'SHIFT+Z',button:'train-capital',label:fleetUnitPurpose.capital},
+ {key:'SHIFT+X',button:'train-zeppelin',label:'Train the Goblin Brass Leviathan at the Aerial Dock, base III and research II.'},
+ {key:'SHIFT+E',button:'train-behemoth',label:'Train the Orc Ironback Behemoth at the War Circle, base III and research II.'},
  {key:'SHIFT+B',button:'build-drydock',label:fleetBuildingPurpose.drydock},
  {key:'SHIFT+O',button:'build-signalTower',label:fleetBuildingPurpose.signalTower},
  {key:'SHIFT+N',button:'build-navalAcademy',label:fleetBuildingPurpose.navalAcademy},

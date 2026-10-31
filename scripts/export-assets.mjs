@@ -54,3 +54,5 @@ await import('./export-submarines.mjs');
 await import('./export-naval-content.mjs');
 
 await import('./export-island-fleets.mjs');
+
+await import('./export-leviathans.mjs');

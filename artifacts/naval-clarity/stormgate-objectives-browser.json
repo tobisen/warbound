@@ -1,0 +1,67 @@
+{
+  "note": "Campaign unlocked in fresh storage; actual menu. Ordinary legal tactical orders and paid reinforcements in quarter-second simulation; no injected economy/fog/health. Save at every phase and actual rendered victory. Not human balancing/playtime.",
+  "results": [
+    {
+      "width": 800,
+      "result": {
+        "outcome": "victory",
+        "phase": 4,
+        "seconds": 76,
+        "phases": [
+          {
+            "phase": 0,
+            "seconds": 0.25
+          },
+          {
+            "phase": 1,
+            "seconds": 18.25
+          },
+          {
+            "phase": 2,
+            "seconds": 31.25
+          },
+          {
+            "phase": 3,
+            "seconds": 58.75
+          },
+          {
+            "phase": 4,
+            "seconds": 76
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "result": {
+        "outcome": "victory",
+        "phase": 4,
+        "seconds": 76,
+        "phases": [
+          {
+            "phase": 0,
+            "seconds": 0.25
+          },
+          {
+            "phase": 1,
+            "seconds": 18.25
+          },
+          {
+            "phase": 2,
+            "seconds": 31.25
+          },
+          {
+            "phase": 3,
+            "seconds": 58.75
+          },
+          {
+            "phase": 4,
+            "seconds": 76
+          }
+        ]
+      },
+      "errors": []
+    }
+  ]
+}

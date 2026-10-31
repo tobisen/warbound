@@ -1,0 +1,149 @@
+{
+  "note": "Explicit funded bank, ordinary current fog. Actual Build Harbor/map clicks twice; real worker construction; map selection/right-click/Shift-right-click, paid production, per-port Save/Load and ordinary ship movement. Fresh isolated browser context.",
+  "results": [
+    {
+      "width": 800,
+      "ports": [
+        {
+          "id": "harbor",
+          "footprint": {
+            "x": 288,
+            "y": 96,
+            "width": 64,
+            "height": 64
+          }
+        },
+        {
+          "id": "producer-1",
+          "footprint": {
+            "x": 608,
+            "y": 96,
+            "width": 64,
+            "height": 64
+          }
+        }
+      ],
+      "points": [
+        {
+          "x": 192,
+          "y": 32
+        },
+        {
+          "x": 512,
+          "y": 32
+        }
+      ],
+      "result": {
+        "queued": [
+          [
+            "warship"
+          ],
+          [
+            "transport"
+          ]
+        ],
+        "ships": [
+          {
+            "id": "ship-1",
+            "position": {
+              "x": 192,
+              "y": 32
+            },
+            "target": {
+              "x": 192,
+              "y": 32
+            },
+            "route": "arrived"
+          },
+          {
+            "id": "ship-2",
+            "role": "transport",
+            "position": {
+              "x": 512,
+              "y": 32
+            },
+            "target": {
+              "x": 512,
+              "y": 32
+            },
+            "route": "arrived"
+          }
+        ],
+        "saved": true
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "ports": [
+        {
+          "id": "harbor",
+          "footprint": {
+            "x": 288,
+            "y": 96,
+            "width": 64,
+            "height": 64
+          }
+        },
+        {
+          "id": "producer-1",
+          "footprint": {
+            "x": 608,
+            "y": 96,
+            "width": 64,
+            "height": 64
+          }
+        }
+      ],
+      "points": [
+        {
+          "x": 192,
+          "y": 32
+        },
+        {
+          "x": 512,
+          "y": 32
+        }
+      ],
+      "result": {
+        "queued": [
+          [
+            "warship"
+          ],
+          [
+            "transport"
+          ]
+        ],
+        "ships": [
+          {
+            "id": "ship-1",
+            "position": {
+              "x": 192,
+              "y": 32
+            },
+            "target": {
+              "x": 192,
+              "y": 32
+            },
+            "route": "arrived"
+          },
+          {
+            "id": "ship-2",
+            "role": "transport",
+            "position": {
+              "x": 512,
+              "y": 32
+            },
+            "target": {
+              "x": 512,
+              "y": 32
+            },
+            "route": "arrived"
+          }
+        ],
+        "saved": true
+      },
+      "errors": []
+    }
+  ]
+}

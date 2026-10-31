@@ -1,3 +1,21 @@
+## 2026-10-31 — lokalt sjö-/tydlighetsuppdrag
+
+Ingen commit/push/publicering. Slutliga användarändringar bevaras. Forskning
+visas bara vid sin hembyggnad: Forge I, Academy II/medicin/ubåtar, respektive
+produktions-/sjöbyggnad för rollteknik. Förutsättningsbyggnader är inte alternativa
+forskningsplatser. Två breda rader, utan sidbyte; fulla krav/effekter i fokus/hover.
+
+Hamnarnas gamla enexemplars-UI-spärrar tas bort; modellen/AI:s betalda adapter
+återanvänds. Varje hamn har egen vattenwaypoint; Shift + högerklick rensar.
+Save80 bevarar äldre ömatchers ursprungliga skog och statistik; tätare bestånd
+gäller nya matcher. Sjöspel väljs av kartan; Fleet är en frivillig AI-stil.
+
+Tre nya sena rasroller: Human Storm Ark (kapitalbroadsida, utan flygplanslast),
+Goblin Brass Leviathan (bombning/sikt, ingen anti-air) och Orc Ironback Behemoth
+(långsam dyr närstridsbelägring, ingen sjö-/luftattack). Inga nya parallella
+produktions-/stridssystem eller motortickbegränsningar införs.
+[Verifiering och begränsningar](artifacts/naval-clarity/README.md).
+
 # Beslut
 
 ## Fastställda beslut

@@ -1,0 +1,923 @@
+{
+  "note": "Fresh isolated browser storage; completed buildings/funded banks are explicit component fixtures. Actual menu/production clicks, real FIFO, strict Save/Load, ordinary match movement, native layout checks. Not human balance testing.",
+  "results": [
+    {
+      "width": 800,
+      "faction": "crown",
+      "role": "capital",
+      "produced": {
+        "id": "ship-1",
+        "hp": 520,
+        "position": {
+          "x": 264,
+          "y": 128
+        },
+        "queue": [
+          "capital"
+        ],
+        "save": true
+      },
+      "action": {
+        "point": {
+          "x": 168,
+          "y": 192
+        },
+        "position": {
+          "x": 168,
+          "y": 192
+        }
+      },
+      "keyboardQueue": [
+        "capital"
+      ],
+      "layout": [
+        {
+          "host": "base",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-workerTools",
+              "rect": {
+                "x": 551,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 659,
+                "bottom": 491,
+                "left": 551
+              },
+              "detail": "60 wood + 30 gold"
+            },
+            {
+              "id": "upgrade-base",
+              "rect": {
+                "x": 551,
+                "y": 525,
+                "width": 108,
+                "height": 42,
+                "top": 525,
+                "right": 659,
+                "bottom": 567,
+                "left": 551
+              }
+            }
+          ]
+        },
+        {
+          "host": "forge",
+          "rows": 0,
+          "rects": []
+        },
+        {
+          "host": "academy",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-attack",
+              "rect": {
+                "x": 493,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 601,
+                "bottom": 491,
+                "left": 493
+              },
+              "detail": "80 wood + 20 gold · Already researched"
+            },
+            {
+              "id": "research-defense",
+              "rect": {
+                "x": 605,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 713,
+                "bottom": 491,
+                "left": 605
+              },
+              "detail": "80 wood + 20 gold · Already researched"
+            },
+            {
+              "id": "research-healerTraining",
+              "rect": {
+                "x": 493,
+                "y": 525,
+                "width": 108,
+                "height": 42,
+                "top": 525,
+                "right": 601,
+                "bottom": 567,
+                "left": 493
+              },
+              "detail": "45 wood + 30 gold"
+            },
+            {
+              "id": "research-submarineDesign",
+              "rect": {
+                "x": 605,
+                "y": 525,
+                "width": 108,
+                "height": 42,
+                "top": 525,
+                "right": 713,
+                "bottom": 567,
+                "left": 605
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        },
+        {
+          "host": "aviary",
+          "rows": 1,
+          "rects": [
+            {
+              "id": "research-scoutOptics",
+              "rect": {
+                "x": 551,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 659,
+                "bottom": 491,
+                "left": 551
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 800,
+      "faction": "goblins",
+      "role": "zeppelin",
+      "produced": {
+        "id": "unit-4",
+        "hp": 330,
+        "position": {
+          "x": 636,
+          "y": 576
+        },
+        "queue": [
+          "zeppelin"
+        ],
+        "save": true
+      },
+      "action": {
+        "point": {
+          "x": 636,
+          "y": 640
+        },
+        "position": {
+          "x": 636,
+          "y": 640
+        }
+      },
+      "keyboardQueue": [
+        "zeppelin"
+      ],
+      "layout": [
+        {
+          "host": "base",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-workerTools",
+              "rect": {
+                "x": 551,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 659,
+                "bottom": 491,
+                "left": 551
+              },
+              "detail": "60 wood + 30 gold"
+            },
+            {
+              "id": "upgrade-base",
+              "rect": {
+                "x": 551,
+                "y": 525,
+                "width": 108,
+                "height": 42,
+                "top": 525,
+                "right": 659,
+                "bottom": 567,
+                "left": 551
+              }
+            }
+          ]
+        },
+        {
+          "host": "forge",
+          "rows": 0,
+          "rects": []
+        },
+        {
+          "host": "academy",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-attack",
+              "rect": {
+                "x": 493,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 601,
+                "bottom": 491,
+                "left": 493
+              },
+              "detail": "60 wood + 40 gold · Already researched"
+            },
+            {
+              "id": "research-defense",
+              "rect": {
+                "x": 605,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 713,
+                "bottom": 491,
+                "left": 605
+              },
+              "detail": "60 wood + 30 gold · Already researched"
+            },
+            {
+              "id": "research-healerTraining",
+              "rect": {
+                "x": 493,
+                "y": 525,
+                "width": 108,
+                "height": 42,
+                "top": 525,
+                "right": 601,
+                "bottom": 567,
+                "left": 493
+              },
+              "detail": "45 wood + 30 gold"
+            },
+            {
+              "id": "research-submarineDesign",
+              "rect": {
+                "x": 605,
+                "y": 525,
+                "width": 108,
+                "height": 42,
+                "top": 525,
+                "right": 713,
+                "bottom": 567,
+                "left": 605
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        },
+        {
+          "host": "aviary",
+          "rows": 1,
+          "rects": [
+            {
+              "id": "research-scoutOptics",
+              "rect": {
+                "x": 551,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 659,
+                "bottom": 491,
+                "left": 551
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 800,
+      "faction": "clans",
+      "role": "behemoth",
+      "produced": {
+        "id": "unit-4",
+        "hp": 560,
+        "position": {
+          "x": 504,
+          "y": 576
+        },
+        "queue": [
+          "behemoth"
+        ],
+        "save": true
+      },
+      "action": {
+        "point": {
+          "x": 504,
+          "y": 640
+        },
+        "position": {
+          "x": 504,
+          "y": 640
+        }
+      },
+      "keyboardQueue": [
+        "behemoth"
+      ],
+      "layout": [
+        {
+          "host": "base",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-workerTools",
+              "rect": {
+                "x": 551,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 659,
+                "bottom": 491,
+                "left": 551
+              },
+              "detail": "60 wood + 30 gold"
+            },
+            {
+              "id": "upgrade-base",
+              "rect": {
+                "x": 551,
+                "y": 525,
+                "width": 108,
+                "height": 42,
+                "top": 525,
+                "right": 659,
+                "bottom": 567,
+                "left": 551
+              }
+            }
+          ]
+        },
+        {
+          "host": "forge",
+          "rows": 0,
+          "rects": []
+        },
+        {
+          "host": "academy",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-attack",
+              "rect": {
+                "x": 493,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 601,
+                "bottom": 491,
+                "left": 493
+              },
+              "detail": "70 wood + 30 gold · Already researched"
+            },
+            {
+              "id": "research-defense",
+              "rect": {
+                "x": 605,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 713,
+                "bottom": 491,
+                "left": 605
+              },
+              "detail": "80 wood + 20 gold · Already researched"
+            },
+            {
+              "id": "research-healerTraining",
+              "rect": {
+                "x": 493,
+                "y": 525,
+                "width": 108,
+                "height": 42,
+                "top": 525,
+                "right": 601,
+                "bottom": 567,
+                "left": 493
+              },
+              "detail": "45 wood + 30 gold"
+            },
+            {
+              "id": "research-submarineDesign",
+              "rect": {
+                "x": 605,
+                "y": 525,
+                "width": 108,
+                "height": 42,
+                "top": 525,
+                "right": 713,
+                "bottom": 567,
+                "left": 605
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        },
+        {
+          "host": "aviary",
+          "rows": 1,
+          "rects": [
+            {
+              "id": "research-scoutOptics",
+              "rect": {
+                "x": 551,
+                "y": 449,
+                "width": 108,
+                "height": 42,
+                "top": 449,
+                "right": 659,
+                "bottom": 491,
+                "left": 551
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "crown",
+      "role": "capital",
+      "produced": {
+        "id": "ship-1",
+        "hp": 520,
+        "position": {
+          "x": 264,
+          "y": 128
+        },
+        "queue": [
+          "capital"
+        ],
+        "save": true
+      },
+      "action": {
+        "point": {
+          "x": 168,
+          "y": 192
+        },
+        "position": {
+          "x": 168,
+          "y": 192
+        }
+      },
+      "keyboardQueue": [
+        "capital"
+      ],
+      "layout": [
+        {
+          "host": "base",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-workerTools",
+              "rect": {
+                "x": 1031,
+                "y": 569,
+                "width": 108,
+                "height": 59,
+                "top": 569,
+                "right": 1139,
+                "bottom": 628,
+                "left": 1031
+              },
+              "detail": "60 wood + 30 gold"
+            },
+            {
+              "id": "upgrade-base",
+              "rect": {
+                "x": 1031,
+                "y": 645,
+                "width": 108,
+                "height": 64,
+                "top": 645,
+                "right": 1139,
+                "bottom": 709,
+                "left": 1031
+              }
+            }
+          ]
+        },
+        {
+          "host": "forge",
+          "rows": 0,
+          "rects": []
+        },
+        {
+          "host": "academy",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-attack",
+              "rect": {
+                "x": 919,
+                "y": 569,
+                "width": 108,
+                "height": 48,
+                "top": 569,
+                "right": 1027,
+                "bottom": 617,
+                "left": 919
+              },
+              "detail": "80 wood + 20 gold · Already researched"
+            },
+            {
+              "id": "research-defense",
+              "rect": {
+                "x": 1031,
+                "y": 569,
+                "width": 108,
+                "height": 48,
+                "top": 569,
+                "right": 1139,
+                "bottom": 617,
+                "left": 1031
+              },
+              "detail": "80 wood + 20 gold · Already researched"
+            },
+            {
+              "id": "research-healerTraining",
+              "rect": {
+                "x": 919,
+                "y": 645,
+                "width": 108,
+                "height": 59,
+                "top": 645,
+                "right": 1027,
+                "bottom": 704,
+                "left": 919
+              },
+              "detail": "45 wood + 30 gold"
+            },
+            {
+              "id": "research-submarineDesign",
+              "rect": {
+                "x": 1031,
+                "y": 645,
+                "width": 108,
+                "height": 59,
+                "top": 645,
+                "right": 1139,
+                "bottom": 704,
+                "left": 1031
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        },
+        {
+          "host": "aviary",
+          "rows": 1,
+          "rects": [
+            {
+              "id": "research-scoutOptics",
+              "rect": {
+                "x": 1031,
+                "y": 569,
+                "width": 108,
+                "height": 59,
+                "top": 569,
+                "right": 1139,
+                "bottom": 628,
+                "left": 1031
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "goblins",
+      "role": "zeppelin",
+      "produced": {
+        "id": "unit-4",
+        "hp": 330,
+        "position": {
+          "x": 636,
+          "y": 576
+        },
+        "queue": [
+          "zeppelin"
+        ],
+        "save": true
+      },
+      "action": {
+        "point": {
+          "x": 636,
+          "y": 640
+        },
+        "position": {
+          "x": 636,
+          "y": 640
+        }
+      },
+      "keyboardQueue": [
+        "zeppelin"
+      ],
+      "layout": [
+        {
+          "host": "base",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-workerTools",
+              "rect": {
+                "x": 1031,
+                "y": 569,
+                "width": 108,
+                "height": 59,
+                "top": 569,
+                "right": 1139,
+                "bottom": 628,
+                "left": 1031
+              },
+              "detail": "60 wood + 30 gold"
+            },
+            {
+              "id": "upgrade-base",
+              "rect": {
+                "x": 1031,
+                "y": 645,
+                "width": 108,
+                "height": 64,
+                "top": 645,
+                "right": 1139,
+                "bottom": 709,
+                "left": 1031
+              }
+            }
+          ]
+        },
+        {
+          "host": "forge",
+          "rows": 0,
+          "rects": []
+        },
+        {
+          "host": "academy",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-attack",
+              "rect": {
+                "x": 919,
+                "y": 569,
+                "width": 108,
+                "height": 48,
+                "top": 569,
+                "right": 1027,
+                "bottom": 617,
+                "left": 919
+              },
+              "detail": "60 wood + 40 gold · Already researched"
+            },
+            {
+              "id": "research-defense",
+              "rect": {
+                "x": 1031,
+                "y": 569,
+                "width": 108,
+                "height": 48,
+                "top": 569,
+                "right": 1139,
+                "bottom": 617,
+                "left": 1031
+              },
+              "detail": "60 wood + 30 gold · Already researched"
+            },
+            {
+              "id": "research-healerTraining",
+              "rect": {
+                "x": 919,
+                "y": 645,
+                "width": 108,
+                "height": 59,
+                "top": 645,
+                "right": 1027,
+                "bottom": 704,
+                "left": 919
+              },
+              "detail": "45 wood + 30 gold"
+            },
+            {
+              "id": "research-submarineDesign",
+              "rect": {
+                "x": 1031,
+                "y": 645,
+                "width": 108,
+                "height": 59,
+                "top": 645,
+                "right": 1139,
+                "bottom": 704,
+                "left": 1031
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        },
+        {
+          "host": "aviary",
+          "rows": 1,
+          "rects": [
+            {
+              "id": "research-scoutOptics",
+              "rect": {
+                "x": 1031,
+                "y": 569,
+                "width": 108,
+                "height": 59,
+                "top": 569,
+                "right": 1139,
+                "bottom": 628,
+                "left": 1031
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "clans",
+      "role": "behemoth",
+      "produced": {
+        "id": "unit-4",
+        "hp": 560,
+        "position": {
+          "x": 504,
+          "y": 576
+        },
+        "queue": [
+          "behemoth"
+        ],
+        "save": true
+      },
+      "action": {
+        "point": {
+          "x": 504,
+          "y": 640
+        },
+        "position": {
+          "x": 504,
+          "y": 640
+        }
+      },
+      "keyboardQueue": [
+        "behemoth"
+      ],
+      "layout": [
+        {
+          "host": "base",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-workerTools",
+              "rect": {
+                "x": 1031,
+                "y": 569,
+                "width": 108,
+                "height": 59,
+                "top": 569,
+                "right": 1139,
+                "bottom": 628,
+                "left": 1031
+              },
+              "detail": "60 wood + 30 gold"
+            },
+            {
+              "id": "upgrade-base",
+              "rect": {
+                "x": 1031,
+                "y": 645,
+                "width": 108,
+                "height": 64,
+                "top": 645,
+                "right": 1139,
+                "bottom": 709,
+                "left": 1031
+              }
+            }
+          ]
+        },
+        {
+          "host": "forge",
+          "rows": 0,
+          "rects": []
+        },
+        {
+          "host": "academy",
+          "rows": 2,
+          "rects": [
+            {
+              "id": "research-attack",
+              "rect": {
+                "x": 919,
+                "y": 569,
+                "width": 108,
+                "height": 48,
+                "top": 569,
+                "right": 1027,
+                "bottom": 617,
+                "left": 919
+              },
+              "detail": "70 wood + 30 gold · Already researched"
+            },
+            {
+              "id": "research-defense",
+              "rect": {
+                "x": 1031,
+                "y": 569,
+                "width": 108,
+                "height": 48,
+                "top": 569,
+                "right": 1139,
+                "bottom": 617,
+                "left": 1031
+              },
+              "detail": "80 wood + 20 gold · Already researched"
+            },
+            {
+              "id": "research-healerTraining",
+              "rect": {
+                "x": 919,
+                "y": 645,
+                "width": 108,
+                "height": 59,
+                "top": 645,
+                "right": 1027,
+                "bottom": 704,
+                "left": 919
+              },
+              "detail": "45 wood + 30 gold"
+            },
+            {
+              "id": "research-submarineDesign",
+              "rect": {
+                "x": 1031,
+                "y": 645,
+                "width": 108,
+                "height": 59,
+                "top": 645,
+                "right": 1139,
+                "bottom": 704,
+                "left": 1031
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        },
+        {
+          "host": "aviary",
+          "rows": 1,
+          "rects": [
+            {
+              "id": "research-scoutOptics",
+              "rect": {
+                "x": 1031,
+                "y": 569,
+                "width": 108,
+                "height": 59,
+                "top": 569,
+                "right": 1139,
+                "bottom": 628,
+                "left": 1031
+              },
+              "detail": "45 wood + 30 gold"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

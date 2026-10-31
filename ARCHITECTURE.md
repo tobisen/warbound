@@ -1,3 +1,21 @@
+## Lokalt sjö-/tydlighetsuppdrag — Save80
+
+[harborRally](src/gameplay/harborRally.ts) validerar en riktig vattenutgång och
+en sammanhängande vattenväg. Punkter lagras i befintlig ProductionState.rally;
+navy/extraProducers planerar varje nytt skepps rörelse vid färdigställande.
+[researchPages](src/presentation/researchPages.ts) innehåller nu endast en
+hembyggnad per forskning; UI använder inga sidor.
+
+[largeUnits](src/config/largeUnits.ts) beskriver Storm Ark, Brass Leviathan och
+Ironback Behemoth i befintliga recept-, domän-, FIFO-/combat-/AI-system. Egen
+atlas och inspelningsbaserade PCM-mixar laddas av ordinarie presentation.
+
+Save80 migrerar äldre ömatcher med map.legacyIslandForests: resursdefinitioner,
+statistik och markrendering använder den ursprungliga skogen. Ingen återsådd,
+flytt av byggnader/enheter eller ändring av skördade mängder sker vid Load.
+Nya matcher får de tätare authored klustren. Äldre dokument tillåts inte smuggla
+in nya enheter eller nya armévikter. [Belägg](artifacts/naval-clarity/README.md).
+
 ## Omspelbarhet och ökolonier — lokal vidareutveckling
 
 `enemyColonies.ts` reserverar en befintlig arbetare och eskort i

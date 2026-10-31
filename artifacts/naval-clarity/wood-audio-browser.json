@@ -1,0 +1,115 @@
+{
+  "note": "Actual browser AudioContext decode, not human listening; authored new-match stocks, excluding mines.",
+  "audio": {
+    "status": {
+      "state": "running",
+      "loaded": 25,
+      "music": true,
+      "effects": 0,
+      "phase": "playing",
+      "settings": {
+        "master": 0.65,
+        "effects": 0.7,
+        "music": 0.35,
+        "voices": 0.65,
+        "muted": false
+      }
+    },
+    "expected": 25,
+    "newCues": [
+      {
+        "name": "large-capital",
+        "decoded": true,
+        "duration": 2,
+        "channels": 1,
+        "sampleRate": 48000
+      },
+      {
+        "name": "large-zeppelin",
+        "decoded": true,
+        "duration": 1.6,
+        "channels": 1,
+        "sampleRate": 48000
+      },
+      {
+        "name": "large-behemoth",
+        "decoded": true,
+        "duration": 1.2,
+        "channels": 1,
+        "sampleRate": 48000
+      }
+    ]
+  },
+  "forests": [
+    {
+      "id": "twinwake",
+      "starts": [
+        {
+          "island": 0,
+          "trees": 39,
+          "wood": 7720
+        },
+        {
+          "island": 1,
+          "trees": 37,
+          "wood": 7180
+        }
+      ]
+    },
+    {
+      "id": "trident",
+      "starts": [
+        {
+          "island": 0,
+          "trees": 37,
+          "wood": 7360
+        },
+        {
+          "island": 1,
+          "trees": 40,
+          "wood": 7720
+        }
+      ]
+    },
+    {
+      "id": "crownsea",
+      "starts": [
+        {
+          "island": 0,
+          "trees": 39,
+          "wood": 7720
+        },
+        {
+          "island": 1,
+          "trees": 37,
+          "wood": 7180
+        },
+        {
+          "island": 2,
+          "trees": 38,
+          "wood": 7360
+        },
+        {
+          "island": 3,
+          "trees": 36,
+          "wood": 7000
+        }
+      ]
+    },
+    {
+      "id": "farreach",
+      "starts": [
+        {
+          "island": 0,
+          "trees": 39,
+          "wood": 7720
+        },
+        {
+          "island": 1,
+          "trees": 40,
+          "wood": 7720
+        }
+      ]
+    }
+  ]
+}

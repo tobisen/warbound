@@ -9,8 +9,8 @@ export function commandFeedback(m:MatchState,building:BuildingSelection,modes:{s
  if(modes.attackMove)return {message:'Attack-move · Click a destination. Escape/right-click cancels.',error:false};
  if(modes.unload)return {message:modes.unloadError??'Unload · Click visible, free coastal land beside your transport. Escape/right-click cancels.',error:!!modes.unloadError};
  const errors=[...m.gathering.units,...(m.navy?.ships??[])].filter(u=>u.selected&&u.navigation?.error).map(u=>`${u.id}: ${routeErrors[u.navigation!.error!]}`);
- const p=building==='base'?m.production:building==='barracks'?m.soldierProduction:undefined;
- if(p?.rallyError)errors.push('Rally point: blocked or unreachable.');
+ const p=building==='base'?m.production:building==='barracks'?m.soldierProduction:building==='harbor'?m.navy?.production:m.placement.producers?.find(p=>p.id===building)?.production;
+ if(p?.rallyError)errors.push(`Rally point: blocked or unreachable · ${p.rallyError}`);
  return {message:errors.length?errors.join(' · '):uiText.orderLegend,error:errors.length>0};
 }
 export function renderCommandFeedback(feedback:ReturnType<typeof commandFeedback>):void {const el=document.getElementById('command-feedback')!;if(el.textContent!==feedback.message)el.textContent=feedback.message;el.dataset.error=String(feedback.error);}

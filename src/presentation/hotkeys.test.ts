@@ -26,3 +26,10 @@ it('new fleet chords use Shift and share disabled-button/focus guards',()=>{
  const context={playing:true,repeat:false,focusedTag:'CANVAS'};
  expect(hotkeyButton('b',{...context,shiftKey:true})).toBe('build-drydock');expect(hotkeyButton('b',context)).toBe('build-barracks');expect(hotkeyButton('b',{...context,shiftKey:true,focusedTag:'INPUT'})).toBeNull();
 });
+
+it('new large-unit shortcuts use shifted letters that browser KeyboardEvent.key can deliver',()=>{
+ for(const [key,button] of [['Z','train-capital'],['X','train-zeppelin'],['E','train-behemoth']]){
+  expect(hotkeyButton(key,{...context,shiftKey:true})).toBe(button);let calls=0;expect(dispatchHotkey(key,{...context,shiftKey:true},id=>({disabled:id!==button,click:()=>calls++}))).toBe(true);expect(calls).toBe(1);
+  expect(dispatchHotkey(key,{...context,shiftKey:true},()=>({disabled:true,click:()=>calls++}))).toBe(false);expect(calls).toBe(1);
+ }
+});

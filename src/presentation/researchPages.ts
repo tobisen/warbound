@@ -1,7 +1,8 @@
-/** At most four columns by two option rows; paging preserves readable button sizes. */
-export const researchPageSize=8;
-export function researchPage<T>(options:readonly T[],page:number){
- const pages=Math.max(1,Math.ceil(options.length/researchPageSize));
- const current=Math.max(0,Math.min(pages-1,page));
- return {current,pages,options:options.slice(current*researchPageSize,(current+1)*researchPageSize)};
+import {roleResearchConfig,isRoleResearch} from '../config/roleResearch';
+/** Prerequisite lists are not research locations. Each research has one host. */
+export function researchHost(kind:string,level=0):string {
+ if(kind==='workerTools')return 'base';
+ if(kind==='attack'||kind==='defense')return level===0?'forge':'academy';
+ if(kind==='siegeShells'||kind==='preciseShells')return 'navalFoundry';
+ return isRoleResearch(kind)?roleResearchConfig[kind].buildings.at(-1)!:'';
 }

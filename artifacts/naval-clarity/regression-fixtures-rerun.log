@@ -1,0 +1,13 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/config/factions.test.ts src/gameplay/replayObjectives.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  2 passed (2)
+      Tests  8 passed (8)
+   Start at  20:19:41
+   Duration  4.26s (transform 716ms, setup 0ms, import 917ms, tests 3.85s, environment 0ms)
+

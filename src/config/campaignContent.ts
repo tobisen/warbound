@@ -1,3 +1,5 @@
+import {fleetBuildings,fleetShips,fleetResearch} from './islandFleets';
+import {isShipRole} from './navy';
 import {factionResearchKinds} from './roleResearch';
 import {campaignMissions,type CampaignMissionId} from './campaign';
 import {factions,type UnitRole,type UpgradeRole} from './factions';
@@ -6,7 +8,7 @@ import type {MatchState} from '../gameplay/match';
 export interface CampaignContent {units:readonly UnitRole[];buildings:readonly string[];research:readonly (UpgradeRole|import('./roleResearch').RoleResearchKind)[];ships:readonly string[];abilities:boolean;spells:boolean;baseUpgrades:boolean}
 export function missionContent(id:CampaignMissionId):CampaignContent{
  const index=campaignMissions.findIndex(m=>m.id===id),level=index<0?9:index+1;
- return {units:['worker','soldier',...(level>=2?['archer' as const]:[]),...(level>=3?['cavalry' as const,'scout' as const]:[]),...(level>=4?['specialist' as const]:[]),...(level>=6?['ballista' as const,'catapult' as const,'healer' as const]:[]),...(level>=7?['air' as const,'giant' as const]:[])],buildings:['base','barracks','farm',...(level>=2?['tower','wall','gate']:[]),...(level>=3?['forge','stable','aviary']:[]),...(level>=5?['harbor']:[]),...(level>=6?['academy','siegeWorks']:[]),...(level>=9?['navalFoundry']:[])],research:level>=3?['attack','defense','cavalryArmor','scoutOptics',...(level>=6?['healerTraining' as const]:[]),...(level>=8?['submarineDesign' as const]:[]),...(level>=9?['navalLogistics' as const,...factionResearchKinds]:[])]:[],ships:level>=5?['transport',...(level>=8?['warship','submarine',...(level>=9?['cutter','bombard']:[])]:[])]:[],abilities:level>=2,spells:level>=4,baseUpgrades:level>=3};
+ return {units:['worker','soldier',...(level>=2?['archer' as const]:[]),...(level>=3?['cavalry' as const,'scout' as const]:[]),...(level>=4?['specialist' as const]:[]),...(level>=6?['ballista' as const,'catapult' as const,'healer' as const]:[]),...(level>=7?['air' as const,'giant' as const]:[]),...(level>=9?['zeppelin' as const,'behemoth' as const]:[]),...(level>=8?['marine' as const,'sapper' as const,'harpooner' as const]:[])],buildings:['base','barracks','farm',...(level>=2?['tower','wall','gate']:[]),...(level>=3?['forge','stable','aviary']:[]),...(level>=5?['harbor','signalTower']:[]),...(level>=8?[...fleetBuildings]:[]),...(level>=6?['academy','siegeWorks']:[]),...(level>=9?['navalFoundry']:[])],research:level>=3?['attack','defense','cavalryArmor','scoutOptics',...(level>=6?['healerTraining' as const]:[]),...(level>=5?['navalOptics' as const]:[]),...(level>=8?['submarineDesign' as const,...fleetResearch]:[]),...(level>=9?['navalLogistics' as const,...factionResearchKinds]:[])]:[],ships:level>=5?['transport',...(level>=8?[...fleetShips]:[]),...(level>=9?['capital']:[]),...(level>=8?['warship','submarine',...(level>=9?['cutter','bombard']:[])]:[])]:[],abilities:level>=2,spells:level>=4,baseUpgrades:level>=3};
 }
 export function campaignContentFor(m:Pick<MatchState,'campaignMission'|'campaignRun'>):CampaignContent|undefined{return m.campaignMission&&seriesForId(m.campaignRun?.campaignId)?missionContent(m.campaignMission):undefined;}
 export function contentReason(content:CampaignContent|undefined,category:'units'|'buildings'|'research'|'ships'|'abilities'|'spells'|'baseUpgrades',item=''):string|null{
@@ -18,7 +20,7 @@ export function campaignActionReason(m:MatchState,id:string):string|null{
  if(id==='research-workerTools')return null;
  if(id==='build-academy'&&academyCampaignReason(m))return academyCampaignReason(m);
  const c=campaignContentFor(m);
- if(id.startsWith('train-'))return contentReason(c,['train-ship','train-transport','train-submarine','train-cutter','train-bombard'].includes(id)?'ships':'units',id==='train-ship'?'warship':id.slice(6));
+ if(id.startsWith('train-'))return contentReason(c,(id==='train-ship'||isShipRole(id.slice(6)))?'ships':'units',id==='train-ship'?'warship':id.slice(6));
  if(id.startsWith('build-'))return contentReason(c,'buildings',id.slice(6));
  if(id.startsWith('research-'))return contentReason(c,'research',id.slice(9));
  if(id.startsWith('cast-'))return contentReason(c,'spells');

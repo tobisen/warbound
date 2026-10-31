@@ -23,3 +23,11 @@ it('a moving unit retains its clear next leg while an arrived idle unit stays at
  expect(segmentFits(next.map,moving.position,moving.navigation!.waypoints[0],12)).toBe(true);
  expect(idle.position).toEqual(original.position);expect(idle.navigation?.goalKey).toBe('displaced-arrival');expect(idle.order.kind).toBe('idle');
 });
+
+it('bounded neighbor selection exactly matches the original solver for dense mixed armies',async()=>{
+ const {separateBodies:reference}=await import('./testHelpers/separationReference');
+ let seed=154;const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};
+ for(const count of [16,64,160]){let army=Array.from({length:count},(_,i)=>({id:`${i%2?'enemy':'player'}:unit-${i}`,position:{x:280+random()*120,y:240+random()*120},half:i%5===0?20:12,fixed:i%11===0}));
+  for(let step=0;step<8;step++){const actual=separateBodies(map,army,.05);expect(actual).toEqual(reference(map,army,.05));army=army.map(b=>({...b,position:actual.get(b.id)??b.position}));}
+ }
+});

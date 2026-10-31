@@ -1,0 +1,517 @@
+{
+  "note": "Real campaign menu identities. Prior mission unlocks and completed late-game technology are explicit component fixtures; the existing resource cheat funds ordinary paid worker construction, UI unit production, research and strict Save/Load. Does not measure human progression time.",
+  "results": [
+    {
+      "width": 800,
+      "faction": "crown",
+      "mission": "crown-stormgate-armada",
+      "structures": [
+        {
+          "kind": "academy",
+          "point": {
+            "x": 192,
+            "y": 160
+          },
+          "id": "academy"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 256,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 320,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "navalAcademy",
+          "point": {
+            "x": 384,
+            "y": 160
+          },
+          "id": "producer-1"
+        },
+        {
+          "kind": "marineBarracks",
+          "point": {
+            "x": 448,
+            "y": 160
+          },
+          "id": "producer-2"
+        },
+        {
+          "kind": "drydock",
+          "point": {
+            "x": 512,
+            "y": 160
+          },
+          "id": "producer-3"
+        },
+        {
+          "kind": "signalTower",
+          "point": {
+            "x": 672,
+            "y": 160
+          },
+          "id": "producer-4"
+        }
+      ],
+      "produced": [
+        "capital",
+        "tender"
+      ],
+      "saved": {
+        "mission": "crown-stormgate-armada",
+        "map": "straits",
+        "phase": 0,
+        "navalOptics": 1,
+        "marine": true
+      },
+      "errors": []
+    },
+    {
+      "width": 800,
+      "faction": "crown",
+      "mission": "crown-tidebreak-relief",
+      "structures": [
+        {
+          "kind": "academy",
+          "point": {
+            "x": 192,
+            "y": 160
+          },
+          "id": "academy"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 256,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 320,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "navalAcademy",
+          "point": {
+            "x": 384,
+            "y": 160
+          },
+          "id": "producer-1"
+        },
+        {
+          "kind": "marineBarracks",
+          "point": {
+            "x": 448,
+            "y": 160
+          },
+          "id": "producer-2"
+        },
+        {
+          "kind": "drydock",
+          "point": {
+            "x": 512,
+            "y": 160
+          },
+          "id": "producer-3"
+        },
+        {
+          "kind": "signalTower",
+          "point": {
+            "x": 672,
+            "y": 160
+          },
+          "id": "producer-4"
+        }
+      ],
+      "produced": [
+        "capital",
+        "tender"
+      ],
+      "saved": {
+        "mission": "crown-tidebreak-relief",
+        "map": "tidebreak",
+        "phase": 0,
+        "navalOptics": 1,
+        "marine": true
+      },
+      "errors": []
+    },
+    {
+      "width": 800,
+      "faction": "clans",
+      "mission": "clans-warband-confluence",
+      "structures": [
+        {
+          "kind": "farm",
+          "point": {
+            "x": 192,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 672,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "forge",
+          "point": {
+            "x": 192,
+            "y": 224
+          },
+          "id": "forge"
+        },
+        {
+          "kind": "academy",
+          "point": {
+            "x": 288,
+            "y": 224
+          },
+          "id": "academy"
+        }
+      ],
+      "produced": [
+        "behemoth"
+      ],
+      "saved": {
+        "mission": "clans-warband-confluence",
+        "map": "plains96",
+        "phase": 0,
+        "marine": false
+      },
+      "errors": []
+    },
+    {
+      "width": 800,
+      "faction": "goblins",
+      "mission": "goblins-two-sided-bargain",
+      "structures": [
+        {
+          "kind": "farm",
+          "point": {
+            "x": 192,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 256,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "forge",
+          "point": {
+            "x": 672,
+            "y": 160
+          },
+          "id": "forge"
+        },
+        {
+          "kind": "academy",
+          "point": {
+            "x": 192,
+            "y": 224
+          },
+          "id": "academy"
+        },
+        {
+          "kind": "aviary",
+          "point": {
+            "x": 288,
+            "y": 224
+          },
+          "id": "aviary"
+        }
+      ],
+      "produced": [
+        "zeppelin"
+      ],
+      "saved": {
+        "mission": "goblins-two-sided-bargain",
+        "map": "river",
+        "phase": 0,
+        "marine": false
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "crown",
+      "mission": "crown-stormgate-armada",
+      "structures": [
+        {
+          "kind": "academy",
+          "point": {
+            "x": 192,
+            "y": 160
+          },
+          "id": "academy"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 256,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 320,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "navalAcademy",
+          "point": {
+            "x": 384,
+            "y": 160
+          },
+          "id": "producer-1"
+        },
+        {
+          "kind": "marineBarracks",
+          "point": {
+            "x": 448,
+            "y": 160
+          },
+          "id": "producer-2"
+        },
+        {
+          "kind": "drydock",
+          "point": {
+            "x": 512,
+            "y": 160
+          },
+          "id": "producer-3"
+        },
+        {
+          "kind": "signalTower",
+          "point": {
+            "x": 672,
+            "y": 160
+          },
+          "id": "producer-4"
+        }
+      ],
+      "produced": [
+        "capital",
+        "tender"
+      ],
+      "saved": {
+        "mission": "crown-stormgate-armada",
+        "map": "straits",
+        "phase": 0,
+        "navalOptics": 1,
+        "marine": true
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "crown",
+      "mission": "crown-tidebreak-relief",
+      "structures": [
+        {
+          "kind": "academy",
+          "point": {
+            "x": 192,
+            "y": 160
+          },
+          "id": "academy"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 256,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 320,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "navalAcademy",
+          "point": {
+            "x": 384,
+            "y": 160
+          },
+          "id": "producer-1"
+        },
+        {
+          "kind": "marineBarracks",
+          "point": {
+            "x": 448,
+            "y": 160
+          },
+          "id": "producer-2"
+        },
+        {
+          "kind": "drydock",
+          "point": {
+            "x": 512,
+            "y": 160
+          },
+          "id": "producer-3"
+        },
+        {
+          "kind": "signalTower",
+          "point": {
+            "x": 672,
+            "y": 160
+          },
+          "id": "producer-4"
+        }
+      ],
+      "produced": [
+        "capital",
+        "tender"
+      ],
+      "saved": {
+        "mission": "crown-tidebreak-relief",
+        "map": "tidebreak",
+        "phase": 0,
+        "navalOptics": 1,
+        "marine": true
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "clans",
+      "mission": "clans-warband-confluence",
+      "structures": [
+        {
+          "kind": "farm",
+          "point": {
+            "x": 192,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 672,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "forge",
+          "point": {
+            "x": 192,
+            "y": 224
+          },
+          "id": "forge"
+        },
+        {
+          "kind": "academy",
+          "point": {
+            "x": 288,
+            "y": 224
+          },
+          "id": "academy"
+        }
+      ],
+      "produced": [
+        "behemoth"
+      ],
+      "saved": {
+        "mission": "clans-warband-confluence",
+        "map": "plains96",
+        "phase": 0,
+        "marine": false
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "faction": "goblins",
+      "mission": "goblins-two-sided-bargain",
+      "structures": [
+        {
+          "kind": "farm",
+          "point": {
+            "x": 192,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "farm",
+          "point": {
+            "x": 256,
+            "y": 160
+          },
+          "id": "farm"
+        },
+        {
+          "kind": "forge",
+          "point": {
+            "x": 672,
+            "y": 160
+          },
+          "id": "forge"
+        },
+        {
+          "kind": "academy",
+          "point": {
+            "x": 192,
+            "y": 224
+          },
+          "id": "academy"
+        },
+        {
+          "kind": "aviary",
+          "point": {
+            "x": 288,
+            "y": 224
+          },
+          "id": "aviary"
+        }
+      ],
+      "produced": [
+        "zeppelin"
+      ],
+      "saved": {
+        "mission": "goblins-two-sided-bargain",
+        "map": "river",
+        "phase": 0,
+        "marine": false
+      },
+      "errors": []
+    }
+  ]
+}

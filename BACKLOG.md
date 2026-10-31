@@ -53,6 +53,39 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+## Publicering av sjö-/tydlighetsuppdrag — 2026-10-31 — pågår
+
+Användaren har nu uttryckligen beställt commit, push och publicering. Detta
+ersätter föregående lokala uppdrags publiceringsförbud. Leveransen görs till
+befintlig origin/main och GitHub Pages, utan versionshöjning eller nya tasks.
+Användarens style.css, units.mjs, docs/, :memory:.ses och CLEANUP_REPORT.md
+bevaras utanför commiten. Tidigare lokala testresultat nedan är historik;
+publiceringskopians nya kontroller redovisas separat i
+[publiceringsrapporten](artifacts/naval-clarity-publication/README.md).
+Ny isolerad leveranskopia med repositoryts CSS: unit568/96, strict build och
+native browser800/1280 för alla fem raser PASS. Ett extra för långt
+forskningsstatusfält rättades och skyddas av beteendetest; riktat13/3 PASS.
+Faktisk fullregression/CI-/Pages-status uppdateras efter push. Inget framtida
+PASS hävdas; tidigare lokala kontroller nedan avser föregående kodstadium.
+
+
+### Lokalt sjö-/tydlighetsuppdrag — 2026-10-31 — Done lokalt
+
+Nytt bifogat uppdrag ersätter tidigare avslutat publiceringsmandat. Arbeta lokalt
+utan commit, push, publicering eller delegering; CSS/units.mjs/docs och sparningar
+bevaras. Avgränsning: profilering nära fienden, byggnadsspecifik forskning utan
+sidor, flera hamnar, tätare öskogar, tydliga automatiska sjöval, kampanjåtkomst,
+hamnwaypoints och tre nya stora enheter. Inga nya roadmap-ID:n eller ny release.
+
+Implementation och native browser800/1280 klara. Unit567/96, strict build och
+diffkontroll PASS. Fullregression2286/2288; två föråldrade testfixturer rättade,
+båda filernas8/8 PASS vid omkörning. Ingen ny fullkörning med exit0 hävdas.
+[Slutbelägg och begränsningar](artifacts/naval-clarity/README.md): kvarstående
+frame-toppar, exporterade mellananimationsfaser och ej mänskligt granskad ny
+ljud-/långbalans. Äldre CI-/Pages nedan gäller tidigare leveranser. Stanna här;
+ingen commit/push/publicering eller ny roadmaptask.
+
+
 ### Publicera verifierat Island Fleets — Done 2026-10-31
 
 Commit4ddbf39 pushad till origin/main och publicerad som0.8.0/Build4ddbf39.
