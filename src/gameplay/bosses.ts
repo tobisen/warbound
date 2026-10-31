@@ -59,7 +59,7 @@ export function prepareEnemyBossLoot(m:MatchState):MatchState{
  for(const [id,v]of Object.entries(m.bosses.guardians)){
   const p=bossLootPosition(id as BossId);if(v.hp>0||v.claimed||!isVisible(m.fog,'enemy',p))continue;
   if(m.combat.enemies.some(e=>e.hp>0&&isBossLootGoal(m,e)))continue;
-  const workers=m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0&&e.work?.cargo===0&&['idle','move','gather'].includes(e.work.order.kind)).sort((a,b)=>Math.hypot(a.position.x-p.x,a.position.y-p.y)-Math.hypot(b.position.x-p.x,b.position.y-p.y)||a.id.localeCompare(b.id));
+  const workers=m.combat.enemies.filter(e=>e.kind==='worker'&&e.hp>0&&e.id!==m.enemyNaval?.colony?.workerId&&e.work?.cargo===0&&['idle','move','gather'].includes(e.work.order.kind)).sort((a,b)=>Math.hypot(a.position.x-p.x,a.position.y-p.y)-Math.hypot(b.position.x-p.x,b.position.y-p.y)||a.id.localeCompare(b.id));
   for(const w of workers){const navigation=planRoute(enemyNavigationMap(m.map),w.position,p);if(navigation.status==='blocked')continue;return {...m,combat:{...m.combat,enemies:m.combat.enemies.map(e=>e===w?{...e,navigation,work:{...e.work!,target:p,order:{kind:'move'}}}:e)}};}
  }
  return m;

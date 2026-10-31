@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/islandFleets.test.ts -t starts, resources|six paid technologies
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  1 passed (1)
+      Tests  5 passed | 42 skipped (47)
+   Start at  00:03:58
+   Duration  4.89s (transform 1.29s, setup 0ms, import 1.57s, tests 3.18s, environment 0ms)

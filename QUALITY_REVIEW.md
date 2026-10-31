@@ -1,3 +1,93 @@
+## Publicering av Island Fleets och omspelbarhet — 2026-10-31
+
+Användaren har nu uttryckligen beställt commit, push och publicering. Detta
+ersätter tidigare lokalt leveransstopp. Befintlig origin/main och GitHub Pages
+används; ingen versionshöjning, force-push eller ny roadmaptask.
+
+Spelkoden matchar verifierad fullregression2264/239. En avgränsad
+publiceringskopia verifieras med repositoryts CSS/assetkällfil; användarens
+äldre lokala style.css, units.mjs och fristående docs bevaras utanför commiten.
+Publiceringskopians `npm run test:unit`563/95 och `npm run build`
+inklusive strict typecheck PASS. Ny faktisk Chrome800/1280 verifierar
+fyra presets, betald Marine-kö, Light Hulls, native Save/Load och UI-gränser.
+Se artifacts/island-fleets-publication/local och unit/build-loggar. CI och publicerad Build-ID
+rapporteras efter faktisk deploy, inte som ett antagande utifrån push.
+
+Även tidigare fraktionsforskning/Tech Tree/Save för samtliga fem raser
+i800/1280 PASS mot publiceringskopian. Staged diffcheck PASS; skyddade
+CSS/units/docs är uttryckligen utanför commiten.
+
+## Omspelbarhet — egen granskning 2026-10-31
+
+Kompletterande Saveprov: kompakt fyrspelar78→79 samt laddning mitt i
+blockadtimern och fortsatt seger PASS (se REPLAYABILITY).
+
+Ingen delegering. Granskat reservation av verklig arbetare/soldat, fog,
+publicerad kartgeometri, kostnader/supply, lastningsavbrott, dödsfall,
+transportförlust, returresor, produktion på rätt ö och sparade kolonifaser.
+Granskat blockadtidens nollställning, två samtidiga zoner, verkliga
+passageraridentiteter/lossning, förlustföreträde och äldre kampanjsparningar.
+
+Konkreta fynd åtgärdade: guldrutter över onåbart vatten, kolonist som kunde
+omfördelas, efterföljande koloni som försenade invasion och soldater som
+producerades på en isolerad utpost. Kampanjens första mål ändrades från
+redan synlig flyktingö/färdig startflotta till faktisk spaning och flottans
+samlingspunkt. Befintliga användarfiler har identiska kontrollsummor.
+
+Slutlig fullregression: 2264 tester/239 filer PASS (1021.40 s). Build med strict TypeScript, testmanifest,
+diff- och dokumentlänkskontroll PASS. Hela uniturvalet ingår i fullregressionen.
+Faktisk Chrome800/1280 granskad inklusive mål, passagerare, kolonier och
+resultatskärm. Ingen ny asset-/ljudproduktion eller mänsklig speltest hävdas.
+Vites befintliga huvudbundlevarning (>500 kB) kvarstår.
+
+Prestandafynd: ett första landefterprov var långsammare; en direkt jämförelse
+med orörd förekod gav18,2→18,7 ms CPU p95. Avvikelsen behålls och orsaken är
+inte säkerställd. Den korta initiala storarmétoppen kvarstår. Sjöprovet gav
+5,3→5,1 ms och faktiskt avslutad match. Se [rapport](REPLAYABILITY.md) och
+[alla kontroller](artifacts/replayability/README.md). Inga större förbättringar
+eller generell regressionfrihet utanför de provade scenarierna hävdas.
+
+## Island Fleets — egen granskning 2026-10-30–31 — verifierad
+
+Ingen delegering, commit, push eller publicering. Tidigare CI-/Pages-belägg
+nedan gäller den äldre builden. Granskat inventering, ny rollregistrering,
+krav/betalning/supply, teknikernas faktiska effekter, Save77→78, transporter,
+AI-ekonomi, sjövägar, attackdomäner och faktisk Phaser-rendering.
+
+Rättade konkreta fynd under arbetet: ofullständiga startresurser på AI-öar,
+NaN i arbetarräknaren vid extra AI-byggnader, återkallade landstigningstrupper,
+resurs-/supplykonkurrens som blockerade dvärgarnas tunga nya skepp, förlorad
+privat flottstatus i multiplayer-Save, uteblivet skrovskydd i multiplayer,
+kustforskning som tappades vid precisionsgranater och lastningsgrupp som
+fastnade efter en förlorad soldat. Regressionstester verifierar rättningarna.
+Äldre exakta rosterförväntningar uppdateras med de nya rollerna. Det längre
+fyrspelarprovet hittade även fel sökpunktsgräns i Save; valideringen får nu
+antalet från rätt AI-kontext. Kompakt fyrspelar-Save77 migreras. Naval Optics
+ger exakt +96 px även tillsammans med Tidewatch.
+
+Riktade integrationer: 130 tester/7 filer PASS, inklusive alla 47
+Island Fleets-fall och 20 betalda AI-prov (fyra kartor × fem raser).
+Alla 20 kräver eskort, rasens nya skepp, faktisk landstigning och skada på
+spelarbasen inom tolv simulerade spelminuter. Ingen gratis AI-resursfixture.
+Build med strict TypeScript PASS. Browser 800×600/1280×720 PASS för riktiga
+produktions-/forskningsklick, Save och högst två forskningsrader. Alla nya
+rastrupper/skepp och fyra kartöversikter är granskade i spelrenderaren.
+
+Slutlig unit563/95 PASS35,72 s. Fullregression på fryst slutkod
+2248/237 PASS1025,60 s; strict build, dokumentlänkar och diffkontroll PASS.
+Normal betald AI-överfart/landstigning/basskada även visad i Chrome.
+Första fullkörningens fel och rättningar finns kvar som historik i rapporten. Underlag finns i
+[verifieringsrapporten](artifacts/island-fleets/README.md).
+
+Begränsningar: ingen mänsklig balans-/långmatchgranskning, ny ljudlyssning eller
+storflottest. AI landar fortfarande två soldater åt gången, nu i upprepade
+vågor, och koloniserar inte nya neutrala öar autonomt. Fyra spelare har tre betalda AI-flottor fram till landstigning, separat
+ekonomi/Save-/skadekontroll; fullständiga fyrspelar-slutspel är inte genomspelade.
+Pixelanimationernas mellanrutor härleds från genererade riktnings-/tillståndsposer;
+inte varje mellanruta är separat målad. Befintliga ljud används. AI-eskorter kan överlappa visuellt vid strandens samlingspunkt; observerat
+i browsersekvensen, utan blockerad överfart. Kända äldre
+storarmébegränsningar är inte åtgärdade genom någon bred prestandaomskrivning.
+
 ## Publiceringsgranskning 2026-10-30 — verifierad
 
 Commit bd6d0f3 är pushad och publicerad. Ny CI2150/235, strict build och Pages

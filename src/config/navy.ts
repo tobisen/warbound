@@ -7,7 +7,7 @@ export const navyConfig={
  ship:{targets:shipTargets,damageByDomain:{air:.75},cost:{wood:40,gold:15},durationSeconds:8,supply:2,size:32,speed:110,hp:90,spawnGap:8,range:192,damage:16,attackInterval:1.5,projectileSpeed:280,projectileLifetime:3,hitRadius:20},
 };
 
-export const shipRoles=['warship','transport','submarine','cutter','bombard'] as const;
+export const shipRoles=['warship','transport','submarine','cutter','bombard','survey','raider','mortarShip','tender','torpedoBoat'] as const;
 export type ShipRole=typeof shipRoles[number];
 export const isShipRole=(v:string):v is ShipRole=>shipRoles.some(k=>k===v);
 export const advancedNaval={
@@ -15,5 +15,5 @@ export const advancedNaval={
  bombard:{...navyConfig.ship,targets:['sea','building'] as const,cost:{wood:110,gold:75},durationSeconds:28,supply:4,hp:160,speed:60,range:288,damage:38,attackInterval:3.5,damageByDomain:{building:1.8}},
 };
 
-export const navalRoleAvailable=(faction:string,role:ShipRole)=>role==='cutter'?faction==='crown':role==='bombard'?faction==='dwarves':true;
+export const navalRoleAvailable=(faction:string,role:ShipRole)=>role==='survey'?faction==='elves':role==='raider'?faction==='clans':role==='mortarShip'?faction==='dwarves':role==='tender'?faction==='crown':role==='torpedoBoat'?faction==='goblins':role==='cutter'?faction==='crown':role==='bombard'?faction==='dwarves':true;
 export const navalFoundryAvailable=(faction:string)=>['crown','clans','elves','dwarves','goblins'].includes(faction);

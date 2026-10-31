@@ -2,7 +2,7 @@ import {teamOutcome} from './teamResults';
 import {decodeSave,encodeSingleSave,type SavedView,type LoadResult,type SaveContext} from './save';
 import {validPlayers} from './matchSettings';
 import {playerStart,canHarm} from './players';
-import {refreshTeamVision,shareTeamVision,projectMultiplePlayers,globalEntityId,type MultiplePlayers} from './multiplePlayers';
+import {aiContext,refreshTeamVision,shareTeamVision,projectMultiplePlayers,globalEntityId,type MultiplePlayers} from './multiplePlayers';
 import type {MatchState} from './match';
 import type {Footprint} from './placement';
 import {saveConfig} from '../config/save';
@@ -11,7 +11,7 @@ import type {PlayerId} from '../config/players';
 function contextFor(m:MatchState,id:PlayerId):SaveContext{
  const multi=m.multiplePlayers!,start=playerStart(m.map.id??'arena',id==='player'?'enemy':id,m.map.design);
  const others=multi.ai.filter(bot=>bot.id!==(id==='player'?'enemy':id));
- return {multiplayer:true,enemyBase:{x:start.x-48,y:start.y-48,width:96,height:96},
+ return {multiplayer:true,attackWaypointCount:aiContext(m,id==='player'?'enemy':id).attackWaypoints.length,enemyBase:{x:start.x-48,y:start.y-48,width:96,height:96},
   extraObstacles:others.flatMap(bot=>bot.state.combat.enemies.flatMap(e=>e.footprint?[e.footprint]:[])),
   externalTargets:new Set(others.flatMap(bot=>bot.state.combat.enemies.map(e=>globalEntityId(bot.id,e.id)))),
   knownBases:multi.roster.map(p=>playerStart(m.map.id??'arena',p.id,m.map.design))};
@@ -19,7 +19,7 @@ function contextFor(m:MatchState,id:PlayerId):SaveContext{
 function singleView(m:MatchState,id:PlayerId):MatchState{
  const bot=m.multiplePlayers!.ai.find(bot=>bot.id===(id==='player'?'enemy':id))!;
  const state=id==='player'?m:bot.state;
- return {...state,multiplePlayers:undefined,aiContext:undefined,map:m.map,waves:m.waves,paused:m.paused,outcome:m.outcome,
+ return {...state,enemyNaval:bot.state.enemyNaval,multiplePlayers:undefined,aiContext:undefined,map:m.map,waves:m.waves,paused:m.paused,outcome:m.outcome,
   gathering:m.gathering,placement:m.placement,production:m.production,soldierProduction:m.soldierProduction,navy:m.navy,research:m.research,controlGroups:m.controlGroups,wildlife:m.wildlife,
   combat:{...state.combat,projectiles:id==='player'?[...(m.combat.projectiles??[]).filter(p=>!p.owner),...(bot.state.combat.projectiles??[])]:bot.state.combat.projectiles,baseHP:m.combat.baseHP,enemies:bot.state.combat.enemies},
   fog:state.fog?{...state.fog,buildings:m.fog?.buildings,...(state.fog.forest?{forest:{player:m.fog?.forest?.player??{},enemy:bot.state.fog?.forest?.enemy??{}}}:{}),teams:{player:m.fog!.teams.player,enemy:bot.vision}}:undefined,
@@ -46,12 +46,14 @@ export function decodeMultipleSave(raw:unknown):LoadResult{
  // Older documents without shared remain valid and follow the same strict decoder.
  if(doc?.shared!==undefined){
   const keys=['map','waves','paused','outcome','gathering','placement','production','soldierProduction','navy','research','controlGroups','wildlife'];
-  if(doc.configVersion!==saveConfig.configVersion&&doc.configVersion!=='tribute-config-75'||!Array.isArray(doc.shared)||doc.shared.some(k=>typeof k!=='string'||!keys.includes(k))||new Set(doc.shared).size!==doc.shared.length||typeof doc.human!=='string')throw Error('Invalid shared multiplayer state');
+  if(doc.configVersion!==saveConfig.configVersion&&doc.configVersion!=='tribute-config-75'&&doc.configVersion!=='tribute-config-77'&&doc.configVersion!=='tribute-config-78'||!Array.isArray(doc.shared)||doc.shared.some(k=>typeof k!=='string'||!keys.includes(k))||new Set(doc.shared).size!==doc.shared.length||typeof doc.human!=='string')throw Error('Invalid shared multiplayer state');
   const human=JSON.parse(doc.human),shared:Record<string,unknown>={};for(const key of doc.shared){if(!human.state||!Object.hasOwn(human.state,key))throw Error('Missing shared state');shared[key]=human.state[key];}
   const expand=(encoded:unknown)=>{if(typeof encoded!=='string')throw Error('Invalid shared document');const document=JSON.parse(encoded);if(!document.state||Object.keys(shared).some(k=>Object.hasOwn(document.state,k)))throw Error('Conflicting shared state');document.state={...document.state,...shared};return JSON.stringify(document);};
   if(!Array.isArray(doc.ai))throw Error('Invalid shared AI');doc.ai=doc.ai.map(value=>{if(!value||typeof value!=='object'||Object.keys(value).some(k=>!['id','document'].includes(k)))throw Error('Invalid shared AI identity');return {...value,document:expand(value.document)};});
  }
 
+ if(doc.configVersion==='tribute-config-78'){for(const encoded of [doc.human,...(Array.isArray(doc.ai)?doc.ai.map(bot=>(bot as Record<string,unknown>).document):[])]){if(typeof encoded!=='string'||JSON.parse(encoded).configVersion!=='tribute-config-78')throw Error('Invalid legacy colony version');}doc.configVersion=saveConfig.configVersion;}
+ if(doc.configVersion==='tribute-config-77'){for(const encoded of [doc.human,...(Array.isArray(doc.ai)?doc.ai.map(bot=>(bot as Record<string,unknown>).document):[])]){if(typeof encoded!=='string'||JSON.parse(encoded).configVersion!=='tribute-config-77')throw Error('Invalid legacy Island Fleets version');}doc.configVersion=saveConfig.configVersion;}
  if(doc.configVersion==='tribute-config-75'){for(const encoded of [doc.human,...(Array.isArray(doc.ai)?doc.ai.map(bot=>(bot as Record<string,unknown>).document):[])]){if(typeof encoded!=='string'||JSON.parse(encoded).configVersion!=='tribute-config-75')throw Error('Invalid legacy naval content version');}doc.configVersion=saveConfig.configVersion;}
  if(doc.configVersion==='tribute-config-74'){for(const encoded of [doc.human,...(Array.isArray(doc.ai)?doc.ai.map(bot=>(bot as Record<string,unknown>).document):[])]){if(typeof encoded!=='string'||JSON.parse(encoded).configVersion!=='tribute-config-74')throw Error('Invalid legacy campaigns');}doc.configVersion=saveConfig.configVersion;}
  if(doc.configVersion==='tribute-config-73'){for(const encoded of [doc.human,...(Array.isArray(doc.ai)?doc.ai.map(bot=>(bot as Record<string,unknown>).document):[])]){if(typeof encoded!=='string'||JSON.parse(encoded).configVersion!=='tribute-config-73')throw Error('Invalid legacy enemy bases');}doc.configVersion=saveConfig.configVersion;}

@@ -34,14 +34,14 @@ export interface PlacementContext {
 export interface ConstructionJob {remainingSeconds:number;builderId:string|null}
 export interface Farm {owner?:'player';hp?:number;id:`farm-${number}`;footprint:Footprint;construction:ConstructionJob}
 export interface ExtraBase {id:`base-${number}`;owner:'player';hp:number;footprint:Footprint;construction:ConstructionJob;production:import('./production').ProductionState}
-export type ProducerKind='navalFoundry'|'barracks'|'stable'|'academy'|'aviary'|'siegeWorks'|'harbor';
+export type ProducerKind='drydock'|'signalTower'|'navalAcademy'|'marineBarracks'|'navalFoundry'|'barracks'|'stable'|'academy'|'aviary'|'siegeWorks'|'harbor';
 export type ProducerId=`producer-${number}`;
 export interface ExtraProducer {id:ProducerId;kind:ProducerKind;owner:'player';hp:number;footprint:Footprint;construction:ConstructionJob;production:import('./production').ProductionState}
 export interface PlacementState {
   producers?:ExtraProducer[];nextProducerNumber?:number;
   bases?:ExtraBase[];nextBaseNumber?:number;
   defenses?:import('./towers').Defense[];nextDefenseNumber?:number;
-  kind?:'navalFoundry'|'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate';
+  kind?:'drydock'|'signalTower'|'navalAcademy'|'marineBarracks'|'navalFoundry'|'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate';
   siegeWorks?:{id:'siegeWorks';owner:'player';hp:number;footprint:Footprint;construction:ConstructionJob;production:import('./production').ProductionState};
   aviary?:{id:'aviary';owner:'player';hp:number;footprint:Footprint;construction:ConstructionJob;production:import('./production').ProductionState};
   stable?:{id:'stable';owner:'player';hp:number;footprint:Footprint;construction:ConstructionJob;production:import('./production').ProductionState};
@@ -56,7 +56,7 @@ export interface PlacementState {
   barracksHP?:number;
 }
 
-export function buildingFootprint(point: Position,kind:'navalFoundry'|'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate'='barracks'): Footprint {
+export function buildingFootprint(point: Position,kind:'drydock'|'signalTower'|'navalAcademy'|'marineBarracks'|'navalFoundry'|'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate'='barracks'): Footprint {
   if(kind==='tower'||kind==='wall'||kind==='gate')return {x:Math.floor(point.x/32)*32,y:Math.floor(point.y/32)*32,width:defenseConfig[kind].size,height:32};
   const config=kind==='navalFoundry'||kind==='siegeWorks'||kind==='aviary'||kind==='academy'||kind==='stable'?academyConfig:kind==='base'?extraBaseConfig:kind==='harbor'?navyConfig.harbor:kind==='forge'?forgeConfig:kind==='farm'?farmConfig:barracksConfig;
   const size = config.tileSize * config.footprintTiles;
@@ -78,7 +78,7 @@ export function placementObstacles(state: GatheringState): Footprint[] {
   ];
 }
 
-export function beginPlacement(state: PlacementState,kind:'navalFoundry'|'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate'='barracks',_world:{width:number;height:number}=worldConfig): PlacementState {
+export function beginPlacement(state: PlacementState,kind:'drydock'|'signalTower'|'navalAcademy'|'marineBarracks'|'navalFoundry'|'siegeWorks'|'aviary'|'stable'|'academy'|'base'|'harbor'|'barracks'|'farm'|'forge'|'tower'|'wall'|'gate'='barracks',_world:{width:number;height:number}=worldConfig): PlacementState {
   return kind==='forge'&&state.forge
     ? state : { ...state, active:true,...(kind!=='barracks'?{kind}: {kind:undefined}) };
 }
@@ -110,7 +110,7 @@ function checkPlacement(state: PlacementState, point: Position, wood: number, ob
     && rect.y < other.y + other.height && rect.y + rect.height > other.y)) {
     return uiText.overlapsTheBaseOrAResourceNode;
   }
-  if (!canAfford({wood,goldBalance:context?.gathering.goldBalance},(kind==='base'?extraBaseConfig.cost:kind==='tower'||kind==='wall'||kind==='gate'?defenseConfig[kind].cost:context?productionFaction(context.gathering).buildings[kind].cost:kind==='navalFoundry'?productionFaction({}).buildings.navalFoundry.cost:kind==='academy'?academyConfig.cost:kind==='siegeWorks'?{wood:90,gold:50}:kind==='aviary'?{wood:80,gold:40}:kind==='stable'?{wood:70,gold:30}:costs[kind]))) return uiText.notEnoughWoodOrGold;
+  if (!canAfford({wood,goldBalance:context?.gathering.goldBalance},(kind==='base'?extraBaseConfig.cost:kind==='tower'||kind==='wall'||kind==='gate'?defenseConfig[kind].cost:context?productionFaction(context.gathering).buildings[kind].cost:kind==='navalFoundry'||kind==='drydock'||kind==='signalTower'||kind==='navalAcademy'||kind==='marineBarracks'?productionFaction({}).buildings[kind].cost:kind==='academy'?academyConfig.cost:kind==='siegeWorks'?{wood:90,gold:50}:kind==='aviary'?{wood:80,gold:40}:kind==='stable'?{wood:70,gold:30}:costs[kind]))) return uiText.notEnoughWoodOrGold;
   if (context) {
     if([...context.map.obstacles,...(context.map.enemyPassageBlocks??[])].some(o=>overlaps(rect,o)))return uiText.overlapsTerrainOrABuilding;
     if(context.gathering.units.some(u=>!isAir(u)&&overlaps(rect,unitBody(u.position,u.kind==='worker'?unitStats.size:combatUnitStats(u).size)))
@@ -163,22 +163,22 @@ export function placementPreviewError(state:PlacementState,point:Position,wood:n
 export function placeBuilding(state: PlacementState, point: Position, wood: number, obstacles: Footprint[], context?: PlacementContext):
   {placement:PlacementState;wood:number;map?:WorldMap;gathering?:GatheringState} {
   const producerKind=state.kind??'barracks';
-  if(producerKind==='navalFoundry'){
+  if(producerKind==='navalFoundry'||producerKind==='drydock'||producerKind==='signalTower'||producerKind==='navalAcademy'||producerKind==='marineBarracks'){
    if(!state.active||!context||placementError(state,point,wood,obstacles,context))return {placement:state,wood};
-   const recipe=productionFaction(context.gathering).buildings.navalFoundry,number=state.nextProducerNumber??1,id=`producer-${number}` as const,rect=buildingFootprint(point,producerKind);
+   const recipe=productionFaction(context.gathering).buildings[producerKind],number=state.nextProducerNumber??1,id=`producer-${number}` as const,rect=buildingFootprint(point,producerKind);
    const builder=context.gathering.units.filter(u=>u.kind==='worker'&&u.selected).sort((a,b)=>a.id.localeCompare(b.id,'en',{numeric:true}))[0]!;
    const gathering=payCost(context.gathering,recipe.cost);
-   return {wood:gathering.wood,map:placementMap(context.map,rect),placement:{...state,active:false,kind:undefined,nextProducerNumber:number+1,producers:[...(state.producers??[]),{id,kind:producerKind,owner:'player',hp:recipe.hp,footprint:rect,construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder.id},production:{remainingSeconds:null,nextUnitNumber:Math.max(4,...gathering.units.map(u=>Number(u.id.slice(5))+1))}}]},gathering:{...gathering,units:gathering.units.map(u=>u.id===builder.id&&u.kind==='worker'?{...u,commandMode:undefined,orderQueue:undefined,navigation:undefined,order:{kind:'build' as const,buildingId:id}}:u)}};
+   return {wood:gathering.wood,map:placementMap(context.map,rect),placement:{...state,active:false,kind:undefined,nextProducerNumber:number+1,producers:[...(state.producers??[]),{id,kind:producerKind,owner:'player',hp:recipe.hp,footprint:rect,construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder.id},production:{remainingSeconds:null,nextUnitNumber:Math.max(4,...gathering.units.map(u=>Number(u.id.split('-').at(-1))+1))}}]},gathering:{...gathering,units:gathering.units.map(u=>u.id===builder.id&&u.kind==='worker'?{...u,commandMode:undefined,orderQueue:undefined,navigation:undefined,order:{kind:'build' as const,buildingId:id}}:u)}};
   }
 
   if(!context&&['barracks','stable','academy','aviary','siegeWorks'].includes(producerKind)&&(producerKind==='barracks'?state.barracks:state[producerKind as 'stable']))return {placement:state,wood};
   if(state.active&&context&&['barracks','stable','academy','aviary','siegeWorks'].includes(producerKind)&&(producerKind==='barracks'?state.barracks:state[producerKind as 'stable'])){
-    const kind=producerKind as Exclude<ProducerKind,'harbor'|'navalFoundry'>,number=state.nextProducerNumber??1,id=`producer-${number}` as const;
+    const kind=producerKind as Exclude<ProducerKind,'harbor'|'navalFoundry'|'drydock'|'signalTower'|'navalAcademy'|'marineBarracks'>,number=state.nextProducerNumber??1,id=`producer-${number}` as const;
     const temporary=kind==='barracks'?{...state,barracks:null,construction:undefined,barracksHP:undefined}:{...state,[kind]:undefined};
     const result=placeBuilding(temporary,point,wood,obstacles,context);
     if(!result.gathering||result.wood===wood)return {...result,placement:state};
     const built=kind==='barracks'?{hp:result.placement.barracksHP!,footprint:result.placement.barracks!,construction:result.placement.construction!}:result.placement[kind]!;
-    const site:ExtraProducer={...built,id,kind,owner:'player',production:{remainingSeconds:null,queue:[],nextUnitNumber:Math.max(4,...result.gathering.units.map(u=>Number(u.id.slice(5))+1))}};
+    const site:ExtraProducer={...built,id,kind,owner:'player',production:{remainingSeconds:null,queue:[],nextUnitNumber:Math.max(4,...result.gathering.units.map(u=>Number(u.id.split('-').at(-1))+1))}};
     return {...result,placement:{...state,active:false,kind:undefined,nextProducerNumber:number+1,producers:[...(state.producers??[]),site]},gathering:{...result.gathering,units:result.gathering.units.map(u=>u.kind==='worker'&&u.order.kind==='build'&&u.order.buildingId===kind&&u.id===site.construction.builderId?{...u,order:{kind:'build',buildingId:id}}:u)}};
   }
   if (state.kind==='harbor'||state.kind==='tower'||state.kind==='wall'||state.kind==='gate'||!state.active || placementError(state, point, wood, obstacles, context)) return { placement: state, wood, ...(context?{map:context.map}:{}) };
@@ -191,7 +191,7 @@ export function placeBuilding(state: PlacementState, point: Position, wood: numb
   const recipe=kind==='base'?{...factionRecipe,cost:extraBaseConfig.cost,constructionSeconds:extraBaseConfig.constructionSeconds}:factionRecipe;
   const paid=payCost({...context?.gathering,wood},recipe.cost);
   return {
-    placement: kind==='siegeWorks'?{...state,active:false,kind:undefined,siegeWorks:{id:'siegeWorks',owner:'player',hp:recipe.hp,footprint:rect,production:{remainingSeconds:null,queue:[],nextUnitNumber:Math.max(4,...(context?.gathering.units??[]).map(u=>Number(u.id.slice(5))+1))},construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null}}}:kind==='aviary'?{...state,active:false,kind:undefined,aviary:{id:'aviary',owner:'player',hp:recipe.hp,footprint:rect,production:{remainingSeconds:null,queue:[],nextUnitNumber:Math.max(4,...(context?.gathering.units??[]).map(u=>Number(u.id.slice(5))+1))},construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null}}}:kind==='stable'?{...state,active:false,kind:undefined,stable:{id:'stable',owner:'player',hp:recipe.hp,footprint:rect,production:{remainingSeconds:null,queue:[],nextUnitNumber:Math.max(4,...(context?.gathering.units??[]).map(u=>Number(u.id.slice(5))+1))},construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null}}}:kind==='academy'?{...state,active:false,kind:undefined,academy:{id:'academy',owner:'player',hp:recipe.hp,footprint:rect,construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null}}}:kind==='base'?{...state,active:false,kind:undefined,nextBaseNumber:(state.nextBaseNumber??1)+1,bases:[...(state.bases??[]),{id:id as `base-${number}`,owner:'player',hp:recipe.hp,footprint:rect,construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null},production:{remainingSeconds:null,queue:[],nextJobNumber:1,nextUnitNumber:Math.max(4,...(context?.gathering.units??[]).map(u=>Number(u.id.slice(5))+1))}}]}:kind==='forge'?{...state,active:false,kind:undefined,forge:{id:'forge',owner:'player',hp:recipe.hp,footprint:rect,construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null}}}:kind==='barracks'
+    placement: kind==='siegeWorks'?{...state,active:false,kind:undefined,siegeWorks:{id:'siegeWorks',owner:'player',hp:recipe.hp,footprint:rect,production:{remainingSeconds:null,queue:[],nextUnitNumber:Math.max(4,...(context?.gathering.units??[]).map(u=>Number(u.id.split('-').at(-1))+1))},construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null}}}:kind==='aviary'?{...state,active:false,kind:undefined,aviary:{id:'aviary',owner:'player',hp:recipe.hp,footprint:rect,production:{remainingSeconds:null,queue:[],nextUnitNumber:Math.max(4,...(context?.gathering.units??[]).map(u=>Number(u.id.split('-').at(-1))+1))},construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null}}}:kind==='stable'?{...state,active:false,kind:undefined,stable:{id:'stable',owner:'player',hp:recipe.hp,footprint:rect,production:{remainingSeconds:null,queue:[],nextUnitNumber:Math.max(4,...(context?.gathering.units??[]).map(u=>Number(u.id.split('-').at(-1))+1))},construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null}}}:kind==='academy'?{...state,active:false,kind:undefined,academy:{id:'academy',owner:'player',hp:recipe.hp,footprint:rect,construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null}}}:kind==='base'?{...state,active:false,kind:undefined,nextBaseNumber:(state.nextBaseNumber??1)+1,bases:[...(state.bases??[]),{id:id as `base-${number}`,owner:'player',hp:recipe.hp,footprint:rect,construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null},production:{remainingSeconds:null,queue:[],nextJobNumber:1,nextUnitNumber:Math.max(4,...(context?.gathering.units??[]).map(u=>Number(u.id.split('-').at(-1))+1))}}]}:kind==='forge'?{...state,active:false,kind:undefined,forge:{id:'forge',owner:'player',hp:recipe.hp,footprint:rect,construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null}}}:kind==='barracks'
       ? {...state,active:false,kind:undefined,barracks:rect,barracksOwner:'player',barracksHP:recipe.hp,...(builder?{construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder.id}}:{})}
       : {...state,active:false,kind:undefined,nextFarmNumber:(state.nextFarmNumber??1)+1,
         farms:[...(state.farms??[]),{owner:'player',hp:recipe.hp,id:id as `farm-${number}`,footprint:rect,construction:{remainingSeconds:recipe.constructionSeconds,builderId:builder?.id??null}}]},

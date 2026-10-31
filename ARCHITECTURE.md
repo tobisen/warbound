@@ -1,3 +1,47 @@
+## Omspelbarhet och ökolonier — lokal vidareutveckling
+
+`enemyColonies.ts` reserverar en befintlig arbetare och eskort i
+`EnemyNavalState.colony`. Vanlig arbetarrörelse, transportnavigation,
+`enemyExpansion` och ekonomi verkställer orderna; ingen separat koloniekonomi.
+`AIContext.chartedStarts` innehåller offentliga startplatser och är härledd,
+inte sparad. Skeppsresor och kolonifaser sparas i Save79. Save78 migreras;
+äldre Tidebreak kör `legacyTidebreakPlan` via en explicit migrationsmarkör.
+
+`campaignPhases` hanterar samtidiga blockadzoner med starttid som nollställs
+vid avbrott, samt levande identitetsbundna passagerare/evakuering.
+`tidebreakObjectives.ts` innehåller nya mål och den bevarade gamla planen.
+Nya matchupplägg ändrar endast befintliga Skirmish-val.
+
+## Island Fleets — lokalt innehåll 2026-10-30
+
+[Island Fleets config](src/config/islandFleets.ts) håller rollgrupper,
+syftestexter och rena fart-/skademodifierare. Recept ligger fortsatt i
+[factions](src/config/factions.ts), forskningskrav i
+[roleResearch](src/config/roleResearch.ts). Fyra nya byggnader använder
+extraProducers och ordinarie placement/construction/production; ingen separat
+scenbaserad gameplaylogik eller parallell ekonomi har införts.
+
+[islandMaps](src/config/islandMaps.ts) beskriver fyra författade landmasseprofiler,
+ändliga resurser och 2–4 startplatser. De går genom befintlig terrainNavigation,
+mapResources och kartval. [islandNavalPlan](src/gameplay/islandNavalPlan.ts)
+härleder sjöförbindelse, hamn och flera stränder utifrån offentlig terräng och
+start-/målposition; begränsad cache om högst 32 planer. enemyNaval bygger och
+betalar via vanlig ekonomi, håller eskorter och återanvänder transporten.
+Landade trupper behåller sitt anfallsuppdrag. Äldre kartors sjöplan består.
+
+fleetService/matchFog/combat/navalCombat tillämpar nya tekniker för båda sidor.
+Fyrspelarlägets privata bot-tillstånd äger respektive enemyNaval; projektion,
+sparning och gemensam skadeberäkning följer samma ägare. Save-kontexten
+hämtar attack-sökpunkternas antal från respektive AI-kontext. Skrovskydd appliceras
+en gång även där. Sjömonsterregeln ändras inte.
+
+Save78 migrerar 77 före vanlig strikt validering; äldre migrationskedjor består.
+Legacy77 avvisar nya roll-/forsknings-/kartfält. Projektilerna behåller sina
+måldomäner. Nya building/ship/infantry-animationer laddas från separat atlas;
+exportören använder befintliga pixelhjälpare utan ändringar i units.mjs.
+ActionPanel återanvänder grupper, paginering och högst två forskningsrader.
+Se [innehåll och gränser](ISLAND_FLEETS.md).
+
 ## Tides of War — lokalt innehåll 2026-10-30
 
 [Fleet doctrine](src/config/fleetDoctrine.ts) och

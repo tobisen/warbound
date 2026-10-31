@@ -53,6 +53,42 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Publicera verifierat Island Fleets — In progress
+
+Användaren har beställt commit/push/Pages. Avgränsad publiceringskopia,
+unit/build/browser, granskad commit till origin/main och faktisk CI/deploy/
+publicerad browserkontroll. Äldre lokala CSS/units/docs bevaras.
+
+
+### Omspelbarhet och östrategi — 2026-10-31 — Done lokalt
+
+Omfattningen är bekräftad av användaren efter leveransen: ”Vidareutveckla
+Island Fleets och fyll luckorna”.
+
+Vidareutveckling av befintligt Island Fleets, inte en andra omgång av samma
+innehållskvoter. Betald AI-kolonisering, tidig marin doktrinforskning, två nya
+målmekaniker i Tidebreak, fyra Skirmish-upplägg och Save79/78-migration klara.
+Fullregression2264/239, strict build/diff och faktisk browser800/1280 PASS.
+Före/efter-belastning dokumenterad inklusive avvikande landprov och kvarvarande
+initial topp. Mänsklig balans/ljudgranskning återstår. Ingen commit/push/
+publicering eller delegering; inga nya roadmaptasks startas.
+Se [baslinje och leverans](REPLAYABILITY.md) och [överlämning](HANDOFF.md).
+
+### Island Fleets — 2026-10-30 — Done lokalt
+
+Nytt uttryckligt lokalt innehållsuppdrag: minst4 nya byggnader,8 enheter
+(varav5 båtar),6 forskningar och4 sjökartor, fungerande AI och verifiering.
+Levererat: fyra nya byggnader, fem nya skepp, tre nya landroller, sex tekniker
+samt Twinwake/Trident/Four Crowns/Farreach. Betald AI-flotta/landstigning,
+Save78/77-migration, egna sprites och ordinarie UI. Fullregression2248/237,
+unit563/95, strict build, browser800/1280 och normal AI-överfart PASS.
+Se [innehåll/begränsningar](ISLAND_FLEETS.md) och
+[slutverifiering](artifacts/island-fleets/README.md). Mänsklig balansgranskning
+återstår; AI-eskorter kan överlappa vid samlingspunkter.
+Ingen commit/push/publicering. Tidigare avslutade uppdrag är historik.
+Inget nytt roadmaparbete eller fortsatt publicering startas automatiskt.
+
+
 ## Tides of War publicerad — 2026-10-30 — Done
 
 [Spela Warbound](https://tobisen.github.io/warbound/) visar **v0.8.0 / Build bd6d0f3**.

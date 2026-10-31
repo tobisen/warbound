@@ -1,0 +1,17 @@
+{
+  "compact": true,
+  "players": 4,
+  "resaved": true,
+  "held": {
+    "start": 31.5,
+    "seconds": 36.5,
+    "phase": 2
+  },
+  "restored": {
+    "start": 31.5,
+    "seconds": 36.5,
+    "phase": 2
+  },
+  "outcome": "victory",
+  "seconds": 86.25
+}

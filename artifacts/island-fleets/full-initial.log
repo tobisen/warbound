@@ -1,0 +1,250 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+ ❯ src/gameplay/mapRegions.test.ts (36 tests | 8 failed) 22086ms
+   × twinwake has a distant reachable region, usable resources, curved land/water and strict Save 12ms
+   × trident has a distant reachable region, usable resources, curved land/water and strict Save 21ms
+   × crownsea has a distant reachable region, usable resources, curved land/water and strict Save 14ms
+   × farreach has a distant reachable region, usable resources, curved land/water and strict Save 30ms
+   × twinwake woodland version adds connected forest and preserves existing gold sites 1ms
+   × trident woodland version adds connected forest and preserves existing gold sites 0ms
+   × crownsea woodland version adds connected forest and preserves existing gold sites 0ms
+   × farreach woodland version adds connected forest and preserves existing gold sites 0ms
+ ❯ src/gameplay/discoveries.test.ts (15 tests | 1 failed) 30841ms
+   × authors hidden body-safe sites on every expanded map while standalone non-skirmish scenarios remain unchanged 332ms
+ ❯ src/gameplay/expandedMaps.test.ts (16 tests | 4 failed) 1363ms
+   × twinwake has128×128 real tiles, finite reachable expansions and consistent resource totals 28ms
+   × trident has128×128 real tiles, finite reachable expansions and consistent resource totals 15ms
+   × crownsea has128×128 real tiles, finite reachable expansions and consistent resource totals 12ms
+   × farreach has128×128 real tiles, finite reachable expansions and consistent resource totals 22ms
+ ❯ src/gameplay/islandFleets.test.ts (47 tests | 4 failed) 134074ms
+   × Four Crowns starts four owners on separate islands with independent paid economies and Save78 63874ms
+   × armored hulls apply once in multi-player shared damage resolution 268ms
+   × coastal gunnery stacks with existing precise bombard shells and active shots survive Save78 3ms
+   × a lost loading soldier releases the survivor so the AI can assemble another landing party 7ms
+ ❯ src/config/factions.test.ts (3 tests | 1 failed) 223ms
+   × implemented factions define all shared roles with distinct, globally unique type IDs 7ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 18 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/config/factions.test.ts > implemented factions define all shared roles with distinct, globally unique type IDs
+AssertionError: expected [ 'marine', 'sapper', …(12) ] to deeply equal [ 'worker', 'soldier', 'archer', …(8) ]
+
+- Expected
++ Received
+
+@@ -1,6 +1,9 @@
+  [
++   "marine",
++   "sapper",
++   "harpooner",
+    "worker",
+    "soldier",
+    "archer",
+    "catapult",
+    "specialist",
+
+ ❯ src/config/factions.test.ts:14:34
+     12|   const ids=new Set<string>();
+     13|   for(const id of factionIds){const f=factions[id];
+     14|     expect(Object.keys(f.units)).toEqual(['worker','soldier','archer',…
+       |                                  ^
+     15|     expect(Object.keys(f.buildings)).toEqual(['navalFoundry','base','b…
+     16|     expect(Object.keys(f.upgrades)).toEqual(['attack','defense']);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/18]⎯
+
+ FAIL  src/gameplay/discoveries.test.ts > authors hidden body-safe sites on every expanded map while standalone non-skirmish scenarios remain unchanged
+AssertionError: expected [] to have a length of 3 but got +0
+
+- Expected
++ Received
+
+- 3
++ 0
+
+ ❯ src/gameplay/discoveries.test.ts:25:103
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/18]⎯
+
+ FAIL  src/gameplay/expandedMaps.test.ts > twinwake has128×128 real tiles, finite reachable expansions and consistent resource totals
+AssertionError: expected { id: 'twinwake', …(8) } to match object { worldLayout: 'expanded', …(3) }
+(5 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "height": 4096,
++   "height": 1536,
+    "tileSize": 32,
+-   "width": 4096,
++   "width": 2048,
+    "worldLayout": "expanded",
+  }
+
+ ❯ src/gameplay/expandedMaps.test.ts:17:17
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/18]⎯
+
+ FAIL  src/gameplay/expandedMaps.test.ts > trident has128×128 real tiles, finite reachable expansions and consistent resource totals
+AssertionError: expected { id: 'trident', …(8) } to match object { worldLayout: 'expanded', …(3) }
+(5 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "height": 4096,
++   "height": 2304,
+    "tileSize": 32,
+-   "width": 4096,
++   "width": 3072,
+    "worldLayout": "expanded",
+  }
+
+ ❯ src/gameplay/expandedMaps.test.ts:17:17
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/18]⎯
+
+ FAIL  src/gameplay/expandedMaps.test.ts > crownsea has128×128 real tiles, finite reachable expansions and consistent resource totals
+AssertionError: expected { id: 'crownsea', …(8) } to match object { worldLayout: 'expanded', …(3) }
+(5 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "height": 4096,
++   "height": 3072,
+    "tileSize": 32,
+-   "width": 4096,
++   "width": 3072,
+    "worldLayout": "expanded",
+  }
+
+ ❯ src/gameplay/expandedMaps.test.ts:17:17
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/18]⎯
+
+ FAIL  src/gameplay/expandedMaps.test.ts > farreach has128×128 real tiles, finite reachable expansions and consistent resource totals
+AssertionError: expected { id: 'farreach', …(8) } to match object { worldLayout: 'expanded', …(3) }
+(5 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "height": 4096,
++   "height": 3072,
+    "tileSize": 32,
+    "width": 4096,
+    "worldLayout": "expanded",
+  }
+
+ ❯ src/gameplay/expandedMaps.test.ts:17:17
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/18]⎯
+
+ FAIL  src/gameplay/islandFleets.test.ts > Four Crowns starts four owners on separate islands with independent paid economies and Save78
+Error: Ogiltig sparning: attack scout
+ ❯ encodeSingleSave src/gameplay/save.ts:461:60
+
+ ❯ encodeMultipleSave src/gameplay/multipleSave.ts:31:25
+ ❯ encodeSave src/gameplay/save.ts:456:34
+ ❯ saveRoundtrip src/gameplay/islandFleets.test.ts:52:62
+ ❯ src/gameplay/islandFleets.test.ts:115:807
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/18]⎯
+
+ FAIL  src/gameplay/islandFleets.test.ts > armored hulls apply once in multi-player shared damage resolution
+AssertionError: expected 20 to be 16 // Object.is equality
+
+- Expected
++ Received
+
+- 16
++ 20
+
+ ❯ src/gameplay/islandFleets.test.ts:145:47
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/18]⎯
+
+ FAIL  src/gameplay/islandFleets.test.ts > coastal gunnery stacks with existing precise bombard shells and active shots survive Save78
+AssertionError: expected 3 to be 3.75 // Object.is equality
+
+- Expected
++ Received
+
+- 3.75
++ 3
+
+ ❯ src/gameplay/islandFleets.test.ts:153:63
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/18]⎯
+
+ FAIL  src/gameplay/islandFleets.test.ts > a lost loading soldier releases the survivor so the AI can assemble another landing party
+AssertionError: expected 'loading' to be 'waiting' // Object.is equality
+
+Expected: "waiting"
+Received: "loading"
+
+ ❯ src/gameplay/islandFleets.test.ts:159:67
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/18]⎯
+
+ FAIL  src/gameplay/mapRegions.test.ts > twinwake has a distant reachable region, usable resources, curved land/water and strict Save
+ FAIL  src/gameplay/mapRegions.test.ts > trident has a distant reachable region, usable resources, curved land/water and strict Save
+ FAIL  src/gameplay/mapRegions.test.ts > crownsea has a distant reachable region, usable resources, curved land/water and strict Save
+ FAIL  src/gameplay/mapRegions.test.ts > farreach has a distant reachable region, usable resources, curved land/water and strict Save
+AssertionError: expected 'blocked' not to be 'blocked' // Object.is equality
+ ❯ src/gameplay/mapRegions.test.ts:25:174
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/18]⎯
+
+ FAIL  src/gameplay/mapRegions.test.ts > twinwake woodland version adds connected forest and preserves existing gold sites
+AssertionError: expected 32 to be greater than 51.2
+ ❯ src/gameplay/mapRegions.test.ts:53:41
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/18]⎯
+
+ FAIL  src/gameplay/mapRegions.test.ts > trident woodland version adds connected forest and preserves existing gold sites
+AssertionError: expected 47 to be greater than 75.2
+ ❯ src/gameplay/mapRegions.test.ts:53:41
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/18]⎯
+
+ FAIL  src/gameplay/mapRegions.test.ts > crownsea woodland version adds connected forest and preserves existing gold sites
+AssertionError: expected 64 to be greater than 102.4
+ ❯ src/gameplay/mapRegions.test.ts:53:41
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/18]⎯
+
+ FAIL  src/gameplay/mapRegions.test.ts > farreach woodland version adds connected forest and preserves existing gold sites
+AssertionError: expected 62 to be greater than 99.2
+ ❯ src/gameplay/mapRegions.test.ts:53:41
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/18]⎯
+
+
+ Test Files  5 failed | 232 passed (237)
+      Tests  18 failed | 2238 passed (2256)
+   Start at  23:45:16
+   Duration  1129.27s (transform 3.66s, setup 0ms, import 44.11s, tests 2189.57s, environment 18ms)

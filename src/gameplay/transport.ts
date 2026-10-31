@@ -39,3 +39,15 @@ export function unloadTransport(m:MatchState,shipId:string,point:Position):Match
  for(const unit of passengers){const p=points.find(p=>{const body=unitBody(p,size(unit));return contact(m,ship.position,p)&&bodyFits(m.map,p,size(unit)/2)&&(!m.fog||placementVisible(m.fog,body))&&!occupied.some(o=>overlaps(o,body));});if(!p)return m;occupied.push(unitBody(p,size(unit)));landed.push({...unit,position:{...p},target:{...p},selected:false,commandMode:undefined,orderQueue:undefined,navigation:undefined,order:{kind:'idle'}});}
  return {...m,gathering:{...m.gathering,units:[...m.gathering.units,...landed]},navy:{...m.navy!,ships:m.navy!.ships.map(s=>s===ship?{...s,passengers:[]}:s)}};
 }
+
+/** Explain the same landing transaction used by pointer orders, without moving any entity. */
+export function transportLandingError(m:MatchState,shipId:string,point:Position):string|null {
+ const ship=m.navy?.ships.find(s=>s.id===shipId&&s.role==='transport'&&s.selected&&s.hp>0);
+ if(!ship?.passengers?.length)return 'Select a transport with passengers.';
+ const range=transportContactRange(m.factions?.player??'crown',m.research);
+ if(Math.hypot(ship.position.x-point.x,ship.position.y-point.y)>range)return `Move closer: landing must be within ${range}px of the transport.`;
+ if(!bodyFits(m.map,point,size(ship.passengers[0])/2))return 'Choose dry, unobstructed land at the coast.';
+ if(m.fog&&!placementVisible(m.fog,unitBody(point,size(ship.passengers[0]))))return 'Scout this shore first: the landing must be visible.';
+ if(!contact(m,ship.position,point))return 'An obstacle blocks access from the transport to this shore.';
+ return unloadTransport(m,shipId,point)===m?'Not enough free space for every passenger. Try another beach.':null;
+}

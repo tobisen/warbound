@@ -1,3 +1,4 @@
+import {isFleetBuilding} from '../config/islandFleets';
 import {seaMonsterRules,bossDefinitions,bossRules} from '../config/bosses';
 import {factions,type FactionId} from '../config/factions';
 import {combatConfig} from '../config/combat';
@@ -30,6 +31,7 @@ export function enemyMaximumHP(e:Enemy,faction:FactionId):number{
  if(e.kind==='ship')return f.naval.units[e.navalRole??'transport'].hp;
  if(e.kind==='base')return e.legacyProfile?combatConfig.baseHP:f.buildings.base.hp;
  if(e.kind==='building'){
+  if(e.buildingType&&isFleetBuilding(e.buildingType))return f.buildings[e.buildingType].hp;
   if(e.buildingType==='navalFoundry')return f.buildings.navalFoundry.hp;
   if(e.buildingType==='outpost')return enemyExpansionConfig.hp;
   if(e.buildingType==='siegeWorks')return f.buildings.siegeWorks.hp;

@@ -16,10 +16,10 @@ export function operationMessage(m:MatchState):string{
 export function missionTargets(m:MatchState){
  const phase=campaignPhase(m),operation=operationFor(m.scenario);
  const points=phase?.points??((!m.campaignRun||phase?.goal==='operation')&&operation?[operation.zone]:[]);
- return points.filter(point=>phase?.goal!=='explore'||!m.fog||!isExplored(m.fog,'player',point)).map((position,index)=>({position:{...position},radius:phase?.goal==='sea-position'?160:phase?.goal==='expand'?96:phase?.goal==='position'?64:operation&&(!m.campaignRun||phase?.goal==='operation')?operation.radius:24,color:0xffdf73,label:`Goal ${index+1} (${position.x},${position.y})`}));
+ return points.filter(point=>phase?.goal!=='explore'||!m.fog||!isExplored(m.fog,'player',point)).map((position,index)=>({position:{...position},radius:phase?.goal==='evacuate'?224:phase?.goal==='sea-position'||phase?.goal==='blockade'?160:phase?.goal==='expand'?96:phase?.goal==='position'?64:operation&&(!m.campaignRun||phase?.goal==='operation')?operation.radius:24,color:0xffdf73,label:`Goal ${index+1} (${position.x},${position.y})`}));
 }
 export function operationMarkers(m:MatchState){
- const targets=missionTargets(m),o=operationFor(m.scenario);if(!o)return targets;
+ const targets=missionTargets(m);if(m.campaignMission==='crown-tidebreak-relief'&&!m.campaignRun?.legacyTidebreak)for(const u of m.gathering.units.filter(u=>['unit-1','unit-2'].includes(u.id)))targets.push({position:{...u.position},radius:18,color:0xffdf73,label:'Relief worker — protect and evacuate'});const o=operationFor(m.scenario);if(!o)return targets;
  const markers:{position:{x:number;y:number};radius:number;color:number;label:string}[]=[...targets];
  if(!targets.some(t=>t.position.x===o.zone.x&&t.position.y===o.zone.y)&&(!m.fog||isExplored(m.fog,'player',o.zone)))markers.push({position:{...o.zone},radius:o.radius,color:0xd5b66b,label:o.kind==='escort'?'Safe Zone':o.kind==='rescue'?'Rescue Camp':'Coastal Banner'});
  if(o.kind==='escort'){const courier=m.gathering.units.find(u=>u.id===o.courier.id&&(u.hp??0)>0);if(courier)markers.push({position:{...courier.position},radius:18,color:0xd5b66b,label:o.courier.name});}

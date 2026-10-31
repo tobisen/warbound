@@ -1,10 +1,11 @@
+import {isIslandMap} from './islandMaps';
 import {isRegionalDesign} from './organicTerrain';
 import type {TerrainDesign} from './organicTerrain';
 import type {MapId} from './maps';
 import type {Position} from '../gameplay/movement';
 export interface Discovery {id:string;kind:'treasure'|'recruit';position:Position}
 export const discoveryConfig={range:48,reward:{wood:20,gold:10}};
-const sites:Record<MapId,readonly [Position,Position,Position]>={
+const sites:Partial<Record<MapId,readonly [Position,Position,Position]>>={
  tidebreak:[{x:528,y:752},{x:2000,y:1552},{x:2848,y:864}],
  straits:[{x:528,y:752},{x:1328,y:1808},{x:2848,y:864}],
  lakehold:[{x:816,y:1008},{x:1264,y:1088},{x:528,y:1184}],
@@ -20,7 +21,7 @@ const sites:Record<MapId,readonly [Position,Position,Position]>={
  plains96:[{x:784,y:752},{x:1872,y:2256},{x:1136,y:1136}],
  plains128:[{x:784,y:752},{x:1872,y:2256},{x:1136,y:1136}],
 };
-const regionalSites:Record<MapId,readonly [Position,Position,Position]>={
+const regionalSites:Partial<Record<MapId,readonly [Position,Position,Position]>>={
  tidebreak:[{x:528,y:752},{x:2000,y:1552},{x:2848,y:864}],
  straits:[{x:528,y:752},{x:1328,y:1808},{x:2848,y:864}],
  lakehold:[{x:816,y:1008},{x:1264,y:1088},{x:528,y:1184}],
@@ -36,4 +37,4 @@ const regionalSites:Record<MapId,readonly [Position,Position,Position]>={
  islands:[{x:528,y:784},{x:1744,y:1648},{x:2832,y:3216}],
  river:[{x:656,y:752},{x:1360,y:1552},{x:1008,y:720}],
 };
-export function mapDiscoveries(id:MapId,design?:TerrainDesign):Discovery[]{return (isRegionalDesign(design)?regionalSites:sites)[id].map((position,index)=>({id:`${id}-discovery-${index+1}`,kind:index===2?'recruit':'treasure',position:{...position}}));}
+export function mapDiscoveries(id:MapId,design?:TerrainDesign):Discovery[]{if(isIslandMap(id))return [];return (isRegionalDesign(design)?regionalSites:sites)[id]!.map((position,index)=>({id:`${id}-discovery-${index+1}`,kind:index===2?'recruit':'treasure',position:{...position}}));}

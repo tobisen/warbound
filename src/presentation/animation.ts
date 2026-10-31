@@ -1,6 +1,7 @@
+import {isFleetBuilding,isFleetShip,isMarine,fleetBuildingPurpose,fleetBuildings} from '../config/islandFleets';
 import {factions,type FactionId} from '../config/factions';
 import type {Position} from '../gameplay/movement';
-export type UnitArt='cutter'|'bombard'|'worker'|'soldier'|'archer'|'catapult'|'ballista'|'warship'|'transport'|'submarine'|'specialist'|'air'|'cavalry'|'healer'|'giant'|'scout';
+export type UnitArt='survey'|'raider'|'mortarShip'|'tender'|'torpedoBoat'|'cutter'|'bombard'|'worker'|'soldier'|'marine'|'sapper'|'harpooner'|'archer'|'catapult'|'ballista'|'warship'|'transport'|'submarine'|'specialist'|'air'|'cavalry'|'healer'|'giant'|'scout';
 export type Action='idle'|'walk'|'attack'|'death'|'gather'|'build';
 export const directions=['e','se','s','sw','w','nw','n','ne'] as const;
 export type Facing=typeof directions[number];
@@ -13,17 +14,17 @@ export function motion(previous:Motion|undefined,position:Position,action:Action
  const nextFacing=facing(moved?vector:aim?{x:aim.x-position.x,y:aim.y-position.y}:{x:0,y:0},previous?.facing);
  return {position:{...position},facing:nextFacing,action:nextAction,since:previous?.action===nextAction&&previous.facing===nextFacing?previous.since:time,type,owner,faction};
 }
-export function unitFrame(m:Motion,time:number):string{if(m.type==='air'||m.type==='scout'){const index=m.action==='death'?Math.min(3,Math.floor(Math.max(0,time-m.since)*8)):Math.floor(Math.max(0,time-m.since)*8)%4;return `${m.faction??'crown'}-${m.type}-${m.owner}-${m.facing}-${m.action==='walk'?'walk':m.action==='death'?'death':m.action==='attack'?'attack':'idle'}-${index}`;}const frames=m.action==='idle'?1:4,elapsed=Math.max(0,time-m.since),index=m.action==='death'?Math.min(3,Math.floor(elapsed*8)):Math.floor(elapsed*8)%frames;const type=m.type==='specialist'?factions[m.faction??'crown'].units.specialist.art??'soldier':m.type;return `${m.type==='cutter'?'':m.type==='bombard'?'dwarves-':factions[m.faction??'crown'].artPrefix}${type}-${m.owner}-${m.facing}-${m.action}-${index}`;}
-export function unitOrigin(type:UnitArt){return {x:.5,y:type==='giant'?56/64:type==='air'||type==='scout'?.5:type==='ballista'||type==='catapult'||type==='warship'||type==='transport'||type==='submarine'||type==='cutter'||type==='bombard'?40/64:22/32};}
+export function unitFrame(m:Motion,time:number):string{if(m.type==='air'||m.type==='scout'){const index=m.action==='death'?Math.min(3,Math.floor(Math.max(0,time-m.since)*8)):Math.floor(Math.max(0,time-m.since)*8)%4;return `${m.faction??'crown'}-${m.type}-${m.owner}-${m.facing}-${m.action==='walk'?'walk':m.action==='death'?'death':m.action==='attack'?'attack':'idle'}-${index}`;}const frames=m.action==='idle'?1:4,elapsed=Math.max(0,time-m.since),index=m.action==='death'?Math.min(3,Math.floor(elapsed*8)):Math.floor(elapsed*8)%frames;const type=m.type==='specialist'?factions[m.faction??'crown'].units.specialist.art??'soldier':m.type;return `${isFleetShip(m.type)?({survey:'elves-',raider:'clans-',mortarShip:'dwarves-',tender:'',torpedoBoat:'goblins-'})[m.type]:isMarine(m.type)?m.type==='harpooner'?'elves-':m.type==='marine'?m.faction==='clans'?'clans-':'':m.faction==='goblins'?'goblins-':'dwarves-':m.type==='cutter'?'':m.type==='bombard'?'dwarves-':factions[m.faction??'crown'].artPrefix}${type}-${m.owner}-${m.facing}-${m.action}-${index}`;}
+export function unitOrigin(type:UnitArt){return {x:.5,y:isFleetShip(type)?40/64:type==='giant'?56/64:type==='air'||type==='scout'?.5:type==='ballista'||type==='catapult'||type==='warship'||type==='transport'||type==='submarine'||type==='cutter'||type==='bombard'?40/64:22/32};}
 export interface DeathEffect {motion:Motion;expires:number}
 /** Called only for a logically removed, currently visible unit; fog hiding never creates a death. */
 export function deathEffect(previous:Motion,time:number,visible:boolean,removed:boolean):DeathEffect|null{return visible&&removed?{motion:{...previous,action:'death',since:time,position:{...previous.position}},expires:time+.5}:null;}
 export function effectAlive(effect:DeathEffect,time:number,visible:boolean):boolean{return visible&&time<effect.expires;}
 
-export function artAtlas(type:UnitArt):'units'|'naval'|'air'|'cavalry'|'healer'|'giant'|'scout'|'ballista'|'submarine'|'naval-content'{return type==='cutter'||type==='bombard'?'naval-content': type==='submarine'?'submarine':type==='ballista'?'ballista':type==='scout'?'scout':type==='giant'?'giant':type==='healer'?'healer':type==='cavalry'?'cavalry': type==='air'?'air':type==='warship'||type==='transport'?'naval':'units';}
+export function artAtlas(type:UnitArt):'units'|'naval'|'air'|'cavalry'|'healer'|'giant'|'scout'|'ballista'|'submarine'|'naval-content'|'island-fleets'{return isFleetShip(type)||isMarine(type)?'island-fleets':type==='cutter'||type==='bombard'?'naval-content': type==='submarine'?'submarine':type==='ballista'?'ballista':type==='scout'?'scout':type==='giant'?'giant':type==='healer'?'healer':type==='cavalry'?'cavalry': type==='air'?'air':type==='warship'||type==='transport'?'naval':'units';}
 
 /** Labels sit above the detailed land silhouettes, without changing its body or origin. */
 export function unitOverlayOffsets(type:UnitArt,faction:FactionId='crown'){
- const detailed=type==='worker'||type==='soldier'||type==='archer'||type==='specialist'||type==='cavalry'||type==='healer';
+ const detailed=isMarine(type)||type==='worker'||type==='soldier'||type==='archer'||type==='specialist'||type==='cavalry'||type==='healer';
  return {hp:type==='giant'?64:type==='air'||type==='scout'?60:detailed?48:type==='catapult'||type==='ballista'?48:29,cargo:detailed?68:48};
 }

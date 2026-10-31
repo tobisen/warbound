@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/multiplePlayers.test.ts src/gameplay/fivePlayers.test.ts src/gameplay/teamResults.test.ts src/gameplay/save.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  4 passed (4)
+      Tests  61 passed (61)
+   Start at  00:02:55
+   Duration  69.92s (transform 2.36s, setup 0ms, import 3.36s, tests 135.47s, environment 0ms)

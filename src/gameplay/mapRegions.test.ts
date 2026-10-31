@@ -1,3 +1,5 @@
+import {isIslandMap} from '../config/islandMaps';
+import {islandNavalPlan} from './islandNavalPlan';
 import {isNewSkirmishMap} from '../config/skirmishMaps';
 import {expect,it} from 'vitest';
 import {skirmishMapIds,maps,type MapId} from '../config/maps';
@@ -22,10 +24,11 @@ it.each(skirmishMapIds)('%s has a distant reachable region, usable resources, cu
  const m=createMatch('skirmish','beginner',undefined,id),base=regionBases[id],route=approachRoute(m.map,m.gathering.units[2].position,base,24),nodes=resourceNodes(m.gathering);expect(m.map.design).toBe('woodlands-connected');expect(terrainPatches(m.map).filter(p=>p.kind==='water').length).toBeGreaterThan(5);
  expect(isVisible(m.fog!,'player',{x:base.x+48,y:base.y+48})).toBe(false);
  if(!maps[id].enemyNaval){expect(route.status,id).not.toBe('blocked');const points=[m.gathering.units[2].position,...route.waypoints],length=points.slice(1).reduce((n,p,i)=>n+Math.hypot(p.x-points[i].x,p.y-points[i].y),0);expect(length,id).toBeGreaterThan(1500);}
+ else if(isIslandMap(id)){const plan=islandNavalPlan(m);expect(route.status).toBe('blocked');expect(approachRoute(m.map,m.combat.enemies.find(e=>e.kind==='worker')!.position,plan.harbor,24).status).not.toBe('blocked');expect(findDomainRoute(m.map,'water',plan.waterStart,plan.waterGoal,16).ok).toBe(true);expect(approachRoute(m.map,plan.loading,base,24).status).not.toBe('blocked');}
  else{expect(route.status).toBe('blocked');expect(approachRoute(m.map,m.combat.enemies.find(e=>e.kind==='worker')!.position,{x:864,y:320,width:64,height:64},24).status).not.toBe('blocked');expect(findDomainRoute(m.map,'water',{x:720,y:432},{x:880,y:432},16).ok).toBe(true);expect(approachRoute(m.map,{x:960,y:480},base,24).status).not.toBe('blocked');}
  for(const n of nodes){expect(n.position.x).toBeGreaterThanOrEqual(0);expect(n.position.y).toBeGreaterThanOrEqual(0);expect(n.position.x).toBeLessThan(m.map.width);expect(n.position.y).toBeLessThan(m.map.height);}
  for(const n of [m.gathering.node,m.gathering.gold!])expect(approachRoute(m.map,m.gathering.units[0].position,{x:n.position.x-(n.tree?16:20),y:n.position.y-(n.tree?16:20),width:n.tree?32:40,height:n.tree?32:40},24).status,`${id}:${n.id}`).not.toBe('blocked');
- const mine=nodes.find(n=>n.id==='region-0-0-mine')!,worker=m.combat.enemies.find(e=>e.kind==='worker')!;expect(approachRoute(m.map,worker.position,{x:mine.position.x-20,y:mine.position.y-20,width:40,height:40},24).status).not.toBe('blocked');
+ const mine=nodes.find(n=>n.id===(isIslandMap(id)?'island-1-near-gold':'region-0-0-mine'))!,worker=m.combat.enemies.find(e=>e.kind==='worker')!;expect(approachRoute(m.map,worker.position,{x:mine.position.x-20,y:mine.position.y-20,width:40,height:40},24).status).not.toBe('blocked');
  expect(bodyFits(m.map,{x:base.x-128,y:base.y+128},12)).toBe(true);expect(decodeSave(encodeSave(m,view)).ok).toBe(true);
 });
 it('a paid second base builds through contact, gathers locally, produces and survives original-base destruction',()=>{
@@ -48,7 +51,8 @@ it('natural paid expansion preserves a valid Save and victory after the original
 
 it.each(['islands','coast'] as const)('%s distant naval economy scouts and builds its paid harbor',id=>{let m=createMatch('skirmish','normal',undefined,id);for(let t=0;t<180;t+=.5){m=updateMatch(m,.5);if(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0))break;}expect(m.combat.enemies.some(e=>e.buildingType==='harbor'&&e.construction?.remainingSeconds===0)).toBe(true);const loaded=decodeSave(encodeSave(m,view));expect(loaded.ok,loaded.ok?'':loaded.error).toBe(true);},30000);
 
-it.each(skirmishMapIds.filter(id=>!isNewSkirmishMap(id)))('%s woodland version adds connected forest and preserves existing gold sites',async id=>{
+// Authored Island Fleets terrain is unchanged across legacy forest profiles.
+it.each(skirmishMapIds.filter(id=>!isNewSkirmishMap(id)&&!isIslandMap(id)))('%s woodland version adds connected forest and preserves existing gold sites',async id=>{
  const {mapResources}=await import('../config/maps');const before=mapResources(id,'trees','expanded','regions'),after=mapResources(id,'trees','expanded','woodlands-connected');
  expect(after.filter(n=>n.tree).length).toBeGreaterThan(before.filter(n=>n.tree).length*1.6);
  for(const mine of before.filter(n=>n.mine))expect(after.find(n=>n.id===mine.id),`${id}:${mine.id}`).toEqual(mine);

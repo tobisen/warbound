@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/orcs.test.ts src/gameplay/humans.test.ts src/gameplay/elves.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  3 passed (3)
+      Tests  12 passed (12)
+   Start at  23:56:07
+   Duration  2.15s (transform 1.69s, setup 0ms, import 2.45s, tests 995ms, environment 0ms)

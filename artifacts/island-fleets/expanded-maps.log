@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/expandedMaps.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  00:03:57
+   Duration  2.91s (transform 1.13s, setup 0ms, import 1.38s, tests 1.41s, environment 0ms)

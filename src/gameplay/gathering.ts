@@ -21,7 +21,7 @@ import type { SelectableUnit } from './selection';
 
 export type ResourceType = 'wood' | 'gold';
 export type WorkerOrder = {kind:'attack';enemyId:string} | {kind:'repair';buildingId:import('./buildingSelection').BuildingSelection&string} |  { kind: 'idle' } | { kind: 'move' }
-  | { kind: 'gather' | 'deliver'; nodeId: string } | {kind:'build';buildingId:'navalFoundry'|`producer-${number}`|`base-${number}`|`wall-${number}`|`gate-${number}`|`tower-${number}`|'siegeWorks'|'aviary'|'stable'|'academy'|'harbor'|'outpost'|`outpost-${number}`|'barracks'|'forge'|`farm-${number}`};
+  | { kind: 'gather' | 'deliver'; nodeId: string } | {kind:'build';buildingId:'drydock'|'signalTower'|'navalAcademy'|'marineBarracks'|'navalFoundry'|`producer-${number}`|`base-${number}`|`wall-${number}`|`gate-${number}`|`tower-${number}`|'siegeWorks'|'aviary'|'stable'|'academy'|'harbor'|'outpost'|`outpost-${number}`|'barracks'|'forge'|`farm-${number}`};
 export interface Worker extends SelectableUnit, importOrderState {
   healFlash?:number;
   navigation?: RouteState;
@@ -38,7 +38,7 @@ export interface Soldier extends SelectableUnit, SpellState, importOrderState {
   mana?:number;
   ability?:AbilityState;
   faction?:FactionId;
-  archetype?: 'archer'|'catapult'|'ballista'|'specialist'|'air'|'cavalry'|'healer'|'giant'|'scout';
+  archetype?: 'marine'|'sapper'|'harpooner'|'archer'|'catapult'|'ballista'|'specialist'|'air'|'cavalry'|'healer'|'giant'|'scout';
   attackCooldown?: number;
   autoOrigin?: Position;
   attackMoveTarget?: Position;

@@ -9,7 +9,7 @@ import {startResearch} from '../research';
 import {entityVisible} from '../visibility';
 /** Legal orders and paid reinforcements; no health, damage, resources, fog or deaths injected. */
 export function prepareSeaBattleTactics(m:MatchState=seaBattle()):MatchState {
- for(const [index,u]of m.gathering.units.filter(u=>u.kind==='worker').entries()){
+ for(const [index,u]of m.gathering.units.filter(u=>u.kind==='worker'&&!(m.campaignMission==='crown-tidebreak-relief'&&!m.campaignRun?.legacyTidebreak&&['unit-1','unit-2'].includes(u.id))).entries()){
   const node=index===2?m.gathering.gold!:m.gathering.node;
   m.gathering={...m.gathering,units:orderUnits(m.gathering.units.map(w=>({...w,selected:w.id===u.id})),node.position,node)};
  }

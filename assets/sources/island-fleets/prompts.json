@@ -1,0 +1,72 @@
+[
+  {
+    "name": "survey",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-2d54e9e5-7110-4b81-abf2-ff34652cb8cb.png",
+    "prompt": "Survey Launch: 8 directions ×4 states, transparent RTS sprite sheet."
+  },
+  {
+    "name": "raider",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-51793dcc-25c1-47a9-8e5e-ce0450bda255.png",
+    "prompt": "Production sprite sheet for Warbound medieval fantasy RTS. One new unit: a long narrow ORC raiding galley, blood red low triangular sail, black iron ram and short forward fire cannon, bone trophies, fast attack vessel. Painterly detailed pixel art matching classic RTS, crisp dark outlines, warm natural materials. Strict regular 8 columns by 4 rows, equally sized cells with clear transparent gutters, no labels/grid/text. Columns east,southeast,south,southwest,west,northwest,north,northeast. Rows idle; sailing with wake; firing weapon (repair tender instead works crane); destroyed sinking wreck. Exactly32 isolated sprites, full body inside each cell. Elevated three-quarter orthographic RTS camera. Consistent design and scale across all poses. Transparent background. Wide2:1 sheet."
+  },
+  {
+    "name": "mortarShip",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-35f60f23-0ba1-4ebd-a767-1f54cdfc3f1d.png",
+    "prompt": "Production sprite sheet for Warbound medieval fantasy RTS. One new unit: a heavy low broad DWARVEN mortar monitor, armored iron hull, squat enormous upward bronze mortar, furnace chimney, blue pennant, coastal artillery. Painterly detailed pixel art matching classic RTS, crisp dark outlines, warm natural materials. Strict regular 8 columns by 4 rows, equally sized cells with clear transparent gutters, no labels/grid/text. Columns east,southeast,south,southwest,west,northwest,north,northeast. Rows idle; sailing with wake; firing weapon (repair tender instead works crane); destroyed sinking wreck. Exactly32 isolated sprites, full body inside each cell. Elevated three-quarter orthographic RTS camera. Consistent design and scale across all poses. Transparent background. Wide2:1 sheet."
+  },
+  {
+    "name": "tender",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-a6e9e844-032d-4fa8-84e4-f80cb0c6600d.png",
+    "prompt": "Production sprite sheet for Warbound medieval fantasy RTS. One new unit: an unarmed HUMAN repair tender, broad workshop barge, visible wooden crane, rope spools, tools, folded cream sail and blue repair pennant, no guns; third row crane operating. Painterly detailed pixel art matching classic RTS, crisp dark outlines, warm natural materials. Strict regular 8 columns by 4 rows, equally sized cells with clear transparent gutters, no labels/grid/text. Columns east,southeast,south,southwest,west,northwest,north,northeast. Rows idle; sailing with wake; firing weapon (repair tender instead works crane); destroyed sinking wreck. Exactly32 isolated sprites, full body inside each cell. Elevated three-quarter orthographic RTS camera. Consistent design and scale across all poses. Transparent background. Wide2:1 sheet."
+  },
+  {
+    "name": "torpedoBoat",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-a5003a74-ec5f-4039-8997-f6969eedc2da.png",
+    "prompt": "Production sprite sheet for Warbound medieval fantasy RTS. One new unit: a tiny fast GOBLIN torpedo skiff, green metal plating, twin copper torpedo tubes on bow, exposed engine, no sail, blue pennant. Painterly detailed pixel art matching classic RTS, crisp dark outlines, warm natural materials. Strict regular 8 columns by 4 rows, equally sized cells with clear transparent gutters, no labels/grid/text. Columns east,southeast,south,southwest,west,northwest,north,northeast. Rows idle; sailing with wake; firing weapon (repair tender instead works crane); destroyed sinking wreck. Exactly32 isolated sprites, full body inside each cell. Elevated three-quarter orthographic RTS camera. Consistent design and scale across all poses. Transparent background. Wide2:1 sheet."
+  },
+  {
+    "name": "marine",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-3d7d88c4-8872-4e95-b46c-b1af3246a4b3.png",
+    "prompt": "Production sprite sheet for Warbound medieval fantasy RTS. One new unit: a HUMAN coastal marine infantryman with blue jacket, leather breastplate, cutlass and round buckler, sturdy boots. Painterly detailed pixel art matching classic RTS, crisp dark outlines, warm natural materials. Strict regular 8 columns by 4 rows, equally sized cells with clear transparent gutters, no labels/grid/text. Columns east,southeast,south,southwest,west,northwest,north,northeast. Rows idle; walking stride; distinct attacking pose, weapon swung or fired; fallen dead body. Exactly32 isolated sprites, full body inside each cell. Elevated three-quarter orthographic RTS camera. Consistent design and scale across all poses. Transparent background. Wide2:1 sheet."
+  },
+  {
+    "name": "sapper",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-5382073e-4734-4994-bef3-0e14423b3b25.png",
+    "prompt": "Production sprite sheet for Warbound medieval fantasy RTS. One new unit: a DWARVEN demolition sapper infantryman carrying a large powder keg, fuse and hammer, blue padded hood, no gun. Painterly detailed pixel art matching classic RTS, crisp dark outlines, warm natural materials. Strict regular 8 columns by 4 rows, equally sized cells with clear transparent gutters, no labels/grid/text. Columns east,southeast,south,southwest,west,northwest,north,northeast. Rows idle; walking stride; distinct attacking pose, weapon swung or fired; fallen dead body. Exactly32 isolated sprites, full body inside each cell. Elevated three-quarter orthographic RTS camera. Consistent design and scale across all poses. Transparent background. Wide2:1 sheet."
+  },
+  {
+    "name": "harpooner",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-274af1f3-4bd6-4d65-922d-07a566444680.png",
+    "prompt": "Production sprite sheet for Warbound medieval fantasy RTS. One new unit: an ELVEN coastal harpoon infantryman with green cloak, long brass harpoon launcher and blue sash. Painterly detailed pixel art matching classic RTS, crisp dark outlines, warm natural materials. Strict regular 8 columns by 4 rows, equally sized cells with clear transparent gutters, no labels/grid/text. Columns east,southeast,south,southwest,west,northwest,north,northeast. Rows idle; walking stride; distinct attacking pose, weapon swung or fired; fallen dead body. Exactly32 isolated sprites, full body inside each cell. Elevated three-quarter orthographic RTS camera. Consistent design and scale across all poses. Transparent background. Wide2:1 sheet."
+  },
+  {
+    "name": "drydock",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-b6011e57-bcaa-4f79-bb35-6d7d62169a60.png",
+    "prompt": "Warbound medieval fantasy RTS production building sprite sheet. Drydock: a stone-and-timber ship repair workshop, heavy crane, keel supports, ropes and spare planks, no water/background platform, blue flags. Detailed painterly pixel art with crisp dark outlines, elevated three-quarter orthographic view matching classic RTS. Exactly FOUR equal square cells in ONE ROW, ample transparent gutters. Left to right: COMPLETE operational building, DAMAGED building with broken roof and scorch marks, FOUNDATION construction site with stone footings, HALF BUILT scaffolding. Same camera, footprint, scale and centered baseline in all4 cells. Each building fully inside its own cell. No text, labels, grid, landscape or backdrop. Transparent background. Wide4:1 sheet."
+  },
+  {
+    "name": "signalTower",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-14af347b-756c-49af-8e3e-badff97ae754.png",
+    "prompt": "Warbound medieval fantasy RTS production building sprite sheet. Signal Tower: tall slender stone lighthouse/lookout with large brass lens and signal lantern, blue flags, timber access stairs. Detailed painterly pixel art with crisp dark outlines, elevated three-quarter orthographic view matching classic RTS. Exactly FOUR equal square cells in ONE ROW, ample transparent gutters. Left to right: COMPLETE operational building, DAMAGED building with broken roof and scorch marks, FOUNDATION construction site with stone footings, HALF BUILT scaffolding. Same camera, footprint, scale and centered baseline in all4 cells. Each building fully inside its own cell. No text, labels, grid, landscape or backdrop. Transparent background. Wide4:1 sheet."
+  },
+  {
+    "name": "navalAcademy",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-6d26aff5-f4e2-4256-9329-b149f152577c.png",
+    "prompt": "Warbound medieval fantasy RTS production building sprite sheet. Naval Academy: fortified maritime college, teal tiled roof, bronze astrolabe, nautical chart table and miniature mast, blue flags. Detailed painterly pixel art with crisp dark outlines, elevated three-quarter orthographic view matching classic RTS. Exactly FOUR equal square cells in ONE ROW, ample transparent gutters. Left to right: COMPLETE operational building, DAMAGED building with broken roof and scorch marks, FOUNDATION construction site with stone footings, HALF BUILT scaffolding. Same camera, footprint, scale and centered baseline in all4 cells. Each building fully inside its own cell. No text, labels, grid, landscape or backdrop. Transparent background. Wide4:1 sheet."
+  },
+  {
+    "name": "marineBarracks",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-f888408d-2d5d-41ff-b913-ee2db196588a.png",
+    "prompt": "Warbound medieval fantasy RTS production building sprite sheet. Marine Barracks: coastal military lodge, timber palisade, blue canvas roof, cutlasses/shields and harpoon racks, gangplank training ramp. Detailed painterly pixel art with crisp dark outlines, elevated three-quarter orthographic view matching classic RTS. Exactly FOUR equal square cells in ONE ROW, ample transparent gutters. Left to right: COMPLETE operational building, DAMAGED building with broken roof and scorch marks, FOUNDATION construction site with stone footings, HALF BUILT scaffolding. Same camera, footprint, scale and centered baseline in all4 cells. Each building fully inside its own cell. No text, labels, grid, landscape or backdrop. Transparent background. Wide4:1 sheet."
+  },
+  {
+    "name": "clans-marine",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-ec67fd9b-0667-458f-b4ff-7632166ab2c0.png",
+    "prompt": "Warbound medieval fantasy RTS sprite sheet, a green muscular ORC boarding marauder, red leather armor, cutlass and round shield, blue team sash. Transparent background. Painterly detailed pixel art, crisp dark outlines, elevated3/4 camera. Exactly8 columns and4 rows regular equal cells with transparent gutters. Columns E,SE,S,SW,W,NW,N,NE. Rows idle, walking, attacking with cutlass/hammer, dead lying on ground. Exactly32 isolated full-body sprites, no cropping, text, labels, grid or backdrop. Wide2:1. Match classic RTS unit sprites."
+  },
+  {
+    "name": "goblins-sapper",
+    "path": "/Users/tobiasbertilsson/.codex/generated_images/01a18ee1-27ad-7ab1-8639-ca6fa459539b/exec-36e9357f-88d0-449e-beea-7c3ec284b4a7.png",
+    "prompt": "Warbound medieval fantasy RTS sprite sheet, a small green GOBLIN fuse runner, brass goggles, blue cloth hood, satchel of powder charges and lit keg, short hammer. Transparent background. Painterly detailed pixel art, crisp dark outlines, elevated3/4 camera. Exactly8 columns and4 rows regular equal cells with transparent gutters. Columns E,SE,S,SW,W,NW,N,NE. Rows idle, walking, attacking with cutlass/hammer, dead lying on ground. Exactly32 isolated full-body sprites, no cropping, text, labels, grid or backdrop. Wide2:1. Match classic RTS unit sprites."
+  }
+]

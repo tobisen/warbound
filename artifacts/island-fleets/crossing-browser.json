@@ -1,0 +1,167 @@
+{
+  "report": [
+    {
+      "requested": "sailing",
+      "phase": "sailing",
+      "time": 603,
+      "baseHP": 240,
+      "ships": [
+        {
+          "role": "transport",
+          "hp": 100,
+          "position": {
+            "x": 1168,
+            "y": 496
+          }
+        },
+        {
+          "role": "warship",
+          "hp": 100,
+          "position": {
+            "x": 1138.7138049441232,
+            "y": 466.71380494412324
+          }
+        },
+        {
+          "role": "warship",
+          "hp": 100,
+          "position": {
+            "x": 1138.7138049441232,
+            "y": 466.71380494412324
+          }
+        },
+        {
+          "role": "warship",
+          "hp": 100,
+          "position": {
+            "x": 1138.7138049441232,
+            "y": 466.71380494412324
+          }
+        },
+        {
+          "role": "raider",
+          "hp": 80,
+          "position": {
+            "x": 1165.2303092386187,
+            "y": 493.23030923861876
+          }
+        }
+      ],
+      "passengers": 2,
+      "landed": 0,
+      "spent": {
+        "wood": 1726,
+        "gold": 652
+      }
+    },
+    {
+      "requested": "landed",
+      "phase": "landed",
+      "time": 605.5,
+      "baseHP": 240,
+      "ships": [
+        {
+          "role": "transport",
+          "hp": 100,
+          "position": {
+            "x": 912,
+            "y": 528
+          }
+        },
+        {
+          "role": "warship",
+          "hp": 100,
+          "position": {
+            "x": 935.9902389276028,
+            "y": 521.514861334904
+          }
+        },
+        {
+          "role": "warship",
+          "hp": 100,
+          "position": {
+            "x": 935.9902389276028,
+            "y": 521.514861334904
+          }
+        },
+        {
+          "role": "warship",
+          "hp": 100,
+          "position": {
+            "x": 935.9902389276028,
+            "y": 521.514861334904
+          }
+        },
+        {
+          "role": "raider",
+          "hp": 80,
+          "position": {
+            "x": 912,
+            "y": 528
+          }
+        }
+      ],
+      "passengers": 0,
+      "landed": 2,
+      "spent": {
+        "wood": 1726,
+        "gold": 652
+      }
+    },
+    {
+      "requested": "damage",
+      "phase": "landed",
+      "time": 608,
+      "baseHP": 218.97585244287143,
+      "ships": [
+        {
+          "role": "transport",
+          "hp": 100,
+          "position": {
+            "x": 1168,
+            "y": 496
+          }
+        },
+        {
+          "role": "warship",
+          "hp": 100,
+          "position": {
+            "x": 935.9902389276028,
+            "y": 521.514861334904
+          }
+        },
+        {
+          "role": "warship",
+          "hp": 100,
+          "position": {
+            "x": 935.9902389276028,
+            "y": 521.514861334904
+          }
+        },
+        {
+          "role": "warship",
+          "hp": 100,
+          "position": {
+            "x": 935.9902389276028,
+            "y": 521.514861334904
+          }
+        },
+        {
+          "role": "raider",
+          "hp": 80,
+          "position": {
+            "x": 912,
+            "y": 528
+          }
+        }
+      ],
+      "passengers": 0,
+      "landed": 2,
+      "spent": {
+        "wood": 1726,
+        "gold": 652
+      }
+    }
+  ],
+  "errors": []
+}

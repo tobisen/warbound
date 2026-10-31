@@ -1,0 +1,138 @@
+{
+  "scenario": "128 land attackers + 32 durable defenders, 20 gameplay seconds, Chrome156 native1280; explicit injected load fixture; isolated browser runs",
+  "note": "Initial after run was slower; reran unchanged baseline snapshot on5196 then final code on5195. Outlier retained; no inferred causal performance fix.",
+  "runs": [
+    {
+      "run": "before",
+      "cpu": {
+        "samples": 1214,
+        "p50": 10.899999976158142,
+        "p95": 19.5,
+        "max": 137.80000007152557,
+        "over50ms": 1
+      },
+      "frames": {
+        "samples": 1213,
+        "p50": 16.69999999999891,
+        "p95": 16.700000000000728,
+        "max": 216.60000000000036,
+        "over50ms": 1
+      },
+      "events": [
+        {
+          "kind": "dispatch",
+          "seconds": 3.0142666666691866
+        },
+        {
+          "kind": "reveal",
+          "seconds": 6.497436666666431,
+          "ms": 10.199999928474426
+        },
+        {
+          "kind": "combat",
+          "seconds": 7.930706666665287,
+          "ms": 13.100000023841858
+        }
+      ]
+    },
+    {
+      "run": "after",
+      "cpu": {
+        "samples": 1085,
+        "p50": 15.399999976158142,
+        "p95": 28.5,
+        "max": 193.79999995231628,
+        "over50ms": 3
+      },
+      "frames": {
+        "samples": 1084,
+        "p50": 16.699999999999818,
+        "p95": 33.30000000000291,
+        "max": 333.4000000000001,
+        "over50ms": 4
+      },
+      "events": [
+        {
+          "kind": "dispatch",
+          "seconds": 3.014020000000869
+        },
+        {
+          "kind": "reveal",
+          "seconds": 6.497199999998088,
+          "ms": 14
+        },
+        {
+          "kind": "combat",
+          "seconds": 7.925469999996949,
+          "ms": 21.100000023841858
+        }
+      ]
+    },
+    {
+      "run": "baseline-recheck",
+      "cpu": {
+        "samples": 1211,
+        "p50": 10.900000095367432,
+        "p95": 18.199999928474426,
+        "max": 141.89999997615814,
+        "over50ms": 1
+      },
+      "frames": {
+        "samples": 1210,
+        "p50": 16.69999999999891,
+        "p95": 16.799999999999272,
+        "max": 233.20000000000027,
+        "over50ms": 1
+      },
+      "events": [
+        {
+          "kind": "dispatch",
+          "seconds": 3.0139400000011847
+        },
+        {
+          "kind": "reveal",
+          "seconds": 6.497119999998404,
+          "ms": 9.699999928474426
+        },
+        {
+          "kind": "combat",
+          "seconds": 7.93038999999726,
+          "ms": 13.399999976158142
+        }
+      ]
+    },
+    {
+      "run": "after-recheck",
+      "cpu": {
+        "samples": 1208,
+        "p50": 11.100000023841858,
+        "p95": 18.699999928474426,
+        "max": 131.69999992847443,
+        "over50ms": 1
+      },
+      "frames": {
+        "samples": 1207,
+        "p50": 16.69999999999891,
+        "p95": 16.799999999999272,
+        "max": 216.49999999999977,
+        "over50ms": 1
+      },
+      "events": [
+        {
+          "kind": "dispatch",
+          "seconds": 3.014156666668555
+        },
+        {
+          "kind": "reveal",
+          "seconds": 6.497336666665774,
+          "ms": 10.799999952316284
+        },
+        {
+          "kind": "combat",
+          "seconds": 7.93060666666463,
+          "ms": 13.700000047683716
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,6 @@
+import {commandShips} from '../navy';
+import {requestTransport} from '../autoTransport';
+import {entityVisible} from '../visibility';
 import {enqueueProduction} from '../productionQueue';
 import {matchPopulation} from '../navy';
 import {orderUnits} from '../gathering';
@@ -17,7 +20,18 @@ export function tidebreak(){const identity=identityFor('crown','normal');return 
 export function tidebreakOrders(m:MatchState,strategy:'screen'|'logistics'):MatchState {
  const phase=campaignPhase(m),run=m.campaignRun!;
  const navalPhase=phase?.goal==='position'?2:phase?.goal==='base'?3:phase?.goal==='enemy-fleet'?1:0;
- m=seaBattleTacticalOrders({...m,campaignRun:{...run,phase:navalPhase}},phase?.goal==='sea-position'?phase.points![0]:{x:1600,y:480},strategy==='screen');m={...m,campaignRun:run};
+ if(phase?.goal==='blockade'){
+  const hostile=m.combat.enemies.some(e=>e.kind==='ship'&&e.hp>0&&(!m.fog||entityVisible(m.fog,'player',e)));
+  if(hostile)m=seaBattleTacticalOrders({...m,campaignRun:{...run,phase:0}},phase.points![0],false);
+  else {const armed=m.navy!.ships.filter(s=>s.role!=='transport'),half=Math.ceil(armed.length/2);for(const [i,point]of phase.points!.entries()){const ids=new Set(armed.slice(i*half,(i+1)*half).map(s=>s.id));m={...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>({...s,selected:ids.has(s.id)&&Math.hypot(s.position.x-point.x,s.position.y-point.y)>100}))}};m={...m,navy:commandShips(m,point)};}}
+  m={...m,campaignRun:run};
+ }else if(phase?.goal==='embark'||phase?.goal==='evacuate'){
+  const ferry=m.navy!.ships.find(s=>s.role==='transport'&&s.hp>0);if(ferry&&!ferry.transfer){
+   const goal=phase.goal==='embark'?{x:1328,y:1552}:{x:800,y:736};
+   if(Math.hypot(ferry.position.x-goal.x,ferry.position.y-goal.y)>96){if(ferry.order.kind==='idle'){m={...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>({...s,selected:s.id===ferry.id}))}};m={...m,navy:commandShips(m,goal)};}}
+   else {m={...m,gathering:{...m.gathering,units:m.gathering.units.map(u=>({...u,selected:phase.unitIds!.includes(u.id)}))}};m=requestTransport(m,ferry.id,phase.goal==='embark'?'load':'unload');}
+  }
+ }else m=seaBattleTacticalOrders({...m,campaignRun:{...run,phase:navalPhase}},phase?.goal==='sea-position'?phase.points![0]:{x:1600,y:480},strategy==='screen');m={...m,campaignRun:run};
  const scout=m.gathering.units.find(u=>u.kind==='soldier'&&u.archetype==='scout');
  if(phase?.goal==='explore'&&scout?.order.kind==='idle'){
   m={...m,gathering:{...m.gathering,units:m.gathering.units.map(u=>({...u,selected:u===scout}))},navy:{...m.navy!,ships:m.navy!.ships.map(s=>({...s,selected:false}))}};
@@ -25,7 +39,7 @@ export function tidebreakOrders(m:MatchState,strategy:'screen'|'logistics'):Matc
  }
  if(strategy==='logistics'){
   if(!m.placement.producers?.some(p=>p.kind==='navalFoundry')){
-   const worker=m.gathering.units.find(u=>u.kind==='worker');m={...m,gathering:{...m.gathering,units:m.gathering.units.map(u=>({...u,selected:u===worker}))}};
+   const worker=m.gathering.units.find(u=>u.kind==='worker'&&!['unit-1','unit-2'].includes(u.id));m={...m,gathering:{...m.gathering,units:m.gathering.units.map(u=>({...u,selected:u===worker}))}};
    const built=placeBuilding(beginPlacement(m.placement,'navalFoundry'),{x:576,y:640},m.gathering.wood,placementObstacles(m.gathering),{map:m.map,gathering:m.gathering,enemies:m.combat.enemies,technology:technologyFor(m,'player')});
    if(built.gathering)m={...m,gathering:built.gathering,placement:built.placement,map:built.map!};
   }
@@ -39,7 +53,7 @@ export function tidebreakOrders(m:MatchState,strategy:'screen'|'logistics'):Matc
 export function simulateTidebreak(strategy:'screen'|'logistics',onPhase?:(m:MatchState)=>void){
  let m=prepareSeaBattleTactics(tidebreak());
  // The logistics plan must reserve its real starting bank for the foundry.
- if(strategy==='logistics'){m=tidebreak();for(const [index,u] of m.gathering.units.filter(u=>u.kind==='worker').entries()){const node=index===2?m.gathering.gold!:m.gathering.node;m.gathering={...m.gathering,units:orderUnits(m.gathering.units.map(w=>({...w,selected:w.id===u.id})),node.position,node)};}}
+ if(strategy==='logistics'){m=tidebreak();for(const [index,u] of m.gathering.units.filter(u=>u.kind==='worker'&&!['unit-1','unit-2'].includes(u.id)).entries()){const node=index===2?m.gathering.gold!:m.gathering.node;m.gathering={...m.gathering,units:orderUnits(m.gathering.units.map(w=>({...w,selected:w.id===u.id})),node.position,node)};}}
  for(let i=0;i<720*4&&m.outcome==='playing';i++){
   if(i%4===0)m=tidebreakOrders(m,strategy);
   const previous=m.campaignRun!.phase;m=updateMatch(m,.25);if(previous!==m.campaignRun!.phase)onPhase?.(m);

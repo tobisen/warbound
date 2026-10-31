@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/enemyColonies.test.ts src/gameplay/replayObjectives.test.ts src/gameplay/islandFleets.test.ts src/gameplay/tidebreak.test.ts src/gameplay/enemyExpansion.test.ts src/gameplay/enemyRecovery.test.ts src/gameplay/enemyGathering.test.ts src/gameplay/enemyStrategy.test.ts src/gameplay/multipleSave.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  8 passed (8)
+      Tests  119 passed (119)
+   Start at  00:51:41
+   Duration  172.63s (transform 1.37s, setup 0ms, import 2.64s, tests 231.20s, environment 1ms)

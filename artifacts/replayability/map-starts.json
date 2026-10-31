@@ -1,0 +1,46 @@
+[
+  {
+    "map": "twinwake",
+    "width": 2048,
+    "height": 1536,
+    "units": 3,
+    "wood": 3200,
+    "gold": 7200,
+    "route": "moving",
+    "save": true,
+    "errors": []
+  },
+  {
+    "map": "trident",
+    "width": 3072,
+    "height": 2304,
+    "units": 3,
+    "wood": 4100,
+    "gold": 11700,
+    "route": "moving",
+    "save": true,
+    "errors": []
+  },
+  {
+    "map": "crownsea",
+    "width": 3072,
+    "height": 3072,
+    "units": 3,
+    "wood": 6400,
+    "gold": 14400,
+    "route": "moving",
+    "save": true,
+    "errors": []
+  },
+  {
+    "map": "farreach",
+    "width": 4096,
+    "height": 3072,
+    "units": 3,
+    "wood": 5000,
+    "gold": 16200,
+    "route": "moving",
+    "save": true,
+    "errors": []
+  }
+]

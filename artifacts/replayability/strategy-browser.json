@@ -1,0 +1,133 @@
+{
+  "note": "Native viewport. Ordinary menu presets and unmodified starting economy. Accelerated .5s gameplay ticks, Save/resume each stage. Only rendered observation copies reveal fog.",
+  "report": [
+    {
+      "width": 800,
+      "stages": [
+        {
+          "goal": "sailing",
+          "time": 165.5333,
+          "stage": "sailing",
+          "passengers": [
+            "worker",
+            "unit"
+          ],
+          "outposts": [],
+          "spent": {
+            "wood": 366,
+            "gold": 65
+          },
+          "research": {
+            "attack": 0,
+            "defense": 0,
+            "job": null
+          }
+        },
+        {
+          "goal": "settling",
+          "time": 179.5333,
+          "stage": "settling",
+          "passengers": [],
+          "outposts": [],
+          "spent": {
+            "wood": 388,
+            "gold": 65
+          },
+          "research": {
+            "attack": 0,
+            "defense": 0,
+            "job": null
+          }
+        },
+        {
+          "goal": "outpost",
+          "time": 266.0333,
+          "passengers": [],
+          "outposts": [
+            {
+              "position": {
+                "x": 1584,
+                "y": 1808
+              },
+              "ready": true
+            }
+          ],
+          "spent": {
+            "wood": 590,
+            "gold": 115
+          },
+          "research": {
+            "attack": 0,
+            "defense": 0,
+            "job": null
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "stages": [
+        {
+          "goal": "sailing",
+          "time": 165.53327333333334,
+          "stage": "sailing",
+          "passengers": [
+            "worker",
+            "unit"
+          ],
+          "outposts": [],
+          "spent": {
+            "wood": 366,
+            "gold": 65
+          },
+          "research": {
+            "attack": 0,
+            "defense": 0,
+            "job": null
+          }
+        },
+        {
+          "goal": "settling",
+          "time": 179.53327333333334,
+          "stage": "settling",
+          "passengers": [],
+          "outposts": [],
+          "spent": {
+            "wood": 388,
+            "gold": 65
+          },
+          "research": {
+            "attack": 0,
+            "defense": 0,
+            "job": null
+          }
+        },
+        {
+          "goal": "outpost",
+          "time": 266.03327333333334,
+          "passengers": [],
+          "outposts": [
+            {
+              "position": {
+                "x": 1584,
+                "y": 1808
+              },
+              "ready": true
+            }
+          ],
+          "spent": {
+            "wood": 590,
+            "gold": 115
+          },
+          "research": {
+            "attack": 0,
+            "defense": 0,
+            "job": null
+          }
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

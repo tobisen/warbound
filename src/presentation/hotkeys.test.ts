@@ -22,3 +22,7 @@ describe('one validated command path for hotkeys',()=>{
   expect(dispatchHotkey('W',context,button)).toBe(true);expect(s.gathering.wood).toBe(0);expect(s.production.queue).toHaveLength(1);expect(dispatchHotkey('W',context,button)).toBe(false);expect(s.production.queue).toHaveLength(1);
  });
 });
+it('new fleet chords use Shift and share disabled-button/focus guards',()=>{
+ const context={playing:true,repeat:false,focusedTag:'CANVAS'};
+ expect(hotkeyButton('b',{...context,shiftKey:true})).toBe('build-drydock');expect(hotkeyButton('b',context)).toBe('build-barracks');expect(hotkeyButton('b',{...context,shiftKey:true,focusedTag:'INPUT'})).toBeNull();
+});

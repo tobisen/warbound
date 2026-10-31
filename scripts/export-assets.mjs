@@ -52,3 +52,5 @@ await import('./export-siege-works.mjs');
 await import('./export-submarines.mjs');
 
 await import('./export-naval-content.mjs');
+
+await import('./export-island-fleets.mjs');

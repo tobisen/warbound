@@ -29,5 +29,5 @@ it('has its own Reef Island chart, reachable sea approaches and finite accessibl
  for(const d of mapDiscoveries('tidebreak',m.map.design))expect(bodyFits(m.map,d.position,12)).toBe(true);
  for(const p of [{x:1600,y:480},{x:1600,y:1216},{x:1600,y:1952}])expect(findDomainRoute(m.map,'water',{x:960,y:640},p,16).ok).toBe(true);
  expect(resourceNodes(m.gathering).filter(n=>n.id.endsWith('-4')).map(n=>[n.resource,n.remaining])).toEqual([['wood',600],['gold',1500]]);
- expect(findDomainRoute(m.map,'land',m.gathering.units[0].position,{x:2000,y:1552},12).ok).toBe(false);
+ expect(findDomainRoute(m.map,'land',m.gathering.base,{x:2000,y:1552},12).ok).toBe(false);
 });

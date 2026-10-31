@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/tidebreak.test.ts src/gameplay/replayObjectives.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  2 passed (2)
+      Tests  9 passed (9)
+   Start at  00:52:19
+   Duration  15.03s (transform 1.89s, setup 0ms, import 2.39s, tests 21.01s, environment 0ms)

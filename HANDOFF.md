@@ -1,3 +1,103 @@
+## Publicering av Island Fleets och omspelbarhet — 2026-10-31
+
+Användaren har nu uttryckligen beställt commit, push och publicering. Detta
+ersätter tidigare lokalt leveransstopp. Befintlig origin/main och GitHub Pages
+används; ingen versionshöjning, force-push eller ny roadmaptask.
+
+Spelkoden matchar verifierad fullregression2264/239. En avgränsad
+publiceringskopia verifieras med repositoryts CSS/assetkällfil; användarens
+äldre lokala style.css, units.mjs och fristående docs bevaras utanför commiten.
+Publiceringskopians `npm run test:unit`563/95 och `npm run build`
+inklusive strict typecheck PASS. Ny faktisk Chrome800/1280 verifierar
+fyra presets, betald Marine-kö, Light Hulls, native Save/Load och UI-gränser.
+Se artifacts/island-fleets-publication/local och unit/build-loggar. CI och publicerad Build-ID
+rapporteras efter faktisk deploy, inte som ett antagande utifrån push.
+
+Även tidigare fraktionsforskning/Tech Tree/Save för samtliga fem raser
+i800/1280 PASS mot publiceringskopian. Staged diffcheck PASS; skyddade
+CSS/units/docs är uttryckligen utanför commiten.
+
+## Omspelbarhet och östrategi — klart lokalt 2026-10-31
+
+Kompletterande Saveprov: kompakt fyrspelar78→79 samt laddning mitt i
+blockadtimern och fortsatt seger PASS (se REPLAYABILITY).
+
+Island Fleets innehåll fanns redan i arbetskopian och räknas inte igen som nytt.
+Användaren har efter leveransen bekräftat ”Vidareutveckla Island Fleets och
+fyll luckorna”, vilket överensstämmer med genomförd omfattning.
+Se [baslinje/leverans](REPLAYABILITY.md).
+
+Nytt: betald AI-arbetstransport till öar, resursspaning, utpostbygge och
+resursarbete; marin forskning tidigare och olika skrov-/vapenprioriteringar
+för doktrinerna. Neutrala öar koloniseras; fullt bemannade startöar kräver ett
+anfallsfäste. Invasion prioriteras efter första kolonin. Soldater på ökartor
+produceras vid sin riktiga produktionsbyggnad, inte vid en isolerad utpost.
+
+Tidebreak Relief har två nya målmekaniker: samtidig obruten sjöblockad av två
+passager och identitetsbunden evakuering av två verkliga arbetare. Sex faser,
+synliga markörer/räknare, explicit förlustvillkor och seger med fiendebasen
+kvar. Save79 migrerar78 inklusive multiplayer; gamla Tidebreak-sparningar
+behåller sin gamla målplan och arbetarpositioner. Fyra redigerbara sjöupplägg
+finns i Skirmish; separat kartstorlekstext rättad.
+
+Slutlig fullregression på fryst kod: 2264 tester/239 filer PASS (1021.40 s). Strict TypeScript/build och
+`git diff --check` PASS. Fullregressionen inkluderar hela uniturvalet; ingen
+separat upprepning av `npm run test:unit`. Riktade systemtester119/8 PASS;
+senare kampanjmål9/2 PASS. Faktisk Chrome800×600/1280×720: produktion,
+forskning/två rader, kartstarter, upplägg, AI-kolonisering, kampanjmål och
+korrekt resultatskärm PASS. Skyddade CSS/units.mjs/docs/:12 SHA256-matchningar.
+
+Landbelastning128 angripare+32 försvarare: första CPU p95 19,5→28,5 ms;
+direkt omkontroll av orörd gammal kod/slutkod18,2→18,7 ms. Initial
+uppställningstopp131,7 ms kvar; ingen reproducerbar större försämring i det
+avgränsade provet. Sjöstrid16 egna/15 ursprungliga AI-skepp:5,3→5,1 ms p95,
+båda genomspelningarna slutade med seger. Alla mätningar, även avvikelsen,
+finns i [underlaget](artifacts/replayability/README.md).
+
+Ingen commit, push, publicering, versionsändring eller delegering. Tidigare
+CI/Pages-belägg nedan är historik. Mänsklig långmatch-/balansgranskning och
+ny ljudlyssning hävdas inte. Befintlig flottöverlappning, initial storarmétopp
+och genererade riktningsanimationer kvarstår; ingen bred prestandaomskrivning.
+Ingen automatisk nästa roadmaptask. Arbetskopians tidigare ändringar bevaras.
+
+## Island Fleets — klart lokalt 2026-10-30–31
+
+Fyra verkligt nya byggnader, åtta enhetsroller (fem skepp/tre landroller),
+sex forskningar och fyra avsiktligt formade sjökartor är implementerade.
+Tidigare Foundry, transport, ubåt och ombalanseringar räknas inte som nytt.
+Se [innehållsrapporten](ISLAND_FLEETS.md) för recept, roller och kartstrategi.
+
+Alla fem raser får egna sjökomplement och producerbar landstigningstrupp.
+AI betalar flotta/eskort och återkommande överfarter, väljer alternativa
+stränder och fortsätter anfalla efter landning. Spelaren får landningsfeltext.
+Save78 migrerar77; specialbyggnader och två forskningsrader integreras i UI.
+Fjorton nya källbilder används av spelets egen atlas med riktningar,
+animationer och byggstadier. Ingen versionsändring eller ny ljudproduktion.
+
+Slutlig unit563/95 PASS; riktade integrationer130/7 PASS inklusive20 AI-prov
+med normala startresurser, alla med ny unik båt/eskort/landning/basskada.
+Browser800×600/1280×720 PASS med faktiska produktions-/forskningsklick och Save.
+Fem rasers nya skepp/trupper, fyra byggnader och alla kartlayouter granskade.
+Strict build PASS. Fyrspelarprovet når landstigning med tre självständiga
+betalda flottor; multiplayer/Save61/4 PASS. Äldre generella karttester är
+anpassade och passerar riktat. Slutlig fullregression på fryst kod:
+2248/237 PASS1025,60 s. Slutlig
+unit563/95 PASS35,72 s; build med strict TypeScript PASS1,20 s (Vite-delen).
+Ny browserkontroll på slutkoden800/1280 och dokument-/diffkontroll PASS.
+Se [nya loggar och bilder](artifacts/island-fleets/README.md).
+
+Ingen commit, push, publicering, delegering eller automatisk roadmapfortsättning.
+Användarens style.css, units.mjs, docs/, CLEANUP_REPORT.md och :memory:.ses
+är bevarade. Tidigare CI-/Pages-resultat nedan är historiska belägg, inte en
+verifiering eller publicering av detta nya innehåll.
+
+Kvarstående gränser: mänsklig balans-/långmatchgranskning, ny ljudlyssning och
+storflottest är inte utförda. AI koloniserar inte neutrala öar autonomt och
+landar två soldater per resa. Fyra spelares ekonomi/Save/skydd och sjöoffensiv
+är kontrollerade, men inga kompletta fyrspelar-slutspel. Bildmellanrutor
+härleds från poser; alla ramar är inte separat målade. AI-eskorter kan
+överlappa visuellt vid strandens samlingspunkt. Se QUALITY_REVIEW.
+
 ## Tides of War publicerad — 2026-10-30 — Done
 
 [Spela Warbound](https://tobisen.github.io/warbound/) visar **v0.8.0 / Build bd6d0f3**.

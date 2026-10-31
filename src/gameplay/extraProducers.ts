@@ -9,7 +9,7 @@ import {hasPopulation} from './population';
 import type {MatchState} from './match';
 import type {ExtraProducer} from './placement';
 export const extraProducer=(m:MatchState,id:string|null)=>m.placement.producers?.find(p=>p.id===id&&p.hp>0);
-export const producerBuilding=(m:MatchState,p:ExtraProducer,role:Exclude<UnitRole,'worker'>)=>({kind:'barracks' as const,producer:p.kind==='harbor'||p.kind==='navalFoundry'?'barracks' as const:p.kind,unitType:role,footprint:p.footprint,ready:p.hp>0&&p.construction.remainingSeconds===0,bounds:m.map,technology:technologyFor(m,'player')});
+export const producerBuilding=(m:MatchState,p:ExtraProducer,role:Exclude<UnitRole,'worker'>)=>({kind:'barracks' as const,producer:p.kind==='harbor'||p.kind==='drydock'||p.kind==='signalTower'||p.kind==='navalAcademy'||p.kind==='navalFoundry'?'barracks' as const:p.kind,unitType:role,footprint:p.footprint,ready:p.hp>0&&p.construction.remainingSeconds===0,bounds:m.map,technology:technologyFor(m,'player')});
 export function setExtraProducer(m:MatchState,p:ExtraProducer):MatchState{return {...m,placement:{...m.placement,producers:m.placement.producers!.map(b=>b.id===p.id?p:b)}};}
 export function trainExtraProducer(m:MatchState,id:string,role:UnitRole|ShipRole):MatchState{
  const p=extraProducer(m,id);if(p)productionTimeAfterConstruction(p.construction,0);if(!p||m.paused||m.outcome!=='playing'||!hasMainBase(m))return m;

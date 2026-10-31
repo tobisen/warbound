@@ -1,3 +1,4 @@
+import {isFleetBuilding,isFleetShip,isMarine,fleetBuildingPurpose,fleetBuildings} from '../config/islandFleets';
 import {type FactionId} from '../config/factions';
 import {buildingFrame,type BuildingKind} from './assets';
 import {unitFrame,motion,artAtlas,type UnitArt} from './animation';
@@ -5,10 +6,16 @@ import {actionIds,type ActionId} from './actionPanel';
 export interface ActionIcon {atlas?:string;frame?:string;glyph?:string;badge?:'research'|'upgrade'}
 const glyphs:Partial<Record<ActionId,string>>={'scout-route':'route','auto-scout':'explore','autocast-heal':'autocast','cast-heal':'heal','cast-ward':'ward','cast-hex':'hex','repair-building':'repair','attack-move':'advance','unit-ability':'ability','unload-transport':'unload','hold-position':'hold','patrol-units':'patrol','stop-units':'stop','dismiss-units':'dismiss'};
 export function actionIcon(id:ActionId,faction:FactionId):ActionIcon {
- if(id.startsWith('build-'))return {atlas:id==='build-navalFoundry'?'naval-content':id==='build-siegeWorks'?'siegeWorks':id==='build-aviary'?'aviary':id==='build-stable'?'cavalry':'buildings',frame:buildingFrame(id.slice(6) as BuildingKind,'player',0,5,faction)};
+ if(id.startsWith('build-'))return {atlas:isFleetBuilding(id.slice(6))?'island-fleets':id==='build-navalFoundry'?'naval-content':id==='build-siegeWorks'?'siegeWorks':id==='build-aviary'?'aviary':id==='build-stable'?'cavalry':'buildings',frame:buildingFrame(id.slice(6) as BuildingKind,'player',0,5,faction)};
  if(id.startsWith('train-')){const type=(id==='train-ship'?'warship':id.slice(6)) as UnitArt;return {atlas:artAtlas(type),frame:unitFrame(motion(undefined,{x:0,y:0},'idle',0,type,'player',undefined,faction),0)};}
  if(id==='upgrade-tower'||id==='upgrade-tower-air')return {atlas:'tower-specializations',frame:`${faction==='crown'?'':faction+'-'}tower-${id==='upgrade-tower'?'ground':'air'}-player-complete`,badge:'upgrade'};
  if(id==='upgrade-base')return {atlas:'buildings',frame:buildingFrame(id==='upgrade-base'?'base':'tower','player',0,5,faction,undefined,2),badge:'upgrade'};
+ if(id==='research-lightHulls')return {...actionIcon('train-survey','elves'),glyph:'advance',badge:'research'};
+ if(id==='research-armoredHulls')return {...actionIcon('train-mortarShip','dwarves'),glyph:'hold',badge:'research'};
+ if(id==='research-navalOptics')return {...actionIcon('build-signalTower',faction),badge:'research'};
+ if(id==='research-repairCrane')return {...actionIcon('build-drydock',faction),glyph:'repair',badge:'research'};
+ if(id==='research-marineDrill')return {...actionIcon('build-marineBarracks',faction),glyph:'unload',badge:'research'};
+ if(id==='research-coastalGunnery')return {...actionIcon('train-mortarShip','dwarves'),badge:'research'};
  if(id==='research-convoyService')return {...actionIcon('train-transport',faction),glyph:'repair',badge:'research'};
  if(id==='research-assaultRamps')return {...actionIcon('train-transport',faction),glyph:'unload',badge:'research'};
  if(id==='research-tidewatch')return {...actionIcon('train-scout',faction),glyph:'explore',badge:'research'};

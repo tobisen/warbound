@@ -1,6 +1,13 @@
-export const roleResearchKinds=['convoyService','assaultRamps','tidewatch','siegeShells','preciseShells','volatileTorpedoes','navalLogistics','cavalryArmor','healerTraining','scoutOptics','submarineDesign'] as const;
+export const roleResearchKinds=['lightHulls','armoredHulls','navalOptics','repairCrane','marineDrill','coastalGunnery','convoyService','assaultRamps','tidewatch','siegeShells','preciseShells','volatileTorpedoes','navalLogistics','cavalryArmor','healerTraining','scoutOptics','submarineDesign'] as const;
 export type RoleResearchKind=typeof roleResearchKinds[number];
 export const roleResearchConfig={
+ lightHulls:{name:'Light Hulls',cost:{wood:60,gold:40},durationSeconds:24,buildings:['navalAcademy'] as const,description:'All ships move20% faster. Exclusive with Reinforced Bulkheads.'},
+ armoredHulls:{name:'Reinforced Bulkheads',cost:{wood:80,gold:60},durationSeconds:24,buildings:['navalAcademy'] as const,description:'Ships take20% less damage. Exclusive with Light Hulls.'},
+ navalOptics:{name:'Naval Optics',cost:{wood:45,gold:40},durationSeconds:24,buildings:['signalTower'] as const,description:'Ships gain96px vision and survey launches detect submarines within224px. Current sight still required.'},
+ repairCrane:{name:'Repair Cranes',cost:{wood:60,gold:35},durationSeconds:24,buildings:['drydock'] as const,description:'Drydocks and repair tenders restore hulls twice as fast at the same paid cost per HP.'},
+ marineDrill:{name:'Amphibious Drill',cost:{wood:55,gold:35},durationSeconds:24,buildings:['marineBarracks'] as const,description:'Marines, sappers and harpooners deal25% more damage; transport supply unchanged.'},
+ coastalGunnery:{name:'Coastal Gunnery',cost:{wood:75,gold:60},durationSeconds:24,buildings:['navalAcademy'] as const,description:'Armed ships gain25% damage against buildings only. No new target domains.'},
+
  convoyService:{name:'Convoy Service',cost:{wood:70,gold:45},durationSeconds:24,buildings:['navalFoundry'] as const,description:'Humans: idle ships within160px of a completed friendly harbor repair4 HP/s for0.25 wood and0.1 gold/HP. Transports also heal living passengers2 HP/s while docked. No repair while attacking or moving.'},
  assaultRamps:{name:'Assault Ramps',cost:{wood:60,gold:40},durationSeconds:20,buildings:['navalFoundry'] as const,description:'Orcs: transports carry6 troops instead of4 and transfer across96px of shore instead of64px. Land a larger assault behind your short-range Fire Barges; supply costs remain unchanged.'},
  tidewatch:{name:'Tidewatch',cost:{wood:55,gold:45},durationSeconds:20,buildings:['navalFoundry'] as const,description:'Elves: armed surface ships gain288px vision and192px submarine detection. Moonwing scouts gain352px vision. Detection still requires current line of sight.'},
@@ -25,7 +32,7 @@ export const factionResearchKinds=Object.keys(factionResearch) as FactionResearc
 export function roleResearchAvailable(kind:RoleResearchKind,faction:string):boolean {
  return kind in factionResearch?factionResearch[kind as FactionResearchKind]===faction:kind!=='navalLogistics'||faction==='crown'||faction==='dwarves';
 }
-export function researchConflict(kind:string,r:{siegeShells?:number;preciseShells?:number;job?:{kind:string}|null;queue?:readonly string[]}):boolean {
- const other=kind==='siegeShells'?'preciseShells':kind==='preciseShells'?'siegeShells':undefined;
+export function researchConflict(kind:string,r:{lightHulls?:number;armoredHulls?:number;siegeShells?:number;preciseShells?:number;job?:{kind:string}|null;queue?:readonly string[]}):boolean {
+ const other=kind==='lightHulls'?'armoredHulls':kind==='armoredHulls'?'lightHulls':kind==='siegeShells'?'preciseShells':kind==='preciseShells'?'siegeShells':undefined;
  return !!other&&!!(r[other]||r.job?.kind===other||r.queue?.includes(other));
 }

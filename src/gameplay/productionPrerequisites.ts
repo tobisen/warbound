@@ -16,7 +16,7 @@ export function technologyFor(m:import('./match').MatchState,team:'player'|'enem
   for(const e of m.combat.enemies){
    if(e.hp<=0||e.construction&&e.construction.remainingSeconds>0)continue;
    const role=e.kind==='base'?'base':e.buildingType;
-   if(role==='navalFoundry'||role==='base'||role==='barracks'||role==='farm'||role==='forge'||role==='academy'||role==='stable'||role==='aviary'||role==='siegeWorks')if(!buildings.includes(role))buildings.push(role);
+   if(role==='drydock'||role==='signalTower'||role==='navalAcademy'||role==='marineBarracks'||role==='navalFoundry'||role==='base'||role==='barracks'||role==='farm'||role==='forge'||role==='academy'||role==='stable'||role==='aviary'||role==='siegeWorks')if(!buildings.includes(role))buildings.push(role);
   }
   return {baseLevel:m.enemyProduction?.baseDevelopment?.level??1,academyAllowed:!academyCampaignReason(m),buildings,research:{attack:m.enemyPolicy?.research.attack??0,defense:m.enemyPolicy?.research.defense??0}};
  }

@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {writeFile} from 'node:fs/promises';
+import {chromium} from '../presentations/agentic-coding/node_modules/playwright-core/index.mjs';
+const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}),report=[];
+try{for(const id of ['twinwake','trident','crownsea','farreach']){
+ const p=await browser.newPage({viewport:{width:1280,height:720}}),errors=[];p.on('pageerror',e=>errors.push(e.message));
+ await p.addInitScript(()=>localStorage.setItem('warcraft-2-tribute.preferences.v1',JSON.stringify({version:1,settings:{display:{resolution:'1280x720',mode:'native'}}})));
+ await p.route('**/src/main.ts*',async r=>{const response=await r.fetch();await r.fulfill({response,body:(await response.text()).replace('new Phaser.Game({','window.__gameCheck=new Phaser.Game({')});});
+ await p.goto('http://127.0.0.1:5195',{waitUntil:'domcontentloaded'});await p.locator('#menu-skirmish').click();await p.selectOption('#map-select',id);await p.locator('#start-match').click();await p.waitForFunction(()=>!window.__gameCheck.scene.keys.BootScene.restartPending);
+ const result=await p.evaluate(async()=>{const s=window.__gameCheck.scene.keys.BootScene;s.update=()=>{};s.sys.sceneUpdate=()=>{};const m=s.currentMatch(),{islandNavalPlan}=await import('/src/gameplay/islandNavalPlan.ts'),{planDomainRoute}=await import('/src/gameplay/terrainNavigation.ts'),{resourceNodes}=await import('/src/gameplay/gathering.ts'),{encodeSave,decodeSave}=await import('/src/gameplay/save.ts'),plan=islandNavalPlan(m);return {map:m.map.id,width:m.map.width,height:m.map.height,units:m.gathering.units.length,wood:resourceNodes(m.gathering).filter(n=>n.resource==='wood').reduce((n,r)=>n+r.remaining,0),gold:resourceNodes(m.gathering).filter(n=>n.resource==='gold').reduce((n,r)=>n+r.remaining,0),route:planDomainRoute(m.map,'water',plan.waterStart,plan.waterGoal,16).status,save:decodeSave(encodeSave(m,{camera:{x:0,y:0},building:null})).ok};});
+ assert.equal(result.map,id);assert.equal(result.units,3);assert(result.wood>1000&&result.gold>3000);assert.notEqual(result.route,'blocked');assert(result.save);assert.deepEqual(errors,[]);await p.screenshot({path:`artifacts/replayability/map-${id}.png`});report.push({...result,errors});await p.close();
+}await writeFile('artifacts/replayability/map-starts.json',JSON.stringify(report,null,2));console.log('PASS four menu-selected map starts, resources, naval routes, Save and rendering');}finally{await browser.close();}

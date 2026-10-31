@@ -1,7 +1,27 @@
+import {fleetBuildingPurpose,fleetUnitPurpose} from '../config/islandFleets';
 import {roleResearchConfig} from '../config/roleResearch';
 import {text as uiText} from '../text';
 import { gameplayKeyAllowed,type KeyContext } from './keyboard';
 export const hotkeys=[
+ {key:'SHIFT+B',button:'build-drydock',label:fleetBuildingPurpose.drydock},
+ {key:'SHIFT+O',button:'build-signalTower',label:fleetBuildingPurpose.signalTower},
+ {key:'SHIFT+N',button:'build-navalAcademy',label:fleetBuildingPurpose.navalAcademy},
+ {key:'SHIFT+M',button:'build-marineBarracks',label:fleetBuildingPurpose.marineBarracks},
+ {key:'SHIFT+H',button:'train-survey',label:fleetUnitPurpose.survey},
+ {key:'SHIFT+R',button:'train-raider',label:fleetUnitPurpose.raider},
+ {key:'SHIFT+C',button:'train-mortarShip',label:fleetUnitPurpose.mortarShip},
+ {key:'SHIFT+J',button:'train-tender',label:fleetUnitPurpose.tender},
+ {key:'SHIFT+K',button:'train-torpedoBoat',label:fleetUnitPurpose.torpedoBoat},
+ {key:'SHIFT+T',button:'train-marine',label:fleetUnitPurpose.marine},
+ {key:'SHIFT+Y',button:'train-sapper',label:fleetUnitPurpose.sapper},
+ {key:'SHIFT+V',button:'train-harpooner',label:fleetUnitPurpose.harpooner},
+ {key:'SHIFT+U',button:'research-lightHulls',label:roleResearchConfig.lightHulls.description},
+ {key:'SHIFT+I',button:'research-armoredHulls',label:roleResearchConfig.armoredHulls.description},
+ {key:'SHIFT+F',button:'research-navalOptics',label:roleResearchConfig.navalOptics.description},
+ {key:'SHIFT+G',button:'research-repairCrane',label:roleResearchConfig.repairCrane.description},
+ {key:'SHIFT+D',button:'research-marineDrill',label:roleResearchConfig.marineDrill.description},
+ {key:'SHIFT+Q',button:'research-coastalGunnery',label:roleResearchConfig.coastalGunnery.description},
+
  {key:',',button:'research-convoyService',label:roleResearchConfig.convoyService.description},
  {key:'.',button:'research-assaultRamps',label:roleResearchConfig.assaultRamps.description},
  {key:'/',button:'research-tidewatch',label:roleResearchConfig.tidewatch.description},
@@ -63,12 +83,13 @@ export const hotkeys=[
  {key:'U',button:'research-attack',label:uiText.attackResearchCompletedForge},
  {key:'D',button:'research-defense',label:uiText.defenseResearchCompletedForge},
 ] as const;
-export function hotkeyButton(key:string,context:KeyContext&{ctrlKey?:boolean;metaKey?:boolean}):string|null {
+export function hotkeyButton(key:string,context:KeyContext&{ctrlKey?:boolean;metaKey?:boolean;shiftKey?:boolean}):string|null {
  if(!gameplayKeyAllowed(context)||context.ctrlKey||context.metaKey)return null;
- return hotkeys.find(h=>h.key===key.toUpperCase())?.button??null;
+ const plain=key.toUpperCase();
+ return hotkeys.find(h=>h.key===(context.shiftKey?'SHIFT+'+plain:plain))?.button??hotkeys.find(h=>h.key===plain)?.button??null;
 }
 export const commandGuide=[uiText.cameraControls,uiText.shiftClickToggleShiftDragAdd,uiText.ctrlCmd19AssignGroup19,uiText.pPauseResumeEscapeCancelPreviewOtherwisePause,...hotkeys.map(h=>`${h.key}: ${h.label}`),uiText.aDisabledButtonMeansTheActionIsUnavailable,uiText.clickTheWorldForKeyboardFocusUiFields].join('\n');
 /** Same disabled button and same click handler: costs/order rules have one implementation. */
-export function dispatchHotkey(key:string,context:KeyContext&{ctrlKey?:boolean;metaKey?:boolean},button:(id:string)=>{disabled:boolean;click:()=>void}|null):boolean {
+export function dispatchHotkey(key:string,context:KeyContext&{ctrlKey?:boolean;metaKey?:boolean;shiftKey?:boolean},button:(id:string)=>{disabled:boolean;click:()=>void}|null):boolean {
  const id=hotkeyButton(key,context),control=id?button(id):null;if(!control||control.disabled)return false;control.click();return true;
 }

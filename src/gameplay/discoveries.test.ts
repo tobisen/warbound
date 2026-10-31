@@ -1,3 +1,4 @@
+import {isIslandMap} from '../config/islandMaps';
 import {campaignMissions} from '../config/campaign';
 import {identityFor} from '../config/campaignSeries';
 import {factionIds} from '../config/factions';
@@ -22,7 +23,7 @@ const view={camera:{x:0,y:0},building:null} as const;
 function fixture(id:MapId='frontier'){return createMatch('skirmish','beginner',undefined,id);}
 function scout(m:ReturnType<typeof fixture>,index:number){const d=mapDiscoveries(m.map.id!,m.map.design)[index];m.gathering.units[0]={...m.gathering.units[0],position:{...d.position},target:{...d.position},order:{kind:'idle'}};m.fog=matchFog(m);return d;}
 it('authors hidden body-safe sites on every expanded map while standalone non-skirmish scenarios remain unchanged',()=>{
- for(const id of skirmishMapIds){const m=fixture(id),finds=mapDiscoveries(id,'regions');expect(finds).toHaveLength(3);expect(new Set(finds.map(d=>d.id)).size).toBe(3);for(const d of finds){expect(bodyFits(m.map,d.position,20)).toBe(true);expect(m.discoveries!.claimed).not.toContain(d.id);}expect(visibleDiscoveries(m).every(d=>isVisible(m.fog!,'player',d.position))).toBe(true);expect(visibleMinimapData(m).markers.filter(d=>d.id.includes('discovery')).every(d=>isVisible(m.fog!,'player',d.position))).toBe(true);expect(updateDiscoveries(m)).toBe(m);}
+ for(const id of skirmishMapIds){const m=fixture(id),finds=mapDiscoveries(id,'regions');const count=isIslandMap(id)?0:3;expect(finds).toHaveLength(count);expect(new Set(finds.map(d=>d.id)).size).toBe(count);for(const d of finds){expect(bodyFits(m.map,d.position,20)).toBe(true);expect(m.discoveries!.claimed).not.toContain(d.id);}expect(visibleDiscoveries(m).every(d=>isVisible(m.fog!,'player',d.position))).toBe(true);expect(visibleMinimapData(m).markers.filter(d=>d.id.includes('discovery')).every(d=>isVisible(m.fog!,'player',d.position))).toBe(true);expect(updateDiscoveries(m)).toBe(m);}
  expect(createMatch('mission-waves').discoveries).toBeUndefined();
 });
 it('requires actual vision and ground proximity, then credits exactly one finite reward',()=>{

@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/discoveries.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  1 passed (1)
+      Tests  15 passed (15)
+   Start at  23:58:30
+   Duration  35.65s (transform 1.27s, setup 0ms, import 1.56s, tests 33.98s, environment 0ms)

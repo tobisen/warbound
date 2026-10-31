@@ -1,4 +1,4 @@
-import {isSeaBattleMission,seaBattleDifficulty} from '../config/seaBattle';
+import {tidebreakMission,isSeaBattleMission,seaBattleDifficulty} from '../config/seaBattle';
 import {factionForTeam} from '../config/factions';
 import {matchFog} from './matchFog';
 import {bodyFits,replaceObstacles} from './map';
@@ -28,6 +28,7 @@ export function initializeSeaBattle(m:MatchState):void {
  for(let i=0;i<4;i++){const position={x:464+i*40,y:416};m.gathering.units.push({id:`unit-${i+4}`,kind:'soldier',owner:'player',hp:player.units.soldier.hp,cargo:0,selected:false,position,target:{...position},order:{kind:'idle'}});}
  // Existing unarmed flyer scouts water and coast but cannot land or attack.
  const scoutPosition={x:576,y:384};m.gathering.units.push({id:'unit-8',kind:'soldier',archetype:'scout',owner:'player',hp:player.units.scout.hp,cargo:0,selected:false,position:scoutPosition,target:{...scoutPosition},order:{kind:'idle'}});
+ if(m.campaignMission===tidebreakMission){for(const [i,id]of ['unit-1','unit-2'].entries()){const u=m.gathering.units.find(u=>u.id===id)!;u.position={x:1328+i*32,y:1808};u.target={...u.position};u.order={kind:'idle'};u.navigation=undefined;}}
  m.production.nextUnitNumber=m.soldierProduction.nextUnitNumber=9;
  for(let i=0;i<16;i++){const role=i>=14?'transport':i>=12?'cutter':'warship',position={x:880+i%4*80,y:384+Math.floor(i/4)*96};const recipe=player.naval.units[role];m.navy.ships.push({id:`ship-${i+1}`,kind:'ship',role,owner:'player',hp:recipe.hp,selected:false,position,target:{...position},order:{kind:'idle'},...(role==='transport'?{passengers:[]}:{})});}
  m.navy.production.nextUnitNumber=17;

@@ -1,0 +1,71 @@
+{
+  "report": [
+    {
+      "faction": "crown",
+      "ship": "tender",
+      "unit": "marine",
+      "shipPosition": {
+        "x": 232,
+        "y": 128
+      },
+      "unitPosition": {
+        "x": 660,
+        "y": 704
+      }
+    },
+    {
+      "faction": "clans",
+      "ship": "raider",
+      "unit": "marine",
+      "shipPosition": {
+        "x": 232,
+        "y": 128
+      },
+      "unitPosition": {
+        "x": 660,
+        "y": 704
+      }
+    },
+    {
+      "faction": "elves",
+      "ship": "survey",
+      "unit": "harpooner",
+      "shipPosition": {
+        "x": 232,
+        "y": 128
+      },
+      "unitPosition": {
+        "x": 660,
+        "y": 704
+      }
+    },
+    {
+      "faction": "dwarves",
+      "ship": "mortarShip",
+      "unit": "sapper",
+      "shipPosition": {
+        "x": 232,
+        "y": 128
+      },
+      "unitPosition": {
+        "x": 660,
+        "y": 704
+      }
+    },
+    {
+      "faction": "goblins",
+      "ship": "torpedoBoat",
+      "unit": "sapper",
+      "shipPosition": {
+        "x": 232,
+        "y": 128
+      },
+      "unitPosition": {
+        "x": 660,
+        "y": 704
+      }
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

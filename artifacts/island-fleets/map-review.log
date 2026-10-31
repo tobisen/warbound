@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.8.0 test
+> vitest run src/gameplay/mapRegions.test.ts src/gameplay/islandFleets.test.ts src/presentation/unitAttacks.test.ts
+
+
+ RUN  v4.1.11 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  3 passed (3)
+      Tests  86 passed (86)
+   Start at  23:58:16
+   Duration  104.80s (transform 2.11s, setup 0ms, import 2.95s, tests 144.59s, environment 0ms)
