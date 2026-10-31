@@ -1,0 +1,27 @@
+{
+  "build": "4ddbf39",
+  "base": "https://tobisen.github.io/warbound/",
+  "assets": [
+    {
+      "path": "assets/island-fleets-atlas.png",
+      "status": 200,
+      "bytes": 3220500,
+      "sha256": "9fdffe0ca4dc2cdd4b0fa2af084e96df2473b3485c6e8b3178a87a4d04e62a4a",
+      "matchesCommittedAsset": true
+    },
+    {
+      "path": "assets/island-fleets-atlas.json",
+      "status": 200,
+      "bytes": 968173,
+      "sha256": "540f2a8e776c03f02d12b70c74c3d3ec1ca4819e1e53f85dfd9ddd5ed4f696ec",
+      "matchesCommittedAsset": true
+    },
+    {
+      "path": "assets/manifest.json",
+      "status": 200,
+      "bytes": 5679683,
+      "sha256": "2b1c801e23e85d0f70c17a36961d74779401edbbed51d45a17562ff5fface663",
+      "matchesCommittedAsset": true
+    }
+  ]
+}

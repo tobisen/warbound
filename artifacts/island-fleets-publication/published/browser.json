@@ -1,0 +1,48 @@
+{
+  "url": "https://tobisen.github.io/warbound/",
+  "fixture": "Completed funded buildings; real production-bundle presets, paid Marine queue and hull research, native Save/Load. Existing full gameplay tests cover completion and combat.",
+  "results": [
+    {
+      "width": 800,
+      "build": "Build 4ddbf39",
+      "presets": 4,
+      "paid": {
+        "job": "lightHulls",
+        "wood": 915,
+        "gold": 948
+      },
+      "restored": {
+        "job": "lightHulls",
+        "queue": "marine"
+      },
+      "bounds": {
+        "x": 591,
+        "y": 455,
+        "width": 44,
+        "height": 44
+      },
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "build": "Build 4ddbf39",
+      "presets": 4,
+      "paid": {
+        "job": "lightHulls",
+        "wood": 915,
+        "gold": 948
+      },
+      "restored": {
+        "job": "lightHulls",
+        "queue": "marine"
+      },
+      "bounds": {
+        "x": 991,
+        "y": 575,
+        "width": 64,
+        "height": 64
+      },
+      "errors": []
+    }
+  ]
+}

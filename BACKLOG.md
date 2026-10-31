@@ -53,12 +53,15 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
-### Publicera verifierat Island Fleets — In progress
+### Publicera verifierat Island Fleets — Done 2026-10-31
 
-Användaren har beställt commit/push/Pages. Avgränsad publiceringskopia,
-unit/build/browser, granskad commit till origin/main och faktisk CI/deploy/
-publicerad browserkontroll. Äldre lokala CSS/units/docs bevaras.
-
+Commit4ddbf39 pushad till origin/main och publicerad som0.8.0/Build4ddbf39.
+[CI41191431011](https://github.com/tobisen/warbound/actions/runs/41191431011):
+2264/239 tester, strict build, presentation och Pages PASS. Faktisk publicerad
+browser800/1280 (presets, Marine-kö, skrovforskning, Save/Load) och assethashar
+PASS. Föregående lokala kontroller: unit563/95 och alla fem fraktionsflöden.
+HANDOFF/QUALITY_REVIEW redovisar belägg och kvarstående begränsningar.
+Äldre lokala CSS/units/docs bevarade. Inga nya tasks; detta mandat är avslutat.
 
 ### Omspelbarhet och östrategi — 2026-10-31 — Done lokalt
 

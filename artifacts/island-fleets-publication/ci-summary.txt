@@ -1,0 +1,6 @@
+build	Run npm test	2026-10-31T10:32:28.1189266Z  Test Files  239 passed (239)
+build	Run npm test	2026-10-31T10:32:28.1200987Z       Tests  2264 passed (2264)
+build	Run npm test	2026-10-31T10:32:28.1215526Z    Duration  1488.60s (transform 5.90s, setup 0ms, import 55.33s, tests 2836.16s, environment 22ms)
+build	Run npm run build	2026-10-31T10:32:28.3923951Z > tsc --noEmit
+build	Run npm run build	2026-10-31T10:32:31.5831209Z ✓ built in 1.28s
+build	Build presentation	2026-10-31T10:32:36.3376657Z ✓ built in 285ms

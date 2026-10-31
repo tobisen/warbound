@@ -1,21 +1,29 @@
-## Publicering av Island Fleets och omspelbarhet — 2026-10-31
+## Island Fleets och omspelbarhet — publicerat 2026-10-31
 
-Användaren har nu uttryckligen beställt commit, push och publicering. Detta
-ersätter tidigare lokalt leveransstopp. Befintlig origin/main och GitHub Pages
-används; ingen versionshöjning, force-push eller ny roadmaptask.
+Leveranscommit `4ddbf39` är pushad till origin/main och faktiskt publicerad som
+**0.8.0 / Build4ddbf39** på [Warbound](https://tobisen.github.io/warbound/).
+[Actions41191431011](https://github.com/tobisen/warbound/actions/runs/41191431011)
+är success för exakt samma SHA: fullregression **2264 tester/239 filer**
+(1488,60s), build inklusive strict typecheck, presentationsbuild och Pages-deploy.
 
-Spelkoden matchar verifierad fullregression2264/239. En avgränsad
-publiceringskopia verifieras med repositoryts CSS/assetkällfil; användarens
-äldre lokala style.css, units.mjs och fristående docs bevaras utanför commiten.
-Publiceringskopians `npm run test:unit`563/95 och `npm run build`
-inklusive strict typecheck PASS. Ny faktisk Chrome800/1280 verifierar
-fyra presets, betald Marine-kö, Light Hulls, native Save/Load och UI-gränser.
-Se artifacts/island-fleets-publication/local och unit/build-loggar. CI och publicerad Build-ID
-rapporteras efter faktisk deploy, inte som ett antagande utifrån push.
+Faktisk publicerad Chrome800×600/1280×720 PASS: Build-ID, fyra sjöpresets,
+Twinwake-start, betald Marine-kö och Light Hulls, native Save/Load samt
+forskningsknappar inom skärmen. Bilder granskade. Byggnader/resurser är en
+uttrycklig komponentfixture, inte en ny mänsklig ekonomimatch. Atlas-PNG,
+atlas-JSON och manifest på Pages matchar commiten byte för byte (HTTP200).
+Belägg: [publiceringsrapport](artifacts/island-fleets-publication/README.md).
 
-Även tidigare fraktionsforskning/Tech Tree/Save för samtliga fem raser
-i800/1280 PASS mot publiceringskopian. Staged diffcheck PASS; skyddade
-CSS/units/docs är uttryckligen utanför commiten.
+Före push: isolerad publiceringskopia med repositoryts CSS, unit563/95 och
+strict build PASS; fraktionsforskning/Tech Tree/Save för alla fem raser i800/1280
+PASS. Oförändrad spelkod från tidigare lokal fullregression2264/239.
+Användarens lokala style.css, units.mjs, docs/ och övriga fristående filer har
+bevarats utanför leveransen;12 skyddade filers checksummor är oförändrade.
+
+Slutlig uppföljningscommit innehåller endast rapporter och verifieringsbelägg,
+med `[skip ci]`; inga nya kodtester/byggregressioner behövs för dessa filer.
+Det publicerade spelets Build-ID förblir4ddbf39. Vites befintliga varning om
+stor bundle och tidigare redovisade mänskliga balans-/ljudbegränsningar kvarstår.
+Uppdraget avslutas här; inga nya roadmaptasks eller versionshöjningar.
 
 ## Bekräftad omfattning — Island Fleets
 
