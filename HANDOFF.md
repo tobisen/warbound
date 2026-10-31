@@ -1,17 +1,27 @@
-## Publicering av sjö-/tydlighetsuppdrag — 2026-10-31 — pågår
+## Sjö-/tydlighetsuppdrag publicerat — 2026-11-01
 
-Användaren har nu uttryckligen beställt commit, push och publicering. Detta
-ersätter föregående lokala uppdrags publiceringsförbud. Leveransen görs till
-befintlig origin/main och GitHub Pages, utan versionshöjning eller nya tasks.
-Användarens style.css, units.mjs, docs/, :memory:.ses och CLEANUP_REPORT.md
-bevaras utanför commiten. Tidigare lokala testresultat nedan är historik;
-publiceringskopians nya kontroller redovisas separat i
-[publiceringsrapporten](artifacts/naval-clarity-publication/README.md).
-Ny isolerad leveranskopia med repositoryts CSS: unit568/96, strict build och
-native browser800/1280 för alla fem raser PASS. Ett extra för långt
-forskningsstatusfält rättades och skyddas av beteendetest; riktat13/3 PASS.
-Faktisk fullregression/CI-/Pages-status uppdateras efter push. Inget framtida
-PASS hävdas; tidigare lokala kontroller nedan avser föregående kodstadium.
+Nytt uttryckligt publiceringsmandat är genomfört. Leveranscommit `bc38db0` är
+pushad till origin/main och publicerad som0.8.0/Buildbc38db0 på
+[Warbound](https://tobisen.github.io/warbound/).
+[Actions41249521899](https://github.com/tobisen/warbound/actions/runs/41249521899)
+är success för samma SHA: fullregression2290 tester/243 filer (1000,73s), strict
+TypeScript/produktionsbuild, presentationsbuild och Pages-deploy PASS.
+
+Isolerad förkontroll med repositoryts CSS: unit568/96, strict build och riktat
+13/3 PASS. En för lång forskningsspärrtext rättades före commit; full förklaring
+finns kvar vid fokus/hover. Faktisk publicerad Chrome800×600/1280×720 för alla
+fem raser PASS: Build-ID, forskning utan sidor/högst två rader, betalda köer,
+alla tre stora enheter, separata hamnwaypoints/Shift-rensning och native Save/Load.
+Komponentfixturer är uttryckliga; ingen mänsklig ekonomimatch hävdas.
+Sex nya publicerade grafik-/ljud-/manifestfiler matchar commitens SHA256 exakt.
+
+[Publiceringsbelägg](artifacts/naval-clarity-publication/README.md) skiljer nya
+kontroller från föregående lokala rapport nedan. Ursprunglig CSS/units.mjs,
+docs/ och fristående filer har14/14 oförändrade SHA256 och ingår inte i commiten.
+Kvarstående frame-toppar, exporterade mellananimationsfaser och ej mänskligt
+godkänd ny ljud-/långbalans kvarstår enligt rapporten. Ingen versionshöjning,
+ny roadmaptask eller delegering. Avslutande dokumentations-/beläggspush med
+`[skip ci]`; endast text/länkar/diff kontrolleras, inga nya kodchecks behövs.
 
 ## Lokalt sjö-/tydlighetsuppdrag — 2026-10-31
 

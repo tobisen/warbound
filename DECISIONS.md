@@ -1,3 +1,12 @@
+## 2026-11-01 — publicering godkänd och verifierad
+
+Användarens nya beställning ersätter det ursprungliga lokala publiceringsförbudet.
+Leveransen publiceras via befintlig origin/main och GitHub Pages utan
+versionshöjning.0.8.0/Buildbc38db0 är verifierad; se
+[publiceringsrapporten](artifacts/naval-clarity-publication/README.md).
+Användarens separata CSS/units.mjs/docs ingår inte i leveransen. Äldre mandat
+nedan är historik.
+
 ## 2026-10-31 — lokalt sjö-/tydlighetsuppdrag
 
 Ingen commit/push/publicering. Slutliga användarändringar bevaras. Forskning

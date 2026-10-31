@@ -1,0 +1,59 @@
+{
+  "commit": "bc38db02d3f090fd133494f4204dc70d026db574",
+  "results": [
+    {
+      "path": "assets/leviathans-atlas.png",
+      "url": "https://tobisen.github.io/warbound/assets/leviathans-atlas.png?build=bc38db0",
+      "status": 200,
+      "bytes": 2491026,
+      "sha256": "e141fe8922d04332a0d1b3c4b3f4834e58aec40d13ddff1d2c5ed868bebb5a0c",
+      "sourceSha256": "e141fe8922d04332a0d1b3c4b3f4834e58aec40d13ddff1d2c5ed868bebb5a0c",
+      "matches": true
+    },
+    {
+      "path": "assets/leviathans-atlas.json",
+      "url": "https://tobisen.github.io/warbound/assets/leviathans-atlas.json?build=bc38db0",
+      "status": 200,
+      "bytes": 269138,
+      "sha256": "2cd7bae12505c224b0662cdc89896e234de5d3b2b3427fdee3a63dfb34cf251d",
+      "sourceSha256": "2cd7bae12505c224b0662cdc89896e234de5d3b2b3427fdee3a63dfb34cf251d",
+      "matches": true
+    },
+    {
+      "path": "assets/manifest.json",
+      "url": "https://tobisen.github.io/warbound/assets/manifest.json?build=bc38db0",
+      "status": 200,
+      "bytes": 5936018,
+      "sha256": "3aab92b68f16387bc07abab21b0c9e3e4e9f4d68af5da210d4564129220c7133",
+      "sourceSha256": "3aab92b68f16387bc07abab21b0c9e3e4e9f4d68af5da210d4564129220c7133",
+      "matches": true
+    },
+    {
+      "path": "audio/large-capital.wav",
+      "url": "https://tobisen.github.io/warbound/audio/large-capital.wav?build=bc38db0",
+      "status": 200,
+      "bytes": 96044,
+      "sha256": "e0886cbdd52cecc160768838aeb3c2688c3ac317a6087dbf2419313ded933fee",
+      "sourceSha256": "e0886cbdd52cecc160768838aeb3c2688c3ac317a6087dbf2419313ded933fee",
+      "matches": true
+    },
+    {
+      "path": "audio/large-zeppelin.wav",
+      "url": "https://tobisen.github.io/warbound/audio/large-zeppelin.wav?build=bc38db0",
+      "status": 200,
+      "bytes": 76844,
+      "sha256": "c7d6c360626804fd144bdd22f9a570e69d7f05651262e121ef2d0dd9f25c1744",
+      "sourceSha256": "c7d6c360626804fd144bdd22f9a570e69d7f05651262e121ef2d0dd9f25c1744",
+      "matches": true
+    },
+    {
+      "path": "audio/large-behemoth.wav",
+      "url": "https://tobisen.github.io/warbound/audio/large-behemoth.wav?build=bc38db0",
+      "status": 200,
+      "bytes": 57644,
+      "sha256": "ae8e43d977454078c20883b4c077d55802d7deb7af730327cd30b6191415c620",
+      "sourceSha256": "ae8e43d977454078c20883b4c077d55802d7deb7af730327cd30b6191415c620",
+      "matches": true
+    }
+  ]
+}

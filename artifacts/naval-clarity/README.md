@@ -1,5 +1,10 @@
 # Lokalt sjö-/tydlighetsuppdrag — 2026-10-31
 
+Senare mandat: commit, push och publicering är nu genomförda. Ny CI-fullregression
+2290/243 och faktisk Pages/browser är verifierade; se
+[publiceringsrapporten](../naval-clarity-publication/README.md). Följande text
+beskriver det tidigare lokala implementationsskedet.
+
 Implementerat lokalt enligt det bifogade uppdraget. Ingen commit, push,
 publicering, versionshöjning eller delegering. Ursprunglig användar-CSS och
 units.mjs har samma SHA256 före/efter; docs/, sparningar och övriga fristående
