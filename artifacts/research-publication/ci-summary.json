@@ -1,0 +1,12 @@
+{
+  "run": 41312336167,
+  "sourceCommit": "78c301347b896a31dfae93b26a8baba8a15c17b0",
+  "conclusion": "success",
+  "summary": [
+    "build\tRun npm test\t2026-11-01T14:05:01.5080805Z  Test Files  246 passed (246)",
+    "build\tRun npm test\t2026-11-01T14:05:01.5091251Z       Tests  2329 passed (2329)",
+    "build\tRun npm test\t2026-11-01T14:05:01.5095785Z    Duration  1488.37s (transform 5.99s, setup 0ms, import 58.20s, tests 2840.58s, environment 29ms)",
+    "build\tRun npm run build\t2026-11-01T14:05:04.8969579Z \u2713 built in 856ms",
+    "build\tBuild presentation\t2026-11-01T14:05:09.8453855Z \u2713 built in 271ms"
+  ]
+}

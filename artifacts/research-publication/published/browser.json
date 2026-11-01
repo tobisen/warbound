@@ -1,0 +1,306 @@
+{
+  "url": "https://tobisen.github.io/warbound/",
+  "note": "Production bundle only; no source-module imports or research/building fixtures. Ordinary cheat dialogs fund/reveal the map. Base placement, selection and research use actual clicks; real match ticks advance construction/research. Menu Save/Load preserves the active job.",
+  "results": [
+    {
+      "width": 800,
+      "faction": "crown",
+      "build": "Build 78c3013",
+      "foundation": {
+        "id": "base-1",
+        "footprint": {
+          "x": 736,
+          "y": 736,
+          "width": 64,
+          "height": 64
+        },
+        "remaining": 12,
+        "wood": 99900
+      },
+      "active": {
+        "job": {
+          "kind": "workerTools",
+          "remainingSeconds": 15
+        },
+        "wood": 99840
+      },
+      "completed": {
+        "tools": 1,
+        "baseRemaining": 0
+      },
+      "saveLoad": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 800,
+      "faction": "clans",
+      "build": "Build 78c3013",
+      "foundation": {
+        "id": "base-1",
+        "footprint": {
+          "x": 736,
+          "y": 736,
+          "width": 64,
+          "height": 64
+        },
+        "remaining": 12,
+        "wood": 99900
+      },
+      "active": {
+        "job": {
+          "kind": "workerTools",
+          "remainingSeconds": 15
+        },
+        "wood": 99840
+      },
+      "completed": {
+        "tools": 1,
+        "baseRemaining": 0
+      },
+      "saveLoad": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 800,
+      "faction": "elves",
+      "build": "Build 78c3013",
+      "foundation": {
+        "id": "base-1",
+        "footprint": {
+          "x": 736,
+          "y": 736,
+          "width": 64,
+          "height": 64
+        },
+        "remaining": 12,
+        "wood": 99900
+      },
+      "active": {
+        "job": {
+          "kind": "workerTools",
+          "remainingSeconds": 15
+        },
+        "wood": 99840
+      },
+      "completed": {
+        "tools": 1,
+        "baseRemaining": 0
+      },
+      "saveLoad": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 800,
+      "faction": "dwarves",
+      "build": "Build 78c3013",
+      "foundation": {
+        "id": "base-1",
+        "footprint": {
+          "x": 736,
+          "y": 736,
+          "width": 64,
+          "height": 64
+        },
+        "remaining": 12,
+        "wood": 99900
+      },
+      "active": {
+        "job": {
+          "kind": "workerTools",
+          "remainingSeconds": 15
+        },
+        "wood": 99840
+      },
+      "completed": {
+        "tools": 1,
+        "baseRemaining": 0
+      },
+      "saveLoad": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 800,
+      "faction": "goblins",
+      "build": "Build 78c3013",
+      "foundation": {
+        "id": "base-1",
+        "footprint": {
+          "x": 736,
+          "y": 736,
+          "width": 64,
+          "height": 64
+        },
+        "remaining": 12,
+        "wood": 99900
+      },
+      "active": {
+        "job": {
+          "kind": "workerTools",
+          "remainingSeconds": 15
+        },
+        "wood": 99840
+      },
+      "completed": {
+        "tools": 1,
+        "baseRemaining": 0
+      },
+      "saveLoad": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 1280,
+      "faction": "crown",
+      "build": "Build 78c3013",
+      "foundation": {
+        "id": "base-1",
+        "footprint": {
+          "x": 736,
+          "y": 736,
+          "width": 64,
+          "height": 64
+        },
+        "remaining": 12,
+        "wood": 99900
+      },
+      "active": {
+        "job": {
+          "kind": "workerTools",
+          "remainingSeconds": 15
+        },
+        "wood": 99840
+      },
+      "completed": {
+        "tools": 1,
+        "baseRemaining": 0
+      },
+      "saveLoad": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 1280,
+      "faction": "clans",
+      "build": "Build 78c3013",
+      "foundation": {
+        "id": "base-1",
+        "footprint": {
+          "x": 736,
+          "y": 736,
+          "width": 64,
+          "height": 64
+        },
+        "remaining": 12,
+        "wood": 99900
+      },
+      "active": {
+        "job": {
+          "kind": "workerTools",
+          "remainingSeconds": 15
+        },
+        "wood": 99840
+      },
+      "completed": {
+        "tools": 1,
+        "baseRemaining": 0
+      },
+      "saveLoad": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 1280,
+      "faction": "elves",
+      "build": "Build 78c3013",
+      "foundation": {
+        "id": "base-1",
+        "footprint": {
+          "x": 736,
+          "y": 736,
+          "width": 64,
+          "height": 64
+        },
+        "remaining": 12,
+        "wood": 99900
+      },
+      "active": {
+        "job": {
+          "kind": "workerTools",
+          "remainingSeconds": 15
+        },
+        "wood": 99840
+      },
+      "completed": {
+        "tools": 1,
+        "baseRemaining": 0
+      },
+      "saveLoad": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 1280,
+      "faction": "dwarves",
+      "build": "Build 78c3013",
+      "foundation": {
+        "id": "base-1",
+        "footprint": {
+          "x": 736,
+          "y": 736,
+          "width": 64,
+          "height": 64
+        },
+        "remaining": 12,
+        "wood": 99900
+      },
+      "active": {
+        "job": {
+          "kind": "workerTools",
+          "remainingSeconds": 15
+        },
+        "wood": 99840
+      },
+      "completed": {
+        "tools": 1,
+        "baseRemaining": 0
+      },
+      "saveLoad": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 1280,
+      "faction": "goblins",
+      "build": "Build 78c3013",
+      "foundation": {
+        "id": "base-1",
+        "footprint": {
+          "x": 736,
+          "y": 736,
+          "width": 64,
+          "height": 64
+        },
+        "remaining": 12,
+        "wood": 99900
+      },
+      "active": {
+        "job": {
+          "kind": "workerTools",
+          "remainingSeconds": 15
+        },
+        "wood": 99840
+      },
+      "completed": {
+        "tools": 1,
+        "baseRemaining": 0
+      },
+      "saveLoad": true,
+      "errors": [],
+      "failed": []
+    }
+  ]
+}

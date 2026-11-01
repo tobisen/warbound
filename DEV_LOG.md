@@ -6,8 +6,16 @@ repositoryts CSS/assetkällor; arbetskopians20 skyddade filer har oförändrade
 SHA256 och hålls utanför leveransen. Ny unit531/92 PASS18,18s, riktat196/16
 PASS91,72s och strict produktionsbuild PASS. Produktionsbundlens riktiga bygg-/
 urvals-/forskningsklick och Menu Save/Load PASS10/10 i800/1280/fem raser,
-utan page errors/assetfel. Befintligt workflow
-kör full npm test före Pages-deploy; status rapporteras när den faktiskt finns.
+utan page errors/assetfel. Fix78c3013 pushad till origin/main. Faktisk
+Actions41312336167 för samma SHA: fullregression2329/246 PASS1488,37s,
+strict produktions-/presentationsbuild och Pages-deploy PASS. Publicerad
+Build78c3013 och JS/CSS-hashar matchar rent källbygge. Faktisk publicerad
+Chrome800/1280 för fem raser10/10 PASS: riktiga bygg-/urvals-/forskningsklick,
+slutförande och Menu Save/Load med aktivt jobb. Inga page errors/assetfel.
+Representativa publika800/1280-bilder granskade. Slutliga text-/länk-/diffchecks
+PASS; beläggs-/dokumentationspush `[skip ci]` ändrar ingen produktkod, inga
+nya kodtester körs för den statusuppdateringen. Skyddade20 filer fortsatt
+oförändrade; publicerad produkt förblir0.9.0/Build78c3013.
 Se [publiceringsrapporten](artifacts/research-publication/README.md).
 Version0.9.0 behålls; inga nya tags/roadmaptasks eller delegering.
 

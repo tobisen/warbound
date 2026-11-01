@@ -1,0 +1,16 @@
+{
+  "sourceCommit": "78c301347b896a31dfae93b26a8baba8a15c17b0",
+  "url": "https://tobisen.github.io/warbound/",
+  "checks": [
+    {
+      "path": "/warbound/assets/index-BkSSEXjk.js",
+      "sha256": "6b6d8170a05dfb842b968c6976da58d0eeb30a012b1d3eb1edae925b63684730",
+      "matches": true
+    },
+    {
+      "path": "/warbound/assets/index-rf8KHRcX.css",
+      "sha256": "3b2b8ea5c501462556463b4672b124f409cbc1a8f537d82e41a901bfc81b3523",
+      "matches": true
+    }
+  ]
+}

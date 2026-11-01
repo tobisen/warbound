@@ -25,6 +25,26 @@ Ny kontroll av leveranskopian:
   [resultat](candidate/browser.json). Representativa800/1280-bilder granskade.
   Kandidaten byggdes före commit från8d1b51d med exakt de avsedda ändringarna.
 
-Full regression ska köras av befintlig CI före Pages-deploy. Faktiskt CI-/deploy-
-resultat, publicerad Build-ID och browserkontroll läggs till efter publicering.
+Fixcommit `78c301347b896a31dfae93b26a8baba8a15c17b0` är pushad till origin/main.
+[Actions41312336167](https://github.com/tobisen/warbound/actions/runs/41312336167)
+är **success** för samma SHA: fullregression **2329 tester / 246 filer PASS**
+(1488,37s), strict produktionsbuild, presentationsbuild och Pages-deploy **PASS**.
+[CI-metadata](ci.json) / [testsammanfattning](ci-summary.json) skiljer detta nya
+resultat från tidigare releasebelägg.
+
+Den publika sidan refererar exakt JS/CSS från det rena bygget av78c3013:
+[publicerade SHA256](published-files.json) / [lokalt referensbygge](local-build.json).
+Publicerad browserkontroll mot faktisk **0.9.0/Build78c3013: 10/10 PASS**,
+alla fem raser i800×600/1280×720, utan page errors eller misslyckade asset-/
+ljudhämtningar. [Resultat](published/browser.json),
+[800-bild](published/crown-800-ready.png) och
+[1280-bild](published/crown-1280-ready.png); båda representativa bilder granskade.
+Forskningsstart vid markerad ofärdig fjärrbas, betalt bygge, slutförande och
+Menu Save/Load med aktivt jobb går genom vanliga produktionsbundlens kontroller.
+Arbetskopians [20 skyddade filers SHA256](protected-files.json) är oförändrade
+och inga av filerna ingår i fixcommiten.
+
+Slutlig text-/länk-/diffgranskning PASS. Avslutande beläggs-/dokumentationscommit
+använder `[skip ci]`; produktkoden ändras inte och publicerad Build är fortsatt78c3013.
+De gröna testerna ovan återanvänds uttryckligen för denna rena statusuppdatering.
 Ingen mänsklig balans-/ljudgranskning hävdas.

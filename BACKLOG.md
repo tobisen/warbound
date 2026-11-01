@@ -58,7 +58,10 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 Separat felrättningsuppdrag. Ursprungligen lokalt; användaren har därefter
 uttryckligen beställt commit/push/Pages-publicering till befintlig origin/main.
 [Publiceringsrapporten](artifacts/research-publication/README.md) skiljer nya
-releasekontroller från de lokala beläggen nedan; CI/deploy inväntas.
+releasekontroller från de lokala beläggen nedan.78c3013 är pushad; faktisk CI
+full2329/246, strict produktions-/presentationsbuild och Pages-deploy PASS.
+Publicerad0.9.0/Build78c3013, JS/CSS-SHA256 och browser10/10 för fem raser i800/1280
+verifierade. Beläggs-/dokumentationspush med `[skip ci]` ändrar ingen produktkod.
 Reproducerat:
 Worker Tools I–III spärrades vid markerad ofärdig extrabas trots färdig egen
 huvudbyggnad. UI hade ett extra lokalt krav som den betalda ordern saknade.
