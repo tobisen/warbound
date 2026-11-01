@@ -7185,3 +7185,26 @@ Ett initialt>50ms-hack kvarstår; inga senare i det20s-fönstret.
 
 Ny full lokal körning på slutlig isolerad kod pågår; CI och Pages kommer
 först efter commit. Inget fullPASS eller publicering hävdas i förväg.
+
+## 2026-11-01 — Warbound0.9.0 faktiskt publicerad och avslutad
+
+Kodcommit02740d1 pushad till origin/main utan force. Ny lokal fullregression
+2313 tester/245 filer PASS1009.99s på slutlig isolerad kod. Alla tidigare22
+mellanregressionsfel rättade och fulla assertions bevarade. GitHubActions
+41260210015 för samma SHA: full2313/245 PASS1448.44s, strict build1.28s,
+presentation330ms och Pages-deploy PASS. Båda npm ci rapporterar0 sårbarheter.
+
+Faktisk publik Chrome800/1280:14/14 PASS för fem raser samt första/upplåsta
+kampanjen. Publicerad0.9.0/Build02740d1. Produktion/forskning/endgame, separata
+hamnwaypoints och Save/Load verifierade. JS/CSS och tio publika resursfiler
+matchar exakt kodcommit med SHA256; presentationens HTML och bevarade PDF PASS.
+Annoterad v0.9.0 pushad och GitHub-release faktiskt publicerad:
+https://github.com/tobisen/warbound/releases/tag/v0.9.0
+
+BACKLOG Done; HANDOFF/QUALITY_REVIEW/RELEASE_CHECKLIST uppdaterade med nya
+belägg och gränser. Slutliga verifieringsdocs/bilder publiceras separat med
+[skip ci]; ingen ny kodcheck eller deploy hävdas för den rena dokumentationen.
+Användarens14 skyddade filer fortsatt byteexakta; enda borttagning är den
+orefererade269-byte avbrottsloggen. Mänsklig onboarding/långbalans/ny ljudlyssning,
+slutanimationer, initialt frame-hack och bundlevarning redovisas öppet.
+Uppdraget avslutas; inga efterföljande tasks eller Warbound2-kod startas.

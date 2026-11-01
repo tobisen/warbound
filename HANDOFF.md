@@ -1,22 +1,40 @@
-## Warbound0.9.0 — releasekandidat, 2026-11-01
+## Warbound0.9.0 — publicerad och verifierad, 2026-11-01
 
-Aktuellt uppdrag omfattar spelkvalitet, endgame-inventering, audit, kort README,
-varsam städning, Warbound2-vision och faktisk release. Tidigare0.8-belägg nedan
-är historik. [Aktuell audit](docs/audits/warbound-0.9.0.md) och
-[råbelägg](artifacts/quality-release/README.md) styr den nya verifieringen.
+[Spela Warbound](https://tobisen.github.io/warbound/) visar faktiskt
+**v0.9.0 / Build02740d1**. Kodcommit02740d1 är pushad till origin/main.
+[Release/tagg v0.9.0](https://github.com/tobisen/warbound/releases/tag/v0.9.0)
+är publicerad och taggen pekar på samma kodcommit.
+[CI41260210015](https://github.com/tobisen/warbound/actions/runs/41260210015)
+är success för exakt02740d1: fullregression2313/245 PASS1448,44s, strict
+TypeScript/produktionsbuild, presentationsbuild och Pages-deploy PASS.
+Pages-deploy färdig2026-11-01 cirka02:39 Europe/Stockholm.
 
-Forskning/kampanjmeny/orderfel, lokal hotreaktion, delvis landning och två
-profilerade prestandafixar är införda. Befintligt spelbart endgame verifieras;
-ingen ny roster eller nya slutassets hävdas. Unit531/92, ändrade integrationer
-127/9, sista kortlayout12/2 och strict build PASS. Full mellanregression hade
-22 fel som nu är rättade; ny fullkörning och faktisk CI/Pages återstår vid
-releaseförberedelsen. Native browser800/1280 och komponentfixturer beskrivs
-i råunderlaget. Mänsklig onboarding/långbalans och ny faktisk ljudlyssning
-är inte verifierade. Initiala frame-toppar och bundlevarning kvarstår.
+Ny lokal fullregression2313/245 PASS1009,99s i isolerad kopia med repositoryts
+CSS och källassets. Unit531/92, riktad slutomkontroll127/9, sista kortlayout12/2,
+strict build och diffkontroll PASS. Faktisk publicerad Chrome800/1280:14/14
+PASS för fem rasers forskning/produktion/endgame, separata hamnwaypoints,
+native Save/Load och tidig/upplåst kampanj. JS/CSS och tio publika resursfiler
+SHA256-matchar kodcommiten. Presentationens HTML/PDF verifierade.
 
-Användarens14 tidigare ändrade/otrackade filer är SHA256-oförändrade och ska
-inte ingå i releasecommiten. Endast en orefererad269-byte avbrottslogg raderas.
-Inga efterföljande tasks eller Warbound2-implementation startas.
+Forskning/kampanjmeny/orderfel, lokal försvars-/flyktreaktion, delvis landning
+med tydliga transferfel och två profilerade prestandafixar är levererade.
+Befintliga endgamebyggnader/tekniker och fyra mark-/luft-/sjöroller räknas efter
+ny betald kedja och faktisk spelverifiering; inga nya roster-/assetkvoter hävdas.
+CPU p50/p95/max11,4/21,9/98,4→10,6/19,4/84,6ms; frame
+16,7/33,3/233,4→16,7/33,3/183,3ms. Ett initialt>50ms-hack kvarstår, inga
+senare i det20s-provet; total frame-p95 ligger fortfarande omkring33ms.
+
+[Audit](docs/audits/warbound-0.9.0.md), [städrapport](docs/audits/cleanup-0.9.0.md),
+[Warbound2-vision](docs/roadmap/warbound-2-vision.md) och
+[råbelägg](artifacts/quality-release/README.md) skiljer tekniska prov från
+mänsklig onboarding/långmatchbalans och ny faktisk ljudlyssning. Sådan granskning
+och vissa slutanimationer återstår. Befintlig bundlevarning kvarstår.
+
+README44 rader; den tidigare texten finns i docs/history. Endast en269-byte
+orefererad avbrottslogg raderad. Alla14 skyddade användarfiler är SHA256-
+oförändrade och exkluderade från releasen. Verifieringsdocs sparas i en separat
+`[skip ci]`-commit; den ändrar inte publicerad kod/Build-ID. Uppdraget avslutas;
+inga nya tasks, kartombyggnad eller Warbound2-implementation startas.
 
 ## Sjö-/tydlighetsuppdrag publicerat — 2026-11-01
 

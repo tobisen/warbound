@@ -1,0 +1,109 @@
+{
+  "version": "0.9.0",
+  "date": "2026-11-01",
+  "codeCommit": "02740d1c8702b5829c8a541161aacc745b17286b",
+  "unit": {
+    "command": "npm run test:unit",
+    "passed": 531,
+    "files": 92,
+    "evidence": "unit-final.txt"
+  },
+  "changedIntegration": {
+    "passed": 127,
+    "files": 9,
+    "evidence": "changed-integration-final.txt"
+  },
+  "lastUpgradeCards": {
+    "passed": 12,
+    "files": 2,
+    "evidence": "upgrade-cards-final.txt"
+  },
+  "strictBuild": {
+    "command": "npm run build",
+    "status": "PASS",
+    "evidence": "strict-build-final.txt",
+    "warning": "Existing JS bundle exceeds500kB"
+  },
+  "localFullRegression": {
+    "command": "npm test",
+    "status": "PASS",
+    "tests": 2313,
+    "files": 245,
+    "durationSeconds": 1009.99,
+    "isolatedRepositoryCss": true,
+    "evidence": "full-final-pass.txt"
+  },
+  "ci": {
+    "runId": 41260210015,
+    "url": "https://github.com/tobisen/warbound/actions/runs/41260210015",
+    "status": "PASS",
+    "tests": 2313,
+    "files": 245,
+    "durationSeconds": 1448.44,
+    "strictBuild": "PASS",
+    "presentationBuild": "PASS",
+    "pagesDeploy": "PASS",
+    "evidence": "ci-final.json"
+  },
+  "published": {
+    "status": "PASS",
+    "url": "https://tobisen.github.io/warbound/",
+    "build": "02740d1",
+    "nativeBrowserCases": 14,
+    "resolutions": [
+      "800x600",
+      "1280x720"
+    ],
+    "evidence": "published/browser.json",
+    "assets": "publication-assets.json",
+    "presentationAndPdf": "PASS"
+  },
+  "tag": {
+    "name": "v0.9.0",
+    "status": "published",
+    "target": "02740d1c8702b5829c8a541161aacc745b17286b",
+    "releaseUrl": "https://github.com/tobisen/warbound/releases/tag/v0.9.0",
+    "publishedAt": "2026-11-01T01:41:08Z"
+  },
+  "performance": {
+    "fixture": "Plains128;128 selected own+32 defenders;20gameplay seconds;native1280x720",
+    "beforeCpuP50P95MaxMs": [
+      11.4,
+      21.9,
+      98.4
+    ],
+    "afterCpuP50P95MaxMs": [
+      10.6,
+      19.4,
+      84.6
+    ],
+    "beforeFrameP50P95MaxMs": [
+      16.7,
+      33.3,
+      233.4
+    ],
+    "afterFrameP50P95MaxMs": [
+      16.7,
+      33.3,
+      183.3
+    ],
+    "initialStallRemains": true,
+    "afterInitialOver50MsFrames": 0,
+    "evidence": "performance/README.md"
+  },
+  "limitations": [
+    "Component fixtures and accelerated campaign strategy are not human playtests",
+    "No new human onboarding/long-match balance/audio assessment",
+    "Some final animations remain incomplete",
+    "No newly created roster/assets claimed; existing endgame paid chain verified"
+  ],
+  "protectedFiles": "protected-files.json",
+  "cleanup": "Only artifacts/army-movement/test-full-interrupted.log removed;269bytes",
+  "finalDocumentation": {
+    "linksChecked": 75,
+    "linkStatus": "PASS",
+    "protectedFilesUnchanged": 14,
+    "codeChecks": "Reuse exact code commit local and CI results; no code changed",
+    "diffCheck": "PASS"
+  }
+}

@@ -1,22 +1,25 @@
-## Warbound0.9.0 — releasekandidat, 2026-11-01
+## Granskning0.9.0 — avslutad, 2026-11-01
 
-Aktuellt uppdrag omfattar spelkvalitet, endgame-inventering, audit, kort README,
-varsam städning, Warbound2-vision och faktisk release. Tidigare0.8-belägg nedan
-är historik. [Aktuell audit](docs/audits/warbound-0.9.0.md) och
-[råbelägg](artifacts/quality-release/README.md) styr den nya verifieringen.
+Kod02740d1 är granskad och publicerad som0.9.0. Se den nya
+[tekniska/spelmässiga auditen](docs/audits/warbound-0.9.0.md) för prioritet,
+reproduktion, påverkan, åtgärd och status per fynd. Kvarstående designförslag
+är åtskilda från bekräftade fel; inga nya Warbound2-system implementeras.
 
-Forskning/kampanjmeny/orderfel, lokal hotreaktion, delvis landning och två
-profilerade prestandafixar är införda. Befintligt spelbart endgame verifieras;
-ingen ny roster eller nya slutassets hävdas. Unit531/92, ändrade integrationer
-127/9, sista kortlayout12/2 och strict build PASS. Full mellanregression hade
-22 fel som nu är rättade; ny fullkörning och faktisk CI/Pages återstår vid
-releaseförberedelsen. Native browser800/1280 och komponentfixturer beskrivs
-i råunderlaget. Mänsklig onboarding/långbalans och ny faktisk ljudlyssning
-är inte verifierade. Initiala frame-toppar och bundlevarning kvarstår.
+Bekräftade högriskfel är rättade: beroenden, kvadratisk grupp-HUD, dyra
+collisionnycklar, missvisande orderfel, klippt byggmeny, kampanjlås,
+forskningsstatus, transportlandning och passiv hotrespons. Mellanregressionen
+med för bred arbetarreaktion upptäcktes och rättades före slutverifieringen.
 
-Användarens14 tidigare ändrade/otrackade filer är SHA256-oförändrade och ska
-inte ingå i releasecommiten. Endast en orefererad269-byte avbrottslogg raderas.
-Inga efterföljande tasks eller Warbound2-implementation startas.
+Lokal full2313/245 PASS1009,99s; CI41260210015 för samma kod full2313/245
+PASS1448,44s och strict build/presentation/Pages PASS. Publicerad native
+Chrome800/1280:14/14 PASS. JS/CSS/tio resursfiler matchar SHA256. Se
+[verifieringsmanifestet](artifacts/quality-release/verification-final.json).
+
+Kvarstår: initial frame-topp183,3ms och total frame-p9533,3ms i stressprovet,
+bundlevarning, mänsklig onboarding/långbalans/ny ljudlyssning och vissa
+slutanimationer. Befintligt endgame räknas efter faktisk ny åtkomst-/spelkontroll;
+ingen ny roster eller nya slutassets hävdas.14 skyddade användarfiler är
+oförändrade och exkluderade. [HANDOFF](HANDOFF.md) anger slutstatus och stopp.
 
 ## Sjö-/tydlighetsuppdrag publicerat — 2026-11-01
 

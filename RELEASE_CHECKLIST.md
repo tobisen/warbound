@@ -1,22 +1,25 @@
-## Warbound0.9.0 — releasekandidat, 2026-11-01
+## Release0.9.0 — faktiskt publicerad, 2026-11-01
 
-Aktuellt uppdrag omfattar spelkvalitet, endgame-inventering, audit, kort README,
-varsam städning, Warbound2-vision och faktisk release. Tidigare0.8-belägg nedan
-är historik. [Aktuell audit](docs/audits/warbound-0.9.0.md) och
-[råbelägg](artifacts/quality-release/README.md) styr den nya verifieringen.
+- [x] Kod02740d1 pushad till befintlig origin/main utan force.
+- [x] Lokal `npm test`:2313/245 PASS1009,99s; unit531/92 PASS.
+- [x] Riktad slutomkontroll127/9 och kortlayout12/2 PASS.
+- [x] Strict TypeScript/produktionsbuild och diffkontroll PASS; bundlevarning kvar.
+- [x] [CI41260210015](https://github.com/tobisen/warbound/actions/runs/41260210015):
+  full2313/245 PASS1448,44s, strict build, presentation och Pages-deploy PASS.
+- [x] [Publikt spel](https://tobisen.github.io/warbound/):v0.9.0/Build02740d1,
+  native Chrome800/1280 med14/14 fall PASS; kampanj/skirmish/sjö/endgame/Save.
+- [x] Publik JS/CSS och tio resursfiler SHA256-matchar exakt kodcommit;
+  presentationens HTML och bevarade PDF verifierade.
+- [x] Annoterad tagg och [GitHub-releasev0.9.0](https://github.com/tobisen/warbound/releases/tag/v0.9.0)
+  faktiskt publicerade för samma kodcommit.
+- [x] README/audit/städrapport/Warbound2-vision samt BACKLOG/DEV_LOG/HANDOFF klara.
+- [x]14 tidigare ändrade/otrackade användarfiler byteexakta och exkluderade.
 
-Forskning/kampanjmeny/orderfel, lokal hotreaktion, delvis landning och två
-profilerade prestandafixar är införda. Befintligt spelbart endgame verifieras;
-ingen ny roster eller nya slutassets hävdas. Unit531/92, ändrade integrationer
-127/9, sista kortlayout12/2 och strict build PASS. Full mellanregression hade
-22 fel som nu är rättade; ny fullkörning och faktisk CI/Pages återstår vid
-releaseförberedelsen. Native browser800/1280 och komponentfixturer beskrivs
-i råunderlaget. Mänsklig onboarding/långbalans och ny faktisk ljudlyssning
-är inte verifierade. Initiala frame-toppar och bundlevarning kvarstår.
-
-Användarens14 tidigare ändrade/otrackade filer är SHA256-oförändrade och ska
-inte ingå i releasecommiten. Endast en orefererad269-byte avbrottslogg raderas.
-Inga efterföljande tasks eller Warbound2-implementation startas.
+[Verifieringsmanifest](artifacts/quality-release/verification-final.json) innehåller
+nya belägg. Mänsklig onboarding/långbalans/ny ljudlyssning och slutanimationer
+är inte certifierade av snabbtester. Initialt frame-hack och bundlevarning
+redovisas i [auditen](docs/audits/warbound-0.9.0.md). Senare rena verifieringsdocs
+pushas med `[skip ci]`; ingen ny kodcheck/deploy hävdas för dem. Uppdraget klart.
 
 ## Release0.8.0 — publicerad och verifierad, 2026-10-13
 

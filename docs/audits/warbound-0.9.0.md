@@ -24,14 +24,16 @@ Befintliga Drydock/Signal Tower/Naval Academy/Marine Barracks och de sex
 marinteknikerna räknas först efter ny spelkontroll. Inga nya2/4/4-assetkvoter
 eller ny roster hävdas; luckorna låg främst i synlighet, krav och kontroller.
 
-Verifiering före releasecommit: unit531/92 PASS, ändrade integrationer127/9
-PASS, sista forsknings-/uppgraderingskort12/2 PASS och strict produktionsbuild
-PASS. Full lokal mellanregression gav2287 PASS/22 FAIL. De22 felen gällde
-nya transport-/hotorder, ett ekonomiledger-test, stationär dödsfixtur och
-transient metadata; alla berörda filer passerar efter rättning. Inga assertions
-har tagits bort för seger, resursbevarande, allierad skada eller passagerare.
-En ny fullkörning på slutlig isolerad kod pågår. CI/Pages/tagg verifieras
-separat efter push och markeras inte godkända i förväg.
+Slutresultat: **lokal fullregression2313/245 PASS1009,99s**, unit531/92 PASS,
+riktad slutomkontroll127/9 och sista kortlayout12/2 PASS, strict build PASS.
+[CI41260210015](https://github.com/tobisen/warbound/actions/runs/41260210015)
+för02740d1: **2313/245 PASS1448,44s**, strict build/presentation/Pages PASS.
+Faktisk publicerad browser800/1280:14/14 PASS medv0.9.0/Build02740d1.
+JS/CSS och tio resursfiler SHA256-matchar commiten; presentation/PDF verifierade.
+[Tagg/releasev0.9.0](https://github.com/tobisen/warbound/releases/tag/v0.9.0)
+är publicerad. Tidigare full mellanregression2287 PASS/22 FAIL behålls som
+historiskt råunderlag. Samtliga berörda fel är rättade; inga seger-/resurs-/
+skade-/passagerarassertions har sänkts. Se verifieringsmanifestet för fixturer.
 
 ## Bekräftade fynd
 
@@ -91,5 +93,6 @@ olämplig för jämförelse, och regressionen med kvadratisk HUD ledde till rät
 
 Små Twinwake-strider mäts separat: CPU-p954,9/5,2/5,7ms för capital/zeppelin/behemoth, med initiala frame-max116,6/83,3/83,4ms. Se samma råunderlag; inga jämförelser mellan olika arbetslaster.
 
-Full regression, produktionskandidatens browserkontroll och faktisk CI/Pages
-rapporteras här när de är avslutade. Inget av dessa markeras PASS i förväg.
+Full lokal regression och CI/Pages är nu faktiskt gröna enligt ovan.
+[Verifieringsmanifestet](../../artifacts/quality-release/verification-final.json)
+länkar till separata slutloggar, publicerad browser och resursjämförelser.

@@ -53,7 +53,7 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
-### Spelkvalitet, endgame och release — 2026-11-01 — In progress
+### Spelkvalitet, endgame och release — 2026-11-01 — Done
 
 Nytt bifogat uppdrag ersätter tidigare stopp. En deluppgift åt gången:
 1 forskning/layout, 2 kampanjbyggmeny, 3 orderfel, 4 uppmätt upptäcktslagg,
@@ -64,6 +64,14 @@ regression/strict build. Commit/push/tagg/publicering ingår i uppdraget.
 Skyddade lokala CSS/units.mjs/docs och fristående filer hålls utanför releasen.
 Ingen delegering, kartombyggnad eller nya roadmaptasks. Tidigare belägg nedan
 är historik och ersätter inte denna leverans verifiering.
+
+Samtliga12 deluppgifter avslutade. Kod02740d1, publicerad0.9.0/Build02740d1,
+annoterad tagg/GitHub-releasev0.9.0. Lokal fullregression2313/245 PASS1009,99s;
+CI41260210015 full2313/245 PASS1448,44s, strict build/presentation/Pages PASS.
+Publicerad native Chrome800/1280:14/14 PASS; publika resurs-/bundlehashar
+matchar. HANDOFF/QUALITY_REVIEW och docs/audits redovisar belägg, tidigare
+röda mellanprov, kvarstående initial frame-topp och mänskliga granskningsluckor.
+Ingen ny task startas; Warbound2 är enbart ett dokumenterat förslag.
 
 
 ## Sjö-/tydlighetsuppdrag publicerat — 2026-11-01

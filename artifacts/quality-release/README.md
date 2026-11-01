@@ -34,6 +34,13 @@ accelererade strategierna hävdas vara ett mänskligt spel-/balans-/ljudtest.
 Kandidatprovets Build-ID är utgångscommiten; den publicerade releasehashen
 redovisas separat efter commit/deploy.
 
+## Publicerad release
+
+`published/` gäller den faktiska Pages-versionen efter grönCI, inte lokala
+kandidaten. Fem raser och två kampanjupplåsningar i800/1280:14/14 PASS.
+Versions-/Build-ID, två forskningsrader utan ellips, betalda köer/endgame,
+hamnwaypoints och native Save/Load verifieras i produktionsbundlen.
+
 ## Prestanda
 
 [Profiler, samtliga mätsteg och begränsningar](performance/README.md).
@@ -42,7 +49,7 @@ frame-toppar finns kvar. Småkarternas efterprov är skilda från före/efterpar
 
 ## Tester och release
 
-Före commit: unit531/92 PASS, samtliga nio ändrade integrationsfiler127/9
+Före commit: unit531/92 PASS, riktad slutomkontroll av nio integrationsfiler127/9
 PASS och strict typecheck/produktionsbuild PASS. Sista tillägget för bas-/
 tornuppgradering:12/2 PASS och ny strict build. Presentationen byggd medVite8.3.5.
 
@@ -53,5 +60,11 @@ kampanj-/östrategier, stabil identitetskontroll efter landning, explicit Hold
 för dödsfixtur, avvisad allierad order och onödig transient träffmetadata vid
 explicit attack. Kustklick kontrollerar nu verklig torr närliggande landning.
 Alla nio berörda filer passerar tillsammans127/9. Inga seger-/resurs-/skade-
-eller passagerarassertions sänks. Slutlig full lokal körning pågår; exakt
-releasecommits CI, publicerade browser och tagg redovisas efter verifiering.
+eller passagerarassertions sänks. Slutlig full lokal körning: **2313/245 PASS1009,99s** i den isolerade kopian
+med repositoryts CSS. Se `full-final-pass.txt`. Exakt
+releasecommits CI2313/245 PASS1448,44s, strict build/presentation/Pages PASS.
+Publicerad browser14/14 PASS med0.9.0/Build02740d1; tagg/releasev0.9.0 är
+publicerad. JS/CSS och tio publika resursfiler matchar commitens SHA256.
+Presentation/PDF verifierade. Se `verification-final.json`, `ci-final.json`,
+`ci-final-summary.txt`, `published/browser.json`, `publication-assets.json`,
+`release-final.json` och `tag-final.json`.

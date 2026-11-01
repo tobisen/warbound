@@ -1,0 +1,168 @@
+{
+  "conclusion": "success",
+  "createdAt": "2026-11-01T01:14:00Z",
+  "headSha": "02740d1c8702b5829c8a541161aacc745b17286b",
+  "jobs": [
+    {
+      "completedAt": "2026-11-01T01:38:57Z",
+      "conclusion": "success",
+      "databaseId": 124711736251,
+      "name": "build",
+      "startedAt": "2026-11-01T01:14:02Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-01T01:14:04Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-01T01:14:03Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:14:27Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 2,
+          "startedAt": "2026-11-01T01:14:04Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:14:27Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "number": 3,
+          "startedAt": "2026-11-01T01:14:27Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:14:31Z",
+          "conclusion": "success",
+          "name": "Run npm ci",
+          "number": 4,
+          "startedAt": "2026-11-01T01:14:27Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:38:40Z",
+          "conclusion": "success",
+          "name": "Run npm test",
+          "number": 5,
+          "startedAt": "2026-11-01T01:14:31Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:38:43Z",
+          "conclusion": "success",
+          "name": "Run npm run build",
+          "number": 6,
+          "startedAt": "2026-11-01T01:38:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:38:45Z",
+          "conclusion": "success",
+          "name": "Install presentation dependencies",
+          "number": 7,
+          "startedAt": "2026-11-01T01:38:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:38:48Z",
+          "conclusion": "success",
+          "name": "Build presentation",
+          "number": 8,
+          "startedAt": "2026-11-01T01:38:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:38:48Z",
+          "conclusion": "success",
+          "name": "Include presentation in Pages artifact",
+          "number": 9,
+          "startedAt": "2026-11-01T01:38:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:38:49Z",
+          "conclusion": "success",
+          "name": "Run actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d",
+          "number": 10,
+          "startedAt": "2026-11-01T01:38:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:38:53Z",
+          "conclusion": "success",
+          "name": "Run actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9",
+          "number": 11,
+          "startedAt": "2026-11-01T01:38:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:38:55Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "number": 21,
+          "startedAt": "2026-11-01T01:38:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:38:55Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 22,
+          "startedAt": "2026-11-01T01:38:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:38:55Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 23,
+          "startedAt": "2026-11-01T01:38:55Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/tobisen/warbound/actions/runs/41260210015/job/124711736251"
+    },
+    {
+      "completedAt": "2026-11-01T01:39:10Z",
+      "conclusion": "success",
+      "databaseId": 124716845492,
+      "name": "deploy",
+      "startedAt": "2026-11-01T01:39:00Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-01T01:39:02Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-01T01:39:01Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:39:09Z",
+          "conclusion": "success",
+          "name": "Deploy",
+          "number": 2,
+          "startedAt": "2026-11-01T01:39:02Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-01T01:39:09Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 3,
+          "startedAt": "2026-11-01T01:39:09Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/tobisen/warbound/actions/runs/41260210015/job/124716845492"
+    }
+  ],
+  "status": "completed",
+  "updatedAt": "2026-11-01T01:39:10Z",
+  "url": "https://github.com/tobisen/warbound/actions/runs/41260210015"
+}

@@ -1,0 +1,11 @@
+{
+  "ref": "refs/tags/v0.9.0",
+  "node_id": "REF_kwDOU3oNZrByZWZzL3RhZ3MvdjAuOS4w",
+  "url": "https://api.github.com/repos/tobisen/warbound/git/refs/tags/v0.9.0",
+  "object": {
+    "sha": "973fcc4ae7e8452d8ef9d5e271f05f657b605143",
+    "type": "tag",
+    "url": "https://api.github.com/repos/tobisen/warbound/git/tags/973fcc4ae7e8452d8ef9d5e271f05f657b605143"
+  },
+  "verifiedPeeledCommit": "02740d1c8702b5829c8a541161aacc745b17286b"
+}

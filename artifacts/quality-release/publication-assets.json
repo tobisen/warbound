@@ -1,0 +1,121 @@
+{
+  "version": "0.9.0",
+  "commit": "02740d1c8702b5829c8a541161aacc745b17286b",
+  "url": "https://tobisen.github.io/warbound/",
+  "verifiedAtUtc": "2026-11-01T01:39:28.344908+00:00",
+  "assets": [
+    {
+      "path": "public/assets/manifest.json",
+      "url": "https://tobisen.github.io/warbound/assets/manifest.json",
+      "httpStatus": 200,
+      "bytes": 5936018,
+      "sha256": "3aab92b68f16387bc07abab21b0c9e3e4e9f4d68af5da210d4564129220c7133",
+      "matchesCommit": true
+    },
+    {
+      "path": "public/assets/naval-atlas.png",
+      "url": "https://tobisen.github.io/warbound/assets/naval-atlas.png",
+      "httpStatus": 200,
+      "bytes": 1699082,
+      "sha256": "85edac987f4395d65b257d59bd41c7f32e4cad00ae7dbb8a1fd19190273ab760",
+      "matchesCommit": true
+    },
+    {
+      "path": "public/assets/naval-atlas.json",
+      "url": "https://tobisen.github.io/warbound/assets/naval-atlas.json",
+      "httpStatus": 200,
+      "bytes": 741946,
+      "sha256": "0b806ede4f866ca9be732032b3ccf2a7eeb72563c700c54ea360eb48a1c5b2d1",
+      "matchesCommit": true
+    },
+    {
+      "path": "public/assets/naval-content-atlas.png",
+      "url": "https://tobisen.github.io/warbound/assets/naval-content-atlas.png",
+      "httpStatus": 200,
+      "bytes": 665923,
+      "sha256": "757ac909b327fa84c9636b9448ff259c9eeac81471bb15806a6180e3a8589fda",
+      "matchesCommit": true
+    },
+    {
+      "path": "public/assets/naval-content-atlas.json",
+      "url": "https://tobisen.github.io/warbound/assets/naval-content-atlas.json",
+      "httpStatus": 200,
+      "bytes": 183440,
+      "sha256": "6d316a63afd6b732433fce619d263930a96e558840cbac876aaa360ff2bda02f",
+      "matchesCommit": true
+    },
+    {
+      "path": "public/assets/leviathans-atlas.png",
+      "url": "https://tobisen.github.io/warbound/assets/leviathans-atlas.png",
+      "httpStatus": 200,
+      "bytes": 2491026,
+      "sha256": "e141fe8922d04332a0d1b3c4b3f4834e58aec40d13ddff1d2c5ed868bebb5a0c",
+      "matchesCommit": true
+    },
+    {
+      "path": "public/assets/leviathans-atlas.json",
+      "url": "https://tobisen.github.io/warbound/assets/leviathans-atlas.json",
+      "httpStatus": 200,
+      "bytes": 269138,
+      "sha256": "2cd7bae12505c224b0662cdc89896e234de5d3b2b3427fdee3a63dfb34cf251d",
+      "matchesCommit": true
+    },
+    {
+      "path": "public/audio/manifest.json",
+      "url": "https://tobisen.github.io/warbound/audio/manifest.json",
+      "httpStatus": 200,
+      "bytes": 6304,
+      "sha256": "a542f4a9bf35d111aefc9a4f6fd550e45250e1253ecf6b8fbad98508b2ce6984",
+      "matchesCommit": true
+    },
+    {
+      "path": "public/audio/voices/manifest.json",
+      "url": "https://tobisen.github.io/warbound/audio/voices/manifest.json",
+      "httpStatus": 200,
+      "bytes": 324593,
+      "sha256": "1125cc13ab7484e0b406142a0625a5bb8497a0aa6a7827398211d476f9bbab3b",
+      "matchesCommit": true
+    },
+    {
+      "path": "public/audio/wildlife-manifest.json",
+      "url": "https://tobisen.github.io/warbound/audio/wildlife-manifest.json",
+      "httpStatus": 200,
+      "bytes": 5450,
+      "sha256": "b5fcc0f7f1277c8cafaf6367333f185914905563a6a2a8f9c99577d10b1e66cd",
+      "matchesCommit": true
+    }
+  ],
+  "httpStatus": 200,
+  "bundles": [
+    {
+      "url": "https://tobisen.github.io/warbound/assets/index-UfJo5MAs.js",
+      "httpStatus": 200,
+      "bytes": 2259332,
+      "sha256": "92e9e425507062946553d7ac557fbc073d3c058ecd6809d6d8662c5da6ae2d2d",
+      "matchesExactCommitLocalBuild": true
+    },
+    {
+      "url": "https://tobisen.github.io/warbound/assets/index-rf8KHRcX.css",
+      "httpStatus": 200,
+      "bytes": 37203,
+      "sha256": "3b2b8ea5c501462556463b4672b124f409cbc1a8f537d82e41a901bfc81b3523",
+      "matchesExactCommitLocalBuild": true
+    }
+  ],
+  "presentation": [
+    {
+      "url": "https://tobisen.github.io/warbound/presentation/",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 542
+    },
+    {
+      "url": "https://tobisen.github.io/warbound/presentation/warbound-agentic-coding.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 16873681,
+      "sha256": "8da99a9fa7d994dc7b4d74a658beb726dce1e68226cdf436de436dea968f0a6c",
+      "matchesCommit": true
+    }
+  ]
+}
