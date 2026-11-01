@@ -1,0 +1,4956 @@
+{
+  "url": "http://127.0.0.1:5280/warbound/",
+  "note": "Automatic scene updates run throughout; no injected research/buildings, no manual ticks or scene freezing. Resource/reveal cheats use their real dialog; campaign progression ledger only unlocks the authored mission. Physical160ms card-center/border/detail/button clicks verify jobs, exact single payment, disabled guards and Menu Save/Load.",
+  "results": [
+    {
+      "scenario": {
+        "width": 800,
+        "faction": "crown",
+        "mode": "skirmish"
+      },
+      "build": "Build 4e4cb59",
+      "clicks": [
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 0,
+            "gold": 0,
+            "elapsed": 6.480436666666661,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Not enough wood and gold",
+            "cursor": "auto",
+            "color": "rgb(40, 39, 53)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 0,
+            "gold": 0,
+            "elapsed": 6.897086666666658,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 100000,
+            "gold": 100000,
+            "elapsed": 7.047076666666657,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.816670000000004
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 7.413746666666656,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.816670000000004
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 7.413746666666656,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 482,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.466700000000008
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 7.763716666666655,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "border",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.466700000000008
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 7.763716666666655,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 564,
+            "y": 548.5,
+            "hit": "control",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.133370000000014
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.83333999999999
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 8.097046666666653,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.116710000000014
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.816679999999987
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 8.113706666666653,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 548.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Upgrade in progress; base training paused",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 13.766710000000021
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.46667999999997
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 8.463706666666646,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null,
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99820,
+            "gold": 99900,
+            "elapsed": 34.379386666666676,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 482,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.83336
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99780,
+            "gold": 99890,
+            "elapsed": 34.74599666666668,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.83336
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99780,
+            "gold": 99890,
+            "elapsed": 34.74599666666668,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.500020000000001
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99780,
+            "gold": 99890,
+            "elapsed": 35.079336666666656,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-defense",
+          "zone": "button",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.500020000000001
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99780,
+            "gold": 99890,
+            "elapsed": 35.079336666666656,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 531.5,
+            "hit": "",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.150060000000001
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99740,
+            "gold": 99880,
+            "elapsed": 35.42929666666665,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 0.1253900000000202
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99740,
+            "gold": 99880,
+            "elapsed": 42.4539666666664,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 100,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 1,
+              "defense": 0,
+              "job": {
+                "kind": "defense",
+                "remainingSeconds": 7.75876000000002
+              },
+              "workerTools": 1,
+              "queue": [
+                "workerTools"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99640,
+            "gold": 99820,
+            "elapsed": 42.820596666666404,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense",
+              "research-workerTools"
+            ]
+          }
+        }
+      ],
+      "saved": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 7.050040000000002
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99740,
+        "gold": 99880,
+        "elapsed": 35.52931666666664,
+        "playing": false,
+        "selected": "forge",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "restored": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 7.050040000000002
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99740,
+        "gold": 99880,
+        "elapsed": 35.52931666666664,
+        "playing": false,
+        "selected": null,
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "final": {
+        "research": {
+          "attack": 1,
+          "defense": 0,
+          "job": {
+            "kind": "defense",
+            "remainingSeconds": 7.75876000000002
+          },
+          "workerTools": 1,
+          "queue": [
+            "workerTools"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99640,
+        "gold": 99820,
+        "elapsed": 42.820596666666404,
+        "playing": true,
+        "selected": "base",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense",
+          "research-workerTools"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "scenario": {
+        "width": 1280,
+        "faction": "crown",
+        "mode": "skirmish"
+      },
+      "build": "Build 4e4cb59",
+      "clicks": [
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 0,
+            "gold": 0,
+            "elapsed": 6.730919999999997,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 1077,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Not enough wood and gold",
+            "cursor": "auto",
+            "color": "rgb(40, 39, 53)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 0,
+            "gold": 0,
+            "elapsed": 7.114199999999993,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 100000,
+            "gold": 100000,
+            "elapsed": 7.330869999999994,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 1077,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.833350000000003
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 7.697489999999993,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.833350000000003
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 7.697489999999993,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 602,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.49999000000001
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 8.030849999999996,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "border",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.483310000000008
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 8.047529999999997,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 1016,
+            "y": 668.5,
+            "hit": "control",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.150000000000013
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.83332999999999
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 8.380839999999992,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.150000000000013
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.83332999999999
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 8.380839999999992,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 668.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Upgrade in progress; base training paused",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 13.816690000000019
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.500019999999974
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 8.714149999999986,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null,
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99820,
+            "gold": 99900,
+            "elapsed": 35.02958000000009,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 602,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.833359999999999
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99780,
+            "gold": 99890,
+            "elapsed": 35.41289000000011,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.833359999999999
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99780,
+            "gold": 99890,
+            "elapsed": 35.41289000000011,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.48337
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99780,
+            "gold": 99890,
+            "elapsed": 35.762880000000095,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-defense",
+          "zone": "button",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.48337
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99780,
+            "gold": 99890,
+            "elapsed": 35.762880000000095,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 651.5,
+            "hit": "",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.133380000000001
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99740,
+            "gold": 99880,
+            "elapsed": 36.11287000000008,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 0.46701000000001175
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99740,
+            "gold": 99880,
+            "elapsed": 42.779239999999895,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 100,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 0.13370000000001142
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense",
+                "workerTools"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99640,
+            "gold": 99820,
+            "elapsed": 43.112549999999885,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense",
+              "research-workerTools"
+            ]
+          }
+        }
+      ],
+      "saved": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 7.033390000000001
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99740,
+        "gold": 99880,
+        "elapsed": 36.21286000000008,
+        "playing": false,
+        "selected": "forge",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "restored": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 7.033390000000001
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99740,
+        "gold": 99880,
+        "elapsed": 36.21286000000008,
+        "playing": false,
+        "selected": null,
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "final": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 0.11704000000001157
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense",
+            "workerTools"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99640,
+        "gold": 99820,
+        "elapsed": 43.12920999999989,
+        "playing": true,
+        "selected": "base",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense",
+          "research-workerTools"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "scenario": {
+        "width": 800,
+        "faction": "crown",
+        "mode": "campaign"
+      },
+      "build": "Build 4e4cb59",
+      "clicks": [
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 100020,
+            "gold": 100010,
+            "elapsed": 10.297523333333304,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.833350000000003
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 10.680863333333296,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.833350000000003
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 10.680863333333296,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 482,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.46671000000001
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 11.047503333333289,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "border",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.46671000000001
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 11.047503333333289,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 564,
+            "y": 548.5,
+            "hit": "control",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.100060000000015
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.83337000000001
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 11.414153333333283,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.100060000000015
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.83337000000001
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 11.414153333333283,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 548.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Upgrade in progress; base training paused",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 13.733400000000021
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.46671000000001
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 11.780813333333278,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null,
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99840,
+            "gold": 99910,
+            "elapsed": 49.56244333333297,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 482,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.833330000000001
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99800,
+            "gold": 99900,
+            "elapsed": 49.962423333332985,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.833330000000001
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99800,
+            "gold": 99900,
+            "elapsed": 49.962423333332985,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.483330000000004
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99800,
+            "gold": 99900,
+            "elapsed": 50.31242333333297,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-defense",
+          "zone": "button",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.483330000000004
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99800,
+            "gold": 99900,
+            "elapsed": 50.31242333333297,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 531.5,
+            "hit": "",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.133360000000005
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99760,
+            "gold": 99890,
+            "elapsed": 50.662393333332965,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 1,
+              "defense": 0,
+              "job": {
+                "kind": "defense",
+                "remainingSeconds": 4.733940000000034
+              },
+              "workerTools": 1,
+              "queue": []
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99760,
+            "gold": 99890,
+            "elapsed": 61.0618133333327,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 100,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 1,
+              "defense": 0,
+              "job": {
+                "kind": "defense",
+                "remainingSeconds": 4.350620000000036
+              },
+              "workerTools": 1,
+              "queue": [
+                "workerTools"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99660,
+            "gold": 99830,
+            "elapsed": 61.445133333332684,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense",
+              "research-workerTools"
+            ]
+          }
+        }
+      ],
+      "saved": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 7.050030000000005
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99760,
+        "gold": 99890,
+        "elapsed": 50.74572333333296,
+        "playing": false,
+        "selected": "forge",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "restored": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 7.050030000000005
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99760,
+        "gold": 99890,
+        "elapsed": 50.74572333333296,
+        "playing": false,
+        "selected": null,
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "final": {
+        "research": {
+          "attack": 1,
+          "defense": 0,
+          "job": {
+            "kind": "defense",
+            "remainingSeconds": 4.350620000000036
+          },
+          "workerTools": 1,
+          "queue": [
+            "workerTools"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99660,
+        "gold": 99830,
+        "elapsed": 61.445133333332684,
+        "playing": true,
+        "selected": "base",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense",
+          "research-workerTools"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "scenario": {
+        "width": 1280,
+        "faction": "crown",
+        "mode": "campaign"
+      },
+      "build": "Build 4e4cb59",
+      "clicks": [
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 100020,
+            "gold": 100010,
+            "elapsed": 11.020799999999982,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 1077,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.848360000000001
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 11.399089999999982,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.83003
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 11.417419999999982,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 602,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.433340000000001
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 11.814109999999982,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "border",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.433340000000001
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 11.814109999999982,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 1016,
+            "y": 668.5,
+            "hit": "control",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.083400000000006
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.833359999999992
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 12.164049999999976,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.083400000000006
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.833359999999992
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 12.164049999999976,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 668.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Upgrade in progress; base training paused",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 13.716740000000014
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.46669999999997
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 12.530709999999969,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null,
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99840,
+            "gold": 99910,
+            "elapsed": 55.29568999999952,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 602,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.8333400000000015
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99800,
+            "gold": 99900,
+            "elapsed": 55.728999999999516,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.8333400000000015
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99800,
+            "gold": 99900,
+            "elapsed": 55.728999999999516,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.4666900000000025
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99800,
+            "gold": 99900,
+            "elapsed": 56.09564999999951,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-defense",
+          "zone": "button",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.4666900000000025
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99800,
+            "gold": 99900,
+            "elapsed": 56.09564999999951,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 651.5,
+            "hit": "",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.100030000000003
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99760,
+            "gold": 99890,
+            "elapsed": 56.46230999999949,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 1,
+              "defense": 0,
+              "job": {
+                "kind": "defense",
+                "remainingSeconds": 3.106950000000003
+              },
+              "workerTools": 1,
+              "queue": []
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99760,
+            "gold": 99890,
+            "elapsed": 68.45539000000014,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 100,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 1,
+              "defense": 0,
+              "job": {
+                "kind": "defense",
+                "remainingSeconds": 2.690300000000006
+              },
+              "workerTools": 1,
+              "queue": [
+                "workerTools"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99660,
+            "gold": 99830,
+            "elapsed": 68.87204000000023,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense",
+              "research-workerTools"
+            ]
+          }
+        }
+      ],
+      "saved": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 6.990030000000002
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99760,
+        "gold": 99890,
+        "elapsed": 56.5723099999995,
+        "playing": false,
+        "selected": "forge",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "restored": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 6.990030000000002
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99760,
+        "gold": 99890,
+        "elapsed": 56.5723099999995,
+        "playing": false,
+        "selected": null,
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "final": {
+        "research": {
+          "attack": 1,
+          "defense": 0,
+          "job": {
+            "kind": "defense",
+            "remainingSeconds": 2.690300000000006
+          },
+          "workerTools": 1,
+          "queue": [
+            "workerTools"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99660,
+        "gold": 99830,
+        "elapsed": 68.87204000000023,
+        "playing": true,
+        "selected": "base",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense",
+          "research-workerTools"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "scenario": {
+        "width": 800,
+        "faction": "clans",
+        "mode": "skirmish"
+      },
+      "build": "Build 4e4cb59",
+      "clicks": [
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 0,
+            "gold": 0,
+            "elapsed": 7.9643266666666594,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Not enough wood and gold",
+            "cursor": "auto",
+            "color": "rgb(40, 39, 53)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 0,
+            "gold": 0,
+            "elapsed": 8.347646666666657,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 100000,
+            "gold": 100000,
+            "elapsed": 8.514306666666654,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.833380000000002
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 8.847586666666649,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.833380000000002
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 8.847586666666649,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 482,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.48337000000001
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 9.19759666666664,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "border",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.48337000000001
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 9.19759666666664,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 564,
+            "y": 548.5,
+            "hit": "control",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.133360000000017
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.83330999999999
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 9.547606666666633,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.133360000000017
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.83330999999999
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 9.547606666666633,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 548.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Upgrade in progress; base training paused",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 13.783380000000024
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.483329999999974
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 9.897586666666626,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null,
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99820,
+            "gold": 99900,
+            "elapsed": 38.312856666666654,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 482,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 35,
+              "gold": 15
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.83334
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99785,
+            "gold": 99885,
+            "elapsed": 38.69617666666667,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.83334
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99785,
+            "gold": 99885,
+            "elapsed": 38.69617666666667,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 35,
+              "gold": 15
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.483360000000002
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99785,
+            "gold": 99885,
+            "elapsed": 39.04615666666666,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-defense",
+          "zone": "button",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.483360000000002
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99785,
+            "gold": 99885,
+            "elapsed": 39.04615666666666,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 531.5,
+            "hit": "",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 40,
+              "gold": 10
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.150030000000004
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99745,
+            "gold": 99875,
+            "elapsed": 39.379486666666644,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 1,
+              "defense": 0,
+              "job": {
+                "kind": "defense",
+                "remainingSeconds": 7.517020000000019
+              },
+              "workerTools": 1,
+              "queue": []
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99745,
+            "gold": 99875,
+            "elapsed": 47.01249666666639,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 100,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 1,
+              "defense": 0,
+              "job": {
+                "kind": "defense",
+                "remainingSeconds": 7.15040000000002
+              },
+              "workerTools": 1,
+              "queue": [
+                "workerTools"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99645,
+            "gold": 99815,
+            "elapsed": 47.379116666666384,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense",
+              "research-workerTools"
+            ]
+          }
+        }
+      ],
+      "saved": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 7.0500200000000035
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99745,
+        "gold": 99875,
+        "elapsed": 39.479496666666634,
+        "playing": false,
+        "selected": "forge",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "restored": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 7.0500200000000035
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99745,
+        "gold": 99875,
+        "elapsed": 39.479496666666634,
+        "playing": false,
+        "selected": null,
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "final": {
+        "research": {
+          "attack": 1,
+          "defense": 0,
+          "job": {
+            "kind": "defense",
+            "remainingSeconds": 7.15040000000002
+          },
+          "workerTools": 1,
+          "queue": [
+            "workerTools"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99645,
+        "gold": 99815,
+        "elapsed": 47.379116666666384,
+        "playing": true,
+        "selected": "base",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense",
+          "research-workerTools"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "scenario": {
+        "width": 1280,
+        "faction": "elves",
+        "mode": "campaign"
+      },
+      "build": "Build 4e4cb59",
+      "clicks": [
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 100020,
+            "gold": 100010,
+            "elapsed": 11.31422333333327,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 1077,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.833330000000004
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 11.680883333333263,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.833330000000004
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 11.680883333333263,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 602,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.46668000000001
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 12.047533333333256,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "border",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.46668000000001
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 12.047533333333256,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 1016,
+            "y": 668.5,
+            "hit": "control",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.020020000000015
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.70331999999999
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 12.494193333333252,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.020020000000015
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.70331999999999
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 12.494193333333252,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 668.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Upgrade in progress; base training paused",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 13.65005000000002
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.333349999999996
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 12.864163333333247,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null,
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99835,
+            "gold": 99910,
+            "elapsed": 41.79623333333328,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 602,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 40,
+              "gold": 15
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.833330000000001
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99795,
+            "gold": 99895,
+            "elapsed": 42.17956333333326,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.833330000000001
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99795,
+            "gold": 99895,
+            "elapsed": 42.17956333333326,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 40,
+              "gold": 15
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.483370000000001
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99795,
+            "gold": 99895,
+            "elapsed": 42.52952333333326,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-defense",
+          "zone": "button",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.483370000000001
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99795,
+            "gold": 99895,
+            "elapsed": 42.52952333333326,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 651.5,
+            "hit": "",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 35,
+              "gold": 15
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 7.133370000000004
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99760,
+            "gold": 99880,
+            "elapsed": 42.879523333333246,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 1,
+              "defense": 0,
+              "job": {
+                "kind": "defense",
+                "remainingSeconds": 7.143470000000002
+              },
+              "workerTools": 1,
+              "queue": []
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99760,
+            "gold": 99880,
+            "elapsed": 50.86942333333305,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 100,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 1,
+              "defense": 0,
+              "job": {
+                "kind": "defense",
+                "remainingSeconds": 6.776810000000003
+              },
+              "workerTools": 1,
+              "queue": [
+                "workerTools"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99660,
+            "gold": 99820,
+            "elapsed": 51.236083333333035,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense",
+              "research-workerTools"
+            ]
+          }
+        }
+      ],
+      "saved": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 7.050050000000004
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99760,
+        "gold": 99880,
+        "elapsed": 42.96284333333325,
+        "playing": false,
+        "selected": "forge",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "restored": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 7.050050000000004
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99760,
+        "gold": 99880,
+        "elapsed": 42.96284333333325,
+        "playing": false,
+        "selected": null,
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "final": {
+        "research": {
+          "attack": 1,
+          "defense": 0,
+          "job": {
+            "kind": "defense",
+            "remainingSeconds": 6.776810000000003
+          },
+          "workerTools": 1,
+          "queue": [
+            "workerTools"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99660,
+        "gold": 99820,
+        "elapsed": 51.236083333333035,
+        "playing": true,
+        "selected": "base",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense",
+          "research-workerTools"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "scenario": {
+        "width": 800,
+        "faction": "dwarves",
+        "mode": "campaign"
+      },
+      "build": "Build 4e4cb59",
+      "clicks": [
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 100020,
+            "gold": 100010,
+            "elapsed": 7.8139166666666595,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.833360000000003
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 8.163886666666658,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.833360000000003
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 8.163886666666658,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 482,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.48336000000001
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 8.51388666666665,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "border",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.48336000000001
+              }
+            },
+            "wood": 99960,
+            "gold": 99980,
+            "elapsed": 8.51388666666665,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 564,
+            "y": 548.5,
+            "hit": "control",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.133380000000017
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.83337
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 8.863866666666643,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.133380000000017
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.83337
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 8.863866666666643,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 548.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Upgrade in progress; base training paused",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 13.783380000000024
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.483369999999994
+            },
+            "wood": 99880,
+            "gold": 99920,
+            "elapsed": 9.213866666666636,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null,
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99835,
+            "gold": 99905,
+            "elapsed": 38.162626666666526,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 482,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 45,
+              "gold": 15
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 9.833359999999999
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99790,
+            "gold": 99890,
+            "elapsed": 38.52927666666652,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 9.833359999999999
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99790,
+            "gold": 99890,
+            "elapsed": 38.52927666666652,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 45,
+              "gold": 15
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 9.483349999999996
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99790,
+            "gold": 99890,
+            "elapsed": 38.879286666666495,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-defense",
+          "zone": "button",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 9.483349999999996
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99790,
+            "gold": 99890,
+            "elapsed": 38.879286666666495,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 531.5,
+            "hit": "",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 45,
+              "gold": 15
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 9.133379999999997
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99745,
+            "gold": 99875,
+            "elapsed": 39.229256666666494,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 1.2936199999999836
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99745,
+            "gold": 99875,
+            "elapsed": 47.06901666666618,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          },
+          "point": {
+            "x": 625,
+            "y": 470.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 100,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 0.9269799999999866
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense",
+                "workerTools"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99645,
+            "gold": 99815,
+            "elapsed": 47.435656666666176,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense",
+              "research-workerTools"
+            ]
+          }
+        }
+      ],
+      "saved": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 9.050059999999998
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99745,
+        "gold": 99875,
+        "elapsed": 39.312576666666494,
+        "playing": false,
+        "selected": "forge",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "restored": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 9.050059999999998
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99745,
+        "gold": 99875,
+        "elapsed": 39.312576666666494,
+        "playing": false,
+        "selected": null,
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "final": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 0.9269799999999866
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense",
+            "workerTools"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99645,
+        "gold": 99815,
+        "elapsed": 47.435656666666176,
+        "playing": true,
+        "selected": "base",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense",
+          "research-workerTools"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "scenario": {
+        "width": 1280,
+        "faction": "goblins",
+        "mode": "skirmish"
+      },
+      "build": "Build 4e4cb59",
+      "clicks": [
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 0,
+            "gold": 0,
+            "elapsed": 5.097309999999982,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 1077,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Not enough wood and gold",
+            "cursor": "auto",
+            "color": "rgb(40, 39, 53)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 0,
+            "gold": 0,
+            "elapsed": 5.4472999999999825,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null
+            },
+            "wood": 100000,
+            "gold": 100000,
+            "elapsed": 5.563939999999982,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": []
+          },
+          "point": {
+            "x": 1077,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.833310000000004
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 5.897289999999982,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.816650000000005
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 5.913949999999982,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 602,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 60,
+              "gold": 30
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.46668000000001
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 6.263919999999982,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "border",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.46668000000001
+              }
+            },
+            "wood": 99940,
+            "gold": 99970,
+            "elapsed": 6.263919999999982,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools"
+            ]
+          },
+          "point": {
+            "x": 1016,
+            "y": 668.5,
+            "hit": "control",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.116690000000018
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.833319999999986
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 6.613909999999983,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "upgrade-base",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 14.116690000000018
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.833319999999986
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 6.613909999999983,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 668.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Upgrade in progress; base training paused",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 80,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "workerTools",
+                "remainingSeconds": 13.766720000000022
+              }
+            },
+            "base": {
+              "level": 1,
+              "remainingSeconds": 19.48334999999997
+            },
+            "wood": 99860,
+            "gold": 99910,
+            "elapsed": 6.963879999999983,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "detail",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": null,
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99825,
+            "gold": 99895,
+            "elapsed": 27.46303000000016,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 602,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 30,
+              "gold": 20
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 5.83336
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99795,
+            "gold": 99875,
+            "elapsed": 27.812970000000156,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-attack",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 5.83336
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99795,
+            "gold": 99875,
+            "elapsed": 27.812970000000156,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": true,
+            "reason": "Research in progress",
+            "cursor": "auto",
+            "color": "rgb(64, 52, 33)",
+            "cost": {
+              "wood": 30,
+              "gold": 20
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 5.483340000000002
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99795,
+            "gold": 99875,
+            "elapsed": 28.162990000000175,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          }
+        },
+        {
+          "id": "research-defense",
+          "zone": "button",
+          "before": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 5.483340000000002
+              },
+              "workerTools": 1
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99795,
+            "gold": 99875,
+            "elapsed": 28.162990000000175,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack"
+            ]
+          },
+          "point": {
+            "x": 1197,
+            "y": 651.5,
+            "hit": "",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 30,
+              "gold": 15
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 0,
+              "defense": 0,
+              "job": {
+                "kind": "attack",
+                "remainingSeconds": 5.133370000000003
+              },
+              "workerTools": 1,
+              "queue": [
+                "defense"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99765,
+            "gold": 99860,
+            "elapsed": 28.512960000000177,
+            "playing": true,
+            "selected": "forge",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          }
+        },
+        {
+          "id": "research-workerTools",
+          "zone": "center",
+          "before": {
+            "research": {
+              "attack": 1,
+              "defense": 0,
+              "job": {
+                "kind": "defense",
+                "remainingSeconds": 5.925270000000009
+              },
+              "workerTools": 1,
+              "queue": []
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99765,
+            "gold": 99860,
+            "elapsed": 33.72106000000014,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense"
+            ]
+          },
+          "point": {
+            "x": 1077,
+            "y": 590.5,
+            "hit": "research-detail",
+            "disabled": false,
+            "reason": "",
+            "cursor": "pointer",
+            "color": "rgb(49, 75, 45)",
+            "cost": {
+              "wood": 100,
+              "gold": 60
+            }
+          },
+          "after": {
+            "research": {
+              "attack": 1,
+              "defense": 0,
+              "job": {
+                "kind": "defense",
+                "remainingSeconds": 5.591930000000011
+              },
+              "workerTools": 1,
+              "queue": [
+                "workerTools"
+              ]
+            },
+            "base": {
+              "level": 2,
+              "remainingSeconds": null
+            },
+            "wood": 99665,
+            "gold": 99800,
+            "elapsed": 34.05440000000013,
+            "playing": true,
+            "selected": "base",
+            "buttonClicks": [
+              "research-workerTools",
+              "upgrade-base",
+              "research-attack",
+              "research-defense",
+              "research-workerTools"
+            ]
+          }
+        }
+      ],
+      "saved": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 5.050040000000003
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99765,
+        "gold": 99860,
+        "elapsed": 28.59629000000018,
+        "playing": false,
+        "selected": "forge",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "restored": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 5.050040000000003
+          },
+          "workerTools": 1,
+          "queue": [
+            "defense"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99765,
+        "gold": 99860,
+        "elapsed": 28.59629000000018,
+        "playing": false,
+        "selected": null,
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense"
+        ]
+      },
+      "final": {
+        "research": {
+          "attack": 1,
+          "defense": 0,
+          "job": {
+            "kind": "defense",
+            "remainingSeconds": 5.575260000000011
+          },
+          "workerTools": 1,
+          "queue": [
+            "workerTools"
+          ]
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99665,
+        "gold": 99800,
+        "elapsed": 34.07107000000013,
+        "playing": true,
+        "selected": "base",
+        "buttonClicks": [
+          "research-workerTools",
+          "upgrade-base",
+          "research-attack",
+          "research-defense",
+          "research-workerTools"
+        ]
+      },
+      "errors": []
+    }
+  ]
+}

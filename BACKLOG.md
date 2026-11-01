@@ -53,6 +53,29 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Återöppnad tech-regression: hela kortets klickyta — 2026-11-01 — In Progress
+
+Användaren rapporterar att workers, huvudbyggnadsuppgradering och Forge-tech
+fortfarande inte startar, både i Skirmish och kampanj, på Research-korten vid
+markerad byggnad. På publicerad78c3013 är samma fel återskapat för alla tre:
+kortets mitt träffar kostnads-/Ready-raden utanför den31px höga HTML-knappen,
+medan hela kortet är73px högt. Kraven är uppfyllda men mittenklick betalar/
+startar ingenting; klick på namnet startar jobbet direkt. Ready-kort såg också
+grå ut. Tidigare verifiering klickade på inre knappen och stoppade automatisk
+scene-update i delar av testet; den täckte inte denna vanliga klickyta.
+
+Hela kortet vidarebefordrar nu till befintlig validerad knapp och Ready är
+tydligt grön. Inga gameplay-/kostnads-/upplåsningskrav ändras. Nytt browsertest
+kör naturligt pågående matcher med160ms fysiska klick på mitt/kant/kostnad/knapp,
+exakt enkel debitering, disabled-spärr och Menu Save/Load. Publicerad baseline
+fallerar0≠60wood; första lokala rättade förloppet PASS. Unit531/92, riktat39/5
+och strict build PASS. Representativ Skirmish/kampanj-/ras-/800/1280-matris8/8
+PASS i både arbetskopia och ren produktionsbundle; Ready-vyer visuellt granskade.
+Ren leveransunit531/92 och strict build PASS; kod-/text-/länk-/diffgranskning PASS.
+[Ny rapport och belägg](artifacts/tech-card-input/README.md). CI/publicering återstår.
+Samma tidigare godkända commit/push/publiceringsmandat gäller färdig verifierad
+rättning. CSS/units.mjs/docs och fristående användarfiler bevaras; inga nya tasks.
+
 ### Forskningsregression i 0.9.0 — 2026-11-01 — Done
 
 Separat felrättningsuppdrag. Ursprungligen lokalt; användaren har därefter

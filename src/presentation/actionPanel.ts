@@ -134,6 +134,13 @@ export function bindActionPanel():void{
  document.getElementById('app')!.append(document.getElementById('minimap-overlay')!);
  for(const group of actionGroups){const section=document.createElement('section'),heading=document.createElement('h3');section.dataset.actionGroup=group;section.setAttribute('aria-label',group);heading.textContent=group==='Orders'?'Orders / Actions':group;section.append(heading);(group==='Orders'?fieldset:actions).append(section);}
  for(const id of actionIds){const button=document.getElementById(id)!;let wrapper=button.parentElement!;if(!wrapper.classList.contains('control')){wrapper=document.createElement('div');wrapper.className='control';button.before(wrapper);wrapper.append(button);}const reason=document.createElement('span');reason.id=`${id}-reason`;reason.className='action-reason';button.setAttribute('aria-describedby',reason.id);wrapper.append(reason);fieldset.querySelector(`[data-action-group="${actionGroup(id)}"]`)!.append(wrapper);}
+ // Cost/status and padding belong to the visible card. Use the existing button
+ // transaction, while native button clicks and disabled/hidden controls stay guarded.
+ fieldset.addEventListener('click',event=>{
+  const target=event.target;if(!(target instanceof Element)||target.closest('button'))return;
+  const card=target.closest<HTMLElement>('[data-action-group="Research"] .control'),button=card?.querySelector<HTMLButtonElement>('button');
+  if(button&&!button.matches(':disabled')&&!card?.closest('[hidden]'))button.click();
+ });
  bar.append(document.getElementById('production-queue')!);
 }
 /** Research uses its admission model; other actions retain scene-specific checks. */

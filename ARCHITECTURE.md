@@ -22,6 +22,10 @@ delar deklarationerna med Tech Tree; completedPlacementBuildings ger samma
 levande, färdiga byggnadsroller till teknikbild, admission och pågående jobb.
 Forskning använder spelarens gemensamma teknik, oberoende av markerad bas eller
 byggnadskopia. Kampanjupplåsning valideras separat från byggnadernas existens.
+Hela synliga Research-kortet (även uppgraderingar, kostnad och padding) aktiverar
+den befintliga knappen. Native knappklick vidarebefordras inte igen; dolda kort
+och native disabled-status inklusive fieldset skyddar samma ordervalidering.
+Ready-kort har separat grön bakgrund; spärrade kort behåller sitt kravbesked.
 Byggmenyn döljer campaignActionReason-spärrade byggnader. Gruppinformation
 räknar direkt från enhetsrecept i en linjär genomgång; den kopierar inte hela
 matchvyer per markerad enhet. Spatiala collisionnycklar använder exakta

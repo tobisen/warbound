@@ -1,0 +1,232 @@
+{
+  "note": "Published bundle, live automatic scene updates throughout, official resource/reveal cheat dialogs, physical world/build/research clicks held140ms. No injected buildings/research levels or manual ticks.",
+  "results": [
+    {
+      "id": "research-workerTools",
+      "before": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": null
+        },
+        "wood": 100000,
+        "gold": 100000,
+        "playing": true,
+        "selected": "base"
+      },
+      "geometry": {
+        "box": {
+          "x": 563,
+          "y": 434,
+          "width": 124,
+          "height": 73,
+          "top": 434,
+          "right": 687,
+          "bottom": 507,
+          "left": 563
+        },
+        "button": {
+          "x": 567,
+          "y": 438,
+          "width": 116,
+          "height": 31,
+          "top": 438,
+          "right": 683,
+          "bottom": 469,
+          "left": 567
+        },
+        "x": 625,
+        "y": 470.5,
+        "hit": "<span class=\"research-detail\">60 wood + 30 gold · Ready</span>",
+        "disabled": false,
+        "effectivelyDisabled": false,
+        "reason": ""
+      },
+      "afterCard": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": null
+        },
+        "wood": 100000,
+        "gold": 100000,
+        "playing": true,
+        "selected": "base"
+      },
+      "afterButton": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "workerTools",
+            "remainingSeconds": 14.683370000000005
+          }
+        },
+        "wood": 99940,
+        "gold": 99970,
+        "playing": true,
+        "selected": "base"
+      }
+    },
+    {
+      "id": "upgrade-base",
+      "before": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "workerTools",
+            "remainingSeconds": 14.683370000000005
+          }
+        },
+        "wood": 99940,
+        "gold": 99970,
+        "playing": true,
+        "selected": "base"
+      },
+      "geometry": {
+        "box": {
+          "x": 563,
+          "y": 512,
+          "width": 124,
+          "height": 73,
+          "top": 512,
+          "right": 687,
+          "bottom": 585,
+          "left": 563
+        },
+        "button": {
+          "x": 567,
+          "y": 516,
+          "width": 116,
+          "height": 31,
+          "top": 516,
+          "right": 683,
+          "bottom": 547,
+          "left": 567
+        },
+        "x": 625,
+        "y": 548.5,
+        "hit": "<span class=\"research-detail\">80 wood + 60 gold · Ready</span>",
+        "disabled": false,
+        "effectivelyDisabled": false,
+        "reason": ""
+      },
+      "afterCard": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "workerTools",
+            "remainingSeconds": 14.233410000000013
+          }
+        },
+        "wood": 99940,
+        "gold": 99970,
+        "playing": true,
+        "selected": "base"
+      },
+      "afterButton": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "workerTools",
+            "remainingSeconds": 13.666740000000017
+          }
+        },
+        "base": {
+          "level": 1,
+          "remainingSeconds": 19.68334999999998
+        },
+        "wood": 99860,
+        "gold": 99910,
+        "playing": true,
+        "selected": "base"
+      }
+    },
+    {
+      "id": "research-attack",
+      "before": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": null,
+          "workerTools": 1
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99820,
+        "gold": 99900,
+        "playing": true,
+        "selected": "forge"
+      },
+      "geometry": {
+        "box": {
+          "x": 563,
+          "y": 434,
+          "width": 124,
+          "height": 73,
+          "top": 434,
+          "right": 687,
+          "bottom": 507,
+          "left": 563
+        },
+        "button": {
+          "x": 567,
+          "y": 438,
+          "width": 116,
+          "height": 31,
+          "top": 438,
+          "right": 683,
+          "bottom": 469,
+          "left": 567
+        },
+        "x": 625,
+        "y": 470.5,
+        "hit": "<span class=\"research-detail\">40 wood + 10 gold · Ready</span>",
+        "disabled": false,
+        "effectivelyDisabled": false,
+        "reason": ""
+      },
+      "afterCard": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": null,
+          "workerTools": 1
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99820,
+        "gold": 99900,
+        "playing": true,
+        "selected": "forge"
+      },
+      "afterButton": {
+        "research": {
+          "attack": 0,
+          "defense": 0,
+          "job": {
+            "kind": "attack",
+            "remainingSeconds": 7.683370000000002
+          },
+          "workerTools": 1
+        },
+        "base": {
+          "level": 2,
+          "remainingSeconds": null
+        },
+        "wood": 99780,
+        "gold": 99890,
+        "playing": true,
+        "selected": "forge"
+      }
+    }
+  ],
+  "errors": []
+}

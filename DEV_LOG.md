@@ -1,3 +1,30 @@
+## Återöppnad tech-inputregression — 2026-11-01
+
+Användaren rapporterar kvarstående grå Research-val för workers, basuppgradering
+och Forge, både Skirmish och kampanj. Faktiskt reproducerat på publicerad78c3013:
+mitten av varje124×73-kort hamnar på research-detail utanför116×31-knappen.
+State före/efter mittenklick oförändrat, medan namnklick startar och betalar rätt
+jobb. Nya regressionstestet fallerar på publicerad baseline0wood≠60wood.
+Detta var inte täckt av de tidigare knappcentrerade testerna med stoppade
+automatiska uppdateringar; tidigare rättning täckte bara extrabasens kravbild.
+
+bindActionPanel vidarebefordrar hela Research-kortets icke-knappyta till samma
+knapp, med native disabled/fieldset- och hidden-spärr och utan dubbelt knappklick.
+Ready-kort får grön bakgrund/cursor. Priser, tidigare teknik och kampanjspärrar
+består. Nytt test kör riktiga160ms klick med levande automatisk match hela tiden,
+betalt bygge/workerconstruction, tre techflöden och Menu Save/Load. Ingen injicerad
+tech/byggnad, inga manuella matchticks. Endast resurs-/siktfusk används via dialog.
+Campaign-ledger låser upp den authored operationen som explicit testfixture.
+
+Första rättade live-förloppet PASS. Riktat39/5 PASS5,87s, unit531/92 PASS38,87s
+och build inklusive strict typecheck PASS med befintlig bundlevarning. Live-matris
+8/8 PASS i arbetskopia och8/8 i ren produktionsbundle: fem raser, Skirmish/kampanj
+och800/1280 enligt rapportens representativa tabell. Ren unit531/92 PASS25,96s
+och strict build PASS. Ready-grönt/båda upplösningar visuellt granskade; slutlig
+kod-/text-/länk-/diffkontroll PASS. Inga ändringar i skyddade20 filer.
+[Rapport](artifacts/tech-card-input/README.md); commit/push/CI/publicering följer
+tidigare mandat och slutresultat dokumenteras när de faktiskt finns.
+
 ## Publiceringsmandat för forskningsfixen — 2026-11-01
 
 Efter den lokala leveransen beställer användaren commit/push/publicering.

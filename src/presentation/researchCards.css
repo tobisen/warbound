@@ -6,7 +6,8 @@
 #action-panel [data-action-group='Research']:not([data-action-group='Orders']) button::after { font:600 11px/12px system-ui; text-align:left; color:#fff1d0; white-space:normal;overflow:visible;text-overflow:clip;max-height:none; }
 #action-panel [data-action-group='Research']:not([data-action-group='Orders']) button[data-action-icon]::before { width:26px;height:26px;flex-basis:26px;background-size:26px 26px; }
 #action-panel [data-action-group='Research']:not([data-action-group='Orders']) .research-detail { font:10px/11px system-ui; color:#eadfca; overflow-wrap:normal; }
-#action-panel [data-action-group='Research']:not([data-action-group='Orders']) .control[data-research-state='ready'] { border-color:#9daa6b; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) .control[data-research-state='ready'] { border-color:#b9cd7c; background:#314b2d; cursor:pointer; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) .control[data-research-state='ready']:hover { border-color:#efdb8e; background:#3c5933; }
 #action-panel [data-action-group='Research']:not([data-action-group='Orders']) .control[data-research-state='working'] { border-color:#ebc86c; background:#403421; }
 #action-panel [data-action-group='Research']:not([data-action-group='Orders']) .control[data-research-state='complete'] { border-color:#6da58e; background:#213b32; }
 #action-panel [data-action-group='Research']:not([data-action-group='Orders']) button:disabled { opacity:1; }
