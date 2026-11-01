@@ -1,3 +1,4 @@
+import {prepareThreatResponses} from './threatResponse';
 import {isIslandMap} from '../config/islandMaps';
 import {serviceFleet,serviceEnemyFleet} from './fleetService';
 import {initializeSeaBattle,advanceSeaBattle} from './seaBattle';
@@ -207,6 +208,7 @@ function correctedNavigation(map:WorldMap,position:Position,half:number,route?:R
 function advance(state: MatchState, delta: number, scope?:CombatScope): MatchState {
   const ownDelta=scope?.side==='enemy'?0:delta;
   state=prepareOrders(updateAutomaticGates(cleanDestroyed(state)));
+  if(scope?.side!=='enemy')state=prepareThreatResponses(state,ownDelta);
   const readyBefore=readyBuildings(state);
   state=advanceMana(state,delta);
   state=updateRepair(state,ownDelta);

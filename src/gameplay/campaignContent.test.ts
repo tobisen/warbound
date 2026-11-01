@@ -43,3 +43,19 @@ it.each(factionIds)('%s force/research/fleet objectives count actual living asse
  expect(campaignPhaseMet(m,phase)).toBe(true);
  }
 });
+
+it('hides mission-locked buildings, reveals unlocks in place, and keeps the full faction skirmish catalog',()=>{
+ for(const f of factionIds){
+  for(const id of ['first-steps','the-siege','coastal-banner'] as const){
+   const m=start(f,id);m.gathering.units[0].selected=true;
+   const model=actionPanel(m,null,true);
+   for(const [action,p] of Object.entries(model).filter(([id])=>id.startsWith('build-'))){
+    if(campaignActionReason(m,action))expect(p.visible,`${f}/${id}/${action}`).toBe(false);
+   }
+   expect(model['build-barracks'].visible).toBe(true);
+   expect(model['build-forge'].visible).toBe(id!=='first-steps');
+  }
+  const m=createMatch();m.factions!.player=f;m.gathering.faction=f;m.gathering.units[0].selected=true;
+  expect(actionPanel(m,null,true)['build-navalAcademy'].visible).toBe(true);
+ }
+});

@@ -1,3 +1,4 @@
+import {retreating} from './threatResponse';
 import {fleetStats,isFleetShip} from '../config/islandFleets';
 import {fleetDoctrineConfig as doctrine} from '../config/fleetDoctrine';
 import type {ResearchState} from './research';
@@ -48,6 +49,7 @@ export function prepareNavalCombat(navy:NavyState|undefined,enemies:readonly Ene
  const shots:{projectile:Projectile;time:number}[]=[];if(!navy||delta<=0)return {navy,shots,nextProjectileNumber};
  const ships=navy.ships.map(original=>{
   const stats:ShipStats=fleetStats(original.role&&original.role!=='warship'?factions[faction].naval.units[original.role]:cfg,research);
+  if(retreating(original))return original;
   const retaliation=defenseTarget(original,enemies,faction,map,visible);
   let ship:Ship=retaliation?{...original,commandMode:{kind:'hold'},order:{kind:'attack',enemyId:retaliation.id}}:original.selfDefense?{...original,selfDefense:undefined}:original;if(ship.order.kind==='hunt')return ship;
   if(!retaliation&&ship.commandMode&&ship.role!=='transport'){const target=enemies.filter(e=>e.hp>0&&visible(e)&&stats.targets.includes(targetDomain(e))&&canShoot(map,ship.position,e,stats)).sort((a,b)=>Math.hypot(a.position.x-ship.position.x,a.position.y-ship.position.y)-Math.hypot(b.position.x-ship.position.x,b.position.y-ship.position.y)||a.id.localeCompare(b.id))[0];if(target)ship={...ship,order:{kind:'attack',enemyId:target.id}};else if(ship.order.kind==='attack')ship={...ship,navigation:undefined,order:{kind:'idle'}};}

@@ -1,3 +1,4 @@
+import {requestTransport} from '../autoTransport';
 import {enemyBase} from '../enemyBases';
 import {approachRoute} from '../approach';
 import {orderUnits} from '../gathering';
@@ -21,6 +22,7 @@ import type {Difficulty} from '../../config/difficulty';
 export function playExpandedCampaign(id:CampaignMissionId,difficulty:Difficulty='normal'){
  const prior=campaignMissions.slice(0,campaignMissions.findIndex(m=>m.id===id)).map(m=>m.id);
  let m=startCampaignMission({version:1,completed:prior},id,difficulty,campaignPreset(id)!)!,abilities=0,saved=false;
+ const landings:string[][]=[];
  m=prepareNavalArmy(m);
  const select=(predicate:(id:string,kind:string)=>boolean)=>{m.gathering.units=m.gathering.units.map(u=>({...u,selected:predicate(u.id,u.kind)}));if(m.navy)m.navy.ships=m.navy.ships.map(s=>({...s,selected:predicate(s.id,s.kind)}));};
  let destination:{x:number;y:number}|undefined,combatEnabled=true;
@@ -39,9 +41,9 @@ export function playExpandedCampaign(id:CampaignMissionId,difficulty:Difficulty=
  if(m.scenario==='mission-sea'||m.scenario==='mission-capture'){
   select(id=>id==='unit-1');m.placement={...m.placement,active:true,kind:'harbor'};m=placeHarbor(m,{x:672,y:320});if(!m.navy?.harbor)throw Error(`${id}: harbor failed`);
   until(()=>m.navy!.harbor!.construction.remainingSeconds===0);m=trainShip(m,'transport');until(()=>m.navy!.ships.length===1);
-  combatEnabled=false;select((_,kind)=>kind==='ship');m.navy=commandShips(m,{x:720,y:432});until(()=>m.navy!.ships[0].order.kind==='idle');destination=undefined;select((_,kind)=>kind==='soldier');m.gathering.units=orderUnits(m.gathering.units,{x:688,y:432});until(()=>{select((_,kind)=>kind==='soldier');m=loadTransport(m,'ship-1');if(m.gathering.units.some(u=>u.kind==='soldier'))m.gathering.units=orderUnits(m.gathering.units,{x:688,y:432});return m.navy!.ships[0].passengers?.length===4;});
+  combatEnabled=false;select((_,kind)=>kind==='ship');m.navy=commandShips(m,{x:720,y:432});until(()=>m.navy!.ships[0].order.kind==='idle');destination=undefined;select((_,kind)=>kind==='soldier');m=requestTransport(m,'ship-1','load');until(()=>m.navy!.ships[0].passengers?.length===4);
   m=loadTransport(m,'ship-1');if(m.navy!.ships[0].passengers?.length!==4)throw Error(`${id}: load failed`);
-  select((_,kind)=>kind==='ship');m.navy=commandShips(m,{x:880,y:432});until(()=>m.navy!.ships[0].order.kind==='idle');m=unloadTransport(m,'ship-1',{x:912,y:432});if(m.navy!.ships[0].passengers?.length)throw Error(`${id}: landing failed`);combatEnabled=true;
+  select((_,kind)=>kind==='ship');m.navy=commandShips(m,{x:880,y:432});until(()=>m.navy!.ships[0].order.kind==='idle');const landingIds=m.navy!.ships[0].passengers!.map(u=>u.id);m=unloadTransport(m,'ship-1',{x:912,y:432});if(!landingIds.every(id=>m.gathering.units.some(u=>u.id===id)))throw Error('Missing landed passenger');landings.push(landingIds);if(m.navy!.ships[0].passengers?.length)throw Error(`${id}: landing failed`);m.navy=commandShips(m,{x:720,y:432});combatEnabled=true;
  }
  while(m.outcome==='playing'){
   const phase=m.campaignRun!.phase,p=campaignPhase(m);if(!p)break;
@@ -61,13 +63,13 @@ export function playExpandedCampaign(id:CampaignMissionId,difficulty:Difficulty=
     m=prepareNavalArmy(m);if(m.scenario!=='mission-sea')continue;
     // Naval reinforcements also need another real ferry trip.
     combatEnabled=false;destination=undefined;select((_,kind)=>kind==='ship');m.navy=commandShips(m,{x:720,y:432});until(()=>m.navy!.ships[0].order.kind==='idle');
-    select((_,kind)=>kind==='soldier');m.gathering.units=orderUnits(m.gathering.units,{x:688,y:432});until(()=>{select((_,kind)=>kind==='soldier');m=loadTransport(m,'ship-1');if(m.gathering.units.some(u=>u.kind==='soldier'))m.gathering.units=orderUnits(m.gathering.units,{x:688,y:432});return m.navy!.ships[0].passengers?.length===4;});
-    select((_,kind)=>kind==='ship');m.navy=commandShips(m,{x:880,y:432});until(()=>m.navy!.ships[0].order.kind==='idle');m=unloadTransport(m,'ship-1',{x:912,y:432});if(m.navy!.ships[0].passengers?.length)throw Error(`${id}: reinforcement landing failed`);combatEnabled=true;
+    select((_,kind)=>kind==='soldier');m=requestTransport(m,'ship-1','load');until(()=>m.navy!.ships[0].passengers?.length===4);
+    select((_,kind)=>kind==='ship');m.navy=commandShips(m,{x:880,y:432});until(()=>m.navy!.ships[0].order.kind==='idle');const landingIds=m.navy!.ships[0].passengers!.map(u=>u.id);m=unloadTransport(m,'ship-1',{x:912,y:432});if(!landingIds.every(id=>m.gathering.units.some(u=>u.id===id)))throw Error('Missing landed passenger');landings.push(landingIds);if(m.navy!.ships[0].passengers?.length)throw Error(`${id}: reinforcement landing failed`);m.navy=commandShips(m,{x:720,y:432});combatEnabled=true;
    }
    if(m.campaignRun!.phase===phase&&m.outcome==='playing')throw Error(`${id}: paid assaults did not finish the base`);
   }
   else until(()=>m.campaignRun!.phase!==phase||m.outcome!=='playing');
   const loaded=decodeSave(encodeSave({...m,paused:true},{camera:{x:0,y:0},building:null}));if(!loaded.ok)throw Error(`${id}: save ${loaded.error}`);m={...loaded.match,paused:false};saved=true;
  }
- return {match:m,saved,abilities};
+ return {match:m,saved,abilities,landings};
 }

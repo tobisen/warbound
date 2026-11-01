@@ -45,6 +45,8 @@ it('roundtrips current and queued worker attacks, validates refs, and rejects re
 it('target death clears manual worker attacks and construction can be interrupted',()=>{
  const m=fixture(),gathering={...m.gathering,units:orderAttack(m.gathering.units,'enemy-1')};const dead=updateCombat(gathering,{...m.combat,enemies:[{...target(),hp:1}]},1,m.map);expect(dead.combat.enemies).toHaveLength(0);expect(dead.gathering.units[0].order.kind).toBe('idle');
  const building=createMatch();building.gathering.units.forEach((u,i)=>u.selected=i===2);building.gathering.wood=60;building.placement=beginPlacement(building.placement,'farm');const placed=placeBuilding(building.placement,{x:560,y:416},60,placementObstacles(building.gathering),{map:building.map,gathering:building.gathering,enemies:building.combat.enemies});expect(placed.gathering?.units[2].order.kind).toBe('build');
+ // An explicit attack must now name an actual visible target.
+ building.combat.enemies=[target()];building.fog=undefined;
  const interrupted=issueOrder({...building,placement:placed.placement,gathering:placed.gathering!,map:placed.map!},{kind:'attack',enemyId:'enemy-1'});expect(interrupted.gathering.units[2].order.kind).toBe('attack');expect(interrupted.placement.farms).toHaveLength(1);
 });
 

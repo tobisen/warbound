@@ -5,7 +5,7 @@ import {expect,it} from 'vitest';
 import {createMatch,updateMatch} from './match';
 import {createNavy,matchPopulation,stopShips,commandShips} from './navy';
 import {cancelSelectedTransfers,requestTransport,updateTransportTransfers} from './autoTransport';
-import {bodyFits} from './map';
+import {bodyFits,replaceObstacles} from './map';
 import {encodeSave,decodeSave} from './save';
 import {matchFog} from './matchFog';
 const view={camera:{x:0,y:0},building:null};
@@ -20,3 +20,11 @@ it('strict saves reject forged boarding refs and preserve genuine config57 geome
 it('Hold cancels boarding even after troops have reached the exact meeting point',()=>{let m=requestTransport(fixture(),'ship-1','load');const job=m.navy!.ships[0].transfer!;m.navy!.ships[0].selected=false;for(const u of m.gathering.units.filter(u=>job.unitIds.includes(u.id))){u.position={...job.goals[u.id]};u.target={...u.position};u.order={kind:'idle'};}m=issueOrder(m,{kind:'hold'});expect(m.navy!.ships[0].transfer).toBeUndefined();expect(m.navy!.ships[0].passengers).toHaveLength(0);});
 
 it('Stop selection and participant death clear jobs before a possible immediate Save',()=>{let m=requestTransport(fixture(),'ship-1','load');m.navy!.ships[0].selected=false;m=cancelSelectedTransfers(m);expect(m.navy!.ships[0].transfer).toBeUndefined();m=requestTransport(fixture(),'ship-1','load');m.gathering.units[0].hp=0;m=cleanDestroyed(m);expect(m.navy!.ships[0].transfer).toBeUndefined();expect(decodeSave(encodeSave(m,view)).ok).toBe(true);});
+
+it('a shore blocked after planning reports its failure and keeps every passenger aboard',()=>{
+ let m=fixture();m.navy!.ships[0].passengers=m.gathering.units.splice(0,2).map(u=>({...u,selected:false,order:{kind:'idle' as const}}));m=requestTransport(m,'ship-1','unload');const ship=m.navy!.ships[0],job=ship.transfer!;expect(job).toBeTruthy();ship.position={...job.water};ship.order={kind:'idle'};ship.navigation=undefined;
+ m.map=replaceObstacles(m.map,[...m.map.obstacles,{x:job.shore.x-128,y:job.shore.y-128,width:256,height:256}]);const after=updateTransportTransfers(m,.1);expect(after.navy!.ships[0].transfer).toBeUndefined();expect(after.navy!.ships[0].passengers).toHaveLength(2);expect(after.navy!.ships[0].orderError).toContain('No reachable');expect(after.gathering.units).toHaveLength(1);
+});
+it('transfer timeout is visible and transient in strict Save, without a passenger loss',()=>{
+ const pending=requestTransport(fixture(),'ship-1','load'),after=updateTransportTransfers(pending,31);expect(after.navy!.ships[0].orderError).toContain('timed out');expect(after.navy!.ships[0].passengers).toEqual([]);expect(after.gathering.units).toHaveLength(3);expect(decodeSave(encodeSave(after,view)).ok).toBe(true);
+});

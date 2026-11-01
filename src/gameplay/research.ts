@@ -18,10 +18,27 @@ export function researchRecipe(f:import('../config/factions').FactionDefinition,
  if(kind==='workerTools')return workerToolsConfig[Math.min(2,level)]!;
  const r=f.upgrades[kind];return level>=1?{...r,cost:{wood:r.cost.wood*2,gold:r.cost.gold*2},durationSeconds:12}:r;
 }
-export function canResearch(g:GatheringState,r:ResearchState,p:PlacementState,kind:ResearchKind,playing=true,mainReady=true){
+/** Authoritative admission reason shared by the buttons and the paid transaction. */
+export function researchReason(g:GatheringState,r:ResearchState,p:PlacementState,kind:ResearchKind,playing=true,mainReady=true):string|null {
  const level=researchLevel(r,kind),f=productionFaction(g);
- const available=isRoleResearch(kind)?!contentReason(g.campaignContent,'research',kind)&&roleResearchConfig[kind].buildings.every(b=>{const site=b==='navalFoundry'||b==='drydock'||b==='signalTower'||b==='navalAcademy'||b==='marineBarracks'?undefined:p[b];return !!site&&site.hp>0&&site.construction.remainingSeconds===0||!!p.producers?.some(s=>s.kind===b&&s.hp>0&&s.construction.remainingSeconds===0);}):kind==='workerTools'?mainReady:!contentReason(g.campaignContent,'research',kind)&&researchAvailability(f,kind,{buildings:[...(forgeReady(p)?['forge' as const]:[]),...(academyReady(p)?['academy' as const]:[])],research:r})===null;
- return playing&&(!isRoleResearch(kind)||roleResearchAvailable(kind,f.id))&&!researchConflict(kind,r)&&(kind!=='navalLogistics'||navalFoundryAvailable(f.id))&&available&&r.job?.kind!==kind&&!(r.queue??[]).includes(kind)&&level<(isRoleResearch(kind)?1:kind==='workerTools'?3:f.upgrades[kind].maxLevel)&&canAfford(g,researchRecipe(f,kind,level).cost);
+ if(!playing)return 'Match is paused or ended';
+ if(isRoleResearch(kind)&&(!roleResearchAvailable(kind,f.id)||kind==='navalLogistics'&&!navalFoundryAvailable(f.id)))return 'Unavailable for this faction';
+ if(kind!=='workerTools'&&contentReason(g.campaignContent,'research',kind))return 'Locked for this campaign mission';
+ if(level>=(isRoleResearch(kind)?1:kind==='workerTools'?3:f.upgrades[kind].maxLevel))return 'Already researched';
+ if(researchConflict(kind,r))return 'Exclusive alternative already chosen';
+ if(r.job?.kind===kind)return 'Research in progress';
+ if(r.queue?.includes(kind))return 'Research queued';
+ if(isRoleResearch(kind)){
+  for(const b of roleResearchConfig[kind].buildings){const site=b==='navalFoundry'||b==='drydock'||b==='signalTower'||b==='navalAcademy'||b==='marineBarracks'?undefined:p[b];
+   if(!(site&&site.hp>0&&site.construction.remainingSeconds===0)&&!p.producers?.some(s=>s.kind===b&&s.hp>0&&s.construction.remainingSeconds===0))return `Complete ${f.buildingNames[b]}`;
+  }
+ }else if(kind==='workerTools'){if(!mainReady)return 'Complete main building';}
+ else {const reason=researchAvailability(f,kind,{buildings:[...(forgeReady(p)?['forge' as const]:[]),...(academyReady(p)?['academy' as const]:[])],research:r});if(reason)return reason;}
+ const cost=researchRecipe(f,kind,level).cost,wood=g.wood<cost.wood,gold=(g.goldBalance??0)<cost.gold;
+ return wood&&gold?'Not enough wood and gold':wood?'Not enough wood':gold?'Not enough gold':null;
+}
+export function canResearch(g:GatheringState,r:ResearchState,p:PlacementState,kind:ResearchKind,playing=true,mainReady=true){
+ return researchReason(g,r,p,kind,playing,mainReady)===null;
 }
 export function startResearch(g:GatheringState,r:ResearchState,p:PlacementState,kind:ResearchKind,playing=true,mainReady=true){
  const recipe=researchRecipe(productionFaction(g),kind,researchLevel(r,kind));

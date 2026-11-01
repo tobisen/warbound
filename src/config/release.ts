@@ -1,6 +1,15 @@
 /** Product release version is independent of git/build identity and Save config. */
-export const releaseVersion='0.8.0';
-export const changelog=[{version:releaseVersion,title:'Five-player frontiers and faction stories',changes:[
+export const releaseVersion='0.9.0';
+export const changelog=[{version:releaseVersion,title:'Clearer orders and responsive armies',changes:[
+ 'Building-local research cards show clear costs, requirements, progress and completion in at most two rows.',
+ 'Campaign build menus reveal buildings only when that mission unlocks them; Skirmish retains the full faction catalog.',
+ 'Placement reports blocked sites before resource shortages; invalid attack orders explain their cause and preserve the previous command.',
+ 'Local threat responses let workers and incompatible or unarmed troops find safer routes while work and patrol goals remain intact.',
+ 'Transports search nearby beaches, allow partial unloading, retain remaining passengers and report failed boarding/landing orders.',
+ 'Faster static collision lookups reduce large-army approach CPU cost; an initial formation spike remains documented.',
+ 'Existing strategic endgame buildings, research and land/air/sea armies are verified through paid progression; capital-ship technology requirements are complete.',
+ 'Shorter project README, technical/gameplay audit and a separate Warbound 2 vision; human long-match balance and listening remain unverified.',
+]}, {version:'0.8.0',title:'Five-player frontiers and faction stories',changes:[
  'Choose among five factions with their actual unit artwork and individual lore in Campaign and Skirmish.',
  'Deer, rabbits and foxes use three licensed recorded calls each, with recording credits and repeat-click protection.',
  'Face up to four AI opponents, choosing each faction, difficulty, behavior and team independently on compatible maps.',

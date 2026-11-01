@@ -1,0 +1,2988 @@
+{
+  "url": "http://127.0.0.1:5262/warbound/",
+  "fixture": "Fresh isolated storage. Explicit completed-building/funded component fixtures; actual production-bundle menu/research/paid production, native Save/Load and ship waypoint/clear clicks. Actual match ticks complete three large roles. No source module imports, no human economy/balance/listening claim.",
+  "results": [
+    {
+      "width": 800,
+      "faction": "crown",
+      "role": "capital",
+      "build": "Build 19bf3a2",
+      "research": [
+        {
+          "host": "base",
+          "items": [
+            {
+              "id": "research-workerTools",
+              "name": "Worker Tools I",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "upgrade-base",
+              "name": "Upgrade base to level 3",
+              "button": {
+                "x": 567,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 683,
+                "bottom": 563,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "forge",
+          "items": [],
+          "rows": 0
+        },
+        {
+          "host": "academy",
+          "items": [
+            {
+              "id": "research-attack",
+              "name": "Tempered Arms II",
+              "button": {
+                "x": 438,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 554,
+                "bottom": 485,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 554,
+                "bottom": 509,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-defense",
+              "name": "Plate Craft II",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-healerTraining",
+              "name": "Healer Training",
+              "button": {
+                "x": 438,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 554,
+                "bottom": 563,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 554,
+                "bottom": 587,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-submarineDesign",
+              "name": "Submarine Design",
+              "button": {
+                "x": 567,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 683,
+                "bottom": 563,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 683,
+                "bottom": 587,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-2",
+          "items": [
+            {
+              "id": "research-lightHulls",
+              "name": "Light Hulls",
+              "button": {
+                "x": 438,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 554,
+                "bottom": 485,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 554,
+                "bottom": 509,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-armoredHulls",
+              "name": "Reinforced Bulkheads",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-coastalGunnery",
+              "name": "Coastal Gunnery",
+              "button": {
+                "x": 438,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 554,
+                "bottom": 563,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 554,
+                "bottom": 587,
+                "left": 438
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-3",
+          "items": [
+            {
+              "id": "research-navalLogistics",
+              "name": "Naval Logistics",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-convoyService",
+              "name": "Convoy Service",
+              "button": {
+                "x": 567,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 683,
+                "bottom": 563,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 683,
+                "bottom": 587,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 2
+        }
+      ],
+      "paid": {
+        "wood": 3700,
+        "queue": [
+          "capital"
+        ]
+      },
+      "restored": {
+        "job": "lightHulls",
+        "primary": {
+          "x": 192,
+          "y": 32
+        },
+        "extra": {
+          "x": 512,
+          "y": 32
+        },
+        "queue": [
+          "capital"
+        ],
+        "harbors": 2
+      },
+      "produced": {
+        "id": "ship-2",
+        "hp": 520,
+        "position": {
+          "x": 222.24,
+          "y": 72.32
+        },
+        "frame": "capital-player-nw-idle-0"
+      },
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 800,
+      "faction": "goblins",
+      "role": "zeppelin",
+      "build": "Build 19bf3a2",
+      "research": [
+        {
+          "host": "base",
+          "items": [
+            {
+              "id": "research-workerTools",
+              "name": "Worker Tools I",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "upgrade-base",
+              "name": "Upgrade base to level 3",
+              "button": {
+                "x": 567,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 683,
+                "bottom": 563,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "forge",
+          "items": [],
+          "rows": 0
+        },
+        {
+          "host": "academy",
+          "items": [
+            {
+              "id": "research-attack",
+              "name": "Hot Powder II",
+              "button": {
+                "x": 438,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 554,
+                "bottom": 485,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 554,
+                "bottom": 509,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-defense",
+              "name": "Scrap Plating II",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-healerTraining",
+              "name": "Healer Training",
+              "button": {
+                "x": 438,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 554,
+                "bottom": 563,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 554,
+                "bottom": 587,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-submarineDesign",
+              "name": "Submarine Design",
+              "button": {
+                "x": 567,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 683,
+                "bottom": 563,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 683,
+                "bottom": 587,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-2",
+          "items": [
+            {
+              "id": "research-lightHulls",
+              "name": "Light Hulls",
+              "button": {
+                "x": 438,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 554,
+                "bottom": 485,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 554,
+                "bottom": 509,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-armoredHulls",
+              "name": "Reinforced Bulkheads",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-coastalGunnery",
+              "name": "Coastal Gunnery",
+              "button": {
+                "x": 438,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 554,
+                "bottom": 563,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 554,
+                "bottom": 587,
+                "left": 438
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-3",
+          "items": [
+            {
+              "id": "research-volatileTorpedoes",
+              "name": "Volatile Torpedoes",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 1
+        }
+      ],
+      "paid": {
+        "wood": 3770,
+        "queue": [
+          "zeppelin"
+        ]
+      },
+      "restored": {
+        "job": "lightHulls",
+        "harbors": 2
+      },
+      "produced": {
+        "id": "unit-4",
+        "hp": 330,
+        "position": {
+          "x": 636,
+          "y": 576
+        },
+        "frame": "zeppelin-player-s-idle-0"
+      },
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 800,
+      "faction": "clans",
+      "role": "behemoth",
+      "build": "Build 19bf3a2",
+      "research": [
+        {
+          "host": "base",
+          "items": [
+            {
+              "id": "research-workerTools",
+              "name": "Worker Tools I",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "upgrade-base",
+              "name": "Upgrade base to level 3",
+              "button": {
+                "x": 567,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 683,
+                "bottom": 563,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "forge",
+          "items": [],
+          "rows": 0
+        },
+        {
+          "host": "academy",
+          "items": [
+            {
+              "id": "research-attack",
+              "name": "War Blades II",
+              "button": {
+                "x": 438,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 554,
+                "bottom": 485,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 554,
+                "bottom": 509,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-defense",
+              "name": "Hide Armor II",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-healerTraining",
+              "name": "Healer Training",
+              "button": {
+                "x": 438,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 554,
+                "bottom": 563,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 554,
+                "bottom": 587,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-submarineDesign",
+              "name": "Submarine Design",
+              "button": {
+                "x": 567,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 683,
+                "bottom": 563,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 683,
+                "bottom": 587,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-2",
+          "items": [
+            {
+              "id": "research-lightHulls",
+              "name": "Light Hulls",
+              "button": {
+                "x": 438,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 554,
+                "bottom": 485,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 554,
+                "bottom": 509,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-armoredHulls",
+              "name": "Reinforced Bulkheads",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-coastalGunnery",
+              "name": "Coastal Gunnery",
+              "button": {
+                "x": 438,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 554,
+                "bottom": 563,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 554,
+                "bottom": 587,
+                "left": 438
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-3",
+          "items": [
+            {
+              "id": "research-assaultRamps",
+              "name": "Assault Ramps",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 1
+        }
+      ],
+      "paid": {
+        "wood": 3780,
+        "queue": [
+          "behemoth"
+        ]
+      },
+      "restored": {
+        "job": "lightHulls",
+        "harbors": 2
+      },
+      "produced": {
+        "id": "unit-4",
+        "hp": 560,
+        "position": {
+          "x": 504,
+          "y": 576
+        },
+        "frame": "behemoth-player-s-idle-0"
+      },
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 800,
+      "faction": "elves",
+      "build": "Build 19bf3a2",
+      "research": [
+        {
+          "host": "base",
+          "items": [
+            {
+              "id": "research-workerTools",
+              "name": "Worker Tools I",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "upgrade-base",
+              "name": "Upgrade base to level 3",
+              "button": {
+                "x": 567,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 683,
+                "bottom": 563,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "forge",
+          "items": [],
+          "rows": 0
+        },
+        {
+          "host": "academy",
+          "items": [
+            {
+              "id": "research-attack",
+              "name": "True Aim II",
+              "button": {
+                "x": 438,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 554,
+                "bottom": 485,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 554,
+                "bottom": 509,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-defense",
+              "name": "Woven Guard II",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-healerTraining",
+              "name": "Healer Training",
+              "button": {
+                "x": 438,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 554,
+                "bottom": 563,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 554,
+                "bottom": 587,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-submarineDesign",
+              "name": "Submarine Design",
+              "button": {
+                "x": 567,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 683,
+                "bottom": 563,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 683,
+                "bottom": 587,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-2",
+          "items": [
+            {
+              "id": "research-lightHulls",
+              "name": "Light Hulls",
+              "button": {
+                "x": 438,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 554,
+                "bottom": 485,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 554,
+                "bottom": 509,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-armoredHulls",
+              "name": "Reinforced Bulkheads",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-coastalGunnery",
+              "name": "Coastal Gunnery",
+              "button": {
+                "x": 438,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 554,
+                "bottom": 563,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 554,
+                "bottom": 587,
+                "left": 438
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-3",
+          "items": [
+            {
+              "id": "research-tidewatch",
+              "name": "Tidewatch",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 1
+        }
+      ],
+      "restored": {
+        "job": "lightHulls",
+        "harbors": 2
+      },
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 800,
+      "faction": "dwarves",
+      "build": "Build 19bf3a2",
+      "research": [
+        {
+          "host": "base",
+          "items": [
+            {
+              "id": "research-workerTools",
+              "name": "Worker Tools I",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "upgrade-base",
+              "name": "Upgrade base to level 3",
+              "button": {
+                "x": 567,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 683,
+                "bottom": 563,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "forge",
+          "items": [],
+          "rows": 0
+        },
+        {
+          "host": "academy",
+          "items": [
+            {
+              "id": "research-attack",
+              "name": "Forged Shot II",
+              "button": {
+                "x": 438,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 554,
+                "bottom": 485,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 554,
+                "bottom": 509,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-defense",
+              "name": "Stone Plates II",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-healerTraining",
+              "name": "Healer Training",
+              "button": {
+                "x": 438,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 554,
+                "bottom": 563,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 554,
+                "bottom": 587,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-submarineDesign",
+              "name": "Submarine Design",
+              "button": {
+                "x": 567,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 683,
+                "bottom": 563,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 683,
+                "bottom": 587,
+                "left": 567
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-2",
+          "items": [
+            {
+              "id": "research-lightHulls",
+              "name": "Light Hulls",
+              "button": {
+                "x": 438,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 554,
+                "bottom": 485,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 554,
+                "bottom": 509,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-armoredHulls",
+              "name": "Reinforced Bulkheads",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 683,
+                "bottom": 509,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-coastalGunnery",
+              "name": "Coastal Gunnery",
+              "button": {
+                "x": 438,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 554,
+                "bottom": 563,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 565,
+                "width": 116,
+                "height": 22,
+                "top": 565,
+                "right": 554,
+                "bottom": 587,
+                "left": 438
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-3",
+          "items": [
+            {
+              "id": "research-navalLogistics",
+              "name": "Naval Logistics",
+              "button": {
+                "x": 438,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 554,
+                "bottom": 485,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 487,
+                "width": 116,
+                "height": 22,
+                "top": 487,
+                "right": 554,
+                "bottom": 509,
+                "left": 438
+              }
+            },
+            {
+              "id": "research-siegeShells",
+              "name": "Siege Shells",
+              "button": {
+                "x": 567,
+                "y": 454,
+                "width": 116,
+                "height": 31,
+                "top": 454,
+                "right": 683,
+                "bottom": 485,
+                "left": 567
+              },
+              "detail": {
+                "x": 567,
+                "y": 487,
+                "width": 116,
+                "height": 33,
+                "top": 487,
+                "right": 683,
+                "bottom": 520,
+                "left": 567
+              }
+            },
+            {
+              "id": "research-preciseShells",
+              "name": "Precise Shells",
+              "button": {
+                "x": 438,
+                "y": 532,
+                "width": 116,
+                "height": 31,
+                "top": 532,
+                "right": 554,
+                "bottom": 563,
+                "left": 438
+              },
+              "detail": {
+                "x": 438,
+                "y": 565,
+                "width": 116,
+                "height": 33,
+                "top": 565,
+                "right": 554,
+                "bottom": 598,
+                "left": 438
+              }
+            }
+          ],
+          "rows": 2
+        }
+      ],
+      "restored": {
+        "job": "lightHulls",
+        "harbors": 2
+      },
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 1280,
+      "faction": "crown",
+      "role": "capital",
+      "build": "Build 19bf3a2",
+      "research": [
+        {
+          "host": "base",
+          "items": [
+            {
+              "id": "research-workerTools",
+              "name": "Worker Tools I",
+              "button": {
+                "x": 1019,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1135,
+                "bottom": 615,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1135,
+                "bottom": 639,
+                "left": 1019
+              }
+            },
+            {
+              "id": "upgrade-base",
+              "name": "Upgrade base to level 3",
+              "button": {
+                "x": 1019,
+                "y": 652,
+                "width": 116,
+                "height": 64,
+                "top": 652,
+                "right": 1135,
+                "bottom": 716,
+                "left": 1019
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "forge",
+          "items": [],
+          "rows": 0
+        },
+        {
+          "host": "academy",
+          "items": [
+            {
+              "id": "research-attack",
+              "name": "Tempered Arms II",
+              "button": {
+                "x": 890,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1006,
+                "bottom": 615,
+                "left": 890
+              },
+              "detail": {
+                "x": 890,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1006,
+                "bottom": 639,
+                "left": 890
+              }
+            },
+            {
+              "id": "research-defense",
+              "name": "Plate Craft II",
+              "button": {
+                "x": 1019,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1135,
+                "bottom": 615,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1135,
+                "bottom": 639,
+                "left": 1019
+              }
+            },
+            {
+              "id": "research-healerTraining",
+              "name": "Healer Training",
+              "button": {
+                "x": 890,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1006,
+                "bottom": 693,
+                "left": 890
+              },
+              "detail": {
+                "x": 890,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1006,
+                "bottom": 717,
+                "left": 890
+              }
+            },
+            {
+              "id": "research-submarineDesign",
+              "name": "Submarine Design",
+              "button": {
+                "x": 1019,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1135,
+                "bottom": 693,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1135,
+                "bottom": 717,
+                "left": 1019
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-2",
+          "items": [
+            {
+              "id": "research-lightHulls",
+              "name": "Light Hulls",
+              "button": {
+                "x": 1010,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1126,
+                "bottom": 615,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1126,
+                "bottom": 639,
+                "left": 1010
+              }
+            },
+            {
+              "id": "research-armoredHulls",
+              "name": "Reinforced Bulkheads",
+              "button": {
+                "x": 1139,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1255,
+                "bottom": 615,
+                "left": 1139
+              },
+              "detail": {
+                "x": 1139,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1255,
+                "bottom": 639,
+                "left": 1139
+              }
+            },
+            {
+              "id": "research-coastalGunnery",
+              "name": "Coastal Gunnery",
+              "button": {
+                "x": 1010,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1126,
+                "bottom": 693,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1126,
+                "bottom": 717,
+                "left": 1010
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-3",
+          "items": [
+            {
+              "id": "research-navalLogistics",
+              "name": "Naval Logistics",
+              "button": {
+                "x": 1139,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1255,
+                "bottom": 615,
+                "left": 1139
+              },
+              "detail": {
+                "x": 1139,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1255,
+                "bottom": 639,
+                "left": 1139
+              }
+            },
+            {
+              "id": "research-convoyService",
+              "name": "Convoy Service",
+              "button": {
+                "x": 1139,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1255,
+                "bottom": 693,
+                "left": 1139
+              },
+              "detail": {
+                "x": 1139,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1255,
+                "bottom": 717,
+                "left": 1139
+              }
+            }
+          ],
+          "rows": 2
+        }
+      ],
+      "paid": {
+        "wood": 3700,
+        "queue": [
+          "capital"
+        ]
+      },
+      "restored": {
+        "job": "lightHulls",
+        "primary": {
+          "x": 192,
+          "y": 32
+        },
+        "extra": {
+          "x": 512,
+          "y": 32
+        },
+        "queue": [
+          "capital"
+        ],
+        "harbors": 2
+      },
+      "produced": {
+        "id": "ship-2",
+        "hp": 520,
+        "position": {
+          "x": 222.24,
+          "y": 72.32
+        },
+        "frame": "capital-player-nw-idle-0"
+      },
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 1280,
+      "faction": "goblins",
+      "role": "zeppelin",
+      "build": "Build 19bf3a2",
+      "research": [
+        {
+          "host": "base",
+          "items": [
+            {
+              "id": "research-workerTools",
+              "name": "Worker Tools I",
+              "button": {
+                "x": 1019,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1135,
+                "bottom": 615,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1135,
+                "bottom": 639,
+                "left": 1019
+              }
+            },
+            {
+              "id": "upgrade-base",
+              "name": "Upgrade base to level 3",
+              "button": {
+                "x": 1019,
+                "y": 652,
+                "width": 116,
+                "height": 64,
+                "top": 652,
+                "right": 1135,
+                "bottom": 716,
+                "left": 1019
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "forge",
+          "items": [],
+          "rows": 0
+        },
+        {
+          "host": "academy",
+          "items": [
+            {
+              "id": "research-attack",
+              "name": "Hot Powder II",
+              "button": {
+                "x": 890,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1006,
+                "bottom": 615,
+                "left": 890
+              },
+              "detail": {
+                "x": 890,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1006,
+                "bottom": 639,
+                "left": 890
+              }
+            },
+            {
+              "id": "research-defense",
+              "name": "Scrap Plating II",
+              "button": {
+                "x": 1019,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1135,
+                "bottom": 615,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1135,
+                "bottom": 639,
+                "left": 1019
+              }
+            },
+            {
+              "id": "research-healerTraining",
+              "name": "Healer Training",
+              "button": {
+                "x": 890,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1006,
+                "bottom": 693,
+                "left": 890
+              },
+              "detail": {
+                "x": 890,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1006,
+                "bottom": 717,
+                "left": 890
+              }
+            },
+            {
+              "id": "research-submarineDesign",
+              "name": "Submarine Design",
+              "button": {
+                "x": 1019,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1135,
+                "bottom": 693,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1135,
+                "bottom": 717,
+                "left": 1019
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-2",
+          "items": [
+            {
+              "id": "research-lightHulls",
+              "name": "Light Hulls",
+              "button": {
+                "x": 1010,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1126,
+                "bottom": 615,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1126,
+                "bottom": 639,
+                "left": 1010
+              }
+            },
+            {
+              "id": "research-armoredHulls",
+              "name": "Reinforced Bulkheads",
+              "button": {
+                "x": 1139,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1255,
+                "bottom": 615,
+                "left": 1139
+              },
+              "detail": {
+                "x": 1139,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1255,
+                "bottom": 639,
+                "left": 1139
+              }
+            },
+            {
+              "id": "research-coastalGunnery",
+              "name": "Coastal Gunnery",
+              "button": {
+                "x": 1010,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1126,
+                "bottom": 693,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1126,
+                "bottom": 717,
+                "left": 1010
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-3",
+          "items": [
+            {
+              "id": "research-volatileTorpedoes",
+              "name": "Volatile Torpedoes",
+              "button": {
+                "x": 1139,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1255,
+                "bottom": 615,
+                "left": 1139
+              },
+              "detail": {
+                "x": 1139,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1255,
+                "bottom": 639,
+                "left": 1139
+              }
+            }
+          ],
+          "rows": 1
+        }
+      ],
+      "paid": {
+        "wood": 3770,
+        "queue": [
+          "zeppelin"
+        ]
+      },
+      "restored": {
+        "job": "lightHulls",
+        "harbors": 2
+      },
+      "produced": {
+        "id": "unit-4",
+        "hp": 330,
+        "position": {
+          "x": 636,
+          "y": 576
+        },
+        "frame": "zeppelin-player-s-idle-0"
+      },
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 1280,
+      "faction": "clans",
+      "role": "behemoth",
+      "build": "Build 19bf3a2",
+      "research": [
+        {
+          "host": "base",
+          "items": [
+            {
+              "id": "research-workerTools",
+              "name": "Worker Tools I",
+              "button": {
+                "x": 1019,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1135,
+                "bottom": 615,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1135,
+                "bottom": 639,
+                "left": 1019
+              }
+            },
+            {
+              "id": "upgrade-base",
+              "name": "Upgrade base to level 3",
+              "button": {
+                "x": 1019,
+                "y": 652,
+                "width": 116,
+                "height": 64,
+                "top": 652,
+                "right": 1135,
+                "bottom": 716,
+                "left": 1019
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "forge",
+          "items": [],
+          "rows": 0
+        },
+        {
+          "host": "academy",
+          "items": [
+            {
+              "id": "research-attack",
+              "name": "War Blades II",
+              "button": {
+                "x": 890,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1006,
+                "bottom": 615,
+                "left": 890
+              },
+              "detail": {
+                "x": 890,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1006,
+                "bottom": 639,
+                "left": 890
+              }
+            },
+            {
+              "id": "research-defense",
+              "name": "Hide Armor II",
+              "button": {
+                "x": 1019,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1135,
+                "bottom": 615,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1135,
+                "bottom": 639,
+                "left": 1019
+              }
+            },
+            {
+              "id": "research-healerTraining",
+              "name": "Healer Training",
+              "button": {
+                "x": 890,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1006,
+                "bottom": 693,
+                "left": 890
+              },
+              "detail": {
+                "x": 890,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1006,
+                "bottom": 717,
+                "left": 890
+              }
+            },
+            {
+              "id": "research-submarineDesign",
+              "name": "Submarine Design",
+              "button": {
+                "x": 1019,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1135,
+                "bottom": 693,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1135,
+                "bottom": 717,
+                "left": 1019
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-2",
+          "items": [
+            {
+              "id": "research-lightHulls",
+              "name": "Light Hulls",
+              "button": {
+                "x": 1010,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1126,
+                "bottom": 615,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1126,
+                "bottom": 639,
+                "left": 1010
+              }
+            },
+            {
+              "id": "research-armoredHulls",
+              "name": "Reinforced Bulkheads",
+              "button": {
+                "x": 1139,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1255,
+                "bottom": 615,
+                "left": 1139
+              },
+              "detail": {
+                "x": 1139,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1255,
+                "bottom": 639,
+                "left": 1139
+              }
+            },
+            {
+              "id": "research-coastalGunnery",
+              "name": "Coastal Gunnery",
+              "button": {
+                "x": 1010,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1126,
+                "bottom": 693,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1126,
+                "bottom": 717,
+                "left": 1010
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-3",
+          "items": [
+            {
+              "id": "research-assaultRamps",
+              "name": "Assault Ramps",
+              "button": {
+                "x": 1139,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1255,
+                "bottom": 615,
+                "left": 1139
+              },
+              "detail": {
+                "x": 1139,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1255,
+                "bottom": 639,
+                "left": 1139
+              }
+            }
+          ],
+          "rows": 1
+        }
+      ],
+      "paid": {
+        "wood": 3780,
+        "queue": [
+          "behemoth"
+        ]
+      },
+      "restored": {
+        "job": "lightHulls",
+        "harbors": 2
+      },
+      "produced": {
+        "id": "unit-4",
+        "hp": 560,
+        "position": {
+          "x": 504,
+          "y": 576
+        },
+        "frame": "behemoth-player-s-idle-0"
+      },
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 1280,
+      "faction": "elves",
+      "build": "Build 19bf3a2",
+      "research": [
+        {
+          "host": "base",
+          "items": [
+            {
+              "id": "research-workerTools",
+              "name": "Worker Tools I",
+              "button": {
+                "x": 1019,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1135,
+                "bottom": 615,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1135,
+                "bottom": 639,
+                "left": 1019
+              }
+            },
+            {
+              "id": "upgrade-base",
+              "name": "Upgrade base to level 3",
+              "button": {
+                "x": 1019,
+                "y": 652,
+                "width": 116,
+                "height": 64,
+                "top": 652,
+                "right": 1135,
+                "bottom": 716,
+                "left": 1019
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "forge",
+          "items": [],
+          "rows": 0
+        },
+        {
+          "host": "academy",
+          "items": [
+            {
+              "id": "research-attack",
+              "name": "True Aim II",
+              "button": {
+                "x": 890,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1006,
+                "bottom": 615,
+                "left": 890
+              },
+              "detail": {
+                "x": 890,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1006,
+                "bottom": 639,
+                "left": 890
+              }
+            },
+            {
+              "id": "research-defense",
+              "name": "Woven Guard II",
+              "button": {
+                "x": 1019,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1135,
+                "bottom": 615,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1135,
+                "bottom": 639,
+                "left": 1019
+              }
+            },
+            {
+              "id": "research-healerTraining",
+              "name": "Healer Training",
+              "button": {
+                "x": 890,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1006,
+                "bottom": 693,
+                "left": 890
+              },
+              "detail": {
+                "x": 890,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1006,
+                "bottom": 717,
+                "left": 890
+              }
+            },
+            {
+              "id": "research-submarineDesign",
+              "name": "Submarine Design",
+              "button": {
+                "x": 1019,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1135,
+                "bottom": 693,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1135,
+                "bottom": 717,
+                "left": 1019
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-2",
+          "items": [
+            {
+              "id": "research-lightHulls",
+              "name": "Light Hulls",
+              "button": {
+                "x": 1010,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1126,
+                "bottom": 615,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1126,
+                "bottom": 639,
+                "left": 1010
+              }
+            },
+            {
+              "id": "research-armoredHulls",
+              "name": "Reinforced Bulkheads",
+              "button": {
+                "x": 1139,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1255,
+                "bottom": 615,
+                "left": 1139
+              },
+              "detail": {
+                "x": 1139,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1255,
+                "bottom": 639,
+                "left": 1139
+              }
+            },
+            {
+              "id": "research-coastalGunnery",
+              "name": "Coastal Gunnery",
+              "button": {
+                "x": 1010,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1126,
+                "bottom": 693,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1126,
+                "bottom": 717,
+                "left": 1010
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-3",
+          "items": [
+            {
+              "id": "research-tidewatch",
+              "name": "Tidewatch",
+              "button": {
+                "x": 1139,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1255,
+                "bottom": 615,
+                "left": 1139
+              },
+              "detail": {
+                "x": 1139,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1255,
+                "bottom": 639,
+                "left": 1139
+              }
+            }
+          ],
+          "rows": 1
+        }
+      ],
+      "restored": {
+        "job": "lightHulls",
+        "harbors": 2
+      },
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 1280,
+      "faction": "dwarves",
+      "build": "Build 19bf3a2",
+      "research": [
+        {
+          "host": "base",
+          "items": [
+            {
+              "id": "research-workerTools",
+              "name": "Worker Tools I",
+              "button": {
+                "x": 1019,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1135,
+                "bottom": 615,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1135,
+                "bottom": 639,
+                "left": 1019
+              }
+            },
+            {
+              "id": "upgrade-base",
+              "name": "Upgrade base to level 3",
+              "button": {
+                "x": 1019,
+                "y": 652,
+                "width": 116,
+                "height": 64,
+                "top": 652,
+                "right": 1135,
+                "bottom": 716,
+                "left": 1019
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "forge",
+          "items": [],
+          "rows": 0
+        },
+        {
+          "host": "academy",
+          "items": [
+            {
+              "id": "research-attack",
+              "name": "Forged Shot II",
+              "button": {
+                "x": 890,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1006,
+                "bottom": 615,
+                "left": 890
+              },
+              "detail": {
+                "x": 890,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1006,
+                "bottom": 639,
+                "left": 890
+              }
+            },
+            {
+              "id": "research-defense",
+              "name": "Stone Plates II",
+              "button": {
+                "x": 1019,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1135,
+                "bottom": 615,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1135,
+                "bottom": 639,
+                "left": 1019
+              }
+            },
+            {
+              "id": "research-healerTraining",
+              "name": "Healer Training",
+              "button": {
+                "x": 890,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1006,
+                "bottom": 693,
+                "left": 890
+              },
+              "detail": {
+                "x": 890,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1006,
+                "bottom": 717,
+                "left": 890
+              }
+            },
+            {
+              "id": "research-submarineDesign",
+              "name": "Submarine Design",
+              "button": {
+                "x": 1019,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1135,
+                "bottom": 693,
+                "left": 1019
+              },
+              "detail": {
+                "x": 1019,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1135,
+                "bottom": 717,
+                "left": 1019
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-2",
+          "items": [
+            {
+              "id": "research-lightHulls",
+              "name": "Light Hulls",
+              "button": {
+                "x": 1010,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1126,
+                "bottom": 615,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1126,
+                "bottom": 639,
+                "left": 1010
+              }
+            },
+            {
+              "id": "research-armoredHulls",
+              "name": "Reinforced Bulkheads",
+              "button": {
+                "x": 1139,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1255,
+                "bottom": 615,
+                "left": 1139
+              },
+              "detail": {
+                "x": 1139,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1255,
+                "bottom": 639,
+                "left": 1139
+              }
+            },
+            {
+              "id": "research-coastalGunnery",
+              "name": "Coastal Gunnery",
+              "button": {
+                "x": 1010,
+                "y": 652,
+                "width": 116,
+                "height": 41,
+                "top": 652,
+                "right": 1126,
+                "bottom": 693,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 695,
+                "width": 116,
+                "height": 22,
+                "top": 695,
+                "right": 1126,
+                "bottom": 717,
+                "left": 1010
+              }
+            }
+          ],
+          "rows": 2
+        },
+        {
+          "host": "producer-3",
+          "items": [
+            {
+              "id": "research-navalLogistics",
+              "name": "Naval Logistics",
+              "button": {
+                "x": 1010,
+                "y": 574,
+                "width": 116,
+                "height": 41,
+                "top": 574,
+                "right": 1126,
+                "bottom": 615,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 617,
+                "width": 116,
+                "height": 22,
+                "top": 617,
+                "right": 1126,
+                "bottom": 639,
+                "left": 1010
+              }
+            },
+            {
+              "id": "research-siegeShells",
+              "name": "Siege Shells",
+              "button": {
+                "x": 1139,
+                "y": 574,
+                "width": 116,
+                "height": 31,
+                "top": 574,
+                "right": 1255,
+                "bottom": 605,
+                "left": 1139
+              },
+              "detail": {
+                "x": 1139,
+                "y": 607,
+                "width": 116,
+                "height": 33,
+                "top": 607,
+                "right": 1255,
+                "bottom": 640,
+                "left": 1139
+              }
+            },
+            {
+              "id": "research-preciseShells",
+              "name": "Precise Shells",
+              "button": {
+                "x": 1010,
+                "y": 652,
+                "width": 116,
+                "height": 31,
+                "top": 652,
+                "right": 1126,
+                "bottom": 683,
+                "left": 1010
+              },
+              "detail": {
+                "x": 1010,
+                "y": 685,
+                "width": 116,
+                "height": 33,
+                "top": 685,
+                "right": 1126,
+                "bottom": 718,
+                "left": 1010
+              }
+            }
+          ],
+          "rows": 2
+        }
+      ],
+      "restored": {
+        "job": "lightHulls",
+        "harbors": 2
+      },
+      "errors": [],
+      "failed": []
+    }
+  ]
+}

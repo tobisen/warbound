@@ -1,3 +1,4 @@
+import {retreating} from './threatResponse';
 import {defending} from './selfDefense';
 import {workerToolsTimeMultiplier} from '../config/workerTools';
 import {forestContains,syncForestObstacles} from './forestTerrain';
@@ -125,7 +126,7 @@ export function updateGathering(state: GatheringState, deltaSeconds: number, map
   let goldBalance = state.goldBalance ?? 0;
   let wood = state.wood;
   const units = state.units.map(original => {
-    if(defending(original))return original;
+    if(defending(original)||retreating(original))return original;
     if(original.kind==='soldier'&&original.attackMoveTarget)return original;
     if (map && (original.order.kind === 'move' || original.order.kind === 'idle' && original.navigation?.status === 'blocked'
       && original.navigation.error !== 'no-space' && original.navigation.revision !== map.revision)) return updateMappedMove(original, map, deltaSeconds,queue?.gateFor?.(`${queue?.team??'player'}:${original.id}`),state.faction);

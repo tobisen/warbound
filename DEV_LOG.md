@@ -7125,3 +7125,63 @@ inte PASS. Alla slutprofiler och ekonomiprov är uppdaterade efter rättningen.
 Full regression2124/233 PASS915.28s. Unit555/95 PASS18.31s och build inklusive strict
 typecheck PASS723ms. Befintlig bundlevarning. Se
 [slutrapport och reproduktion](artifacts/army-movement/README.md).
+
+## 2026-11-01 — Spelkvalitet: forskning, kampanjmeny och orderfel
+
+Nytt bifogat uppdrag återupptar lokalt arbete och godkänner slutlig release.
+Lokala CSS/units.mjs/docs och fristående filer har checksummor i extern
+baseline och bevaras. Forskning har egna tydliga kort vid rätt byggnad,
+högst två rader och gemensam exakt admissionorsak för UI/betalning.
+Kampanjlåsta byggknappar döljs med befintliga campaignActionReason.
+Placeringsgeometri/occupancy prioriteras före resursbrist; ogiltiga attackmål
+visar ett transient fel utan att förstöra föregående order. Save utelämnar felet.
+Ny unit568/96 och strict build PASS före de senare gameplayändringarna.
+Forskning:23/4 PASS, native Chrome alla fem raser800/1280 PASS.
+Kampanjfilter27/2 PASS och faktisk tidig/upplåst/skirmishbrowser800/1280 PASS.
+Råbelägg i artifacts/quality-release; slutlig samlad regression återstår.
+Ingen ny CI/Pages/publicering påstås i detta delsteg.
+
+## 2026-11-01 — Samlad spelkvalitet och releaseförberedelse0.9.0
+
+Implementerat lokal threatResponse, med ursprunglig arbets-/patrullorder,
+begränsad säker flyktrutt, måldomäner, aktiva hot och hysteresis. Explicit
+Move/Attack/Hold har prioritet. Arbetande workers reagerar på riktade/aktuella
+hot; passiva ekonomiarbetare utlöser ingen flykt. Första breda provet störde
+ekonomi och stoppades; tre exakta Easy/Hard-omprov passerar efter rättning.
+Ett äldre resursinvarianttest räknade bara startnoden; expansionsavverkning
+förklarade37,321977 wood. Invarianten omfattar nu alla verkliga noder och bonusar,
+utan att minska kravet på bevarande. Ingen testbypass eller gratis normalekonomi.
+
+Transportplanen söker96px, ger delvis landing och lämnar resten ombord.
+Riktade20/2 och native mus/SaveLoad800/1280 PASS. Hot-/sjöförsvar/urval46/4 PASS
+före sista admissionrättningen; slutliga10 hotfall PASS efter den. Betald
+endgamekedja och alla tre stora enheternas riktiga produktion/urval/rörelse,
+forskning och Save PASS800/1280. Full naval kampanj till renderad seger PASS.
+
+Profiler hittade collisionuppslag och kvadratisk grupp-HUD. Slutligt isolerat
+128+32-prov: CPU11,4/21,9/98,4→10,6/19,4/86,7ms (p50/p95/max), frame
+16,7/33,3/233,4→16,7/33,3/200ms; en initial stall kvar. Även sämre prov bevarade.
+Nya små Twinwake-strider har CPU-p954,9/5,2/5,7ms och initiala frame-toppar.
+
+README44 rader; tidigare947 rader flyttade med giltiga länkar till docs/history.
+Endast en269-byte orefererad gammal avbrottslogg raderad. Användarens14 skyddade
+filer SHA256-oförändrade. Audit och Warbound2-vision under docs; inga nya tasks.
+Vite/Vitest patchas efter verifierad npm-audit (1high/2moderate→0), inklusive
+presentationen som Pages bygger. Lokal unit531/92, strict build och
+presentationsbuild PASS före slutlig ekonomiadmission; hela slutregressionen
+körs nu i ren git-archive-kopia med repositoryts CSS. Produktionsbrowser alla
+fem raser800/1280 PASS på kandidatens UI. Ny CI/Pages är ännu inte hävdad.
+
+## 2026-11-01 — Slutlig genomgång före releasecommit0.9.0
+
+Alla nio ändrade integrationsfiler127/9 PASS110.49s efter22 analyserade
+mellanregressionsfel. Unit531/92 PASS21.14s; strict build PASS545ms. Senaste
+bas-/tornkort12/2 PASS och ny strict build513ms. Forskningskortens gamla
+1280-CSS-specificitet rättad efter faktisk bildgranskning; alla fem raser i
+800/1280 PASS med normal radbrytning utan ellips. Kostnad/status visas även
+på bas-/tornuppgraderingar. Isolerat slutprov av prestanda: CPU
+11,4/21,9/98,4→10,6/19,4/84,6ms, frame16,7/33,3/233,4→16,7/33,3/183,3ms.
+Ett initialt>50ms-hack kvarstår; inga senare i det20s-fönstret.
+
+Ny full lokal körning på slutlig isolerad kod pågår; CI och Pages kommer
+först efter commit. Inget fullPASS eller publicering hävdas i förväg.

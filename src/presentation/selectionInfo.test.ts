@@ -27,3 +27,8 @@ it('explains idle after the last wood target is depleted without adding saved wo
  const m=createMatch(),u=m.gathering.units[0];u.selected=true;u.target={...m.gathering.node.position};m.gathering.node.remaining=0;
  expect(selectionInfo(m,null).detail).toContain('Order: idle · Last tree depleted; choose a new resource.');u.target={...u.position};expect(selectionInfo(m,null).detail).toBe('Order: idle');
 });
+
+it('summarizes a large mixed selection without changing units, health or faction names',()=>{
+ const m=createMatch();const worker=m.gathering.units[0];m.gathering.units=Array.from({length:128},(_,i)=>i%2?{...worker,id:`unit-${i+1}`,selected:true,hp:20,kind:'soldier' as const,archetype:'archer' as const,cargo:0 as const,order:{kind:'idle' as const}}:{...worker,id:`unit-${i+1}`,selected:true,hp:10});
+ const units=m.gathering.units,info=selectionInfo(m,null);expect(info.name).toBe('128 units selected');expect(info.hp).toBe(1920);expect(info.detail).toContain('×64');expect(m.gathering.units).toBe(units);expect(info.maxHP).toBeGreaterThan(info.hp!);
+});

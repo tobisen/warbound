@@ -1,0 +1,114 @@
+[
+  {
+    "width": 800,
+    "id": "first-steps",
+    "mission": "first-steps",
+    "buildings": [
+      "build-farm",
+      "build-barracks",
+      "build-base"
+    ],
+    "lockedVisible": [],
+    "errors": []
+  },
+  {
+    "width": 800,
+    "id": "the-siege",
+    "mission": "the-siege",
+    "buildings": [
+      "build-farm",
+      "build-barracks",
+      "build-wall",
+      "build-gate",
+      "build-tower",
+      "build-forge",
+      "build-base",
+      "build-stable",
+      "build-aviary"
+    ],
+    "lockedVisible": [],
+    "errors": []
+  },
+  {
+    "width": 800,
+    "id": "skirmish",
+    "mission": "skirmish",
+    "buildings": [
+      "build-farm",
+      "build-barracks",
+      "build-wall",
+      "build-gate",
+      "build-tower",
+      "build-forge",
+      "build-harbor",
+      "build-base",
+      "build-stable",
+      "build-aviary",
+      "build-siegeWorks",
+      "build-academy",
+      "build-navalFoundry",
+      "build-drydock",
+      "build-signalTower",
+      "build-navalAcademy",
+      "build-marineBarracks"
+    ],
+    "lockedVisible": [],
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "id": "first-steps",
+    "mission": "first-steps",
+    "buildings": [
+      "build-farm",
+      "build-barracks",
+      "build-base"
+    ],
+    "lockedVisible": [],
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "id": "the-siege",
+    "mission": "the-siege",
+    "buildings": [
+      "build-farm",
+      "build-barracks",
+      "build-wall",
+      "build-gate",
+      "build-tower",
+      "build-forge",
+      "build-base",
+      "build-stable",
+      "build-aviary"
+    ],
+    "lockedVisible": [],
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "id": "skirmish",
+    "mission": "skirmish",
+    "buildings": [
+      "build-farm",
+      "build-barracks",
+      "build-wall",
+      "build-gate",
+      "build-tower",
+      "build-forge",
+      "build-harbor",
+      "build-base",
+      "build-stable",
+      "build-aviary",
+      "build-siegeWorks",
+      "build-academy",
+      "build-navalFoundry",
+      "build-drydock",
+      "build-signalTower",
+      "build-navalAcademy",
+      "build-marineBarracks"
+    ],
+    "lockedVisible": [],
+    "errors": []
+  }
+]

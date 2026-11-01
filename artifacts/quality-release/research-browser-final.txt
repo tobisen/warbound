@@ -1,0 +1,10 @@
+PASS all research 800 crown
+PASS all research 800 clans
+PASS all research 800 elves
+PASS all research 800 dwarves
+PASS all research 800 goblins
+PASS all research 1280 crown
+PASS all research 1280 clans
+PASS all research 1280 elves
+PASS all research 1280 dwarves
+PASS all research 1280 goblins

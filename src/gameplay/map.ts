@@ -78,7 +78,11 @@ export function blockedTile(map: WorldMap, tile: Tile): boolean {
   return !rect || map.obstacles.some(obstacle => overlaps(rect, obstacle));
 }
 
-const collisionIndex=new WeakMap<Footprint[],{revision:number;length:number;cells:Map<string,Footprint[]>;queries:Map<string,readonly Footprint[]>}>();
+const collisionIndex=new WeakMap<Footprint[],{revision:number;length:number;cells:Map<number|string,Footprint[]>;queries:Map<number|string,readonly Footprint[]>}>();
+// Numeric keys avoid allocating millions of cell/query strings during LOS and
+// swept collision. Unusually large coordinates retain the exact string fallback.
+const collisionCellKey=(c:number,r:number):number|string=>c>=-32768&&c<32768&&r>=-32768&&r<32768?(r+32768)*65536+c+32768:`${c},${r}`;
+const collisionQueryKey=(l:number,t:number,r:number,b:number):number|string=>l>=-256&&l<768&&t>=-256&&t<768&&r>=-256&&r<768&&b>=-256&&b<768?(((l+256)*1024+t+256)*1024+r+256)*1024+b+256:`${l},${t},${r},${b}`;
 /** Shared spatial lookup for immutable obstacle snapshots; initialization push is detected by length. */
 export function nearbyObstacles(map:WorldMap,area:Footprint):readonly Footprint[]{
  const left=Math.floor(area.x/32),top=Math.floor(area.y/32),right=Math.floor((area.x+area.width)/32),bottom=Math.floor((area.y+area.height)/32);
@@ -89,9 +93,9 @@ export function nearbyObstacles(map:WorldMap,area:Footprint):readonly Footprint[
   return target&&(!ignored||!same(target,ignored))&&target.x<=area.x+area.width&&target.x+target.width>=area.x&&target.y<=area.y+area.height&&target.y+target.height>=area.y?[...base,target]:base;
  };
  if(map.linearCollision||map.obstacles.length<32||(right-left+1)*(bottom-top+1)>map.obstacles.length*2)return skip(map.obstacles);
- let index=collisionIndex.get(map.obstacles);if(!index||index.revision!==map.revision||index.length!==map.obstacles.length){const cells=new Map<string,Footprint[]>();for(const o of map.obstacles)for(let r=Math.floor(o.y/32);r<=Math.floor((o.y+o.height)/32);r++)for(let c=Math.floor(o.x/32);c<=Math.floor((o.x+o.width)/32);c++){const key=`${c},${r}`,list=cells.get(key)??[];list.push(o);cells.set(key,list);}index={revision:map.revision,length:map.obstacles.length,cells,queries:new Map()};collisionIndex.set(map.obstacles,index);}
- const queryKey=`${left},${top},${right},${bottom}`,cached=index.queries.get(queryKey);if(cached)return skip(cached);
- const result=new Set<Footprint>();for(let r=top;r<=bottom;r++)for(let c=left;c<=right;c++)for(const o of index.cells.get(`${c},${r}`)??[])result.add(o);
+ let index=collisionIndex.get(map.obstacles);if(!index||index.revision!==map.revision||index.length!==map.obstacles.length){const cells=new Map<number|string,Footprint[]>();for(const o of map.obstacles)for(let r=Math.floor(o.y/32);r<=Math.floor((o.y+o.height)/32);r++)for(let c=Math.floor(o.x/32);c<=Math.floor((o.x+o.width)/32);c++){const key=collisionCellKey(c,r),list=cells.get(key)??[];list.push(o);cells.set(key,list);}index={revision:map.revision,length:map.obstacles.length,cells,queries:new Map()};collisionIndex.set(map.obstacles,index);}
+ const queryKey=collisionQueryKey(left,top,right,bottom),cached=index.queries.get(queryKey);if(cached)return skip(cached);
+ const result=new Set<Footprint>();for(let r=top;r<=bottom;r++)for(let c=left;c<=right;c++)for(const o of index.cells.get(collisionCellKey(c,r))??[])result.add(o);
  const candidates=[...result];if(index.queries.size>=4096)index.queries.delete(index.queries.keys().next().value!);index.queries.set(queryKey,candidates);return skip(candidates);
 }
 export function bodyFits(map: WorldMap, point: Position, halfSize = 0): boolean {

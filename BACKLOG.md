@@ -53,6 +53,19 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Spelkvalitet, endgame och release — 2026-11-01 — In progress
+
+Nytt bifogat uppdrag ersätter tidigare stopp. En deluppgift åt gången:
+1 forskning/layout, 2 kampanjbyggmeny, 3 orderfel, 4 uppmätt upptäcktslagg,
+5 hotreaktioner, 6 transporter, 7 spelbart endgame, 8 varsam filstädning,
+9 kort README, 10 evidensbaserad audit, 11 Warbound 2-vision, 12 release.
+Verifiera faktisk browser800×600/1280×720, riktade tester och slutlig full
+regression/strict build. Commit/push/tagg/publicering ingår i uppdraget.
+Skyddade lokala CSS/units.mjs/docs och fristående filer hålls utanför releasen.
+Ingen delegering, kartombyggnad eller nya roadmaptasks. Tidigare belägg nedan
+är historik och ersätter inte denna leverans verifiering.
+
+
 ## Sjö-/tydlighetsuppdrag publicerat — 2026-11-01
 
 Nytt uttryckligt publiceringsmandat är genomfört. Leveranscommit `bc38db0` är

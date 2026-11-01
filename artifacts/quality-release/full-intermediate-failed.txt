@@ -1,0 +1,314 @@
+
+> warcraft-2-tribute@0.9.0 test
+> vitest run
+
+
+ RUN  v4.1.12 /private/tmp/warbound-quality-release-pciul714
+
+ ❯ src/gameplay/islandFleets.test.ts (47 tests | 4 failed) 97002ms
+   × twinwake transports a ground troop between actual shores and rejects open water landings 6ms
+   × trident transports a ground troop between actual shores and rejects open water landings 22ms
+   × crownsea transports a ground troop between actual shores and rejects open water landings 30ms
+   × farreach transports a ground troop between actual shores and rejects open water landings 47ms
+ ❯ src/gameplay/islands.test.ts (14 tests | 12 failed) 331732ms
+   × skirmish/easy/crown gathers, pays for army/harbor/transport, lands and wins through land combat 6115ms
+   × skirmish/easy/clans gathers, pays for army/harbor/transport, lands and wins through land combat 94407ms
+   × skirmish/normal/crown gathers, pays for army/harbor/transport, lands and wins through land combat 5384ms
+   × skirmish/normal/clans gathers, pays for army/harbor/transport, lands and wins through land combat 88484ms
+   × skirmish/hard/crown gathers, pays for army/harbor/transport, lands and wins through land combat 5407ms
+   × skirmish/hard/clans gathers, pays for army/harbor/transport, lands and wins through land combat 64698ms
+   × mission-sea/easy/crown gathers, pays for army/harbor/transport, lands and wins through land combat 5259ms
+   × mission-sea/easy/clans gathers, pays for army/harbor/transport, lands and wins through land combat 23995ms
+   × mission-sea/normal/crown gathers, pays for army/harbor/transport, lands and wins through land combat 4836ms
+   × mission-sea/normal/clans gathers, pays for army/harbor/transport, lands and wins through land combat 15876ms
+   × mission-sea/hard/crown gathers, pays for army/harbor/transport, lands and wins through land combat 4845ms
+   × mission-sea/hard/clans gathers, pays for army/harbor/transport, lands and wins through land combat 12268ms
+ ❯ src/gameplay/campaignLate.test.ts (4 tests | 1 failed) 37657ms
+   × the-crossing: paid Normal army, real objective, progression, Save/load and replay 13564ms
+ ❯ src/gameplay/coast.test.ts (7 tests | 2 failed) 115845ms
+   × skirmish/normal/crown gathers, pays for army/harbor/transport, lands and wins through land combat 5643ms
+   × skirmish/normal/clans gathers, pays for army/harbor/transport, lands and wins through land combat 105651ms
+ ❯ src/gameplay/seaMonsters.test.ts (19 tests | 1 failed) 6990ms
+   × normal match cleanup preserves ship attacks, in-flight shots and saves; killing clears orders without giving a reward 854ms
+ ❯ src/gameplay/teams.test.ts (7 tests | 1 failed) 3879ms
+   × prevents human attacks, autonomous attacks and splash against allies 489ms
+ ❯ src/gameplay/destruction.test.ts (8 tests | 1 failed) 229ms
+     × allows enemies to kill a loaded worker using reachable melee and clears pursuit references 33ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 22 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/gameplay/campaignLate.test.ts > the-crossing: paid Normal army, real objective, progression, Save/load and replay
+TypeError: Cannot read properties of undefined (reading 'passengers')
+ ❯ src/gameplay/testHelpers/expandedCampaign.ts:42:468
+
+ ❯ until src/gameplay/testHelpers/expandedCampaign.ts:37:64
+ ❯ playExpandedCampaign src/gameplay/testHelpers/expandedCampaign.ts:42:259
+ ❯ playCampaignOperation src/gameplay/testHelpers/campaignOperations.ts:4:68
+ ❯ src/gameplay/campaignLate.test.ts:9:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/22]⎯
+
+ FAIL  src/gameplay/coast.test.ts > skirmish/normal/crown gathers, pays for army/harbor/transport, lands and wins through land combat
+AssertionError: expected [] to have a length of 4 but got +0
+
+- Expected
++ Received
+
+- 4
++ 0
+
+ ❯ src/gameplay/coast.test.ts:36:327
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/22]⎯
+
+ FAIL  src/gameplay/coast.test.ts > skirmish/normal/clans gathers, pays for army/harbor/transport, lands and wins through land combat
+AssertionError: time 621.8000000000728; {"navy":{"harbor":{"owner":"player","hp":150.79999999999995,"footprint":{"x":672,"y":320,"width":64,"height":64},"construction":{"remainingSeconds":0,"builderId":null}},"ships":[{"id":"ship-1","kind":"ship","role":"transport","passengers":[],"owner":"player","hp":100,"selected":true,"position":{"x":720,"y":80.5},"target":{"x":720,"y":432},"order":{"kind":"idle"},"attackCooldown":0,"threatCheck":{"order":{"kind":"idle"},"after":622.1000000000728}}],"production":{"remainingSeconds":null,"nextUnitNumber":2,"queue":[],"nextJobNumber":2}},"units":[{"kind":"worker","owner":"player","hp":35,"id":"unit-1","position":{"x":435.45816294060717,"y":224.44953896399855},"target":{"x":656,"y":368},"selected":false,"order":{"kind":"idle"},"cargo":0,"threatCheck":{"order":{"kind":"idle"},"after":621.9000000000727}},{"kind":"worker","owner":"player","hp":35,"id":"unit-2","position":{"x":624,"y":208},"target":{"x":650,"y":180},"selected":false,"order":{"kind":"gather","nodeId":"wood-1"},"cargo":1.1289670544233414,"navigation":{"commandNumber":1,"destination":{"x":624,"y":208},"waypoints":[],"revision":6,"status":"arrived","goalKey":"gather:wood-1:634:164"},"threatCheck":{"order":{"kind":"gather","nodeId":"wood-1"},"after":621.8000000000727},"cargoType":"wood"},{"kind":"worker","owner":"player","hp":35,"id":"unit-3","position":{"x":463.67552632898986,"y":400.57941726966095},"target":{"x":600,"y":300},"selected":false,"order":{"kind":"deliver","nodeId":"gold-1"},"cargo":5,"navigation":{"commandNumber":1,"destination":{"x":436,"y":450},"waypoints":[{"x":436,"y":450}],"revision":6,"status":"moving","goalKey":"deliver:gold-1:376:426"},"threatCheck":{"order":{"kind":"deliver","nodeId":"gold-1"},"after":622.0000000000728},"cargoType":"gold"},{"owner":"player","id":"unit-4","position":{"x":393.7392561903538,"y":282.0409389210795},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":622.2000000000728}},{"owner":"player","id":"unit-5","position":{"x":382.52712916430664,"y":306.0409399210795},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":621.9000000000727}},{"owner":"player","id":"unit-6","position":{"x":447.0094362515222,"y":304.253695973772},"target":{"x":565.2660164233323,"y":353.23717532079695},"selected":true,"kind":"soldier","cargo":0,"hp":55.20000000000002,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":621.8000000000727}}],"production":{"remainingSeconds":null,"nextUnitNumber":8,"queue":[],"nextJobNumber":5}}: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ until src/gameplay/coast.test.ts:32:269
+
+ ❯ src/gameplay/coast.test.ts:36:145
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/22]⎯
+
+ FAIL  src/gameplay/destruction.test.ts > HP, targeting and destruction cleanup > allows enemies to kill a loaded worker using reachable melee and clears pursuit references
+AssertionError: expected [ { kind: 'worker', …(12) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "cargo": 2,
++     "hp": 1,
++     "id": "unit-1",
++     "kind": "worker",
++     "order": {
++       "kind": "idle",
++     },
++     "orderError": undefined,
++     "owner": "player",
++     "position": {
++       "x": 140,
++       "y": 300,
++     },
++     "selected": false,
++     "selfDefense": undefined,
++     "target": {
++       "x": 300,
++       "y": 300,
++     },
++     "threatCheck": {
++       "after": 0.5,
++       "order": {
++         "kind": "idle",
++       },
++     },
++     "threatRetreat": {
++       "attackerId": "enemy",
++       "nextPlan": 1,
++       "order": {
++         "kind": "idle",
++       },
++       "route": {
++         "commandNumber": 1,
++         "destination": {
++           "x": 140,
++           "y": 300,
++         },
++         "revision": 0,
++         "status": "arrived",
++         "waypoints": [],
++       },
++     },
++   },
++ ]
+
+ ❯ src/gameplay/destruction.test.ts:27:50
+     25|     let s=createMatch();const worker=s.gathering.units[0];if(worker.ki…
+     26|     s.combat.enemies=[{id:'enemy',owner:'enemy',position:{x:340,y:300}…
+     27|     s=updateMatch(s,1);expect(s.gathering.units).toEqual([]);expect(s.…
+       |                                                  ^
+     28|     expect(s.combat.enemies[0].navigation).toBeUndefined();expect(s.co…
+     29|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/22]⎯
+
+ FAIL  src/gameplay/islandFleets.test.ts > twinwake transports a ground troop between actual shores and rejects open water landings
+ FAIL  src/gameplay/islandFleets.test.ts > trident transports a ground troop between actual shores and rejects open water landings
+ FAIL  src/gameplay/islandFleets.test.ts > crownsea transports a ground troop between actual shores and rejects open water landings
+ FAIL  src/gameplay/islandFleets.test.ts > farreach transports a ground troop between actual shores and rejects open water landings
+AssertionError: the given combination of arguments (null and string) is invalid for this assertion. You can use an array, a map, an object, a set, a string, or a weakset instead of a string
+ ❯ src/gameplay/islandFleets.test.ts:107:57
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/22]⎯
+
+ FAIL  src/gameplay/islands.test.ts > skirmish/easy/crown gathers, pays for army/harbor/transport, lands and wins through land combat
+ FAIL  src/gameplay/islands.test.ts > skirmish/normal/crown gathers, pays for army/harbor/transport, lands and wins through land combat
+ FAIL  src/gameplay/islands.test.ts > skirmish/hard/crown gathers, pays for army/harbor/transport, lands and wins through land combat
+ FAIL  src/gameplay/islands.test.ts > mission-sea/easy/crown gathers, pays for army/harbor/transport, lands and wins through land combat
+ FAIL  src/gameplay/islands.test.ts > mission-sea/normal/crown gathers, pays for army/harbor/transport, lands and wins through land combat
+ FAIL  src/gameplay/islands.test.ts > mission-sea/hard/crown gathers, pays for army/harbor/transport, lands and wins through land combat
+AssertionError: expected [] to have a length of 4 but got +0
+
+- Expected
++ Received
+
+- 4
++ 0
+
+ ❯ src/gameplay/islands.test.ts:35:327
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/22]⎯
+
+ FAIL  src/gameplay/islands.test.ts > skirmish/easy/clans gathers, pays for army/harbor/transport, lands and wins through land combat
+AssertionError: time 621.8000000000728; {"navy":{"harbor":{"owner":"player","hp":170,"footprint":{"x":672,"y":320,"width":64,"height":64},"construction":{"remainingSeconds":0,"builderId":null}},"ships":[{"id":"ship-1","kind":"ship","role":"transport","passengers":[],"owner":"player","hp":100,"selected":true,"position":{"x":720,"y":80.5},"target":{"x":720,"y":432},"order":{"kind":"idle"},"attackCooldown":0,"threatCheck":{"order":{"kind":"idle"},"after":622.1000000000728}}],"production":{"remainingSeconds":null,"nextUnitNumber":2,"queue":[],"nextJobNumber":2}},"units":[{"kind":"worker","owner":"player","hp":35,"id":"unit-1","position":{"x":659.9999739011533,"y":362.3999739011532},"target":{"x":656,"y":368},"selected":false,"order":{"kind":"idle"},"cargo":0,"threatCheck":{"order":{"kind":"idle"},"after":622.1000000000728}},{"kind":"worker","owner":"player","hp":35,"id":"unit-2","position":{"x":624,"y":208},"target":{"x":650,"y":180},"selected":false,"order":{"kind":"gather","nodeId":"wood-1"},"cargo":1.1310534789406816,"navigation":{"commandNumber":1,"destination":{"x":624,"y":208},"waypoints":[],"revision":5,"status":"arrived","goalKey":"gather:wood-1:634:164"},"threatCheck":{"order":{"kind":"gather","nodeId":"wood-1"},"after":621.8000000000727},"cargoType":"wood"},{"kind":"worker","owner":"player","hp":35,"id":"unit-3","position":{"x":560,"y":304},"target":{"x":600,"y":300},"selected":false,"order":{"kind":"gather","nodeId":"gold-1"},"cargo":0.2000616894000089,"navigation":{"commandNumber":1,"destination":{"x":560,"y":304},"waypoints":[],"revision":5,"status":"arrived","goalKey":"gather:gold-1:580:280"},"threatCheck":{"order":{"kind":"gather","nodeId":"gold-1"},"after":621.9000000000727},"cargoType":"gold"},{"owner":"player","id":"unit-4","position":{"x":601.3687976849018,"y":370.15065432908244},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":622.2000000000728}},{"owner":"player","id":"unit-5","position":{"x":553.3687968507024,"y":370.15065432908244},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":622.2000000000728}},{"owner":"player","id":"unit-6","position":{"x":625.3687971296349,"y":370.15065432908244},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":621.9000000000727}},{"owner":"player","id":"unit-7","position":{"x":577.3687972401686,"y":370.15065432908244},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":621.8000000000727}}],"production":{"remainingSeconds":null,"nextUnitNumber":8,"queue":[],"nextJobNumber":5}}: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ until src/gameplay/islands.test.ts:31:269
+
+ ❯ src/gameplay/islands.test.ts:35:145
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/22]⎯
+
+ FAIL  src/gameplay/islands.test.ts > skirmish/normal/clans gathers, pays for army/harbor/transport, lands and wins through land combat
+AssertionError: time 621.8000000000728; {"navy":{"harbor":{"owner":"player","hp":150.79999999999995,"footprint":{"x":672,"y":320,"width":64,"height":64},"construction":{"remainingSeconds":0,"builderId":null}},"ships":[{"id":"ship-1","kind":"ship","role":"transport","passengers":[],"owner":"player","hp":100,"selected":true,"position":{"x":720,"y":80.5},"target":{"x":720,"y":432},"order":{"kind":"idle"},"attackCooldown":0,"threatCheck":{"order":{"kind":"idle"},"after":622.1000000000728}}],"production":{"remainingSeconds":null,"nextUnitNumber":2,"queue":[],"nextJobNumber":2}},"units":[{"kind":"worker","owner":"player","hp":35,"id":"unit-1","position":{"x":435.45816294060717,"y":224.44953896399855},"target":{"x":656,"y":368},"selected":false,"order":{"kind":"idle"},"cargo":0,"threatCheck":{"order":{"kind":"idle"},"after":621.9000000000727}},{"kind":"worker","owner":"player","hp":35,"id":"unit-2","position":{"x":624,"y":208},"target":{"x":650,"y":180},"selected":false,"order":{"kind":"gather","nodeId":"wood-1"},"cargo":1.1289670544233414,"navigation":{"commandNumber":1,"destination":{"x":624,"y":208},"waypoints":[],"revision":6,"status":"arrived","goalKey":"gather:wood-1:634:164"},"threatCheck":{"order":{"kind":"gather","nodeId":"wood-1"},"after":621.8000000000727},"cargoType":"wood"},{"kind":"worker","owner":"player","hp":35,"id":"unit-3","position":{"x":463.67552632898986,"y":400.57941726966095},"target":{"x":600,"y":300},"selected":false,"order":{"kind":"deliver","nodeId":"gold-1"},"cargo":5,"navigation":{"commandNumber":1,"destination":{"x":436,"y":450},"waypoints":[{"x":436,"y":450}],"revision":6,"status":"moving","goalKey":"deliver:gold-1:376:426"},"threatCheck":{"order":{"kind":"deliver","nodeId":"gold-1"},"after":622.0000000000728},"cargoType":"gold"},{"owner":"player","id":"unit-4","position":{"x":393.7392561903538,"y":282.0409389210795},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":622.2000000000728}},{"owner":"player","id":"unit-5","position":{"x":382.52712916430664,"y":306.0409399210795},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":621.9000000000727}},{"owner":"player","id":"unit-6","position":{"x":447.0094362515222,"y":304.253695973772},"target":{"x":565.2660164233323,"y":353.23717532079695},"selected":true,"kind":"soldier","cargo":0,"hp":55.20000000000002,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":621.8000000000727}}],"production":{"remainingSeconds":null,"nextUnitNumber":8,"queue":[],"nextJobNumber":5}}: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ until src/gameplay/islands.test.ts:31:269
+
+ ❯ src/gameplay/islands.test.ts:35:145
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/22]⎯
+
+ FAIL  src/gameplay/islands.test.ts > skirmish/hard/clans gathers, pays for army/harbor/transport, lands and wins through land combat
+AssertionError: time 621.8000000000728; {"navy":{"harbor":{"owner":"player","hp":146,"footprint":{"x":672,"y":320,"width":64,"height":64},"construction":{"remainingSeconds":0,"builderId":null}},"ships":[{"id":"ship-1","kind":"ship","role":"transport","passengers":[],"owner":"player","hp":100,"selected":true,"position":{"x":720,"y":80.5},"target":{"x":720,"y":432},"order":{"kind":"idle"},"attackCooldown":0,"threatCheck":{"order":{"kind":"idle"},"after":622.1000000000728}}],"production":{"remainingSeconds":null,"nextUnitNumber":2,"queue":[],"nextJobNumber":2}},"units":[{"kind":"worker","owner":"player","hp":35,"id":"unit-1","position":{"x":435.45816294060717,"y":224.44953896399855},"target":{"x":656,"y":368},"selected":false,"order":{"kind":"idle"},"cargo":0,"threatCheck":{"order":{"kind":"idle"},"after":621.9000000000727}},{"kind":"worker","owner":"player","hp":35,"id":"unit-2","position":{"x":624,"y":208},"target":{"x":650,"y":180},"selected":false,"order":{"kind":"gather","nodeId":"wood-1"},"cargo":0.03303170150831927,"navigation":{"commandNumber":1,"destination":{"x":624,"y":208},"waypoints":[],"revision":6,"status":"arrived","goalKey":"gather:wood-1:634:164"},"threatCheck":{"order":{"kind":"gather","nodeId":"wood-1"},"after":621.9000000000727},"cargoType":"wood"},{"kind":"worker","owner":"player","hp":35,"id":"unit-3","position":{"x":464.6879538638958,"y":399.3219997477012},"target":{"x":600,"y":300},"selected":false,"order":{"kind":"deliver","nodeId":"gold-1"},"cargo":5,"navigation":{"commandNumber":1,"destination":{"x":436,"y":450},"waypoints":[{"x":464,"y":400},{"x":436,"y":450}],"revision":6,"status":"moving","goalKey":"deliver:gold-1:376:426"},"threatCheck":{"order":{"kind":"deliver","nodeId":"gold-1"},"after":622.0000000000728},"cargoType":"gold"},{"owner":"player","id":"unit-4","position":{"x":393.7392561903538,"y":282.0409389210795},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":622.2000000000728}},{"owner":"player","id":"unit-5","position":{"x":382.52712916430664,"y":306.0409399210795},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":621.9000000000727}},{"owner":"player","id":"unit-6","position":{"x":447.0094362618877,"y":304.25369597806554},"target":{"x":565.2660164233323,"y":353.23717532079695},"selected":true,"kind":"soldier","cargo":0,"hp":16.5,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":622.1000000000728}}],"production":{"remainingSeconds":null,"nextUnitNumber":8,"queue":[],"nextJobNumber":5}}: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ until src/gameplay/islands.test.ts:31:269
+
+ ❯ src/gameplay/islands.test.ts:35:145
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/22]⎯
+
+ FAIL  src/gameplay/islands.test.ts > mission-sea/easy/clans gathers, pays for army/harbor/transport, lands and wins through land combat
+AssertionError: time 603.4000000000686; {"navy":{"harbor":null,"ships":[{"id":"ship-1","kind":"ship","role":"transport","passengers":[],"owner":"player","hp":100,"selected":true,"position":{"x":720,"y":80.5},"target":{"x":720,"y":432},"order":{"kind":"idle"},"attackCooldown":0,"threatCheck":{"order":{"kind":"idle"},"after":603.7000000000686}}],"production":{"remainingSeconds":null,"nextUnitNumber":2,"queue":[],"nextJobNumber":2}},"units":[{"kind":"worker","owner":"player","hp":35,"id":"unit-1","position":{"x":435.45816294060717,"y":224.44953896399855},"target":{"x":656,"y":368},"selected":false,"order":{"kind":"idle"},"cargo":0,"threatCheck":{"order":{"kind":"idle"},"after":603.5000000000686}},{"kind":"worker","owner":"player","hp":35,"id":"unit-2","position":{"x":624,"y":208},"target":{"x":650,"y":180},"selected":false,"order":{"kind":"gather","nodeId":"wood-1"},"cargo":0.716276299058561,"navigation":{"commandNumber":1,"destination":{"x":624,"y":208},"waypoints":[],"revision":7,"status":"arrived","goalKey":"gather:wood-1:634:164"},"threatCheck":{"order":{"kind":"gather","nodeId":"wood-1"},"after":603.8000000000686},"cargoType":"wood"},{"kind":"worker","owner":"player","hp":35,"id":"unit-3","position":{"x":560,"y":304},"target":{"x":600,"y":300},"selected":false,"order":{"kind":"gather","nodeId":"gold-1"},"cargo":1.1095627075655752,"navigation":{"commandNumber":1,"destination":{"x":560,"y":304},"waypoints":[],"revision":7,"status":"arrived","goalKey":"gather:gold-1:580:280"},"threatCheck":{"order":{"kind":"gather","nodeId":"gold-1"},"after":603.6000000000686},"cargoType":"gold"},{"owner":"player","id":"unit-4","position":{"x":389.61978240237363,"y":289.2295654793024},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":603.4000000000685}},{"owner":"player","id":"unit-5","position":{"x":436.46928859890465,"y":327.7575196158775},"target":{"x":436.46928859890465,"y":327.7575196158775},"selected":true,"kind":"soldier","cargo":0,"hp":33.60000000000005,"order":{"kind":"idle"},"autoDisabled":false,"navigation":{"commandNumber":1,"destination":{"x":436.46928859890465,"y":327.7575196158775},"revision":7,"waypoints":[],"status":"arrived"},"threatCheck":{"order":{"kind":"idle"},"after":603.5000000000686}},{"owner":"player","id":"unit-6","position":{"x":420.97952943290534,"y":250.93890711985492},"target":{"x":420.97952943290534,"y":250.93890711985492},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"navigation":{"commandNumber":1,"destination":{"x":420.97952943290534,"y":250.93890711985492},"revision":7,"waypoints":[],"status":"arrived"},"threatCheck":{"order":{"kind":"idle"},"after":603.5000000000686}}],"production":{"remainingSeconds":null,"nextUnitNumber":8,"queue":[],"nextJobNumber":5}}: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ until src/gameplay/islands.test.ts:31:269
+
+ ❯ src/gameplay/islands.test.ts:35:145
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/22]⎯
+
+ FAIL  src/gameplay/islands.test.ts > mission-sea/normal/clans gathers, pays for army/harbor/transport, lands and wins through land combat
+AssertionError: time 603.4000000000686; {"navy":{"harbor":{"owner":"player","hp":152.59999999999997,"footprint":{"x":672,"y":320,"width":64,"height":64},"construction":{"remainingSeconds":0,"builderId":null}},"ships":[{"id":"ship-1","kind":"ship","role":"transport","passengers":[],"owner":"player","hp":100,"selected":true,"position":{"x":720,"y":80.5},"target":{"x":720,"y":432},"order":{"kind":"idle"},"attackCooldown":0,"threatCheck":{"order":{"kind":"idle"},"after":603.7000000000686}}],"production":{"remainingSeconds":null,"nextUnitNumber":2,"queue":[],"nextJobNumber":2}},"units":[{"kind":"worker","owner":"player","hp":35,"id":"unit-1","position":{"x":446.4183180489987,"y":235.40969407239004},"target":{"x":656,"y":368},"selected":false,"order":{"kind":"idle"},"cargo":0,"threatCheck":{"order":{"kind":"idle"},"after":603.7000000000686}},{"kind":"worker","owner":"player","hp":35,"id":"unit-2","position":{"x":624,"y":208},"target":{"x":650,"y":180},"selected":false,"order":{"kind":"gather","nodeId":"wood-1"},"cargo":0.8574549315364232,"navigation":{"commandNumber":1,"destination":{"x":624,"y":208},"waypoints":[],"revision":6,"status":"arrived","goalKey":"gather:wood-1:634:164"},"threatCheck":{"order":{"kind":"gather","nodeId":"wood-1"},"after":603.6000000000686},"cargoType":"wood"},{"kind":"worker","owner":"player","hp":35,"id":"unit-3","position":{"x":562.2567267037805,"y":304},"target":{"x":600,"y":300},"selected":false,"order":{"kind":"gather","nodeId":"gold-1"},"cargo":3.284571500369823,"navigation":{"commandNumber":1,"destination":{"x":562.2567267037805,"y":304},"waypoints":[],"revision":6,"status":"arrived","goalKey":"gather:gold-1:580:280"},"threatCheck":{"order":{"kind":"gather","nodeId":"gold-1"},"after":603.4000000000685},"cargoType":"gold"},{"owner":"player","id":"unit-4","position":{"x":393.6626959103246,"y":284.42956547930237},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":603.7000000000686}},{"owner":"player","id":"unit-5","position":{"x":427.30984540120346,"y":335.2602710586861},"target":{"x":545.0023277529111,"y":371.00459845911246},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":603.8000000000686}},{"owner":"player","id":"unit-6","position":{"x":449.777183219897,"y":297.30471522014795},"target":{"x":582.8158359015222,"y":353.8519236770774},"selected":true,"kind":"soldier","cargo":0,"hp":21.000000000000046,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":603.8000000000686}},{"owner":"player","id":"unit-7","position":{"x":451.30984640120346,"y":321.30471622014795},"target":{"x":569.0023287529111,"y":371.9881543290824},"selected":true,"kind":"soldier","cargo":0,"hp":43.20000000000002,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":603.4000000000685}}],"production":{"remainingSeconds":null,"nextUnitNumber":8,"queue":[],"nextJobNumber":5}}: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ until src/gameplay/islands.test.ts:31:269
+
+ ❯ src/gameplay/islands.test.ts:35:145
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/22]⎯
+
+ FAIL  src/gameplay/islands.test.ts > mission-sea/hard/clans gathers, pays for army/harbor/transport, lands and wins through land combat
+AssertionError: time 606.2000000000693; {"navy":{"harbor":{"owner":"player","hp":127.25,"footprint":{"x":672,"y":320,"width":64,"height":64},"construction":{"remainingSeconds":0,"builderId":null}},"ships":[{"id":"ship-1","kind":"ship","role":"transport","passengers":[],"owner":"player","hp":100,"selected":true,"position":{"x":833.1370849898476,"y":161.3629150101524},"target":{"x":720,"y":432},"order":{"kind":"idle"},"attackCooldown":0,"threatCheck":{"order":{"kind":"idle"},"after":606.6000000000693}}],"production":{"remainingSeconds":null,"nextUnitNumber":2,"queue":[],"nextJobNumber":2}},"units":[{"kind":"worker","owner":"player","hp":17.75,"id":"unit-1","position":{"x":596.6840679834111,"y":160.79867246075065},"target":{"x":656,"y":304},"selected":false,"order":{"kind":"idle"},"cargo":0,"threatCheck":{"order":{"kind":"idle"},"after":606.4000000000692}},{"kind":"worker","owner":"player","hp":35,"id":"unit-2","position":{"x":624,"y":208},"target":{"x":650,"y":180},"selected":false,"order":{"kind":"gather","nodeId":"wood-1"},"cargo":3.634635774493406,"navigation":{"commandNumber":1,"destination":{"x":624,"y":208},"waypoints":[],"revision":6,"status":"arrived","goalKey":"gather:wood-1:634:164"},"threatCheck":{"order":{"kind":"gather","nodeId":"wood-1"},"after":606.6000000000693},"cargoType":"wood"},{"kind":"worker","owner":"player","hp":35,"id":"unit-3","position":{"x":496.6483614654974,"y":367.5242301473759},"target":{"x":600,"y":300},"selected":false,"order":{"kind":"deliver","nodeId":"gold-1"},"cargo":5,"navigation":{"commandNumber":1,"destination":{"x":436,"y":450},"waypoints":[{"x":464,"y":400},{"x":436,"y":450}],"revision":6,"status":"moving","goalKey":"deliver:gold-1:376:426"},"threatCheck":{"order":{"kind":"deliver","nodeId":"gold-1"},"after":606.2000000000692},"cargoType":"gold"},{"owner":"player","id":"unit-4","position":{"x":456.5646844398761,"y":316.6247266647888},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":606.3000000000692}},{"owner":"player","id":"unit-5","position":{"x":384.56468394401804,"y":327.91010639669565},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":51,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":606.4000000000692}},{"owner":"player","id":"unit-6","position":{"x":408.56468319194704,"y":327.91010639669565},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":18.75,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":606.2000000000692}},{"owner":"player","id":"unit-7","position":{"x":432.5646834398761,"y":327.91010639669565},"target":{"x":688,"y":432},"selected":true,"kind":"soldier","cargo":0,"hp":66,"order":{"kind":"idle"},"autoDisabled":false,"threatCheck":{"order":{"kind":"idle"},"after":606.5000000000692}}],"production":{"remainingSeconds":null,"nextUnitNumber":8,"queue":[],"nextJobNumber":5}}: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ until src/gameplay/islands.test.ts:31:269
+
+ ❯ src/gameplay/islands.test.ts:35:145
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/22]⎯
+
+ FAIL  src/gameplay/seaMonsters.test.ts > normal match cleanup preserves ship attacks, in-flight shots and saves; killing clears orders without giving a reward
+AssertionError: expected { harbor: null, …(2) } to deeply equal { harbor: null, …(2) }
+
+- Expected
++ Received
+
+@@ -35,16 +35,8 @@
+        "selected": true,
+        "target": {
+          "x": 696,
+          "y": 624,
+        },
+-       "threatHit": {
+-         "attackerId": "enemy-sea-monster-channel",
+-         "order": {
+-           "enemyId": "enemy-sea-monster-channel",
+-           "kind": "attack",
+-         },
+-         "remainingSeconds": 1.4999999999999996,
+-       },
+      },
+    ],
+  }
+
+ ❯ src/gameplay/seaMonsters.test.ts:73:185
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/22]⎯
+
+ FAIL  src/gameplay/teams.test.ts > prevents human attacks, autonomous attacks and splash against allies
+AssertionError: expected { wildlife: {}, …(28) } to be { wildlife: {}, …(28) } // Object.is equality
+
+- Expected
++ Received
+
+@@ -65929,5 +65929,5 @@
+    "speed": 1,
+    "statLedger": [Object],
+    "waves": [Object],
+    "wildlife": [Object],
+  }
+
+ ❯ src/gameplay/teams.test.ts:20:100
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/22]⎯
+
+
+ Test Files  7 failed | 238 passed (245)
+      Tests  22 failed | 2287 passed (2309)
+   Start at  01:37:51
+   Duration  1147.47s (transform 2.62s, setup 0ms, import 31.34s, tests 2244.72s, environment 14ms)

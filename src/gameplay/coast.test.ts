@@ -1,3 +1,4 @@
+import {requestTransport} from './autoTransport';
 import {canAttackDomain} from './domains';
 import {skirmishAttackSeconds} from '../config/skirmishPacing';
 import {legacyTerrainFixture} from './testHelpers/legacyTerrainFixture';
@@ -33,7 +34,7 @@ for(const scenario of ['skirmish'] as const)for(const difficulty of ['normal'] a
  m=prepareNavalArmy(m);
  select('unit-1');m.placement={...m.placement,active:true,kind:'harbor'};m=placeHarbor(m,{x:672,y:320});expect(m.navy!.harbor).toBeTruthy();until(m=>m.navy!.harbor!.construction.remainingSeconds===0&&m.gathering.units.filter(u=>u.kind==='soldier').length===4);m=trainShip(m,'transport');expect(m.navy!.production.queue).toHaveLength(1);until(m=>m.navy!.ships.length===1);
  select('ship-1');m.navy=commandShips(m,{x:720,y:432});until(m=>m.navy!.ships[0].order.kind==='idle');
- m.gathering.units=m.gathering.units.map(u=>({...u,selected:u.kind==='soldier'}));m.gathering.units=orderUnits(m.gathering.units,{x:688,y:432});until(m=>m.gathering.units.filter(u=>u.kind==='soldier').every(u=>Math.hypot(u.position.x-720,u.position.y-432)<=64));m=loadTransport(m,'ship-1');expect(m.navy!.ships[0].passengers).toHaveLength(4);expect(matchPopulation(m).used).toBe(m.gathering.units.filter(u=>u.kind==='worker').length+6);
+ m.gathering.units=m.gathering.units.map(u=>({...u,selected:u.kind==='soldier'}));m=requestTransport(m,'ship-1','load');until(m=>m.navy!.ships[0].passengers?.length===4);expect(m.navy!.ships[0].passengers).toHaveLength(4);expect(matchPopulation(m).used).toBe(m.gathering.units.filter(u=>u.kind==='worker').length+6);
  const loaded=decodeSave(encodeSave({...m,paused:true},view));expect(loaded.ok).toBe(true);if(!loaded.ok)throw Error(loaded.error);m={...loaded.match,paused:false};select('ship-1');m.navy=commandShips(m,{x:880,y:432});until(m=>m.navy!.ships[0].order.kind==='idle');m=unloadTransport(m,'ship-1',{x:912,y:432});expect(m.navy!.ships[0].passengers).toEqual([]);expect(m.gathering.units.filter(u=>u.kind==='soldier')).toHaveLength(4);
  m.gathering.units=m.gathering.units.map(u=>({...u,selected:u.kind==='soldier'}));m.gathering.units=commandAttackMove(m.gathering.units,{x:944,y:208},m.map);
  for(let i=0;i<1500&&m.outcome==='playing';i++){

@@ -8,7 +8,7 @@ it('every existing action has one group, a distinct guarded hotkey and a complet
 import {expect,it} from 'vitest';import {createMatch} from '../gameplay/match';import {actionPanel} from './actionPanel';import {createNavy} from '../gameplay/navy';import {enqueueProduction} from '../gameplay/productionQueue';
 it('keeps research card statuses compact and retains full blockers in focus tooltips',()=>{
  const action={visible:true,cost:'80 wood + 65 gold',reason:'Complete prerequisites and afford research',prerequisites:'Forge + Naval Foundry'};
- expect(researchCardDetail(action)).toBe('80 wood + 65 gold · Unavailable');
+ expect(researchCardDetail(action)).toBe('80 wood + 65 gold · Complete prerequisites and afford research');
  expect(actionTooltip('research-siegeShells',action,'Siege Shells')).toContain(action.reason);
  expect(actionTooltip('research-siegeShells',action,'Siege Shells')).toContain('Requires: Forge + Naval Foundry');
  expect(researchCardDetail({...action,reason:'Already researched'})).toContain('Complete');
@@ -44,4 +44,10 @@ it('keeps prerequisites visible after unlocking and identifies active build, res
 it('keeps hover names and costs once, excluding long ability and spell details',()=>{
  expect(actionTooltip('build-farm',{visible:true,cost:'20 wood',reason:''},'Build Farm – 20 wood [F]')).toBe('Build Farm [F] · 20 wood');
  expect(actionTooltip('cast-heal',{visible:true,cost:'20 mana · Range 200px · Cooldown 10s · Long spell details',reason:'Not enough mana'},'Heal')).toBe('Heal [F2] · 20 mana · Not enough mana');
+});
+
+it('shows main-building upgrade costs, active time and completed status in the same research card model',()=>{
+ const m=createMatch();m.gathering.wood=1000;m.gathering.goldBalance=1000;expect(researchCardDetail(actionPanel(m,'base',true)['upgrade-base'])).toContain('80 wood + 60 gold');
+ m.combat.baseDevelopment={level:1,remainingSeconds:12};expect(researchCardDetail(actionPanel(m,'base',true)['upgrade-base'])).toContain('12.0s remaining');
+ m.combat.baseDevelopment={level:3,remainingSeconds:null};expect(researchCardDetail(actionPanel(m,'base',true)['upgrade-base'])).toBe('Complete');
 });

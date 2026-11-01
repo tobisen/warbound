@@ -1,3 +1,23 @@
+## Warbound0.9.0 — releasekandidat, 2026-11-01
+
+Aktuellt uppdrag omfattar spelkvalitet, endgame-inventering, audit, kort README,
+varsam städning, Warbound2-vision och faktisk release. Tidigare0.8-belägg nedan
+är historik. [Aktuell audit](docs/audits/warbound-0.9.0.md) och
+[råbelägg](artifacts/quality-release/README.md) styr den nya verifieringen.
+
+Forskning/kampanjmeny/orderfel, lokal hotreaktion, delvis landning och två
+profilerade prestandafixar är införda. Befintligt spelbart endgame verifieras;
+ingen ny roster eller nya slutassets hävdas. Unit531/92, ändrade integrationer
+127/9, sista kortlayout12/2 och strict build PASS. Full mellanregression hade
+22 fel som nu är rättade; ny fullkörning och faktisk CI/Pages återstår vid
+releaseförberedelsen. Native browser800/1280 och komponentfixturer beskrivs
+i råunderlaget. Mänsklig onboarding/långbalans och ny faktisk ljudlyssning
+är inte verifierade. Initiala frame-toppar och bundlevarning kvarstår.
+
+Användarens14 tidigare ändrade/otrackade filer är SHA256-oförändrade och ska
+inte ingå i releasecommiten. Endast en orefererad269-byte avbrottslogg raderas.
+Inga efterföljande tasks eller Warbound2-implementation startas.
+
 ## Release0.8.0 — publicerad och verifierad, 2026-10-13
 
 [Spela Warbound](https://tobisen.github.io/warbound/) visar faktiskt

@@ -71,3 +71,10 @@ it('unarmed support cannot satisfy armed naval objectives or block combat-fleet 
  const goal={goal:'sea-position' as const,points:[point],count:1,text:'Armed ships'};expect(campaignPhaseMet(m,goal)).toBe(false);m.navy!.ships.push({...m.navy!.ships[0],id:'ship-4',role:'capital'});expect(campaignPhaseMet(m,goal)).toBe(true);
  m.combat.enemies=[{id:'support',kind:'ship',navalRole:'tender',hp:100,position:point}];expect(campaignPhaseMet(m,{goal:'enemy-fleet',text:'Combat fleet'})).toBe(true);
 });
+
+it('capital tech tree lists every actual endgame prerequisite and stays locked until they are met',async()=>{
+ const {technologyView}=await import('../presentation/technologyView');
+ const m=ready('crown'),node=()=>technologyView(m).nodes.find(n=>n.id==='unit-capital')!;
+ m.combat.baseDevelopment={level:2,remainingSeconds:null};m.research!.attack=1;
+ expect(node().tier).toBe(3);expect(node().status).toBe('locked');expect(node().missing.join(' ')).toMatch(/level 3/);expect(node().missing.join(' ')).toContain('attack 2');expect(node().dependencies.join(' ')).toContain('Drydock');
+});

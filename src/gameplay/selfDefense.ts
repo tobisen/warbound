@@ -9,9 +9,9 @@ import {navyConfig} from '../config/navy';
 import {canAttackDomain,isAir,movementMap,targetDomain} from './domains';
 import {canInteract,footprintDistance} from './approach';
 import {enemyBody} from './enemyBody';
-import {marineFlightMap} from './terrainNavigation';
+import {domainMap,marineFlightMap} from './terrainNavigation';
 import {segmentFits} from './navigation';
-import {withoutFootprints} from './map';
+import {bodyFits,withoutFootprints} from './map';
 
 /** Transient interruption. The actual order and its route remain intact. */
 export interface SelfDefense {attackerId:string;order:object}
@@ -28,6 +28,12 @@ export function canDefend(u:Unit|Ship,e:Enemy,faction:FactionId,map?:WorldMap,vi
  if((ranged?'damage' in ranged?ranged.damage??0:0:'damagePerSecond' in stats?stats.damagePerSecond??0:0)<=0)return false;
  if('damageByDomain' in stats&&((stats.damageByDomain as Partial<Record<import('../config/domains').TargetDomain,number>>)?.[targetDomain(e)]??1)<=0)return false;
  const range=stats.range??16,body=enemyBody(e);
+ if(u.kind==='ship'){
+  if(footprintDistance(u.position,body)>range)return false;
+  if(!map)return true;
+  if(!bodyFits(domainMap(map,'water'),u.position,factions[faction].naval.units[u.role??'warship'].size/2))return false;
+  return isAir(e)||segmentFits(withoutFootprints(marineFlightMap(map),e.footprint?[body]:[]),u.position,e.position,0);
+ }
  if(map? !canInteract({...movementMap(map,u),attackAcrossWater:!!ranged&&targetDomain(e)==='sea',ignoreAttackOcclusion:isAir(e)},u.position,body,range):footprintDistance(u.position,body)>range)return false;
  return !ranged||!map||isAir(u)||isAir(e)||segmentFits(withoutFootprints(marineFlightMap(map),e.footprint?[body]:[]),u.position,e.position,0);
 }

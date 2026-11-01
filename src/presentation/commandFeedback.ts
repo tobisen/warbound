@@ -8,7 +8,7 @@ export function commandFeedback(m:MatchState,building:BuildingSelection,modes:{s
  if(m.placement.active)return {message:modes.placementError?`${uiText.cannotBuildHere} · ${modes.placementError}`:m.placement.kind==='wall'?'Valid site · Click or drag to build walls. Escape/right-click cancels.':'Valid site · Click to build. Escape/right-click cancels.',error:!!modes.placementError};
  if(modes.attackMove)return {message:'Attack-move · Click a destination. Escape/right-click cancels.',error:false};
  if(modes.unload)return {message:modes.unloadError??'Unload · Click visible, free coastal land beside your transport. Escape/right-click cancels.',error:!!modes.unloadError};
- const errors=[...m.gathering.units,...(m.navy?.ships??[])].filter(u=>u.selected&&u.navigation?.error).map(u=>`${u.id}: ${routeErrors[u.navigation!.error!]}`);
+ const errors=[...m.gathering.units,...(m.navy?.ships??[])].filter(u=>u.selected&&(u.orderError||u.navigation?.error)).map(u=>`${u.id}: ${u.orderError??routeErrors[u.navigation!.error!]}`);
  const p=building==='base'?m.production:building==='barracks'?m.soldierProduction:building==='harbor'?m.navy?.production:m.placement.producers?.find(p=>p.id===building)?.production;
  if(p?.rallyError)errors.push(`Rally point: blocked or unreachable · ${p.rallyError}`);
  return {message:errors.length?errors.join(' · '):uiText.orderLegend,error:errors.length>0};

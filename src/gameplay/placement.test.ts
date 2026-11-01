@@ -99,3 +99,13 @@ it('placement connectivity matches routing across body sizes, walls, partial foo
   }
  }
 });
+
+it('reports terrain and occupancy before affordability when a site has multiple failures',()=>{
+ const gathering={units:[{id:'unit-1',kind:'worker' as const,hp:40,cargo:0,selected:true,position:{x:200,y:200},target:{x:200,y:200},order:{kind:'idle' as const}}],wood:0,goldBalance:0,base:{x:64,y:64},node:{id:'wood',position:{x:800,y:800},remaining:100}};
+ const map={width:1024,height:1024,tileSize:32,revision:0,obstacles:[{x:400,y:400,width:64,height:64}]};
+ const context={map,gathering,enemies:[]};
+ expect(placementError(beginPlacement(idle()),{x:400,y:400},0,[],context)).toBe('Overlaps terrain or a building');
+ expect(placementError(beginPlacement(idle()),{x:200,y:200},0,[],context)).toBe('Overlaps a unit');
+ expect(placementError(beginPlacement(idle()),{x:600,y:400},0,[],context)).toBe('Not enough wood or gold');
+ expect(placementError(beginPlacement(idle()),{x:-20,y:400},0,[],context)).toBe('Outside the world');
+});

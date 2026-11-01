@@ -110,11 +110,13 @@ function checkPlacement(state: PlacementState, point: Position, wood: number, ob
     && rect.y < other.y + other.height && rect.y + rect.height > other.y)) {
     return uiText.overlapsTheBaseOrAResourceNode;
   }
-  if (!canAfford({wood,goldBalance:context?.gathering.goldBalance},(kind==='base'?extraBaseConfig.cost:kind==='tower'||kind==='wall'||kind==='gate'?defenseConfig[kind].cost:context?productionFaction(context.gathering).buildings[kind].cost:kind==='navalFoundry'||kind==='drydock'||kind==='signalTower'||kind==='navalAcademy'||kind==='marineBarracks'?productionFaction({}).buildings[kind].cost:kind==='academy'?academyConfig.cost:kind==='siegeWorks'?{wood:90,gold:50}:kind==='aviary'?{wood:80,gold:40}:kind==='stable'?{wood:70,gold:30}:costs[kind]))) return uiText.notEnoughWoodOrGold;
+
+  const affordable=canAfford({wood,goldBalance:context?.gathering.goldBalance},(kind==='base'?extraBaseConfig.cost:kind==='tower'||kind==='wall'||kind==='gate'?defenseConfig[kind].cost:context?productionFaction(context.gathering).buildings[kind].cost:kind==='navalFoundry'||kind==='drydock'||kind==='signalTower'||kind==='navalAcademy'||kind==='marineBarracks'?productionFaction({}).buildings[kind].cost:kind==='academy'?academyConfig.cost:kind==='siegeWorks'?{wood:90,gold:50}:kind==='aviary'?{wood:80,gold:40}:kind==='stable'?{wood:70,gold:30}:costs[kind]));
   if (context) {
     if([...context.map.obstacles,...(context.map.enemyPassageBlocks??[])].some(o=>overlaps(rect,o)))return uiText.overlapsTerrainOrABuilding;
     if(context.gathering.units.some(u=>!isAir(u)&&overlaps(rect,unitBody(u.position,u.kind==='worker'?unitStats.size:combatUnitStats(u).size)))
       || context.enemies.some(e=>!isAir(e)&&overlaps(rect,unitBody(e.position,otherBodySize(e)))))return uiText.overlapsAUnit;
+    if (!affordable)return uiText.notEnoughWoodOrGold;
     if(preview)return context.gathering.units.some(u=>u.kind==='worker'&&u.selected)?null:uiText.selectAWorkerToBuild;
     const after=placementMap(context.map,rect);
     const [base]=placementObstacles(context.gathering);
@@ -153,6 +155,7 @@ function checkPlacement(state: PlacementState, point: Position, wood: number, ob
     const after=placementMap(context.map,rect);
     if (!canReachFootprint(after,builder.position,rect,barracksConfig.constructionRange)) return uiText.theBuildingSiteCannotBeReached;
   }
+  if(!context&&!affordable)return uiText.notEnoughWoodOrGold;
   return null;
 }
 

@@ -1,3 +1,26 @@
+## Spelkvalitet0.9 — lokal hotrespons och landningsplan
+
+[threatResponse](src/gameplay/threatResponse.ts) planerar lokal säker reträtt
+före vanlig förflyttning. En transient referens till den ursprungliga ordern
+bevarar arbets-/patrullavsikt. Manuella Move/Attack/Hold har företräde;
+armed response återanvänder acquisition/selfDefense. Passiva ekonomiarbetare
+är inte hot förrän de angriper. Närstrids-/distansvarsel64/192px med hysteresis,
+begränsade ruttkandidater och högst en omplanering/s ligger i config.
+Härledda kontrolltider är stateägda för deterministisk omspelning av samma
+snapshot. Självförsvar för skepp använder verklig vattenposition och marin LOS.
+
+[planTransportLanding](src/gameplay/transport.ts) används både för besked och
+utförande. Sökning96px från klicket behåller båtens faktiska kontakt/syn;
+delresultat lämnar kvar passagerare utan att ändra deras ID/HP/last. Befintliga
+transportjobb och hamnwaypoints består. Save80 ändras inte: orderfel och
+hotmetadata utelämnas; riktig position/order och kvarvarande last sparas.
+
+researchReason är gemensam admission för betald forskning och kortens felorsak.
+Byggmenyn döljer campaignActionReason-spärrade byggnader. Gruppinformation
+räknar direkt från enhetsrecept i en linjär genomgång; den kopierar inte hela
+matchvyer per markerad enhet. Spatiala collisionnycklar använder exakta
+numeriska uppslag och strängfallback utanför normalt koordinatområde.
+
 ## Lokalt sjö-/tydlighetsuppdrag — Save80
 
 [harborRally](src/gameplay/harborRally.ts) validerar en riktig vattenutgång och

@@ -73,3 +73,17 @@ it('shot endpoint exclusions reuse a collision snapshot and invalidate on terrai
  const revised=replaceObstacles(map,[a]);expect(withoutFootprints(revised,[a]).obstacles).toEqual([]);
  map.revision++;map.obstacles[1]={...b,x:256};expect(withoutFootprints(map,[a]).obstacles).toEqual([map.obstacles[1],c]);
 });
+
+it('indexed collision matches linear collision for swept bodies, exclusions, revisions and distant coordinates',async()=>{
+ const {segmentFits}=await import('./navigation');
+ const obstacles=Array.from({length:90},(_,i)=>({x:(i*73)%2048,y:(i*137)%2048,width:17+i%40,height:20+i%32}));
+ const map={width:4096,height:4096,tileSize:32,revision:0,obstacles};
+ for(let i=0;i<300;i++){
+  const a={x:12+(i*61)%2000,y:12+(i*127)%2000},b={x:12+(i*83)%2000,y:12+(i*91)%2000};
+  for(const extra of [{},{interactionTarget:obstacles[i%90]},{blockingTarget:{x:1200,y:1200,width:32,height:32}}]){
+   expect(segmentFits({...map,...extra},a,b,8)).toBe(segmentFits({...map,...extra,linearCollision:true},a,b,8));
+  }
+ }
+ const far={...map,width:2000000,height:2000000,obstacles:obstacles.map(o=>({...o,x:o.x+1100000,y:o.y+1100000}))};
+ expect(bodyFits(far,{x:1100032,y:1100032},8)).toBe(bodyFits({...far,linearCollision:true},{x:1100032,y:1100032},8));
+});

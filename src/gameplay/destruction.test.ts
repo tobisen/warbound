@@ -22,7 +22,7 @@ describe('HP, targeting and destruction cleanup',()=>{
     expect(updateMatch(s,1).placement.construction!.remainingSeconds).toBe(3);
   });
   it('allows enemies to kill a loaded worker using reachable melee and clears pursuit references',()=>{
-    let s=createMatch();const worker=s.gathering.units[0];if(worker.kind!=='worker')throw Error();s.gathering.units=[{...worker,position:{x:300,y:300},target:{x:300,y:300},hp:1,cargo:2}];
+    let s=createMatch();const worker=s.gathering.units[0];if(worker.kind!=='worker')throw Error();s.gathering.units=[{...worker,position:{x:300,y:300},target:{x:300,y:300},hp:1,cargo:2,commandMode:{kind:'hold'}}];
     s.combat.enemies=[{id:'enemy',owner:'enemy',position:{x:340,y:300},hp:36}];
     s=updateMatch(s,1);expect(s.gathering.units).toEqual([]);expect(s.gathering.lostCargo!.wood).toBe(2);
     expect(s.combat.enemies[0].navigation).toBeUndefined();expect(s.combat.baseHP).toBe(240);

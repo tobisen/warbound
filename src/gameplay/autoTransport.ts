@@ -8,7 +8,7 @@ import {isAir} from './domains';
 import {unitStats,combatUnitStats} from '../config/unit';
 import {unitBody} from './spawning';
 import {placementVisible} from './visibility';
-import {loadTransport,unloadTransport} from './transport';
+import {loadTransport,unloadTransport,transportLandingError,transportLoadingError} from './transport';
 import type {MatchState} from './match';
 import type {Position} from './movement';
 import type {Unit} from './gathering';
@@ -39,7 +39,7 @@ export function requestTransport(m:MatchState,shipId:string,kind:'load'|'unload'
    if(kind==='load'&&(routes.size!==units.length||units.some(u=>{const r=routes.get(u.id);return !r||r.status==='blocked'||distance(r.destination,point)>transportContactRange(m.factions?.player??'crown',m.research);})))continue;
    const navigation=planDomainRoute(m.map,'water',ship.position,point,16,(ship.navigation?.commandNumber??0)+1);if(navigation.status==='blocked')continue;
    const transfer:TransportTransfer={kind,shore,water:point,unitIds:kind==='load'?units.map(u=>u.id):[],goals:Object.fromEntries([...routes].map(([id,r])=>[id,r.destination])),remainingSeconds:navyConfig.transport.transferSeconds};
-   return {...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>s===ship?{...s,transfer,navigation,target:point,commandMode:undefined,orderQueue:undefined,order:{kind:navigation.status==='moving'?'move' as const:'idle' as const}}:s)},gathering:{...m.gathering,units:m.gathering.units.map(u=>{const r=routes.get(u.id);return r?{...u,navigation:r,target:r.destination,commandMode:undefined,orderQueue:undefined,...(u.kind==='soldier'?{attackMoveTarget:undefined,autoOrigin:undefined,autoDisabled:true}:{}),order:{kind:r.status==='moving'?'move' as const:'idle' as const}}:u;})}};
+   return {...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>s===ship?{...s,orderError:undefined,transfer,navigation,target:point,commandMode:undefined,orderQueue:undefined,order:{kind:navigation.status==='moving'?'move' as const:'idle' as const}}:s)},gathering:{...m.gathering,units:m.gathering.units.map(u=>{const r=routes.get(u.id);return r?{...u,navigation:r,target:r.destination,commandMode:undefined,orderQueue:undefined,...(u.kind==='soldier'?{attackMoveTarget:undefined,autoOrigin:undefined,autoDisabled:true}:{}),order:{kind:r.status==='moving'?'move' as const:'idle' as const}}:u;})}};
   }
  }
  return m;
@@ -48,16 +48,18 @@ export function requestTransport(m:MatchState,shipId:string,kind:'load'|'unload'
 export function updateTransportTransfers(initial:MatchState,delta:number):MatchState {
  let m=initial;
  for(const original of initial.navy?.ships??[]){const transfer=original.transfer;if(!transfer)continue;
-  const cancel=()=>{m={...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>s.id===original.id?{...s,transfer:undefined}:s)}};};
+  const cancel=(message?:string)=>{m={...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>s.id===original.id?{...s,transfer:undefined,...(message?{orderError:message}:{})}:s)}};};
   const units=m.gathering.units.filter(u=>transfer.unitIds.includes(u.id)),remainingSeconds=transfer.remainingSeconds-delta;
-  if(remainingSeconds<=0||original.navigation?.status==='blocked'||distance(original.target,transfer.water)>1||transfer.kind==='load'&&(units.length!==transfer.unitIds.length||units.some(u=>!['move','idle'].includes(u.order.kind)||distance(u.target,transfer.goals[u.id])>1))){cancel();continue;}
+  if(remainingSeconds<=0){cancel(transfer.kind==='load'?'Boarding timed out. Move troops closer and try again.':'Landing timed out. Passengers remain aboard.');continue;}
+  if(original.navigation?.status==='blocked'){cancel('No valid water path to the transfer shore. Passengers remain aboard.');continue;}
+  if(distance(original.target,transfer.water)>1||transfer.kind==='load'&&(units.length!==transfer.unitIds.length||units.some(u=>!['move','idle'].includes(u.order.kind)||distance(u.target,transfer.goals[u.id])>1))){cancel();continue;}
   if(original.order.kind==='move'||distance(original.position,transfer.water)>1){m={...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>s.id===original.id?{...s,transfer:{...transfer,remainingSeconds}}:s)}};continue;}
   if(transfer.kind==='load'&&units.some(u=>u.order.kind==='move')){m={...m,navy:{...m.navy!,ships:m.navy!.ships.map(s=>s.id===original.id?{...s,transfer:{...transfer,remainingSeconds}}:s)}};continue;}
   const selected=new Map(m.gathering.units.map(u=>[u.id,u.selected])),shipSelections=new Map(m.navy!.ships.map(s=>[s.id,s.selected]));
   const view={...m,gathering:{...m.gathering,units:m.gathering.units.map(u=>({...u,selected:transfer.kind==='load'&&transfer.unitIds.includes(u.id)}))},navy:{...m.navy!,ships:m.navy!.ships.map(s=>({...s,selected:s.id===original.id}))}};
   const after=transfer.kind==='load'?loadTransport(view,original.id):unloadTransport(view,original.id,transfer.shore);
-  if(after===view){cancel();continue;}
-  m={...after,gathering:{...after.gathering,units:after.gathering.units.map(u=>({...u,selected:selected.get(u.id)??false}))},navy:{...after.navy!,ships:after.navy!.ships.map(s=>({...s,selected:shipSelections.get(s.id)??false,...(s.id===original.id?{transfer:undefined}:{})}))}};
+  if(after===view){cancel(transfer.kind==='load'?transportLoadingError(view,original.id)??'No troops could board.':transportLandingError(view,original.id,transfer.shore)??'No free landing space. Passengers remain aboard.');continue;}
+  m={...after,gathering:{...after.gathering,units:after.gathering.units.map(u=>({...u,selected:selected.get(u.id)??false}))},navy:{...after.navy!,ships:after.navy!.ships.map(s=>({...s,selected:shipSelections.get(s.id)??false,...(s.id===original.id?{transfer:undefined,orderError:undefined}:{})}))}};
  }
  return m;
 }

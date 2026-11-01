@@ -17,7 +17,7 @@ it('shares current vision and explored cells while retaining separate banks',()=
 it('prevents human attacks, autonomous attacks and splash against allies',()=>{
  let m=teamMatch();const ally=m.multiplePlayers!.ai[1];ally.state.combat.enemies.push({id:'enemy-produced-1',kind:'unit',role:'soldier',owner:'enemy',hp:48,position:{x:440,y:500},order:{kind:'idle'}});ally.state.enemyProduction!.production.nextUnitNumber=2;
  m.gathering.units.push({id:'unit-4',kind:'soldier',owner:'player',archetype:'catapult',hp:100,cargo:0,selected:true,position:{x:400,y:500},target:{x:400,y:500},order:{kind:'idle'}});m.production.nextUnitNumber=m.soldierProduction.nextUnitNumber=5;
- m=projectMultiplePlayers(m);expect(issueOrder(m,{kind:'attack',enemyId:'ai-2:enemy-produced-1'})).toBe(m);
+ m=projectMultiplePlayers(m);const rejected=issueOrder(m,{kind:'attack',enemyId:'ai-2:enemy-produced-1'});expect(rejected.gathering.units.find(u=>u.id==='unit-4')!.order.kind).toBe('idle');expect(rejected.gathering.units.find(u=>u.id==='unit-4')!.orderError).toContain('ally');
  m=updateMatch(m,.5);expect(m.gathering.units.find(u=>u.id==='unit-4')!.order.kind).toBe('idle');expect(m.multiplePlayers!.ai[1].state.combat.enemies.find(e=>e.id==='enemy-produced-1')!.hp).toBe(48);
 });
 it('friendly spells reach allied units while offensive spells reject them',()=>{

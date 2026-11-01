@@ -1,3 +1,4 @@
+import {canAttackDomain} from './domains';
 import {defending} from './selfDefense';
 import {battleEnemies} from './bosses';
 import {hasMainBase} from './extraBases';
@@ -16,6 +17,10 @@ import {orderAttack} from './combat';
 import {entityVisible} from './visibility';
 export type QueuedOrder = {kind:'move'|'attack-move'|'patrol';destination:Position}|{kind:'attack';enemyId:string}|{kind:'gather';nodeId:string}|{kind:'hold'}|{kind:'hunt';animalId:string};
 export interface OrderState {
+ threatCheck?:{order:object;after:number};
+ threatRetreat?:import('./threatResponse').ThreatRetreat;
+ threatHit?:{attackerId:string;order:object;remainingSeconds?:number};
+ orderError?:string;
  selfDefense?:import('./selfDefense').SelfDefense;
  orderQueue?:QueuedOrder[];
  commandMode?:{kind:'hold'}|{kind:'patrol';origin:Position;destination:Position;returning:boolean};
@@ -41,18 +46,23 @@ function start(m:MatchState,u:Unit|Ship,o:QueuedOrder):Unit|Ship {
 /** Shift appends only supported commands. Selection never changes as orders advance. */
 export function issueOrder(m:MatchState,o:QueuedOrder,append=false):MatchState {
  if(m.paused||m.outcome!=='playing'||!!m.multiplePlayers&&!hasMainBase(m))return m;
- if(o.kind==='attack'){const target=m.combat.enemies.find(e=>e.id===o.enemyId);if(target&&!canHarm('player',target.playerId??'enemy',m.multiplePlayers?.roster))return m;}
  const destination='destination' in o?o.destination:undefined;
  const group=destination?new Map((o.kind==='attack-move'?commandAttackMove:commandGroupMove)(m.gathering.units,destination,m.map).map(u=>[u.id,u])):undefined;
  const shipGroup=destination&&o.kind!=='attack-move'?new Map((commandShips(m,destination)?.ships??[]).map(u=>[u.id,u])):undefined;
  const apply=(u:Unit|Ship):Unit|Ship=>{
-  if(!u.selected||!supports(u,o))return u;
-  u={...u,selfDefense:undefined};
+  if(!u.selected)return u;
+  if(o.kind==='attack'){
+   const target=battleEnemies(m).find(e=>e.id===o.enemyId&&e.hp>0);
+   const error=!target||m.fog&&!entityVisible(m.fog,'player',target)?'Choose a living, visible hostile target':!canHarm('player',target.playerId??'enemy',m.multiplePlayers?.roster)?'Cannot attack an ally':!supports(u,o)||!canAttackDomain(u,target,m.factions?.player??'crown')?'This unit cannot attack that target type':null;
+   if(error)return {...u,orderError:error};
+  }
+  if(!supports(u,o))return {...u,orderError:'This unit cannot perform that order'};
+  u={...u,selfDefense:undefined,orderError:undefined,threatRetreat:undefined,threatHit:undefined,threatCheck:undefined};
   if(u.kind==='soldier')u={...u,scouting:undefined};
   const allocated=u.kind==='ship'?shipGroup?.get(u.id):group?.get(u.id);
   const command=destination&&allocated?{...o,destination:{...allocated.target}} as QueuedOrder:o;
   if(append&&(u.order.kind!=='idle'||u.commandMode||u.orderQueue?.length))return {...u,...(u.kind==='soldier'?{scouting:undefined}:{}),orderQueue:[...(u.orderQueue??[]),structuredClone(command)].slice(0,orderQueueLimit)};
-  return (o.kind==='move'||o.kind==='attack-move')&&allocated?{...allocated,...(allocated.kind==='soldier'?{scouting:undefined}:{}),selected:u.selected}:start(m,u,command);
+  return (o.kind==='move'||o.kind==='attack-move')&&allocated?{...allocated,orderError:undefined,threatRetreat:undefined,threatHit:undefined,threatCheck:undefined,...(allocated.kind==='soldier'?{scouting:undefined}:{}),selected:u.selected}:start(m,u,command);
  };
  return {...m,gathering:{...m.gathering,units:m.gathering.units.map(u=>apply(u) as Unit)},...(m.navy?{navy:{...m.navy,ships:m.navy.ships.map(u=>{const ship=apply(u) as Ship;return !append&&u.transfer&&(u.selected&&supports(u,o)||m.gathering.units.some(unit=>unit.selected&&supports(unit,o)&&u.transfer!.unitIds.includes(unit.id)))?{...ship,transfer:undefined}:ship;})}}:{})};
 }
@@ -85,5 +95,5 @@ export function prepareOrders(m:MatchState):MatchState {
 }
 export function orderSummary(u:Unit|Ship):string {
  const current=u.commandMode?.kind??(u.kind==='soldier'&&u.attackMoveTarget?'attack-move':u.order.kind);
- return `Order: ${current}${u.orderQueue?.length?` · Queue ${u.orderQueue.length}: ${u.orderQueue.map(o=>o.kind).join(' → ')}`:''}`;
+ return `${u.kind==='ship'&&u.transfer?`${u.transfer.kind==='load'?'Boarding':'Unloading'} · `:''}Order: ${current}${u.orderQueue?.length?` · Queue ${u.orderQueue.length}: ${u.orderQueue.map(o=>o.kind).join(' → ')}`:''}`;
 }

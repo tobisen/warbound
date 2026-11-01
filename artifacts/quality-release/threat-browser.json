@@ -1,0 +1,157 @@
+{
+  "fixture": "Explicit local staged forces; six actual .1s updateMatch steps, ordinary fog/combat/pathing; rendered native scene. Not a human match.",
+  "results": [
+    {
+      "width": 800,
+      "role": "worker",
+      "before": {
+        "x": 320,
+        "y": 320
+      },
+      "after": {
+        "x": 224,
+        "y": 320
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "retreat": true,
+      "defense": false,
+      "hp": 40,
+      "distance": 224
+    },
+    {
+      "width": 800,
+      "role": "scout",
+      "before": {
+        "x": 320,
+        "y": 320
+      },
+      "after": {
+        "x": 176,
+        "y": 320
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "retreat": true,
+      "defense": false,
+      "hp": 35,
+      "distance": 272
+    },
+    {
+      "width": 800,
+      "role": "soldier",
+      "before": {
+        "x": 320,
+        "y": 320
+      },
+      "after": {
+        "x": 224,
+        "y": 320
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "retreat": true,
+      "defense": false,
+      "hp": 60,
+      "distance": 224
+    },
+    {
+      "width": 800,
+      "role": "archer",
+      "before": {
+        "x": 320,
+        "y": 320
+      },
+      "after": {
+        "x": 320,
+        "y": 320
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "retreat": false,
+      "defense": true,
+      "hp": 45,
+      "distance": 128
+    },
+    {
+      "width": 1280,
+      "role": "worker",
+      "before": {
+        "x": 320,
+        "y": 320
+      },
+      "after": {
+        "x": 224,
+        "y": 320
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "retreat": true,
+      "defense": false,
+      "hp": 40,
+      "distance": 224
+    },
+    {
+      "width": 1280,
+      "role": "scout",
+      "before": {
+        "x": 320,
+        "y": 320
+      },
+      "after": {
+        "x": 176,
+        "y": 320
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "retreat": true,
+      "defense": false,
+      "hp": 35,
+      "distance": 272
+    },
+    {
+      "width": 1280,
+      "role": "soldier",
+      "before": {
+        "x": 320,
+        "y": 320
+      },
+      "after": {
+        "x": 224,
+        "y": 320
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "retreat": true,
+      "defense": false,
+      "hp": 60,
+      "distance": 224
+    },
+    {
+      "width": 1280,
+      "role": "archer",
+      "before": {
+        "x": 320,
+        "y": 320
+      },
+      "after": {
+        "x": 320,
+        "y": 320
+      },
+      "order": {
+        "kind": "idle"
+      },
+      "retreat": false,
+      "defense": true,
+      "hp": 45,
+      "distance": 128
+    }
+  ]
+}

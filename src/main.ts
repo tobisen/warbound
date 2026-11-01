@@ -17,6 +17,7 @@ import './presentation/spells.css';
 import './presentation/actionIcons.css';
 import './presentation/matchWorkspace.css';
 import './presentation/actionGroups.css';
+import './presentation/researchCards.css';
 import './presentation/helpViews.css';
 import './presentation/minimapOverlay.css';
 import './presentation/selectionNames.css';

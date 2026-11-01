@@ -1,0 +1,22 @@
+/* Building-local research, two rows. Status is readable without hover. */
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) { gap:5px; border-color:#a792bd; background:#1a1723ee; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) .control { width:124px; height:73px; box-sizing:border-box; border:1px solid #696177; border-radius:3px; background:#282735; padding:3px; gap:2px; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) { grid-template-columns:repeat(var(--research-columns,2),124px); }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) button { width:116px; height:31px; min-height:31px; border:0; background:transparent; padding:0; gap:4px; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) button::after { font:600 11px/12px system-ui; text-align:left; color:#fff1d0; white-space:normal;overflow:visible;text-overflow:clip;max-height:none; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) button[data-action-icon]::before { width:26px;height:26px;flex-basis:26px;background-size:26px 26px; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) .research-detail { font:10px/11px system-ui; color:#eadfca; overflow-wrap:normal; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) .control[data-research-state='ready'] { border-color:#9daa6b; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) .control[data-research-state='working'] { border-color:#ebc86c; background:#403421; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) .control[data-research-state='complete'] { border-color:#6da58e; background:#213b32; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) button:disabled { opacity:1; }
+#action-panel [data-action-group='Research']:not([data-action-group='Orders']) .control:focus-within { outline:2px solid #f3d883; outline-offset:1px; }
+@media (max-width:1100px) {
+ #bottom-bar:has([data-action-group='Research']:not([data-action-group='Orders']):not([hidden])) { grid-template-columns:minmax(130px,1fr) 62px max-content 90px 0px; gap:5px; }
+ #action-panel:has([data-action-group='Research']:not([data-action-group='Orders']):not([hidden])) [data-action-group='Orders'] { grid-template-columns:44px; }
+ #context-actions:has([data-action-group='Research']:not([data-action-group='Orders']):not([hidden])) [data-action-group='Train'] { grid-template-columns:repeat(2,44px); }
+ #bottom-bar:has([data-action-group='Research']:not([data-action-group='Orders']):not([hidden])) #production-queue { width:90px; }
+}
+
+#bottom-bar:has([data-action-group='Research']:not([hidden])) { height:200px; }
+#app:has(#bottom-bar [data-action-group='Research']:not([hidden])):not([data-phase='menu']):not([data-phase='ended']) { grid-template-rows:48px auto minmax(0,1fr) 200px; }

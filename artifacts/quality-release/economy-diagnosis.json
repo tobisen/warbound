@@ -1,0 +1,83 @@
+{
+  "outcome": "victory",
+  "wood": 30,
+  "node": 0,
+  "nodes": [
+    {
+      "id": "expansion-1-tree-1-0",
+      "resource": "wood",
+      "remaining": 14.99999999999992
+    },
+    {
+      "id": "expansion-1-tree-4-0",
+      "resource": "wood",
+      "remaining": 7.678022809557434
+    },
+    {
+      "id": "expansion-1-tree-5-0",
+      "resource": "wood",
+      "remaining": 0
+    }
+  ],
+  "cargo": [
+    {
+      "id": "unit-1",
+      "kind": "worker",
+      "cargo": 0
+    },
+    {
+      "id": "unit-2",
+      "kind": "worker",
+      "cargo": 0.940123028245404,
+      "type": "wood"
+    },
+    {
+      "id": "unit-3",
+      "kind": "worker",
+      "cargo": 0
+    },
+    {
+      "id": "unit-7",
+      "kind": "soldier",
+      "cargo": 0,
+      "type": null
+    },
+    {
+      "id": "unit-8",
+      "kind": "soldier",
+      "cargo": 0,
+      "type": null
+    },
+    {
+      "id": "unit-9",
+      "kind": "soldier",
+      "cargo": 0,
+      "type": null
+    },
+    {
+      "id": "unit-10",
+      "kind": "soldier",
+      "cargo": 0,
+      "type": null
+    }
+  ],
+  "lost": {
+    "wood": 0,
+    "gold": 0
+  },
+  "extracted": {
+    "wood": 186.38185416213673,
+    "gold": 78.58639444568689
+  },
+  "spent": 220,
+  "bonus": {
+    "wood": 0,
+    "gold": 0
+  },
+  "discoveries": {
+    "version": 1,
+    "claimed": [],
+    "recruits": {}
+  },
+  "nodesNote": "Only the three consumed expansion-1 trees are shown. They explain the extra37.321977 wood missing from the old single-node assertion; no resource was created."
+}

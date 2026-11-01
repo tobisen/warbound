@@ -1,3 +1,4 @@
+import {retreating} from './threatResponse';
 import {fleetStats,isFleetShip} from '../config/islandFleets';
 import {isShipRole,type ShipRole,navalRoleAvailable} from '../config/navy';
 import {defending} from './selfDefense';
@@ -47,8 +48,8 @@ export function harborSpawn(m:MatchState,footprint:Footprint,occupancy=true,role
 function checkHarborPlacement(m:MatchState,point:Position,preview=false):string|null {
  const locked=campaignActionReason(m,'build-harbor');if(locked)return locked;
  const rect=harborFootprint(point);if(m.fog&&!placementVisible(m.fog,rect))return uiText.theSiteMustBeVisible;if(!coastalFootprint(m.map,rect))return uiText.aHarborNeedsAFreeCoastWithLand;
- if(!canAfford(m.gathering,factionForTeam(m,'player').naval.harbor.cost))return uiText.notEnoughWoodOrGold;
  if(m.gathering.units.some(u=>!isAir(u)&&overlaps(rect,unitBody(u.position,u.kind==='worker'?unitStats.size:combatUnitStats(u).size)))||navalOccupants(m).some(b=>overlaps(rect,b))||(m.navy?.ships??[]).some(s=>overlaps(rect,unitBody(s.position,factionForTeam(m,'player').naval.units.warship.size))))return uiText.overlapsAUnit;
+ if(!canAfford(m.gathering,factionForTeam(m,'player').naval.harbor.cost))return uiText.notEnoughWoodOrGold;
  const builder=m.gathering.units.filter(u=>u.kind==='worker'&&u.selected).sort((a,b)=>a.id.localeCompare(b.id,'en',{numeric:true}))[0];
  if(!builder)return uiText.selectAWorkerToBuild;
  if(preview)return null;
@@ -87,7 +88,7 @@ export function updateNavy(m:MatchState,delta:number):MatchState {
  if(!m.navy||m.outcome!=='playing'||m.paused||!!m.multiplePlayers&&!hasMainBase(m)||!hasMainBase(m))return m;
  let navy=m.navy,gathering=m.gathering;
  if(navy.harbor){const built=updateSite(gathering,navy.harbor.construction,navy.harbor.footprint,'harbor',m.map,delta);gathering=built.gathering;navy={...navy,harbor:{...navy.harbor,construction:built.job}};}
- navy={...navy,ships:navy.ships.map(s=>{if(defending(s)||s.order.kind!=='move')return s;const route=s.navigation??planDomainRoute(m.map,'water',s.position,s.target,shipRecipe(m,s.role).size/2);const step=advanceDomainRoute(m.map,'water',s.position,route,shipRecipe(m,s.role).size/2,shipRecipe(m,s.role).speed,delta);return {...s,position:step.position,navigation:step.route,order:{kind:step.route.status==='moving'?'move' as const:'idle' as const}};})};
+ navy={...navy,ships:navy.ships.map(s=>{if(defending(s)||retreating(s)||s.order.kind!=='move')return s;const route=s.navigation??planDomainRoute(m.map,'water',s.position,s.target,shipRecipe(m,s.role).size/2);const step=advanceDomainRoute(m.map,'water',s.position,route,shipRecipe(m,s.role).size/2,shipRecipe(m,s.role).speed,delta);return {...s,position:step.position,navigation:step.route,order:{kind:step.route.status==='moving'?'move' as const:'idle' as const}};})};
  let remaining=Math.max(0,delta),p=navy.production;
  const harbor=navy.harbor;
  if(harbor?.construction.remainingSeconds===0)while(p.queue?.length){
@@ -107,7 +108,7 @@ export function resumeHarbor(m:MatchState):MatchState {
  if(!builder||approachRoute(m.map,builder.position,harbor.footprint,factionForTeam(m,'player').naval.harbor.constructionRange).status==='blocked')return m;
  return {...m,navy:{...m.navy!,harbor:{...harbor,construction:{...harbor.construction,builderId:builder.id}}},gathering:{...m.gathering,units:m.gathering.units.map(u=>u.kind==='worker'&&ids.has(u.id)?{...u,commandMode:undefined,orderQueue:undefined,navigation:undefined,order:{kind:'build' as const,buildingId:'harbor' as const}}:u)}};
 }
-export function stopShips(navy:NavyState|undefined){return navy?{...navy,ships:navy.ships.map(s=>s.selected?{...s,transfer:undefined,commandMode:undefined,orderQueue:undefined,navigation:undefined,target:{...s.position},order:{kind:'idle' as const}}:s)}:undefined;}
+export function stopShips(navy:NavyState|undefined){return navy?{...navy,ships:navy.ships.map(s=>s.selected?{...s,orderError:undefined,threatRetreat:undefined,threatHit:undefined,threatCheck:undefined,transfer:undefined,commandMode:undefined,orderQueue:undefined,navigation:undefined,target:{...s.position},order:{kind:'idle' as const}}:s)}:undefined;}
 
 export function attackShips(m:MatchState,enemyId:string):NavyState|undefined {return m.navy?{...m.navy,ships:m.navy.ships.map(s=>s.selected&&s.role!=='transport'?{...s,transfer:undefined,commandMode:undefined,orderQueue:undefined,navigation:undefined,order:{kind:'attack' as const,enemyId}}:s)}:undefined;}
 

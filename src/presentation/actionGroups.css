@@ -43,3 +43,9 @@
 #action-panel [data-action-group='Research'] .control > .research-detail { display:block; }
 #action-panel [data-action-group='Research'] button { display:flex;flex-direction:row;align-items:center;gap:3px; }
 #action-panel [data-action-group='Research'] button::after { position:static;flex:1;min-width:0;max-width:none; }
+/* The complete 17-building catalog must remain reachable at native800. */
+#bottom-bar:has([data-action-group='Build']:not([hidden])) { grid-template-columns:minmax(130px,1fr) 154px max-content; }
+@media (max-width:1199px) {
+ #action-panel [data-action-group='Build']:not([data-action-group='Orders']) { grid-template-columns:repeat(6,44px); }
+ #context-actions:has([data-action-group='Build']:not([hidden])):has([data-action-group='Spells']:not([hidden])) { grid-auto-flow:column; align-items:start; }
+}

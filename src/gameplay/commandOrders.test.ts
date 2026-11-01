@@ -75,3 +75,13 @@ describe('persistent commands and FIFO',()=>{
   m={...m,paused:true};expect(issueOrder(m,{kind:'move',destination:{x:400,y:300}})).toBe(m);expect(updateMatch(m,5)).toBe(m);
  });
 });
+
+it('explains incompatible and missing targets without replacing a valid order, then clears on a new move',()=>{
+ let m=fixture();m.fog=undefined;m.combat.enemies=[{id:'flyer',kind:'unit',role:'air',position:{x:600,y:400},hp:95}];
+ const order=m.gathering.units[0].order;
+ m=issueOrder(m,{kind:'attack',enemyId:'flyer'});
+ expect(m.gathering.units[0].orderError).toContain('target type');expect(m.gathering.units[0].order).toEqual(order);
+ m=issueOrder(m,{kind:'attack',enemyId:'missing'});expect(m.gathering.units[0].orderError).toContain('visible hostile');
+ m=issueOrder(m,{kind:'move',destination:{x:400,y:300}});expect(m.gathering.units[0].orderError).toBeUndefined();
+ const saved=fixture();saved.gathering.units[0].orderError='Invalid target';const encoded=encodeSave(saved,view);expect(encoded).not.toContain('orderError');
+});

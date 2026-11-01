@@ -1,0 +1,14 @@
+PASS production naval clarity 800 crown
+PASS production naval clarity 800 goblins
+PASS production naval clarity 800 clans
+PASS production naval clarity 800 elves
+PASS production naval clarity 800 dwarves
+PASS production naval clarity 1280 crown
+PASS production naval clarity 1280 goblins
+PASS production naval clarity 1280 clans
+PASS production naval clarity 1280 elves
+PASS production naval clarity 1280 dwarves
+PASS production campaign 800 first-steps
+PASS production campaign 800 the-siege
+PASS production campaign 1280 first-steps
+PASS production campaign 1280 the-siege

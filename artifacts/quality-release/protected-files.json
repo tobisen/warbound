@@ -1,0 +1,36 @@
+{
+  "baseline": "before this assignment",
+  "verified": "2026-11-01",
+  "unchanged": {
+    "assets/sources/units.mjs": true,
+    "src/style.css": true,
+    ":memory:.ses": true,
+    "CLEANUP_REPORT.md": true,
+    "docs/art/buildings-reference.png": true,
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_23-6.png": true,
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_21-4.png": true,
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_20-3.png": true,
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_24-7.png": true,
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_22-5.png": true,
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_19-2.png": true,
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_19-1.png": true,
+    "docs/art/human-reference.png": true,
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_24-8.png": true
+  },
+  "excludedFromRelease": [
+    "assets/sources/units.mjs",
+    "src/style.css",
+    ":memory:.ses",
+    "CLEANUP_REPORT.md",
+    "docs/art/buildings-reference.png",
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_23-6.png",
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_21-4.png",
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_20-3.png",
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_24-7.png",
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_22-5.png",
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_19-2.png",
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_19-1.png",
+    "docs/art/human-reference.png",
+    "docs/art/ChatGPT-bild 4 okt. 2026 18_20_24-8.png"
+  ]
+}

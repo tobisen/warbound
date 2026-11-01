@@ -1,3 +1,4 @@
+import {retreating} from './threatResponse';
 import {isMarine} from '../config/islandFleets';
 import type {ResearchState} from './research';
 import {canDefend,defenseTarget,defendingEnemy,enemyDefender} from './selfDefense';
@@ -112,7 +113,7 @@ export function updateCombat(gathering: GatheringState, combat: CombatState, del
   const shots:{projectile:Projectile;time:number}[]=[...naval.shots,...towers.shots];
   const previousOrders=new Map<string,Unit>();
   let units = (scope?.side==='enemy'?gathering.units:delta>0?acquireTargets(gathering.units,attackableEnemies,map,visible,gathering.faction):gathering.units).map(unit => {
-    if(scope?.side==='enemy')return unit;
+    if(scope?.side==='enemy'||retreating(unit))return unit;
     const retaliation=defenseTarget(unit,attackableEnemies,gathering.faction??'crown',map,e=>!visible||visible(e,unit));
     if(retaliation){previousOrders.set(unit.id,unit);unit={...unit,commandMode:{kind:'hold'},...(unit.kind==='soldier'?{attackMoveTarget:undefined,autoOrigin:undefined}:{}),order:{kind:'attack',enemyId:retaliation.id}};}else if(unit.selfDefense)unit={...unit,selfDefense:undefined};
     if(unit.kind==='soldier'&&unit.attackMoveTarget&&unit.order.kind==='move') {
@@ -249,8 +250,8 @@ export function updateCombat(gathering: GatheringState, combat: CombatState, del
   units = units.map(unit => unit.order.kind === 'attack'
     && !enemies.some(e => e.id === (unit.order.kind === 'attack' ? unit.order.enemyId : ''))
     ? { ...unit, navigation: undefined, order: { kind: 'idle' as const } } : unit);
-  units=units.map(u=>{const id=attackers.get(u.id),attacker=enemies.find(e=>e.id===id&&attackableEnemies.some(a=>a.id===e.id));return attacker&&canDefend(u,attacker,gathering.faction??'crown',map,e=>!visible||visible(e,u))?{...u,selfDefense:{attackerId:attacker.id,order:u.order}}:u.selfDefense&&!defenseTarget(u,enemies,gathering.faction??'crown',map,e=>!visible||visible(e,u))?{...u,selfDefense:undefined}:u;});
-  const defendedNavy=nextNavy?{...nextNavy,ships:nextNavy.ships.map(u=>{const id=attackers.get(u.id),attacker=enemies.find(e=>e.id===id&&attackableEnemies.some(a=>a.id===e.id));return attacker&&canDefend(u,attacker,gathering.faction??'crown',map,navalVisible)?{...u,selfDefense:{attackerId:attacker.id,order:u.order}}:u.selfDefense&&!defenseTarget(u,enemies,gathering.faction??'crown',map,navalVisible)?{...u,selfDefense:undefined}:u;})}:undefined;
+  units=units.map(u=>{const id=attackers.get(u.id),attacker=enemies.find(e=>e.id===id&&attackableEnemies.some(a=>a.id===e.id));u=attacker&&u.order.kind!=='attack'&&u.order.kind!=='move'&&u.commandMode?.kind!=='hold'?{...u,threatHit:{attackerId:attacker.id,order:u.order}}:u;return attacker&&canDefend(u,attacker,gathering.faction??'crown',map,e=>!visible||visible(e,u))?{...u,selfDefense:{attackerId:attacker.id,order:u.order}}:u.selfDefense&&!defenseTarget(u,enemies,gathering.faction??'crown',map,e=>!visible||visible(e,u))?{...u,selfDefense:undefined}:u;});
+  const defendedNavy=nextNavy?{...nextNavy,ships:nextNavy.ships.map(u=>{const id=attackers.get(u.id),attacker=enemies.find(e=>e.id===id&&attackableEnemies.some(a=>a.id===e.id));u=attacker&&u.order.kind!=='attack'&&u.order.kind!=='move'&&u.commandMode?.kind!=='hold'?{...u,threatHit:{attackerId:attacker.id,order:u.order}}:u;return attacker&&canDefend(u,attacker,gathering.faction??'crown',map,navalVisible)?{...u,selfDefense:{attackerId:attacker.id,order:u.order}}:u.selfDefense&&!defenseTarget(u,enemies,gathering.faction??'crown',map,navalVisible)?{...u,selfDefense:undefined}:u;})}:undefined;
   const finishedNavy=defendedNavy?{...defendedNavy,ships:defendedNavy.ships.map(ship=>ship.order.kind==='attack'&&!enemies.some(e=>e.hp>0&&ship.order.kind==='attack'&&e.id===ship.order.enemyId)?{...ship,navigation:undefined,order:{kind:'idle' as const}}:ship)}:undefined;
   return {...(finishedNavy?{navy:finishedNavy}:{}), gathering: { ...surviving, units }, combat: {...nextCombat,enemies,...(destroyedEnemyFootprints.length?{destroyedEnemyFootprints}:{}),...(combat.projectiles||shots.length?{projectiles:projectiles.filter(p=>p.splashRadius||(p.owner==='enemy'?aliveTargets.has(p.targetId):enemies.some(e=>e.hp>0&&e.id===p.targetId))),nextProjectileNumber}:{})},...(nextPlacement?{placement:nextPlacement}:{}) };
 }

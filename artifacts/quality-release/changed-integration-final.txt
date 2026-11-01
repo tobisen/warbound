@@ -1,0 +1,12 @@
+
+> warcraft-2-tribute@0.9.0 test
+> vitest run src/gameplay/islandFleets.test.ts src/gameplay/islands.test.ts src/gameplay/coast.test.ts src/gameplay/campaignLate.test.ts src/gameplay/destruction.test.ts src/gameplay/seaMonsters.test.ts src/gameplay/teams.test.ts src/gameplay/autoTransport.test.ts src/gameplay/threatResponse.test.ts
+
+
+ RUN  v4.1.12 /Users/tobiasbertilsson/kod/w2t
+
+
+ Test Files  9 passed (9)
+      Tests  127 passed (127)
+   Start at  02:03:19
+   Duration  110.49s (transform 858ms, setup 0ms, import 1.72s, tests 218.64s, environment 0ms)
