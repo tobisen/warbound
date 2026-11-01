@@ -24,6 +24,17 @@ och strict build PASS. Ready-grönt/båda upplösningar visuellt granskade; slut
 kod-/text-/länk-/diffkontroll PASS. Inga ändringar i skyddade20 filer.
 [Rapport](artifacts/tech-card-input/README.md); commit/push/CI/publicering följer
 tidigare mandat och slutresultat dokumenteras när de faktiskt finns.
+Fix00a05da pushad till origin/main. Actions41352332680 för samma SHA:
+fullregression2329/246 PASS1553,89s, strict produktions-/presentationsbuild och
+Pages-deploy PASS. Publicerad JS/CSS-SHA256 matchar rent00a05da-bygge.
+Faktisk publicerad Build00a05da: live-kortmatris8/8 PASS, fem raser i representativ
+Skirmish/kampanj/800/1280-tabell.68 fysiska160ms klick:40 enkla betalda aktiveringar,
+28 spärrade utan debitering. Alla tre rapporterade techflöden provas i varje fall,
+automatisk matchuppdatering aktiv, riktiga bygg-/kort-/namnknappsklick och Menu
+Save/Load med aktiv forskning. Inga page errors. Gröna Ready-kort visuellt
+granskade på publicerad800/1280. Slutlig text-/länk-/diffgranskning PASS; avslutande
+beläggspush `[skip ci]` ändrar ingen produktkod, inga nya kodtester behövs för
+statusuppdateringen. Skyddade20 filer oförändrade och inga nya tasks startas.
 
 ## Publiceringsmandat för forskningsfixen — 2026-11-01
 

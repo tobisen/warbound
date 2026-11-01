@@ -55,7 +55,9 @@ låser upp den authored operationen `the-siege` som explicit testfixture.
 Testet kontrollerar kortets mitt, kant, kostnads-/statusrad samt inre knapp:
 riktigt jobb/kö och **exakt en** debitering/knappaktivering. Spärrade kort
 debiterar/startar inget. Forge byggs och färdigställs av riktig worker; Menu
-Save/Load bevarar jobb/basuppgradering; därefter fungerar nästa verktygsnivå.
+Save/Load bevarar pågående forskningsjobb och den färdiga basnivån; därefter
+fungerar nästa verktygsnivå. Alla åtta Save-proven har ett aktivt forskningsjobb;
+basuppgraderingen är redan färdig vid just dessa Save-punkter.
 Automatisk speltid måste öka under varje tryck. Ett enbart kravtexttest räknas inte.
 
 Representativ matris (varje fall provar alla tre techflöden):
@@ -82,6 +84,32 @@ Kandidaten byggdes från4e4cb59 med exakt de avsedda ändringarna. Slutlig kod-/
 text-/länkgranskning och git diff --check PASS. Inga nya CI-/Pages-resultat
 hävdas före ny körning.
 
+Rättning `00a05da89f4130708e2bb4aa4c32291c187ec239` är pushad till origin/main.
+[Actions41352332680](https://github.com/tobisen/warbound/actions/runs/41352332680)
+är **success** för samma SHA: fullregression **2329 tester / 246 filer PASS**
+(1553,89s), strict produktionsbuild, presentationsbuild och Pages-deploy **PASS**.
+[CI-metadata](ci.json) / [testsammanfattning](ci-summary.json) är nya belägg.
+Publik HTML refererar exakt JS/CSS från ett rent bygge av00a05da;
+[lokala referenshashar](local-build.json) och [publika SHA256](published-files.json)
+matchar. [Publicerad live-kortmatris](published/browser.json) mot faktisk
+**0.9.0/Build00a05da: 8/8 PASS**, alla tre rapporterade techflöden i varje fall,
+fem raser, Skirmish/kampanj och800/1280 enligt tabellen ovan. Alla68 fysiska
+kort-/knappklick passerar:40 tillåtna aktiveringar med exakt enkel debitering,
+28 spärrade klick utan debitering. Inga page errors. Automatisk matchuppdatering
+körs under hela spelförloppet; endast vanlig Menu Save/Load pausar matchen.
+Pubvyerna för [800×600](published/skirmish-crown-800-ready.png) och
+[1280×720](published/skirmish-crown-1280-ready.png) är visuellt granskade:
+tillgängliga kort är gröna och hela synliga ytan fungerar.
+De [20 skyddade filernas SHA256](protected-files.json) är oförändrade och filerna
+ingår inte i produktcommiten.
+
+Slutlig kod-/text-/länk-/diffgranskning PASS. Avslutande beläggs-/
+dokumentationspush använder `[skip ci]`; ingen produktkod ändras och tidigare
+verifiering ovan återanvänds uttryckligen för den rena statusuppdateringen.
+Publicerad Build förblir00a05da. Ingen ny versionshöjning eller mänsklig
+balans-/ljudgranskning hävdas.
+
 Användarens style.css, units.mjs, docs/ och fristående filer hålls utanför
 leveransen. Samma redan godkända commit/push/publiceringsmandat används för den
-färdiga rättningen. Ingen bred kampanjsimulering, kartändring eller delegering.
+färdiga rättningen. Inga extra lokala kampanjsimuleringar, kartändringar eller
+delegering. Full regression ovan kördes i CI.

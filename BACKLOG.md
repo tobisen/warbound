@@ -53,7 +53,7 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
-### Återöppnad tech-regression: hela kortets klickyta — 2026-11-01 — In Progress
+### Återöppnad tech-regression: hela kortets klickyta — 2026-11-01 — Done
 
 Användaren rapporterar att workers, huvudbyggnadsuppgradering och Forge-tech
 fortfarande inte startar, både i Skirmish och kampanj, på Research-korten vid
@@ -72,7 +72,13 @@ fallerar0≠60wood; första lokala rättade förloppet PASS. Unit531/92, riktat3
 och strict build PASS. Representativ Skirmish/kampanj-/ras-/800/1280-matris8/8
 PASS i både arbetskopia och ren produktionsbundle; Ready-vyer visuellt granskade.
 Ren leveransunit531/92 och strict build PASS; kod-/text-/länk-/diffgranskning PASS.
-[Ny rapport och belägg](artifacts/tech-card-input/README.md). CI/publicering återstår.
+[Ny rapport och belägg](artifacts/tech-card-input/README.md). Fix00a05da pushad;
+Actions41352332680: faktisk full2329/246, strict produktions-/presentationsbuild
+och Pages-deploy PASS. Publik JS/CSS-SHA256 matchar rent00a05da-bygge.
+Publicerad live-matris8/8 PASS: alla tre techflöden,40 enkla betalda aktiveringar
+och28 spärrade klick i pågående matcher, fem raser/Skirmish/kampanj/800/1280.
+Ready-grönt på publik800/1280 visuellt granskat. Slutlig text-/länk-/diffgranskning
+PASS; beläggspush `[skip ci]` ändrar ingen produktkod. Publicerad Build00a05da.
 Samma tidigare godkända commit/push/publiceringsmandat gäller färdig verifierad
 rättning. CSS/units.mjs/docs och fristående användarfiler bevaras; inga nya tasks.
 
