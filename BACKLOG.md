@@ -53,6 +53,27 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### Forskningsregression i 0.9.0 — 2026-11-01 — Done
+
+Separat felrättningsuppdrag. Ursprungligen lokalt; användaren har därefter
+uttryckligen beställt commit/push/Pages-publicering till befintlig origin/main.
+[Publiceringsrapporten](artifacts/research-publication/README.md) skiljer nya
+releasekontroller från de lokala beläggen nedan; CI/deploy inväntas.
+Reproducerat:
+Worker Tools I–III spärrades vid markerad ofärdig extrabas trots färdig egen
+huvudbyggnad. UI hade ett extra lokalt krav som den betalda ordern saknade.
+Forskningskort, knappstatus och order använder nu samma admission; färdiga
+byggnadsroller och forskningsdeklarationer delas även med Tech Tree/jobben.
+Kostnader, föregående teknik, maxnivåer, exklusivitet och kampanjspärrar består.
+
+Inventering, ny verifiering och avgränsningar finns i
+[regressionsrapporten](artifacts/research-regression/README.md). Riktat196/16,
+kompletterande35/4 (överlappande16 nya), unit531/92 och strict build PASS.
+Browserkontrollen inkluderar alla fem raser,800/1280, riktiga forskningsklick,
+basuppgraderingar, fjärrakademi, flera exemplar och Menu Save/Load i skirmish
+och kampanj. Slutlig browseromgång10/10 samt kod-/text-/länk-/diffgranskning PASS. Användarens
+CSS/units.mjs/docs och fristående filer bevaras; inga roadmaptasks startas.
+
 ### Spelkvalitet, endgame och release — 2026-11-01 — Done
 
 Nytt bifogat uppdrag ersätter tidigare stopp. En deluppgift åt gången:

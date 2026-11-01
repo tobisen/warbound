@@ -1,0 +1,1118 @@
+[
+  {
+    "width": 800,
+    "faction": "crown",
+    "expansion": {
+      "x": 736,
+      "y": 736
+    },
+    "remoteAcademy": {
+      "x": 672,
+      "y": 800
+    },
+    "otherBase": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "60 wood + 30 gold",
+        "summary": "Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research",
+        "prerequisites": "Completed main building",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "absent": {
+      "disabled": true,
+      "reason": "Complete Forge",
+      "card": {
+        "visible": false,
+        "reason": "Complete Forge",
+        "cost": "40 wood + 10 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Forge"
+    },
+    "foundation": {
+      "disabled": true,
+      "reason": "Complete Forge",
+      "card": {
+        "visible": true,
+        "reason": "Complete Forge",
+        "cost": "40 wood + 10 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Forge"
+    },
+    "completed": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "40 wood + 10 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "kinds": [
+      "lightHulls",
+      "armoredHulls",
+      "navalOptics",
+      "repairCrane",
+      "marineDrill",
+      "coastalGunnery",
+      "convoyService",
+      "navalLogistics",
+      "cavalryArmor",
+      "healerTraining",
+      "scoutOptics",
+      "submarineDesign"
+    ],
+    "campaignMissing": {
+      "disabled": true,
+      "reason": "Complete Forge",
+      "card": {
+        "visible": false,
+        "reason": "Complete Forge",
+        "cost": "40 wood + 10 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Forge"
+    },
+    "campaignLocked": {
+      "disabled": true,
+      "reason": "Locked for this campaign mission",
+      "card": {
+        "visible": false,
+        "reason": "Locked for this campaign mission",
+        "cost": "80 wood + 20 gold",
+        "summary": "Level 1/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge, Completed academy, attack 1",
+        "producing": false,
+        "active": false
+      },
+      "order": "Locked for this campaign mission"
+    },
+    "saveLoad": true,
+    "errors": []
+  },
+  {
+    "width": 800,
+    "faction": "clans",
+    "expansion": {
+      "x": 736,
+      "y": 736
+    },
+    "remoteAcademy": {
+      "x": 672,
+      "y": 800
+    },
+    "otherBase": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "60 wood + 30 gold",
+        "summary": "Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research",
+        "prerequisites": "Completed main building",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "absent": {
+      "disabled": true,
+      "reason": "Complete Smithy",
+      "card": {
+        "visible": false,
+        "reason": "Complete Smithy",
+        "cost": "35 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Smithy"
+    },
+    "foundation": {
+      "disabled": true,
+      "reason": "Complete Smithy",
+      "card": {
+        "visible": true,
+        "reason": "Complete Smithy",
+        "cost": "35 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Smithy"
+    },
+    "completed": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "35 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "kinds": [
+      "lightHulls",
+      "armoredHulls",
+      "navalOptics",
+      "repairCrane",
+      "marineDrill",
+      "coastalGunnery",
+      "assaultRamps",
+      "cavalryArmor",
+      "healerTraining",
+      "scoutOptics",
+      "submarineDesign"
+    ],
+    "campaignMissing": {
+      "disabled": true,
+      "reason": "Complete Smithy",
+      "card": {
+        "visible": false,
+        "reason": "Complete Smithy",
+        "cost": "35 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Smithy"
+    },
+    "campaignLocked": {
+      "disabled": true,
+      "reason": "Locked for this campaign mission",
+      "card": {
+        "visible": false,
+        "reason": "Locked for this campaign mission",
+        "cost": "70 wood + 30 gold",
+        "summary": "Level 1/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge, Completed academy, attack 1",
+        "producing": false,
+        "active": false
+      },
+      "order": "Locked for this campaign mission"
+    },
+    "saveLoad": true,
+    "errors": []
+  },
+  {
+    "width": 800,
+    "faction": "elves",
+    "expansion": {
+      "x": 736,
+      "y": 736
+    },
+    "remoteAcademy": {
+      "x": 672,
+      "y": 800
+    },
+    "otherBase": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "60 wood + 30 gold",
+        "summary": "Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research",
+        "prerequisites": "Completed main building",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "absent": {
+      "disabled": true,
+      "reason": "Complete Moon Workshop",
+      "card": {
+        "visible": false,
+        "reason": "Complete Moon Workshop",
+        "cost": "40 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Moon Workshop"
+    },
+    "foundation": {
+      "disabled": true,
+      "reason": "Complete Moon Workshop",
+      "card": {
+        "visible": true,
+        "reason": "Complete Moon Workshop",
+        "cost": "40 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Moon Workshop"
+    },
+    "completed": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "40 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "kinds": [
+      "lightHulls",
+      "armoredHulls",
+      "navalOptics",
+      "repairCrane",
+      "marineDrill",
+      "coastalGunnery",
+      "tidewatch",
+      "cavalryArmor",
+      "healerTraining",
+      "scoutOptics",
+      "submarineDesign"
+    ],
+    "campaignMissing": {
+      "disabled": true,
+      "reason": "Complete Moon Workshop",
+      "card": {
+        "visible": false,
+        "reason": "Complete Moon Workshop",
+        "cost": "40 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Moon Workshop"
+    },
+    "campaignLocked": {
+      "disabled": true,
+      "reason": "Locked for this campaign mission",
+      "card": {
+        "visible": false,
+        "reason": "Locked for this campaign mission",
+        "cost": "80 wood + 30 gold",
+        "summary": "Level 1/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge, Completed academy, attack 1",
+        "producing": false,
+        "active": false
+      },
+      "order": "Locked for this campaign mission"
+    },
+    "saveLoad": true,
+    "errors": []
+  },
+  {
+    "width": 800,
+    "faction": "dwarves",
+    "expansion": {
+      "x": 736,
+      "y": 736
+    },
+    "remoteAcademy": {
+      "x": 672,
+      "y": 800
+    },
+    "otherBase": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "60 wood + 30 gold",
+        "summary": "Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research",
+        "prerequisites": "Completed main building",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "absent": {
+      "disabled": true,
+      "reason": "Complete Foundry",
+      "card": {
+        "visible": false,
+        "reason": "Complete Foundry",
+        "cost": "45 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Foundry"
+    },
+    "foundation": {
+      "disabled": true,
+      "reason": "Complete Foundry",
+      "card": {
+        "visible": true,
+        "reason": "Complete Foundry",
+        "cost": "45 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Foundry"
+    },
+    "completed": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "45 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "kinds": [
+      "lightHulls",
+      "armoredHulls",
+      "navalOptics",
+      "repairCrane",
+      "marineDrill",
+      "coastalGunnery",
+      "siegeShells",
+      "preciseShells",
+      "navalLogistics",
+      "cavalryArmor",
+      "healerTraining",
+      "scoutOptics",
+      "submarineDesign"
+    ],
+    "campaignMissing": {
+      "disabled": true,
+      "reason": "Complete Foundry",
+      "card": {
+        "visible": false,
+        "reason": "Complete Foundry",
+        "cost": "45 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Foundry"
+    },
+    "campaignLocked": {
+      "disabled": true,
+      "reason": "Locked for this campaign mission",
+      "card": {
+        "visible": false,
+        "reason": "Locked for this campaign mission",
+        "cost": "90 wood + 30 gold",
+        "summary": "Level 1/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge, Completed academy, attack 1",
+        "producing": false,
+        "active": false
+      },
+      "order": "Locked for this campaign mission"
+    },
+    "saveLoad": true,
+    "errors": []
+  },
+  {
+    "width": 800,
+    "faction": "goblins",
+    "expansion": {
+      "x": 736,
+      "y": 736
+    },
+    "remoteAcademy": {
+      "x": 672,
+      "y": 800
+    },
+    "otherBase": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "60 wood + 30 gold",
+        "summary": "Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research",
+        "prerequisites": "Completed main building",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "absent": {
+      "disabled": true,
+      "reason": "Complete Lab",
+      "card": {
+        "visible": false,
+        "reason": "Complete Lab",
+        "cost": "30 wood + 20 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Lab"
+    },
+    "foundation": {
+      "disabled": true,
+      "reason": "Complete Lab",
+      "card": {
+        "visible": true,
+        "reason": "Complete Lab",
+        "cost": "30 wood + 20 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Lab"
+    },
+    "completed": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "30 wood + 20 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "kinds": [
+      "lightHulls",
+      "armoredHulls",
+      "navalOptics",
+      "repairCrane",
+      "marineDrill",
+      "coastalGunnery",
+      "volatileTorpedoes",
+      "cavalryArmor",
+      "healerTraining",
+      "scoutOptics",
+      "submarineDesign"
+    ],
+    "campaignMissing": {
+      "disabled": true,
+      "reason": "Complete Lab",
+      "card": {
+        "visible": false,
+        "reason": "Complete Lab",
+        "cost": "30 wood + 20 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Lab"
+    },
+    "campaignLocked": {
+      "disabled": true,
+      "reason": "Locked for this campaign mission",
+      "card": {
+        "visible": false,
+        "reason": "Locked for this campaign mission",
+        "cost": "60 wood + 40 gold",
+        "summary": "Level 1/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge, Completed academy, attack 1",
+        "producing": false,
+        "active": false
+      },
+      "order": "Locked for this campaign mission"
+    },
+    "saveLoad": true,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "faction": "crown",
+    "expansion": {
+      "x": 736,
+      "y": 736
+    },
+    "remoteAcademy": {
+      "x": 672,
+      "y": 800
+    },
+    "otherBase": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "60 wood + 30 gold",
+        "summary": "Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research",
+        "prerequisites": "Completed main building",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "absent": {
+      "disabled": true,
+      "reason": "Complete Forge",
+      "card": {
+        "visible": false,
+        "reason": "Complete Forge",
+        "cost": "40 wood + 10 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Forge"
+    },
+    "foundation": {
+      "disabled": true,
+      "reason": "Complete Forge",
+      "card": {
+        "visible": true,
+        "reason": "Complete Forge",
+        "cost": "40 wood + 10 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Forge"
+    },
+    "completed": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "40 wood + 10 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "kinds": [
+      "lightHulls",
+      "armoredHulls",
+      "navalOptics",
+      "repairCrane",
+      "marineDrill",
+      "coastalGunnery",
+      "convoyService",
+      "navalLogistics",
+      "cavalryArmor",
+      "healerTraining",
+      "scoutOptics",
+      "submarineDesign"
+    ],
+    "campaignMissing": {
+      "disabled": true,
+      "reason": "Complete Forge",
+      "card": {
+        "visible": false,
+        "reason": "Complete Forge",
+        "cost": "40 wood + 10 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Forge"
+    },
+    "campaignLocked": {
+      "disabled": true,
+      "reason": "Locked for this campaign mission",
+      "card": {
+        "visible": false,
+        "reason": "Locked for this campaign mission",
+        "cost": "80 wood + 20 gold",
+        "summary": "Level 1/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge, Completed academy, attack 1",
+        "producing": false,
+        "active": false
+      },
+      "order": "Locked for this campaign mission"
+    },
+    "saveLoad": true,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "faction": "clans",
+    "expansion": {
+      "x": 736,
+      "y": 736
+    },
+    "remoteAcademy": {
+      "x": 672,
+      "y": 800
+    },
+    "otherBase": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "60 wood + 30 gold",
+        "summary": "Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research",
+        "prerequisites": "Completed main building",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "absent": {
+      "disabled": true,
+      "reason": "Complete Smithy",
+      "card": {
+        "visible": false,
+        "reason": "Complete Smithy",
+        "cost": "35 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Smithy"
+    },
+    "foundation": {
+      "disabled": true,
+      "reason": "Complete Smithy",
+      "card": {
+        "visible": true,
+        "reason": "Complete Smithy",
+        "cost": "35 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Smithy"
+    },
+    "completed": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "35 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "kinds": [
+      "lightHulls",
+      "armoredHulls",
+      "navalOptics",
+      "repairCrane",
+      "marineDrill",
+      "coastalGunnery",
+      "assaultRamps",
+      "cavalryArmor",
+      "healerTraining",
+      "scoutOptics",
+      "submarineDesign"
+    ],
+    "campaignMissing": {
+      "disabled": true,
+      "reason": "Complete Smithy",
+      "card": {
+        "visible": false,
+        "reason": "Complete Smithy",
+        "cost": "35 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Smithy"
+    },
+    "campaignLocked": {
+      "disabled": true,
+      "reason": "Locked for this campaign mission",
+      "card": {
+        "visible": false,
+        "reason": "Locked for this campaign mission",
+        "cost": "70 wood + 30 gold",
+        "summary": "Level 1/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge, Completed academy, attack 1",
+        "producing": false,
+        "active": false
+      },
+      "order": "Locked for this campaign mission"
+    },
+    "saveLoad": true,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "faction": "elves",
+    "expansion": {
+      "x": 736,
+      "y": 736
+    },
+    "remoteAcademy": {
+      "x": 672,
+      "y": 800
+    },
+    "otherBase": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "60 wood + 30 gold",
+        "summary": "Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research",
+        "prerequisites": "Completed main building",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "absent": {
+      "disabled": true,
+      "reason": "Complete Moon Workshop",
+      "card": {
+        "visible": false,
+        "reason": "Complete Moon Workshop",
+        "cost": "40 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Moon Workshop"
+    },
+    "foundation": {
+      "disabled": true,
+      "reason": "Complete Moon Workshop",
+      "card": {
+        "visible": true,
+        "reason": "Complete Moon Workshop",
+        "cost": "40 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Moon Workshop"
+    },
+    "completed": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "40 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "kinds": [
+      "lightHulls",
+      "armoredHulls",
+      "navalOptics",
+      "repairCrane",
+      "marineDrill",
+      "coastalGunnery",
+      "tidewatch",
+      "cavalryArmor",
+      "healerTraining",
+      "scoutOptics",
+      "submarineDesign"
+    ],
+    "campaignMissing": {
+      "disabled": true,
+      "reason": "Complete Moon Workshop",
+      "card": {
+        "visible": false,
+        "reason": "Complete Moon Workshop",
+        "cost": "40 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Moon Workshop"
+    },
+    "campaignLocked": {
+      "disabled": true,
+      "reason": "Locked for this campaign mission",
+      "card": {
+        "visible": false,
+        "reason": "Locked for this campaign mission",
+        "cost": "80 wood + 30 gold",
+        "summary": "Level 1/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge, Completed academy, attack 1",
+        "producing": false,
+        "active": false
+      },
+      "order": "Locked for this campaign mission"
+    },
+    "saveLoad": true,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "faction": "dwarves",
+    "expansion": {
+      "x": 736,
+      "y": 736
+    },
+    "remoteAcademy": {
+      "x": 672,
+      "y": 800
+    },
+    "otherBase": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "60 wood + 30 gold",
+        "summary": "Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research",
+        "prerequisites": "Completed main building",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "absent": {
+      "disabled": true,
+      "reason": "Complete Foundry",
+      "card": {
+        "visible": false,
+        "reason": "Complete Foundry",
+        "cost": "45 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Foundry"
+    },
+    "foundation": {
+      "disabled": true,
+      "reason": "Complete Foundry",
+      "card": {
+        "visible": true,
+        "reason": "Complete Foundry",
+        "cost": "45 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Foundry"
+    },
+    "completed": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "45 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "kinds": [
+      "lightHulls",
+      "armoredHulls",
+      "navalOptics",
+      "repairCrane",
+      "marineDrill",
+      "coastalGunnery",
+      "siegeShells",
+      "preciseShells",
+      "navalLogistics",
+      "cavalryArmor",
+      "healerTraining",
+      "scoutOptics",
+      "submarineDesign"
+    ],
+    "campaignMissing": {
+      "disabled": true,
+      "reason": "Complete Foundry",
+      "card": {
+        "visible": false,
+        "reason": "Complete Foundry",
+        "cost": "45 wood + 15 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Foundry"
+    },
+    "campaignLocked": {
+      "disabled": true,
+      "reason": "Locked for this campaign mission",
+      "card": {
+        "visible": false,
+        "reason": "Locked for this campaign mission",
+        "cost": "90 wood + 30 gold",
+        "summary": "Level 1/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge, Completed academy, attack 1",
+        "producing": false,
+        "active": false
+      },
+      "order": "Locked for this campaign mission"
+    },
+    "saveLoad": true,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "faction": "goblins",
+    "expansion": {
+      "x": 736,
+      "y": 736
+    },
+    "remoteAcademy": {
+      "x": 672,
+      "y": 800
+    },
+    "otherBase": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "60 wood + 30 gold",
+        "summary": "Level 0/3 · Next: 10% shorter wood/gold gathering · 15s research",
+        "prerequisites": "Completed main building",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "absent": {
+      "disabled": true,
+      "reason": "Complete Lab",
+      "card": {
+        "visible": false,
+        "reason": "Complete Lab",
+        "cost": "30 wood + 20 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Lab"
+    },
+    "foundation": {
+      "disabled": true,
+      "reason": "Complete Lab",
+      "card": {
+        "visible": true,
+        "reason": "Complete Lab",
+        "cost": "30 wood + 20 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Lab"
+    },
+    "completed": {
+      "disabled": false,
+      "reason": "",
+      "card": {
+        "visible": true,
+        "reason": "",
+        "cost": "30 wood + 20 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": null
+    },
+    "kinds": [
+      "lightHulls",
+      "armoredHulls",
+      "navalOptics",
+      "repairCrane",
+      "marineDrill",
+      "coastalGunnery",
+      "volatileTorpedoes",
+      "cavalryArmor",
+      "healerTraining",
+      "scoutOptics",
+      "submarineDesign"
+    ],
+    "campaignMissing": {
+      "disabled": true,
+      "reason": "Complete Lab",
+      "card": {
+        "visible": false,
+        "reason": "Complete Lab",
+        "cost": "30 wood + 20 gold",
+        "summary": "Level 0/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge",
+        "producing": false,
+        "active": false
+      },
+      "order": "Complete Lab"
+    },
+    "campaignLocked": {
+      "disabled": true,
+      "reason": "Locked for this campaign mission",
+      "card": {
+        "visible": false,
+        "reason": "Locked for this campaign mission",
+        "cost": "60 wood + 40 gold",
+        "summary": "Level 1/2 · 25% more military damage per level",
+        "prerequisites": "Completed forge, Completed academy, attack 1",
+        "producing": false,
+        "active": false
+      },
+      "order": "Locked for this campaign mission"
+    },
+    "saveLoad": true,
+    "errors": []
+  }
+]

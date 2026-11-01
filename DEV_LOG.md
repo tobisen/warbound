@@ -1,3 +1,44 @@
+## Publiceringsmandat för forskningsfixen — 2026-11-01
+
+Efter den lokala leveransen beställer användaren commit/push/publicering.
+Origin/main kontrollerad mot8d1b51d. Isolerad leveransworktree använder
+repositoryts CSS/assetkällor; arbetskopians20 skyddade filer har oförändrade
+SHA256 och hålls utanför leveransen. Ny unit531/92 PASS18,18s, riktat196/16
+PASS91,72s och strict produktionsbuild PASS. Produktionsbundlens riktiga bygg-/
+urvals-/forskningsklick och Menu Save/Load PASS10/10 i800/1280/fem raser,
+utan page errors/assetfel. Befintligt workflow
+kör full npm test före Pages-deploy; status rapporteras när den faktiskt finns.
+Se [publiceringsrapporten](artifacts/research-publication/README.md).
+Version0.9.0 behålls; inga nya tags/roadmaptasks eller delegering.
+
+## Lokal forskningsregression i0.9.0 — 2026-11-01
+
+Nytt uppdrag utan commit/push/publicering eller delegering. Reproducerat i riktig
+Chrome: Worker Tools-knappen rapporterade ”Construction unfinished” vid markerad
+ofärdig extrabas trots att en färdig egen huvudbyggnad fanns; orderns gemensamma
+researchReason var samtidigt null. Felet berörde verktygsnivåerna I–III/fem raser.
+Övriga forskningar startade i den kontrollerade matrisen; ingen generell ras-/
+uppgraderingsmappningsbugg påstås. Alla krav inventerade i
+[rapporten](artifacts/research-regression/README.md).
+
+Alla forskningskort och deras slutliga disabled använder nu samma admission som
+den betalda ordern. completedPlacementBuildings/researchPrerequisites delar
+byggnadsroller och deklarationer med teknikbild, Tech Tree och forskningsjobb.
+Kampanjens befintliga Academy-spärr för militär II redovisas uttryckligen.
+Ingen ändring av priser/tider/effekter/tekniknivåer, Saveformat eller upplåsningar.
+
+Ny verifiering: riktat196/16 PASS107,98s; kompletterande35/4 PASS3,01s
+(16 nya regressionstester överlappar), unit531/92 PASS28,49s och strict
+produktionsbuild PASS med befintlig bundlevarning. Första nya Save-fixturens
+ledgerfel rättades med befintligt resursfusk; Save-validering består. Manifestet
+klassificerar nya MatchState/Save-filen som integration. Browser800/1280/fem
+raser med riktiga forskningsklick, betalande bygge/workerconstruction, basnivåer,
+flera akademier och Menu Save/Load i skirmish/kampanj PASS10/10. Extra slutomgång
+verifierade fjärrplacering minst480px och rensning av tidigare DOM-disabled.
+Slutlig kod-/text-/länkgranskning utan fynd; git diff --check PASS.
+Ingen full npm test/bred kampanjregression, CI/Pages eller mänsklig match-/
+ljudgranskning hävdas. Befintliga CSS/units.mjs/docs och fristående filer bevaras.
+
 ## Sjö-/tydlighetsuppdrag publicerat — 2026-11-01
 
 Nytt uttryckligt publiceringsmandat är genomfört. Leveranscommit `bc38db0` är

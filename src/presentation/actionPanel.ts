@@ -3,9 +3,9 @@ import {isFleetBuilding,isFleetShip,isMarine,fleetBuildingPurpose,fleetUnitPurpo
 import {isShipRole,navalRoleAvailable,navalFoundryAvailable} from '../config/navy';
 import {extraProducer} from '../gameplay/extraProducers';
 import {dismissProposal} from '../gameplay/dismiss';
-import {roleResearchAvailable,researchConflict,roleResearchConfig,isRoleResearch} from '../config/roleResearch';
+import {roleResearchAvailable,roleResearchConfig,isRoleResearch} from '../config/roleResearch';
 import {researchHost} from './researchPages';
-import {researchReason} from '../gameplay/research';
+import {researchReason,researchPrerequisites} from '../gameplay/research';
 import {workerToolsConfig} from '../config/workerTools';
 import {researchRecipe} from '../gameplay/research';
 import {extraBaseConfig} from '../config/extraBases';
@@ -18,20 +18,18 @@ import {spellDefinition,spellDescription,spellForSlot,type SpellSlot} from '../c
 import {towerUpgradeReason} from '../gameplay/towers';import {defenseConfig} from '../config/defenses';
 import {baseDevelopment,baseUpgradeReason} from '../gameplay/baseUpgrade';
 import {baseUpgradeConfig} from '../config/baseUpgrade';
-import {technologyFor,unitAvailability,buildingAvailability,researchAvailability} from '../gameplay/productionPrerequisites';
+import {technologyFor,unitAvailability,buildingAvailability} from '../gameplay/productionPrerequisites';
 import {text as uiText} from '../text';
 import type {ResourceCost} from '../config/economy';
 import {factionForTeam,type UnitPrerequisites} from '../config/factions';
 import {costs} from '../config/economy';
 import {navyConfig} from '../config/navy';
 import {queueConfig} from '../config/production';
-import {upgradeConfig} from '../config/upgrades';
 import {costLabel} from '../gameplay/economy';
 import {canTrainShip,matchPopulation} from '../gameplay/navy';
 import {hasPopulation} from '../gameplay/population';
 import {productionJobCount} from '../gameplay/productionQueue';
 import {abilityReady} from '../gameplay/abilities';
-import {forgeReady} from '../gameplay/research';
 import type {BuildingSelection} from '../gameplay/buildingSelection';
 import type {MatchState} from '../gameplay/match';
 import {hotkeys} from './hotkeys';
@@ -106,15 +104,15 @@ export function actionPanel(m:MatchState,building:BuildingSelection,playing:bool
    reason=remaining>0?'Construction unfinished':prerequisite??(production&&productionJobCount(production)>=queueConfig.maxJobs?'Queue full':!hasPopulation(population,recipe.supply)?uiText.populationLimitReached:affordabilityReason(m.gathering,recipe.cost));
   }
   else if(id.startsWith('research-')&&isRoleResearch(id.slice(9))){const kind=id.slice(9) as import('../config/roleResearch').RoleResearchKind,cfg=roleResearchConfig[kind],level=m.research?.[kind]??0;visible=roleResearchAvailable(kind,faction.id)&&building===researchHost(kind);cost=costLabel(cfg.cost);summary=cfg.description+` · ${cfg.durationSeconds}s`;prerequisites=cfg.buildings.map(b=>faction.buildingNames[b]).join(' + ');reason=researchReason(m.gathering,m.research!,m.placement,kind,playing,hasMainBase(m))??'';active=m.research?.job?.kind===kind;}
-  else if(id==='research-workerTools'){visible=base;const level=m.research?.workerTools??0,recipe=workerToolsConfig[Math.min(2,level)]!;cost=level>=3?undefined:costLabel(recipe.cost);summary=`Level ${level}/3 · ${level>=3?'30% shorter wood/gold gathering · Complete':`Next: ${Math.round((1-recipe.timeMultiplier)*100)}% shorter wood/gold gathering · ${recipe.durationSeconds}s research`}`;reason=level>=3?'Already researched':!hasMainBase(m)?'Base destroyed':(m.placement.bases?.find(b=>b.id===building)?.construction.remainingSeconds??0)>0?'Construction unfinished':m.research?.job?.kind==='workerTools'?'Research in progress':m.research?.queue?.includes('workerTools')?'Research queued':affordabilityReason(m.gathering,recipe.cost);prerequisites=level>0?`Worker Tools ${['I','II','III'][level-1]}`:'Completed main building';active=m.research?.job?.kind==='workerTools';}
-  else if(id.startsWith('research-')){const kind=id==='research-attack'?'attack':'defense';visible=building===researchHost(kind,m.research?.[kind]??0);summary=`Level ${m.research?.[kind]??0}/2 · ${kind==='attack'?'25% more military damage per level':'25% less incoming military damage per level'}`;cost=costLabel(researchRecipe(faction,kind,m.research?.[kind]??0).cost);reason=(m.research?.[kind]??0)>=faction.upgrades[kind].maxLevel?'Already researched':researchAvailability(faction,kind,technologyFor(m,'player'))??(m.research?.job?.kind===kind?'Research in progress':m.research?.queue?.includes(kind)?'Research queued':(m.research?.[kind]??0)>=faction.upgrades[kind].maxLevel?'Already researched':affordabilityReason(m.gathering,researchRecipe(faction,kind,m.research?.[kind]??0).cost));}
+  else if(id==='research-workerTools'){visible=base;const level=m.research?.workerTools??0,recipe=workerToolsConfig[Math.min(2,level)]!;cost=level>=3?undefined:costLabel(recipe.cost);summary=`Level ${level}/3 · ${level>=3?'30% shorter wood/gold gathering · Complete':`Next: ${Math.round((1-recipe.timeMultiplier)*100)}% shorter wood/gold gathering · ${recipe.durationSeconds}s research`}`;reason=researchReason(m.gathering,m.research!,m.placement,'workerTools',playing,hasMainBase(m))??'';prerequisites=level>0?`Worker Tools ${['I','II','III'][level-1]}`:'Completed main building';active=m.research?.job?.kind==='workerTools';}
+  else if(id.startsWith('research-')){const kind=id==='research-attack'?'attack':'defense';visible=building===researchHost(kind,m.research?.[kind]??0);summary=`Level ${m.research?.[kind]??0}/2 · ${kind==='attack'?'25% more military damage per level':'25% less incoming military damage per level'}`;cost=costLabel(researchRecipe(faction,kind,m.research?.[kind]??0).cost);reason=researchReason(m.gathering,m.research!,m.placement,kind,playing,hasMainBase(m))??'';}
   else if(id==='dismiss-units'){visible=!!dismissProposal({...m,paused:false},selectedProducer?.id??building);summary=building?'Demolish selected own building after confirmation. No refund; production and dependent research stop.':'Dismiss selected own units after confirmation. No refund.';}
   else if(id==='attack-move')visible=land.some(u=>u.kind==='soldier'&&u.archetype!=='scout');
   else if(id==='unit-ability'){visible=land.some(u=>u.kind==='soldier'&&!isAir(u));reason=!land.some(abilityReady)?'Ability cooling down':'';}
   else if(id==='unload-transport'){visible=!!transport;reason=!transport?.passengers?.length?'Transport is empty':'';}
   else visible=any;
   if(id.startsWith('build-')){const kind=id.slice(6);active=!!m.placement.active&&(m.placement.kind??'barracks')===kind;if(isFleetBuilding(kind)){summary=fleetBuildingPurpose[kind];prerequisites=prerequisiteLabel(faction.buildings[kind].prerequisites);}if(kind==='navalFoundry'||kind==='stable'||kind==='academy'||kind==='barracks'||kind==='farm'||kind==='forge')prerequisites=prerequisiteLabel(faction.buildings[kind].prerequisites);}
-  if(id.startsWith('research-')&&id!=='research-workerTools'&&!isRoleResearch(id.slice(9))){const kind=id==='research-attack'?'attack':'defense';prerequisites=prerequisiteLabel((m.research?.[kind]??0)>=1?{buildings:['forge','academy']}:faction.upgrades[kind].prerequisites);active=m.research?.job?.kind===kind;}
+  if(id.startsWith('research-')&&id!=='research-workerTools'&&!isRoleResearch(id.slice(9))){const kind=id==='research-attack'?'attack':'defense';prerequisites=prerequisiteLabel(researchPrerequisites(faction,kind,m.research?.[kind]??0));active=m.research?.job?.kind===kind;}
   if(id==='upgrade-base')active=baseDevelopment(m).remainingSeconds!==null;
   if((id==='upgrade-tower'||id==='upgrade-tower-air'))active=!!m.placement.defenses?.find(t=>t.id===building)?.upgradeRemaining;
   const campaignBlock=campaignActionReason(m,id);
@@ -138,9 +136,9 @@ export function bindActionPanel():void{
  for(const id of actionIds){const button=document.getElementById(id)!;let wrapper=button.parentElement!;if(!wrapper.classList.contains('control')){wrapper=document.createElement('div');wrapper.className='control';button.before(wrapper);wrapper.append(button);}const reason=document.createElement('span');reason.id=`${id}-reason`;reason.className='action-reason';button.setAttribute('aria-describedby',reason.id);wrapper.append(reason);fieldset.querySelector(`[data-action-group="${actionGroup(id)}"]`)!.append(wrapper);}
  bar.append(document.getElementById('production-queue')!);
 }
-/** Called after authoritative gameplay disabled-state sync. */
+/** Research uses its admission model; other actions retain scene-specific checks. */
 export function renderActionPanel(model:ReturnType<typeof actionPanel>):void{
- for(const id of actionIds){const button=document.getElementById(id) as HTMLButtonElement,action=model[id],wrapper=button.parentElement!,reason=document.getElementById(`${id}-reason`)!;wrapper.hidden=!action.visible;wrapper.dataset.available=String(action.visible);button.disabled=button.disabled||!action.visible||!!action.reason;reason.textContent=button.disabled?(action.reason||'Action unavailable'):'';
+ for(const id of actionIds){const button=document.getElementById(id) as HTMLButtonElement,action=model[id],wrapper=button.parentElement!,reason=document.getElementById(`${id}-reason`)!;wrapper.hidden=!action.visible;wrapper.dataset.available=String(action.visible);button.disabled=(id.startsWith('research-')?false:button.disabled)||!action.visible||!!action.reason;reason.textContent=button.disabled?(action.reason||'Action unavailable'):'';
   if(actionGroup(id)==='Research'){let detail=wrapper.querySelector<HTMLElement>('.research-detail');if(!detail){detail=document.createElement('span');detail.className='research-detail';wrapper.append(detail);}wrapper.dataset.researchState=action.status?'working':['Already researched','Maximum base level','Permanent specialization already selected'].includes(action.reason)?'complete':action.reason?'blocked':'ready';const text=researchCardDetail(action);if(detail.textContent!==text)detail.textContent=text;}
   const hotkey=hotkeys.find(h=>h.button===id)?.key;button.dataset.producing=String(!!action.producing);if(action.active!==undefined)button.setAttribute('aria-pressed',String(action.active));const presentation={...action,reason:reason.textContent},label=button.textContent??'',tip=actionTooltip(id,presentation,label);button.removeAttribute('title');button.setAttribute('aria-label',actionDescription(id,presentation,label));if(wrapper.dataset.tooltip!==tip)wrapper.dataset.tooltip=tip;wrapper.setAttribute('tabindex',button.disabled?'0':'-1');wrapper.setAttribute('aria-label',button.getAttribute('aria-label')!);if(hotkey){button.dataset.hotkey=hotkey;setActionLabel(button,button.textContent??'');}
  }

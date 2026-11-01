@@ -16,6 +16,12 @@ transportjobb och hamnwaypoints består. Save80 ändras inte: orderfel och
 hotmetadata utelämnas; riktig position/order och kvarvarande last sparas.
 
 researchReason är gemensam admission för betald forskning och kortens felorsak.
+Det gäller även Worker Tools och attack/försvar. Forskningsknappens slutliga
+disabled-status följer aktuellt kort, utan sparad DOM-spärr. researchPrerequisites
+delar deklarationerna med Tech Tree; completedPlacementBuildings ger samma
+levande, färdiga byggnadsroller till teknikbild, admission och pågående jobb.
+Forskning använder spelarens gemensamma teknik, oberoende av markerad bas eller
+byggnadskopia. Kampanjupplåsning valideras separat från byggnadernas existens.
 Byggmenyn döljer campaignActionReason-spärrade byggnader. Gruppinformation
 räknar direkt från enhetsrecept i en linjär genomgång; den kopierar inte hela
 matchvyer per markerad enhet. Spatiala collisionnycklar använder exakta

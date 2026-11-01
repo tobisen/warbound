@@ -2,6 +2,7 @@ import {navalFoundryAvailable} from '../config/navy';
 import {academyCampaignReason,contentReason} from '../config/campaignContent';
 import {factionForTeam as factionOf} from '../config/factions';
 import type {FactionDefinition,TechnologyState,UnitRole} from '../config/factions';
+import type {PlacementState} from './placement';
 /** Enqueue admission only: accepted jobs keep their original recipes and continue. */
 export function unitAvailability(faction:FactionDefinition,role:UnitRole,technology?:TechnologyState,content?:import('../config/campaignContent').CampaignContent):string|null {
  const locked=contentReason(content??technology?.campaignContent,'units',role);if(locked)return locked;
@@ -9,10 +10,20 @@ export function unitAvailability(faction:FactionDefinition,role:UnitRole,technol
  return prerequisiteReason(faction,faction.units[role].prerequisites,technology);
 }
 
+/** Placement contains this owner's sites. Any completed live instance satisfies a role. */
+export function completedPlacementBuildings(p:PlacementState,mainReady:boolean):import('../config/factions').BuildingRole[] {
+ const buildings:import('../config/factions').BuildingRole[]=mainReady?['base']:[];
+ for(const site of p.producers??[])if(site.kind!=='harbor'&&site.hp>0&&site.construction.remainingSeconds===0&&!buildings.includes(site.kind))buildings.push(site.kind);
+ if(p.barracks&&(p.barracksHP??1)>0&&(p.construction?.remainingSeconds??0)===0&&!buildings.includes('barracks'))buildings.push('barracks');
+ for(const kind of ['siegeWorks','aviary','stable','academy','forge'] as const){const site=p[kind];if(site&&site.hp>0&&site.construction.remainingSeconds===0&&!buildings.includes(kind))buildings.push(kind);}
+ if(p.farms?.some(f=>(f.hp??1)>0&&f.construction.remainingSeconds===0))buildings.push('farm');
+ return buildings;
+}
+
 /** Derive technology from completed live buildings, never UI selection or an in-progress job. */
 export function technologyFor(m:import('./match').MatchState,team:'player'|'enemy'):TechnologyState {
- const buildings:import('../config/factions').BuildingRole[]=[];
  if(team==='enemy'){
+  const buildings:import('../config/factions').BuildingRole[]=[];
   for(const e of m.combat.enemies){
    if(e.hp<=0||e.construction&&e.construction.remainingSeconds>0)continue;
    const role=e.kind==='base'?'base':e.buildingType;
@@ -20,15 +31,7 @@ export function technologyFor(m:import('./match').MatchState,team:'player'|'enem
   }
   return {baseLevel:m.enemyProduction?.baseDevelopment?.level??1,academyAllowed:!academyCampaignReason(m),buildings,research:{attack:m.enemyPolicy?.research.attack??0,defense:m.enemyPolicy?.research.defense??0}};
  }
- if((m.combat.baseHP>0||(m.placement.bases??[]).some(b=>b.hp>0&&b.construction.remainingSeconds===0)))buildings.push('base');
- for(const p of m.placement.producers??[])if(p.kind!=='harbor'&&p.hp>0&&p.construction.remainingSeconds===0&&!buildings.includes(p.kind))buildings.push(p.kind);
- if(m.placement.barracks&&(m.placement.barracksHP??1)>0&&(m.placement.construction?.remainingSeconds??0)===0)buildings.push('barracks');
- if(m.placement.siegeWorks&&m.placement.siegeWorks.hp>0&&m.placement.siegeWorks.construction.remainingSeconds===0)buildings.push('siegeWorks');
- if(m.placement.aviary&&m.placement.aviary.hp>0&&m.placement.aviary.construction.remainingSeconds===0)buildings.push('aviary');
- if(m.placement.stable&&m.placement.stable.hp>0&&m.placement.stable.construction.remainingSeconds===0)buildings.push('stable');
- if(m.placement.academy&&m.placement.academy.hp>0&&m.placement.academy.construction.remainingSeconds===0)buildings.push('academy');
- if(m.placement.forge&&(m.placement.forge.hp??1)>0&&m.placement.forge.construction.remainingSeconds===0)buildings.push('forge');
- if(m.placement.farms?.some(f=>(f.hp??1)>0&&f.construction.remainingSeconds===0))buildings.push('farm');
+ const buildings=completedPlacementBuildings(m.placement,m.combat.baseHP>0||(m.placement.bases??[]).some(b=>b.hp>0&&b.construction.remainingSeconds===0));
  return {academyAllowed:!academyCampaignReason(m),...(m.gathering.campaignContent?{campaignContent:m.gathering.campaignContent}:{}),...(m.combat.baseDevelopment?{baseLevel:m.combat.baseDevelopment.level}:{}),buildings,research:{attack:m.research?.attack??0,defense:m.research?.defense??0}};
 }
 
@@ -38,7 +41,10 @@ export function missingPrerequisites(f: FactionDefinition,r:import('../config/fa
 }
 export function prerequisiteReason(f:FactionDefinition,r:import('../config/factions').UnitPrerequisites|undefined,t?:TechnologyState):string|null{return missingPrerequisites(f,r,t)[0]??null;}
 export function buildingAvailability(f:FactionDefinition,k:import('../config/factions').BuildingRole|'harbor',t:TechnologyState):string|null{return (k==='navalFoundry'&&!navalFoundryAvailable(f.id)?'Unavailable for this faction':null)??(k==='academy'&&t.academyAllowed===false?'Locked for this campaign mission':null)??contentReason(t.campaignContent,'buildings',k)??prerequisiteReason(f,k==='harbor'?{buildings:['base']}:f.buildings[k].prerequisites,t);}
-export function researchAvailability(f:FactionDefinition,k:'attack'|'defense',t:TechnologyState):string|null{return contentReason(t.campaignContent,'research',k)??prerequisiteReason(f,(t.research[k]??0)>=1?{buildings:['forge','academy']}:f.upgrades[k].prerequisites,t);}
+export function militaryResearchPrerequisites(f:FactionDefinition,k:'attack'|'defense',level:number):import('../config/factions').UnitPrerequisites {
+ return level>=1?{buildings:['forge','academy'],research:{[k]:1}}:f.upgrades[k].prerequisites??{};
+}
+export function researchAvailability(f:FactionDefinition,k:'attack'|'defense',t:TechnologyState):string|null{return contentReason(t.campaignContent,'research',k)??prerequisiteReason(f,militaryResearchPrerequisites(f,k,t.research[k]??0),t);}
 export function techTree(m:import('./match').MatchState):string[]{const f=factionOf(m,'player'),t=technologyFor(m,'player');return [
  `${f.buildingNames.base}: level ${m.combat.baseDevelopment?.level??1} / 3`,
  ...(['barracks','farm','forge','academy','stable','aviary','siegeWorks','navalFoundry','harbor'] as const).map(k=>`${k==='harbor'?f.naval.harbor.name:f.buildingNames[k]} ← ${buildingAvailability(f,k,t)??'Available'}`),
