@@ -3,6 +3,26 @@
 Arbetstitel: **Iron & Timber — A Tribute to Warcraft II**. Egen typografisk
 identitet; ingen juridisk granskning för kommersiell release.
 
+## Aktuell kommersiell planering — 2026-11-03
+
+Titeln ovan och de tidiga slicebeskrivningarna är historik; aktuell arbetstitel
+är **Warbound**, version0.9.0. [Release scope](docs/commercial/RELEASE_SCOPE.md)
+registrerar WBC-002:s godkända riktning: fem befintliga roster, tio kuraterade
+operationer och sex befintliga skirmishkartor för Windows/Steam1.0. Detta ändrar inte spelet eller
+redan gjorda RTS-planer/status. Warbound2-visionens två-rasspår är ett separat
+förslag och ingår inte i denna kommersiella produkt.
+
+[Källauditen](docs/commercial/TECHNICAL_AUDIT.md) visar Human/Orcs/Elves/
+Dwarves/**Goblins**. WBC-002 behåller Goblins; inga Gnomes skapas. Nuvarande
+kampanj har77 ras-/uppdragsval på45 unika ID:n, kartconfig18 ID:n (16 skirmishval)
+och presentationen17 byggnadsslag. WBC-036/043 väljer de konkreta tio respektive
+sex; inga källor/ID:n eller befintliga sparningar tas bort genom scopebeslutet.
+Engelska, offline single-player/lokal SaveLoad och Electron-PoC först gäller;
+initialt externt utgiftstak10 000SEK,129SEK indikativt och Q3 2027 villkorat.
+Namn/licenser, slutligt innehållsurval och kvalitet är fortfarande öppna. Tids-/balans-/
+ljudbedömning av människor återstår enligt [kvalitetsgrindarna](docs/commercial/RELEASE_CHECKLIST.md).
+Ingen gameplay eller asset ändras i planeringsuppdraget.
+
 ## Inriktning
 
 RTS-001–150 är klara; release0.2.0 är verifierad och publicerad. Fem spelbara fraktioner, nio kartval och åtta campaign-operationer med lokala resultat/progression ingår. Slicebeskrivningarna visar historiken; senare taskavsnitt anger aktuella regler. Ursprunglig MVP nedan är ursprungsplanen, inte nuvarande featuregräns.

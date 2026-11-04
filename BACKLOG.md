@@ -53,6 +53,53 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
+### WBC-001/002 — commit, push och Pages — 2026-11-04 — In Progress
+
+Nytt uttryckligt leveransmandat: committa/pusha den färdiga kommersiella
+dokumentationen och publicera via befintligt Pages-flöde. Det ersätter tidigare
+lokala commit-/publiceringsstopp för dessa färdiga dokument. Stående önskemål
+om framtida commit/push/Pages finns i AGENTS.md; taskstopp före WBC-003 består.
+Orelaterad style.css/units.mjs, docs/art, CLEANUP_REPORT och :memory:.ses bevaras.
+Ren Markdown-leverans: text/länkar/taskberoenden/diff före commit; befintlig
+CI full regression/strict build/deploy startas manuellt och verifieras separat.
+Ingen ny spelversion, gameplay, desktop, Steam eller ändrat publiceringsflöde.
+
+### WBC-002 — Godkänd kommersiell produktriktning — Done — 2026-11-03
+
+Endast dokumentation/beslut enligt användarens uttryckliga WBC-002-uppdrag.
+[Release scope](docs/commercial/RELEASE_SCOPE.md) redovisar godkända ramar,
+faktiska roster/uppdrags-/kart-ID:n och skillnader mot implementationen.
+Humans/Orcs/Elves/Dwarves/Goblins behålls; inga Gnomes. Windows/Steam,
+Phaser/TypeScript/Vite, Electron-PoC först, tio kuraterade operationer,
+sex befintliga skirmishkartor, offline single-player/lokal Save/Load och
+engelska är produktriktning. Cloud/achievements är optional. Sammanlagt
+initialt externt utgiftstak10 000SEK, mer kräver separat godkännande;
+129SEK är indikativt och Q3 2027 villkorat. Ingen utgift beställs nu.
+Exakta tio uppdrags-/sex kart-ID:n, legacyhantering, OS/minspec/maxAI/arbetstid och alla
+namn-/licens-/kvalitetsgrindar förblir öppna i angivna följdtasks.
+Ingen kod/dependency/asset, Electron/Steam, commit/push eller ny task startas.
+Dokument-/länk-/task-/beroende-/diffkontroll PASS;65 tasks och333 filreferenser.
+Källinventering45/77 uppdrag,18/16 kartor;4745 övriga filer SHA256-oförändrade.
+WBC-002 Done,003–065 Todo. Inga kodtester/build/browserprov. Stanna efter002.
+Nästa rekommenderade beroendemässigt oblockerade task är WBC-003.
+
+### Kommersiell releaseplanering — WBC-001 — Done — 2026-11-03
+
+Aktuellt uppdrag gäller enbart repositoryaudit/research/planering och docs.
+[Masterroadmap](docs/commercial/ROADMAP.md), [scope](docs/commercial/RELEASE_SCOPE.md),
+[teknik/gameplay](docs/commercial/TECHNICAL_AUDIT.md), [IP](docs/commercial/IP_AUDIT.md),
+[kommersiell strategi](docs/commercial/COMMERCIAL_STRATEGY.md) och
+[kvalitetsgrindar](docs/commercial/RELEASE_CHECKLIST.md) är underlaget.
+WBC-001–065 finns i eget avsnitt längst ned; bara001 genomförs nu.
+Äldre RTS-/PRIO-planer och status behålls, inklusive historiska konflikter.
+Inga följdtasks, wrapper/dependencies/gameplay/assets, commit/push eller release
+ingår; äldre autonommandat startar inte detta arbete. Skyddade lokala filer
+bevaras. Nästa rekommenderade uppdrag är WBC-002: ägarbeslut om scope/femte ras.
+Dokument-/länk-/task-/beroende-/diffkontroll PASS;65 tasks,333 giltiga
+filreferenser,42 lokala länkar och14 skyddade filer SHA256-oförändrade.
+Inga nya kodtester/build/browser-/Windows-/mänskliga spelprov körda.
+Rekommendationerna är inte ägarbeslut; stanna här efter planeringen.
+
 ### Återöppnad tech-regression: hela kortets klickyta — 2026-11-01 — Done
 
 Användaren rapporterar att workers, huvudbyggnadsuppgradering och Forge-tech
@@ -6918,3 +6965,946 @@ ovan återanvänds uttryckligen, ingen ny CI krävs för dokumentationen.
 Användaren beställde Pages-publicering efter skip-ci-pushen. Befintligt `pages.yml` startat manuellt för854af33. [Actions39727019945](https://github.com/tobisen/warbound/actions/runs/39727019945) är faktiskt grön: npm ci, full npm test, strict spelbuild, separat presentationsbuild och Pages-deploy. Deploy klar2026-10-22 kl07:34:01 Europe/Stockholm. Inga lokala testsuiter körda i publiceringsuppdraget.
 
 Publik Chrome-kontroll: HTTP200,13 slides, slide7 ”Warbound i siffror”, sista slide ”HOLLOWBANE”, alla tre teaserbilder laddade och PDF HTTP200. Rårapport `/tmp/warbound-pages-hollowbane-public.json`, screenshot `/tmp/warbound-pages-hollowbane-public.png`. [Presentation](https://tobisen.github.io/warbound/presentation/). Detta ersätter tidigare uppgift om att de två nya slidesen bara finns lokalt/i Git. Användarens övriga ändringar bevarade.
+
+
+## Kommersiell roadmap — WBC-001–065
+
+Nytt namespace för planeringsuppdraget2026-11-03. Befintliga RTS-/PRIO-tasks,
+status och planer ovan är bevarade. BACKLOG förblir exekveringskälla;
+[masterroadmap](docs/commercial/ROADMAP.md) grupperar faser,
+[scope](docs/commercial/RELEASE_SCOPE.md) anger föreslagen produkt och
+[checklista](docs/commercial/RELEASE_CHECKLIST.md) anger gemensam kvalitet.
+
+**Aktuellt stopp efter WBC-002.** WBC-001 är klar; nu registreras användarens
+scopebeslut i002, utan implementation. WBC-003–065 förblir Todo och startas
+inte av äldre fortsättnings-/commit-/pushmandat. Nästa rekommenderade task
+är WBC-003; även WBC-012 har då uppfyllda taskberoenden.
+
+**Ekonomisk ram:** initialt sammanlagt externt utgiftstak10 000SEK gäller alla
+WBC-tasks. Mer kräver separat godkännande; äldre kostnadsestimat är inte
+finansieringsbeslut och taket beställer inga inköp/avtal. Rättigheter och
+kvalitet får inte antas godkända för att kostnader behöver hållas nere.
+ P0=beroende/releaseblockerande,
+P1=planerat kärn-/polisharbete, P2=optional efter nytt beslut. Alla1.0-tasks
+(002–060) krävs för vald scope även när prioriteten är P1; P0 är inte ensam
+releasechecklista. Status Done betyder taskens specifika acceptans, inte att
+hela spelet är kommersiellt klart.
+
+Insats är **estimat**: S0,5–1d, M1–3d, L3–6d (7h/dag); audit001 är en redan
+genomförd analysleverans, inte ett löfte om kalenderdagar. Större tasks delas
+i verifierbara delsteg under samma ID före implementation. Fasbudgetarna i
+ROADMAP inkluderar samordning/QA; storlekarna är inte fasta persondagspriser.
+Varje framtida task uppdaterar alltid BACKLOG/DEV_LOG före eventuell godkänd
+commit; kolumnen dokumentation nedan anger dessutom relevanta fackdokument.
+Filvägar är befintliga ankare; desktop-/art-bible-/rapportfiler som behöver
+skapas är framtida leveranser, inte påstått befintliga implementationer.
+
+### WBC-001 — Kommersiell audit och masterplan
+
+**Status:** Done · **Prioritet:** P0 · **Fas:** 0 · **Insats:** L
+
+- **Mål:** Ge ett källgrundat beslutsunderlag för Windows/Steam1.0.
+- **Beskrivning:** Inventera faktisk gameplay/teknik/IP, gör extern research och definiera scope, kvalitet och en beroendeordnad plan.
+- **Befintliga filer:** `BACKLOG.md`, `ARCHITECTURE.md`, `GAME_DESIGN.md`, `README.md`, `DEV_LOG.md`, `DECISIONS.md`, `package.json`, `src/config/factions.ts`, `src/gameplay/match.ts`, `assets/ASSET_LICENSE.md`.
+- **Krav:** Sex docs/commercial-dokument; fulla WBC-taskfält; bevara befintligt arbete/RTS-status. Skilj ny granskning från historiska PASS.
+- **Acceptance criteria:** Gameplay/femras-/UX-/desktop-/IP-luckor har källor och klass; namnkrock/Goblins–Gnomes,10 blockerare, effort, beslut och exakt nästa task synliga. Dokument-/beroende-/länk-/diffkontroll godkänd.
+- **Beroenden:** Inga; aktuellt uttryckligt dokumentuppdrag.
+- **Tester:** Dokumentvalidation och git diff --check; ingen full testsuite eller implementation.
+- **Dokumentation:** Alla sex kommersiella dokument och relevanta rotindex/loggar.
+- **Non-goals:** Ingen kod/dependency/asset/wrapper, commit/push eller påbörjad följdtask.
+
+### WBC-002 — Godkänn kommersiell scope och femte ras
+
+**Status:** Done · **Prioritet:** P0 · **Fas:** 0 · **Insats:** S
+
+- **Mål:** Fastställ godkänd produktriktning och ekonomisk ram, utan att påstå att release är finansierad eller verifierad.
+- **Beskrivning:** Registrera användarens uttryckliga WBC-002-beslut och jämför med faktisk repositoryimplementation.
+- **Befintliga filer:** `docs/commercial/RELEASE_SCOPE.md`, `docs/commercial/ROADMAP.md`, `src/config/factions.ts`, `src/config/campaignSeries.ts`.
+- **Krav:** Bekräfta Humans/Orcs/Elves/Dwarves/Goblins, befintliga operationer/kartor och produktbeslut: Windows/Steam, Phaser/TypeScript/Vite, Electron-PoC först, tio operationer/sex befintliga skirmishkartor, offline/lokal SaveLoad/engelska, optional Cloud/achievements. Inga multiplayer/backend/live services. Utgiftstak10 000SEK,129SEK indikativt och Q3 2027 villkorat.
+- **Acceptance criteria:** Daterade beslut och kodgrundad inventering/avvikelser dokumenterade; urval per ID/legacydata, OS/minspec/maxAI/arbetstid lämnas uttryckligen till senare tasks. Namn/licenser/kvalitet inte godkända. Konsistens/taskberoenden/diff verifierade; WBC-003 identifierad som nästa oblockerade task. Ingen implementation eller följdtask påbörjad.
+- **Beroenden:** WBC-001.
+- **Tester:** Text/konsistens/länkar; inga kodtester.
+- **Dokumentation:** RELEASE_SCOPE, ROADMAP, DECISIONS och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen rename, rosterimplementation, publicering eller kostnad utan mandat.
+
+### WBC-003 — Frys auditbaseline och Windows-mätplan
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 0 · **Insats:** M
+
+- **Mål:** Göra framtida jämförelser reproducerbara.
+- **Beskrivning:** Identifiera avsedd leveranskandidat, skyddat användararbete och verklig referenshårdvara.
+- **Befintliga filer:** `package-lock.json`, `scripts/profile-quality-release.mjs`, `scripts/test-unit.mjs`, `artifacts/tech-card-input/README.md`, `docs/commercial/TECHNICAL_AUDIT.md`.
+- **Krav:** Exakt SHA/runtime/assets, Windowsåtkomst, stödda OS/arkitektur/minspec, maxAI-/performancekandidater, normal workload och separata stressfixtures. Inventera tillgänglig arbetstid samt faktiska externa utgifter/återstående utrymme inom10 000SEK; föreslå finansierbar mätplan. Bevara lokala CSS/units/docs. Inga inköp eller överskridanden utan separat mandat.
+- **Acceptance criteria:** Daterat manifest och resurstillgång; frame/input/cold-start/minnesbudget fastställd eller uttryckligt mätberoende. Inget användararbete borttaget/automatiskt incommittat.
+- **Beroenden:** WBC-002.
+- **Tester:** Read-only inventering; korta baselineprofiler på vald miljö när tillgänglig, inga antagna Windowsresultat.
+- **Dokumentation:** TECHNICAL_AUDIT/RELEASE_CHECKLIST med mätvillkor samt BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny gameplay, allmän städning eller full regression enbart för inventeringen.
+
+### WBC-004 — Minimal Electron-PoC på Windows
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 1 · **Insats:** M
+
+- **Mål:** Bevisa befintligt spel i lokal desktopruntime.
+- **Beskrivning:** Följ tidsboxen i TECHNICAL_AUDIT med liten main/preload och unpacked app.
+- **Befintliga filer:** `src/main.ts`, `src/scenes/BootScene.ts`, `vite.config.ts`, `src/presentation/audio.ts`, `docs/commercial/TECHNICAL_AUDIT.md`.
+- **Krav:** Efter nytt implementationsmandat: aktuell stödd Electron, isolerad renderer, stabil lokal origin och befintligt gameplay. Ingen Viteserver/nät vid körning.
+- **Acceptance criteria:** Faktisk Windows x64: meny→betalt bygge/produktion→Save→processomstart→Load/resume, kampanjstart/audio/resize/Alt-Tab. Paket/minne/framevillkor rapporterade; ägaren bekräftar wrapperval efter PoC.
+- **Beroenden:** WBC-002, WBC-003.
+- **Tester:** Packad/unpacked Windows-smoke och samma browserfixture; source/IPC-review. Kodchecks enligt reporegler.
+- **Dokumentation:** TECHNICAL_AUDIT/DECISIONS, reproducerbar PoC-rapport och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen installer, beständig filadapter, Steam SDK eller spelregeländring.
+
+### WBC-005 — Separat desktopbuild och säker asset-origin
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 1 · **Insats:** M
+
+- **Mål:** Göra offlineproduktionen reproducerbar.
+- **Beskrivning:** Skilj desktopbas/packning från befintlig Pages-bas med minsta konfiguration.
+- **Befintliga filer:** `vite.config.ts`, `package.json`, `index.html`, `src/scenes/BootScene.ts`, `src/presentation/audio.ts`, `public/assets/manifest.json`.
+- **Krav:** Bevara /warbound/ på Pages. Protokoll kan endast läsa tillåtna paketfiler/metoder; ES-moduler/fetch/audio fungerar; CSP och navigation begränsas.
+- **Acceptance criteria:** Clean desktopoutput startar utan devserver/nät, alla runtimeassets/credits laddas. Traversal/otillåten origin avvisas; browserbuildens bas är intakt.
+- **Beroenden:** WBC-004.
+- **Tester:** Båda produktionsmåls build/strict typecheck, riktade URL/asset-/protokollfel och Windows/browser-smoke.
+- **Dokumentation:** ARCHITECTURE, buildinstruktioner och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen webbserver/backend, egen uppdateringstjänst eller sourceomskrivning.
+
+### WBC-006 — Windowsfönster, fokus och skärmhantering
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 1 · **Insats:** M
+
+- **Mål:** Behålla precisa kontroller genom desktoplivscykeln.
+- **Beskrivning:** Koppla befintlig display/kamera/audio till nativewindow och stängflöde.
+- **Befintliga filer:** `src/main.ts`, `src/presentation/displayPolicy.ts`, `src/presentation/displaySettings.ts`, `src/presentation/fullscreen.ts`, `src/presentation/cameraInput.ts`, `src/gameplay/session.ts`.
+- **Krav:** 800/1280/1920, avtalad fullscreen/window, DPI125/150/200, Alt-Tab/minimize/sleep/skärmbyte. Tappa drag/knappar säkert; definiera auto-paus och quit utan oavsiktlig dataförlust.
+- **Acceptance criteria:** Fysiska klick efter varje återgång har rätt koordinater; inga dubbla ljud, hängande gester eller tids-catch-up. Fullscreenstatus och explicit Quit fungerar.
+- **Beroenden:** WBC-005.
+- **Tester:** Faktisk Windowsmatris och riktade display/input/sessiontester; browserregressionssmoke.
+- **Dokumentation:** ARCHITECTURE, användarguide och BACKLOG/DEV_LOG.
+- **Non-goals:** Inget controllerstöd, generellt fönsterramverk eller ändrade matchregler.
+
+### WBC-007 — Atomiska desktopfiler för befintligt Save-format
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 1 · **Insats:** L
+
+- **Mål:** Bevara match och progression mellan appversioner.
+- **Beskrivning:** Lägg smal validerad asynkron filgräns vid befintlig save/presentation, med stabil userData.
+- **Befintliga filer:** `src/gameplay/save.ts`, `src/gameplay/multipleSave.ts`, `src/config/save.ts`, `src/gameplay/campaign.ts`, `src/gameplay/highscores.ts`, `src/presentation/preferences.ts`, `src/scenes/BootScene.ts`.
+- **Krav:** Återanvänd encode/decode/ledgers. Samla definierade get/write-operationer, ingen generell fs-IPC. Atomiskt tempbyte, begränsad backup och låst path; appnamnsbyte får inte nollställa sparningar.
+- **Acceptance criteria:** Match/campaign/preferences/results återkommer efter kill/restart/upgrade; felaktig/trunkerad/framtida data och disk-/åtkomstfel bevarar senaste giltiga version. Sync→async-gränsen är explicit och testbar.
+- **Beroenden:** WBC-005.
+- **Tester:** Felinjicerad filintegration, supported Save-migreringar/roundtrip och verklig Windowsprocessomstart; relevanta browserstoretester.
+- **Dokumentation:** ARCHITECTURE/DECISIONS, savepolicy och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny saveserialiserare, Cloud, databas eller generell storagearkitektur.
+
+### WBC-008 — Slots, autosave och frivillig browserimport
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 1 · **Insats:** M
+
+- **Mål:** Ge spelaren enkel kontroll över säker lokal återhämtning.
+- **Beskrivning:** Bygg begränsad save/load-lista på WBC-007 och befintlig pausmeny.
+- **Befintliga filer:** `src/presentation/pauseMenu.ts`, `src/presentation/homeMenu.ts`, `src/gameplay/save.ts`, `src/gameplay/campaign.ts`, `src/config/save.ts`, `index.html`.
+- **Krav:** Fem manuella slots, separat autosave vid säkra gränser och backuprestore. Import/export är uttrycklig, validerad, begränsad och bevarar original; browserorigin läses inte automatiskt.
+- **Acceptance criteria:** Save/load/overwrite/cancel/restore fungerar efter omstart; auto skriver aldrig över manuell slot. Browserexport kan importeras med rätt version/identitet; fel ger tydlig status.
+- **Beroenden:** WBC-007.
+- **Tester:** Slot-/atomik-/fel-/migrationstester och faktisk mus/keyboard/browser→Windowsrunda.
+- **Dokumentation:** Spelguide, save-/editionpolicy och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen replay, oändlig historik eller automatisk åtkomst till webbläsarprofiler.
+
+### WBC-009 — Kraschåterhämtning och lokal supportlogg
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 1 · **Insats:** M
+
+- **Mål:** Göra fel diagnoserbara utan server.
+- **Beskrivning:** Hantera fatal renderer-/asset-/audio-/storagefel vid wrappergränsen.
+- **Befintliga filer:** `src/main.ts`, `src/scenes/BootScene.ts`, `src/presentation/audio.ts`, `src/gameplay/save.ts`, `src/presentation/homeMenu.ts`.
+- **Krav:** Visa begripligt återgå/restart/resume-besked; begränsad lokal logg med version/build/runtime, inga automatiska uploads. Logga inte fulla saves/personuppgifter som standard.
+- **Acceptance criteria:** Avsiktlig load-/renderer-/diskstörning ger användbart fel och återstart utan sparförlust; frivillig loggexport och retention fungerar.
+- **Beroenden:** WBC-006, WBC-007.
+- **Tester:** Fel-/crashinjicering i packad Windowsapp och riktade gränstester; återupptaget gameplay efter fel.
+- **Dokumentation:** Support-/loggpolicy och ARCHITECTURE samt BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen telemetritjänst, autoemail eller generell observabilityplattform.
+
+### WBC-010 — Windowsartifact i befintlig CI
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 1 · **Insats:** M
+
+- **Mål:** Bygga en spårbar desktopkandidat.
+- **Beskrivning:** Utöka automation med Windows x64artifact utan att ersätta Pages-flödet.
+- **Befintliga filer:** `.github/workflows/pages.yml`, `package.json`, `package-lock.json`, `vite.config.ts`.
+- **Krav:** Låsta verktyg, build-ID/version/hashmanifest; paketallowlist exkluderar dokumentreferenser, source-candidates, presentation och testsecrets. Windowsrunner bygger/verifierar, ingen publicering utan mandat.
+- **Acceptance criteria:** Ren checkout ger startbar artifact med identifierad SHA; befintliga browserchecks består; runtime/notices/assets ingår, privata filer saknas.
+- **Beroenden:** WBC-005.
+- **Tester:** Faktisk Windows-CI-build, artifactinnehåll/hash och installbar smoke; relevant full regression vid foundationmilstolpe.
+- **Dokumentation:** README/build-/CI-instruktioner och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny hosting, egen auto-updater eller Steamdepotuppladdning.
+
+### WBC-011 — Installation, uppgradering och offlineprov
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 1 · **Insats:** M
+
+- **Mål:** Bevisa att appen går att använda utanför utvecklingsmiljön.
+- **Beskrivning:** Prova vald enkel installer och unpacked kandidat på ren stödd Windowsprofil.
+- **Befintliga filer:** `docs/commercial/RELEASE_CHECKLIST.md`, `src/config/save.ts`, `package.json`, `.github/workflows/pages.yml`.
+- **Krav:** Standardanvändare, ingen Node/server/nät, install→save→update→load→uninstall/reinstall. Bestäm databevarande och eventuell signering utifrån verklig distribution.
+- **Acceptance criteria:** Alla paketassets/credits och sparningar fungerar vid rena prov; faktisk SmartScreen/signaturstatus och OS rapporteras. Ingen adminskrivning i speldepot krävs.
+- **Beroenden:** WBC-006, WBC-008, WBC-009, WBC-010.
+- **Tester:** Windowsinstallation/offline/upgrade/rollback; full foundationregression enligt checklistan.
+- **Dokumentation:** RELEASE_CHECKLIST/TECHNICAL_AUDIT och användar-/supportguide samt BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen allmän Windows10/Deck-garanti eller automatiskt certifikatinköp.
+
+### WBC-012 — Namnprövning och egen IP-identitet
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Klarera titel och tydlig egen identitet före marknadsföring.
+- **Beskrivning:** Låt ägaren genomföra namnsökning och avgränsad professionell bedömning.
+- **Befintliga filer:** `README.md`, `GAME_DESIGN.md`, `src/config/factionLore.ts`, `src/config/campaignSeries.ts`, `src/config/campaignExpeditions.ts`, `docs/commercial/IP_AUDIT.md`.
+- **Krav:** Utred Warbound/liknande titlar/varumärken i avsedda marknader, lore/terminologi och eventuella känsliga silhuetter. Finansiering/kontakt/avtal kräver uttryckligt uppdrag.
+- **Acceptance criteria:** Daterad sök-/bedömningsrapport och ägarens titel-/identitetsval eller tydlig blockering. Interna save-ID:n har separat kompatibilitetspolicy vid namnbyte.
+- **Beroenden:** WBC-002.
+- **Tester:** Manuell käll-/namn-/likhetsgranskning; text/länkar. Ingen juridisk garanti från agent.
+- **Dokumentation:** IP_AUDIT/RELEASE_SCOPE/DECISIONS och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen automatisk rename, kostnad, juridisk slutsats eller historikradering.
+
+### WBC-013 — Per-filrättigheter för kommersiellt paket
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Säkerställa rättighetsunderlag för allt som faktiskt distribueras.
+- **Beskrivning:** Mappa aktuell runtimefil till källa/export/licens/changes/credits och godkännande.
+- **Befintliga filer:** `assets/ASSET_LICENSE.md`, `assets/README.md`, `public/assets/manifest.json`, `public/audio/manifest.json`, `public/audio/voices/manifest.json`, `public/audio/wildlife-manifest.json`, `docs/commercial/IP_AUDIT.md`.
+- **Krav:** Granska AI-input/outputvillkor, referensbilder, röstkonvertering, CC0 och CC-BY-SA3/4;81 dvärgklipp kontra äldre63. Varje oklar fil får action/ägare och får inte passera slutgrind.
+- **Acceptance criteria:** Aktuell ledger för inkluderade filer, kopierade licensbevis/notices och tydlig clearance/ersätt/uteslutstatus. Historiska blanket-originalpåståenden är avgränsade; inget felaktigt totalgodkännande.
+- **Beroenden:** WBC-003.
+- **Tester:** Fil/manifest/credits-täckning och hash-/referenskontroll; sakkunnig kontroll där rättigheterna är oklara.
+- **Dokumentation:** IP_AUDIT och asset-/creditdokumentation samt BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen assetgenerering eller ny licens på material projektet inte äger.
+
+### WBC-014 — Kod-/runtime-notices och distributionsvillkor
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Distribuera program och bibliotek med korrekta villkor.
+- **Beskrivning:** Inventera faktisk runtime/transitiva komponenter och skilj byggverktyg från paket.
+- **Befintliga filer:** `package.json`, `package-lock.json`, `assets/ASSET_LICENSE.md`, `public/audio/credits.html`, `docs/commercial/IP_AUDIT.md`.
+- **Krav:** Phaser/Electron/Chromium/kodekar/notices och valda verktyg; kodägarskap/medverkande och avsaknad av rotlicens bedöms. EULA och Steam/DRM får inte motsäga CC-BY-SA.
+- **Acceptance criteria:** Versionsbunden komponentlista och medföljande notices; ägaren godkänner avtal/licenspolicy efter relevant rådgivning. Inga påståenden att private:true avgör kommersiella rättigheter.
+- **Beroenden:** WBC-005, WBC-013.
+- **Tester:** Paket-/noticecoverage, aktuell dependency/securitykontroll och manuell avtalsgranskning.
+- **Dokumentation:** IP_AUDIT/DECISIONS, distributionens notices och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen generell open-source-relicensiering, DRM eller SDK-installation.
+
+### WBC-015 — Art bible och godkänd animationsnivå
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Låsa en egen stil innan komplettering sprids.
+- **Beskrivning:** Granska en native representativ enhet/byggnad/terräng/UI/effekt och ange bara faktiska luckor.
+- **Befintliga filer:** `assets/sources/visual-refresh/README.md`, `assets/sources/leviathans/README.md`, `assets/sources/island-fleets/README.md`, `src/presentation/animation.ts`, `docs/commercial/IP_AUDIT.md`.
+- **Krav:** Egen silhuett/palett/material/lagmarkering/skala, tillåtna speglingar och krav på läsbar walk/attack/work/cast/death. Skilj målade poser från härledda frames; välj kostnadstak.
+- **Acceptance criteria:** Ägaren godkänner representativ in-game800/1280-slice och en prioriterad gaplista per släppt roll. Ny8-perspektivproduktion kräver omestimat, inget tyst fullartlöfte.
+- **Beroenden:** WBC-012, WBC-013.
+- **Tester:** Source/export/frame-/alpha-/anchorgranskning och faktisk browser/desktopbild, inte bara illustrationen.
+- **Dokumentation:** Art bible under docs/commercial, IP_AUDIT och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen total assetersättning eller ny grafisk pipeline.
+
+### WBC-016 — Human-pilot för prioriterade artluckor
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Bevisa minsta godkända assetkomplettering i riktig match.
+- **Beskrivning:** Åtgärda högst två identifierade Human-rolluckor från art bible, återbruka resten.
+- **Befintliga filer:** `assets/sources/visual-refresh/crown.png`, `assets/sources/visual-refresh/README.md`, `src/presentation/animation.ts`, `scripts/export-visual-refresh.mjs`, `tests/unitReadability.test.mjs`.
+- **Krav:** Klarerat ursprung, native silhuett/ägarskap och nödvändiga actionposer. Bevara logiska bodies/stats och skyddade units.mjs.
+- **Acceptance criteria:** Pilot syns/animeras rätt i800/1280, source/export är spårbara, ägaren godkänner stilen innan andra raser. Övriga luckor kostnadsbedöms separat.
+- **Beroenden:** WBC-015.
+- **Tester:** Riktade asset-/frame-/alpha-/readabilitychecks och representativ faktisk browser/desktopgranskning.
+- **Dokumentation:** Art bible/provenance och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny Humanroster, gameplaybalans eller alla-directions-kvot utöver godkänd standard.
+
+### WBC-017 — Orc prioriterade artluckor
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Få Orc släppta roller till pilotens godkända nivå.
+- **Beskrivning:** Åtgärda högst två prioriterade roll-/posegap; behåll godkänt befintligt material.
+- **Befintliga filer:** `assets/sources/visual-refresh/clans.png`, `src/config/factions.ts`, `src/presentation/animation.ts`, `scripts/export-visual-refresh.mjs`, `tests/unitReadability.test.mjs`.
+- **Krav:** Följ pilot/art bible, klarera källor och bevara gameplaybodies. WBC-002 fastställer Goblins som femte ras; ingen Gnomes-design ingår.
+- **Acceptance criteria:** Valda gap godkända i verklig800/1280-match; export/source/owner/facing/action dokumenterade, återstående gap har uttrycklig kvalitets-/scopebedömning.
+- **Beroenden:** WBC-016.
+- **Tester:** Riktade asset-/frame-/alpha-/readabilitychecks och mänsklig representativ bildgranskning.
+- **Dokumentation:** Art bible/provenance och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny roster, full omritning eller röst-/kampanjproduktion i samma task.
+
+### WBC-018 — Elf prioriterade artluckor
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Få Elf släppta roller till pilotens godkända nivå.
+- **Beskrivning:** Åtgärda högst två prioriterade roll-/posegap; behåll godkänt befintligt material.
+- **Befintliga filer:** `assets/sources/visual-refresh/elves.png`, `src/config/factions.ts`, `src/presentation/animation.ts`, `scripts/export-visual-refresh.mjs`, `tests/unitReadability.test.mjs`.
+- **Krav:** Följ pilot/art bible, klarera källor och bevara gameplaybodies. WBC-002 fastställer Goblins som femte ras; ingen Gnomes-design ingår.
+- **Acceptance criteria:** Valda gap godkända i verklig800/1280-match; export/source/owner/facing/action dokumenterade, återstående gap har uttrycklig kvalitets-/scopebedömning.
+- **Beroenden:** WBC-016.
+- **Tester:** Riktade asset-/frame-/alpha-/readabilitychecks och mänsklig representativ bildgranskning.
+- **Dokumentation:** Art bible/provenance och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny roster, full omritning eller röst-/kampanjproduktion i samma task.
+
+### WBC-019 — Dwarf prioriterade artluckor
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Få Dwarf släppta roller till pilotens godkända nivå.
+- **Beskrivning:** Åtgärda högst två prioriterade roll-/posegap; behåll godkänt befintligt material.
+- **Befintliga filer:** `assets/sources/visual-refresh/dwarves.png`, `src/config/factions.ts`, `src/presentation/animation.ts`, `scripts/export-visual-refresh.mjs`, `tests/unitReadability.test.mjs`.
+- **Krav:** Följ pilot/art bible, klarera källor och bevara gameplaybodies. WBC-002 fastställer Goblins som femte ras; ingen Gnomes-design ingår.
+- **Acceptance criteria:** Valda gap godkända i verklig800/1280-match; export/source/owner/facing/action dokumenterade, återstående gap har uttrycklig kvalitets-/scopebedömning.
+- **Beroenden:** WBC-016.
+- **Tester:** Riktade asset-/frame-/alpha-/readabilitychecks och mänsklig representativ bildgranskning.
+- **Dokumentation:** Art bible/provenance och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny roster, full omritning eller röst-/kampanjproduktion i samma task.
+
+### WBC-020 — Goblins prioriterade artluckor
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Få femte rasens släppta roller till pilotens godkända nivå.
+- **Beskrivning:** Åtgärda högst två prioriterade roll-/posegap; behåll godkänt befintligt material.
+- **Befintliga filer:** `assets/sources/visual-refresh/goblins.png`, `src/config/factions.ts`, `src/presentation/animation.ts`, `scripts/export-visual-refresh.mjs`, `tests/unitReadability.test.mjs`.
+- **Krav:** Följ pilot/art bible, klarera källor och bevara gameplaybodies. WBC-002 fastställer Goblins som femte ras; ingen Gnomes-design ingår.
+- **Acceptance criteria:** Valda gap godkända i verklig800/1280-match; export/source/owner/facing/action dokumenterade, återstående gap har uttrycklig kvalitets-/scopebedömning.
+- **Beroenden:** WBC-016, WBC-002.
+- **Tester:** Riktade asset-/frame-/alpha-/readabilitychecks och mänsklig representativ bildgranskning.
+- **Dokumentation:** Art bible/provenance och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny roster, full omritning eller röst-/kampanjproduktion i samma task.
+
+### WBC-021 — Gemensamma byggnaders visuella luckor
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Göra konstruktion, nivå och skada läsbara utan nya system.
+- **Beskrivning:** Åtgärda högst två prioriterade byggnadsslag efter pilot; inventera övriga17 slags acceptans.
+- **Befintliga filer:** `assets/sources/buildings.mjs`, `assets/sources/visual-refresh/buildings.png`, `assets/sources/island-fleets/README.md`, `src/presentation/assets.ts`, `src/config/buildingArt.ts`.
+- **Krav:** Samma ljus/perspektiv/ägarskap, foundation/build/complete/damaged och nivåmarkering. Delade marinbyggnader får vara delade enligt bible.
+- **Acceptance criteria:** Bygg-/skade-/levelstates på valda slag är urskiljbara i800/1280; inga footprint-/placementändringar. Alla andra släppta slag accepterade eller tydligt kvarstående blockerade.
+- **Beroenden:** WBC-016.
+- **Tester:** Riktade buildingassets/frame/anchor och faktisk pågående konstruktion/skada i browser/desktop.
+- **Dokumentation:** Art bible/provenance och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny byggnad, placeringsregel eller16×fem-rastermassproduktion.
+
+### WBC-022 — Terrängens originalitet och läsbarhet
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Få befintlig mark och resurser till godkänd egen presentation.
+- **Beskrivning:** Granska terräng-/resursexport mot referensrisk och åtgärda endast identifierade visuella gap.
+- **Befintliga filer:** `assets/sources/reference-terrain.md`, `assets/sources/reference-terrain.mjs`, `assets/sources/visual-refresh/resources-205.png`, `src/presentation/referenceTerrain.ts`, `tests/referenceTerrain.test.mjs`.
+- **Krav:** Särskilj egen geometri/stil från Warcraftreferenser; kontinuitet, vattenkant, träd/depleted/mines läsbara. Bevara alla layouts och resource-ID:n.
+- **Acceptance criteria:** Representativ land/kust/skog godkänd i native800/1280 och inga dolda terrain-/kollisionsändringar; rättighetsfrågor har beslut.
+- **Beroenden:** WBC-015.
+- **Tester:** Asset-/edge-/alpha-/framechecks och representativ browserbild; riktad navigation endast vid konkret geometririsk.
+- **Dokumentation:** IP_AUDIT/art bible och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen kartombyggnad, ny karta, procedural generator eller editor.
+
+### WBC-023 — Kommersiell HUD-/menyläsbarhet
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Få ett sammanhängande och läsbart gränssnitt.
+- **Beskrivning:** Polera identifierade panel-/ikon-/typografifrågor med befintliga actiongrupper.
+- **Befintliga filer:** `index.html`, `src/presentation/actionPanel.ts`, `src/presentation/researchCards.css`, `src/presentation/actionIcons.ts`, `src/presentation/matchWorkspace.css`, `src/presentation/homeMenu.ts`.
+- **Krav:** Egen ornamentik, rätta ikoner, kostnad/state och fokus även800. Inga klippta kontroller; godkänd fontdistributionspolicy, användar-CSS bevaras.
+- **Acceptance criteria:** Meny och fulla action-/researchkort läsbara i800/1280 och DPI125/150/200; actual click-targets/disabled fungerar.
+- **Beroenden:** WBC-015, WBC-006.
+- **Tester:** Riktade UI/assettests, actual pointerbrowser/Windows och granskade bilder.
+- **Dokumentation:** Art bible/spelguide och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny UIframework, bred CSS-refaktorering eller hemlig menyfunktionalitet.
+
+### WBC-024 — Musik-/SFX-polish med faktisk lyssning
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Ge tydligt och uthärdligt ljud i hela matcher.
+- **Beskrivning:** Lyssna på16s-loop/materialeffekter och komplettera bara dokumenterade kvalitetsgap.
+- **Befintliga filer:** `src/presentation/audio.ts`, `src/config/audio.ts`, `scripts/export-audio.py`, `public/audio/manifest.json`, `assets/sources/audio-identity/material-effects.json`, `assets/sources/leviathans/audio.json`.
+- **Krav:** Rättigheter/lager/credits, volym/mute/pause, samtidiga cues och lång repetition. Tidigare ljudacceptans erkänns; senare ändringar kräver ny lyssning.
+- **Acceptance criteria:** Människa godkänner faktisk ny mix/loop i match; tekniska format/peak/ducking/decode/omstart fungerar. Inga enbart waveform-PASS som lyssningsbevis.
+- **Beroenden:** WBC-013.
+- **Tester:** Riktade audioassets/policytester, WebAudio/Windowsplayback och faktisk dokumenterad lyssning.
+- **Dokumentation:** Provenance/credits/IP_AUDIT och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen full OST, extern ljudtjänst eller utökad audioengine.
+
+### WBC-025 — Röst-/wildlifevillkor och slutacceptans
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 2 · **Insats:** M
+
+- **Mål:** Klarera faktiskt distribuerade inspelningar och neuraloutput.
+- **Beskrivning:** Stäm av405 röster/nio wildlifeutdrag mot licenser/ändringar och lyssna på sena tillägg.
+- **Befintliga filer:** `public/audio/voices/manifest.json`, `public/audio/wildlife-manifest.json`, `public/audio/credits.html`, `assets/sources/audio-identity/README.md`, `assets/sources/wildlife-251.md`, `src/config/voices.ts`.
+- **Krav:** 81 CC-BY-SA3-dvärgklipp med rätt attribution/derivatvillkor; voice-conversion-referensrätt, modellnotiser, wildlifeBY-SA4 och begripligt offlinecredits. Problemklipp ersätts endast inom godkänt budgetmandat.
+- **Acceptance criteria:** Samtliga inkluderade klipp har rättighetsbeslut och konsistenta notices; actual lyssning på nya/ändrade klipp dokumenterad, ursprungliga false-flaggor förvanskas inte.
+- **Beroenden:** WBC-002, WBC-013.
+- **Tester:** Manifest/fil/credits/hashes/decode och faktisk mänsklig lyssning; sakkunnig licenskontroll vid behov.
+- **Dokumentation:** IP_AUDIT/assetnotiser/credits och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen röstkloning utan rättigheter, nya språk eller inspelning av alla specialistroller.
+
+### WBC-026 — Fysisk inputregression för hela actions
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 3 · **Insats:** M
+
+- **Mål:** Undvika att återinföra novemberregressionerna.
+- **Beskrivning:** Återbruka befintlig actual-mouse-matris och rätta bara konkreta fynd i desktop/browser.
+- **Befintliga filer:** `scripts/check-tech-card-input.mjs`, `scripts/check-quality-research.mjs`, `src/presentation/actionPanel.ts`, `src/presentation/researchCards.css`, `src/gameplay/research.ts`.
+- **Krav:** Pågående matcher, mitt/kant/kostnad/knapp, exakt enkel betalning, disabled/fieldset, alla fem raser och relevant campaign/Skirmish/Save.
+- **Acceptance criteria:** Befintlig researchfix återimplementeras inte; slutlig matris passerar i800/1280 och packad desktop med dokumenterade fixtures.
+- **Beroenden:** WBC-005.
+- **Tester:** Riktade admission/inputintegrationer samt faktiska fysiska klick; inte bara DOM.click eller stoppad sceneupdate.
+- **Dokumentation:** TECHNICAL_AUDIT/kontrollrapport och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny forskning, pris-/upplåsningsändring eller generell UIomskrivning.
+
+### WBC-027 — Praktisk tangentombindning
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 3 · **Insats:** M
+
+- **Mål:** Göra vanliga RTS-handlingar åtkomliga på normalt tangentbord.
+- **Beskrivning:** Lägg enkel remap/reset vid befintlig hotkeydispatch och preferences.
+- **Befintliga filer:** `src/presentation/hotkeys.ts`, `src/presentation/keyboard.ts`, `src/presentation/commandsView.ts`, `src/presentation/preferences.ts`, `index.html`.
+- **Krav:** Visa konflikt/reserverade tangenter, spara per användare och återställ defaults. Inga grundhandlingar kräver F13–F21; OS/fullscreen/fokusgenvägar prövas.
+- **Acceptance criteria:** Alla grundhandlingar kan bindas/användas efter restart; Commands visar faktiskt val, textfält/menyfokus utlöser inte matchorder.
+- **Beroenden:** WBC-006, WBC-026.
+- **Tester:** Riktade keycontext/remap/persistens/konflikttester och faktisk Windowskeyboard i800/1280.
+- **Dokumentation:** Spelguide/Commands/DECISIONS och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen makroeditor, controller eller generell inputframework.
+
+### WBC-028 — Praktiskt tillgänglighetspaket
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 3 · **Insats:** M
+
+- **Mål:** Minska läs-/färg-/kontrollhinder inom liten scope.
+- **Beskrivning:** Verifiera och komplettera textskala, fokus, lagmarkeringar och viktiga textalternativ.
+- **Befintliga filer:** `src/presentation/displayPolicy.ts`, `src/presentation/minimap.ts`, `src/presentation/actionTooltip.ts`, `src/presentation/preferences.ts`, `src/presentation/resultScreen.ts`, `src/presentation/attackWarnings.ts`.
+- **Krav:** Ägarskap/fel/HP förstås utan endast färg eller ljud; fokusrundor/menyer och skalad text har synliga kontroller. Begränsa skak/flash där de faktiskt finns.
+- **Acceptance criteria:** Mänskligt läsbar800/1280- och DPI-matris, inga tappade kontroller; dokumenterad faktisk stödlista och begränsningar.
+- **Beroenden:** WBC-023, WBC-027.
+- **Tester:** Riktade display/preferences/focustester, manuell färg-/ljudavstängning/textskala/keyboard.
+- **Dokumentation:** RELEASE_CHECKLIST/användarguide och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen full WCAG-/icke-visuell gameplaygaranti eller ny hjälpmedelsengine.
+
+### WBC-029 — Begriplig första10–15-minuters onboarding
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 3 · **Insats:** M
+
+- **Mål:** Lära ut grundloopen utan handledare.
+- **Beskrivning:** Polera befintlig tutorial i en vald släppt mission och ge korta nästa-steg-förklaringar.
+- **Befintliga filer:** `src/config/tutorial.ts`, `src/gameplay/tutorial.ts`, `src/presentation/tutorial.ts`, `src/config/campaignContent.ts`, `src/presentation/commandsView.ts`.
+- **Krav:** Lär urval/flytt, faktisk leverans, bygge/produktion/supply och första strid. Bevara objectivevalidering; sjö/magi lärs senare i valda operationer.
+- **Acceptance criteria:** En ny spelare kan slutföra grundloopen; lämnade instruktioner motsvarar verkliga controls/knappar. Mänsklig tid dokumenterad, inga resurscheats som onboardingbevis.
+- **Beroenden:** WBC-002, WBC-028.
+- **Tester:** Tutorial/Save/campaignintegration och mänskligt blindtest; bred kampanjregression först när innehåll ändrats klart.
+- **Dokumentation:** Spelguide/tutorialtext/RELEASE_CHECKLIST och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen separat tutorialengine, video/cinematic eller påhittad genomspelningstid.
+
+### WBC-030 — Mät och reducera konkreta rörelse-/orderstopp
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 3 · **Insats:** L
+
+- **Mål:** Få responsiv kontroll på fastställd Windowsminspec.
+- **Beskrivning:** Profilera samma normala formation/framryckning/contact före och efter begränsad rättning.
+- **Befintliga filer:** `scripts/profile-quality-release.mjs`, `src/gameplay/navigation.ts`, `src/gameplay/groupMovement.ts`, `src/gameplay/traffic.ts`, `src/gameplay/separation.ts`, `src/presentation/selectionInfo.ts`.
+- **Krav:** Rapportera initialmax separat från median/p95; samma hardware/runtime/workload. Bevara clearance, mål, fog/AI och ekonomiregler.
+- **Acceptance criteria:** Dokumenterad förbättring eller uttrycklig kvarstående blockerare mot WBC-003-budget. Inga assertions/timeouts ändras för att maskera gameplayförlust.
+- **Beroenden:** WBC-003, WBC-005.
+- **Tester:** Riktad navigation/formation/collision/integration och profiler före/efter; actual Windowsorder. Full regression vid milstolpe.
+- **Dokumentation:** TECHNICAL_AUDIT/prestandarapport/DECISIONS och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen motorflytt, generellt ECS, workerrewrite eller sänkt simulationsfrekvens som antagen fix.
+
+### WBC-031 — Läsbar strids- och orderfeedback
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 3 · **Insats:** M
+
+- **Mål:** Göra hot, counters och misslyckade handlingar begripliga.
+- **Beskrivning:** Polera konkreta feedbackgap med befintlig effects/audio/commandFeedback.
+- **Befintliga filer:** `src/presentation/effects.ts`, `src/presentation/combatAudio.ts`, `src/presentation/commandFeedback.ts`, `src/gameplay/threatResponse.ts`, `src/gameplay/domains.ts`.
+- **Krav:** Synlig targetdomain/range/status, cast/impact/flykt/återgång utan dold informationsläcka; manuella order behåller avsikt.
+- **Acceptance criteria:** Utvalda land/air/sea/spell-situationer förstås i faktisk match; feedback skapar ingen skada eller orderändring. Avvisade handlingar bevarar tidigare giltig order.
+- **Beroenden:** WBC-026, WBC-015.
+- **Tester:** Riktad threat/visibility/domain/feedbackintegration, browser/Windowsbild och lyssning om ljud ändras.
+- **Dokumentation:** Spelguide/feedbackbeslut och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen generell orderlivscykelrewrite eller nya combatregler.
+
+### WBC-032 — AI-kvalitet i avgränsade land-/ömatcher
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 3 · **Insats:** L
+
+- **Mål:** Ge en rättvis motståndare som kan avsluta matcher.
+- **Beskrivning:** Utred konkreta fynd i befintlig scout/economy/expansion/army/colonykedja.
+- **Befintliga filer:** `src/gameplay/enemyStrategy.ts`, `src/gameplay/enemyKnowledge.ts`, `src/gameplay/enemyConstruction.ts`, `src/gameplay/enemyExpansion.ts`, `src/gameplay/enemyNaval.ts`, `src/gameplay/enemyColonies.ts`, `src/config/skirmishPacing.ts`.
+- **Krav:** Egen syn/minne, betalda jobb och synliga regler; scouting→expansion→pressure→landing fungerar. Dokumentera difficultyfördelar utan att lova identisk startbudget.
+- **Acceptance criteria:** Valda långa land-/kustmatcher och riktade hidden-info-/kostnads-/recoveryfall passerar; inga permanent passiva/stuck slutlägen i provurvalet.
+- **Beroenden:** WBC-030.
+- **Tester:** Riktade AI/Save/fogintegrationer, valda matchsims och mänskliga Windowsmatcher; inte alla campaignloops efter varje ändring.
+- **Dokumentation:** AI-policy/TECHNICAL_AUDIT och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny AIengine, gratis förstärkning eller regeländring utan belägg.
+
+### WBC-033 — Mänskligt grundad femrasbalans
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 3 · **Insats:** L
+
+- **Mål:** Bevara meningsfulla rasval och motspel.
+- **Beskrivning:** Testa kostnadsjämförbara öppningar/expansioner/arméer och ändra bara observerade obalanser.
+- **Befintliga filer:** `src/config/factions.ts`, `src/config/abilities.ts`, `src/config/spells.ts`, `src/config/roleResearch.ts`, `src/config/factionDescriptions.ts`.
+- **Krav:** 25 ordnade tekniska matchup-par inklusive mirrors; mänskligt prov varje ras som egen/motståndare. Rapportera erfarenhet/tider/budget; stats i config.
+- **Acceptance criteria:** Varje ras har minst två fungerande taktiska planer och tydliga svagheter i dokumenterade prov; inga nya universalcounters eller skillnader endast kosmetiska.
+- **Beroenden:** WBC-002, WBC-031, WBC-032.
+- **Tester:** Riktade ekonomi/combat/AI/Save och jämförbara matcher före/efter configändring; mänsklig återkoppling.
+- **Dokumentation:** GAME_DESIGN/factionDescriptions/balansrapport och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny asymmetrisk roster, extra ras eller balansslutsats från endast bots.
+
+### WBC-034 — Sjö-, luft-, magi- och endgamekvalitet
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 3 · **Insats:** M
+
+- **Mål:** Sluttesta befintliga kombinerade system.
+- **Beskrivning:** Pröva betald techväg, counters, transport/landing/repair och tre stora enheter.
+- **Befintliga filer:** `src/config/largeUnits.ts`, `src/gameplay/transport.ts`, `src/gameplay/autoTransport.ts`, `src/gameplay/fleetService.ts`, `src/gameplay/enemyNaval.ts`, `src/gameplay/spells.ts`, `scripts/check-quality-endgame.mjs`.
+- **Krav:** Vanlig ekonomisk nåbarhet skiljs från finansierade accessfixtures; partiallanding, last/HP, detektion, targetmasks och Save i varje relevant domän.
+- **Acceptance criteria:** Mänsklig sen match har fungerande counters och avslut; teknisk access/state/Save-matris passerar. Kvarvarande trängsel-/ljud-/animationsrisk explicit.
+- **Beroenden:** WBC-031, WBC-032.
+- **Tester:** Riktade naval/air/spells/Save och faktiska Windows-/browserflöden, mänsklig senmatch/ljud där ändrat.
+- **Dokumentation:** Spelguide/RELEASE_CHECKLIST och BACKLOG/DEV_LOG.
+- **Non-goals:** Inga nya supers, fartyg, spells eller techtiers.
+
+### WBC-035 — Kallstart, minne och långa desktopmatcher
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 3 · **Insats:** M
+
+- **Mål:** Fastställa verkliga driftgränser.
+- **Beskrivning:** Mät assetdecode/startminne och två valda2h-matcher med tillåtet maxAI.
+- **Befintliga filer:** `src/scenes/BootScene.ts`, `src/presentation/audio.ts`, `src/presentation/animation.ts`, `src/gameplay/multiplePlayers.ts`, `scripts/profile-five-players.mjs`, `scripts/profile-quality-release.mjs`.
+- **Krav:** En land-/en kustmatch, Save/Load/restart, fokusskiften och minnes-/listener-/audioövervakning. Utred bara konkret läcka/stall; paketstorlek inte GPU/RAM.
+- **Acceptance criteria:** WBC-003-budget passerar eller releaseblockerare kvarstår; ingen kontinuerlig tillväxt/hängning eller förlorad save i prov. Actual OS/GPU/duration/workload redovisade.
+- **Beroenden:** WBC-011, WBC-030, WBC-032, WBC-034.
+- **Tester:** Packade Windowssoaks/profilering och relevanta riktade regressioner efter faktiska fixar.
+- **Dokumentation:** TECHNICAL_AUDIT/systemkravsunderlag och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen godtycklig uncapped-armé-FPS-garanti, syntetiskt2h-label eller generell chunking utan mätning.
+
+### WBC-036 — Välj10 befintliga operationer och original story
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 4 · **Insats:** M
+
+- **Mål:** Frysa en kompakt kampanj innan innehåll poleras.
+- **Beskrivning:** Välj tio befintliga ID:n och sammanhängande berättelse/undervisningskurva. Två per ras är urvalsförslaget bakom deltasks038–042; bekräfta eller uppdatera fördelningen före deras implementation.
+- **Befintliga filer:** `src/config/campaign.ts`, `src/config/campaignExpeditions.ts`, `src/config/campaignSeries.ts`, `src/config/factionLore.ts`, `docs/commercial/RELEASE_SCOPE.md`.
+- **Krav:** Utgå från45 befintliga ID:n,77 val; full edition jämfört med äldre browserinnehåll och old-savepolicy anges. Variera mål utan väntutfyllnad; inga nya missioner som standard.
+- **Acceptance criteria:** Ägaren godkänner10 val/ordning, respektive objektiv/map/briefing/inlärning och tydlig gräns för äldre material. Alla10 kan verifieras med befintliga system.
+- **Beroenden:** WBC-002, WBC-012.
+- **Tester:** Käll-/ID-/triggermappning och textreview; ingen ny speltidsutfästelse.
+- **Dokumentation:** RELEASE_SCOPE/GAME_DESIGN/kampanjurval och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen gameplayimplementation, nya kartor eller borttagning av legacy-ID:n.
+
+### WBC-037 — Kommersiell progression utan förlorad legacydata
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 4 · **Insats:** M
+
+- **Mål:** Koppla valt innehåll till robust befintlig ledger.
+- **Beskrivning:** Genomför godkänd urvals-/editionpolicy med minsta config-/menyförändring.
+- **Befintliga filer:** `src/gameplay/campaign.ts`, `src/config/campaignSeries.ts`, `src/config/campaignContent.ts`, `src/presentation/campaign.ts`, `src/presentation/resultScreen.ts`, `src/gameplay/save.ts`.
+- **Krav:** Bevara samtliga gamla källor/ID:n; explicit import/resume/ledgerpolicy och demo/full-isolation. Ingen automatisk reset eller bakåt-upplåsning.
+- **Acceptance criteria:** Start/continue/complete/retry/next/replay fungerar för valda kedjor; genuina äldre match-/progressfixtures ger avtalat resultat utan förlorad originaldata.
+- **Beroenden:** WBC-007, WBC-036.
+- **Tester:** Riktad campaign/progress/Save/migrationintegration samt verklig menu→victory→next→load.
+- **Dokumentation:** ARCHITECTURE/DECISIONS/save-/editionpolicy och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny kampanjengine, metaprogression eller nyuppfunnet Saveformat.
+
+### WBC-038 — Human två releaseoperationer
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 4 · **Insats:** M
+
+- **Mål:** Polera det godkända rasparet till slutförbart releaseinnehåll.
+- **Beskrivning:** Arbeta en operation i taget under samma ID; justera befintliga mål/text/triggerklarhet från WBC-036.
+- **Befintliga filer:** `src/config/campaignExpeditions.ts`, `src/config/campaignSeries.ts`, `src/config/campaignPhases.ts`, `src/config/campaignContent.ts`, `src/gameplay/campaignPhases.ts`, `src/presentation/operations.ts`.
+- **Krav:** Faktiska valda ID:n/map/faction, sammanhängande briefing/debriefing, gradvisa upplåsningar och tydliga förlustmål. Bevara gammal savepolicy; tidsmål bara efter mänskligt prov.
+- **Acceptance criteria:** Båda operationers varje fas start/vinst/förlust/restart/next/replay och Save mitt i mål fungerar; minst en mänsklig genomspelning/operation dokumenterad. Inga resurscheats som tids-/balansbevis.
+- **Beroenden:** WBC-037, WBC-029.
+- **Tester:** Riktade mål/campaign/Save-integrationer och faktisk UI/Windowsgenomspelning; samlat all-campaignprov i045.
+- **Dokumentation:** GAME_DESIGN/kampanjbelägg/spelguide och BACKLOG/DEV_LOG.
+- **Non-goals:** Inga nya kartor, skådespelarcinematics, ytterligare operationer eller full77-polish.
+
+### WBC-039 — Orc två releaseoperationer
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 4 · **Insats:** M
+
+- **Mål:** Polera det godkända rasparet till slutförbart releaseinnehåll.
+- **Beskrivning:** Arbeta en operation i taget under samma ID; justera befintliga mål/text/triggerklarhet från WBC-036.
+- **Befintliga filer:** `src/config/campaignExpeditions.ts`, `src/config/campaignSeries.ts`, `src/config/campaignPhases.ts`, `src/config/campaignContent.ts`, `src/gameplay/campaignPhases.ts`, `src/presentation/operations.ts`.
+- **Krav:** Faktiska valda ID:n/map/faction, sammanhängande briefing/debriefing, gradvisa upplåsningar och tydliga förlustmål. Bevara gammal savepolicy; tidsmål bara efter mänskligt prov.
+- **Acceptance criteria:** Båda operationers varje fas start/vinst/förlust/restart/next/replay och Save mitt i mål fungerar; minst en mänsklig genomspelning/operation dokumenterad. Inga resurscheats som tids-/balansbevis.
+- **Beroenden:** WBC-037.
+- **Tester:** Riktade mål/campaign/Save-integrationer och faktisk UI/Windowsgenomspelning; samlat all-campaignprov i045.
+- **Dokumentation:** GAME_DESIGN/kampanjbelägg/spelguide och BACKLOG/DEV_LOG.
+- **Non-goals:** Inga nya kartor, skådespelarcinematics, ytterligare operationer eller full77-polish.
+
+### WBC-040 — Elf två releaseoperationer
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 4 · **Insats:** M
+
+- **Mål:** Polera det godkända rasparet till slutförbart releaseinnehåll.
+- **Beskrivning:** Arbeta en operation i taget under samma ID; justera befintliga mål/text/triggerklarhet från WBC-036.
+- **Befintliga filer:** `src/config/campaignExpeditions.ts`, `src/config/campaignSeries.ts`, `src/config/campaignPhases.ts`, `src/config/campaignContent.ts`, `src/gameplay/campaignPhases.ts`, `src/presentation/operations.ts`.
+- **Krav:** Faktiska valda ID:n/map/faction, sammanhängande briefing/debriefing, gradvisa upplåsningar och tydliga förlustmål. Bevara gammal savepolicy; tidsmål bara efter mänskligt prov.
+- **Acceptance criteria:** Båda operationers varje fas start/vinst/förlust/restart/next/replay och Save mitt i mål fungerar; minst en mänsklig genomspelning/operation dokumenterad. Inga resurscheats som tids-/balansbevis.
+- **Beroenden:** WBC-037.
+- **Tester:** Riktade mål/campaign/Save-integrationer och faktisk UI/Windowsgenomspelning; samlat all-campaignprov i045.
+- **Dokumentation:** GAME_DESIGN/kampanjbelägg/spelguide och BACKLOG/DEV_LOG.
+- **Non-goals:** Inga nya kartor, skådespelarcinematics, ytterligare operationer eller full77-polish.
+
+### WBC-041 — Dwarf två releaseoperationer
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 4 · **Insats:** M
+
+- **Mål:** Polera det godkända rasparet till slutförbart releaseinnehåll.
+- **Beskrivning:** Arbeta en operation i taget under samma ID; justera befintliga mål/text/triggerklarhet från WBC-036.
+- **Befintliga filer:** `src/config/campaignExpeditions.ts`, `src/config/campaignSeries.ts`, `src/config/campaignPhases.ts`, `src/config/campaignContent.ts`, `src/gameplay/campaignPhases.ts`, `src/presentation/operations.ts`.
+- **Krav:** Faktiska valda ID:n/map/faction, sammanhängande briefing/debriefing, gradvisa upplåsningar och tydliga förlustmål. Bevara gammal savepolicy; tidsmål bara efter mänskligt prov.
+- **Acceptance criteria:** Båda operationers varje fas start/vinst/förlust/restart/next/replay och Save mitt i mål fungerar; minst en mänsklig genomspelning/operation dokumenterad. Inga resurscheats som tids-/balansbevis.
+- **Beroenden:** WBC-037.
+- **Tester:** Riktade mål/campaign/Save-integrationer och faktisk UI/Windowsgenomspelning; samlat all-campaignprov i045.
+- **Dokumentation:** GAME_DESIGN/kampanjbelägg/spelguide och BACKLOG/DEV_LOG.
+- **Non-goals:** Inga nya kartor, skådespelarcinematics, ytterligare operationer eller full77-polish.
+
+### WBC-042 — Goblins två releaseoperationer
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 4 · **Insats:** M
+
+- **Mål:** Polera det godkända rasparet till slutförbart releaseinnehåll.
+- **Beskrivning:** Arbeta en operation i taget under samma ID; justera befintliga mål/text/triggerklarhet från WBC-036.
+- **Befintliga filer:** `src/config/campaignExpeditions.ts`, `src/config/campaignSeries.ts`, `src/config/campaignPhases.ts`, `src/config/campaignContent.ts`, `src/gameplay/campaignPhases.ts`, `src/presentation/operations.ts`.
+- **Krav:** Faktiska valda ID:n/map/faction, sammanhängande briefing/debriefing, gradvisa upplåsningar och tydliga förlustmål. Bevara gammal savepolicy; tidsmål bara efter mänskligt prov.
+- **Acceptance criteria:** Båda operationers varje fas start/vinst/förlust/restart/next/replay och Save mitt i mål fungerar; minst en mänsklig genomspelning/operation dokumenterad. Inga resurscheats som tids-/balansbevis.
+- **Beroenden:** WBC-037, WBC-020.
+- **Tester:** Riktade mål/campaign/Save-integrationer och faktisk UI/Windowsgenomspelning; samlat all-campaignprov i045.
+- **Dokumentation:** GAME_DESIGN/kampanjbelägg/spelguide och BACKLOG/DEV_LOG.
+- **Non-goals:** Inga nya kartor, skådespelarcinematics, ytterligare operationer eller full77-polish.
+
+### WBC-043 — Kuratera sex befintliga skirmishkartor
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 4 · **Insats:** M
+
+- **Mål:** Ge ett litet strategiskt varierat och testat kartutbud.
+- **Beskrivning:** Välj sex ur16 befintliga skirmishval och kvalitetssäkra starter/rutter/resurser. Förslaget3 land/3 kust/ö är inte fastställt urval. Straits/Tidebreak är campaignOnly och ska inte räknas som skirmishkandidater.
+- **Befintliga filer:** `src/config/maps.ts`, `src/config/skirmishMaps.ts`, `src/config/islandMaps.ts`, `src/config/mapRegions.ts`, `src/config/players.ts`, `src/presentation/skirmishMenu.ts`.
+- **Krav:** Egen geografi/namn och storleksvariation, giltiga slots, reachable resurser/byggplatser, navalaccess och tydlig meny. Behåll övrig källdata och old-saves.
+- **Acceptance criteria:** Alla sex har dokumenterade starts/resurs-/rutt-/landstigningsprov, avtalat AIantal och mänsklig strategisk granskning. Oklara layouträttigheter lösta.
+- **Beroenden:** WBC-022, WBC-032.
+- **Tester:** Riktade map/navigation/fog/Save/AI-scenarier, browseröversikter och mänskliga matcher.
+- **Dokumentation:** RELEASE_SCOPE/karturval/IP_AUDIT och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny karta, stor layoutombyggnad, editor eller kvot om alla18.
+
+### WBC-044 — Mänsklig kampanjkurva och svårighet
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 4 · **Insats:** M
+
+- **Mål:** Få rimlig längd, tempo och lärande utan sifferutfyllnad.
+- **Beskrivning:** Sammanställ rasparens spelprotokoll och komplettera nya spelares första operation.
+- **Befintliga filer:** `src/config/difficulty.ts`, `src/config/campaignContent.ts`, `src/config/campaignPhases.ts`, `src/config/campaignSeries.ts`, `docs/commercial/RELEASE_CHECKLIST.md`.
+- **Krav:** Alla10 mänskligt spelade, minst två nya spelare i första operationen; Beginner/Easy/Normal/Hard riskurval. Mät faktisk tid/stopp och orsaker före justering.
+- **Acceptance criteria:** Tids-/svårighetsrapport med konkreta accepterade eller rättade fynd; Steamspeltid grundas på faktiskt prov och osäkerhet anges.
+- **Beroenden:** WBC-033, WBC-038, WBC-039, WBC-040, WBC-041, WBC-042, WBC-043.
+- **Tester:** Mänskligt genomspel, riktade integrationer/sim endast för ändrade värden eller mål. Ingen simtid som mänsklig tidsmätning.
+- **Dokumentation:** GAME_DESIGN/kampanjrapport/RELEASE_SCOPE och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen stor campaignexpansion, större AIrewrite eller framräknad garanterad speltid.
+
+### WBC-045 — Samlad kampanj- och progressionsregression
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 4 · **Insats:** M
+
+- **Mål:** Verifiera färdigt innehåll som sammanhängande produkt.
+- **Beskrivning:** Kör samlad kampanjkontroll först efter innehållsändringarna och koppla tekniska/mänskliga belägg.
+- **Befintliga filer:** `src/gameplay/campaign.ts`, `src/gameplay/campaignPhases.ts`, `src/gameplay/save.ts`, `scripts/check-campaign-quality.mjs`, `scripts/check-next-mission.mjs`, `docs/commercial/RELEASE_CHECKLIST.md`.
+- **Krav:** Samtliga release-ID:n/phasepoints, paid access, förlust, next/replay och supported old-savepolicy; UI/defaults och full kampanjledger på rätt ras/difficulty.
+- **Acceptance criteria:** Samlad teknisk regression PASS på namngiven SHA och alla mänskliga luckor från044 har beslut. Resultatet skiljs från allmän fullregression och gamla browserruns.
+- **Beroenden:** WBC-037, WBC-044, WBC-034.
+- **Tester:** Samlad campaign-/progress-/Saveintegration och faktisk releasekedja i Windows/browser; full npm test vid milstolpe.
+- **Dokumentation:** RELEASE_CHECKLIST/kampanjrapport/HANDOFF och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen upprepad bred sim efter små textändringar, nya mål eller acceptera osynliga hopp.
+
+### WBC-046 — Ägarstyrd Steamworks-onboarding
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 5 · **Insats:** S
+
+- **Mål:** Förbereda distributionskonto och lagliga produktuppgifter.
+- **Beskrivning:** Verifiera aktuella Valvekrav i partnerkonto och låt ägaren hantera identitet/bank/skatt/avtal/avgift.
+- **Befintliga filer:** `docs/commercial/COMMERCIAL_STRATEGY.md`, `docs/commercial/IP_AUDIT.md`, `docs/commercial/RELEASE_SCOPE.md`.
+- **Krav:** Klarerad titel/rättighetsväg, korrekt Generative AI/content/ratings-information och kostnadsgodkännande. Kontrollera aktuella väntetider; inga privata uppgifter i repot.
+- **Acceptance criteria:** Ägaren bekräftar onboardingstatus/appåtkomst och framtida reviewtid; bara offentliga icke-känsliga milstolpar loggas. Betalning/avtal utförs inte av agent utan uttryckligt mandat.
+- **Beroenden:** WBC-002, WBC-012, WBC-013, WBC-014.
+- **Tester:** Primärkällor/partnerkontroll och dokumentreview, inga speltester.
+- **Dokumentation:** COMMERCIAL_STRATEGY/releasekalender och BACKLOG/DEV_LOG.
+- **Non-goals:** Inget automatiskt kontoskapande, inköp, kontakt eller SDKarbete.
+
+### WBC-047 — Steamdepot och launch för desktopbuild
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 5 · **Insats:** M
+
+- **Mål:** Installera samma verifierade Windowsprodukt via Steam.
+- **Beskrivning:** Sätt avgränsat app/depot/launch/branch-flöde efter fristående desktopbevis.
+- **Befintliga filer:** `package.json`, `.github/workflows/pages.yml`, `docs/commercial/TECHNICAL_AUDIT.md`, `docs/commercial/RELEASE_CHECKLIST.md`.
+- **Krav:** Paketallowlist/notices, Windowsx64launch och versions-/buildmanifest; inga credentials i repo. Distribution och eventuell SDK är separata.
+- **Acceptance criteria:** Privat godkänd Steamtestbranch installeras och startar; Save/Load/uppdatering och Offline Mode efter initial login/install fungerar med rätt build-ID.
+- **Beroenden:** WBC-011, WBC-046.
+- **Tester:** Verklig Steaminstall/launch/update/offline och artifacthashar; inga offentliga releasepåståenden från enbart upload.
+- **Dokumentation:** Build-/Steamtestinstruktioner och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen publik launch, achievements/Cloud eller obligatorisk Steamonlinekontroll.
+
+### WBC-048 — Avgränsa Steam SDK och optional funktioner
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 5 · **Insats:** S
+
+- **Mål:** Undvika att Steamfeatures blockerar kärnspelet.
+- **Beskrivning:** Pröva behov/bindinglicens/versionsstöd/overlay och dokumentera minimal integrationsväg.
+- **Befintliga filer:** `docs/commercial/TECHNICAL_AUDIT.md`, `docs/commercial/RELEASE_SCOPE.md`, `package.json`.
+- **Krav:** Ingen SDK behövs för PoC; nativebinding måste fungera med vald wrapper/Windows och offline. Cloud/achievements separata P2; marknadsför inga oprövade features.
+- **Acceptance criteria:** Daterat ägar-/teknikbeslut om ingen minimal APIintegration behövs eller exakt litet senare uppdrag; verifieringsplan för overlay. Inget spekulativt bindinglager.
+- **Beroenden:** WBC-004, WBC-013, WBC-046.
+- **Tester:** Dokument-/licensreview; om separat godkänt spike behövs endast riktad packad Windowskompatibilitet.
+- **Dokumentation:** DECISIONS/TECHNICAL_AUDIT och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen automatisk SDKinstallation eller implementation av Steamfeatures.
+
+### WBC-049 — Korrekt Steam store package och Coming Soon
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 5 · **Insats:** M
+
+- **Mål:** Ge en sann och attraktiv produktpresentation.
+- **Beskrivning:** Ta fram description/tags/languages/systemkrav/AI-survey, klarerad capsule/libraryart och faktiska screenshots.
+- **Befintliga filer:** `README.md`, `src/config/release.ts`, `docs/commercial/COMMERCIAL_STRATEGY.md`, `docs/commercial/IP_AUDIT.md`, `docs/commercial/RELEASE_SCOPE.md`.
+- **Krav:** Endast levererbart scope, faktiskt gameplay i screenshots, godkänd titel/prishypotesval och aktuella Valveformat. Publicering/review kräver uttryckligt ägarmandat.
+- **Acceptance criteria:** Ägargranskat komplett storeunderlag och, vid separat publiceringsmandat, faktiskt Valve-godkänd Coming Soon med datum. Inga marknadsförda framtidsfeatures eller falska speltidsuppgifter.
+- **Beroenden:** WBC-015, WBC-023, WBC-024, WBC-025, WBC-038, WBC-046.
+- **Tester:** Text-/rights-/bildspec-/systemkravsreview, länkar och faktisk pagesynlighet först efter godkänd publicering.
+- **Dokumentation:** COMMERCIAL_STRATEGY/RELEASE_SCOPE/marknadsmaterial och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen offentlig publicering eller prisbindning enbart genom denna taskbeskrivning.
+
+### WBC-050 — Kort trailer från faktisk spelbuild
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 5 · **Insats:** M
+
+- **Mål:** Visa spelets riktiga beslutsloop.
+- **Beskrivning:** Spela in och redigera en kort gameplaytrailer efter representativ polish.
+- **Befintliga filer:** `docs/commercial/COMMERCIAL_STRATEGY.md`, `src/config/release.ts`, `docs/commercial/IP_AUDIT.md`, `docs/commercial/RELEASE_SCOPE.md`.
+- **Krav:** Klarerat ljud/art; inga falska shader-/cinematic-/multiplayer-/prestandalöften. Visa bas/strid/landstigning/rasval med aktuell build.
+- **Acceptance criteria:** Ägaren godkänner läsbart klipp med identifierad kandidat, korrekt titel/featuretext och licenser. Export uppfyller då aktuella Steamspecifikationer.
+- **Beroenden:** WBC-035, WBC-043, WBC-049.
+- **Tester:** Visuell faktisk playback, ljudlyssning/rights och text/buildkontroll; ingen ny fullregression för klippningen.
+- **Dokumentation:** Marknadsmaterial/provenance/COMMERCIAL_STRATEGY och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen dyr cinematic, genererad falsk gameplay eller automatisk videopublicering.
+
+### WBC-051 — Hållbar wishlist- och feedbackplan
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 5 · **Insats:** S
+
+- **Mål:** Lära om efterfrågan utan backend eller påhittade prognoser.
+- **Beskrivning:** Definiera ägarens kanal/takt, frivilliga demofrågor och realistiskt fortsättningsbeslut.
+- **Befintliga filer:** `docs/commercial/COMMERCIAL_STRATEGY.md`, `docs/commercial/RELEASE_SCOPE.md`.
+- **Krav:** Verkliga klipp och tydlig wishlist/demo-länk; använd Steamverktyg och frivilliga svar. Ingen universell wishlist-/konverteringsgräns antas.
+- **Acceptance criteria:** Ägaren godkänner datum/tidsbudget/ansvar och ekonomiskt omprövningskriterium; observationer skiljs från försäljningsprognoser.
+- **Beroenden:** WBC-049, WBC-050.
+- **Tester:** Text-/länk-/processreview; inga kodtester eller automatmeddelanden.
+- **Dokumentation:** COMMERCIAL_STRATEGY/lanseringskalender och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen kontakt/posta/annonsera/samla persondata utan uttrycklig beställning.
+
+### WBC-052 — Lås en liten demos innehåll och gränser
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 6 · **Insats:** S
+
+- **Mål:** Visa ett komplett prov utan dubbelt spelprojekt.
+- **Beskrivning:** Välj en onboardingoperation/en skirmishkarta/två klara raser ur releaseinnehållet.
+- **Befintliga filer:** `src/config/campaignSeries.ts`, `src/config/maps.ts`, `src/config/factions.ts`, `docs/commercial/RELEASE_SCOPE.md`, `docs/commercial/COMMERCIAL_STRATEGY.md`.
+- **Krav:** Samma regler/kodbas, tydligt innehållsurval, separat data och fullspelsövergång. Kontrollera aktuella Steamdemo-/eventkrav.
+- **Acceptance criteria:** Ägaren godkänner exakta ID:n/raser/UX/saveseparation och testplan; inga nya enheter/kartor eller dold paywall i matchen.
+- **Beroenden:** WBC-029, WBC-038, WBC-043, WBC-049.
+- **Tester:** Urvals-/ID-/scope- och licensreview, inga tests för enbart dokumentbeslut.
+- **Dokumentation:** RELEASE_SCOPE/demospecifikation och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny kampanj eller full demofork.
+
+### WBC-053 — Paketerad Steamdemo från samma kod
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 6 · **Insats:** M
+
+- **Mål:** Distribuera ett avgränsat fungerande spelprov.
+- **Beskrivning:** Genomför godkänt urval och separat demoapp/depot/dataområde.
+- **Befintliga filer:** `src/presentation/homeMenu.ts`, `src/presentation/campaign.ts`, `src/presentation/skirmishMenu.ts`, `src/gameplay/save.ts`, `vite.config.ts`, `package.json`.
+- **Krav:** Full/demoseparerade saves/progression, inga trasiga val eller gömda licensproblem. Frivillig överföring till fullversion enligt beslutad policy.
+- **Acceptance criteria:** Ren demo-Steaminstall, onboarding/skirmish/restart/save/load/offline fungerar och fullspelets progression påverkas inte. Publicering kräver eget mandat.
+- **Beroenden:** WBC-011, WBC-047, WBC-052.
+- **Tester:** Riktad edition/save/menuintegration och faktisk demo/full-Windowsinstall, offline och inputsmoke.
+- **Dokumentation:** ARCHITECTURE/RELEASE_CHECKLIST/demoinstruktioner och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen separat gameplaybranch, stor featureflagframework eller automatiskt festivallöfte.
+
+### WBC-054 — Extern demospeltestning
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 6 · **Insats:** M
+
+- **Mål:** Få mänsklig evidens om begriplighet och spelglädje.
+- **Beskrivning:** Ägaren rekryterar minst8 externa testare; samla frivilliga anonymiserade protokoll.
+- **Befintliga filer:** `docs/commercial/RELEASE_CHECKLIST.md`, `docs/commercial/COMMERCIAL_STRATEGY.md`, `docs/commercial/RELEASE_SCOPE.md`.
+- **Krav:** Nya spelare, Windows/hårdvara, första mål/strid/tid/stopp och korta efterfrågor. Minst6/8 når grundmål utan handledning som intern grind.
+- **Acceptance criteria:** Rapport visar faktiska deltagare/resultat, avhopp och tydliga prioriterade fynd; otillräckligt urval markeras ofärdigt. Ingen snabb sim ersätter prov.
+- **Beroenden:** WBC-051, WBC-053.
+- **Tester:** Faktisk mänsklig demo och installation; frivilliga logs/bilder endast med mandat.
+- **Dokumentation:** Demorapport/RELEASE_CHECKLIST/COMMERCIAL_STRATEGY och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen automatisk kontakt, telemetri, statistiskt säker marknadsslutsats eller betygsmanipulation.
+
+### WBC-055 — Avgränsad iteration på demofynd
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 6 · **Insats:** M
+
+- **Mål:** Lösa de viktigaste verkliga spelstoppen före freeze.
+- **Beskrivning:** Välj högst tre reproducerade P0/P1-fynd och gör en vertikal rättning åt gången.
+- **Befintliga filer:** `docs/commercial/RELEASE_CHECKLIST.md`, `src/presentation/actionPanel.ts`, `src/gameplay/match.ts`, `src/gameplay/save.ts`.
+- **Krav:** Exakta berörda filer väljs från fynd före implementation; repro/budget/acceptans per fix. Fler stora fynd omestimeras och får nya godkända delsteg under samma ID.
+- **Acceptance criteria:** Prioriterade stopp rättade med motsvarande verifiering och mänskligt omprov; kvarstående problem/efterfrågan leder till datum-/scopebeslut, inte automatiskt launch.
+- **Beroenden:** WBC-035, WBC-054.
+- **Tester:** Riktade unit/integration/input eller Windowsprov per fynd; full demomilstolperegression på slutkandidat.
+- **Dokumentation:** Fyndrapport/ROADMAP/RELEASE_CHECKLIST och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen allmän polishsäck, nya features eller bara tidsgränshöjning för gameplayfel.
+
+### WBC-056 — Feature freeze och slutlig leveranslista
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 7 · **Insats:** S
+
+- **Mål:** Avsluta featuretillväxt och frysa releasekandidaten.
+- **Beskrivning:** Samla uppfyllda fasgrindar, inkluderade filer, known issues och ägarens go/no-go.
+- **Befintliga filer:** `docs/commercial/RELEASE_CHECKLIST.md`, `docs/commercial/RELEASE_SCOPE.md`, `docs/commercial/IP_AUDIT.md`, `package.json`.
+- **Krav:** Klarerade assets/notices, färdigt releaseinnehåll och ingen blockerande dataförlust/krasch/progression. Optional Steamfeatures är inte beroenden.
+- **Acceptance criteria:** Ägaren godkänner innehåll/version/risklista och freeze; varje senare ändring har repro och omverifieringsplan.
+- **Beroenden:** WBC-011, WBC-014, WBC-017, WBC-018, WBC-019, WBC-021, WBC-025, WBC-035, WBC-045, WBC-048, WBC-050, WBC-055.
+- **Tester:** Dokument-/paket-/known-issues-review; faktisk regression i057.
+- **Dokumentation:** RELEASE_SCOPE/RELEASE_CHECKLIST/DECISIONS/HANDOFF och BACKLOG/DEV_LOG.
+- **Non-goals:** Inga nya kartor, raser, gameplayfunktioner eller automatiskt datumsläpp.
+
+### WBC-057 — Full releasekvalificering
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 7 · **Insats:** L
+
+- **Mål:** Stänga tekniska och mänskliga releasegrindar på samma kandidat.
+- **Beskrivning:** Kör checklistans fullregression, urvalsmatriser och slutlig beläggsreview.
+- **Befintliga filer:** `docs/commercial/RELEASE_CHECKLIST.md`, `scripts/test-unit.mjs`, `scripts/test-integration-files.json`, `scripts/check-tech-card-input.mjs`, `scripts/check-campaign-quality.mjs`, `scripts/profile-quality-release.mjs`.
+- **Krav:** Full npm test, strict build, berörda integrationer och actual input/assets/Windows/save/soak; campaign/mänskliga resultat återbrukas bara för oförändrat relevant innehåll.
+- **Acceptance criteria:** Exakt SHA/fixture/OS/results för alla grindar; inga öppna blockerare. Fel rättas med riktad kontroll och relevant omkörning, aldrig antaget PASS.
+- **Beroenden:** WBC-056.
+- **Tester:** Hela kvalitetspaketet enligt checklistan; inga claims om lyssning/balans/install från enbart testkod.
+- **Dokumentation:** QUALITY_REVIEW/HANDOFF/RELEASE_CHECKLIST och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen ny scope, manipulerade fixtures eller identitetslösa historiska PASS.
+
+### WBC-058 — RC-paket och clean Windowsacceptans
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 7 · **Insats:** M
+
+- **Mål:** Säkerställa att distribuerade bitar motsvarar kvalificerat spel.
+- **Beskrivning:** Bygg exakt kandidat och prova installer/unpacked/Steambranch som vanlig användare.
+- **Befintliga filer:** `package.json`, `src/config/release.ts`, `.github/workflows/pages.yml`, `docs/commercial/RELEASE_CHECKLIST.md`.
+- **Krav:** Version/gitSHA/runtime/depot/build-ID/SHA256, notices, signeringsstatus och rollback. Alla OS-/DPI-/offline-/upgrade-/savesteg på riktig maskin.
+- **Acceptance criteria:** Clean install/launch/load/update/offline/rollback passerar; publiceringsunderlag byte-/buildidentifierat och inga devfiler/credentials ingår.
+- **Beroenden:** WBC-047, WBC-057.
+- **Tester:** Faktiskt installerat RC med artifacthash, Windowsmatris och smoke; relevant checks igen endast vid ny ändring.
+- **Dokumentation:** Releaseanteckning/RELEASE_CHECKLIST/QUALITY_REVIEW och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen launch genom upload eller ny produktversion utan ägarbeslut.
+
+### WBC-059 — Valvegranskning och ägarens launchbeslut
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 7 · **Insats:** S
+
+- **Mål:** Få klartecken för den faktiska leveransen.
+- **Beskrivning:** Ägaren skickar page/build för review och beslutar pris/datum/support efter resultat.
+- **Befintliga filer:** `docs/commercial/COMMERCIAL_STRATEGY.md`, `docs/commercial/RELEASE_CHECKLIST.md`, `docs/commercial/RELEASE_SCOPE.md`.
+- **Krav:** Aktuella väntetider/Coming Soon, korrekta features/AI/ratings och near-final RC. Budgetera review/rättelser; avtal/klick kräver uttrycklig ägarbeställning.
+- **Acceptance criteria:** Faktisk Valve page/build-status och ägarens go/no-go dokumenterade; inga öppna uppgifter eller automatiska godkännanden från väntad tid.
+- **Beroenden:** WBC-046, WBC-049, WBC-058.
+- **Tester:** Partner-/store-/buildreview och dokumentkonsistens; riktade omprov vid faktisk rättelse.
+- **Dokumentation:** RELEASE_CHECKLIST/COMMERCIAL_STRATEGY/lanseringslogg och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen automatisk launch eller föregripet Valvegodkännande.
+
+### WBC-060 — Lansera och verifiera faktisk Steaminstallation
+
+**Status:** Todo · **Prioritet:** P0 · **Fas:** 7 · **Insats:** S
+
+- **Mål:** Leverera godkänd1.0 med verifierat distributionsresultat.
+- **Beskrivning:** Utför uttryckligt godkänd publicering och prova det som kunder faktiskt installerar.
+- **Befintliga filer:** `docs/commercial/RELEASE_CHECKLIST.md`, `src/config/release.ts`, `README.md`, `HANDOFF.md`, `QUALITY_REVIEW.md`.
+- **Krav:** Ägarens launchmandat, supportberedskap, pris/datum och rollback. Kontrollera public Steam build/depotversion, start, match/save/load och Offline Mode.
+- **Acceptance criteria:** Faktisk publicerad build matchar godkänt RC; publik metadata är korrekt och support/known issues finns. Hashar/status/länkar rapporteras, inga nya tasks startas automatiskt.
+- **Beroenden:** WBC-051, WBC-058, WBC-059.
+- **Tester:** Faktisk Steamkundinstallation/launch/SaveLoad/offline och public page; om mismatch stoppa och följ rollbackplan.
+- **Dokumentation:** README/releaseanteckningar/HANDOFF/QUALITY_REVIEW och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen force/historyrewrite, nya features eller publicering utan uttryckligt mandat.
+
+### WBC-061 — Avgränsad hotfixberedskap efter launch
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 8 · **Insats:** M
+
+- **Mål:** Skydda köpta spel/saves under första två veckorna.
+- **Beskrivning:** Triagera faktisk support och rätta högst ett kritiskt problem per verifierad delrelease.
+- **Befintliga filer:** `docs/commercial/RELEASE_CHECKLIST.md`, `src/gameplay/save.ts`, `src/gameplay/match.ts`, `HANDOFF.md`.
+- **Krav:** Repro, påverkan och konkreta filer väljs före fix; spara kompatibilitet och rollback. Större stödbehov omestimeras, inte obegränsad jour.
+- **Acceptance criteria:** Faktiska kritiska fynd har verifierad patch eller tydlig workaround/ägare; inga tysta save-/balanceändringar.
+- **Beroenden:** WBC-060.
+- **Tester:** Riktad regression per fix och verklig Steamupdate/load; full vid större systempåverkan.
+- **Dokumentation:** Patchnotes/known issues/HANDOFF och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen automatisk kundkontakt, ny contentpipeline eller obegränsat supportåtagande.
+
+### WBC-062 — Balanspatch från verklig releasefeedback
+
+**Status:** Todo · **Prioritet:** P1 · **Fas:** 8 · **Insats:** M
+
+- **Mål:** Förbättra dokumenterade obalanser utan pendling.
+- **Beskrivning:** Samla mänskliga matchup-/kartfynd och välj en liten configändring åt gången.
+- **Befintliga filer:** `src/config/factions.ts`, `src/config/difficulty.ts`, `src/config/roleResearch.ts`, `docs/commercial/RELEASE_SCOPE.md`.
+- **Krav:** Skill/ekonomi/map/runtime skiljs från faktisk recipeobalans; bevara rasidentitet och dokumentera saveeffekt.
+- **Acceptance criteria:** Begränsade ändringar har jämförbart före/efter, mänskligt omprov och kompatibilitetsbesked; få högljudda rapporter är inte ensamt beslutsunderlag.
+- **Beroenden:** WBC-033, WBC-061.
+- **Tester:** Riktade combat/economy/AI/Save och berörda matcher; full vid större balanspaket.
+- **Dokumentation:** GAME_DESIGN/patchnotes/balansrapport och BACKLOG/DEV_LOG.
+- **Non-goals:** Inga nya roller, överdriven buff/nerf eller löften om framtida innehåll.
+
+### WBC-063 — Besluta fortsatt innehåll och optional Steamarbete
+
+**Status:** Todo · **Prioritet:** P2 · **Fas:** 8 · **Insats:** S
+
+- **Mål:** Hålla efterlanseringsscope finansierat och uttryckligt.
+- **Beskrivning:** Bedöm faktisk försäljning/support/feedback mot återstående budget.
+- **Befintliga filer:** `docs/commercial/COMMERCIAL_STRATEGY.md`, `docs/commercial/ROADMAP.md`, `docs/roadmap/warbound-2-vision.md`.
+- **Krav:** Fortsätt/paus/avslut och Cloud/achievements/extra innehåll kräver nytt ägarbeslut. Ingen ny tasklista eller editor av bara önskemål.
+- **Acceptance criteria:** Daterat beslut med budget/tid/risktak; endast godkända optional tasks blir exekverbara.
+- **Beroenden:** WBC-061, WBC-062.
+- **Tester:** Dokument-/ekonomireview med faktiska uppgifter, inga kodtester.
+- **Dokumentation:** ROADMAP/RELEASE_SCOPE/DECISIONS och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen automatisk DLC, live service, karteditor eller Warbound2-start.
+
+### WBC-064 — Optional Steam Cloud för stabila saves
+
+**Status:** Todo · **Prioritet:** P2 · **Fas:** 8 · **Insats:** M
+
+- **Mål:** Synka endast om ägaren uttryckligen prioriterar det.
+- **Beskrivning:** Välj minsta Cloud/Auto-Cloud-lösning efter stabil filsave och SDKbeslut.
+- **Befintliga filer:** `src/config/save.ts`, `src/gameplay/save.ts`, `src/gameplay/campaign.ts`, `docs/commercial/TECHNICAL_AUDIT.md`.
+- **Krav:** Nytt mandat, stabila paths, full/demo-isolation, konflikt/backups/kvot och offline. Local-first fungerar utan Steam; ingen server byggs.
+- **Acceptance criteria:** Två maskiner, offlineändring/konflikt/avbruten sync/äldre version återhämtas utan tyst förlust; ägaren godkänner syncpolicy.
+- **Beroenden:** WBC-008, WBC-048, WBC-063.
+- **Tester:** Faktisk två-PCSteam-sync/offline och riktad save/migration/felfall.
+- **Dokumentation:** Saveguide/DECISIONS/RELEASE_SCOPE och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen baskravsstatus i1.0, egen backend eller generell synkmotor.
+
+### WBC-065 — Optional små Steam achievements
+
+**Status:** Todo · **Prioritet:** P2 · **Fas:** 8 · **Insats:** M
+
+- **Mål:** Ge ett litet belöningslager endast efter stabil kärna.
+- **Beskrivning:** Definiera högst fem naturliga engångshändelser via vald minimal APIintegration.
+- **Befintliga filer:** `src/gameplay/campaign.ts`, `src/gameplay/teamResults.ts`, `src/presentation/matchResults.ts`, `docs/commercial/TECHNICAL_AUDIT.md`.
+- **Krav:** Nytt mandat, klarerad binding, idempotenta ägar-/utfallshändelser och offline/deferred-policy. Ingen gameplaybalans eller progression får bero på Steam.
+- **Acceptance criteria:** Faktiska testachievements låses upp en gång för rätt utfall/ägare, Save/retry/offline/crash skapar inga fel; storefeature aktiveras först efter bevis.
+- **Beroenden:** WBC-048, WBC-063.
+- **Tester:** Riktad event/Save/retry och packad WindowsSteamtest; offline utan SDK får spela normalt.
+- **Dokumentation:** DECISIONS/RELEASE_SCOPE/Steamtestguide och BACKLOG/DEV_LOG.
+- **Non-goals:** Ingen baskravsstatus i1.0, grindmål, statistikserver eller stort achievementbibliotek.

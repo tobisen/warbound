@@ -1640,3 +1640,82 @@ ursprungliga, synliga och kompatibla luftmål för att rätta tekniska missar mo
 rörliga flygare; inga skade-/räckvidds-/målmaskändringar. Vanliga torn och
 markspecialisering skjuter fortfarande inte luft, luftspecialisering skjuter
 fortfarande inte mark. Befintliga fraktionsskillnader består.
+
+
+## 2026-11-03 — Kommersiell audit: dokumentmandat och öppna produktbeslut
+
+Användaren beställer repositoryaudit, research och kommersiell Windows/Steam-
+planering, inte implementation. Befintliga RTS-planer/status bevaras; nytt
+namespace WBC-001–065 finns i [BACKLOG](BACKLOG.md). Endast WBC-001 omfattas
+av denna körning. Äldre fortsättnings-/commit-/pushmandat används inte för
+följdtasks; uppdraget begär ett föreslaget commitmeddelande. Ingen kod,
+dependency, asset eller wrapper ändras/installeras och ingen release görs.
+
+[Scope](docs/commercial/RELEASE_SCOPE.md) och
+[roadmap](docs/commercial/ROADMAP.md) är uttryckliga **förslag**: återbruka
+Phaser/TypeScript/Vite, fem roster,10 utvalda operationer/6 befintliga kartor,
+Windows x64/Electron-PoC och local-first JSON-filer med befintlig validering.
+Detta är inte beslut om Electron, kommersiell titel, nytt savesystem eller
+innehållsminskning. Warbound2:s två-rasspår är ett separat tidigare förslag.
+
+WBC-002 behöver ägarens besked om uppdragets Gnomes kontra kodens Goblins,
+kampanj-/karturval/legacydata, stödda Windowsversioner/maxAI, budget/arbetstid
+och villkorad Q3 2027-plan. WBC-012–014 klarerar titel, rättighetskedja och
+biblioteks-/distributionsvillkor före publik branding. Steamträffen på annat
+Warbound är ett verifierat sökhinder, ingen juridisk slutsats.129SEK är endast
+prishypotes. Alla kostnader, avtal och publiceringar kräver separat mandat.
+
+[Auditen](docs/commercial/TECHNICAL_AUDIT.md) skiljer statisk ny granskning
+från historiska CI/browser-PASS. Inga nya kod-/Windows-/mänskliga spel-/
+ljudresultat hävdas. Ingen full testkörning behövs för ren dokumentleverans.
+
+
+## 2026-11-03 — WBC-002: godkänd kommersiell produktriktning
+
+Det uttryckliga WBC-002-uppdraget ersätter WBC-001:s öppna scopeförslag på
+följande punkter: Windows PC först, Steam, behåll Phaser/TypeScript/Vite och
+prova Electron först i en senare PoC. Offline single-player, lokal Save/Load
+och engelska är releaseinriktning; multiplayer, backend och live services
+ingår inte. Cloud/achievements är optional. Inget implementationsmandat ges.
+
+De fem befintliga rosterna fastställs som Humans (`crown`), Orcs (`clans`),
+Elves (`elves`), Dwarves (`dwarves`) och Goblins (`goblins`). **Goblins behålls;
+ingen Gnomes-ras eller ny rasidentitet ska skapas.** Tio kuraterade befintliga
+kampanjoperationer och sex befintliga skirmishkartor är godkänd mängd. Exakta
+ID:n/ordning/edition och legacydata avgörs i WBC-036/037/043, inte i detta
+scopebeslut. Två operationer/ras och3 land/3 kustkartor är tidigare urvalsförslag,
+inte nya godkännanden av tio eller sex enskilda innehållsfiler.
+
+Ny källkontroll bekräftar45 unika uppdrags-ID:n/77 rasval: åtta gemensamma
+plus37 rasspecifika tillägg (Human17 val, övriga15). Det finns18 kart-ID:n,
+men **16 skirmishval**; straits/tidebreak är campaignOnly, där tidebreak ärver
+flaggan. Komplett inventering i [RELEASE_SCOPE](docs/commercial/RELEASE_SCOPE.md)
+är urvalsunderlag, inte mänskligt testad releasekatalog. Inga ID:n/saves tas bort.
+
+**Initialt sammanlagt externt utgiftstak10 000SEK.** Ytterligare utgifter kräver
+separat godkännande. Taket beställer inga köp, avgifter eller avtal och visar
+inte att projektet är fullt finansierat. WBC-001:s kostnadshypotes28–105tSEK
+plus Direct/skatt överstiger ramen; inventera faktisk förbrukning, tillgänglig
+arbetstid, återbruk och möjliga avgränsningar innan externa insatser förutsätts.
+129SEK är fortsatt indikativt, inte slutpris. Q3 2027 är villkorat av kvalitet
+och genomförbarhet, inte ett bindande datum eller godkännande av tidsestimatet.
+
+Godkänd produktriktning innebär **ingen** namn-/varumärkes-, asset-/röst-/
+bibliotekslicens- eller kvalitetsclearance. Windowsversioner/minspec/maxAI,
+maskintillgång/arbetstid, slutlig art/ljudacceptans, budgetgenomförbarhet och
+mänskliga gameplayprov är öppna. Ingen Electron/Steam/dependency eller kod
+installeras/ändras nu; nästa rekommenderade task WBC-003 har uppfyllt beroende
+på002 men startas inte här. Stopp efter WBC-002; ingen commit/push beställd.
+
+
+## 2026-11-04 — Stående commit-/push-/Pages-mandat
+
+Användaren beställer commit, push och publish av WBC-001/002 och säger att
+samma leverans ska kommas ihåg framöver. Detta ersätter de tidigare rena
+lokal-/dokumentleveransernas publiceringsstopp. AGENTS.md registrerar stående
+commit/push till befintlig origin/main och verifierad GitHub Pages-publicering
+efter färdigt uppdrag, med relevanta checks och bevarat användararbete.
+Ingen force/history rewrite, inga nya tasks eller Steam-lansering/köp/avtal
+följer av detta. Senare uttrycklig styrning har företräde; stopp före003 består.
+Markdown-push ignoreras av Pages paths-ignore; använd befintlig manuell dispatch,
+inte en workflowändring som kringgår tester. Spelets version0.9.0 ändras inte.

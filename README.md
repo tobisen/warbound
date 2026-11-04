@@ -33,6 +33,7 @@ Stora arméer kan fortfarande ge en initial bildrutetopp.
 
 - [Spelguide och endgame](docs/guides/playing.md)
 - [Teknisk och spelmässig audit](docs/audits/warbound-0.9.0.md)
+- [Kommersiell Windows/Steam-plan](docs/commercial/ROADMAP.md) — audit, föreslagen1.0 och WBC-backlog; ingen implementation beställd.
 - [Warbound 2-vision](docs/roadmap/warbound-2-vision.md)
 - [Varsam filstädning](docs/audits/cleanup-0.9.0.md)
 - [Arkitektur](ARCHITECTURE.md), [beslut](DECISIONS.md) och [utvecklarinstruktioner](AGENTS.md)

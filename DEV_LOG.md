@@ -7295,3 +7295,132 @@ Användarens14 skyddade filer fortsatt byteexakta; enda borttagning är den
 orefererade269-byte avbrottsloggen. Mänsklig onboarding/långbalans/ny ljudlyssning,
 slutanimationer, initialt frame-hack och bundlevarning redovisas öppet.
 Uppdraget avslutas; inga efterföljande tasks eller Warbound2-kod startas.
+
+
+## 2026-11-03 — WBC-001: kommersiell audit och masterplan
+
+Nytt bifogat uppdrag är enbart planering/dokumentation. Ingen agentdelegering,
+implementation, dependencyinstallation, assetproduktion, commit/push eller
+publicering. Ursprunglig main/remote kontrollerad: HEADc32393e, origin
+`tobisen/warbound`. Lokala units.mjs/style.css, :memory:.ses, CLEANUP_REPORT
+samt tio docs/art-bilder bevaras;14 SHA256 registrerade före dokumentändringar.
+
+Läst rotplaner/arkitektur/design/beslut/loggar/instruktioner och aktuell
+överlämnings-/0.9-audit, build/workflow, relevanta config/gameplay/presentation,
+assetkällor/export-/licensmanifest och testurval. Kodgrundad klassificering
+av core gameplay/fem roster/modes/UX och tekniska Windowsluckor. Två befintliga
+browserbilder granskade, ingen ny browser eller spelkörning. Nuvarande kod har
+Goblins, inte Gnomes;77 kampanjval/45 ID:n,18 kart-ID:n och17 byggnadsslag.
+Manifestinventering405 röster/81 per ras,81 dvärgklippCC-BY-SA3 trots äldre63;
+public81,19MiB/506 filer, assetmanifest19 atlasser plus separat laddad terräng.
+`node scripts/test-unit.mjs --list` validerar92 unit/154 integrationsfiler utan
+testkörning. Historisk senaste CI2329/246 och publik8/8-matris lästa i befintliga
+belägg, inte kontrollerade live eller omkörda i denna audit.
+
+Primär webbresearch2026-11-03: Electron/Tauri/NW.js, Valve onboarding/avgift/
+SDK/review/demos/content-survey/storeart/Early Access, Steamkonkurrenter,
+Creative Commons och PRV. Öppnad Valve-onboarding anger21 dagar; sökindexets
+äldre30-dagarssiffra redovisas som konflikt, partnerkonto krävs före datumlåsning.
+Annan Warbound av Construct Games på Steam bekräftad, ingen namnklarering.
+Ingen försäljningsprognos eller juridisk garanti; priser/budget är hypoteser.
+
+Skapat sex docs/commercial-filer: ROADMAP, RELEASE_SCOPE, RELEASE_CHECKLIST,
+IP_AUDIT, TECHNICAL_AUDIT och COMMERCIAL_STRATEGY. Ny WBC-001–065-backlog har
+fulla taskfält/beroenden;002–065 förblir planerade. Rekommenderad liten1.0:
+fem befintliga roster efter identitetsbeslut,10 kuraterade operationer/6 kartor,
+Windows/Electron-PoC, befintlig gameplay och tåliga lokala saves. Ingen faktisk
+scope-/wrapper-/titeländring gjord. Fas0–7 uppskattas102–174 effektiva dagar,
+128–218 med25% reserv, plus externa väntetider; Q3 2027 är villkorat.
+README/ARCHITECTURE/GAME_DESIGN/DECISIONS och Current Focus länkar aktuellt
+underlag utan att radera gamla planer/status. Slutgranskningen kompletterade
+freezeberoenden så att alla obligatoriska1.0-tasks har väg till launch; inga
+art-/SDK-beslut kunde falla utanför grinden. Inga andra scopeändringar.
+
+Ny dokumentvalidation: `python3 /tmp/w2t-commercial-validate.py` PASS för sex
+dokument,65 unika fullständiga tasks, acykliska beroenden,333 befintliga
+filreferenser och42 lokala länkar. Originalinnehåll i sex rotfiler bevarat;
+14 skyddade filer SHA256-oförändrade. Markdown-tabellkolumner/fences/whitespace
+kontrollerade, `git diff --check` PASS. Slutstatus/länkar kontrolleras igen
+efter denna rena textuppdatering. Audit001 Done,002–065 Todo; inga kodtester,
+build eller nya browser-/Windows-/mänskliga spel-/ljudprov körda för docs.
+Nästa rekommenderade uppdrag WBC-002 är ett ägarbeslut; stanna efter planeringen.
+
+
+## 2026-11-03 — WBC-002: registrerad produktriktning och scopekontroll
+
+Endast dokumentation/beslut enligt nytt uttryckligt uppdrag; ingen delegation,
+implementation, dependencyinstallation, assetproduktion, commit/push eller
+publicering. Main/origin kontrollerade; allt tidigare WBC-001-arbete och
+användarens lokala ändringar bevaras. En snapshot före ändringar registrerar
+4745 befintliga filer utanför taskens tio Markdown-filer för slutlig SHA256-kontroll.
+
+Ny statisk granskning av factions/campaign/expeditions/series/maps/islandMaps/
+skirmishMaps/seaBattle/players och befintlig Save-/builddokumentation bekräftar
+Humans/crown, Orcs/clans, Elves, Dwarves och Goblins. Produktbeslutet behåller
+Goblins; ingen Gnomes skapas.45 unika kampanj-ID:n ger77 rasval, Human17 och
+övriga15.18 kart-ID:n, men16 skirmishval efter campaignOnly-filter; Tidebreak
+ärver flaggan från Straits. Alla befintliga operationsnamn/ID:n och skirmish-
+kartor listade i RELEASE_SCOPE, uttryckligen som inventering och inte urval.
+
+Ett första read-only-försök att läsa config via installerad TypeScript-API i
+/tmp stoppades av MODULE_NOT_FOUND (node_modules/typescript saknas). Inga
+paket installerades och ingen källa ändrades. Inventeringen verifierades i
+stället statiskt med `python3 /tmp/w2t-wbc002-prepare.py` och direkt källäsning;
+`node /tmp/w2t-wbc002-inventory.cjs` är alltså inte ett passerat runtimeprov.
+Inga game-tests, build, browser-/Windows-/mänskliga spel- eller ljudprov körda.
+
+Registrerat Windows/Steam, Phaser/TypeScript/Vite, Electron-PoC först, fem
+befintliga roster, tio befintliga operationer/sex befintliga skirmishkartor,
+offline/lokal SaveLoad/engelska och optional Cloud/achievements. Inga multiplayer,
+backend eller live services. Nytt sammanlagt initialt externt tak10 000SEK;
+mer kräver separat beslut och inga utgifter beställs nu.129SEK är indikativt;
+Q3 2027 kvalitet-/genomförbarhetsvillkorat. Äldre kostnadshypotes överstiger
+taket och har uttryckligen inte godkänts eller dolts. Rättigheter/kvalitet,
+exakta urval/legacydata, OS/minspec/maxAI/arbetstid förblir öppna.
+
+Scope, roadmap/checklista/strategi/teknikaudit och rotens design/arkitektur
+synkroniserade. BACKLOG002 följer detta uppdrags acceptance criteria och
+WBC-003 preciserar kvarvarande mät-/kapacitetsfrågor; beroendena bevaras.
+Öppna gnomeformuleringar ersatta av Goblins i beroende framtida art-/kampanjtasks.
+Ingen senare task har påbörjats; next är WBC-003 (också012 har uppfyllt scope-
+beroende). Ny dokumentvalidation `python3 /tmp/w2t-wbc002-validate.py` PASS:
+65 task-ID:n med fulla fält,333 befintliga filreferenser,33 lokala länkar,
+acykliska/oförändrade beroenden och hela releasekedjan bevarad. Alla4745 filer
+utanför de tio ändrade Markdown-dokumenten SHA256-oförändrade; inga nya filer
+i repot. Markdown-tabeller/fences/whitespace och `git diff --check` PASS.
+Slutgranskningen rättade en kvarvarande villkorad Goblins-formulering i auditen.
+Status/logg uppdaterade till002 Done; dokumentkontrollen körs igen efter dessa
+sista textändringar.003–065 är Todo, ingen task startad. Ingen ny test/build/
+Windows-/mänsklig kvalitetsverifiering; alla tidigare spel-PASS är historik.
+Körningen stannar efter WBC-002. Föreslagen commit, ingen commit/push utförd:
+`docs: approve WBC-002 commercial scope and spending ceiling`.
+
+
+## 2026-11-04 — Publiceringsmandat WBC-001/002 och framtida leveranser
+
+Användaren beställer ”commit, push och publish” och att detta ska kommas ihåg.
+AGENTS/DECISIONS registrerar stående repo-specifikt leveransmandat; framtida
+uppdrag avslutas med relevanta checks/docs/commit/push och befintlig Pages-
+publicering, utan automatisk start av nästa task. WBC-003 förblir Todo.
+Namn-/licens-/Windows-/Steam-/mänskliga kvalitetsfrågor är fortsatt öppna.
+
+Kontrollerat main/origin: fjärrHEADc32393e matchar lokalt, repoWarbound har
+befintlig Pages. Första sandboxade gh-auth-kontrollen rapporterade ogiltig token;
+samma read-only API/auth med nätverksåtkomst bekräftar fungerande keyringkonto.
+Ingen tokenändring eller återinloggning behövdes.14 lokala skyddade filer hashade
+före leverans och hålls utanför commit: CSS/units.mjs, :memory:.ses,
+CLEANUP_REPORT och tio docs/art-bilder. Endast WBC-dokumentation och den nya
+stående instruktionen ingår. Ingen source/dependency/asset/workflow ändras.
+
+Befintligt pages.yml ignorerar Markdown-push, men har workflow_dispatch som
+fortsatt kör full npm test, strict produktionsbuild, presentationsbuild och
+deploy. Ren dokumentvalidation/diff före commit; ingen lokal full testsuite
+behövs. Push/CI/Pages och faktisk publicerad build verifieras efter commit;
+ännu inget nytt grönt CI-/deploy-/browserresultat påstås i denna delnotering.
+
+
+Förkontroll före leveranscommit: `python3 /tmp/w2t-commercial-publish-validate.py`
+PASS för13 Markdown-filer, sex kommersiella dokument,65 fullständiga tasks,
+333 befintliga filreferenser,52 lokala länkar och acykliska beroenden.
+14 skyddade filer SHA256-oförändrade. Självgranskning och `git diff --check`
+PASS. Ingen ny lokal kodtest/build; CI följer efter push/manuell dispatch.

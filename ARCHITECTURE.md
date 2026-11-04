@@ -1,3 +1,17 @@
+## Kommersiell planeringsgräns — 2026-11-03
+
+Nuvarande leverans är fortfarande browserbaserad Phaser/TypeScript/Vite0.9.0.
+[Den kommersiella tekniska auditen](docs/commercial/TECHNICAL_AUDIT.md)
+inventerar faktisk kod och beskriver en framtida Windows-PoC. Electron med
+isolerad renderer/stabil lokal origin och återbruk av befintlig Save-validering
+är godkänd första PoC-väg i WBC-002, inte installerat skal eller verifierad
+slutarkitektur. Phaser/TypeScript/Vite behålls; ingen implementation ingår nu.
+Tauri/NW.js jämförs där. Desktopfiler kräver en uttrycklig sync→async-anpassning
+vid presentationen; ingen ny storagearkitektur eller Steam SDK finns nu.
+[BACKLOG](BACKLOG.md) WBC-001/002 är dokument-/beslutsleveranser. WBC-003 är
+nästa rekommenderade task; den startas inte här. Godkänd produktriktning och
+kvarstående teknik-/qualitygrindar skiljs i RELEASE_SCOPE. Äldre avsnitt bevaras.
+
 ## Spelkvalitet0.9 — lokal hotrespons och landningsplan
 
 [threatResponse](src/gameplay/threatResponse.ts) planerar lokal säker reträtt

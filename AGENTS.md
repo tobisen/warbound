@@ -175,3 +175,19 @@ batch3. Kartlayouter, batch2/3-gameplay och ny version/release startas inte nu.
 browser800/1280 PASS. HANDOFF/BATCH_1 redovisar grafikbegränsningar och bilder.
 Stanna före208; nästa batch kräver nästa chatt. Tidigare fortsättningsmandat
 startar inte208. CSS/units.mjs/docs bevaras; ingen ny release/Pages hävdas.
+
+## Stående leveransmandat — 2026-11-04
+
+Användaren har beställt ”commit, push och publish” och att detta ska kommas
+ihåg i framtiden. Efter varje färdigt, verifierat uppdrag: uppdatera docs/backlog,
+committa uppdragets filer, pusha till befintlig origin/main utan force och
+publicera via befintligt GitHub Pages-flöde. Kontrollera faktisk CI/deploy och
+publicerad build; hävda inte publicering från enbart lyckad push. Markdown-only
+kan kräva manuell workflow_dispatch eftersom paths-ignore annars hoppar över.
+Kör relevanta checks enligt ovan; ingen lokal fullregression för enbart docs,
+men befintliga release-/CI-kontroller får inte kringgås. Bevara orelaterade filer.
+Senare uttryckliga instruktioner har företräde. Mandatet startar inga följdtasks
+och omfattar inte nya köp/avtal eller en kommersiell Steam-lansering.
+
+WBC-001/002 är klara; aktuell leverans publicerar dokumentationen/befintliga
+spelet och stannar före WBC-003. Inga Electron-/Steam-/gameplayändringar ingår.
