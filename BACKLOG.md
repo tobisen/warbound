@@ -53,7 +53,7 @@ Ny lokal verifiering: riktade23/2 PASS13.56s (före ändringen23/2 PASS11.04s), 
 
 ## Current Focus
 
-### WBC-001/002 — commit, push och Pages — 2026-11-04 — In Progress
+### WBC-001/002 — commit/push klara, Pages väntar på GitHub — 2026-11-04 — Pending
 
 Nytt uttryckligt leveransmandat: committa/pusha den färdiga kommersiella
 dokumentationen och publicera via befintligt Pages-flöde. Det ersätter tidigare
@@ -63,6 +63,15 @@ Orelaterad style.css/units.mjs, docs/art, CLEANUP_REPORT och :memory:.ses bevara
 Ren Markdown-leverans: text/länkar/taskberoenden/diff före commit; befintlig
 CI full regression/strict build/deploy startas manuellt och verifieras separat.
 Ingen ny spelversion, gameplay, desktop, Steam eller ändrat publiceringsflöde.
+
+Leverans e180585 pushad till origin/main. Dokumentgranskning och isolerad strict
+build/browser800/1280 PASS. [CI/Pages41865103570](https://github.com/tobisen/warbound/actions/runs/41865103570)
+är queued utan runner/steg; GitHubs officiella status anger pågående Actions-/
+Pages-störning. Faktisk publik kontroll17:21:09 svensk tid visar fortfarande
+v0.9.0/Build00a05da,HTTP200/0pageerrors. **Ny Pages-publicering ej verifierad.**
+[Leveransrapport](artifacts/commercial-publication/README.md) anger belägg,
+bundlehashar och återstående kontroll efter återhämtning. Köad körning lämnas
+aktiv. Inga tester kringgås; stanna före003. Nytt stående mandat finns i AGENTS.
 
 ### WBC-002 — Godkänd kommersiell produktriktning — Done — 2026-11-03
 

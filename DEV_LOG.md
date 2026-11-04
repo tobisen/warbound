@@ -7424,3 +7424,41 @@ PASS för13 Markdown-filer, sex kommersiella dokument,65 fullständiga tasks,
 333 befintliga filreferenser,52 lokala länkar och acykliska beroenden.
 14 skyddade filer SHA256-oförändrade. Självgranskning och `git diff --check`
 PASS. Ingen ny lokal kodtest/build; CI följer efter push/manuell dispatch.
+
+
+## 2026-11-04 — e180585 pushad; Pages Pending vid GitHub-störning
+
+Commit e180585b4ad7ca621835ed951718946b7d5ea0d3 pushad utan force till origin/main.
+GitHub scopefilens blob matchar lokalt exakt.13 Markdown-filer, inga andra
+ändringar. Stående mandat i AGENTS är därmed sparat i repot. Orelaterade14
+skyddade filer fortfarande SHA256-oförändrade. WBC-003/övriga tasks startas inte.
+
+Manuell befintlig Pages-run41865103570 för exakt e180585 startad17:13:26 svensk
+tid. Den är queued utan runner och utan körda steg; inga pending deployments.
+GitHubstatus API anger Actions/Pages degraded_performance, incident xr3myzj7ms51,
+investigating sedan17:05:31. Ingen testfailure har inträffat; testerna har inte
+startat. Ingen falsk fullPASS/deployPASS eller avslutad publicering påstås.
+Körningen lämnas köad för GitHubs återhämtning, utan parallell retry/workflowfix.
+
+Förberedande rent e180585-bygge i separat detached worktree: befintliga låsta
+TypeScript7.0.2/Vite8.3.5/Phaser4.2.1 återbrukade från tidigare isolerad installation.
+Ingen dependency ändras/installeras. `npm run build` strict typecheck PASS,
+Vite539ms med befintlig bundlevarning. Lokal produktionsbrowser800/1280 för
+e180585 PASS: version/build, meny/native storlek/ingen auto-fullscreen, faktisk
+skirmishstart, Menu Save/Load/resume och reload;0runtime-/assetfel. Första
+harness antog för kort fliktitel och rättades till existerande titel; ingen
+produktkod ändrades. Slutomgångens2/2 och home800/game1280 visuellt granskade.
+
+Faktisk publik Chrome17:21:09: HTTP200,v0.9.0/Build00a05da,0pageerrors; tidigare
+release kvar. Ny Pages-version ej publicerad/verifierad här. [Leveransrapport](artifacts/commercial-publication/README.md)
+sparar exakta checks, referenshashar och återstående kontroll. Ingen lokal full
+regression, mänsklig balans eller ny ljudlyssning; dessa resultat hävdas inte.
+Efterföljande beläggscommit ändrar enbart Markdown, återanvänder ovanstående
+kod-/browserchecks och kör text/länk/diff/bevarande igen. [skip ci] undviker en
+extra irrelevant CI-dispatch; den uttryckligt beställda körningen är redan köad.
+
+
+Slutlig text-/länk-/beroende-/diffgranskning för beläggspush PASS:333 giltiga
+filreferenser,34 lokala länkar i aktuellt urval,65 oförändrade taskstatus,
+14 skyddade filer oförändrade. Sista API-kontroll fortfarande queued utan steg;
+publicering kvarstår Pending. Tillfällig lokal preview stoppad efter kontroller.
